@@ -1,3 +1,4 @@
+import json
 import sys
 import cherrypy
 import math
@@ -10,9 +11,36 @@ pp = pprint.PrettyPrinter(indent=4)
 
 
 
-def create_page(code, lines):
-    code = code.replace("\\\\", "\\")
-    ret = """<html>
+def create_lua(code):
+    lua_call = "function (lib) " + code + " return {['result'] = result, ['answer'] = answer} end"
+    return lua_call
+
+
+
+
+
+
+class Library(object):
+    object_id = 0
+    lines = []
+    qlines = []
+    
+    # Math
+    def gcd(self, a, b):
+        return math.gcd(a,b)
+
+    
+
+    def get_lines(self):
+        return self.lines
+    
+    def clear_lines(self):
+        self.lines = []
+    
+
+    def create_page(self, code):
+        code = code.replace("\\\\", "\\")
+        ret = """<html>
           <head>
              <script type="text/javascript" async
                src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
@@ -33,45 +61,41 @@ def create_page(code, lines):
               <div class="column">
 """
 
-    for l in lines:
-        ret = ret + str(l)
+        for l in self.lines:
+            ret = ret + str(l)
 
-    ret = ret + """
+        ret = ret + """
               </div>
-            </div>
+            </div>"""
+
+        for l in self.qlines:
+            ret = ret + str(l)
+
+        ret = ret + """
           </body>
         </html>"""
-    return ret
+        return ret
 
 
 
-def create_lua(code):
-    lua_call = "function (lib) " + code + " return {['result'] = result, ['answer'] = answer} end"
-    return lua_call
+    def render_all_questions(self, questions):
+        i = 0
+        self.qlines.append("<br><br><div><h1>Standardni primeri:</h1></div>\n")
+        self.qlines.append("<div>Klikni na taster pored primera da ti ga prikazem u vrhu ekrana:</div><br>\n")
+        self.qlines.append("<table style=\"width:50%\">\n")
+        for q in questions:
+            self.qlines.append("<tr><th>\n")
+            self.qlines.append("<form method=\"post\" action=\"generate\">")
+            self.qlines.append("<textarea name=\"code\" rows=\"10\" cols=\"80\">")
+            self.qlines.append(q["question"])
+            self.qlines.append("</textarea>\n")
+            self.qlines.append("<br>\n")
+            self.qlines.append("<button type=\"submit\">Test</button>\n")
+            self.qlines.append("</form>\n")
+            self.qlines.append("</th></tr>\n")
+        self.qlines.append("</table>\n")
 
 
-
-
-
-
-class Library(object):
-    object_id = 0
-    lines = []
-
-    
-    # Math
-    def gcd(self, a, b):
-        print ("AAA")
-        return math.gcd(a,b)
-
-    
-
-    def get_lines(self):
-        return self.lines
-    
-    def clear_lines(self):
-        self.lines = []
-    
     def get_object_id(self):
         self.object_id = self.object_id+1
         return self.object_id
@@ -182,15 +206,16 @@ class Server(object):
         
     @cherrypy.expose
     def index(self):
-        return create_page ("", [])
+        lib.clear_lines()
+        return lib.create_page ("")
 
     
     @cherrypy.expose
-    def generate(self, code = None):
+    def generate(self, code = ""):
         error = False
-        code = code.replace("\\", "\\\\")
         lines = []
-        if code is not None:
+        if code:
+            code = code.replace("\\", "\\\\")
             try:
                 lib.clear_lines()
                 lua_fun = lua.eval(create_lua(code))
@@ -203,11 +228,36 @@ class Server(object):
         else:
             lines = []
 
-        return create_page(code, lines)
+        return lib.create_page(code)
 
 
-    
+
+
+def load_questions(filename):
+    started = False
+    q = ""
+    questions = []
+    with open(filename) as questions_file:
+        for line in questions_file:
+            if line[0] == "#":
+                if started:
+                    questions.append({"question" : q}) 
+                started = True
+                q = ""
+            elif started:
+                q = q + line
+                
+    if started:
+        questions.append({"question" : q})
+        
+    return questions
+
+                
 if __name__ == '__main__':
+
+    questions = load_questions('questions.txt')
+    lib.render_all_questions(questions)
+        
     cherrypy.config.update({'server.socket_host': '192.168.137.2', 'server.socket_port': 8080})
     lua = LuaRuntime(unpack_returned_tuples=True)
     cherrypy.quickstart(Server())

@@ -1,0 +1,41 @@
+### 1
+lib.text("11. Izracunaj: ")
+for q=1,3 do 
+  imenilac = math.random(5) + 1;
+  rezultat = (math.random(10) * 10);
+  broj = rezultat * imenilac;
+  text = "\(\frac{1}{" .. tostring(imenilac) .."}\) od " .. tostring(broj) .. " je "
+  lib.check_number(text, rezultat)
+end
+
+
+### 2
+lib.text("Napisi kao ceo broj i ostatak: ")
+for q=1,3 do
+  ceo = math.random(3)
+  imenilac = math.random(9) + 1
+  brojilac = math.random(imenilac)
+  veliki_brojilac = ceo * imenilac + brojilac
+  text = "\(\frac{" .. tostring(veliki_brojilac) .. "}{" .. tostring(imenilac) .."}\) je "
+  lib.check_fraction(text, brojilac, imenilac, ceo)
+end
+                                                                        
+
+### 3
+lib.text("Pojednostavi razlomak: ")
+for q=1,3 do
+  gcd = math.random(3) + 2
+  jimenilac = math.random(9) + 1
+  jbrojilac = math.random(imenilac)
+  imenilac = jimenilac * gcd
+  brojilac = jbrojilac * gcd
+  text = "\(\frac{" .. tostring(brojilac) .. "}{" .. tostring(imenilac) .."}\) je "
+  lib.check_fraction(text, jbrojilac, jimenilac)
+end
+                  
+
+### 4
+lib.text("Opisi jedno parce kruga razlomkom")
+lib.fraction_circle(7)
+lib.check_fraction(" = ", 1, 7)
+
