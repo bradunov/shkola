@@ -30,6 +30,8 @@ class Library(object):
         return math.gcd(a,b)
 
     
+    def add_lines(self, lines):
+        self.lines.append(lines)
 
     def get_lines(self):
         return self.lines
@@ -213,20 +215,15 @@ class Server(object):
     @cherrypy.expose
     def generate(self, code = ""):
         error = False
-        lines = []
         if code:
             code = code.replace("\\", "\\\\")
             try:
                 lib.clear_lines()
                 lua_fun = lua.eval(create_lua(code))
                 ret = lua_fun(lib)
-                lines = lib.get_lines()
-                
-
             except Exception as e:
                 lines = ["Greska u programu: <br> {}".format(str(e))]
-        else:
-            lines = []
+                lib.add_lines(lines)
 
         return lib.create_page(code)
 
