@@ -77,7 +77,7 @@ class question(object):
     def eval(self, page):
 
         # Parse text
-        indices = [{"start" : 0, "type" : "text"}]
+        indices = [{"start" : -1, "type" : "text"}]
         cend = -1
 
         # Identify commands and strings
@@ -171,8 +171,8 @@ class question(object):
 
         code = code + self.main_script_end
         
-        #print(strings)
-        #print(code)
+        print(strings)
+        print(code)
         
         lua_fun = self.lua.eval(code)
         ret = lua_fun(page, self.lib, strings)
