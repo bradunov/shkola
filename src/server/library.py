@@ -1,0 +1,84 @@
+class library(object):
+    object_id = 0
+    page = None
+
+    def __init__(self, page):
+        self.page = page
+    
+    def get_object_id(self):
+        self.object_id = self.object_id+1
+        return self.object_id
+
+    def text(self, text):
+        self.page.add_lines("<p>" + str(text) + "</p>")
+
+
+    def fraction_circle(self, sizes):
+        object_id = str(self.get_object_id())
+        size = 105
+        r = 50
+        xc = (size - 2 * r) / 2 + r
+        line = "<div id=\"circle_" + object_id + "\"></div>\n"
+        line = line + "<script>\n"
+        line = line + "var paper_" + object_id + " = Raphael(\"circle_" + object_id + "\", " + str(size) + "," + str(size) + ");\n"
+        line = line + "var dot_" + object_id + " = paper_" + object_id + ".circle(" + str(xc) + ", " + str(xc) + ", " + str(r) + ").attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
+        a = 2 * math.pi / sizes
+        for i in range(sizes):
+            x = str(xc + math.sin(i*a) * r)
+            y = str(xc + math.cos(i*a) * r)
+            line = line + "var line_" + object_id + "_" + str(i) + " = paper_" + object_id + ".path( [\"M\", " + str(xc) + ", " + str(xc) + \
+                   " , \"L\", " + x + ", " + y + " ] ).attr({\"stroke-width\": 2});\n"
+        line = line + "</script>\n"
+        print(line)
+        self.page.add_lines( line )
+
+        
+    def check_number(self, condition):
+        qid = self.get_object_id()
+        n_answer = 'check_number_answer_{}'.format(qid)
+        n_correct = 'check_number_correct_{}'.format(qid)
+        v_answer = "document.getElementById(\'" + n_answer + "\').value"
+        if "answer" not in str(condition):
+            str_condition = v_answer + " == \'" + str(condition) + "\'"
+        else:
+            str_condition = condition.replace("answer", v_answer)
+
+        line = "<input type='text' id='" + n_answer + "' />" + \
+            "<input type=\"button\" onclick=\"document.getElementById(\'" + n_correct + \
+            "\').innerHTML = ((" + str_condition + ")?\'OK\':\'NOT OK\')\" value=\"Proveri\" />" + \
+            "<p id=\"" + n_correct + "\"></p>"
+        self.page.add_lines( line )
+
+
+    def check_fraction(self, numerator, denominator, whole = None):
+        qid = self.get_object_id()
+        n_answer_numerator = 'check_fraction_answer_numerator_{}'.format(qid)
+        n_answer_denominator = 'check_fraction_answer_denominator_{}'.format(qid)
+        n_answer_whole = 'check_fraction_answer_whole_{}'.format(qid)
+        n_correct = 'check_fraction_correct_{}'.format(qid)
+        v_answer_numerator = "document.getElementById(\'" + n_answer_numerator + "\').value"
+        v_answer_denominator = "document.getElementById(\'" + n_answer_denominator + "\').value"
+        v_answer_whole = "document.getElementById(\'" + n_answer_whole + "\').value"
+
+        str_condition = "(" + v_answer_numerator + " == \'" + str(numerator) + "\' && " + \
+                              v_answer_denominator + " == \'" + str(denominator) + "\'"
+        if whole is not None:
+            str_condition = str_condition + " && " + v_answer_whole + " == \'" + str(whole) + "\'"
+        str_condition = str_condition + ")"
+
+        input_numerator = "<input type='text' size='1' id='" + n_answer_numerator + "' />" 
+        input_denominator = "<input type='text' size='1' id='" + n_answer_denominator + "' />"
+        input_whole = "<input type='text' size='1' id='" + n_answer_whole + "' />"
+        input_frac = "\n<table>\n<tbody>\n<tr>\n"
+        if whole is not None:
+            input_frac = input_frac + "<td rowspan=\"2\">" + input_whole + "</td>\n"
+        input_frac = input_frac + "<td style=\"border-bottom:solid 1px\">" + input_numerator + "</td>\n"
+        input_frac = input_frac + "</tr>\n<tr>\n<td>" + input_denominator + "</td>\n</tr>\n</tbody>\n</table>\n"
+
+        button = "\n<input type=\"button\" onclick=\"document.getElementById(\'" + n_correct + \
+            "\').innerHTML = ((" + str_condition + ")?\'OK\':\'NOT OK\')\" value=\"Proveri\" />" + \
+            "\n<p id=\"" + n_correct + "\"></p>\n"
+        
+        line = input_frac + button
+        
+        self.page.add_lines( line )

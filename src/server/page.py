@@ -12,7 +12,9 @@ class page(object):
         self.foot = "</body>\n</html>\n"
     
     def add_lines(self, lines):
-        self.lines.append(lines)
+        # For some reason Lua passes None after every call to library
+        if lines is not None:
+            self.lines.append(lines)
 
     def get_lines(self):
         return self.lines

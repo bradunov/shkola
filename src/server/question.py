@@ -1,34 +1,48 @@
 import traceback
 import lupa
+import math
 from lupa import LuaRuntime
 
 class question(object):
     # Lua interpreter
     lua = None
+
+    # Libraries
+    lib = None
     
     text = ""
     init_code = None
     iter_code = None
 
     main_script_begin = """
-      function (page, strings)
+      function (page, lib, strings)
     """
     main_script_end = """
       end
     """
 
     
-    def __init__(self, lua, init_code = None, iter_code = None, text = None):
+    def __init__(self, lua, lib, init_code = None, iter_code = None, text = None):
         self.lua = lua
+        self.lib = lib
         self.init_code = init_code
         self.iter_code = iter_code
         self.text = text
 
     def set_from_file(self, path, language):
-        with open("../../questions/{}/init.lua".format(path)) as f_init_code:
-            self.init_code = f_init_code.read()
-        with open("../../questions/{}/iter.lua".format(path)) as f_iter_code:
-            self.iter_code = f_iter_code.read()
+        try:
+            with open("../../questions/{}/init.lua".format(path)) as f_init_code:
+                self.init_code = f_init_code.read()
+        except IOError:
+            self.init_code = ""
+            
+        try:
+            with open("../../questions/{}/iter.lua".format(path)) as f_iter_code:
+                self.iter_code = f_iter_code.read()
+        except IOError:
+            self.iter_code = ""
+
+        # No exception handling here, question text has to exist
         with open("../../questions/{}/text.{}".format(path, language)) as f_text:
             self.text = f_text.read()
             
@@ -36,7 +50,7 @@ class question(object):
         try:
             self.set_from_file(path, language)
         except Exception as err:
-            err_str = "Error reading from a question list: <br>\n {}<br>\n".format(str(err))
+            err_str = "<br> Error reading from a question list: <br>\n {}<br>\n".format(str(err))
             page.add_lines(err_str)
             for l in traceback.format_tb(err.__traceback__):
                 page.add_lines("<br> {}".format(l))
@@ -154,17 +168,22 @@ class question(object):
                     ind = start_repeat
             ind = ind + 1
 
+
         code = code + self.main_script_end
-
-        lua_fun = self.lua.eval(code)
-        ret = lua_fun(page, strings)
         
+        #print(strings)
+        #print(code)
+        
+        lua_fun = self.lua.eval(code)
+        ret = lua_fun(page, self.lib, strings)
 
+
+        
     def eval_with_exception(self, page):
         try:
             self.eval(page)
         except Exception as err:
-            err_str = "Error in program: <br>\n {}<br>\n".format(str(err))
+            err_str = "<br> Error in program: <br>\n {}<br>\n".format(str(err))
             page.add_lines(err_str)
             for l in traceback.format_tb(err.__traceback__):
                 page.add_lines("<br> {}".format(l))

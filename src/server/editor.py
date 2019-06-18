@@ -6,6 +6,8 @@ import lupa
 from lupa import LuaRuntime
 from page import page
 from question import question
+from library import library
+
 
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
@@ -13,7 +15,7 @@ pp = pprint.PrettyPrinter(indent=4)
 
 
 # B: why this doesn't work if we don't put global?
-global page, lua
+global page, lua, lib
 
 
 class editor(object):
@@ -76,8 +78,8 @@ class editor(object):
         self.render_start(page)
 
         if path is not None:
-            q = question(lua)
-            q.set_from_file_with_exception(page, "fractions/q00001", "rs")
+            q = question(lua, lib)
+            q.set_from_file_with_exception(page, path, language)
             self.render_editor(page, q.get_init_code(), q.get_iter_code(), q.get_text())
             self.render_question(page, q)
         else:
@@ -93,7 +95,7 @@ class editor(object):
     def generate(self, init_code = "", iter_code = "", text = ""):
         page.clear_lines()
 
-        q = question(lua, init_code, iter_code, text)
+        q = question(lua, lib, init_code, iter_code, text)
         
         self.render_start(page)
         self.render_editor(page, init_code, iter_code, text)
@@ -107,12 +109,17 @@ class editor(object):
                 
 if __name__ == '__main__':
     lua = LuaRuntime(unpack_returned_tuples=True)
-
     page=page()
+    lib=library(page)
 
-    cherrypy.config.update({'server.socket_host': '192.168.137.2', 'server.socket_port': 8080})
-    cherrypy.quickstart(editor())
+    test = False
+    #test = True
+    
+    if test:
+        editor = editor()
+        print(editor.index("fractions/q00002", "rs"))
+    else:
+        cherrypy.config.update({'server.socket_host': '192.168.137.2', 'server.socket_port': 8080})
+        cherrypy.quickstart(editor())
 
-    #editor = editor()
-    #print(editor.index("fractions/q00001", "rs"))
 
