@@ -51,10 +51,10 @@ class question(object):
             self.set_from_file(path, language)
         except Exception as err:
             err_str = "Error reading from a question list: \n {}\n".format(str(err))
-            page.add_md_lines(err_str)
+            page.add_batch_lines(err_str)
             for l in traceback.format_tb(err.__traceback__):
-                page.add_md_lines("<br> {}".format(l))
-            page.convert_md_lines()
+                page.add_batch_lines("<br> {}".format(l))
+            page.process_batch()
 
     def set_init_code(self, code):
         self.init_code = code
@@ -148,9 +148,9 @@ class question(object):
         while ind < len(items):
             item = items[ind]
             if item["type"] == "text":
-                code = code + "page.add_md_lines(strings[{}])\n".format(ind)
+                code = code + "page.add_batch_lines(strings[{}])\n".format(ind)
             elif item["type"] == "code":
-                code = code + "page.add_md_lines({})\n".format(strings[ind])
+                code = code + "page.add_batch_lines({})\n".format(strings[ind])
             elif item["type"] == "repeat":
                 no_iter = item["no_iter"]
                 start_repeat = ind
@@ -172,12 +172,12 @@ class question(object):
 
         code = code + self.main_script_end
         
-        print(strings)
-        print(code)
+        #print(strings)
+        #print(code)
         
         lua_fun = self.lua.eval(code)
         ret = lua_fun(page, self.lib, strings)
-        page.convert_md_lines()
+        page.process_batch()
             
 
         
@@ -185,9 +185,9 @@ class question(object):
         try:
             self.eval(page)
         except Exception as err:
-            err_str = "<br> Error in program: <br>\n {}<br>\n".format(str(err))
-            page.add_md_lines(err_str)
+            err_str = "Error in program:\n {}\n".format(str(err))
+            page.add_batch_lines(err_str)
             for l in traceback.format_tb(err.__traceback__):
-                page.add_md_lines("<br> {}".format(l))
-            page.convert_md_lines()
+                page.add_batch_lines("<br> {}".format(l))
+            page.process_batch()
     

@@ -10,7 +10,7 @@ class library(object):
         return self.object_id
 
     def text(self, text):
-        self.page.add_lines("<p>" + str(text) + "</p>")
+        self.page.add_batch_lines("<p>" + str(text) + "</p>")
 
 
     def fraction_circle(self, sizes):
@@ -30,7 +30,7 @@ class library(object):
                    " , \"L\", " + x + ", " + y + " ] ).attr({\"stroke-width\": 2});\n"
         line = line + "</script>\n"
         print(line)
-        self.page.add_lines( line )
+        self.page.add_batch_lines( line )
 
         
     def check_number(self, condition):
@@ -47,7 +47,7 @@ class library(object):
             "<input type=\"button\" onclick=\"document.getElementById(\'" + n_correct + \
             "\').innerHTML = ((" + str_condition + ")?\'OK\':\'NOT OK\')\" value=\"Proveri\" />" + \
             "<p id=\"" + n_correct + "\"></p>"
-        self.page.add_lines( line )
+        self.page.add_batch_lines( line )
 
 
     def check_fraction(self, numerator, denominator, whole = None):
@@ -81,4 +81,4 @@ class library(object):
         
         line = input_frac + button
         
-        self.page.add_lines( line )
+        self.page.add_batch_lines( line )
