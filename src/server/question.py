@@ -3,10 +3,12 @@ import lupa
 from lupa import LuaRuntime
 
 class question(object):
+    # Lua interpreter
+    lua = None
+    
     text = ""
     init_code = None
     iter_code = None
-    lua = None
 
     main_script_begin = """
       function (page, strings)
@@ -16,8 +18,28 @@ class question(object):
     """
 
     
-    def __init__(self, lua):
+    def __init__(self, lua, init_code = None, iter_code = None, text = None):
         self.lua = lua
+        self.init_code = init_code
+        self.iter_code = iter_code
+        self.text = text
+
+    def set_from_file(self, path, language):
+        with open("../../questions/{}/init.lua".format(path)) as f_init_code:
+            self.init_code = f_init_code.read()
+        with open("../../questions/{}/iter.lua".format(path)) as f_iter_code:
+            self.iter_code = f_iter_code.read()
+        with open("../../questions/{}/text.{}".format(path, language)) as f_text:
+            self.text = f_text.read()
+            
+    def set_from_file_with_exception(self, page, path, language):
+        try:
+            self.set_from_file(path, language)
+        except Exception as err:
+            err_str = "Error reading from a question list: <br>\n {}<br>\n".format(str(err))
+            page.add_lines(err_str)
+            for l in traceback.format_tb(err.__traceback__):
+                page.add_lines("<br> {}".format(l))
 
     def set_init_code(self, code):
         self.init_code = code
@@ -28,7 +50,16 @@ class question(object):
     def set_text(self, text):
         self.text = text
 
+    def get_init_code(self):
+        return self.init_code
         
+    def get_iter_code(self):
+        return self.iter_code
+
+    def get_text(self):
+        return self.text
+
+    
     def eval(self, page):
 
         # Parse text
@@ -133,7 +164,7 @@ class question(object):
         try:
             self.eval(page)
         except Exception as err:
-            err_str = "Greska u programu: <br>\n {}<br>\n".format(str(err))
+            err_str = "Error in program: <br>\n {}<br>\n".format(str(err))
             page.add_lines(err_str)
             for l in traceback.format_tb(err.__traceback__):
                 page.add_lines("<br> {}".format(l))
