@@ -1,5 +1,3 @@
-import markdown
-
 
 class page(object):
     object_id = 0
