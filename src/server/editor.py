@@ -20,89 +20,94 @@ global page, lua, lib
 
 class editor(object):
     #page = None
+    init_code = ""
+    iter_code = ""
+    text = ""
+    question = None
+    
 
-    def render_start(self, page):
-        page.add_lines("""
-            <div class="row">
-        """)
+    def clear(self):
+        self.init_code = ""
+        self.iter_code = ""
+        self.text = ""
+        self.question = None
         
-    def render_end(self, page):
+    
+    def add_code(self, init_code = "", iter_code = "", text = ""):
+        self.init_code = init_code
+        self.iter_code = iter_code
+        self.text = text
+
+    def add_question(self, question):
+        self.question = question
+
+
+    def render_page(self, page):
         page.add_lines("""
-            </div>
-        """)
-        
-    def render_editor(self, page, init_code = "", iter_code = "", text = ""):
-        page.add_lines("""
-              <div class="column">
+        <table border=1>
+          <tr> 
+            <td> 
                 <form method="post" action="generate">
                   <p>Init code:</p>
                   <textarea name="init_code" rows="10" cols="80">
-""" + init_code + """
+""" + self.init_code + """
                   </textarea>
                   <br>
                   <p>Iter code:</p>
                   <textarea name="iter_code" rows="10" cols="80">
-""" + iter_code + """
+""" + self.iter_code + """
                   </textarea>
                   <br>
                   <p>Question text:</p>
                   <textarea name="text" rows="10" cols="80">
-""" + text + """
+""" + self.text + """
                   </textarea>
                   <br>
                   <button type="submit">Test</button>
                 </form>
-              </div>
-    """)
+             </td>
+        """)
 
-        
-        
-    def render_question(self, page, question):
+        if self.question is not None:
+            page.add_lines("<td valign=\"top\">")
+            self.question.eval_with_exception(page)
+            page.add_lines("</td>")
+            
         page.add_lines("""
-              <div class="column">
+          </tr>
+        </table>
         """)
         
-        question.eval_with_exception(page)
-        
-        page.add_lines("""
-              </div>
-        """)
+        return page.render()
 
 
         
     @cherrypy.expose
     def index(self, path = None, language = "rs"):
+        self.clear()
         page.clear_lines()
 
-
-        self.render_start(page)
 
         if path is not None:
             q = question(lua, lib)
             q.set_from_file_with_exception(page, path, language)
-            self.render_editor(page, q.get_init_code(), q.get_iter_code(), q.get_text())
-            self.render_question(page, q)
-        else:
-            self.render_editor(page)
-            
-        self.render_end(page)
+            self.add_question(q)
+            self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
 
-        return page.render()
+        return self.render_page(page)
 
     
     
     @cherrypy.expose
     def generate(self, init_code = "", iter_code = "", text = ""):
+        self.clear()
         page.clear_lines()
 
+        self.add_code(init_code, iter_code, text)
         q = question(lua, lib, init_code, iter_code, text)
-        
-        self.render_start(page)
-        self.render_editor(page, init_code, iter_code, text)
-        self.render_question(page, q)
-        self.render_end(page)
-        
-        return page.render()
+        self.add_question(q)
+
+        return self.render_page(page)
 
 
 
