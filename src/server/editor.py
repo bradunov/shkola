@@ -118,7 +118,7 @@ if __name__ == '__main__':
     lib=library(page)
 
     test = False
-    test = True
+    #test = True
     
     if test:
         editor = editor()
