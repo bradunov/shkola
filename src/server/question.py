@@ -171,9 +171,11 @@ class question(object):
 
 
         code = code + self.main_script_end
+
+        code = code.replace("\\", "\\\\")
         
-        #print(strings)
-        #print(code)
+        print(strings)
+        print(code)
         
         lua_fun = self.lua.eval(code)
         ret = lua_fun(page, self.lib, strings)

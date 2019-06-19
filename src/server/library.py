@@ -32,8 +32,12 @@ class library(object):
         print(line)
         self.page.add_batch_lines( line )
 
-        
-    def check_number(self, condition):
+
+    # Inputs string/number and check that it matches <condition>
+    # <condition> can be of form:
+    # - answer > <correct_answer>, or any boolean with answer in it, or
+    # - <correct_answer>, in which case the boolean condition is answer == <correct_answer>
+    def check_value(self, condition):
         qid = self.get_object_id()
         n_answer = 'check_number_answer_{}'.format(qid)
         n_correct = 'check_number_correct_{}'.format(qid)
@@ -50,6 +54,7 @@ class library(object):
         self.page.add_batch_lines( line )
 
 
+    # Input fraction as whole + numerator / denominator and verifies whether the answer matches
     def check_fraction(self, numerator, denominator, whole = None):
         qid = self.get_object_id()
         n_answer_numerator = 'check_fraction_answer_numerator_{}'.format(qid)
@@ -82,3 +87,46 @@ class library(object):
         line = input_frac + button
         
         self.page.add_batch_lines( line )
+
+
+
+    # Table
+        
+    # Start HTML table with <width> columns
+    def start_table(self, width, border = 0):
+        line = "<table "
+        if (border > 0):
+            line = line + "border=\"{}\"".format(border)
+        line = line + ">\n"
+        self.page.add_batch_lines( line )
+
+    # End HTML table
+    def end_table(self):
+        self.page.add_batch_lines( "</table>\n" )
+
+    def start_row(self):
+        self.page.add_batch_lines( "<tr>\n" )
+        
+    def end_row(self):
+        self.page.add_batch_lines( "</tr>\n" )
+
+    def add_cell(self, content, rowspan = 1, colspan = 1, pos = 3):
+        line = "<td "
+        if rowspan > 1:
+            line = line + "rowspan=\"{}\"".format(rowspan)
+        elif colspan > 1:
+            line = line + "colspan=\"{}\"".format(colspan)
+
+        if pos == 1:
+            line = line + "align=\"left\""
+        elif pos == 2:
+            line = line + "align=\"right\""
+        elif pos == 3:
+            line = line + "align=\"center\""
+        
+        line = line + ">"
+        line = line + content
+        line = line + "</td>"
+        self.page.add_batch_lines(line)
+
+

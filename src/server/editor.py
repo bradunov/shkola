@@ -122,7 +122,7 @@ if __name__ == '__main__':
     
     if test:
         editor = editor()
-        print(editor.index("fractions/q00002", "rs"))
+        print(editor.index("fractions/q00007", "rs"))
     else:
         cherrypy.config.update({'server.socket_host': '192.168.137.2', 'server.socket_port': 8080})
         cherrypy.quickstart(editor())
