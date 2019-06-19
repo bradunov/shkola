@@ -1,3 +1,4 @@
+import os
 import json
 import sys
 import cherrypy
@@ -124,7 +125,8 @@ if __name__ == '__main__':
         editor = editor()
         print(editor.index("fractions/q00007", "rs"))
     else:
-        cherrypy.config.update({'server.socket_host': '192.168.137.2', 'server.socket_port': 8080})
+        ip_address = os.environ['SHKOLA_IP_ADDR']
+        cherrypy.config.update({'server.socket_host': ip_address, 'server.socket_port': 8080})
         cherrypy.quickstart(editor())
 
 
