@@ -1,9 +1,17 @@
 class library(object):
     object_id = 0
     page = None
+    checks = []
+    clears = []
 
+    
+    input_style = "style='padding:3px;display:block;width:33px;border:1px solid #ccc!important;border-radius:8px'"
+
+
+    
     def __init__(self, page):
         self.page = page
+        self.checks = []
     
     def get_object_id(self):
         self.object_id = self.object_id+1
@@ -12,7 +20,27 @@ class library(object):
     def text(self, text):
         self.page.add_batch_lines("<p>" + str(text) + "</p>")
 
+    def clear(self):
+        self.checks = []
+        self.clears = []
 
+    def condition_check_script(self, item_name, str_condition):
+        script = """
+        <script type = "text/javascript">
+        function """ + item_name + """_cond() {
+          if (""" + str_condition + """) {
+            clearError('""" + item_name + """');
+            return true;
+          } else {
+            setError('""" + item_name + """');
+            return false;
+          }
+        }
+        </script>
+        """
+        self.page.add_lines(script)
+
+        
     def fraction_circle(self, sizes):
         object_id = str(self.get_object_id())
         size = 105
@@ -37,7 +65,8 @@ class library(object):
     # <condition> can be of form:
     # - answer > <correct_answer>, or any boolean with answer in it, or
     # - <correct_answer>, in which case the boolean condition is answer == <correct_answer>
-    def check_value(self, condition):
+    # width: width of the input box in characters
+    def check_value(self, condition, width=3):
         qid = self.get_object_id()
         n_answer = 'check_number_answer_{}'.format(qid)
         n_correct = 'check_number_correct_{}'.format(qid)
@@ -47,10 +76,15 @@ class library(object):
         else:
             str_condition = condition.replace("answer", v_answer)
 
-        line = "<input type='text' id='" + n_answer + "' />" + \
-            "<input type=\"button\" onclick=\"document.getElementById(\'" + n_correct + \
-            "\').innerHTML = ((" + str_condition + ")?\'OK\':\'NOT OK\')\" value=\"Proveri\" />" + \
-            "<p id=\"" + n_correct + "\"></p>"
+
+        self.condition_check_script(n_answer, str_condition)
+
+        line = "<input {}".format(self.input_style) + \
+	   "type='text' id='{}'/>".format(n_answer)
+
+        self.checks.append("{}_cond()".format(n_answer))
+        self.clears.append("document.getElementById('{}').value = '';".format(n_answer))
+        
         self.page.add_batch_lines( line )
 
 
@@ -65,29 +99,40 @@ class library(object):
         v_answer_denominator = "document.getElementById(\'" + n_answer_denominator + "\').value"
         v_answer_whole = "document.getElementById(\'" + n_answer_whole + "\').value"
 
-        str_condition = "(" + v_answer_numerator + " == \'" + str(numerator) + "\' && " + \
-                              v_answer_denominator + " == \'" + str(denominator) + "\'"
+        n_answer_table = "check_fraction_answer_table_{}".format(qid)
+
+        str_condition = "(" + v_answer_numerator + " == \'" + str(numerator) + "\' && " 
+        str_condition = str_condition + v_answer_denominator + " == \'" + str(denominator) + "\'"
+
+
         if whole is not None:
             str_condition = str_condition + " && " + v_answer_whole + " == \'" + str(whole) + "\'"
         str_condition = str_condition + ")"
 
-        input_numerator = "<input type='text' size='1' id='" + n_answer_numerator + "' />" 
-        input_denominator = "<input type='text' size='1' id='" + n_answer_denominator + "' />"
-        input_whole = "<input type='text' size='1' id='" + n_answer_whole + "' />"
-        input_frac = "\n<table>\n<tbody>\n<tr>\n"
+        self.condition_check_script(n_answer_table, str_condition)
+
+        
+        input_numerator = "<input " + self.input_style + "type='text' size='1' id='" + n_answer_numerator + "' />" 
+        input_denominator = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_denominator + "' />"
+        input_whole = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_whole + "' />"
+        input_frac = "\n<table id='{}'>\n<tbody>\n<tr>\n".format(n_answer_table)
         if whole is not None:
             input_frac = input_frac + "<td rowspan=\"2\">" + input_whole + "</td>\n"
         input_frac = input_frac + "<td style=\"border-bottom:solid 1px\">" + input_numerator + "</td>\n"
         input_frac = input_frac + "</tr>\n<tr>\n<td>" + input_denominator + "</td>\n</tr>\n</tbody>\n</table>\n"
 
-        button = "\n<input type=\"button\" onclick=\"document.getElementById(\'" + n_correct + \
-            "\').innerHTML = ((" + str_condition + ")?\'OK\':\'NOT OK\')\" value=\"Proveri\" />" + \
-            "\n<p id=\"" + n_correct + "\"></p>\n"
+        # button = "\n<input type=\"button\" onclick=\"document.getElementById(\'" + n_correct + \
+        #     "\').innerHTML = ((" + str_condition + ")?\'OK\':\'NOT OK\')\" value=\"Proveri\" />" + \
+        #     "\n<p id=\"" + n_correct + "\"></p>\n"
+        # line = input_frac + button
         
-        line = input_frac + button
-        
-        self.page.add_batch_lines( line )
+        self.page.add_batch_lines( input_frac )
 
+        self.checks.append("{}_cond()".format(n_answer_table))
+        self.clears.append("document.getElementById('{}').value = '';".format(n_answer_numerator))
+        self.clears.append("document.getElementById('{}').value = '';".format(n_answer_denominator))
+        if whole is not None:
+            self.clears.append("document.getElementById('{}').value = '';".format(n_answer_whole))
 
 
     # Table
@@ -130,3 +175,26 @@ class library(object):
         self.page.add_batch_lines(line)
 
 
+    def add_check_button(self):
+        line = "\n<input type='button' onclick='"
+        cid = 0
+        cond = "cond = "
+        for c in self.checks:
+            line = line + "c" + str(cid) + " = " + c + "; "
+            cond = cond + "c" + str(cid) + " && "
+            cid = cid + 1
+        cond = cond + "true;"
+        line = line + cond
+        line = line + "if (cond) alert(\"All OK\")' value='Check' />\n"
+        print(line)
+        self.page.add_lines(line)
+        
+    def add_clear_button(self):
+        line = "\n<input type='button' onclick=\""
+        for c in self.clears:
+            line = line + c
+        line = line + "\" value='Clear' />\n"
+        print(line)
+        self.page.add_lines(line)
+
+        

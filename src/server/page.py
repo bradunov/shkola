@@ -9,7 +9,7 @@ class page(object):
     def __init__(self):
         self.head = "<html>\n" + self.header() + "<body>\n"
         self.foot = "</body>\n</html>\n"
-    
+
     def add_lines(self, lines):
         # For some reason Lua passes None after every call to library
         if lines is not None:
@@ -40,6 +40,19 @@ class page(object):
           </head>
         """
 
+    def scripts(self):
+        return """
+        <script type = "text/javascript">
+        function setError(id) {
+          console.log("setError");
+          document.getElementById(id).style.border = "3px solid red";
+        }
+        function clearError(id) {
+          console.log("clearError");
+          document.getElementById(id).style.border = "1px solid #ccc";
+        }
+        </script>  
+        """    
     def process_batch(self):
         b = ""
         for l in self.batch:
@@ -61,8 +74,10 @@ class page(object):
     def render(self):
         ret = ""
         ret = ret + str(self.head)
+        ret = ret + self.scripts()
         for l in self.lines:
             ret = ret + str(l)
+            
         ret = ret + "\n" + str(self.foot)
         return ret
 

@@ -87,7 +87,7 @@ class editor(object):
     def index(self, path = None, language = "rs"):
         self.clear()
         page.clear_lines()
-
+        lib.clear()
 
         if path is not None:
             q = question(lua, lib)
@@ -103,6 +103,7 @@ class editor(object):
     def generate(self, init_code = "", iter_code = "", text = ""):
         self.clear()
         page.clear_lines()
+        lib.clear()
 
         self.add_code(init_code, iter_code, text)
         q = question(lua, lib, init_code, iter_code, text)
@@ -117,13 +118,13 @@ if __name__ == '__main__':
     lua = LuaRuntime(unpack_returned_tuples=True)
     page=page()
     lib=library(page)
-
+    
     test = False
     #test = True
     
     if test:
         editor = editor()
-        print(editor.index("fractions/q00007", "rs"))
+        print(editor.index("fractions/q00002", "rs"))
     else:
         ip_address = os.environ['SHKOLA_IP_ADDR']
         cherrypy.config.update({'server.socket_host': ip_address, 'server.socket_port': 8080})

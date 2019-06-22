@@ -50,7 +50,7 @@ class question(object):
         try:
             self.set_from_file(path, language)
         except Exception as err:
-            err_str = "Error reading from a question list: \n {}\n".format(str(err))
+            err_str = "\n\nError reading from a question list: \n {}\n".format(str(err))
             page.add_batch_lines(err_str)
             for l in traceback.format_tb(err.__traceback__):
                 page.add_batch_lines("<br> {}".format(l))
@@ -181,13 +181,16 @@ class question(object):
         ret = lua_fun(page, self.lib, strings)
         page.process_batch()
             
+        if self.lib is not None:
+            self.lib.add_check_button()
+            self.lib.add_clear_button()
 
         
     def eval_with_exception(self, page):
         try:
             self.eval(page)
         except Exception as err:
-            err_str = "Error in program:\n {}\n".format(str(err))
+            err_str = "\n\nError in program:\n {}\n".format(str(err))
             page.add_batch_lines(err_str)
             for l in traceback.format_tb(err.__traceback__):
                 page.add_batch_lines("<br> {}".format(l))
