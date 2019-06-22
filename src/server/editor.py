@@ -25,8 +25,8 @@ class editor(object):
     iter_code = ""
     text = ""
     question = None
-    
 
+    
     def clear(self):
         self.init_code = ""
         self.iter_code = ""
@@ -83,6 +83,16 @@ class editor(object):
 
 
         
+    def render_simple_page(self, page):
+
+        if self.question is not None:
+            self.question.eval_with_exception(page)
+            
+        
+        return page.render()
+
+
+        
     @cherrypy.expose
     def index(self, path = None, language = "rs"):
         self.clear()
@@ -113,7 +123,21 @@ class editor(object):
 
 
 
-                
+    @cherrypy.expose
+    def simple(self, path = None, language = "rs"):
+        self.clear()
+        page.clear_lines()
+        lib.clear()
+
+        if path is not None:
+            q = question(lua, lib)
+            q.set_from_file_with_exception(page, path, language)
+            self.add_question(q)
+
+        return self.render_simple_page(page)
+
+    
+                  
 if __name__ == '__main__':
     lua = LuaRuntime(unpack_returned_tuples=True)
     page=page()

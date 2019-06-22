@@ -4,8 +4,8 @@ class library(object):
     checks = []
     clears = []
 
-    
-    input_style = "style='padding:3px;display:block;width:33px;border:1px solid #ccc!important;border-radius:8px'"
+
+    input_style = "style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px'"
 
 
     
@@ -115,7 +115,7 @@ class library(object):
         input_numerator = "<input " + self.input_style + "type='text' size='1' id='" + n_answer_numerator + "' />" 
         input_denominator = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_denominator + "' />"
         input_whole = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_whole + "' />"
-        input_frac = "\n<table id='{}'>\n<tbody>\n<tr>\n".format(n_answer_table)
+        input_frac = "\n<table style='inline-table' id='{}'>\n<tbody>\n<tr>\n".format(n_answer_table)
         if whole is not None:
             input_frac = input_frac + "<td rowspan=\"2\">" + input_whole + "</td>\n"
         input_frac = input_frac + "<td style=\"border-bottom:solid 1px\">" + input_numerator + "</td>\n"
