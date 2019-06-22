@@ -74,6 +74,50 @@ class question(object):
     def get_text(self):
         return self.text
 
+    def get_alignment(self, string):
+        if string.find("@left@") > -1:
+            return "align='left'"
+        elif string.find("@right@") > -1:
+            return "align='left'"
+        elif string.find("@center@") > -1:
+            return "align='center'"
+        else:
+            return ""
+        
+    def make_pretty(self, text):
+        b = text
+        # Beutify b like markdown, but we cannot use MD here as it would destroyed inlined HTML (e.g. MathJS)
+        b = b.replace("\r", "")
+        b = b.replace("\t", " ")
+        b = b.replace("\n", "$%^&")
+        b = " ".join(b.split())
+        b = b.replace("$%^&", "\n")
+        b = b.replace("\n ", "\n")
+        while True:
+            b1 = b.replace("\n\n", "\n")
+            if (len(b1) == len(b)):
+                break
+            b = b1
+            
+        if (b[0] == "\n"):
+            b = b[1:]
+
+
+        old_ind = -1
+        ind = b.find("\n")
+        output = ""
+        while ind > -1:
+            output = output + "<div {}>\n  ".format(self.get_alignment(b[old_ind+1:ind+1]))
+            output = output + b[old_ind+1:ind+1] + "</div>\n"
+            old_ind = ind
+            ind = b.find("\n", ind + 1)
+
+        output = output + "<div {}>\n  ".format(self.get_alignment(b[old_ind+1:]))
+        output = output + b[old_ind+1:] + "</div>\n"
+
+        output = output + "</div>\n"
+        return output
+
     
     def eval(self, page):
 
@@ -81,13 +125,17 @@ class question(object):
         indices = [{"start" : -1, "type" : "text"}]
         cend = -1
 
+        
+        btext = self.make_pretty(self.text)
+
+        
         # Identify commands and strings
         while True:
-            cstart = self.text.find("@", cend + 1)
+            cstart = btext.find("@", cend + 1)
             if cstart == -1:
-                indices.append({"start" : len(self.text), "type" : "end"})
+                indices.append({"start" : len(btext), "type" : "end"})
                 break
-            cend = self.text.find("@", cstart + 1)
+            cend = btext.find("@", cstart + 1)
             if cend == -1:
                 raise Exception("Code block started in text at position {} not finished".format(cstart))
             indices.append({"start" : cstart, "type" :  "code"})
@@ -101,20 +149,20 @@ class question(object):
         for ind in range(0, len(indices)-1):
             if (indices[ind]["type"] == "code"):
                 if (indices[ind+1]["start"] - indices[ind]["start"] - 1 > 8 and
-                    self.text[indices[ind]["start"]+1 : indices[ind]["start"]+7] == "repeat" and
-                    self.text[indices[ind]["start"]+7] == "(" and
-                    self.text[indices[ind+1]["start"]-1] == ")"):
+                    btext[indices[ind]["start"]+1 : indices[ind]["start"]+7] == "repeat" and
+                    btext[indices[ind]["start"]+7] == "(" and
+                    btext[indices[ind+1]["start"]-1] == ")"):
                     if not start_index is None:
                         raise Exception("Nested repeat in text: {}".
-                                        format(self.text[indices[ind]["start"]+1 :
+                                        format(btext[indices[ind]["start"]+1 :
                                                          indices[ind]["start"]+7]))
-                    no_iter = int(self.text[indices[ind]["start"]+8 : indices[ind+1]["start"]-1])
+                    no_iter = int(btext[indices[ind]["start"]+8 : indices[ind+1]["start"]-1])
                     items.append({"type" : "repeat", "no_iter" : no_iter})
                     strings.append("")
                     start_index = ind
 
                 elif (indices[ind+1]["start"] - indices[ind]["start"] - 1 == 3 and
-                    self.text[indices[ind]["start"]+1 : indices[ind]["start"]+4] == "end"):
+                    btext[indices[ind]["start"]+1 : indices[ind]["start"]+4] == "end"):
                     if start_index is None:
                         raise Exception("Repeat ended without starting")
                     items.append({"type" : "end", "start" : start_index})
@@ -123,15 +171,15 @@ class question(object):
 
                 else:
                     items.append({"type" : "code",
-                                  "string" : self.text[indices[ind]["start"]+1 :
+                                  "string" : btext[indices[ind]["start"]+1 :
                                                        indices[ind+1]["start"]]})
-                    strings.append(self.text[indices[ind]["start"]+1 :
+                    strings.append(btext[indices[ind]["start"]+1 :
                                              indices[ind+1]["start"]])
             elif (indices[ind]["type"] == "text"):
                 items.append({"type" : "text",
-                              "string" : self.text[indices[ind]["start"]+1 :
+                              "string" : btext[indices[ind]["start"]+1 :
                                                    indices[ind+1]["start"]]})
-                strings.append(self.text[indices[ind]["start"]+1 :
+                strings.append(btext[indices[ind]["start"]+1 :
                                          indices[ind+1]["start"]])
                 
             
@@ -150,7 +198,9 @@ class question(object):
             if item["type"] == "text":
                 code = code + "page.add_batch_lines(strings[{}])\n".format(ind)
             elif item["type"] == "code":
-                code = code + "page.add_batch_lines({})\n".format(strings[ind])
+                # Ignore alignment tags
+                if (strings[ind] != "left" and strings[ind] != "right" and strings[ind] != "center"):
+                    code = code + "page.add_batch_lines({})\n".format(strings[ind])
             elif item["type"] == "repeat":
                 no_iter = item["no_iter"]
                 start_repeat = ind
@@ -174,8 +224,8 @@ class question(object):
 
         code = code.replace("\\", "\\\\")
         
-        print(strings)
-        print(code)
+        #print(strings)
+        #print(code)
         
         lua_fun = self.lua.eval(code)
         ret = lua_fun(page, self.lib, strings)

@@ -57,7 +57,7 @@ class library(object):
             line = line + "var line_" + object_id + "_" + str(i) + " = paper_" + object_id + ".path( [\"M\", " + str(xc) + ", " + str(xc) + \
                    " , \"L\", " + x + ", " + y + " ] ).attr({\"stroke-width\": 2});\n"
         line = line + "</script>\n"
-        print(line)
+        #print(line)
         self.page.add_batch_lines( line )
 
 
@@ -186,7 +186,7 @@ class library(object):
         cond = cond + "true;"
         line = line + cond
         line = line + "if (cond) alert(\"All OK\")' value='Check' />\n"
-        print(line)
+        #print(line)
         self.page.add_lines(line)
         
     def add_clear_button(self):
@@ -194,7 +194,7 @@ class library(object):
         for c in self.clears:
             line = line + c
         line = line + "\" value='Clear' />\n"
-        print(line)
+        #print(line)
         self.page.add_lines(line)
 
         
