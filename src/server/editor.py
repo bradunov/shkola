@@ -144,11 +144,11 @@ if __name__ == '__main__':
     lib=library(page)
     
     test = False
-    #test = True
+    test = True
     
     if test:
         editor = editor()
-        print(editor.index("fractions/q00002", "rs"))
+        print(editor.index("fractions/q00003", "rs"))
     else:
         ip_address = os.environ['SHKOLA_IP_ADDR']
         cherrypy.config.update({'server.socket_host': ip_address, 'server.socket_port': 8080})

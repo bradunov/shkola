@@ -59,13 +59,13 @@ class page(object):
             b = b + str(l)
         
         # Beutify b like markdown, but we cannot use MD here as it would destroyed inlined HTML (e.g. MathJS)
-        b = b.replace("\t", " ")
-        b = b.replace("\n", "@@@")
-        b = " ".join(b.split())
-        b = b.replace("@@@", "\n")
-        b = b.replace("\n ", "\n")
-        b = b.replace("\n\n", "\n")
-        b = b.replace("\n", "<br>\n")
+        # b = b.replace("\t", " ")
+        # b = b.replace("\n", "@@@")
+        # b = " ".join(b.split())
+        # b = b.replace("@@@", "\n")
+        # b = b.replace("\n ", "\n")
+        # b = b.replace("\n\n", "\n")
+        # b = b.replace("\n", "<br>\n")
             
         self.add_lines(b)
         self.batch = []
