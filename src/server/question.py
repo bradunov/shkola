@@ -50,11 +50,10 @@ class question(object):
         try:
             self.set_from_file(path, language)
         except Exception as err:
-            err_str = "\n\nError reading from a question list: \n {}\n".format(str(err))
-            page.add_batch_lines(err_str)
+            err_str = "\n\n<br> Error reading from a question list: \n {} <br>\n".format(str(err))
+            page.add_lines(err_str)
             for l in traceback.format_tb(err.__traceback__):
-                page.add_batch_lines("<br> {}".format(l))
-            page.process_batch()
+                page.add_lines("<br> {}".format(l))
 
     def set_init_code(self, code):
         self.init_code = code
@@ -224,11 +223,11 @@ class question(object):
         while ind < len(items):
             item = items[ind]
             if item["type"] == "text":
-                code = code + "page.add_batch_lines(strings[{}])\n".format(ind)
+                code = code + "page.add_lines(strings[{}])\n".format(ind)
             elif item["type"] == "code":
                 # Ignore alignment tags
                 if (strings[ind] != "left" and strings[ind] != "right" and strings[ind] != "center"):
-                    code = code + "page.add_batch_lines({})\n".format(strings[ind])
+                    code = code + "page.add_lines({})\n".format(strings[ind])
             elif item["type"] == "repeat":
                 no_iter = item["no_iter"]
                 start_repeat = ind
@@ -257,7 +256,6 @@ class question(object):
         
         lua_fun = self.lua.eval(code)
         ret = lua_fun(page, self.lib, strings)
-        page.process_batch()
             
         if self.lib is not None:
             self.lib.add_buttons()
@@ -272,9 +270,8 @@ class question(object):
         try:
             self.eval(page)
         except Exception as err:
-            err_str = "\n\nError in program:\n {}\n".format(str(err))
-            page.add_batch_lines(err_str)
+            err_str = "\n\n<br> Error in program:\n {} <br>\n".format(str(err))
+            page.add_lines(err_str)
             for l in traceback.format_tb(err.__traceback__):
-                page.add_batch_lines("<br> {}".format(l))
-            page.process_batch()
+                page.add_lines("<br> {}".format(l))
     

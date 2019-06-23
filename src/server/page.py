@@ -2,7 +2,6 @@
 class page(object):
     object_id = 0
     lines = []
-    batch = []
     on_loaded_script = ""
     title = ""
 
@@ -14,17 +13,11 @@ class page(object):
         if lines is not None:
             self.lines.append(lines)
 
-    def add_batch_lines(self, lines):
-        # For some reason Lua passes None after every call to library
-        if lines is not None:
-            self.batch.append(lines)
-
     def get_lines(self):
         return self.lines
         
     def clear_lines(self):
         self.lines = []
-        self.batch = []
 
     def add_on_loaded_script_lines(self, code):
         self.on_loaded_script = self.on_loaded_script + code
@@ -76,22 +69,6 @@ class page(object):
         }
         </script>  
         """    
-    def process_batch(self):
-        b = ""
-        for l in self.batch:
-            b = b + str(l)
-        
-        # Beutify b like markdown, but we cannot use MD here as it would destroyed inlined HTML (e.g. MathJS)
-        # b = b.replace("\t", " ")
-        # b = b.replace("\n", "@@@")
-        # b = " ".join(b.split())
-        # b = b.replace("@@@", "\n")
-        # b = b.replace("\n ", "\n")
-        # b = b.replace("\n\n", "\n")
-        # b = b.replace("\n", "<br>\n")
-            
-        self.add_lines(b)
-        self.batch = []
 
     
     def render(self):

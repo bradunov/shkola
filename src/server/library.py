@@ -18,7 +18,7 @@ class library(object):
         return self.object_id
 
     def text(self, text):
-        self.page.add_batch_lines("<p>" + str(text) + "</p>")
+        self.page.add_lines("<p>" + str(text) + "</p>")
 
     def clear(self):
         self.checks = []
@@ -58,7 +58,7 @@ class library(object):
                    " , \"L\", " + x + ", " + y + " ] ).attr({\"stroke-width\": 2});\n"
         line = line + "</script>\n"
         #print(line)
-        self.page.add_batch_lines( line )
+        self.page.add_lines( line )
 
 
     # Inputs string/number and check that it matches <condition>
@@ -85,7 +85,7 @@ class library(object):
         self.checks.append("{}_cond()".format(n_answer))
         self.clears.append("document.getElementById('{}').value = '';".format(n_answer))
         
-        self.page.add_batch_lines( line )
+        self.page.add_lines( line )
 
 
     # Input fraction as whole + numerator / denominator and verifies whether the answer matches
@@ -126,7 +126,7 @@ class library(object):
         #     "\n<p id=\"" + n_correct + "\"></p>\n"
         # line = input_frac + button
         
-        self.page.add_batch_lines( input_frac )
+        self.page.add_lines( input_frac )
 
         self.checks.append("{}_cond()".format(n_answer_table))
         self.clears.append("document.getElementById('{}').value = '';".format(n_answer_numerator))
@@ -143,17 +143,17 @@ class library(object):
         if (border > 0):
             line = line + "border=\"{}\"".format(border)
         line = line + ">\n"
-        self.page.add_batch_lines( line )
+        self.page.add_lines( line )
 
     # End HTML table
     def end_table(self):
-        self.page.add_batch_lines( "</table>\n" )
+        self.page.add_lines( "</table>\n" )
 
     def start_row(self):
-        self.page.add_batch_lines( "<tr>\n" )
+        self.page.add_lines( "<tr>\n" )
         
     def end_row(self):
-        self.page.add_batch_lines( "</tr>\n" )
+        self.page.add_lines( "</tr>\n" )
 
     def add_cell(self, content, rowspan = 1, colspan = 1, pos = 3):
         line = "<td "
@@ -172,7 +172,7 @@ class library(object):
         line = line + ">"
         line = line + content
         line = line + "</td>"
-        self.page.add_batch_lines(line)
+        self.page.add_lines(line)
 
 
     def add_check_button(self):
