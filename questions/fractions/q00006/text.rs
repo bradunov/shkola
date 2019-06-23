@@ -1,6 +1,6 @@
 Posmatraj sliku i odgovori:
 
-@fraction_table(4)@
+@center@ @fraction_table(4)@
 
 Jedno celo ima @lib.check_value(2)@ polovine.
 Jedno celo ima @lib.check_value(4)@ cetvrtine.

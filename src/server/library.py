@@ -198,7 +198,7 @@ class library(object):
         self.page.add_lines(line)
 
     def add_buttons(self):
-        self.page.add_lines("\n<div id='question_buttons' style='display:block'>\n")
+        self.page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;'>\n")
         self.add_check_button()
         self.add_clear_button()
         self.page.add_lines("\n</div>\n")

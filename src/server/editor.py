@@ -43,77 +43,45 @@ class editor(object):
         self.question = question
 
 
-    '''
     def render_page(self, page):
-        page.add_lines("""
-        <table border=1>
-          <tr> 
-            <td> 
-                <form method="post" action="generate">
-                  <p>Init code:</p>
-                  <textarea name="init_code" rows="10" cols="80">
-""" + self.init_code + """
-                  </textarea>
-                  <br>
-                  <p>Iter code:</p>
-                  <textarea name="iter_code" rows="10" cols="80">
-""" + self.iter_code + """
-                  </textarea>
-                  <br>
-                  <p>Question text:</p>
-                  <textarea name="text" rows="10" cols="80">
-""" + self.text + """
-                  </textarea>
-                  <br>
-                  <button type="submit">Test</button>
-                </form>
-             </td>
-        """)
-
-        if self.question is not None:
-            page.add_lines("<td valign=\"top\">")
-            self.question.eval_with_exception(page)
-            page.add_lines("</td>")
-            
-        page.add_lines("""
-          </tr>
-        </table>
-        """)
-        
-        return page.render()
-    '''
-
-        
-    def render_page(self, page):
+        style = "border:6px;padding:6px;"
         page.add_lines("""
         <div>
-          <span style='float:left;display:inline;'>
-            <div>
-                <form method="post" action="generate">
-                  <p>Init code:</p>
+          <span style='float:left;display:inline;""" + style + """'>
+            <form method="post" action="generate">
+              <div style='""" + style + """background-color:#fafaf0;'>
+                  <h3>Init code:</h3>
                   <textarea name="init_code" rows="10" cols="80">
 """ + self.init_code + """
                   </textarea>
-                  <br>
-                  <p>Iter code:</p>
+              </div>
+              <div style='""" + style + """background-color:#faf0fa;'>
+                  <h3>Iter code:</h3>
                   <textarea name="iter_code" rows="10" cols="80">
 """ + self.iter_code + """
                   </textarea>
-                  <br>
-                  <p>Question text:</p>
+              </div>
+              <div style='""" + style + """background-color:#f0fafa;'>
+                  <h3>Question text:</h3>
                   <textarea name="text" rows="10" cols="80">
 """ + self.text + """
                   </textarea>
-                  <br>
+              </div>
+              <div style='""" + style + """background-color:#f0faf0;'>
                   <button type="submit">Test</button>
+              </div>
                 </form>
-            </div>
           </span>
         """)
 
         if self.question is not None:
-            page.add_lines("<span style='float:left;display:inline;'>")
+            page.add_lines("<span style='float:left;display:inline'>")
+            # Most common mogile web pages are 360 x 640 (https://www.hobo-web.co.uk/best-screen-size/)
+            # but I can't seem to enforce a size in this view, so skipping for now
+            #page.add_lines("<div style='border-style:dotted;display:table;height=360px;width=640px;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
+            page.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
             self.question.eval_with_exception(page)
+            page.add_lines("</div>")
             page.add_lines("</span>")
             
         page.add_lines("""
@@ -127,7 +95,9 @@ class editor(object):
     def render_simple_page(self, page):
 
         if self.question is not None:
+            page.add_lines("<span style='float:left'>")
             self.question.eval_with_exception(page)
+            page.add_lines("</span>")
             
         
         return page.render()

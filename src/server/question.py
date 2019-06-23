@@ -102,19 +102,20 @@ class question(object):
             b = b[1:]
 
 
+        style = "style='border:6px;padding:6px'"
         max_div_id = 0
             
         old_ind = -1
         ind = b.find("\n")
         output = ""
         while ind > -1:
-            output = output + "<div {} id='qline_{}'>\n  ".format(self.get_alignment(b[old_ind+1:ind+1]), max_div_id)
+            output = output + "<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(b[old_ind+1:ind+1]), style, max_div_id)
             output = output + b[old_ind+1:ind+1] + "</div>\n"
             old_ind = ind
             ind = b.find("\n", ind + 1)
             max_div_id = max_div_id + 1
 
-        output = output + "<div {} id='qline_{}'>\n  ".format(self.get_alignment(b[old_ind+1:]), max_div_id)
+        output = output + "<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(b[old_ind+1:]), style, max_div_id)
         output = output + b[old_ind+1:] + "</div>\n"
         max_div_id = max_div_id + 1
 
