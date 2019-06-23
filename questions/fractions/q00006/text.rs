@@ -1,4 +1,4 @@
-Posmatraj sliku i odgovori:
+@h2@ Posmatraj sliku i odgovori: @/h2@
 
 @center@ @fraction_table(4)@
 
@@ -6,7 +6,7 @@ Jedno celo ima @lib.check_value(2)@ polovine.
 Jedno celo ima @lib.check_value(4)@ cetvrtine.
 Jedno celo ima @lib.check_value(8)@ osmina.
 
-Uporedi:
+@h3@ Uporedi: @/h3@
 
 Koji deo je veci, \(\frac{1}{2}\) ili \(\frac{1}{4}\)?
 @center@ \(\frac{1}{2}\) @lib.check_value(">")@ \(\frac{1}{4}\)

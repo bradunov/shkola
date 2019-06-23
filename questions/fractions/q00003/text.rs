@@ -7,5 +7,5 @@ Napisi kao ceo broj i ostatak:
 
 @center@ \(\frac{@veliki_brojilac@}{@imenilac@}\) je @lib.check_fraction(brojilac, imenilac, ceo)@
 
-@end@
+@/repeat@
 

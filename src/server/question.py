@@ -122,22 +122,13 @@ class question(object):
         output = output + "</div>\n"
 
 
-
-        # Failed attempt to adjust question width to the width of the longest string
-        '''
-        init_width_code = """
-          max_width = 0
-          for(i = 0; i < """ + str(max_div_id) + """; i++) {
-            console.log("qline_" + i.toString());
-            console.log(document.getElementById("qline_" + i.toString()).offsetWidth);
-            console.log(max_width);
-            max_width = Math.max(document.getElementById("qline_" + i.toString()).offsetWidth, max_width);
-          }
-          document.getElementById("question").offsetWidth = max_width;
-          console.log(document.getElementById("question").offsetWidth);
-        """
-        page.add_on_loaded_script_lines(init_width_code)
-        '''
+        # Replace headers
+        output = output.replace("@h1@", "<div style='display:inline-block;font-weight:bold;font-size:18px;padding-top:8px;padding-bottom:6px;'>")
+        output = output.replace("@/h1@", "</div>")
+        output = output.replace("@h2@", "<div style='display:inline-block;font-weight:bold;font-size:18px;padding-top:6px;padding-bottom:4px;'>")
+        output = output.replace("@/h2@", "</div>")
+        output = output.replace("@h3@", "<div style='display:inline-block;font-weight:bold;font-size:18px;padding-top:4px;padding-bottom:2px;'>")
+        output = output.replace("@/h3@", "</div>")
         
         return output
 
@@ -176,21 +167,21 @@ class question(object):
         start_index = None
         for ind in range(0, len(indices)-1):
             if (indices[ind]["type"] == "code"):
-                if (indices[ind+1]["start"] - indices[ind]["start"] - 1 > 8 and
-                    btext[indices[ind]["start"]+1 : indices[ind]["start"]+7] == "repeat" and
-                    btext[indices[ind]["start"]+7] == "(" and
+                if (indices[ind+1]["start"] - indices[ind]["start"] - 1 > len("repeat()") and
+                    btext[indices[ind]["start"]+1 : indices[ind]["start"]+1+len("repeat")] == "repeat" and
+                    btext[indices[ind]["start"]+1+len("repeat")] == "(" and
                     btext[indices[ind+1]["start"]-1] == ")"):
                     if not start_index is None:
                         raise Exception("Nested repeat in text: {}".
                                         format(btext[indices[ind]["start"]+1 :
-                                                         indices[ind]["start"]+7]))
-                    no_iter = int(btext[indices[ind]["start"]+8 : indices[ind+1]["start"]-1])
+                                                         indices[ind]["start"]+1+len("repeat")]))
+                    no_iter = int(btext[indices[ind]["start"]+1+len("repeat(") : indices[ind+1]["start"]-1])
                     items.append({"type" : "repeat", "no_iter" : no_iter})
                     strings.append("")
                     start_index = ind
 
-                elif (indices[ind+1]["start"] - indices[ind]["start"] - 1 == 3 and
-                    btext[indices[ind]["start"]+1 : indices[ind]["start"]+4] == "end"):
+                elif (indices[ind+1]["start"] - indices[ind]["start"] - 1 == len("/repeat") and
+                    btext[indices[ind]["start"]+1 : indices[ind]["start"]+1+len("/repeat")] == "/repeat"):
                     if start_index is None:
                         raise Exception("Repeat ended without starting")
                     items.append({"type" : "end", "start" : start_index})
@@ -227,7 +218,9 @@ class question(object):
                 code = code + "page.add_lines(strings[{}])\n".format(ind)
             elif item["type"] == "code":
                 # Ignore alignment tags
-                if (strings[ind] != "left" and strings[ind] != "right" and strings[ind] != "center"):
+                if (strings[ind] != "left" and strings[ind] != "right" and strings[ind] != "center" and \
+                    strings[ind] != "H1" and strings[ind] != "H2" and strings[ind] != "H3" and \
+                    strings[ind] != "/H1" and strings[ind] != "/H2" and strings[ind] != "/H3"):
                     code = code + "page.add_lines({})\n".format(strings[ind])
             elif item["type"] == "repeat":
                 no_iter = item["no_iter"]
