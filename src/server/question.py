@@ -84,7 +84,7 @@ class question(object):
         else:
             return ""
         
-    def make_pretty(self, text):
+    def make_pretty(self, page, text):
         b = text
         # Beutify b like markdown, but we cannot use MD here as it would destroyed inlined HTML (e.g. MathJS)
         b = b.replace("\r", "")
@@ -103,19 +103,42 @@ class question(object):
             b = b[1:]
 
 
+        max_div_id = 0
+            
         old_ind = -1
         ind = b.find("\n")
         output = ""
         while ind > -1:
-            output = output + "<div {}>\n  ".format(self.get_alignment(b[old_ind+1:ind+1]))
+            output = output + "<div {} id='qline_{}'>\n  ".format(self.get_alignment(b[old_ind+1:ind+1]), max_div_id)
             output = output + b[old_ind+1:ind+1] + "</div>\n"
             old_ind = ind
             ind = b.find("\n", ind + 1)
+            max_div_id = max_div_id + 1
 
-        output = output + "<div {}>\n  ".format(self.get_alignment(b[old_ind+1:]))
+        output = output + "<div {} id='qline_{}'>\n  ".format(self.get_alignment(b[old_ind+1:]), max_div_id)
         output = output + b[old_ind+1:] + "</div>\n"
+        max_div_id = max_div_id + 1
 
         output = output + "</div>\n"
+
+
+
+        # Failed attempt to adjust question width to the width of the longest string
+        '''
+        init_width_code = """
+          max_width = 0
+          for(i = 0; i < """ + str(max_div_id) + """; i++) {
+            console.log("qline_" + i.toString());
+            console.log(document.getElementById("qline_" + i.toString()).offsetWidth);
+            console.log(max_width);
+            max_width = Math.max(document.getElementById("qline_" + i.toString()).offsetWidth, max_width);
+          }
+          document.getElementById("question").offsetWidth = max_width;
+          console.log(document.getElementById("question").offsetWidth);
+        """
+        page.add_on_loaded_script_lines(init_width_code)
+        '''
+        
         return output
 
     
@@ -126,7 +149,12 @@ class question(object):
         cend = -1
 
         
-        btext = self.make_pretty(self.text)
+        page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
+        page.add_lines("<div id='question' style='width:100%'>\n")
+
+
+        
+        btext = self.make_pretty(page, self.text)
 
         
         # Identify commands and strings
@@ -232,9 +260,13 @@ class question(object):
         page.process_batch()
             
         if self.lib is not None:
-            self.lib.add_check_button()
-            self.lib.add_clear_button()
+            self.lib.add_buttons()
+            
+        page.add_lines("</div>\n")
+        page.add_lines("\n\n<!-- QUESTIONS END -->\n\n")
 
+
+        
         
     def eval_with_exception(self, page):
         try:

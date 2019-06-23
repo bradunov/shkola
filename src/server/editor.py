@@ -43,6 +43,7 @@ class editor(object):
         self.question = question
 
 
+    '''
     def render_page(self, page):
         page.add_lines("""
         <table border=1>
@@ -80,9 +81,49 @@ class editor(object):
         """)
         
         return page.render()
-
+    '''
 
         
+    def render_page(self, page):
+        page.add_lines("""
+        <div>
+          <span style='float:left;display:inline;'>
+            <div>
+                <form method="post" action="generate">
+                  <p>Init code:</p>
+                  <textarea name="init_code" rows="10" cols="80">
+""" + self.init_code + """
+                  </textarea>
+                  <br>
+                  <p>Iter code:</p>
+                  <textarea name="iter_code" rows="10" cols="80">
+""" + self.iter_code + """
+                  </textarea>
+                  <br>
+                  <p>Question text:</p>
+                  <textarea name="text" rows="10" cols="80">
+""" + self.text + """
+                  </textarea>
+                  <br>
+                  <button type="submit">Test</button>
+                </form>
+            </div>
+          </span>
+        """)
+
+        if self.question is not None:
+            page.add_lines("<span style='float:left;display:inline;'>")
+            self.question.eval_with_exception(page)
+            page.add_lines("</span>")
+            
+        page.add_lines("""
+        </div>
+        """)
+        
+        return page.render()
+
+
+
     def render_simple_page(self, page):
 
         if self.question is not None:
@@ -148,7 +189,7 @@ if __name__ == '__main__':
     
     if test:
         editor = editor()
-        print(editor.index("fractions/q00006", "rs"))
+        print(editor.simple("fractions/q00006", "rs"))
     else:
         ip_address = os.environ['SHKOLA_IP_ADDR']
         cherrypy.config.update({'server.socket_host': ip_address, 'server.socket_port': 8080})
