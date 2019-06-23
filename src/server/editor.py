@@ -64,7 +64,7 @@ class editor(object):
                 selected = ""
             select = select + "<option value='{}' {}> {} </option>\n".format(q, selected, q)
         select = select + "</select>\n"
-        print(select)
+        #print(select)
 
         
         # Not sure why I have to put explicit height here, otherwise it is zero!
@@ -76,7 +76,7 @@ class editor(object):
         if (self.page_name != "edit"):
             lright = lright + "<a href='edit?q_path={}'>Edit</a>".format(self.q_path)
         lright = lright + "</span>"
-        print(lright)
+        #print(lright)
         page.add_lines(lright)
         page.add_lines("</div>")
         
@@ -89,6 +89,7 @@ class editor(object):
         <div>
           <span style='float:left;display:inline;""" + style + """'>
             <form method="post" action="generate">
+              <input type="hidden" id="q_path" name="q_path" value='""" + self.q_path + """'>
               <div style='""" + style + """background-color:#fafaf0;'>
                   <h3>Init code:</h3>
                   <textarea name="init_code" rows="10" cols="80">
@@ -165,11 +166,12 @@ class editor(object):
     
     
     @cherrypy.expose
-    def generate(self, init_code = "", iter_code = "", text = ""):
+    def generate(self, q_path = "", init_code = "", iter_code = "", text = ""):
         self.clear()
         page.clear_lines()
         lib.clear()
         self.page_name = "edit"
+        self.q_path = q_path
 
         self.add_code(init_code, iter_code, text)
         q = question(lua, lib, init_code, iter_code, text)

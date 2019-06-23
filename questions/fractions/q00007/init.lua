@@ -1,7 +1,7 @@
 
 fraction_table = function(rows)
   no_columns = 2^(rows-2)*5
-  lib.start_table(no_columns, 1)
+  lib.start_table(no_columns)
   for r=0,rows-1 do
     lib.start_row()
     if (r==0) then

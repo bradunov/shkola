@@ -1,9 +1,11 @@
+import math
+
 class library(object):
     object_id = 0
     page = None
     checks = []
     clears = []
-
+    table_row = 0
 
     input_style = "style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px'"
 
@@ -138,22 +140,24 @@ class library(object):
     # Table
         
     # Start HTML table with <width> columns
-    def start_table(self, width, border = 0):
-        line = "<table "
-        if (border > 0):
-            line = line + "border=\"{}\"".format(border)
-        line = line + ">\n"
+    def start_table(self, width):
+        line = "<table style='border:0px solid #ddd'>\n"
         self.page.add_lines( line )
+        self.table_row = 0
 
     # End HTML table
     def end_table(self):
         self.page.add_lines( "</table>\n" )
 
     def start_row(self):
-        self.page.add_lines( "<tr>\n" )
+        if self.table_row % 2 == 0:
+            self.page.add_lines( "<tr style='background-color: #f0f0ff;padding: 8px;'>\n" )
+        else:
+            self.page.add_lines( "<tr style='background-color: #fff0f0;padding: 8px;'>\n" )
         
     def end_row(self):
         self.page.add_lines( "</tr>\n" )
+        self.table_row = self.table_row + 1
 
     def add_cell(self, content, rowspan = 1, colspan = 1, pos = 3):
         line = "<td "
@@ -169,7 +173,7 @@ class library(object):
         elif pos == 3:
             line = line + "align=\"center\""
         
-        line = line + ">"
+        line = line + " style='padding: 8px;'>"
         line = line + content
         line = line + "</td>"
         self.page.add_lines(line)
