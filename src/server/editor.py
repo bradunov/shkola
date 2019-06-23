@@ -19,6 +19,7 @@ pp = pprint.PrettyPrinter(indent=4)
 global page, lua, lib
 
 
+
 class editor(object):
     #page = None
     init_code = ""
@@ -43,7 +44,18 @@ class editor(object):
         self.question = question
 
 
+
+    def render_menu(self):
+        # Not sure why I have to put explicit height here, otherwise it is zero!
+        page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>")
+        page.add_lines("<span style='display:block;float:left;'>Left</span>")
+        page.add_lines("<span style='display:block;float:right;'>Right</span>")
+        page.add_lines("</div>")
+        
+
     def render_page(self, page):
+        self.render_menu()
+
         style = "border:6px;padding:6px;"
         page.add_lines("""
         <div>
@@ -94,6 +106,8 @@ class editor(object):
 
     def render_simple_page(self, page):
 
+        self.render_menu()
+        
         if self.question is not None:
             page.add_lines("<span style='float:left'>")
             self.question.eval_with_exception(page)
