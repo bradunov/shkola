@@ -28,6 +28,7 @@ class page(object):
         head = head + "<html>\n"
         head = head + "  <head>\n"
         head = head + "    <title>{}</title>\n".format(self.title)
+        head = head + "    <meta name='viewport' content='width=device-width, initial-scale=1'>\n"
         head = head + """
              <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
              <script type="text/javascript" async

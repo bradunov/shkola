@@ -22,13 +22,16 @@ global page, lua, lib
 
 class editor(object):
     #page = None
+    q_path = ""
     init_code = ""
     iter_code = ""
     text = ""
     question = None
+    page_name = ""
 
     
     def clear(self):
+        self.q_path = ""
         self.init_code = ""
         self.iter_code = ""
         self.text = ""
@@ -45,11 +48,36 @@ class editor(object):
 
 
 
-    def render_menu(self):
+    def render_menu(self):                       
+        select="<select onchange='window.location.replace(\"" + self.page_name + "?q_path=\" + this.value)'>\n"
+        root = "../../questions/"
+        qs = []
+        for (dirpath, dirnames, filenames) in os.walk(root):
+            if not dirnames:
+                qs.append(dirpath[len(root):])
+        qs.sort()
+        
+        for q in qs:
+            if q == self.q_path:
+                selected = "SELECTED"
+            else:
+                selected = ""
+            select = select + "<option value='{}' {}> {} </option>\n".format(q, selected, q)
+        select = select + "</select>\n"
+        print(select)
+
+        
         # Not sure why I have to put explicit height here, otherwise it is zero!
         page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>")
-        page.add_lines("<span style='display:block;float:left;'>Left</span>")
-        page.add_lines("<span style='display:block;float:right;'>Right</span>")
+        page.add_lines("<span style='display:block;float:left;'>" + select + "</span>")
+        lright = "<span style='display:block;float:right;'>"
+        if (self.page_name != "index"):
+            lright = lright + "<a href='index?q_path={}'>View</a>".format(self.q_path)
+        if (self.page_name != "edit"):
+            lright = lright + "<a href='edit?q_path={}'>Edit</a>".format(self.q_path)
+        lright = lright + "</span>"
+        print(lright)
+        page.add_lines(lright)
         page.add_lines("</div>")
         
 
@@ -119,14 +147,16 @@ class editor(object):
 
         
     @cherrypy.expose
-    def index(self, path = None, language = "rs"):
+    def edit(self, q_path = None, language = "rs"):
         self.clear()
         page.clear_lines()
         lib.clear()
+        self.page_name = "edit"
 
-        if path is not None:
+        if q_path is not None:
+            self.q_path = q_path
             q = question(lua, lib)
-            q.set_from_file_with_exception(page, path, language)
+            q.set_from_file_with_exception(page, q_path, language)
             self.add_question(q)
             self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
 
@@ -139,6 +169,7 @@ class editor(object):
         self.clear()
         page.clear_lines()
         lib.clear()
+        self.page_name = "generate"
 
         self.add_code(init_code, iter_code, text)
         q = question(lua, lib, init_code, iter_code, text)
@@ -149,14 +180,16 @@ class editor(object):
 
 
     @cherrypy.expose
-    def simple(self, path = None, language = "rs"):
+    def index(self, q_path = None, language = "rs"):
         self.clear()
         page.clear_lines()
         lib.clear()
+        self.page_name = "index"
 
-        if path is not None:
+        if q_path is not None:
+            self.q_path = q_path
             q = question(lua, lib)
-            q.set_from_file_with_exception(page, path, language)
+            q.set_from_file_with_exception(page, q_path, language)
             self.add_question(q)
 
         return self.render_simple_page(page)
@@ -170,10 +203,10 @@ if __name__ == '__main__':
     
     test = False
     #test = True
-    
+
     if test:
         editor = editor()
-        print(editor.simple("fractions/q00006", "rs"))
+        print(editor.index("fractions/q00006", "rs"))
     else:
         ip_address = os.environ['SHKOLA_IP_ADDR']
         cherrypy.config.update({'server.socket_host': ip_address, 'server.socket_port': 8080})
