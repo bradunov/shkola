@@ -208,7 +208,9 @@ if __name__ == '__main__':
 
     if test:
         editor = editor()
-        print(editor.index("fractions/q00003", "rs"))
+        output = editor.index("fractions/q00006", "rs")
+        print("\n\n\n================================================\n\n\n")
+        print(output)
     else:
         ip_address = os.environ['SHKOLA_IP_ADDR']
         cherrypy.config.update({'server.socket_host': ip_address, 'server.socket_port': 8080})

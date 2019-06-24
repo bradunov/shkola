@@ -19,9 +19,6 @@ class library(object):
         self.object_id = self.object_id+1
         return self.object_id
 
-    def text(self, text):
-        self.page.add_lines("<p>" + str(text) + "</p>")
-
     def clear(self):
         self.checks = []
         self.clears = []
@@ -59,8 +56,9 @@ class library(object):
             line = line + "var line_" + object_id + "_" + str(i) + " = paper_" + object_id + ".path( [\"M\", " + str(xc) + ", " + str(xc) + \
                    " , \"L\", " + x + ", " + y + " ] ).attr({\"stroke-width\": 2});\n"
         line = line + "</script>\n"
-        #print(line)
-        self.page.add_lines( line )
+
+        #self.page.add_lines( line )
+        return line
 
 
     # Inputs string/number and check that it matches <condition>
@@ -87,7 +85,8 @@ class library(object):
         self.checks.append("{}_cond()".format(n_answer))
         self.clears.append("document.getElementById('{}').value = '';".format(n_answer))
         
-        self.page.add_lines( line )
+        #self.page.add_lines( line )
+        return line
 
 
     # Input fraction as whole + numerator / denominator and verifies whether the answer matches
@@ -128,7 +127,6 @@ class library(object):
         #     "\n<p id=\"" + n_correct + "\"></p>\n"
         # line = input_frac + button
         
-        self.page.add_lines( input_frac )
 
         self.checks.append("{}_cond()".format(n_answer_table))
         self.clears.append("document.getElementById('{}').value = '';".format(n_answer_numerator))
@@ -136,28 +134,36 @@ class library(object):
         if whole is not None:
             self.clears.append("document.getElementById('{}').value = '';".format(n_answer_whole))
 
+        #self.page.add_lines( input_frac )
+        return input_frac
+
 
     # Table
         
     # Start HTML table with <width> columns
     def start_table(self, width):
         line = "<table style='border:0px solid #ddd'>\n"
-        self.page.add_lines( line )
         self.table_row = 0
+        #self.page.add_lines( line )
+        return line
 
     # End HTML table
     def end_table(self):
-        self.page.add_lines( "</table>\n" )
+        #self.page.add_lines( "</table>\n" )
+        return "</table>\n"
 
     def start_row(self):
         if self.table_row % 2 == 0:
-            self.page.add_lines( "<tr style='background-color: #f0f0ff;padding: 8px;'>\n" )
+            #self.page.add_lines( "<tr style='background-color: #f0f0ff;padding: 8px;'>\n" )
+            return "<tr style='background-color: #f0f0ff;padding: 8px;'>\n"
         else:
-            self.page.add_lines( "<tr style='background-color: #fff0f0;padding: 8px;'>\n" )
+            #self.page.add_lines( "<tr style='background-color: #fff0f0;padding: 8px;'>\n" )
+            return "<tr style='background-color: #fff0f0;padding: 8px;'>\n" 
         
     def end_row(self):
-        self.page.add_lines( "</tr>\n" )
         self.table_row = self.table_row + 1
+        #self.page.add_lines( "</tr>\n" )
+        return( "</tr>\n" )
 
     def add_cell(self, content, rowspan = 1, colspan = 1, pos = 3):
         line = "<td "
@@ -174,9 +180,11 @@ class library(object):
             line = line + "align=\"center\""
         
         line = line + " style='padding: 8px;'>"
-        line = line + content
+
+        line = line + str(content)
         line = line + "</td>"
-        self.page.add_lines(line)
+        #self.page.add_lines(line)
+        return line
 
 
     def add_check_button(self):

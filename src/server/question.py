@@ -86,6 +86,7 @@ class question(object):
     def make_pretty(self, page, text):
         b = text
         # Beutify b like markdown, but we cannot use MD here as it would destroyed inlined HTML (e.g. MathJS)
+        b = b.replace("\\\n", " ")
         b = b.replace("\r", "")
         b = b.replace("\t", " ")
         b = b.replace("\n", "$%^&")
@@ -244,7 +245,8 @@ class question(object):
         code = code + self.main_script_end
 
         code = code.replace("\\", "\\\\")
-        
+
+        # DEBUG
         #print(strings)
         #print(code)
         
