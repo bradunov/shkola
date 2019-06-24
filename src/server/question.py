@@ -1,3 +1,4 @@
+import sys
 import traceback
 import lupa
 import math
@@ -103,26 +104,91 @@ class question(object):
             b = b[1:]
 
 
+        # Skip prettyfication between special tags that embbed HTML, such as start_table and end_table
+        # otherwise extra HTML tags (</div>...</div>) will mess up formatting
+
+        special_tags = [{"start": "@lib.start_table", "end": "@lib.end_table"}]
+
+        special_areas = []
+        ind = 0
+        while True:
+            min_ind = sys.maxsize
+            tag = None
+            for t in special_tags:
+                i = b.find(t["start"], ind)
+                if (i < min_ind and i > -1):
+                    min_ind = i
+                    tag = t
+            if tag:
+                i = b.find(tag["end"], min_ind)
+                if (i > -1):
+                    ind = b.find("@", i+1)+1
+                else:
+                    ind = -1
+                if (ind == -1):
+                    raise Exception("Code block {} started in text at position {} not finished".format(tag["start"], min_ind))
+                special_areas.append({"start" : min_ind, "end" : ind})
+            else:
+                break
+            
+        print(special_areas)
+
+
+
+        
         style = "style='border:6px;padding:6px'"
         max_div_id = 0
-            
-        old_ind = -1
-        ind = b.find("\n")
         output = ""
-        while ind > -1:
-            output = output + "<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(b[old_ind+1:ind+1]), style, max_div_id)
-            output = output + b[old_ind+1:ind+1] + "</div>\n"
-            old_ind = ind
-            ind = b.find("\n", ind + 1)
-            max_div_id = max_div_id + 1
 
-        output = output + "<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(b[old_ind+1:]), style, max_div_id)
-        output = output + b[old_ind+1:] + "</div>\n"
-        max_div_id = max_div_id + 1
+        start_ind = 0
+        sa_ind = 0
 
-        output = output + "</div>\n"
+        while True:
+            if (sa_ind < len(special_areas)):
+                end_ind = special_areas[sa_ind]["start"]
+            else:
+                end_ind = len(b)
 
 
+            if(start_ind < end_ind):
+                # Modify and copy non-protected part
+                if b[start_ind] == '\n' and b[end_ind-1] == '\n':
+                    bfrac = b[start_ind+1:end_ind-1]
+                elif b[start_ind] == '\n':
+                    bfrac = b[start_ind+1:end_ind]
+                elif b[end_ind-1] == '\n':
+                    bfrac = b[start_ind:end_ind-1]
+                else:
+                    bfrac = b[start_ind:end_ind]
+                
+                #output = output + "\n\n$" + bfrac + "$\n\n"
+            
+                old_ind = -1
+                ind = bfrac.find("\n")
+                while ind > -1:
+                    output = output + "<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(bfrac[old_ind+1:ind+1]), style, max_div_id)
+                    output = output + bfrac[old_ind+1:ind+1] + "</div>\n"
+                    old_ind = ind
+                    ind = bfrac.find("\n", ind + 1)
+                    max_div_id = max_div_id + 1
+                    
+                output = output + "<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(bfrac[old_ind+1:]), style, max_div_id)
+                output = output + bfrac[old_ind+1:] + "</div>\n"
+                max_div_id = max_div_id + 1
+
+                #output = output + "</div>\n"
+
+
+            # Just copy protected part (if exists)
+            if sa_ind == len(special_areas):
+                break
+            else:
+                output = output + b[special_areas[sa_ind]["start"]:special_areas[sa_ind]["end"]]
+                start_ind = special_areas[sa_ind]["end"]
+                sa_ind = sa_ind + 1
+
+                
+                
         # Replace headers
         output = output.replace("@h1@", "<div style='display:inline-block;font-weight:bold;font-size:18px;padding-top:8px;padding-bottom:6px;'>")
         output = output.replace("@/h1@", "</div>")
@@ -130,6 +196,9 @@ class question(object):
         output = output.replace("@/h2@", "</div>")
         output = output.replace("@h3@", "<div style='display:inline-block;font-weight:bold;font-size:18px;padding-top:4px;padding-bottom:2px;'>")
         output = output.replace("@/h3@", "</div>")
+
+
+        print(output)
         
         return output
 
