@@ -1,6 +1,6 @@
 @h2@ 17. Popuni tabelu: @/h2@
 
-@lib.start_table(6)@
+@lib.start_table()@
   @lib.start_row()@
     @lib.add_cell("Broj a")@
     @lib.add_cell("\(\frac{1}{"..tostring(denom[1]).."}\) od a")@

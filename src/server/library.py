@@ -138,52 +138,79 @@ class library(object):
         return input_frac
 
 
+
+
+    
+    #############
     # Table
-        
+    #
+    # Style parameter: We use Lua/Python table/dict to pass keyword arguments to the table.
+    # They can be passed to any element of the table: a cell, a row or a table itself.
+    # There are custom parameters (such as row_span and column_span) which are implemented in the code,
+    # and generic CSS parameters which are just passed as CSS to table elements. 
+            
+    
     # Start HTML table with <width> columns
-    def start_table(self, width):
-        line = "<table style='border:0px solid #ddd'>\n"
+    def start_table(self, style = {}):
+
+        css = "".join("{}:{};".format(k,v) for k,v in style.items())
+
+        # default border
+        if "border" not in style:
+            css = css + "border:0px solid #ddd"
+
+        
+        line = "<table style='{}'>\n".format(css)
+
         self.table_row = 0
-        #self.page.add_lines( line )
         return line
 
     # End HTML table
     def end_table(self):
-        #self.page.add_lines( "</table>\n" )
         return "</table>\n"
 
-    def start_row(self):
-        if self.table_row % 2 == 0:
-            #self.page.add_lines( "<tr style='background-color: #f0f0ff;padding: 8px;'>\n" )
-            return "<tr style='background-color: #f0f0ff;padding: 8px;'>\n"
-        else:
-            #self.page.add_lines( "<tr style='background-color: #fff0f0;padding: 8px;'>\n" )
-            return "<tr style='background-color: #fff0f0;padding: 8px;'>\n" 
+    
+    def start_row(self, style = {}):
+
+        css = "".join("{}:{};".format(k,v) for k,v in style.items())
+
+        # default background color
+        if "background-color" not in style:
+            if self.table_row % 2 == 0:
+                css = css +  "background-color: #f0f0ff;padding: 8px;"
+            else:
+                css = css +  "background-color: #fff0f0;padding: 8px;"
+        
+        return "  <tr style='{}'>\n".format(css) 
         
     def end_row(self):
         self.table_row = self.table_row + 1
-        #self.page.add_lines( "</tr>\n" )
-        return( "</tr>\n" )
+        return( "  </tr>\n" )
 
-    def add_cell(self, content, rowspan = 1, colspan = 1, pos = 3):
-        line = "<td "
-        if rowspan > 1:
-            line = line + "rowspan=\"{}\"".format(rowspan)
-        elif colspan > 1:
-            line = line + "colspan=\"{}\"".format(colspan)
+    
+    def add_cell(self, content, style = {}):
+        css = ""
+        for k,v in style.items():
+            if (k != "rowspan" and k!= "colspan"):
+                css = css + "{}:{};".format(k,v)
 
-        if pos == 1:
-            line = line + "align=\"left\""
-        elif pos == 2:
-            line = line + "align=\"right\""
-        elif pos == 3:
-            line = line + "align=\"center\""
-        
-        line = line + " style='padding: 8px;'>"
+        td_arg = ""
+        if "rowspan" in style and style["rowspan"] > 1:
+            td_arg = td_arg + " rowspan=\"{}\"".format(style["rowspan"])
+        if "colspan" in style and style["colspan"] > 1:
+            td_arg = td_arg + " colspan=\"{}\"".format(style["colspan"])
 
+
+            
+        #default padding
+        if "padding" not in style:
+            css = css + "padding: 8px;"
+
+        line = "<td {} style='{}'>".format(td_arg, css)
         line = line + str(content)
-        line = line + "</td>"
-        #self.page.add_lines(line)
+        line = line + "    </td>\n"
+
+        #print(line)
         return line
 
 
