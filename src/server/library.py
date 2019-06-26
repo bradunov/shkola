@@ -153,21 +153,30 @@ class library(object):
     # Start HTML table with <width> columns
     def start_table(self, style = {}):
 
-        css = "".join("{}:{};".format(k,v) for k,v in style.items())
+        css = ""
+        for k,v in style.items():
+            if (k != "align"):
+                css = css + "{}:{};".format(k,v)
 
         # default border
         if "border" not in style:
-            css = css + "border:0px solid #ddd"
+            css = css + "border:0px solid #ddd;"
 
-        
-        line = "<table style='{}'>\n".format(css)
+        # Pass align style to surrounding div
+        if "text-align" in style.keys():
+            div_ccs = "style='text-align:{}'".format(style["text-align"])
+            css = css + "margin:auto;"
+        else:
+            div_ccs = ""
+            
+        line = "<div {}>\n<table style='{}' id='AAA'>\n".format(div_ccs, css)
 
         self.table_row = 0
         return line
 
     # End HTML table
     def end_table(self):
-        return "</table>\n"
+        return "</table>\n</div>\n"
 
     
     def start_row(self, style = {}):

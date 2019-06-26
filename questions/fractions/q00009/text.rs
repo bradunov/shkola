@@ -1,38 +1,36 @@
-@h1@ 1.a Dopuni recenice @/h1@
+@h1@ 2. Koji deo figure je obojen? @/h1@
 
 
 @lib.start_table({["text-align"] = "center"})@
   @lib.start_row()@
-    @lib.add_cell("\(\frac{1}{4}\)", pink)@
-    @lib.add_cell("", white)@
-  @lib.end_row()@
-  @lib.start_row()@
-    @lib.add_cell("", white)@
+    @lib.add_cell("", pink)@
     @lib.add_cell("", white)@
   @lib.end_row()@
 @lib.end_table()@
 
 
-Obojena je @lib.check_value(1)@ cetvrtina.
-
-Zapisujemo razlomkom @lib.check_fraction(1, 4)@
-
-
+Zapisujemo razlomkom @lib.check_fraction(1, 2)@
 
 @lib.start_table({["text-align"] = "center"})@
   @lib.start_row()@
-    @lib.add_cell("\(\frac{1}{4}\)", green)@
-    @lib.add_cell("\(\frac{1}{4}\)", green)@
-  @lib.end_row()@
-  @lib.start_row()@
     @lib.add_cell("", white)@
+    @lib.add_cell("", orange)@
     @lib.add_cell("", white)@
   @lib.end_row()@
 @lib.end_table()@
 
 
-Obojena je @lib.check_value(2)@ cetvrtina.
+Zapisujemo razlomkom @lib.check_fraction(1, 3)@
+
+@lib.start_table({["text-align"] = "center"})@
+  @lib.start_row()@
+    @lib.add_cell("", green)@
+    @lib.add_cell("", green)@
+    @lib.add_cell("", white)@
+    @lib.add_cell("", white)@
+  @lib.end_row()@
+@lib.end_table()@
+
 
 Zapisujemo razlomkom @lib.check_fraction(2, 4)@
-
 
