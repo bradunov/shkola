@@ -19,7 +19,6 @@ fraction_table = function()
     for c=0,denom-1 do
       style = {}
       style["colspan"] = gcd/denom
-      print(denom, gcd, style["colspan"])
       style["text-align"] = "center"
       style["width"] = "10px"
       style["border"] = "1px solid"
