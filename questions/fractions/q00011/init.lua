@@ -10,7 +10,6 @@ fraction_table = function()
     for c=0,denom-1 do
       style = {}
       style["colspan"] = gcd/(r+1)
-      print(r+1, c, gcd, style["colspan"]) 
       style["text-align"] = "center"
       style["width"] = "40px"
       if (c == 0) then
