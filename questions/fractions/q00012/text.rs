@@ -1,3 +1,3 @@
-@h1@ 37. Обојене делове запиши једним разломком: @/h1@
+@h1@ 37. Obojene delove zapisi jednim razlomkom: @/h1@
 
 @fraction_table()@

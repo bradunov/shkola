@@ -169,7 +169,7 @@ class library(object):
         else:
             div_ccs = ""
             
-        line = "<div {}>\n<table style='{}' id='AAA'>\n".format(div_ccs, css)
+        line = "<div {}>\n<table style='{}'>\n".format(div_ccs, css)
 
         self.table_row = 0
         return line

@@ -77,6 +77,7 @@ class page(object):
         ret = ret + self.header()
         ret = ret + self.scripts()
         for l in self.lines:
+            #ret = ret + u''.join(l).encode('utf-8')
             ret = ret + str(l)
             
         ret = ret + "\n" + self.footer()
