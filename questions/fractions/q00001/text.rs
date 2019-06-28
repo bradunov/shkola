@@ -1,4 +1,4 @@
-@h1@ 1.a Dopuni recenice @/h1@
+@h1@ 1.a Допуни @/h1@
 
 
 @lib.start_table({["text-align"] = "center"})@
