@@ -168,7 +168,10 @@ class library(object):
             div_ccs = "style='text-align:{}'".format(style["text-align"])
             css = css + "margin:auto;"
         else:
-            div_ccs = ""
+            # default align is center
+            div_ccs = "style='text-align:{center}'"
+            css = css + "margin:auto;"
+
             
         line = "<div {}>\n<table style='{}'>\n".format(div_ccs, css)
 
@@ -272,22 +275,47 @@ class library(object):
         return code
 
 
-    def select_add_circles(self, object_id, x, y, width, height, ratio):
+    def select_add_object(self, object_id, otype, x, y, width, height, ratio):
         radiusx = width / (2*x* + 4*ratio)
         radiusy = height / (2*y + 4*ratio)
         r = min(radiusx, radiusy)
         stepx = (width - 2*r*x) / (x+1)
         stepy = (width - 2*r*x) / (x+1)
 
-        obj_str = "sel_obj_{}[{}] = paper_{}.circle({}, {}, {})"
-        attr_str = ".attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
+        if otype == "square":
+            obj_str = "sel_obj_{}[{}] = paper_{}.rect({}, {}, {}, {})"
+            attr_str = ".attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
+        else:  # Default: otype == "circle":
+            obj_str = "sel_obj_{}[{}] = paper_{}.circle({}, {}, {})"
+            attr_str = ".attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
+            
 
         code = ""
         for iy in range(0, y):
             for ix in range(0, x):
                 lx = stepx*(ix+1) + r*(2*ix+1)
                 ly = stepx*(iy+1) + r*(2*iy+1)
-                code = code + obj_str.format(object_id, iy*x+ix, object_id, lx, ly, r) + attr_str
+                if otype == "square":
+                    code = code + obj_str.format(object_id, iy*x+ix, object_id, lx-r, ly-r, 2*r, 2*r) + attr_str
+                else: # Default otype == "circle":
+                    code = code + obj_str.format(object_id, iy*x+ix, object_id, lx, ly, r) + attr_str
+
+        return code
+
+
+    def select_add_table(self, object_id, x, y, width, height, ratio):
+        swidth = width / x
+        sheight = height / y
+
+        obj_str = "sel_obj_{}[{}] = paper_{}.rect({}, {}, {}, {})"
+        attr_str = ".attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
+
+        code = ""
+        for iy in range(0, y):
+            for ix in range(0, x):
+                lx = swidth * ix
+                ly = sheight * iy
+                code = code + obj_str.format(object_id, iy*x+ix, object_id, lx, ly, swidth, sheight) + attr_str
 
         return code
 
@@ -357,15 +385,28 @@ class library(object):
             
         if "color" in style.keys():
             color = style["color"]
+
+        if otype == "table":
+            object_code = self.select_add_table(object_id, x, y, width, height, ratio)
+        else: # default circle, square, ...
+            object_code = self.select_add_object(object_id, otype, x, y, width, height, ratio)
             
+
+        # Pass align style to surrounding div
+        if "text-align" in style.keys():
+            div_ccs = "style='text-align:{}'".format(style["text-align"])
+        else:
+            # default align is center
+            div_ccs = "style='text-align:center'"
+
         script = """
-        <div id = "sel_canvas_""" + object_id + """">
+        <div """ + div_ccs + """ id = "sel_canvas_""" + object_id + """">
         <script type = "text/javascript">
 	var paper_""" + object_id +\
             """ = Raphael("sel_canvas_""" + object_id + """", """ + \
             str(width) + ", " + str(height) + """);
 	var sel_obj_""" + object_id + """ = [];
-        """ + self.select_add_circles(object_id, x, y, width, height, ratio) + \
+        """ + object_code + \
             self.select_checks_and_clears(object_id, x*y, check_code) + \
             self.select_object_onmouse(object_id, x*y, color) + """
         </script>
