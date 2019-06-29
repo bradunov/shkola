@@ -250,3 +250,85 @@ class library(object):
         self.add_check_button()
         self.add_clear_button()
         self.page.add_lines("\n</div>\n")
+
+
+
+
+    ### Code that implements select objects animation
+
+    def select_object_onmouse(self, object_id, n, color):
+        oid = str(object_id)
+        code = """
+  	for (let i=0; i<""" + str(n) + """; i++) {
+  	  sel_obj_""" + oid + """[i].mousedown( function() {
+	    console.log(sel_obj_""" + oid + """[i].attrs["fill"]);
+	    if (sel_obj_""" + oid + """[i].attrs["fill"] == "#fff")
+  	      sel_obj_""" + oid + """[i].attr({fill: "#""" + color + """"});
+	    else
+  	      sel_obj_""" + oid + """[i].attr({fill: "#fff"});
+	  });
+        }
+        """
+        return code
+
+
+    def select_add_circles(self, object_id, x, y, width, height, ratio):
+        radiusx = width / (2*x* + 4*ratio)
+        radiusy = height / (2*y + 4*ratio)
+        r = min(radiusx, radiusy)
+        stepx = (width - 2*r*x) / (x+1)
+        stepy = (width - 2*r*x) / (x+1)
+
+        obj_str = "sel_obj_{}[{}] = paper_{}.circle({}, {}, {})"
+        attr_str = ".attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
+
+        code = ""
+        for iy in range(0, y):
+            for ix in range(0, x):
+                lx = stepx*(ix+1) + r*(2*ix+1)
+                ly = stepx*(iy+1) + r*(2*iy+1)
+                code = code + obj_str.format(object_id, iy*x+ix, object_id, lx, ly, r) + attr_str
+
+        return code
+
+        
+
+
+    # style:
+    # - height, width: canvas size
+    # - ratio: spacing_between_object / object_radius
+    def select_objects(self, x, y, otype, style = {}):
+        object_id = str(self.get_object_id())
+        width = 300
+        height = 300
+        ratio = 0.3
+        color = "aaa"
+
+        if "width" in style.keys():
+            width = style["width"]
+            
+        if "height" in style.keys():
+            height = style["height"]
+
+        if "ratio" in style.keys():
+            ratio = style["ratio"]
+            
+        if "color" in style.keys():
+            color = style["color"]
+            
+        script = """
+        <div id = "sel_canvas_""" + object_id + """">
+        <script type = "text/javascript">
+	var paper_""" + object_id +\
+            """ = Raphael("sel_canvas_""" + object_id + """", """ + \
+            str(width) + ", " + str(height) + """);
+	var sel_obj_""" + object_id + """ = [];
+        """ + self.select_add_circles(object_id, x, y, width, height, ratio) + \
+            self.select_object_onmouse(object_id, x*y, color) + """
+        </script>
+        </div>
+        """
+
+        self.page.add_lines(script)
+
+        

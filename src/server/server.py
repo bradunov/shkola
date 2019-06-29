@@ -208,7 +208,7 @@ if __name__ == '__main__':
 
     if test:
         editor = editor()
-        output = editor.index("fractions/q00012", "rs")
+        output = editor.index("fractions/q00013", "rs")
         print("\n\n\n================================================\n\n\n")
         print(output)
     else:
