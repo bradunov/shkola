@@ -28,7 +28,7 @@ class library(object):
         <script type = "text/javascript">
         function """ + item_name + """_cond() {
           if (""" + str_condition + """) {
-            clearError('""" + item_name + """');
+            setOK('""" + item_name + """');
             return true;
           } else {
             setError('""" + item_name + """');
@@ -83,7 +83,7 @@ class library(object):
 	   "type='text' id='{}'/>".format(n_answer)
 
         self.checks.append("{}_cond()".format(n_answer))
-        self.clears.append("document.getElementById('{}').value = '';".format(n_answer))
+        self.clears.append("document.getElementById('{}').value = '';clearAllWBorder('{}');".format(n_answer, n_answer))
         
         #self.page.add_lines( line )
         return line
@@ -129,6 +129,7 @@ class library(object):
         
 
         self.checks.append("{}_cond()".format(n_answer_table))
+        self.clears.append("clearAllNoBorder('{}');".format(n_answer_table))
         self.clears.append("document.getElementById('{}').value = '';".format(n_answer_numerator))
         self.clears.append("document.getElementById('{}').value = '';".format(n_answer_denominator))
         if whole is not None:
@@ -233,7 +234,7 @@ class library(object):
             cid = cid + 1
         cond = cond + "true;"
         line = line + cond
-        line = line + "if (cond) alert(\"All OK\")' value='Check' />\n"
+        line = line + "' value='Check' />\n"
         #print(line)
         self.page.add_lines(line)
         
@@ -302,6 +303,7 @@ class library(object):
      	  for (let i=0; i<""" + str(n) + """; i++) {
   	    sel_obj_""" + oid + """[i].attr({fill: "#fff"});
           }
+          clearAllNoBorder('sel_canvas_""" + oid + """');
         }
         """
         code_check = """
@@ -315,7 +317,7 @@ class library(object):
             }
           }
           if (""" + modified_check + """) {
-            clearError('sel_canvas_""" + oid + """');
+            setOK('sel_canvas_""" + oid + """');
             return true;
           } else {
             setError('sel_canvas_""" + oid + """');

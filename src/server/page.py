@@ -63,8 +63,14 @@ class page(object):
         function setError(id) {
           document.getElementById(id).style.border = "3px solid red";
         }
-        function clearError(id) {
+        function setOK(id) {
+          document.getElementById(id).style.border = "3px solid green";
+        }
+        function clearAllWBorder(id) {
           document.getElementById(id).style.border = "1px solid #ccc";
+        }
+        function clearAllNoBorder(id) {
+          document.getElementById(id).style.border = "0px solid white";
         }
         </script>  
         """    
