@@ -61,11 +61,9 @@ class page(object):
         return """
         <script type = "text/javascript">
         function setError(id) {
-          console.log("setError");
           document.getElementById(id).style.border = "3px solid red";
         }
         function clearError(id) {
-          console.log("clearError");
           document.getElementById(id).style.border = "1px solid #ccc";
         }
         </script>  

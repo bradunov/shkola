@@ -261,7 +261,6 @@ class library(object):
         code = """
   	for (let i=0; i<""" + str(n) + """; i++) {
   	  sel_obj_""" + oid + """[i].mousedown( function() {
-	    console.log(sel_obj_""" + oid + """[i].attrs["fill"]);
 	    if (sel_obj_""" + oid + """[i].attrs["fill"] == "#fff")
   	      sel_obj_""" + oid + """[i].attr({fill: "#""" + color + """"});
 	    else
@@ -291,13 +290,54 @@ class library(object):
 
         return code
 
+
+    def select_checks_and_clears(self, object_id, n, check):
+        oid = str(object_id)
+
+        # Special hack: JS doesn't have a sum function so we hard code it:
+        modified_check = check.replace("sum(result)", "(result.reduce((a, b) => a + b, 0))")
+        
+        code_clear = """
+        function sel_obj_""" + oid + """_clear() {
+     	  for (let i=0; i<""" + str(n) + """; i++) {
+  	    sel_obj_""" + oid + """[i].attr({fill: "#fff"});
+          }
+        }
+        """
+        code_check = """
+        function sel_obj_""" + oid + """_check() {
+          var result = []
+     	  for (let i=0; i<""" + str(n) + """; i++) {
+            if (sel_obj_""" + oid + """[i].attrs['fill'] == '#fff') {
+  	      result[i] = 0;
+            } else {
+  	      result[i] = 1;
+            }
+          }
+          if (""" + modified_check + """) {
+            clearError('sel_canvas_""" + oid + """');
+            return true;
+          } else {
+            setError('sel_canvas_""" + oid + """');
+            return false;
+          }
+        }
+        """
+        self.checks.append("sel_obj_{}_check();".format(oid))
+        self.clears.append("sel_obj_{}_clear();".format(oid))
+        return code_clear + code_check;
         
 
 
-    # style:
-    # - height, width: canvas size
-    # - ratio: spacing_between_object / object_radius
-    def select_objects(self, x, y, otype, style = {}):
+    # Parameters:
+    # - x, y: size in number of objects
+    # - otype: circles, ...
+    # - check_code: JScript code to check <result> string (e.g. "(result[0] == 1)")
+    #   <result> is an array of size x*y which has 0 if object not checked or 1 if checked.
+    # - style:
+    #   - height, width: canvas size
+    #   - ratio: spacing_between_object / object_radius
+    def select_objects(self, x, y, otype, check_code, style = {}):
         object_id = str(self.get_object_id())
         width = 300
         height = 300
@@ -324,6 +364,7 @@ class library(object):
             str(width) + ", " + str(height) + """);
 	var sel_obj_""" + object_id + """ = [];
         """ + self.select_add_circles(object_id, x, y, width, height, ratio) + \
+            self.select_checks_and_clears(object_id, x*y, check_code) + \
             self.select_object_onmouse(object_id, x*y, color) + """
         </script>
         </div>
