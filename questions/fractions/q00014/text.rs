@@ -1,5 +1,4 @@
-@h1@ Osvetlite \(\frac{1}{3}\) polja @/h1@
+@h1@ Upisi razlomke u polja table: @/h1@
 
-@center@ @lib.select_objects(3, 2, "table", "sum(result) == 2", style)@
-
+@fraction_table()@
 
