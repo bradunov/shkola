@@ -301,7 +301,7 @@ class library(object):
                 if otype == "square":
                     code = code + obj_str.format(object_id, iy*x+ix, object_id, lx-r, ly-r, 2*r, 2*r) + attr_str
                 elif otype == "triangle":
-                    code = code + obj_str.format(object_id, iy*x+ix, object_id, lx-r, ly-r, 2*r, r, -2*r, r, 0, -2*r) + attr_str
+                    code = code + obj_str.format(object_id, iy*x+ix, object_id, lx-r, ly+r, r, -2*r, r, 2*r, -2*r, 0) + attr_str
                 else: # Default otype == "circle":
                     code = code + obj_str.format(object_id, iy*x+ix, object_id, lx, ly, r) + attr_str
 
