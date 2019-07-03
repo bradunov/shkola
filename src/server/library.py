@@ -285,6 +285,9 @@ class library(object):
         if otype == "square":
             obj_str = "sel_obj_{}[{}] = paper_{}.rect({}, {}, {}, {})"
             attr_str = ".attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
+        elif otype == "triangle":
+            obj_str = "sel_obj_{}[{}] = paper_{}.path('M {} {} l {} {} l {} {} l {} {}')"
+            attr_str = ".attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
         else:  # Default: otype == "circle":
             obj_str = "sel_obj_{}[{}] = paper_{}.circle({}, {}, {})"
             attr_str = ".attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
@@ -297,6 +300,8 @@ class library(object):
                 ly = stepx*(iy+1) + r*(2*iy+1)
                 if otype == "square":
                     code = code + obj_str.format(object_id, iy*x+ix, object_id, lx-r, ly-r, 2*r, 2*r) + attr_str
+                elif otype == "triangle":
+                    code = code + obj_str.format(object_id, iy*x+ix, object_id, lx-r, ly-r, 2*r, r, -2*r, r, 0, -2*r) + attr_str
                 else: # Default otype == "circle":
                     code = code + obj_str.format(object_id, iy*x+ix, object_id, lx, ly, r) + attr_str
 

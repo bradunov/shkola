@@ -1,9 +1,8 @@
-@h1@ Osvetlite \(\frac{1}{3}\) svih krugova i kvadrata @/h1@
+@h1@ Osvetlite \(\frac{1}{2}\) svih krugova na različite načine  @/h1@
+ 
+@center@ @lib.select_objects(4, 3, "circle", "sum(result) == 6", style)@
 
-Krugovi: 
-@center@ @lib.select_objects(3, 3, "circle", "sum(result) == 3", style)@
+@center@ @lib.select_objects(4, 3, "circle", "sum(result) == 6", style)@
 
-Kvadrati:
-@center@ @lib.select_objects(3, 3, "square", "sum(result) == 3", style)@
-
+@center@ @lib.select_objects(4, 3, "circle", "sum(result) == 6", style)@
 

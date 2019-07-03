@@ -1,4 +1,4 @@
-@h1@ 1. Obojene delove izrazi razlomkom. @/h1@
+@h3@ Obojene delove izrazi razlomkom. @/h3@
 
 
 @lib.start_table({["text-align"] = "center"})@
@@ -8,7 +8,7 @@
   @lib.end_row()@
 @lib.end_table()@  
 
-Zapisujemo razlomkom @lib.check_fraction(1, 2)@
+@center@ @lib.check_fraction(1, 2)@
 
 @lib.start_table({["text-align"] = "center"})@
   @lib.start_row()@
@@ -18,7 +18,7 @@ Zapisujemo razlomkom @lib.check_fraction(1, 2)@
   @lib.end_row()@
 @lib.end_table()@
 
-Zapisujemo razlomkom @lib.check_fraction(1, 3)@
+@center@ @lib.check_fraction(1, 3)@
 
 @lib.start_table({["text-align"] = "center"})@
   @lib.start_row()@
@@ -29,8 +29,7 @@ Zapisujemo razlomkom @lib.check_fraction(1, 3)@
   @lib.end_row()@
 @lib.end_table()@
 
-
-Zapisujemo razlomkom @lib.check_fraction(1, 4)@
+@center@ @lib.check_fraction(1, 4)@
 
 @lib.start_table({["text-align"] = "center"})@
   @lib.start_row()@
@@ -42,8 +41,7 @@ Zapisujemo razlomkom @lib.check_fraction(1, 4)@
   @lib.end_row()@
 @lib.end_table()@
 
-
-Zapisujemo razlomkom @lib.check_fraction(1, 5)@
+@center@ @lib.check_fraction(1, 5)@
 
 @lib.start_table({["text-align"] = "center"})@
   @lib.start_row()@
@@ -56,5 +54,4 @@ Zapisujemo razlomkom @lib.check_fraction(1, 5)@
   @lib.end_row()@
 @lib.end_table()@
 
-Zapisujemo razlomkom @lib.check_fraction(1, 6)@
-
+@center@ @lib.check_fraction(1, 6)@
