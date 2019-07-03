@@ -31,8 +31,8 @@ Zapisujemo razlomkom @lib.check_fraction(1, 4)@
 @lib.end_table()@
 
 
-Obojena je @lib.check_value(2)@ cetvrtina.
+Obojena je @lib.check_value('is_ok = (answer == 2)')@ cetvrtina.
 
-Zapisujemo razlomkom @lib.check_fraction(2, 4)@
+Zapisujemo razlomkom @lib.check_fraction("is_ok = (numerator/denominator == 0.5)")@
 
 

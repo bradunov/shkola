@@ -23,11 +23,14 @@ class library(object):
         self.checks = []
         self.clears = []
 
+    # str_condition: ok == <condition>
     def condition_check_script(self, item_name, str_condition):
         script = """
         <script type = "text/javascript">
         function """ + item_name + """_cond() {
-          if (""" + str_condition + """) {
+          var ok;
+          """ + str_condition + """
+          if (is_ok) {
             setOK('""" + item_name + """');
             return true;
           } else {
@@ -72,7 +75,7 @@ class library(object):
         n_correct = 'check_number_correct_{}'.format(qid)
         v_answer = "document.getElementById(\'" + n_answer + "\').value"
         if "answer" not in str(condition):
-            str_condition = v_answer + " == \'" + str(condition) + "\'"
+            str_condition = "is_ok = (" + v_answer + " == \'" + str(condition) + "\');"
         else:
             str_condition = condition.replace("answer", v_answer)
 
@@ -90,7 +93,11 @@ class library(object):
 
 
     # Input fraction as whole + numerator / denominator and verifies whether the answer matches
-    def check_fraction(self, numerator, denominator, whole = None):
+    # Two case:
+    # - If denominator is not None, we just compare numerical values
+    # - If denominator is None, we treat numerator as JavaScript condition
+    #   with variables <numerator>, <denominator> and <whole> in it
+    def check_fraction(self, numerator, denominator = None, whole = None):
         qid = self.get_object_id()
         n_answer_numerator = 'check_fraction_answer_numerator_{}'.format(qid)
         n_answer_denominator = 'check_fraction_answer_denominator_{}'.format(qid)
@@ -102,13 +109,17 @@ class library(object):
 
         n_answer_table = "check_fraction_answer_table_{}".format(qid)
 
-        str_condition = "(" + v_answer_numerator + " == \'" + str(numerator) + "\' && " 
-        str_condition = str_condition + v_answer_denominator + " == \'" + str(denominator) + "\'"
-
-
-        if whole is not None:
-            str_condition = str_condition + " && " + v_answer_whole + " == \'" + str(whole) + "\'"
-        str_condition = str_condition + ")"
+        if denominator is None:
+            # numerator is actually a JS condition
+            str_condition = numerator.replace("numerator", v_answer_numerator)\
+                                     .replace("denominator", v_answer_denominator)\
+                                     .replace("whole", v_answer_whole)
+        else:
+            str_condition = "is_ok = (" + v_answer_numerator + " == \'" + str(numerator) + "\' && " 
+            str_condition = str_condition + v_answer_denominator + " == \'" + str(denominator) + "\'"
+            if whole is not None:
+                str_condition = str_condition + " && " + v_answer_whole + " == \'" + str(whole) + "\'"
+            str_condition = str_condition + ")"
 
         self.condition_check_script(n_answer_table, str_condition)
 
@@ -275,7 +286,8 @@ class library(object):
         return code
 
 
-    def select_add_object(self, object_id, otype, x, y, width, height, ratio):
+    def select_add_object(self, object_id, otype, x, y, width, height, ratio, \
+                          off_color = "fff", on_color = "aff", initial_state = None):
         radiusx = width / (2*x* + 4*ratio)
         radiusy = height / (2*y + 4*ratio)
         r = min(radiusx, radiusy)
@@ -284,20 +296,26 @@ class library(object):
 
         if otype == "square":
             obj_str = "sel_obj_{}[{}] = paper_{}.rect({}, {}, {}, {})"
-            attr_str = ".attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
         elif otype == "triangle":
             obj_str = "sel_obj_{}[{}] = paper_{}.path('M {} {} l {} {} l {} {} l {} {}')"
-            attr_str = ".attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
         else:  # Default: otype == "circle":
             obj_str = "sel_obj_{}[{}] = paper_{}.circle({}, {}, {})"
-            attr_str = ".attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
             
+        off_attr_str = ".attr({fill: \"#" + off_color + "\", stroke: \"#000\", \"stroke-width\": 2});\n"
+        on_attr_str = ".attr({fill: \"#" + on_color + "\", stroke: \"#000\", \"stroke-width\": 2});\n"
 
         code = ""
         for iy in range(0, y):
             for ix in range(0, x):
                 lx = stepx*(ix+1) + r*(2*ix+1)
                 ly = stepx*(iy+1) + r*(2*iy+1)
+
+                ind = iy * x + ix
+                if initial_state is not None and len(initial_state) > ind and initial_state[ind+1] == 1:
+                    attr_str = on_attr_str
+                else:
+                    attr_str = off_attr_str
+
                 if otype == "square":
                     code = code + obj_str.format(object_id, iy*x+ix, object_id, lx-r, ly-r, 2*r, 2*r) + attr_str
                 elif otype == "triangle":
@@ -308,19 +326,28 @@ class library(object):
         return code
 
 
-    def select_add_table(self, object_id, x, y, width, height, ratio):
+    def select_add_table(self, object_id, x, y, width, height, ratio, \
+                         off_color = "fff", on_color = "aff", initial_state = None):
         swidth = width / x
         sheight = height / y
 
         obj_str = "sel_obj_{}[{}] = paper_{}.rect({}, {}, {}, {})"
-        attr_str = ".attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
+        off_attr_str = ".attr({fill: \"#" + off_color + "\", stroke: \"#000\", \"stroke-width\": 2});\n"
+        on_attr_str = ".attr({fill: \"#" + on_color + "\", stroke: \"#000\", \"stroke-width\": 2});\n"
 
         code = ""
         for iy in range(0, y):
             for ix in range(0, x):
                 lx = swidth * ix
                 ly = sheight * iy
-                code = code + obj_str.format(object_id, iy*x+ix, object_id, lx, ly, swidth, sheight) + attr_str
+                ind = iy * x + ix
+                
+                if initial_state is not None and len(initial_state) > ind and initial_state[ind+1] == 1:
+                    attr_str = on_attr_str
+                else:
+                    attr_str = off_attr_str
+                code = code + obj_str.format(object_id, iy*x+ix, object_id, lx, ly, swidth, sheight) + \
+                       attr_str
 
         return code
 
@@ -372,12 +399,16 @@ class library(object):
     # - style:
     #   - height, width: canvas size
     #   - ratio: spacing_between_object / object_radius
+    #   - select: true (default) if the user is expected to enter input by selecting elements)
+    #             false if it is used only for visualisation
     def select_objects(self, x, y, otype, check_code, style = {}):
         object_id = str(self.get_object_id())
         width = 300
         height = 300
         ratio = 0.3
+        select = True
         color = "aaa"
+        initial_state = None
 
         if "width" in style.keys():
             width = style["width"]
@@ -391,10 +422,16 @@ class library(object):
         if "color" in style.keys():
             color = style["color"]
 
+        if "select" in style.keys():
+            select = style["select"]
+
+        if "initial_state" in style.keys():
+            initial_state = style["initial_state"]
+            
         if otype == "table":
-            object_code = self.select_add_table(object_id, x, y, width, height, ratio)
+            object_code = self.select_add_table(object_id, x, y, width, height, ratio, on_color=color, initial_state=initial_state)
         else: # default circle, square, ...
-            object_code = self.select_add_object(object_id, otype, x, y, width, height, ratio)
+            object_code = self.select_add_object(object_id, otype, x, y, width, height, ratio, on_color=color, initial_state=initial_state)
             
 
         # Pass align style to surrounding div
@@ -411,9 +448,12 @@ class library(object):
             """ = Raphael("sel_canvas_""" + object_id + """", """ + \
             str(width) + ", " + str(height) + """);
 	var sel_obj_""" + object_id + """ = [];
-        """ + object_code + \
-            self.select_checks_and_clears(object_id, x*y, check_code) + \
-            self.select_object_onmouse(object_id, x*y, color) + """
+        """ + object_code
+        if select:
+            script = script + \
+                     self.select_checks_and_clears(object_id, x*y, check_code) + \
+                     self.select_object_onmouse(object_id, x*y, color)
+        script = script + """
         </script>
         </div>
         """

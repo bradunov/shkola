@@ -316,7 +316,7 @@ class question(object):
         code = code.replace("\\", "\\\\")
 
         # DEBUG
-        #print(strings)
+        print(strings)
         print(code)
         
         lua_fun = self.lua.eval(code)
