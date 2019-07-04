@@ -1,9 +1,9 @@
-@h1@ 1.a Допуни @/h1@
+@h1@ Dopuni  @/h1@
 
 
 @lib.start_table({["text-align"] = "center"})@
   @lib.start_row()@
-    @lib.add_cell("\(\frac{1}{4}\)", pink)@
+    @lib.add_cell("", pink)@
     @lib.add_cell("", white)@
   @lib.end_row()@
   @lib.start_row()@
@@ -13,7 +13,7 @@
 @lib.end_table()@
 
 
-Obojena je @lib.check_value(1)@ cetvrtina.
+Obojena je @lib.check_value(1)@ četvrtina.
 
 Zapisujemo razlomkom @lib.check_fraction(1, 4)@
 
@@ -21,8 +21,8 @@ Zapisujemo razlomkom @lib.check_fraction(1, 4)@
 
 @lib.start_table({["text-align"] = "center"})@
   @lib.start_row()@
-    @lib.add_cell("\(\frac{1}{4}\)", green)@
-    @lib.add_cell("\(\frac{1}{4}\)", green)@
+    @lib.add_cell("", green)@
+    @lib.add_cell("", green)@
   @lib.end_row()@
   @lib.start_row()@
     @lib.add_cell("", white)@
@@ -31,7 +31,7 @@ Zapisujemo razlomkom @lib.check_fraction(1, 4)@
 @lib.end_table()@
 
 
-Obojena je @lib.check_value('is_ok = (answer == 2)')@ cetvrtina.
+Obojene su @lib.check_value('is_ok = (answer == 2)')@ četvrtine.
 
 Zapisujemo razlomkom @lib.check_fraction("is_ok = (numerator/denominator == 0.5)")@
 

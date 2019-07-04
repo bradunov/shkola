@@ -1,13 +1,13 @@
-@h2@ 17. Попуни табелу: @/h2@
+@h2@ Popuni tabelu: @/h2@
 
 @lib.start_table()@
   @lib.start_row()@
-    @lib.add_cell("Број a")@
-    @lib.add_cell("\(\frac{1}{"..tostring(denom[1]).."}\) од a")@
-    @lib.add_cell("\(\frac{1}{"..tostring(denom[2]).."}\) од a")@
-    @lib.add_cell("\(\frac{1}{"..tostring(denom[3]).."}\) од a")@
-    @lib.add_cell("\(\frac{1}{"..tostring(denom[4]).."}\) од a")@
-    @lib.add_cell("\(\frac{1}{"..tostring(denom[5]).."}\) од a")@
+    @lib.add_cell("broj a")@
+    @lib.add_cell("\(\frac{1}{"..tostring(denom[1]).."}\) od a")@
+    @lib.add_cell("\(\frac{1}{"..tostring(denom[2]).."}\) od a")@
+    @lib.add_cell("\(\frac{1}{"..tostring(denom[3]).."}\) od a")@
+    @lib.add_cell("\(\frac{1}{"..tostring(denom[4]).."}\) od a")@
+    @lib.add_cell("\(\frac{1}{"..tostring(denom[5]).."}\) od a")@
   @lib.end_row()@
   @repeat(5)@
   @lib.start_row()@

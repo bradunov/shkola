@@ -1,12 +1,12 @@
-@h2@ 8.	Посматрај слику и одговори: @/h2@
+@h2@ Posmatraj sliku i odgovori: @/h2@
 
 @center@ @fraction_table(3)@
+Jedno celo ima @lib.check_value(5)@ petina.
+Jedno celo ima @lib.check_value(10)@ desetina.
 
-Једно цело има @lib.check_value(5)@ петина.
-Једно цело има @lib.check_value(10)@ десетина.
+@h3@ Uporedi: @/h3@
 
-@h3@ Упореди: @/h3@
-
-Који део је већи, \(\frac{1}{5}\) или \(\frac{1}{10}\)?
+Koji deo je veći, \(\frac{1}{5}\) ili \(\frac{1}{10}\)?	
 @center@ \(\frac{1}{5}\) @lib.check_value(">")@ \(\frac{1}{10}\)
+
 

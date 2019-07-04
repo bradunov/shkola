@@ -1,4 +1,4 @@
-@h1@ 2. Obojeni deo figure zapisi razlomkom. @/h1@
+@h1@ Obojeni deo figure zapiši razlomkom: @/h1@
 
 @lib.start_table({["text-align"] = "center"})@
 @repeat(3)@

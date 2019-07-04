@@ -1,7 +1,5 @@
 
-
-Napisi kao ceo broj i ostatak:
-
+Napiši kao ceo broj i razlomak:
 
 @repeat(3)@
 
