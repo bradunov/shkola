@@ -248,7 +248,7 @@ class library(object):
             cid = cid + 1
         cond = cond + "true;"
         line = line + cond
-        line = line + "' value='Check' />\n"
+        line = line + "' value='Proveri' />\n"
         #print(line)
         self.page.add_lines(line)
         
@@ -256,7 +256,7 @@ class library(object):
         line = "\n<input type='button' onclick=\""
         for c in self.clears:
             line = line + c
-        line = line + "\" value='Clear' />\n"
+        line = line + "\" value='Obriši' />\n"
         #print(line)
         self.page.add_lines(line)
 
