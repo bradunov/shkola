@@ -8,7 +8,7 @@
   @lib.end_row()@
 @lib.end_table()@  
 
-@center@ @lib.check_fraction(1, 2)@
+@center@ @lib.check_fraction_simple(1, 2)@
 
 @lib.start_table({["text-align"] = "center"})@
   @lib.start_row()@
@@ -18,7 +18,7 @@
   @lib.end_row()@
 @lib.end_table()@
 
-@center@ @lib.check_fraction(1, 3)@
+@center@ @lib.check_fraction_simple(1, 3)@
 
 @lib.start_table({["text-align"] = "center"})@
   @lib.start_row()@
@@ -29,7 +29,7 @@
   @lib.end_row()@
 @lib.end_table()@
 
-@center@ @lib.check_fraction(1, 4)@
+@center@ @lib.check_fraction_simple(1, 4)@
 
 @lib.start_table({["text-align"] = "center"})@
   @lib.start_row()@
@@ -41,7 +41,7 @@
   @lib.end_row()@
 @lib.end_table()@
 
-@center@ @lib.check_fraction(1, 5)@
+@center@ @lib.check_fraction_simple(1, 5)@
 
 @lib.start_table({["text-align"] = "center"})@
   @lib.start_row()@
@@ -54,4 +54,4 @@
   @lib.end_row()@
 @lib.end_table()@
 
-@center@ @lib.check_fraction(1, 6)@
+@center@ @lib.check_fraction_simple(1, 6)@

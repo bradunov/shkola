@@ -13,7 +13,8 @@ fraction_table = function()
       style["text-align"] = "center"
       style["width"] = "40px"
       if (c == 0) then
-        text = text .. lib.add_cell(lib.check_fraction(1, r+1), style)
+        condition = "is_ok = (numerator * "..tostring(r+1).." == denominator);"
+        text = text .. lib.add_cell(lib.check_fraction_condition(condition), style)
       else
         text = text .. lib.add_cell("", style)
       end

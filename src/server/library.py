@@ -14,6 +14,7 @@ class library(object):
     def __init__(self, page):
         self.page = page
         self.checks = []
+        self.object_id = 0
     
     def get_object_id(self):
         self.object_id = self.object_id+1
@@ -73,7 +74,7 @@ class library(object):
         qid = self.get_object_id()
         n_answer = 'check_number_answer_{}'.format(qid)
         n_correct = 'check_number_correct_{}'.format(qid)
-        v_answer = "document.getElementById(\'" + n_answer + "\').value"
+        v_answer = "Number(document.getElementById(\'" + n_answer + "\').value)"
         if "answer" not in str(condition):
             str_condition = "is_ok = (" + v_answer + " == \'" + str(condition) + "\');"
         else:
@@ -93,33 +94,39 @@ class library(object):
 
 
     # Input fraction as whole + numerator / denominator and verifies whether the answer matches
-    # Two case:
-    # - If denominator is not None, we just compare numerical values
-    # - If denominator is None, we treat numerator as JavaScript condition
-    #   with variables <numerator>, <denominator> and <whole> in it
-    def check_fraction(self, numerator, denominator = None, whole = None):
+    # If whole is not given, inputs only numerator and denominator
+    def check_fraction_simple(self, numerator, denominator, whole = None):
+        str_condition = "is_ok = (numerator == \'" + str(numerator) + "\' && " 
+        str_condition = str_condition + "denominator  == \'" + str(denominator) + "\'"
+        if whole is not None:
+            str_condition = str_condition + " && whole == \'" + str(whole) + "\'"
+        str_condition = str_condition + ")"
+        return self.check_fraction_condition(str_condition, whole is not None)
+    
+
+
+    
+    # Input fraction as whole + numerator / denominator and verifies whether the answer matches
+    # - <condition> is a JavaScript condition with variables <numerator>, <denominator> and <whole> in it
+    def check_fraction_condition(self, condition, whole = False):
         qid = self.get_object_id()
         n_answer_numerator = 'check_fraction_answer_numerator_{}'.format(qid)
         n_answer_denominator = 'check_fraction_answer_denominator_{}'.format(qid)
         n_answer_whole = 'check_fraction_answer_whole_{}'.format(qid)
         n_correct = 'check_fraction_correct_{}'.format(qid)
-        v_answer_numerator = "document.getElementById(\'" + n_answer_numerator + "\').value"
-        v_answer_denominator = "document.getElementById(\'" + n_answer_denominator + "\').value"
-        v_answer_whole = "document.getElementById(\'" + n_answer_whole + "\').value"
+        v_answer_numerator = "Number(document.getElementById(\'" + n_answer_numerator + "\').value)"
+
+        #Default denominator is 0, not 1
+        v_answer_denominator = "Number(document.getElementById(\'" + n_answer_denominator + "\').value)"
+        v_answer_denominator = "(((" + v_answer_denominator + ") == 0)?1:(" + v_answer_denominator + "))"
+        
+        v_answer_whole = "Number(document.getElementById(\'" + n_answer_whole + "\').value)"
 
         n_answer_table = "check_fraction_answer_table_{}".format(qid)
 
-        if denominator is None:
-            # numerator is actually a JS condition
-            str_condition = numerator.replace("numerator", v_answer_numerator)\
-                                     .replace("denominator", v_answer_denominator)\
-                                     .replace("whole", v_answer_whole)
-        else:
-            str_condition = "is_ok = (" + v_answer_numerator + " == \'" + str(numerator) + "\' && " 
-            str_condition = str_condition + v_answer_denominator + " == \'" + str(denominator) + "\'"
-            if whole is not None:
-                str_condition = str_condition + " && " + v_answer_whole + " == \'" + str(whole) + "\'"
-            str_condition = str_condition + ")"
+        str_condition = condition.replace("numerator", v_answer_numerator)\
+                                 .replace("denominator", v_answer_denominator)\
+                                 .replace("whole", v_answer_whole)
 
         self.condition_check_script(n_answer_table, str_condition)
 
@@ -128,22 +135,16 @@ class library(object):
         input_denominator = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_denominator + "' />"
         input_whole = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_whole + "' />"
         input_frac = "\n<table style='display:inline-table;vertical-align:middle' id='{}'>\n<tbody>\n<tr>\n".format(n_answer_table)
-        if whole is not None:
+        if whole:
             input_frac = input_frac + "<td rowspan=\"2\">" + input_whole + "</td>\n"
         input_frac = input_frac + "<td style=\"border-bottom:solid 1px\">" + input_numerator + "</td>\n"
         input_frac = input_frac + "</tr>\n<tr>\n<td>" + input_denominator + "</td>\n</tr>\n</tbody>\n</table>\n"
-
-        # button = "\n<input type=\"button\" onclick=\"document.getElementById(\'" + n_correct + \
-        #     "\').innerHTML = ((" + str_condition + ")?\'OK\':\'NOT OK\')\" value=\"Proveri\" />" + \
-        #     "\n<p id=\"" + n_correct + "\"></p>\n"
-        # line = input_frac + button
-        
 
         self.checks.append("{}_cond()".format(n_answer_table))
         self.clears.append("clearAllNoBorder('{}');".format(n_answer_table))
         self.clears.append("document.getElementById('{}').value = '';".format(n_answer_numerator))
         self.clears.append("document.getElementById('{}').value = '';".format(n_answer_denominator))
-        if whole is not None:
+        if whole:
             self.clears.append("document.getElementById('{}').value = '';".format(n_answer_whole))
 
         #self.page.add_lines( input_frac )
@@ -236,35 +237,6 @@ class library(object):
 
         #print(line)
         return line
-
-
-    def add_check_button(self):
-        line = "\n<input type='button' onclick='"
-        cid = 0
-        cond = "cond = "
-        for c in self.checks:
-            line = line + "c" + str(cid) + " = " + c + "; "
-            cond = cond + "c" + str(cid) + " && "
-            cid = cid + 1
-        cond = cond + "true;"
-        line = line + cond
-        line = line + "' value='Proveri' />\n"
-        #print(line)
-        self.page.add_lines(line)
-        
-    def add_clear_button(self):
-        line = "\n<input type='button' onclick=\""
-        for c in self.clears:
-            line = line + c
-        line = line + "\" value='Obriši' />\n"
-        #print(line)
-        self.page.add_lines(line)
-
-    def add_buttons(self):
-        self.page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;'>\n")
-        self.add_check_button()
-        self.add_clear_button()
-        self.page.add_lines("\n</div>\n")
 
 
 
@@ -459,5 +431,41 @@ class library(object):
         """
 
         self.page.add_lines(script)
+
+        
+
+
+    ### Buttons at the bottom of the page
+
+    def add_check_button(self):
+        line = "\n<input type='button' onclick='"
+        cid = 0
+        cond = "cond = "
+        for c in self.checks:
+            line = line + "c" + str(cid) + " = " + c + "; "
+            cond = cond + "c" + str(cid) + " && "
+            cid = cid + 1
+        cond = cond + "true;"
+        line = line + cond
+        line = line + "' value='Proveri' />\n"
+        #print(line)
+        self.page.add_lines(line)
+        
+    def add_clear_button(self):
+        line = "\n<input type='button' onclick=\""
+        for c in self.clears:
+            line = line + c
+        line = line + "\" value='Obriši' />\n"
+        #print(line)
+        self.page.add_lines(line)
+
+    def add_buttons(self):
+        self.page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;'>\n")
+        self.add_check_button()
+        self.add_clear_button()
+        self.page.add_lines("\n</div>\n")
+
+
+
 
         

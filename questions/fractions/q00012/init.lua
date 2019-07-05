@@ -36,7 +36,7 @@ fraction_table = function()
     else
       res = 2
     end
-    text = text .. lib.add_cell(lib.check_fraction(res, denom), question)
+    text = text .. lib.add_cell(lib.check_fraction_simple(res, denom), question)
 
     text = text .. lib.end_row()
   end
