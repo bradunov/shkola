@@ -46,6 +46,17 @@ class page(object):
                 window.onload = page_init;
               </script>
             """
+
+        # Add our small standard library
+        head = head + """
+              <script type="text/javascript">
+              math = {}
+              math.eq = function(x, y, precision) { if (typeof(precision)==='undefined') precision = 0.00001; return Math.abs(x-y) < precision; }
+              </script>
+        """
+        
+
+
             
         head = head + "  </head>\n"
         head = head + "  <body>\n"

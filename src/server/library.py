@@ -1,5 +1,18 @@
 import math
 
+
+class LibMath(object):
+
+    def eq(self, x, y, precision = 0.00001):
+        return abs(x-y) < precision
+
+
+
+
+
+    
+    
+
 class library(object):
     object_id = 0
     page = None
@@ -15,6 +28,7 @@ class library(object):
         self.page = page
         self.checks = []
         self.object_id = 0
+        self.math = LibMath()
     
     def get_object_id(self):
         self.object_id = self.object_id+1
@@ -23,7 +37,9 @@ class library(object):
     def clear(self):
         self.checks = []
         self.clears = []
+        
 
+        
     # str_condition: ok == <condition>
     def condition_check_script(self, item_name, str_condition):
         script = """
