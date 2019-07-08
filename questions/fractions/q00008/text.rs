@@ -12,11 +12,11 @@
   @repeat(5)@
   @lib.start_row()@
     @lib.add_cell(h)@
-    @lib.add_cell(lib.check_value(v1))@
-    @lib.add_cell(lib.check_value(v2))@
-    @lib.add_cell(lib.check_value(v3))@
-    @lib.add_cell(lib.check_value(v4))@
-    @lib.add_cell(lib.check_value(v5))@
+    @lib.add_cell(lib.check_number(v1))@
+    @lib.add_cell(lib.check_number(v2))@
+    @lib.add_cell(lib.check_number(v3))@
+    @lib.add_cell(lib.check_number(v4))@
+    @lib.add_cell(lib.check_number(v5))@
   @lib.end_row()@
   @/repeat@
 @lib.end_table()@

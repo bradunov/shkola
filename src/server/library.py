@@ -6,7 +6,8 @@ class LibMath(object):
     def eq(self, x, y, precision = 0.00001):
         return abs(x-y) < precision
 
-
+    def gcd(self, x, y):
+        return math.gcd(x, y)
 
 
 
@@ -86,11 +87,13 @@ class library(object):
     # - answer > <correct_answer>, or any boolean with answer in it, or
     # - <correct_answer>, in which case the boolean condition is answer == <correct_answer>
     # width: width of the input box in characters
-    def check_value(self, condition, width=3):
+    def _check_value(self, condition, width=3, number=False):
         qid = self.get_object_id()
         n_answer = 'check_number_answer_{}'.format(qid)
         n_correct = 'check_number_correct_{}'.format(qid)
-        v_answer = "Number(document.getElementById(\'" + n_answer + "\').value)"
+        v_answer = "document.getElementById(\'" + n_answer + "\').value"
+        if number:
+            v_answer = "Number(" + v_answer + ")"
         if "answer" not in str(condition):
             str_condition = "is_ok = (" + v_answer + " == \'" + str(condition) + "\');"
         else:
@@ -108,7 +111,14 @@ class library(object):
         #self.page.add_lines( line )
         return line
 
+    def check_number(self, condition, width=3):
+        return self._check_value(condition, width, True)
 
+    def check_string(self, condition, width=3):
+        return self._check_value(condition, width, False)
+
+
+    
     # Input fraction as whole + numerator / denominator and verifies whether the answer matches
     # If whole is not given, inputs only numerator and denominator
     def check_fraction_simple(self, numerator, denominator, whole = None):

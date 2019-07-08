@@ -13,7 +13,7 @@
 @lib.end_table()@
 
 
-Obojena je @lib.check_value(1)@ četvrtina.
+Obojena je @lib.check_number(1)@ četvrtina.
 
 Zapisujemo razlomkom @lib.check_fraction_simple(1, 4)@
 
@@ -31,7 +31,7 @@ Zapisujemo razlomkom @lib.check_fraction_simple(1, 4)@
 @lib.end_table()@
 
 
-Obojene su @lib.check_value('is_ok = (answer == 2)')@ četvrtine.
+Obojene su @lib.check_number('is_ok = (answer == 2)')@ četvrtine.
 
 Zapisujemo razlomkom @lib.check_fraction_condition("is_ok = (numerator/denominator == 0.5)")@
 

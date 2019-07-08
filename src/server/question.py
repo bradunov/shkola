@@ -318,6 +318,8 @@ class question(object):
         # DEBUG
         print(strings)
         print(code)
+
+        print(math.gcd(6,3))
         
         lua_fun = self.lua.eval(code)
         ret = lua_fun(page, self.lib, strings)
