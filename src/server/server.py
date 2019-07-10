@@ -9,6 +9,8 @@ from page import page
 from question import question
 from library import library
 
+from storage import sqltest
+
 
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
@@ -203,6 +205,8 @@ if __name__ == '__main__':
     page=page()
     lib=library(page)
     
+    #sqltest()
+
     test = False
     #test = True
 
