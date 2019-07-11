@@ -10,7 +10,7 @@ array_value = {}
 
 
 
-for i=1, 4 do
+for i=1, 3 do
     factor = math.random(3);
     imenilac = 3 * factor;
     brojilac = i;

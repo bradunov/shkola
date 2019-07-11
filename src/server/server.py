@@ -53,15 +53,19 @@ class editor(object):
         self.question = question
 
 
-
-    def render_menu(self):                       
-        select="<select onchange='window.location.replace(\"" + self.page_name + "?q_path=\" + this.value)'>\n"
+    def get_all_questions(self):
         root = "../../questions/"
         qs = []
         for (dirpath, dirnames, filenames) in os.walk(root):
             if not dirnames:
+                print(dirpath)
                 qs.append(dirpath[len(root):])
         qs.sort()
+        return qs
+
+    def render_menu(self):                       
+        select="<select onchange='window.location.replace(\"" + self.page_name + "?q_path=\" + this.value)'>\n"
+        qs = self.get_all_questions()
         
         for q in qs:
             if q == self.q_path:
@@ -213,7 +217,7 @@ class editor(object):
 if __name__ == '__main__':
     lua = LuaRuntime(unpack_returned_tuples=True)
     page=page()
-    lib=library(page)
+    lib=library(lua, page)
     
     #sqltest()
 

@@ -1,8 +1,14 @@
 import math
 import numpy
+import lupa
+
+
 
 class LibMath(object):
-
+    lua = None
+    def __init__(self, lua):
+        self.lua = lua
+        
     def eq(self, x, y, precision = 0.00001):
         return abs(x-y) < precision
 
@@ -12,10 +18,10 @@ class LibMath(object):
     # Returns indeices in array sorted according to values in array
     def argsort(self, array):
         # Have to convert to Python array explicitly
-        parray = [array[i] for i in array]
-        sarray = numpy.argsort(parray)
+        parray = list(array.values())
+        sarray = numpy.argsort(parray).tolist()
         # Lua arrays start from 1 and python from 0
-        return [a + 1 for a in sarray]
+        return self.lua.table_from([a + 1 for a in sarray])
 
 
     
@@ -27,16 +33,18 @@ class library(object):
     checks = []
     clears = []
     table_row = 0
+    lua = None
 
     input_style = "style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px'"
 
 
     
-    def __init__(self, page):
+    def __init__(self, lua, page):
         self.page = page
         self.checks = []
         self.object_id = 0
-        self.math = LibMath()
+        self.lua = lua
+        self.math = LibMath(lua)
     
     def get_object_id(self):
         self.object_id = self.object_id+1
