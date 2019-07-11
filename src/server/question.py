@@ -47,8 +47,11 @@ class question(object):
             self.iter_code = ""
 
         # No exception handling here, question text has to exist
-        with open("../../questions/{}/text.{}".format(self.path, self.language)) as f_text:
-            self.text = f_text.read()
+        try:
+            with open("../../questions/{}/text.{}".format(self.path, self.language)) as f_text:
+                self.text = f_text.read()
+        except IOError:
+            self.text = "\n\n<h3>ERROR: no code exists for question {} for language {}!</h3>".format(self.path, self.language)
             
     def set_from_file_with_exception(self):
         try:
