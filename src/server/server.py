@@ -4,6 +4,7 @@ import sys
 import cherrypy
 import math
 import lupa
+import json
 from lupa import LuaRuntime
 from page import page
 from question import question
@@ -31,7 +32,22 @@ class editor(object):
     text = ""
     question = None
     page_name = ""
+    questions_path = "../../questions/"
+    config = {}
 
+
+    def __init__(self):
+        self.load_config()
+        
+    
+    def load_config(self):
+        try:
+            self.config = json.load(open(self.questions_path + "config.json", 'r'))
+        except:
+            self.config = {}
+
+        print("Config:", self.config)
+        
     
     def clear(self):
         self.q_path = ""
@@ -53,19 +69,22 @@ class editor(object):
         self.question = question
 
 
-    def get_all_questions(self):
-        root = "../../questions/"
+    def get_all_questions(self, language):
+        root = self.questions_path
         qs = []
         for (dirpath, dirnames, filenames) in os.walk(root):
-            if not dirnames:
-                print(dirpath)
+            # Do not display directory and the content of global folder
+            # and only select folders that contain the desired language (i.e. text.<language>)
+            print(dirpath, dirnames, filenames)
+            if not dirnames and dirpath[len(root):len(root)+len("global")] != "global" and \
+               "text." + language in filenames:
                 qs.append(dirpath[len(root):])
         qs.sort()
         return qs
 
     def render_menu(self):                       
-        select="<select onchange='window.location.replace(\"" + self.page_name + "?q_path=\" + this.value)'>\n"
-        qs = self.get_all_questions()
+        select="<select id='sel_path' name='sel_path' onchange='window.location.replace(\"" + self.page_name + "?q_path=\" + this.value + \"&language=\" + sel_lang.value)'>\n"
+        qs = self.get_all_questions(self.language)
         
         for q in qs:
             if q == self.q_path:
@@ -74,13 +93,24 @@ class editor(object):
                 selected = ""
             select = select + "<option value='{}' {}> {} </option>\n".format(q, selected, q)
         select = select + "</select>\n"
-        #print(select)
 
         
         # Not sure why I have to put explicit height here, otherwise it is zero!
         page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>")
         page.add_lines("<span style='display:block;float:left;'>" + select + "</span>")
         lright = "<span style='display:block;float:right;'>"
+
+        if ("languages" in self.config):
+            lang_select="Language: <select id='sel_lang' name='sel_lang' onchange='window.location.replace(\"" + self.page_name + "?q_path=\" + sel_path.value + \"&language=\" + this.value)'>\n"
+            for l in self.config["languages"]:
+                if l == self.language:
+                    selected = "SELECTED"
+                else:
+                    selected = ""
+                lang_select = lang_select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
+            lang_select = lang_select + "</select>\n"
+            lright = lright + lang_select
+        
         if (self.page_name != "index"):
             lright = lright + "<a href='index?q_path={}'>View</a>".format(self.q_path)
         if (self.page_name != "edit"):

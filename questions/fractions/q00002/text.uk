@@ -1,0 +1,5 @@
+@h3@ Calculate: @/h3@
+
+@repeat(3)@
+@center@ \(\frac{1}{@imenilac@}\) of @broj@ is @lib.check_number(rezultat)@
+@/repeat@
