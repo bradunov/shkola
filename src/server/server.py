@@ -25,6 +25,7 @@ global page, lua, lib
 class editor(object):
     #page = None
     q_path = ""
+    language = ""
     init_code = ""
     iter_code = ""
     text = ""
@@ -34,6 +35,7 @@ class editor(object):
     
     def clear(self):
         self.q_path = ""
+        self.language = ""
         self.init_code = ""
         self.iter_code = ""
         self.text = ""
@@ -44,6 +46,8 @@ class editor(object):
         self.init_code = init_code
         self.iter_code = iter_code
         self.text = text
+            
+        
 
     def add_question(self, question):
         self.question = question
@@ -92,6 +96,7 @@ class editor(object):
           <span style='float:left;display:inline;""" + style + """'>
             <form method="post" action="generate">
               <input type="hidden" id="q_path" name="q_path" value='""" + self.q_path + """'>
+              <input type="hidden" id="language" name="language" value='""" + self.language + """'>
               <div style='""" + style + """background-color:#fafaf0;'>
                   <h3>Init code:</h3>
                   <textarea name="init_code" rows="10" cols="80">
@@ -155,11 +160,13 @@ class editor(object):
         page.clear_lines()
         lib.clear()
         self.page_name = "edit"
+        self.q_path = q_path
+        self.language = language
 
         if q_path is not None:
             self.q_path = q_path
-            q = question(lua, lib)
-            q.set_from_file_with_exception(page, q_path, language)
+            q = question(lua, lib, q_path, language)
+            q.set_from_file_with_exception()
             self.add_question(q)
             self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
 
@@ -168,15 +175,16 @@ class editor(object):
     
     
     @cherrypy.expose
-    def generate(self, q_path = "", init_code = "", iter_code = "", text = ""):
+    def generate(self, q_path = "", language = "", init_code = "", iter_code = "", text = ""):
         self.clear()
         page.clear_lines()
         lib.clear()
         self.page_name = "edit"
         self.q_path = q_path
-
+        self.language = language
+        
         self.add_code(init_code, iter_code, text)
-        q = question(lua, lib, init_code, iter_code, text)
+        q = question(lua, lib, q_path, language, init_code, iter_code, text)
         self.add_question(q)
 
         return self.render_page(page)
@@ -189,11 +197,13 @@ class editor(object):
         page.clear_lines()
         lib.clear()
         self.page_name = "index"
+        self.q_path = q_path
+        self.language = language
 
         if q_path is not None:
             self.q_path = q_path
-            q = question(lua, lib)
-            q.set_from_file_with_exception(page, q_path, language)
+            q = question(lua, lib, q_path, language)
+            q.set_from_file_with_exception()
             self.add_question(q)
 
         return self.render_simple_page(page)
@@ -212,7 +222,7 @@ if __name__ == '__main__':
 
     if test:
         editor = editor()
-        output = editor.index("fractions/q00013", "rs")
+        output = editor.index("fractions/q00020", "rs")
         print("\n\n\n================================================\n\n\n")
         print(output)
     else:

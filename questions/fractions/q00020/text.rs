@@ -1,3 +1,5 @@
+@include(imena)@
+
 @repeat(3)@
 @ime@ je pošao kod bake. Prešao je \(\frac{1}{@deo@}\) puta. Ostalo mu je \
 da prede još @600@ metara.  

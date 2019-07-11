@@ -23,33 +23,36 @@ class question(object):
     """
 
     
-    def __init__(self, lua, lib, init_code = None, iter_code = None, text = None):
+    def __init__(self, lua, lib, path, language, init_code = "", iter_code = "", text = ""):
         self.lua = lua
         self.lib = lib
         self.init_code = init_code
         self.iter_code = iter_code
         self.text = text
+        self.language = language
+        self.path = path
 
-    def set_from_file(self, path, language):
+
+    def set_from_file(self):
         try:
-            with open("../../questions/{}/init.lua".format(path)) as f_init_code:
+            with open("../../questions/{}/init.lua".format(self.path)) as f_init_code:
                 self.init_code = f_init_code.read()
         except IOError:
             self.init_code = ""
             
         try:
-            with open("../../questions/{}/iter.lua".format(path)) as f_iter_code:
+            with open("../../questions/{}/iter.lua".format(self.path)) as f_iter_code:
                 self.iter_code = f_iter_code.read()
         except IOError:
             self.iter_code = ""
 
         # No exception handling here, question text has to exist
-        with open("../../questions/{}/text.{}".format(path, language)) as f_text:
+        with open("../../questions/{}/text.{}".format(self.path, self.language)) as f_text:
             self.text = f_text.read()
             
-    def set_from_file_with_exception(self, page, path, language):
+    def set_from_file_with_exception(self):
         try:
-            self.set_from_file(path, language)
+            self.set_from_file()
         except Exception as err:
             err_str = "\n\n<br> Error reading from a question list: \n {} <br>\n".format(str(err))
             page.add_lines(err_str)
@@ -88,6 +91,7 @@ class question(object):
         b = text
         # Beutify b like markdown, but we cannot use MD here as it would destroyed inlined HTML (e.g. MathJS)
         b = b.replace("\\\n", " ")
+        b = b.replace("\\\r\n", " ")
         b = b.replace("\r", "")
         b = b.replace("\t", " ")
         b = b.replace("\n", "$%^&")
@@ -99,7 +103,7 @@ class question(object):
             if (len(b1) == len(b)):
                 break
             b = b1
-            
+
         if (b[0] == "\n"):
             b = b[1:]
 
@@ -214,7 +218,6 @@ class question(object):
         page.add_lines("<div id='question' style='width:100%'>\n")
 
 
-        
         btext = self.make_pretty(page, self.text)
 
         
@@ -287,8 +290,28 @@ class question(object):
             if item["type"] == "text":
                 code = code + "page.add_lines(strings[{}])\n".format(ind)
             elif item["type"] == "code":
+                # Look for include() directives
+                if (len(strings[ind]) > len("include()") and
+                    strings[ind][0 : len("include(")] == "include(" and
+                    strings[ind][len(strings[ind])-1] == ")"):
+                    inc_file = strings[ind][len("include("):len(strings[ind])-1]
+                    
+                    try:
+                        with open("{}/{}.{}.lua".format(self.path, inc_file, self.language)) as f_include_code:
+                            include_code = f_include_code.read()
+                            print("Included {}/{}.{}.lua".format(self.path, inc_file, self.language))
+                    except IOError:
+                        try:
+                            with open("../../questions/global/{}.{}.lua".format(inc_file, self.language)) as f_include_code:
+                                include_code = f_include_code.read()
+                                print("Included ../../questions/global/{}.{}.lua".format(inc_file, self.language))
+                        except IOError:
+                            include_code = ""
+                            
+                    code = code + include_code
+
                 # Ignore alignment tags
-                if (strings[ind] != "left" and strings[ind] != "right" and strings[ind] != "center" and \
+                elif (strings[ind] != "left" and strings[ind] != "right" and strings[ind] != "center" and \
                     strings[ind] != "H1" and strings[ind] != "H2" and strings[ind] != "H3" and \
                     strings[ind] != "/H1" and strings[ind] != "/H2" and strings[ind] != "/H3"):
                     code = code + "page.add_lines({})\n".format(strings[ind])
@@ -316,8 +339,8 @@ class question(object):
         code = code.replace("\\", "\\\\")
 
         # DEBUG
-        print(strings)
-        print(code)
+        print("\n\n********************\nSTRINGS: ", strings)
+        print("\n\n********************\nCODE: ", code)
 
         print(math.gcd(6,3))
         
