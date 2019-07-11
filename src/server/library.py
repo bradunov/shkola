@@ -1,5 +1,5 @@
 import math
-
+import numpy
 
 class LibMath(object):
 
@@ -9,6 +9,13 @@ class LibMath(object):
     def gcd(self, x, y):
         return math.gcd(x, y)
 
+    # Returns indeices in array sorted according to values in array
+    def argsort(self, array):
+        # Have to convert to Python array explicitly
+        parray = [array[i] for i in array]
+        sarray = numpy.argsort(parray)
+        # Lua arrays start from 1 and python from 0
+        return [a + 1 for a in sarray]
 
 
     

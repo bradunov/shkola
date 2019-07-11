@@ -10,6 +10,11 @@ Oboj deo figure napisan razlomkom
 
 Poredaj razlomke od najmanjeg do najveceg
 
-@center@ @lib.check_fraction_simple(array_enum[0], array_denom[0])@ < \
-   @lib.check_fraction_simple(array_enum[1], array_denom[1])@ < \
-   @lib.check_fraction_simple(array_enum[2], array_denom[2])@ 
+@indices[1]@ @indices[2]@ @indices[3]@
+@array_enum[indices[1]]@ @array_denom[indices[1]]@
+@array_enum[indices[2]]@ @array_denom[indices[2]]@
+@array_enum[indices[3]]@ @array_denom[indices[3]]@
+
+@center@ @lib.check_fraction_simple(array_enum[indices[1]], array_denom[indices[1]])@ < \
+   @lib.check_fraction_simple(array_enum[indices[2]], array_denom[indices[2]])@ < \
+   @lib.check_fraction_simple(array_enum[indices[3]], array_denom[indices[3]])@ 

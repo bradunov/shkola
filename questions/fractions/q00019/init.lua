@@ -3,5 +3,24 @@ style = {["width"] = 180,
         ["ratio"] = 0.3,
 	["color"] = "ff99cc"};
 
+
 array_enum = {}
 array_denom = {}
+array_value = {}
+
+
+
+for i=0, 3 do
+    factor = math.random(3);
+    imenilac = 3 * factor;
+    brojilac = i + 1;
+    boja = brojilac * 6/factor;
+
+    array_enum[i] = brojilac;
+    array_denom[i] = imenilac;
+    array_value[i] = brojilac / imenilac;
+end
+
+
+indices = lib.math.argsort(array_value);
+
