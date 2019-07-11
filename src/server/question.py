@@ -281,7 +281,7 @@ class question(object):
         ind = 0
         start_repeat = None
         no_iter = None
-        loop = 0
+        loop = 1
         while ind < len(items):
             item = items[ind]
             if item["type"] == "text":
@@ -295,14 +295,14 @@ class question(object):
             elif item["type"] == "repeat":
                 no_iter = item["no_iter"]
                 start_repeat = ind
-                loop = 0
+                loop = 1
                 code = code + "ITEM = {}\n".format(loop)
                 code = code + self.iter_code + "\n"
 
             elif item["type"] == "end":
                 loop = loop + 1
-                if loop == no_iter:
-                    loop = 0
+                if loop == no_iter + 1:
+                    loop = 1
                     start_repeat = None
                 else:
                     code = code + "ITEM = {}\n".format(loop)

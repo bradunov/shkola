@@ -1,4 +1,4 @@
-h = nums[ITEM+1];
+h = nums[ITEM];
 v1 = h / denom[1];
 v2 = h / denom[2];
 v3 = h / denom[3];

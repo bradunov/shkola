@@ -10,10 +10,10 @@ array_value = {}
 
 
 
-for i=0, 3 do
+for i=1, 4 do
     factor = math.random(3);
     imenilac = 3 * factor;
-    brojilac = i + 1;
+    brojilac = i;
     boja = brojilac * 6/factor;
 
     array_enum[i] = brojilac;
