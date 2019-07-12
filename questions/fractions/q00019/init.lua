@@ -7,7 +7,7 @@ style = {["width"] = 180,
 array_enum = {}
 array_denom = {}
 array_value = {}
-
+array_boja = {}
 
 
 for i=1, 3 do
@@ -16,6 +16,7 @@ for i=1, 3 do
     brojilac = i;
     boja = brojilac * 6/factor;
 
+    array_boja[i] = boja;
     array_enum[i] = brojilac;
     array_denom[i] = imenilac;
     array_value[i] = brojilac / imenilac;

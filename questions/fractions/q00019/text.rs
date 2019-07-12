@@ -9,6 +9,6 @@ Oboj deo figure napisan razlomkom
 
 
 Poredaj razlomke od najmanjeg do najveceg
-@center@ @lib.check_fraction_simple(array_enum[indices[1]], array_denom[indices[1]])@ < \
-   @lib.check_fraction_simple(array_enum[indices[2]], array_denom[indices[2]])@ < \
-   @lib.check_fraction_simple(array_enum[indices[3]], array_denom[indices[3]])@ 
+@center@ @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[1]])..");", false)@ < \
+   @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[2]])..");", false)@ < \
+   @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[3]])..");", false)@
