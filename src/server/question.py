@@ -80,7 +80,7 @@ class question(object):
     def get_text(self):
         return self.text
 
-    def get_alignment(self, string):
+    def get_alignment(self, string, old = ""):
         if string.find("@left@") > -1:
             return "align='left'"
         elif string.find("@right@") > -1:
@@ -88,9 +88,11 @@ class question(object):
         elif string.find("@center@") > -1:
             return "align='center'"
         else:
-            return ""
+            return old
         
     def make_pretty(self, page, text):
+        print("TEXT: ", text)
+
         b = text
         # Beutify b like markdown, but we cannot use MD here as it would destroyed inlined HTML (e.g. MathJS)
         b = b.replace("\\\n", " ")
@@ -110,7 +112,9 @@ class question(object):
         if (b[0] == "\n"):
             b = b[1:]
 
+        print("B: ", b)
 
+        
         # Skip prettyfication between special tags that embbed HTML, such as start_table and end_table
         # otherwise extra HTML tags (</div>...</div>) will mess up formatting
 
@@ -137,8 +141,8 @@ class question(object):
                 special_areas.append({"start" : min_ind, "end" : ind})
             else:
                 break
-            
-        print(special_areas)
+
+        print("SPECIAL AREAS:", special_areas)
 
 
 
@@ -150,6 +154,14 @@ class question(object):
         start_ind = 0
         sa_ind = 0
 
+        
+        # Insert <div> </div> around every line starting and ending with "\n"
+        # to maintain the same visual design as edited file
+        
+        output = output + "<div id='qline_{}'>\n  ".format(max_div_id)
+        max_div_id = max_div_id + 1
+        alignment = ""
+        
         while True:
             if (sa_ind < len(special_areas)):
                 end_ind = special_areas[sa_ind]["start"]
@@ -157,33 +169,48 @@ class question(object):
                 end_ind = len(b)
 
 
+            # Process each part of code between special areas
+            
             if(start_ind < end_ind):
                 # Modify and copy non-protected part
                 if b[start_ind] == '\n' and b[end_ind-1] == '\n':
+                    st_nl = True
+                    end_nl = True
                     bfrac = b[start_ind+1:end_ind-1]
                 elif b[start_ind] == '\n':
+                    st_nl = True
+                    end_nl = False
                     bfrac = b[start_ind+1:end_ind]
                 elif b[end_ind-1] == '\n':
+                    st_nl = False
+                    end_nl = True
                     bfrac = b[start_ind:end_ind-1]
                 else:
+                    st_nl = False
+                    end_nl = False
                     bfrac = b[start_ind:end_ind]
                 
-                #output = output + "\n\n$" + bfrac + "$\n\n"
-            
                 old_ind = -1
                 ind = bfrac.find("\n")
                 while ind > -1:
-                    output = output + "<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(bfrac[old_ind+1:ind+1]), style, max_div_id)
-                    output = output + bfrac[old_ind+1:ind+1] + "</div>\n"
+                    if st_nl:
+                        output = output + "\n</div>\n<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(bfrac[old_ind+1:ind+1]), style, max_div_id)
+                        max_div_id = max_div_id + 1
+                    st_nl = True
+                    output = output + bfrac[old_ind+1:ind+1]
                     old_ind = ind
                     ind = bfrac.find("\n", ind + 1)
-                    max_div_id = max_div_id + 1
                     
-                output = output + "<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(bfrac[old_ind+1:]), style, max_div_id)
-                output = output + bfrac[old_ind+1:] + "</div>\n"
-                max_div_id = max_div_id + 1
+                if st_nl:
+                    output = output + "\n</div>\n<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(bfrac[old_ind+1:ind+1]), style, max_div_id)
+                    max_div_id = max_div_id + 1
+                st_nl = True
+                output = output + bfrac[old_ind+1:]
 
-                #output = output + "</div>\n"
+                if end_nl:
+                    output = output + "\n</div>\n<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(bfrac[old_ind+1:ind+1]), style, max_div_id)
+                    max_div_id = max_div_id + 1
+
 
 
             # Just copy protected part (if exists)
@@ -195,6 +222,8 @@ class question(object):
                 sa_ind = sa_ind + 1
 
                 
+        output = output + "</div>\n"
+                
                 
         # Replace headers
         output = output.replace("@h1@", "<div style='display:inline-block;font-weight:bold;font-size:18px;padding-top:8px;padding-bottom:6px;'>")
@@ -205,7 +234,7 @@ class question(object):
         output = output.replace("@/h3@", "</div>")
 
 
-        print(output)
+        print("OUTPUT: ", output)
         
         return output
 
@@ -342,8 +371,8 @@ class question(object):
         code = code.replace("\\", "\\\\")
 
         # DEBUG
-        #print("\n\n********************\nSTRINGS: ", strings)
-        #print("\n\n********************\nCODE: ", code)
+        print("\n\n********************\nSTRINGS: ", strings)
+        print("\n\n********************\nCODE: ", code)
 
         print(math.gcd(6,3))
         

@@ -205,6 +205,8 @@ class library(object):
             
     
     # Start HTML table with <width> columns
+    # - style["text-align"] == "inline": display table as inline
+    # - style["text-align"] != "inline": display table as div paragraph with given text-align
     def start_table(self, style = {}):
 
         css = ""
@@ -217,23 +219,30 @@ class library(object):
             css = css + "border:0px solid #ddd;"
 
         # Pass align style to surrounding div
+        inline = False
         if "text-align" in style.keys():
-            div_ccs = "style='text-align:{}'".format(style["text-align"])
-            css = css + "margin:auto;"
+            if style["text-align"] == "inline":
+                inline = True
+            else:
+                div_ccs = "style='text-align:{}'".format(style["text-align"])
+                css = css + "margin:auto;"
         else:
             # default align is center
             div_ccs = "style='text-align:{center}'"
             css = css + "margin:auto;"
 
-            
-        line = "<div {}>\n<table style='{}'>\n".format(div_ccs, css)
+        if inline:
+            line = "<span>\n<table style='display:inline-table;vertical-align:middle'>\n"
+        else:
+            line = "<div {}>\n<table style='{}'>\n".format(div_ccs, css)
 
         self.table_row = 0
         return line
 
     # End HTML table
     def end_table(self):
-        return "</table>\n</div>\n"
+        #return "</table>\n</div>\n"
+        return "</table>\n</span>\n"
 
     
     def start_row(self, style = {}):

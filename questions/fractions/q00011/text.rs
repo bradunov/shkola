@@ -1,7 +1,7 @@
 @h1@ 2. Obojeni deo figure zapiši razlomkom. @/h1@
 
 
-@lib.start_table({["text-align"] = "center"})@
+@center@ @lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@
     @lib.add_cell("", whiteg)@
     @lib.add_cell("", green)@
@@ -14,11 +14,10 @@
     @lib.add_cell("", whiteg)@
     @lib.add_cell("", whiteg)@
   @lib.end_row()@
-@lib.end_table()@
+@lib.end_table()@ \
+== @lib.check_fraction_simple(1, 8)@
 
-@lib.check_fraction_simple(1, 8)@
-
-@lib.start_table({["text-align"] = "center"})@
+@center@ @lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@
     @lib.add_cell("", whitep)@
   @lib.end_row()@
@@ -40,13 +39,11 @@
   @lib.start_row()@
     @lib.add_cell("", whitep)@
   @lib.end_row()@
-@lib.end_table()@
+@lib.end_table()@ \
+== @lib.check_fraction_simple(1, 7)@
 
 
-@lib.check_fraction_simple(1, 7)@
-
-
-@lib.start_table({["text-align"] = "center"})@
+@lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@
     @lib.add_cell("", whiteb)@
     @lib.add_cell("", whiteb)@
@@ -62,7 +59,5 @@
     @lib.add_cell("", whiteb)@
     @lib.add_cell("", whiteb)@
   @lib.end_row()@
-@lib.end_table()@
-
-
-@lib.check_fraction_simple(1, 9)@
+@lib.end_table()@ \
+== @lib.check_fraction_simple(1, 9)@
