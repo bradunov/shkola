@@ -457,14 +457,22 @@ class library(object):
             
 
         # Pass align style to surrounding div
+        inline = False
         if "text-align" in style.keys():
-            div_ccs = "style='text-align:{}'".format(style["text-align"])
+            if style["text-align"] == "inline":
+                inline = True
+            else:
+                div_ccs = "style='text-align:{}'".format(style["text-align"])
         else:
             # default align is center
             div_ccs = "style='text-align:center'"
 
-        script = """
-        <div """ + div_ccs + """ id = "sel_canvas_""" + object_id + """">
+        if inline:
+            script = "<span style='vertical-align:middle;display:inline-block' id = 'sel_canvas_{}'>".format(object_id)
+        else:
+            script = "<div {} id = 'sel_canvas_{}'>".format(div_ccs,  object_id)
+            
+        script = script + """
         <script type = "text/javascript">
 	var paper_""" + object_id +\
             """ = Raphael("sel_canvas_""" + object_id + """", """ + \
@@ -475,10 +483,12 @@ class library(object):
             script = script + \
                      self.select_checks_and_clears(object_id, x*y, check_code) + \
                      self.select_object_onmouse(object_id, x*y, color)
-        script = script + """
-        </script>
-        </div>
-        """
+        script = script + "\n</script>\n"
+        if inline:
+            script = script + "</span>"
+        else:
+            script = script + "</div>"
+            
 
         self.page.add_lines(script)
 
