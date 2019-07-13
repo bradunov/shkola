@@ -4,6 +4,41 @@ import lupa
 import math
 from lupa import LuaRuntime
 
+
+
+class paragraph(object):
+    style = "style='border:6px;padding:6px'"
+    text = ""
+    alignment = ""
+    last_div_id = 0
+
+    def update_alignment(self, string):
+        if string.find("@left@") > -1:
+            self.alignment = "align='left'"
+        elif string.find("@right@") > -1:
+            self.alignment = "align='left'"
+        elif string.find("@center@") > -1:
+            self.alignment = "align='center'"
+        
+    def output_and_flush(self):
+        text = ""
+        if self.text:
+            text = "\n<div {} {} id='qline_{}'>\n".\
+                                     format(self.alignment, self.style, self.last_div_id) + \
+                                     self.text + "\n</div>\n"
+            self.text = ""
+            self.last_div_id = self.last_div_id + 1
+        return text
+
+    def append(self, text):
+        self.update_alignment(text)
+        self.text = self.text + text
+    
+    def append_special(self, text):
+        self.text = self.text + text
+
+        
+
 class question(object):
     # Lua interpreter
     lua = None
@@ -80,19 +115,8 @@ class question(object):
     def get_text(self):
         return self.text
 
-    def get_alignment(self, string, old = ""):
-        if string.find("@left@") > -1:
-            return "align='left'"
-        elif string.find("@right@") > -1:
-            return "align='left'"
-        elif string.find("@center@") > -1:
-            return "align='center'"
-        else:
-            return old
-        
+    
     def make_pretty(self, page, text):
-        print("TEXT: ", text)
-
         b = text
         # Beutify b like markdown, but we cannot use MD here as it would destroyed inlined HTML (e.g. MathJS)
         b = b.replace("\\\n", " ")
@@ -112,9 +136,8 @@ class question(object):
         if (b[0] == "\n"):
             b = b[1:]
 
-        print("B: ", b)
 
-        
+            
         # Skip prettyfication between special tags that embbed HTML, such as start_table and end_table
         # otherwise extra HTML tags (</div>...</div>) will mess up formatting
 
@@ -142,25 +165,18 @@ class question(object):
             else:
                 break
 
-        print("SPECIAL AREAS:", special_areas)
 
-
-
+            
         
-        style = "style='border:6px;padding:6px'"
-        max_div_id = 0
         output = ""
-
         start_ind = 0
         sa_ind = 0
 
         
         # Insert <div> </div> around every line starting and ending with "\n"
         # to maintain the same visual design as edited file
-        
-        output = output + "<div id='qline_{}'>\n  ".format(max_div_id)
-        max_div_id = max_div_id + 1
-        alignment = ""
+
+        para = paragraph()
         
         while True:
             if (sa_ind < len(special_areas)):
@@ -194,35 +210,32 @@ class question(object):
                 ind = bfrac.find("\n")
                 while ind > -1:
                     if st_nl:
-                        output = output + "\n</div>\n<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(bfrac[old_ind+1:ind+1]), style, max_div_id)
-                        max_div_id = max_div_id + 1
+                        output = output + para.output_and_flush()
                     st_nl = True
-                    output = output + bfrac[old_ind+1:ind+1]
+                    para.append(bfrac[old_ind+1:ind+1])
                     old_ind = ind
                     ind = bfrac.find("\n", ind + 1)
                     
                 if st_nl:
-                    output = output + "\n</div>\n<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(bfrac[old_ind+1:ind+1]), style, max_div_id)
-                    max_div_id = max_div_id + 1
+                    output = output + para.output_and_flush()
                 st_nl = True
-                output = output + bfrac[old_ind+1:]
+                para.append(bfrac[old_ind+1:])
 
                 if end_nl:
-                    output = output + "\n</div>\n<div {} {} id='qline_{}'>\n  ".format(self.get_alignment(bfrac[old_ind+1:ind+1]), style, max_div_id)
-                    max_div_id = max_div_id + 1
-
+                    output = output + para.output_and_flush()
 
 
             # Just copy protected part (if exists)
             if sa_ind == len(special_areas):
                 break
             else:
-                output = output + b[special_areas[sa_ind]["start"]:special_areas[sa_ind]["end"]]
+                #output = output + b[special_areas[sa_ind]["start"]:special_areas[sa_ind]["end"]]
+                para.append_special(b[special_areas[sa_ind]["start"]:special_areas[sa_ind]["end"]])
                 start_ind = special_areas[sa_ind]["end"]
                 sa_ind = sa_ind + 1
 
                 
-        output = output + "</div>\n"
+        output = output + para.output_and_flush()
                 
                 
         # Replace headers
@@ -234,7 +247,8 @@ class question(object):
         output = output.replace("@/h3@", "</div>")
 
 
-        print("OUTPUT: ", output)
+        # DEBUG
+        #print("**************\nMAKE PRETTY: \n", output, "\n*****************")
         
         return output
 
@@ -371,8 +385,8 @@ class question(object):
         code = code.replace("\\", "\\\\")
 
         # DEBUG
-        print("\n\n********************\nSTRINGS: ", strings)
-        print("\n\n********************\nCODE: ", code)
+        #print("\n\n********************\nSTRINGS: ", strings)
+        #print("\n\n********************\nCODE: ", code)
 
         print(math.gcd(6,3))
         

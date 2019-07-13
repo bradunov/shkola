@@ -1,7 +1,7 @@
 @h3@ Obojene delove izrazi razlomkom. @/h3@
 
 
-@lib.start_table({["text-align"] = "inline"})@ 
+@center@ @lib.start_table({["text-align"] = "inline"})@ 
   @lib.start_row()@ 
     @lib.add_cell("", green)@
     @lib.add_cell("", whiteg)@
@@ -9,7 +9,7 @@
 @lib.end_table()@ \
 == @lib.check_fraction_simple(1, 2)@
 
-@lib.start_table({["text-align"] = "inline"})@
+@center@ @lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@
     @lib.add_cell("", orange)@
     @lib.add_cell("", whiteo)@
@@ -18,7 +18,7 @@
 @lib.end_table()@ \
 == @lib.check_fraction_simple(1, 3)@
 
-@lib.start_table({["text-align"] = "inline"})@
+@center@ @lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@
     @lib.add_cell("", blue)@
     @lib.add_cell("", whiteb)@
@@ -28,7 +28,7 @@
 @lib.end_table()@ \
 == @lib.check_fraction_simple(1, 4)@
 
-@lib.start_table({["text-align"] = "inline"})@
+@center@ @lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@
     @lib.add_cell("", pink)@
     @lib.add_cell("", whitep)@
@@ -39,7 +39,7 @@
 @lib.end_table()@ \
 == @lib.check_fraction_simple(1, 5)@
 
-@lib.start_table({["text-align"] = "inline"})@
+@center@ @lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@
     @lib.add_cell("", brown)@
     @lib.add_cell("", whiter)@

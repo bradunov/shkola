@@ -75,7 +75,6 @@ class editor(object):
         for (dirpath, dirnames, filenames) in os.walk(root):
             # Do not display directory and the content of global folder
             # and only select folders that contain the desired language (i.e. text.<language>)
-            print(dirpath, dirnames, filenames)
             if not dirnames and dirpath[len(root):len(root)+len("global")] != "global" and \
                "text." + language in filenames:
                 qs.append(dirpath[len(root):])
