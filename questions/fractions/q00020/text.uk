@@ -1,13 +1,16 @@
+@include(names)@
 
 @repeat(3)@
-Pera je pošao kod bake. Prešao je \(\frac{1}{@deo@}\) puta. Ostalo mu je \
-da prede još @600@ metara.  
+@include(name)@
 
-Koliko je Pera prešao?  
+@name@ went to the granny and travelled \(\frac{1}{@deo@}\) of the road. \
+@600@ meters remains. 
 
-@center@ @lib.check_number(put1)@  metara.
+How long did @name@ walk?
 
-Koliko je udaljena Perine kuca od bakine kuce? 
+@center@ @lib.check_number(put1)@  meters.
 
-@center@  @lib.check_number(put)@ metara, a to je @lib.check_fraction_condition(condition, true)@ km.
+How far is @name@'s house from granny's house? 
+
+@center@  @lib.check_number(put)@ meters, which is @lib.check_fraction_condition(condition, true)@ km.
 @/repeat@

@@ -25,14 +25,14 @@ global page, lua, lib
 
 class editor(object):
     #page = None
-    q_path = ""
+    q_id = ""
     language = ""
     init_code = ""
     iter_code = ""
     text = ""
     question = None
     page_name = ""
-    questions_path = "../../questions/"
+    questions_path = "../../questions"
     config = {}
 
 
@@ -42,7 +42,7 @@ class editor(object):
     
     def load_config(self):
         try:
-            self.config = json.load(open(self.questions_path + "config.json", 'r'))
+            self.config = json.load(open(self.questions_path + "/config.json", 'r'))
         except:
             self.config = {}
 
@@ -50,7 +50,7 @@ class editor(object):
         
     
     def clear(self):
-        self.q_path = ""
+        self.q_id = ""
         self.language = ""
         self.init_code = ""
         self.iter_code = ""
@@ -77,16 +77,16 @@ class editor(object):
             # and only select folders that contain the desired language (i.e. text.<language>)
             if not dirnames and dirpath[len(root):len(root)+len("global")] != "global" and \
                "text." + language in filenames:
-                qs.append(dirpath[len(root):])
+                qs.append(dirpath[len(root)+1:])
         qs.sort()
         return qs
 
     def render_menu(self):                       
-        select="<select id='sel_path' name='sel_path' onchange='window.location.replace(\"" + self.page_name + "?q_path=\" + this.value + \"&language=\" + sel_lang.value)'>\n"
+        select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(\"" + self.page_name + "?q_id=\" + this.value + \"&language=\" + sel_lang.value)'>\n"
         qs = self.get_all_questions(self.language)
         
         for q in qs:
-            if q == self.q_path:
+            if q == self.q_id:
                 selected = "SELECTED"
             else:
                 selected = ""
@@ -100,7 +100,7 @@ class editor(object):
         lright = "<span style='display:block;float:right;'>"
 
         if ("languages" in self.config):
-            lang_select="Language: <select id='sel_lang' name='sel_lang' onchange='window.location.replace(\"" + self.page_name + "?q_path=\" + sel_path.value + \"&language=\" + this.value)'>\n"
+            lang_select="Language: <select id='sel_lang' name='sel_lang' onchange='window.location.replace(\"" + self.page_name + "?q_id=\" + sel_q_id.value + \"&language=\" + this.value)'>\n"
             for l in self.config["languages"]:
                 if l == self.language:
                     selected = "SELECTED"
@@ -111,9 +111,9 @@ class editor(object):
             lright = lright + lang_select
         
         if (self.page_name != "index"):
-            lright = lright + "<a href='index?q_path={}'>View</a>".format(self.q_path)
+            lright = lright + "<a href='index?q_id={}'>View</a>".format(self.q_id)
         if (self.page_name != "edit"):
-            lright = lright + "<a href='edit?q_path={}'>Edit</a>".format(self.q_path)
+            lright = lright + "<a href='edit?q_id={}'>Edit</a>".format(self.q_id)
         lright = lright + "</span>"
         #print(lright)
         page.add_lines(lright)
@@ -128,7 +128,7 @@ class editor(object):
         <div>
           <span style='float:left;display:inline;""" + style + """'>
             <form method="post" action="generate">
-              <input type="hidden" id="q_path" name="q_path" value='""" + self.q_path + """'>
+              <input type="hidden" id="q_id" name="q_id" value='""" + self.q_id + """'>
               <input type="hidden" id="language" name="language" value='""" + self.language + """'>
               <div style='""" + style + """background-color:#fafaf0;'>
                   <h3>Init code:</h3>
@@ -188,17 +188,17 @@ class editor(object):
 
         
     @cherrypy.expose
-    def edit(self, q_path = None, language = "rs"):
+    def edit(self, q_id = None, language = "rs"):
         self.clear()
         page.clear_lines()
         lib.clear()
         self.page_name = "edit"
-        self.q_path = q_path
+        self.q_id = q_id
         self.language = language
 
-        if q_path is not None:
-            self.q_path = q_path
-            q = question(lua, lib, q_path, language)
+        if q_id is not None:
+            self.q_id = q_id
+            q = question(lua, lib, q_id, language, self.questions_path)
             q.set_from_file_with_exception()
             self.add_question(q)
             self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
@@ -208,16 +208,16 @@ class editor(object):
     
     
     @cherrypy.expose
-    def generate(self, q_path = "", language = "", init_code = "", iter_code = "", text = ""):
+    def generate(self, q_id = "", language = "", init_code = "", iter_code = "", text = ""):
         self.clear()
         page.clear_lines()
         lib.clear()
         self.page_name = "edit"
-        self.q_path = q_path
+        self.q_id = q_id
         self.language = language
         
         self.add_code(init_code, iter_code, text)
-        q = question(lua, lib, q_path, language, init_code, iter_code, text)
+        q = question(lua, lib, q_id, language, self.questions_path, init_code, iter_code, text)
         self.add_question(q)
 
         return self.render_page(page)
@@ -225,17 +225,18 @@ class editor(object):
 
 
     @cherrypy.expose
-    def index(self, q_path = None, language = "rs"):
+    def index(self, q_id = None, language = "rs"):
         self.clear()
         page.clear_lines()
         lib.clear()
         self.page_name = "index"
-        self.q_path = q_path
+        self.q_id = q_id
         self.language = language
 
-        if q_path is not None:
-            self.q_path = q_path
-            q = question(lua, lib, q_path, language)
+        if q_id is not None:
+            print("Q_ID:", q_id)
+            self.q_id = q_id
+            q = question(lua, lib, q_id, language, self.questions_path)
             q.set_from_file_with_exception()
             self.add_question(q)
 
