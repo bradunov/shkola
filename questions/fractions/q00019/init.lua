@@ -1,5 +1,5 @@
-style = {["width"] = 180,
-        ["height"] = 60,
+style = {["width"] = 150,
+        ["height"] = 50,
         ["ratio"] = 0.3,
 	["color"] = "ff99cc"};
 
@@ -24,4 +24,3 @@ end
 
 
 indices = lib.math.argsort(array_value);
-

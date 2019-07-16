@@ -7,7 +7,6 @@ Oboj deo figure napisan razlomkom
 
 
 
-
 Poredaj razlomke od najmanjeg do najveceg
 @center@ @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[1]])..");", false)@ < \
    @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[2]])..");", false)@ < \

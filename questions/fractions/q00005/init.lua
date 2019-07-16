@@ -1,1 +1,1 @@
-number = 7
+number = (math.random(10))  
