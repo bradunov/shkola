@@ -1,9 +1,3 @@
-imenilac1 = math.random(3)+2
-imenilac2 = math.random(3)+3
-strane = 180
-
-dan1 = strane/imenilac1
-dan2 = strane/imenilac2
 imenilac1 = math.random(7) + 1;
 imenilac2 = math.random(5) + 1;
 factor = (math.random(10));

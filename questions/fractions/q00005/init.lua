@@ -1,1 +1,1 @@
-number = (math.random(10))  
+number = (math.random(9) + 1)  

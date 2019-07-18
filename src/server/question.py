@@ -328,6 +328,23 @@ class question(object):
 
         # Eval code
         code = self.main_script_begin
+
+        # Define Lua include function with proper paths
+        code = code + """
+           function require_if_exists(name)
+             local f=io.open(name,"r")
+             if f~=nil then io.close(f); dofile(name) end
+           end
+           function include(name)
+              local root_path = '""" + self.questions_root_path + """';
+              local question_path = '""" + self.path + """';
+              local language = '""" + self.language + """';
+
+              require_if_exists(root_path.."/"..question_path.."/"..name.."."..language..".lua");
+              require_if_exists(root_path.."/global/"..name.."."..language..".lua");
+           end
+        """
+        
         code = code + self.init_code + "\n"
 
         ind = 0

@@ -4,3 +4,4 @@
 a) Koliko kilograma jabuka je prodala? @lib.check_number(brojp)@   
 
 b) Koji deo jabuka nije prodala? @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(vrednost)..");")@ 
+
