@@ -1,3 +1,5 @@
+include("imena")
+
 imenilac1 = math.random(3)+2
 imenilac2 = math.random(3)+3
 strane = 180
