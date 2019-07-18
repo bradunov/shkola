@@ -8,7 +8,6 @@ import json
 from lupa import LuaRuntime
 from page import page
 from question import question
-from library import library
 
 from storage import sqltest
 
@@ -18,13 +17,9 @@ pp = pprint.PrettyPrinter(indent=4)
 
 
 
-# B: why this doesn't work if we don't put global?
-global page, lua, lib
-
-
 
 class editor(object):
-    #page = None
+    page = None
     q_id = ""
     language = ""
     init_code = ""
@@ -37,6 +32,7 @@ class editor(object):
 
 
     def __init__(self):
+        self.page = page()
         self.load_config()
         
     
@@ -95,8 +91,8 @@ class editor(object):
 
         
         # Not sure why I have to put explicit height here, otherwise it is zero!
-        page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>")
-        page.add_lines("<span style='display:block;float:left;'>" + select + "</span>")
+        self.page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>")
+        self.page.add_lines("<span style='display:block;float:left;'>" + select + "</span>")
         lright = "<span style='display:block;float:right;'>"
 
         if ("languages" in self.config):
@@ -116,15 +112,15 @@ class editor(object):
             lright = lright + "<a href='edit?q_id={}'>Edit</a>".format(self.q_id)
         lright = lright + "</span>"
         #print(lright)
-        page.add_lines(lright)
-        page.add_lines("</div>")
+        self.page.add_lines(lright)
+        self.page.add_lines("</div>")
         
 
-    def render_page(self, page):
+    def render_page(self):
         self.render_menu()
 
         style = "border:6px;padding:6px;"
-        page.add_lines("""
+        self.page.add_lines("""
         <div>
           <span style='float:left;display:inline;""" + style + """'>
             <form method="post" action="generate">
@@ -156,79 +152,76 @@ class editor(object):
         """)
 
         if self.question is not None:
-            page.add_lines("<span style='float:left;display:inline'>")
+            self.page.add_lines("<span style='float:left;display:inline'>")
             # Most common mogile web pages are 360 x 640 (https://www.hobo-web.co.uk/best-screen-size/)
             # but I can't seem to enforce a size in this view, so skipping for now
-            #page.add_lines("<div style='border-style:dotted;display:table;height=360px;width=640px;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
-            page.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
-            self.question.eval_with_exception(page)
-            page.add_lines("</div>")
-            page.add_lines("</span>")
+            #self.page.add_lines("<div style='border-style:dotted;display:table;height=360px;width=640px;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
+            self.page.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
+            self.question.eval_with_exception()
+            self.page.add_lines("</div>")
+            self.page.add_lines("</span>")
             
-        page.add_lines("""
+        self.page.add_lines("""
         </div>
         """)
         
-        return page.render()
+        return self.page.render()
 
 
 
-    def render_simple_page(self, page):
+    def render_simple_page(self):
 
         self.render_menu()
         
         if self.question is not None:
-            page.add_lines("<span style='float:left'>")
-            self.question.eval_with_exception(page)
-            page.add_lines("</span>")
+            self.page.add_lines("<span style='float:left'>")
+            self.question.eval_with_exception()
+            self.page.add_lines("</span>")
             
         
-        return page.render()
+        return self.page.render()
 
 
         
     @cherrypy.expose
     def edit(self, q_id = None, language = "rs"):
         self.clear()
-        page.clear_lines()
-        lib.clear()
+        self.page.clear_lines()
         self.page_name = "edit"
         self.q_id = q_id
         self.language = language
 
         if q_id is not None:
             self.q_id = q_id
-            q = question(lua, lib, q_id, language, self.questions_path)
+            q = question(self.page, q_id, language, self.questions_path)
             q.set_from_file_with_exception()
             self.add_question(q)
             self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
 
-        return self.render_page(page)
+        return self.render_page()
 
     
     
     @cherrypy.expose
     def generate(self, q_id = "", language = "", init_code = "", iter_code = "", text = ""):
         self.clear()
-        page.clear_lines()
-        lib.clear()
+        self.page.clear_lines()
         self.page_name = "edit"
         self.q_id = q_id
         self.language = language
         
         self.add_code(init_code, iter_code, text)
-        q = question(lua, lib, q_id, language, self.questions_path, init_code, iter_code, text)
+        q = question(self.page, q_id, language, self.questions_path, init_code, iter_code, text)
         self.add_question(q)
 
-        return self.render_page(page)
+        return self.render_page()
 
 
 
     @cherrypy.expose
     def index(self, q_id = None, language = "rs"):
         self.clear()
-        page.clear_lines()
-        lib.clear()
+        self.page.clear_lines()
         self.page_name = "index"
         self.q_id = q_id
         self.language = language
@@ -236,18 +229,15 @@ class editor(object):
         if q_id is not None:
             print("Q_ID:", q_id)
             self.q_id = q_id
-            q = question(lua, lib, q_id, language, self.questions_path)
+            q = question(self.page, q_id, language, self.questions_path)
             q.set_from_file_with_exception()
             self.add_question(q)
 
-        return self.render_simple_page(page)
+        return self.render_simple_page()
 
     
                   
 if __name__ == '__main__':
-    lua = LuaRuntime(unpack_returned_tuples=True)
-    page=page()
-    lib=library(lua, page)
     
     #sqltest()
 

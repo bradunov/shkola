@@ -3,6 +3,7 @@ import traceback
 import lupa
 import math
 from lupa import LuaRuntime
+from library import library
 
 
 
@@ -45,6 +46,8 @@ class question(object):
 
     # Libraries
     lib = None
+
+    page = None
     
     text = ""
     init_code = None
@@ -60,9 +63,10 @@ class question(object):
     """
 
     
-    def __init__(self, lua, lib, path, language, questions_root_path, init_code = "", iter_code = "", text = ""):
-        self.lua = lua
-        self.lib = lib
+    def __init__(self, page, path, language, questions_root_path, init_code = "", iter_code = "", text = ""):
+        self.lua = LuaRuntime(unpack_returned_tuples=True)
+        self.lib = library(self.lua, page)
+        self.page = page
         self.init_code = init_code
         self.iter_code = iter_code
         self.text = text
@@ -96,9 +100,9 @@ class question(object):
             self.set_from_file()
         except Exception as err:
             err_str = "\n\n<br> Error reading from a question list: \n {} <br>\n".format(str(err))
-            page.add_lines(err_str)
+            self.page.add_lines(err_str)
             for l in traceback.format_tb(err.__traceback__):
-                page.add_lines("<br> {}".format(l))
+                self.page.add_lines("<br> {}".format(l))
 
     def set_init_code(self, code):
         self.init_code = code
@@ -119,7 +123,7 @@ class question(object):
         return self.text
 
     
-    def make_pretty(self, page, text):
+    def make_pretty(self, text):
         b = text
         # Beutify b like markdown, but we cannot use MD here as it would destroyed inlined HTML (e.g. MathJS)
         b = b.replace("\\\n", " ")
@@ -263,11 +267,11 @@ class question(object):
         cend = -1
 
         
-        page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
-        page.add_lines("<div id='question' style='width:100%'>\n")
+        self.page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
+        self.page.add_lines("<div id='question' style='width:100%'>\n")
 
 
-        btext = self.make_pretty(page, self.text)
+        btext = self.make_pretty(self.text)
 
         
         # Identify commands and strings
@@ -411,23 +415,23 @@ class question(object):
         print(math.gcd(6,3))
         
         lua_fun = self.lua.eval(code)
-        ret = lua_fun(page, self.lib, strings)
+        ret = lua_fun(self.page, self.lib, strings)
             
         if self.lib is not None:
             self.lib.add_buttons()
             
-        page.add_lines("</div>\n")
-        page.add_lines("\n\n<!-- QUESTIONS END -->\n\n")
+        self.page.add_lines("</div>\n")
+        self.page.add_lines("\n\n<!-- QUESTIONS END -->\n\n")
 
 
         
         
-    def eval_with_exception(self, page):
+    def eval_with_exception(self):
         try:
-            self.eval(page)
+            self.eval(self.page)
         except Exception as err:
             err_str = "\n\n<br> Error in program:\n {} <br>\n".format(str(err))
-            page.add_lines(err_str)
+            self.page.add_lines(err_str)
             for l in traceback.format_tb(err.__traceback__):
-                page.add_lines("<br> {}".format(l))
+                self.page.add_lines("<br> {}".format(l))
     
