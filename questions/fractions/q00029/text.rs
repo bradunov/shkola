@@ -1,13 +1,5 @@
-imenilac = (math.random(4)) + 1;
-brojilac = (math.random(imenilac-1)) ;
+Auto je presao @deo@ km za \(\frac{@brojilac@}{@imenilac@}\) casa. 
 
-deo = 60 * brojilac / imenilac;
+Koliko vremena mu je potrebno da bi presao rastojanje od @put@ km?
 
-fact = (math.random(9));
-put = deo * fact;
-
-brojp = brojilac * fact;   
-
-vrednost = put / 60               
-
-condition = "is_ok = math.eq(whole + numerator/denominator, "..tostring(vrednost)..");"                  
+Auto ce preci @put@ km za @lib.check_fraction_condition(condition, true)@ casa.
