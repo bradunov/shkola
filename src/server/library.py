@@ -136,20 +136,20 @@ class library(object):
     
     # Input fraction as whole + numerator / denominator and verifies whether the answer matches
     # If whole is not given, inputs only numerator and denominator
-    def check_fraction_simple(self, numerator, denominator, whole = None):
+    def check_fraction_simple(self, numerator, denominator, whole = None, known = None):
         str_condition = "is_ok = (numerator == \'" + str(numerator) + "\' && " 
         str_condition = str_condition + "denominator  == \'" + str(denominator) + "\'"
         if whole is not None:
             str_condition = str_condition + " && whole == \'" + str(whole) + "\'"
         str_condition = str_condition + ")"
-        return self.check_fraction_condition(str_condition, whole is not None)
+        return self.check_fraction_condition(str_condition, whole is not None, known)
     
 
 
     
     # Input fraction as whole + numerator / denominator and verifies whether the answer matches
     # - <condition> is a JavaScript condition with variables <numerator>, <denominator> and <whole> in it
-    def check_fraction_condition(self, condition, whole = False):
+    def check_fraction_condition(self, condition, whole = False, known = None):
         qid = self.get_object_id()
         n_answer_numerator = 'check_fraction_answer_numerator_{}'.format(qid)
         n_answer_denominator = 'check_fraction_answer_denominator_{}'.format(qid)
@@ -165,36 +165,75 @@ class library(object):
 
         n_answer_table = "check_fraction_answer_table_{}".format(qid)
 
-        str_condition = condition.replace("numerator", v_answer_numerator)\
-                                 .replace("denominator", v_answer_denominator)\
-                                 .replace("whole", v_answer_whole)
+        str_condition = condition
 
-        self.condition_check_script(n_answer_table, str_condition)
 
-        
-        input_numerator = "<input " + self.input_style + "type='text' size='1' id='" + n_answer_numerator + "' />" 
-        input_denominator = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_denominator + "' />"
+        if known is not None and "numerator" in known.keys():
+            str_condition = str_condition.replace("numerator", known["numerator"])
+            input_numerator = known["numerator"]
+        else:
+            str_condition = str_condition.replace("numerator", v_answer_numerator)
+            input_numerator = "<input " + self.input_style + "type='text' size='1' id='" + n_answer_numerator + "' />"
+            self.clears.append("document.getElementById('{}').value = '';".format(n_answer_numerator))
+            
+        if known is not None and "denominator" in known.keys():
+            str_condition = str_condition.replace("denominator", known["denominator"])
+            input_denominator = known["denominator"]
+        else:
+            str_condition = str_condition.replace("denominator", v_answer_denominator)
+            input_denominator = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_denominator + "' />"
+            self.clears.append("document.getElementById('{}').value = '';".format(n_answer_denominator))
+            
         input_whole = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_whole + "' />"
         input_frac = "\n<table style='display:inline-table;vertical-align:middle' id='{}'>\n<tbody>\n<tr>\n".format(n_answer_table)
         if whole:
-            input_frac = input_frac + "<td rowspan=\"2\">" + input_whole + "</td>\n"
-        input_frac = input_frac + "<td style=\"border-bottom:solid 1px\">" + input_numerator + "</td>\n"
-        input_frac = input_frac + "</tr>\n<tr>\n<td>" + input_denominator + "</td>\n</tr>\n</tbody>\n</table>\n"
+            if known is not None and "whole" in known.keys():
+                str_condition = str_condition.replace("whole", known["whole"])
+                input_frac = input_frac + "<td style=\"text-align:center\" rowspan=\"2\">" + known["whole"] + "</td>\n"
+            else:
+                str_condition = str_condition.replace("whole", v_answer_whole)
+                input_frac = input_frac + "<td rowspan=\"2\">" + input_whole + "</td>\n"
+                self.clears.append("document.getElementById('{}').value = '';".format(n_answer_whole))
 
+        input_frac = input_frac + "<td style=\"border-bottom:solid 1px;text-align:center\">" + input_numerator + "</td>\n"
+        input_frac = input_frac + "</tr>\n<tr>\n<td style=\"text-align:center\">" + input_denominator + "</td>\n</tr>\n</tbody>\n</table>\n"
+
+        self.condition_check_script(n_answer_table, str_condition)
         self.checks.append("{}_cond()".format(n_answer_table))
         self.clears.append("clearAllNoBorder('{}');".format(n_answer_table))
-        self.clears.append("document.getElementById('{}').value = '';".format(n_answer_numerator))
-        self.clears.append("document.getElementById('{}').value = '';".format(n_answer_denominator))
-        if whole:
-            self.clears.append("document.getElementById('{}').value = '';".format(n_answer_whole))
 
         #self.page.add_lines( input_frac )
         return input_frac
 
 
 
+    
+    # Input numerator of a fraction and display denominator (and whole if given) as given
+    def check_fraction_numerator(self, numerator, denominator, whole = None):
+        known = {"denominator" : str(denominator)}
+        str_condition = "is_ok = (numerator == \'" + str(numerator) + "\'" 
+        if whole is not None:
+            str_condition = str_condition + " && whole == \'" + str(whole) + "\'"
+            known["whole"] = str(whole) 
+        str_condition = str_condition + ")"
+        return self.check_fraction_condition(str_condition, whole is not None, known)
+
+
+    # Input denominator of a fraction and display numerator (and whole if given) as given
+    def check_fraction_denominator(self, numerator, denominator, whole = None):
+        known = {"numerator" : str(numerator)}
+        str_condition = "is_ok = (denominator == \'" + str(denominator) + "\'" 
+        if whole is not None:
+            str_condition = str_condition + " && whole == \'" + str(whole) + "\'"
+            known["whole"] = str(whole) 
+        str_condition = str_condition + ")"
+        return self.check_fraction_condition(str_condition, whole is not None, known)
+
 
     
+
+
+
     #############
     # Table
     #
