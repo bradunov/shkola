@@ -259,7 +259,7 @@ class question(object):
         
         return output
 
-    
+
     def eval(self, page):
 
         # Parse text

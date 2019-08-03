@@ -34,6 +34,7 @@ class library(object):
     clears = []
     table_row = 0
     lua = None
+    lib_id = None
 
     input_style = "style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px'"
 
@@ -45,10 +46,12 @@ class library(object):
         self.object_id = 0
         self.lua = lua
         self.math = LibMath(lua)
+        # TBD: generate random string here:
+        self.lib_id = "222"
     
     def get_object_id(self):
         self.object_id = self.object_id+1
-        return self.object_id
+        return self.lib_id + "_" + str(self.object_id)
 
     def clear(self):
         self.checks = []
@@ -549,6 +552,7 @@ class library(object):
         line = line + "' value='Proveri' />\n"
         #print(line)
         self.page.add_lines(line)
+        self.checks = []
         
     def add_clear_button(self):
         line = "\n<input type='button' onclick=\""
@@ -557,6 +561,7 @@ class library(object):
         line = line + "\" value='Obriši' />\n"
         #print(line)
         self.page.add_lines(line)
+        self.clears = []
 
     def add_buttons(self):
         self.page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;'>\n")

@@ -8,12 +8,11 @@ import json
 from lupa import LuaRuntime
 from page import page
 from question import question
+from qlist import qlist
 
 from storage import sqltest
 
 
-import pprint
-pp = pprint.PrettyPrinter(indent=4)
 
 
 
@@ -21,6 +20,7 @@ pp = pprint.PrettyPrinter(indent=4)
 class editor(object):
     page = None
     q_id = ""
+    l_id = ""
     language = ""
     init_code = ""
     iter_code = ""
@@ -28,6 +28,7 @@ class editor(object):
     question = None
     page_name = ""
     questions_path = "../../questions"
+    lists_path = "../../lists"
     config = {}
 
 
@@ -71,32 +72,69 @@ class editor(object):
         for (dirpath, dirnames, filenames) in os.walk(root):
             # Do not display directory and the content of global folder
             # and only select folders that contain the desired language (i.e. text.<language>)
-            if not dirnames and dirpath[len(root):len(root)+len("global")] != "global" and \
-               "text." + language in filenames:
+            if not dirnames and dirpath[len(root):len(root)+len("global")] != "global" and "text." + language in filenames:
                 qs.append(dirpath[len(root)+1:])
+                if (self.q_id == ""):
+                    self.q_id = dirpath[len(root)+1:]
         qs.sort()
         return qs
 
-    def render_menu(self):                       
-        select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(\"" + self.page_name + "?q_id=\" + this.value + \"&language=\" + sel_lang.value)'>\n"
-        qs = self.get_all_questions(self.language)
+    def get_all_lists(self):
+        root = self.lists_path
+        qs = []
+        print (root)
+        for (dirpath, dirnames, filenames) in os.walk(root):
+            for f in filenames:
+                if f[len(f)-5:len(f)] == ".json":
+                    qs.append(f)
+                    if self.l_id == "":
+                        self.l_id = f
+        qs.sort()
+        return qs
+
+    def render_menu(self):
+        self.page.add_lines("\n\n<!-- MENU START -->\n")
+        # Edit or view question
+        if self.page_name == "edit" or self.page_name == "view":
+            select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(\"" + self.page_name + "?q_id=\" + this.value + \"&language=\" + sel_lang.value)'>\n"
+            qs = self.get_all_questions(self.language)
         
-        for q in qs:
-            if q == self.q_id:
-                selected = "SELECTED"
-            else:
-                selected = ""
-            select = select + "<option value='{}' {}> {} </option>\n".format(q, selected, q)
-        select = select + "</select>\n"
+            for q in qs:
+                if q == self.q_id:
+                    selected = "SELECTED"
+                else:
+                    selected = ""
+                select = select + "<option value='{}' {}> {} </option>\n".format(q, selected, q)
+            select = select + "</select>\n"
+
+        # View list
+        elif self.page_name == "list":
+            select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(\"" + self.page_name + "?l_id=\" + this.value + \"&language=\" + sel_lang.value)'>\n"
+            ls = self.get_all_lists()
+        
+            for l in ls:
+                if l == self.l_id:
+                    selected = "SELECTED"
+                else:
+                    selected = ""
+                select = select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
+            select = select + "</select>\n"
 
         
         # Not sure why I have to put explicit height here, otherwise it is zero!
-        self.page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>")
-        self.page.add_lines("<span style='display:block;float:left;'>" + select + "</span>")
-        lright = "<span style='display:block;float:right;'>"
+        self.page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
+        self.page.add_lines("<span style='display:block;float:left;'>\n" + select + "\n</span>\n")
+        lright = "<span style='display:block;float:right;'>\n"
 
         if ("languages" in self.config):
-            lang_select="Language: <select id='sel_lang' name='sel_lang' onchange='window.location.replace(\"" + self.page_name + "?q_id=\" + sel_q_id.value + \"&language=\" + this.value)'>\n"
+            lang_select="Language: <select id='sel_lang' name='sel_lang' onchange='window.location.replace(\"" + self.page_name
+            if self.page_name == "edit" or self.page_name == "view":
+                lang_select = lang_select + "?q_id=\" + sel_q_id.value + \"&"
+            # View list
+            elif self.page_name == "list":
+                lang_select = lang_select + "?l_id=\" + sel_l_id.value + \"&"
+            lang_select = lang_select + "language=\" + this.value)'>\n"
+            
             for l in self.config["languages"]:
                 if l == self.language:
                     selected = "SELECTED"
@@ -105,15 +143,26 @@ class editor(object):
                 lang_select = lang_select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
             lang_select = lang_select + "</select>\n"
             lright = lright + lang_select
+
+
+        op_select = "Operation: <select id='sel_op' name='sel_op' onchange='window.location.replace(sel_op.value + \"" + \
+                                           "?q_id={}&l_id={}&language={}\")'>\n".format(self.q_id, self.l_id, self.language)
+
+        options = ["view", "edit", "list"]
+
+        for o in options:
+            if o == self.page_name:
+                selected = "SELECTED"
+            else:
+                selected = ""
+            op_select = op_select + "<option value='{}' {}> {} </option>\n".format(o, selected, o)
+        op_select = op_select + "</select>"
+        lright = lright + op_select
         
-        if (self.page_name != "index"):
-            lright = lright + "<a href='index?q_id={}'>View</a>".format(self.q_id)
-        if (self.page_name != "edit"):
-            lright = lright + "<a href='edit?q_id={}'>Edit</a>".format(self.q_id)
-        lright = lright + "</span>"
-        #print(lright)
         self.page.add_lines(lright)
         self.page.add_lines("</div>")
+
+        self.page.add_lines("\n<!-- MENU END -->\n\n")
         
 
     def render_page(self):
@@ -184,26 +233,28 @@ class editor(object):
 
         
     @cherrypy.expose
-    def edit(self, q_id = None, language = "rs"):
+    def edit(self, q_id = None, l_id = None, language = "rs"):
         self.clear()
         self.page.clear_lines()
         self.page_name = "edit"
         self.q_id = q_id
         self.language = language
 
-        if q_id is not None:
-            self.q_id = q_id
-            q = question(self.page, q_id, language, self.questions_path)
-            q.set_from_file_with_exception()
-            self.add_question(q)
-            self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
+        if q_id is None or not q_id:
+            q_id = self.get_all_questions(language)[0]
+        
+        self.q_id = q_id
+        q = question(self.page, q_id, language, self.questions_path)
+        q.set_from_file_with_exception()
+        self.add_question(q)
+        self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
 
         return self.render_page()
 
     
     
     @cherrypy.expose
-    def generate(self, q_id = "", language = "", init_code = "", iter_code = "", text = ""):
+    def generate(self, q_id = "", l_id = None, language = "", init_code = "", iter_code = "", text = ""):
         self.clear()
         self.page.clear_lines()
         self.page_name = "edit"
@@ -219,22 +270,43 @@ class editor(object):
 
 
     @cherrypy.expose
-    def index(self, q_id = None, language = "rs"):
+    def view(self, q_id = None, l_id = None, language = "rs"):
         self.clear()
         self.page.clear_lines()
-        self.page_name = "index"
+        self.page_name = "view" 
         self.q_id = q_id
         self.language = language
 
-        if q_id is not None:
-            print("Q_ID:", q_id)
-            self.q_id = q_id
-            q = question(self.page, q_id, language, self.questions_path)
-            q.set_from_file_with_exception()
-            self.add_question(q)
+        if q_id is None or not q_id:
+            q_id = self.get_all_questions(language)[0]
+            
+        self.q_id = q_id
+        q = question(self.page, q_id, language, self.questions_path)
+        q.set_from_file_with_exception()
+        self.add_question(q)
 
         return self.render_simple_page()
 
+    @cherrypy.expose
+    def list(self, q_id = None, l_id = None, language = "rs"):
+        self.clear()
+        self.page.clear_lines()
+        self.page_name = "list"
+        self.language = language
+
+        if l_id is None or not l_id:
+            l_id = self.get_all_lists()[0]
+
+        self.l_id = l_id
+
+        self.render_menu()
+        ql = qlist(self.page, l_id, language, self.questions_path, self.lists_path)
+        ql.render_all_questions()
+        return self.page.render()
+
+    @cherrypy.expose
+    def index(self, q_id = None, language = "rs"):
+        return self.view(q_id, language)
     
                   
 if __name__ == '__main__':
