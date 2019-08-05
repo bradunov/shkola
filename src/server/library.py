@@ -1,7 +1,7 @@
 import math
 import numpy
 import lupa
-
+import random
 
 
 class LibMath(object):
@@ -46,8 +46,8 @@ class library(object):
         self.object_id = 0
         self.lua = lua
         self.math = LibMath(lua)
-        # TBD: generate random string here:
-        self.lib_id = "222"
+        # If we have more questions on the same page make sure all use pseudo-random thus unique IDs
+        self.lib_id = str(int(random.random() * 1000000000))
     
     def get_object_id(self):
         self.object_id = self.object_id+1
@@ -551,6 +551,7 @@ class library(object):
         line = line + cond
         line = line + "' value='Proveri' />\n"
         #print(line)
+        self.page.add_lines("\n<!-- CHECK BUTTON -->\n")
         self.page.add_lines(line)
         self.checks = []
         
@@ -560,6 +561,7 @@ class library(object):
             line = line + c
         line = line + "\" value='Obriši' />\n"
         #print(line)
+        self.page.add_lines("\n<!-- CLEAR BUTTON -->\n")
         self.page.add_lines(line)
         self.clears = []
 
