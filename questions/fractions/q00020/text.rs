@@ -1,8 +1,8 @@
 @include(imena)@
 
-@repeat(2)@
+@repeat(1)@
 @ime@ je pošao kod bake. Prešao je \(\frac{1}{@deo@}\) puta. Ostalo mu je \
-da prede još @600@ metara.  
+da prede još @put2@ metara.  
 
 @ime@ je prešao @lib.check_number(put1)@  metara.
 
