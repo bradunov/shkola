@@ -409,8 +409,8 @@ class question(object):
         code = code.replace("\\", "\\\\")
 
         # DEBUG
-        print("\n\n********************\nSTRINGS: ", strings)
-        print("\n\n********************\nCODE: ", code)
+        #print("\n\n********************\nSTRINGS: ", strings)
+        #print("\n\n********************\nCODE: ", code)
 
         print(math.gcd(6,3))
         
