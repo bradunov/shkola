@@ -1,5 +1,5 @@
 imenilac1 = math.random(7) + 1;
-imenilac2 = math.random(5) + 1;
+imenilac2 = math.random(5) + 2;
 factor = (math.random(10));
 rezultat =  factor*imenilac1*imenilac2
 
