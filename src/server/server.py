@@ -223,9 +223,11 @@ class editor(object):
         self.render_menu()
         
         if self.question is not None:
-            self.page.add_lines("<span style='float:left'>")
+            #self.page.add_lines("<span style='float:center'>")
+            self.page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>")
             self.question.eval_with_exception()
-            self.page.add_lines("</span>")
+            #self.page.add_lines("</span>")
+            self.page.add_lines("</div>")
             
         
         return self.page.render()
