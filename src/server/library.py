@@ -1,6 +1,5 @@
 import math
 import numpy
-import lupa
 import random
 
 
@@ -111,7 +110,6 @@ class library(object):
     def _check_value(self, condition, width=3, number=False):
         qid = self.get_object_id()
         n_answer = 'check_number_answer_{}'.format(qid)
-        n_correct = 'check_number_correct_{}'.format(qid)
         v_answer = "document.getElementById(\'" + n_answer + "\').value"
         if number:
             v_answer = "Number(" + v_answer + ")"
@@ -160,7 +158,6 @@ class library(object):
         n_answer_numerator = 'check_fraction_answer_numerator_{}'.format(qid)
         n_answer_denominator = 'check_fraction_answer_denominator_{}'.format(qid)
         n_answer_whole = 'check_fraction_answer_whole_{}'.format(qid)
-        n_correct = 'check_fraction_correct_{}'.format(qid)
         v_answer_numerator = "Number(document.getElementById(\'" + n_answer_numerator + "\').value)"
 
         #Default denominator is 0, not 1
@@ -363,7 +360,6 @@ class library(object):
         radiusy = height / (2*y + 4*ratio)
         r = min(radiusx, radiusy)
         stepx = (width - 2*r*x) / (x+1)
-        stepy = (width - 2*r*x) / (x+1)
 
         if otype == "square":
             obj_str = "sel_obj_{}[{}] = paper_{}.rect({}, {}, {}, {})"
