@@ -547,7 +547,7 @@ class library(object):
     ### Buttons at the bottom of the page
 
     def add_check_button(self):
-        line = "\n<input type='button' onclick='"
+        line = "\n<input type='button' style='font-size: 14px;' onclick='"
         cid = 0
         cond = "cond = "
         for c in self.checks:
@@ -563,7 +563,7 @@ class library(object):
         self.checks = []
         
     def add_clear_button(self):
-        line = "\n<input type='button' onclick=\""
+        line = "\n<input type='button' style='font-size: 14px;' onclick=\""
         for c in self.clears:
             line = line + c
         line = line + "\" value='Obriši' />\n"
@@ -573,8 +573,9 @@ class library(object):
         self.clears = []
 
     def add_buttons(self):
-        self.page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;'>\n")
+        self.page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
         self.add_check_button()
+        self.page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         self.add_clear_button()
         self.page.add_lines("\n</div>\n")
 
