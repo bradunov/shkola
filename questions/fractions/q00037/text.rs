@@ -1,3 +1,7 @@
-@repeat(3)@
-@center@ @rezultat@ je \(\frac{@brojilac@}{@imenilac@}\) od @lib.check_number(broj)@   
+Dopuni: 
+
+@repeat(5)@
+@center@ @rezultat@ je @hspace@\(\frac{@brojilac@}{@imenilac@}\) @hspace@ od @hspace@ @lib.check_number(broj)@   
 @/repeat@
+@vspace@
+           

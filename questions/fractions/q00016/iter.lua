@@ -1,3 +1,4 @@
-imenilac = math.random(5) + 1;
+imenilac = math.random(6) + 1;
 rezultat = (math.random(10));
 broj = rezultat * imenilac;
+

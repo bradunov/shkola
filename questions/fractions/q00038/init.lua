@@ -9,7 +9,7 @@ put1 = math.random(deo - 1);
 put2 = put1 * (deo - 1);
 put = put1 + put2
 
-vreme = put2 * 12; 
+vreme = put2 * 6; 
 
 imenilac = 60
 brojilac = vreme

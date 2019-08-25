@@ -1,4 +1,4 @@
-@h1@Oboj deo figure zapisan razlomkom @/h1@
+Oboj deo figure zapisan razlomkom:
 
 @repeat(3)@
 @center@ \(\frac{1}{@denom@}\) = \

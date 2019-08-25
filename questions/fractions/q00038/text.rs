@@ -1,4 +1,4 @@
-@ime@ trci na stazi dugoj @put@ km. Pretrcao je \(\frac{1}{@deo@}\) staze. Koliko mu je vremena potrebno da pretrci ostatak staze, ako za @6@ minuta pretrci @500@ metara? 
+@ime@ trči na stazi dugoj @put@ km. Pretrčao je \(\frac{1}{@deo@}\) staze. Koliko mu je vremena potrebno da pretrči ostatak staze, ako za @3@ minuta pretrči @500@ metara? 
 
 
-Potrebno mu je @lib.check_number(vreme)@ minuta, a to je @lib.check_fraction_condition(condition, true)@ casova. 
+Potrebno mu je @lib.check_number(vreme)@ minuta, a to je @lib.check_fraction_condition(condition, true)@ časova. 

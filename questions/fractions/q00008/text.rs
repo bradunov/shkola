@@ -1,4 +1,4 @@
-@h2@ Popuni tabelu: @/h2@
+Popuni tabelu: 
 
 @lib.start_table()@
   @lib.start_row()@

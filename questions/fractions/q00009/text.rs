@@ -1,4 +1,4 @@
-@h3@ Obojene delove izrazi razlomkom. @/h3@
+Obojene delove izrazi razlomkom:
 
 
 @center@ @lib.start_table({["text-align"] = "inline"})@ 

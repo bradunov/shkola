@@ -1,12 +1,13 @@
-@include(imena)@
-
-@repeat(1)@
 @ime@ je pošao kod bake. Prešao je \(\frac{1}{@deo@}\) puta. Ostalo mu je \
-da prede još @put2@ metara.  
+da pređe još @put2@ metara.  
 
 @ime@ je prešao @lib.check_number(put1)@  metara.
 
-@padez@ kuca je od bakine kuce udaljena @lib.check_number(put)@ metara, a to je @lib.check_fraction_condition(condition, true)@ km.
-@/repeat@
+@padez@ kuća je od bakine kuće udaljena @lib.check_number(put)@ metara, a to je @lib.check_fraction_condition(condition, true)@ km.
+
+
+
+
+                  
 
 

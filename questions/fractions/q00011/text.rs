@@ -1,5 +1,4 @@
-@h1@ 2. Obojeni deo figure zapiši razlomkom. @/h1@
-
+Obojeni deo figure zapiši razlomkom:
 
 @center@ @lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@

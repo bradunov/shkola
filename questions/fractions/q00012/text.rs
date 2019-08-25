@@ -1,3 +1,3 @@
-@h1@ Obojene delove zapiši jednim razlomkom: @/h1@
+Obojene delove zapiši jednim razlomkom: 
 
 @fraction_table()@

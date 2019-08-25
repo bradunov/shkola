@@ -1,5 +1,6 @@
-@h3@ Dopuni: @/h3@
+Dopuni: 
 
-@repeat(3)@
+@repeat(4)@
 @center@ @rezultat@ je @lib.check_fraction_simple(1, imenilac)@ od @broj@   
 @/repeat@
+

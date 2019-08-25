@@ -1,3 +1,8 @@
+include("imena")
+
+r = math.random(#zensko_ime_nom);
+ime = zensko_ime_nom[r];
+    
 imenilac1 = math.random(7) + 1;
 imenilac2 = math.random(5) + 1;
 factor = (math.random(10));
@@ -9,6 +14,4 @@ brojo = rezultat-brojp
 
 vrednost = brojo / rezultat
 
-niz_ime = {"Milka", "Branka", "Ana", "Katarina", "Jelena", "Milica", "Ljubica", "Milena"}; 
-index_ime = math.random(#niz_ime);    
-ime = niz_ime[index_ime];   
+

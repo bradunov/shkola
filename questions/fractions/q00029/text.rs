@@ -1,5 +1,5 @@
-Auto je presao @deo@ km za \(\frac{@brojilac@}{@imenilac@}\) casa. 
+Auto je prešao @deo@ km za \(\frac{@brojilac@}{@imenilac@}\) časa. 
 
-Koliko vremena mu je potrebno da bi presao rastojanje od @put@ km?
+Koliko vremena mu je potrebno da bi prešao rastojanje od @put@ km?
 
-Auto ce preci @put@ km za @lib.check_fraction_condition(condition, true)@ casa.
+Auto će preći @put@ km za @lib.check_fraction_condition(condition, true)@ časa.
