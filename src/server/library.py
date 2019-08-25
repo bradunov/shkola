@@ -38,6 +38,9 @@ class library(object):
 
     input_style = "style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px'"
 
+    # Table related
+    table_inline = False
+    
 
     
     def __init__(self, lua, page):
@@ -278,13 +281,17 @@ class library(object):
         else:
             line = "<div {}>\n<table style='{}'>\n".format(div_ccs, css)
 
+        self.table_inline = inline
+            
         self.table_row = 0
         return line
 
     # End HTML table
     def end_table(self):
-        #return "</table>\n</div>\n"
-        return "</table>\n</span>\n"
+        if self.table_inline:
+            return "</table>\n</span>\n"
+        else:
+            return "</table>\n</div>\n"
 
     
     def start_row(self, style = {}):

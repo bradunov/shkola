@@ -9,7 +9,7 @@ from library import library
 
 class paragraph(object):
     # TBD: Center
-    style = "style='display:table;border:6px;padding:6px'"
+    style = "style='display:content;border:6px;padding:6px'"
     #style = "style='border:6px;padding:6px'"
     text = ""
     alignment = ""
@@ -22,7 +22,9 @@ class paragraph(object):
             self.alignment = "align='left'"
         elif string.find("@center@") > -1:
             self.alignment = "align='center'"
-        
+        else:
+            self.alignment = "align='left'"
+            
     def output_and_flush(self):
         text = ""
         if self.text:
@@ -415,8 +417,11 @@ class question(object):
         code = code.replace("\\", "\\\\")
 
         # DEBUG
-        #print("\n\n********************\nSTRINGS: ", strings)
-        #print("\n\n********************\nCODE: ", code)
+        print("\n\n********************\nSTRINGS: \n")
+        for i in range(0, len(strings)):
+            print("string[{}]: {}".format(i, strings[i]))
+
+        print("\n\n********************\nCODE: ", code)
 
         print(math.gcd(6,3))
         
