@@ -92,11 +92,49 @@ class editor(object):
         qs.sort()
         return qs
 
-    def render_menu(self):
-        self.page.add_lines("\n\n<!-- MENU START -->\n")
+
+    def encap_str(self, string):
+        return "\"" + string + "\""
+    
+    def create_url(self = None, page_name = None, q_id = None, l_id = None, lang = None, js = False):
+        first = True
+
+        if js:
+            glue = lambda first: " + \"" + ("?" if first else "&")
+            url = page_name
+            if q_id is not None:
+                url = url + glue(first) + "q_id=\" + " + q_id
+                first = False
+            if l_id is not None:
+                url = url + glue(first) + "l_id=\" + " + l_id
+                first = False
+            if lang is not None:
+                url = url + glue(first) + "language=\" + " + lang
+                first = False
+        else:
+            glue = lambda first: "?" if first else "@" 
+            url = page_name
+            if q_id is not None:
+                url = url + "?q_id=" + q_id
+                first = False
+            if l_id is not None:
+                url = url + "?l_id=" + q_id
+                first = False
+            if lang is not None:
+                url = url + glue(first) + "language=" + lang
+                first = False
+
+        return url
+    
+    def render_menu_full(self):
+        self.page.add_lines("\n\n<!-- FULL MENU START -->\n")
         # Edit or view question
         if self.page_name == "edit" or self.page_name == "view":
-            select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(\"" + self.page_name + "?q_id=\" + this.value + \"&language=\" + sel_lang.value)'>\n"
+            select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
+                                self.create_url(page_name = self.encap_str(self.page_name), \
+                                                q_id = "this.value", \
+                                                lang = "sel_lang.value", \
+                                                js = True) + ")'>\n"
             qs = self.get_all_questions(self.language)
         
             for q in qs:
@@ -109,7 +147,12 @@ class editor(object):
 
         # View list
         elif self.page_name == "list":
-            select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(\"" + self.page_name + "?l_id=\" + this.value + \"&language=\" + sel_lang.value)'>\n"
+            select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
+                                self.create_url(page_name = self.encap_str(self.page_name), \
+                                                l_id = "this.value", \
+                                                lang = "sel_lang.value", \
+                                                js = True) + ")'>\n"
+            #self.page_name + "?l_id=\" + this.value + \"&language=\" + sel_lang.value)'>\n"
             ls = self.get_all_lists()
         
             for l in ls:
@@ -127,13 +170,22 @@ class editor(object):
         lright = "<span style='display:block;float:right;'>\n"
 
         if ("languages" in self.config):
-            lang_select="Language: <select id='sel_lang' name='sel_lang' onchange='window.location.replace(\"" + self.page_name
+            lang_select="Language: <select id='sel_lang' name='sel_lang' onchange='window.location.replace("
+            #+ self.page_name
             if self.page_name == "edit" or self.page_name == "view":
-                lang_select = lang_select + "?q_id=\" + sel_q_id.value + \"&"
+                #lang_select = lang_select + "?q_id=\" + sel_q_id.value + \"&"
+                lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
+                                                            q_id = "sel_q_id.value", \
+                                                            lang = "this.value", \
+                                                            js = True) + ")'>\n"
             # View list
             elif self.page_name == "list":
-                lang_select = lang_select + "?l_id=\" + sel_l_id.value + \"&"
-            lang_select = lang_select + "language=\" + this.value)'>\n"
+                #lang_select = lang_select + "?l_id=\" + sel_l_id.value + \"&"
+                lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
+                                                            l_id = "sel_l_id.value", \
+                                                            lang = "this.value",
+                                                            js = True) + ")'>\n"
+            #lang_select = lang_select + "language=\" + this.value)'>\n"
             
             for l in self.config["languages"]:
                 if l == self.language:
@@ -145,8 +197,12 @@ class editor(object):
             lright = lright + lang_select
 
 
-        op_select = "Operation: <select id='sel_op' name='sel_op' onchange='window.location.replace(sel_op.value + \"" + \
-                                           "?q_id={}&l_id={}&language={}\")'>\n".format(self.q_id, self.l_id, self.language)
+        op_select = "Operation: <select id='sel_op' name='sel_op' onchange='window.location.replace(" + \
+                                            self.create_url(page_name = "sel_op.value", \
+                                                            q_id = self.encap_str(self.q_id), \
+                                                            l_id = self.encap_str(self.l_id), \
+                                                            lang = self.encap_str(self.language), \
+                                                            js = True) + ")'>\n"
 
         options = ["view", "edit", "list"]
 
@@ -165,8 +221,100 @@ class editor(object):
         self.page.add_lines("\n<!-- MENU END -->\n\n")
         
 
-    def render_page(self):
-        self.render_menu()
+
+    def render_menu_simple(self):
+        self.page.add_lines("\n\n<!-- SIMPLE MENU START -->\n")
+        # Edit or view question
+        if self.page_name == "edit" or self.page_name == "view":
+            select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
+                                self.create_url(page_name = self.encap_str(self.page_name), \
+                                                q_id = "this.value", \
+                                                lang = "sel_lang.value", \
+                                                js = True) + ")'>\n"
+
+            #+ self.page_name + "?q_id=\" + this.value + \"&language=\" + sel_lang.value)'>\n"
+            qs = self.get_all_questions(self.language)
+        
+            for q in qs:
+                if q == self.q_id:
+                    selected = "SELECTED"
+                else:
+                    selected = ""
+                select = select + "<option value='{}' {}> {} </option>\n".format(q, selected, q)
+            select = select + "</select>\n"
+
+        # View list
+        elif self.page_name == "list":
+            select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
+                                self.create_url(page_name = self.encap_str(self.page_name), \
+                                                l_id = "this.value", \
+                                                lang = "sel_lang.value", \
+                                                js = True) + ")'>\n"
+            ls = self.get_all_lists()
+        
+            for l in ls:
+                if l == self.l_id:
+                    selected = "SELECTED"
+                else:
+                    selected = ""
+                select = select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
+            select = select + "</select>\n"
+
+        
+        # Not sure why I have to put explicit height here, otherwise it is zero!
+        self.page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
+        self.page.add_lines("<span style='display:block;float:left;'>\n" + select + "\n</span>\n")
+        lright = "<span style='display:block;float:right;'>\n"
+
+        if ("languages" in self.config):
+            lang_select="<select id='sel_lang' name='sel_lang' onchange='window.location.replace("
+            #+ self.page_name
+            if self.page_name == "edit" or self.page_name == "view":
+                #lang_select = lang_select + "?q_id=\" + sel_q_id.value + \"&"
+                lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
+                                                            q_id = "sel_q_id.value", \
+                                                            lang = "this.value", \
+                                                            js = True) + ")'>\n"
+            # View list
+            elif self.page_name == "list":
+                #lang_select = lang_select + "?l_id=\" + sel_l_id.value + \"&"
+                lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
+                                                            l_id = "sel_l_id.value", \
+                                                            lang = "this.value",
+                                                            js = True) + ")'>\n"
+            #lang_select = lang_select + "language=\" + this.value)'>\n"
+            
+            for l in self.config["languages"]:
+                if l == self.language:
+                    selected = "SELECTED"
+                else:
+                    selected = ""
+                lang_select = lang_select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
+            lang_select = lang_select + "</select>\n"
+            lright = lright + lang_select
+
+        
+        self.page.add_lines(lright)
+        self.page.add_lines("</div>")
+
+        self.page.add_lines("\n<!-- MENU END -->\n\n")
+
+
+
+        
+
+    def render_menu(self, menu_type = 1):
+        if menu_type == 0:
+            self.render_menu_simple()
+        else:
+            self.render_menu_full()
+        
+
+
+
+            
+    def render_page(self, menu_type = 1):
+        self.render_menu(menu_type)
 
         style = "border:6px;padding:6px;"
         self.page.add_lines("""
@@ -218,9 +366,11 @@ class editor(object):
 
 
 
-    def render_simple_page(self):
+    def render_simple_page(self, menu_type = 1):
 
-        self.render_menu()
+        print("MT: {}".format(menu_type))
+        
+        self.render_menu(menu_type)
         
         if self.question is not None:
             # TBD: Center
@@ -253,7 +403,8 @@ class editor(object):
         self.add_question(q)
         self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
 
-        return self.render_page()
+        menu_type = 1
+        return self.render_page(menu_type)
 
     
     
@@ -269,12 +420,13 @@ class editor(object):
         q = question(self.page, q_id, language, self.questions_path, init_code, iter_code, text)
         self.add_question(q)
 
-        return self.render_page()
+        menu_type = 1
+        return self.render_page(menu_type)
 
 
 
     @cherrypy.expose
-    def view(self, q_id = None, l_id = None, language = "rs"):
+    def view(self, q_id = None, l_id = None, language = "rs", simple_menu = False):
         self.clear()
         self.page.clear_lines()
         self.page_name = "view" 
@@ -289,7 +441,7 @@ class editor(object):
         q.set_from_file_with_exception()
         self.add_question(q)
 
-        return self.render_simple_page()
+        return self.render_simple_page(0 if simple_menu else 1)
 
     @cherrypy.expose
     def list(self, q_id = None, l_id = None, language = "rs"):
@@ -303,14 +455,21 @@ class editor(object):
 
         self.l_id = l_id
 
-        self.render_menu()
+        menu_type = 1
+        self.render_menu(menu_type)
         ql = qlist(self.page, l_id, language, self.questions_path, self.lists_path)
         ql.render_all_questions()
         return self.page.render()
 
+    
     @cherrypy.expose
     def index(self, q_id = None, language = "rs"):
         return self.view(q_id, language)
+    
+                  
+    @cherrypy.expose
+    def mobile(self, q_id = None, language = "rs"):
+        return self.view(q_id, language, simple_menu = True)
     
                   
 if __name__ == '__main__':
