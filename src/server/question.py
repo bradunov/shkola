@@ -255,7 +255,10 @@ class question(object):
         output = output.replace("@h3@", "<div style='display:inline-block;font-weight:bold;font-size:18px;padding-top:4px;padding-bottom:2px;'>")
         output = output.replace("@/h3@", "</div>")
 
-
+        # Replace spaces
+        output = output.replace("@hspace@", "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        output = output.replace("@vspace@", "<div style='display:table;padding-top:0px;padding-bottom:0px;float:center'> </div>")
+        
         # DEBUG
         #print("**************\nMAKE PRETTY: \n", output, "\n*****************")
         
