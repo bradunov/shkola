@@ -96,7 +96,7 @@ class editor(object):
     def encap_str(self, string):
         return "\"" + string + "\""
     
-    def create_url(self = None, page_name = None, q_id = None, l_id = None, lang = None, js = False):
+    def create_url(self = None, page_name = None, q_id = None, l_id = None, lang = None, menu = None, js = False):
         first = True
 
         if js:
@@ -111,6 +111,9 @@ class editor(object):
             if lang is not None:
                 url = url + glue(first) + "language=\" + " + lang
                 first = False
+            if menu is not None:
+                url = url + glue(first) + "menu=\" + " + menu
+                first = False
         else:
             glue = lambda first: "?" if first else "@" 
             url = page_name
@@ -123,6 +126,9 @@ class editor(object):
             if lang is not None:
                 url = url + glue(first) + "language=" + lang
                 first = False
+            if menu is not None:
+                url = url + glue(first) + "menu=" + lang
+                first = False
 
         return url
     
@@ -134,6 +140,7 @@ class editor(object):
                                 self.create_url(page_name = self.encap_str(self.page_name), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
+                                                menu = self.encap_str("full"), \
                                                 js = True) + ")'>\n"
             qs = self.get_all_questions(self.language)
         
@@ -151,6 +158,7 @@ class editor(object):
                                 self.create_url(page_name = self.encap_str(self.page_name), \
                                                 l_id = "this.value", \
                                                 lang = "sel_lang.value", \
+                                                menu = self.encap_str("full"), \
                                                 js = True) + ")'>\n"
             #self.page_name + "?l_id=\" + this.value + \"&language=\" + sel_lang.value)'>\n"
             ls = self.get_all_lists()
@@ -177,6 +185,7 @@ class editor(object):
                 lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
                                                             q_id = "sel_q_id.value", \
                                                             lang = "this.value", \
+                                                            menu = self.encap_str("full"), \
                                                             js = True) + ")'>\n"
             # View list
             elif self.page_name == "list":
@@ -184,6 +193,7 @@ class editor(object):
                 lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
+                                                            menu = self.encap_str("full"), \
                                                             js = True) + ")'>\n"
             #lang_select = lang_select + "language=\" + this.value)'>\n"
             
@@ -202,6 +212,7 @@ class editor(object):
                                                             q_id = self.encap_str(self.q_id), \
                                                             l_id = self.encap_str(self.l_id), \
                                                             lang = self.encap_str(self.language), \
+                                                            menu = self.encap_str("full"), \
                                                             js = True) + ")'>\n"
 
         options = ["view", "edit", "list"]
@@ -230,6 +241,7 @@ class editor(object):
                                 self.create_url(page_name = self.encap_str(self.page_name), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
+                                                menu = self.encap_str("simple"), \
                                                 js = True) + ")'>\n"
 
             #+ self.page_name + "?q_id=\" + this.value + \"&language=\" + sel_lang.value)'>\n"
@@ -249,6 +261,7 @@ class editor(object):
                                 self.create_url(page_name = self.encap_str(self.page_name), \
                                                 l_id = "this.value", \
                                                 lang = "sel_lang.value", \
+                                                menu = self.encap_str("simple"), \
                                                 js = True) + ")'>\n"
             ls = self.get_all_lists()
         
@@ -274,6 +287,7 @@ class editor(object):
                 lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
                                                             q_id = "sel_q_id.value", \
                                                             lang = "this.value", \
+                                                            menu = self.encap_str("simple"), \
                                                             js = True) + ")'>\n"
             # View list
             elif self.page_name == "list":
@@ -281,6 +295,7 @@ class editor(object):
                 lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
+                                                            menu = self.encap_str("simple"), \
                                                             js = True) + ")'>\n"
             #lang_select = lang_select + "language=\" + this.value)'>\n"
             
@@ -303,8 +318,8 @@ class editor(object):
 
         
 
-    def render_menu(self, menu_type = 1):
-        if menu_type == 0:
+    def render_menu(self, menu_type = "full"):
+        if menu_type == "simple":
             self.render_menu_simple()
         else:
             self.render_menu_full()
@@ -313,8 +328,8 @@ class editor(object):
 
 
             
-    def render_page(self, menu_type = 1):
-        self.render_menu(menu_type)
+    def render_page(self, menu = "full"):
+        self.render_menu(menu)
 
         style = "border:6px;padding:6px;"
         self.page.add_lines("""
@@ -366,20 +381,18 @@ class editor(object):
 
 
 
-    def render_simple_page(self, menu_type = 1):
+    def render_simple_page(self, menu = "full"):
 
-        print("MT: {}".format(menu_type))
-        
-        self.render_menu(menu_type)
+        self.render_menu(menu)
         
         if self.question is not None:
             # TBD: Center
-            #self.page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>")
-            self.page.add_lines("<span style='float:left'>")
+            self.page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>")
+            #self.page.add_lines("<span style='float:left'>")
             self.question.eval_with_exception()
             # TBD: Center
-            #self.page.add_lines("</div>")
-            self.page.add_lines("</span>")
+            self.page.add_lines("</div>")
+            #self.page.add_lines("</span>")
             
         
         return self.page.render()
@@ -387,7 +400,7 @@ class editor(object):
 
         
     @cherrypy.expose
-    def edit(self, q_id = None, l_id = None, language = "rs"):
+    def edit(self, q_id = None, l_id = None, language = "rs", menu = "full"):
         self.clear()
         self.page.clear_lines()
         self.page_name = "edit"
@@ -403,13 +416,12 @@ class editor(object):
         self.add_question(q)
         self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
 
-        menu_type = 1
-        return self.render_page(menu_type)
+        return self.render_page(menu)
 
     
     
     @cherrypy.expose
-    def generate(self, q_id = "", l_id = None, language = "", init_code = "", iter_code = "", text = ""):
+    def generate(self, q_id = "", l_id = None, language = "", menu = "full", init_code = "", iter_code = "", text = ""):
         self.clear()
         self.page.clear_lines()
         self.page_name = "edit"
@@ -420,13 +432,12 @@ class editor(object):
         q = question(self.page, q_id, language, self.questions_path, init_code, iter_code, text)
         self.add_question(q)
 
-        menu_type = 1
-        return self.render_page(menu_type)
+        return self.render_page(menu)
 
 
 
     @cherrypy.expose
-    def view(self, q_id = None, l_id = None, language = "rs", simple_menu = False):
+    def view(self, q_id = None, l_id = None, language = "rs", menu = "full"):
         self.clear()
         self.page.clear_lines()
         self.page_name = "view" 
@@ -441,10 +452,10 @@ class editor(object):
         q.set_from_file_with_exception()
         self.add_question(q)
 
-        return self.render_simple_page(0 if simple_menu else 1)
+        return self.render_simple_page(menu)
 
     @cherrypy.expose
-    def list(self, q_id = None, l_id = None, language = "rs"):
+    def list(self, q_id = None, l_id = None, language = "rs", menu = "full"):
         self.clear()
         self.page.clear_lines()
         self.page_name = "list"
@@ -455,8 +466,7 @@ class editor(object):
 
         self.l_id = l_id
 
-        menu_type = 1
-        self.render_menu(menu_type)
+        self.render_menu(menu)
         ql = qlist(self.page, l_id, language, self.questions_path, self.lists_path)
         ql.render_all_questions()
         return self.page.render()
@@ -469,7 +479,7 @@ class editor(object):
                   
     @cherrypy.expose
     def mobile(self, q_id = None, language = "rs"):
-        return self.view(q_id, language, simple_menu = True)
+        return self.view(q_id, language, menu = "simple")
     
                   
 if __name__ == '__main__':
