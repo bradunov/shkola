@@ -5,6 +5,7 @@ import cherrypy
 import math
 import lupa
 import json
+import re
 from lupa import LuaRuntime
 from page import page
 from question import question
@@ -93,6 +94,10 @@ class editor(object):
         return qs
 
 
+
+        
+
+    
     def encap_str(self, string):
         return "\"" + string + "\""
     
@@ -474,12 +479,26 @@ class editor(object):
     
     @cherrypy.expose
     def index(self, q_id = None, language = "rs"):
-        return self.view(q_id, language)
-    
+        headers = cherrypy.request.headers
+        user_agent = headers['User-Agent'].lower()
+        print("User agent: ", user_agent)
+
+        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
+
+        if MOBILE_AGENT_RE.match(user_agent):
+            return self.view(q_id, language, menu = "simple")
+        else:
+            return self.view(q_id, language, menu = "full")
+
                   
     @cherrypy.expose
     def mobile(self, q_id = None, language = "rs"):
         return self.view(q_id, language, menu = "simple")
+
+    
+    @cherrypy.expose
+    def nonmobile(self, q_id = None, language = "rs"):
+        return self.view(q_id, language, menu = "full")
     
                   
 if __name__ == '__main__':
