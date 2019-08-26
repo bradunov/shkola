@@ -8,9 +8,7 @@ from library import library
 
 
 class paragraph(object):
-    # TBD: Center
     style = "style='display:content;border:6px;padding:6px'"
-    #style = "style='border:6px;padding:6px'"
     text = ""
     alignment = ""
     last_div_id = 0
@@ -275,9 +273,7 @@ class question(object):
 
         
         self.page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
-        # TBD: Center
         self.page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
-        #self.page.add_lines("<div id='question' style='width:100%'>\n")
 
         btext = self.make_pretty(self.text)
 
