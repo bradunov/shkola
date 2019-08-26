@@ -417,13 +417,13 @@ class question(object):
         code = code.replace("\\", "\\\\")
 
         # DEBUG
-        print("\n\n********************\nSTRINGS: \n")
-        for i in range(0, len(strings)):
-            print("string[{}]: {}".format(i, strings[i]))
+        if False:
+            print("\n\n********************\nSTRINGS: \n")
+            for i in range(0, len(strings)):
+                print("string[{}]: {}".format(i, strings[i]))
 
-        print("\n\n********************\nCODE: ", code)
+                print("\n\n********************\nCODE: ", code)
 
-        print(math.gcd(6,3))
         
         lua_fun = self.lua.eval(code)
         ret = lua_fun(self.page, self.lib, strings)
