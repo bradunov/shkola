@@ -11,8 +11,6 @@ from page import page
 from question import question
 from qlist import qlist
 
-from storage import sqltest
-
 
 
 
@@ -481,8 +479,7 @@ class editor(object):
     def index(self, q_id = None, language = "rs"):
         headers = cherrypy.request.headers
         user_agent = headers['User-Agent'].lower()
-        print("User agent: ", user_agent)
-
+        
         MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
 
         if MOBILE_AGENT_RE.match(user_agent):
@@ -503,8 +500,6 @@ class editor(object):
                   
 if __name__ == '__main__':
     
-    #sqltest()
-
     test = False
     #test = True
 
