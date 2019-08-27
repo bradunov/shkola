@@ -8,10 +8,10 @@ class page(object):
     def __init__(self, title="Shkola"):
         self.title = title
 
-    def add_lines(self, lines):
+    def add_lines(self, lines, *params):
         # For some reason Lua passes None after every call to library
         if lines is not None:
-            self.lines.append(lines)
+            self.lines.append(lines.format(*params) if params else lines)
 
     def get_lines(self):
         return self.lines
@@ -29,12 +29,14 @@ class page(object):
         head = head + "  <head>\n"
         head = head + "    <title>{}</title>\n".format(self.title)
         head = head + "    <meta name='viewport' content='width=device-width, initial-scale=1'>\n"
+        head = head + '    <meta name="google-signin-client_id" content="221670444651-i7ock63nksbnqeag7l3s2u0nf6jdb2bk.apps.googleusercontent.com">'
         head = head + """
              <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
              <script type="text/javascript" async
                src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
              </script>
              <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
+             <script src="https://apis.google.com/js/platform.js" async defer></script>
              <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
         """
         if self.on_loaded_script:
@@ -54,10 +56,7 @@ class page(object):
               math.eq = function(x, y, precision) { if (typeof(precision)==='undefined') precision = 0.00001; return Math.abs(x-y) < precision; }
               </script>
         """
-        
 
-
-            
         head = head + "  </head>\n"
         head = head + "  <body>\n"
 

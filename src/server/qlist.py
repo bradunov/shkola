@@ -1,5 +1,4 @@
 import json
-from page import page
 from question import question
 
 

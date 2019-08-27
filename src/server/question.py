@@ -1,6 +1,5 @@
 import sys
 import traceback
-import lupa
 import math
 from lupa import LuaRuntime
 from library import library
@@ -422,7 +421,7 @@ class question(object):
 
         
         lua_fun = self.lua.eval(code)
-        ret = lua_fun(self.page, self.lib, strings)
+        lua_fun(self.page, self.lib, strings)
             
         if self.lib is not None:
             self.lib.add_buttons()

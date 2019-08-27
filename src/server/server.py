@@ -1,10 +1,6 @@
 import os
 import json
-import sys
 import cherrypy
-import math
-import lupa
-import json
 import re
 import pickle
 import urllib
@@ -12,12 +8,14 @@ import urllib
 import base64
 
 from lupa import LuaRuntime
+
 from page import page
 from question import question
 from qlist import qlist
+from user_db import UserDB
 
 
-
+userdb = UserDB()
 
 
 
@@ -40,7 +38,7 @@ class editor(object):
     def __init__(self):
         self.page = page()
         self.load_config()
-        
+
     
     def load_config(self):
         try:
@@ -97,11 +95,6 @@ class editor(object):
         qs.sort()
         return qs
 
-
-
-        
-
-    
     def encap_str(self, string):
         return "\"" + string + "\""
     
@@ -152,7 +145,53 @@ class editor(object):
 
     
     
+    def render_login_header(self):
+        self.page.add_lines("\n\n<!-- LOGIN START -->\n")
+        self.page.add_lines("<div style='display:block;width=100%'>")
+
+        s = cherrypy.session
+        if 'user_id' in s:
+            self.page.add_lines("USER LOGGED IN: {} {}", s['user_id'], userdb.get_user_data()["name"])
+        else:
+            s['login_return'] = '/'
+            self.page.add_lines("NOT LOGGED IN: <a href='users/login_test'>login as test user</a>")
+
+        # self.page.add_lines("<div>{}</div>", cherrypy.request.path_info)
+
+        self.page.add_lines("<br/><br/></div>")
+        if 'user_id' not in s:
+            self.page.add_lines('<div class="g-signin2" style="margin-bottom:20px" data-onsuccess="onSignIn"></div>')
+            url = cherrypy.url('/users/login_google')
+            self.page.add_lines("""
+                <script>
+                function onSignIn(googleUser) {
+                    console.log('Google sign in');
+                    var profile = googleUser.getBasicProfile();
+                    var id_token = googleUser.getAuthResponse().id_token;
+                    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                    console.log('Name: ' + profile.getName());
+                    console.log('Image URL: ' + profile.getImageUrl());
+                    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', '""" + url + """');
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.onload = function() {
+                      console.log('Sign in response: ' + xhr.responseText);
+                      if (xhr.responseText == 'OK') {
+                          location.reload();
+                      }
+                    };
+                    xhr.send('id_token=' + id_token);
+                }
+                </script>
+            """)
+
+        self.page.add_lines("\n\n<!-- LOGIN END -->\n")
+
     def render_menu_full(self):
+        self.render_login_header()
+
         self.page.add_lines("\n\n<!-- FULL MENU START -->\n")
         # Edit or view question
         if self.page_name == "edit" or self.page_name == "view":
@@ -525,7 +564,6 @@ class editor(object):
     def nonmobile(self, q_id = None, language = "rs"):
         return self.view(q_id, None, language, menu = "full")
     
-                  
 if __name__ == '__main__':
     
     test = False
@@ -538,7 +576,16 @@ if __name__ == '__main__':
         print(output)
     else:
         ip_address = os.environ['SHKOLA_IP_ADDR']
-        cherrypy.config.update({'server.socket_host': ip_address, 'server.socket_port': 8080})
-        cherrypy.quickstart(editor())
 
+        cherrypy.config.update({
+            'server.socket_host': ip_address,
+            'server.socket_port': 8080,
+            'tools.sessions.on': True,
+        })
+
+        cherrypy.tree.mount(editor(), '/', {'/': {'log.screen': False}})
+        cherrypy.tree.mount(userdb, '/users', {'/' : {'log.screen': True}})
+
+        cherrypy.engine.start()
+        cherrypy.engine.block()
 
