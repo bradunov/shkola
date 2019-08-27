@@ -85,7 +85,6 @@ class editor(object):
     def get_all_lists(self):
         root = self.lists_path
         qs = []
-        print (root)
         for (dirpath, dirnames, filenames) in os.walk(root):
             for f in filenames:
                 if f[len(f)-5:len(f)] == ".json":
@@ -145,24 +144,18 @@ class editor(object):
 
     
     
-    def render_login_header(self):
-        self.page.add_lines("\n\n<!-- LOGIN START -->\n")
-        self.page.add_lines("<div style='display:block;width=100%'>")
-
+    def get_login_header(self):
+        login_str = ""
         s = cherrypy.session
-        if 'user_id' in s:
-            self.page.add_lines("USER LOGGED IN: {} {}", s['user_id'], userdb.get_user_data()["name"])
-        else:
-            s['login_return'] = '/'
-            self.page.add_lines("NOT LOGGED IN: <a href='users/login_test'>login as test user</a>")
-
+            
         # self.page.add_lines("<div>{}</div>", cherrypy.request.path_info)
+        s['login_return'] = '/'
 
-        self.page.add_lines("<br/><br/></div>")
-        if 'user_id' not in s:
-            self.page.add_lines('<div class="g-signin2" style="margin-bottom:20px" data-onsuccess="onSignIn"></div>')
-            url = cherrypy.url('/users/login_google')
-            self.page.add_lines("""
+        if cherrypy.config.get("use_google_auth"):
+            if 'user_id' not in s:
+                login_str = '<div class="g-signin2" style="margin-bottom:0px" data-onsuccess="onSignIn"></div>\n'
+                url = cherrypy.url('/users/login_google')
+                login_str = login_str + """
                 <script>
                 function onSignIn(googleUser) {
                     console.log('Google sign in');
@@ -185,12 +178,41 @@ class editor(object):
                     xhr.send('id_token=' + id_token);
                 }
                 </script>
-            """)
+                """
+        else:
+            # self.page.add_lines("\n\n<!-- LOGIN START -->\n")
+            # self.page.add_lines("<div style='display:block;width=100%'>")
+            # if 'user_id' in s:
+            #     s['login_return'] = '/'
+            #     self.page.add_lines("Korisnik: {} {} (<a href='users/login_test'>Promeni korisnika</a>)", s['user_id'], userdb.get_user_data()["name"])
+            # else:
+            #     s['login_return'] = '/'
+            #     self.page.add_lines("Niste izabrali korisnika: <a href='users/login_test'>Udjite kao test korisnik</a>")
 
-        self.page.add_lines("\n\n<!-- LOGIN END -->\n")
+            login_str = "<select id='sel_user_id' name='sel_user_id' onchange='window.location.replace(\"users/login_test?user_id=\" + this.value)'>n"
+            
+
+            if 'user_id' not in s:
+                login_str = login_str + "<option value='NONE' SELECTED></option>"
+
+            for i in range(1,4):
+                sel_user = format("Korisnik{}").format(i)
+                selected = ""
+                if 'user_id' in s and s['user_id'] == "local:"+sel_user:
+                    selected = "SELECTED"
+
+                login_str = login_str + "<option value='{}' {}>{}</option>".format(sel_user, selected, sel_user)
+
+            login_str = login_str + "</select>\n"
+
+            
+        #self.page.add_lines("\n\n<!-- LOGIN END -->\n")
+        #self.page.add_lines(login_str)
+        return login_str
+
+
 
     def render_menu_full(self):
-        self.render_login_header()
 
         self.page.add_lines("\n\n<!-- FULL MENU START -->\n")
         # Edit or view question
@@ -229,14 +251,19 @@ class editor(object):
                 select = select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
             select = select + "</select>\n"
 
+
+        log_header = self.get_login_header()
         
         # Not sure why I have to put explicit height here, otherwise it is zero!
         self.page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
-        self.page.add_lines("<span style='display:block;float:left;'>\n" + select + "\n</span>\n")
+        self.page.add_lines("<span style='display:block;float:left;'>\n" + select + log_header + "\n</span>\n")
+
+
+        
         lright = "<span style='display:block;float:right;'>\n"
 
         if ("languages" in self.config):
-            lang_select="Language: <select id='sel_lang' name='sel_lang' onchange='window.location.replace("
+            lang_select="Jezik: <select id='sel_lang' name='sel_lang' onchange='window.location.replace("
 
             if self.page_name == "edit" or self.page_name == "view":
                 lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
@@ -262,7 +289,7 @@ class editor(object):
             lright = lright + lang_select
 
 
-        op_select = "Operation: <select id='sel_op' name='sel_op' onchange='window.location.replace(" + \
+        op_select = "Operacija: <select id='sel_op' name='sel_op' onchange='window.location.replace(" + \
                                             self.create_url(page_name = "sel_op.value", \
                                                             q_id = self.encap_str(self.q_id), \
                                                             l_id = self.encap_str(self.l_id), \
@@ -473,8 +500,6 @@ class editor(object):
             state = {}
             
 
-        print(page_name, q_id, l_id, language)
-            
         
     @cherrypy.expose
     def edit(self, q_id = None, l_id = None, language = "rs", menu = "full", state = None):
@@ -581,6 +606,7 @@ if __name__ == '__main__':
             'server.socket_host': ip_address,
             'server.socket_port': 8080,
             'tools.sessions.on': True,
+            'use_google_auth': False
         })
 
         cherrypy.tree.mount(editor(), '/', {'/': {'log.screen': False}})

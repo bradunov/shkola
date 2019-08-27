@@ -24,10 +24,15 @@ class UserDB(object):
         if "user_id" in s:
             raise Exception("User alredy logged in")
 
+    def session_logout(self):
+        s = cherrypy.session
+        if 'user_id' in s:
+            del s['user_id']
+        
     def session_login(self, domain, user_id):
         s = cherrypy.session
 
-        assert "user_id" not in s
+        #assert "user_id" not in s
         s["user_id"] = user_id = self.make_user_id(domain, user_id)
 
         return user_id
@@ -49,10 +54,22 @@ class UserDB(object):
     def update_user_data(self, user_id, name, email):
         USER_DATA[user_id] = dict(name=name, email=email)
 
+
     @cherrypy.expose
-    def login_test(self):
-        self.check_no_user()
-        self.session_login('local','test')
+    def logout(self):
+        self.session_logout()
+
+        s = cherrypy.session
+        if 'login_return' in s:
+            raise cherrypy.HTTPRedirect(s['login_return'])
+
+    @cherrypy.expose
+    def login_test(self, user_id = None):
+        #self.check_no_user()
+        if user_id is None:
+            self.session_login('local','test')
+        else:
+            self.session_login('local',user_id)
 
         s = cherrypy.session
         if 'login_return' in s:

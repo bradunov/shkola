@@ -17,7 +17,7 @@ class qlist(object):
         if l_id is not None:
             self.l_id = l_id
 
-        print(self.lists_path, self.l_id, self.lists_path + "/" + self.l_id)
+        #print(self.lists_path, self.l_id, self.lists_path + "/" + self.l_id)
         with open(self.lists_path + "/" + self.l_id, "r") as read_list:
             self.list = json.load(read_list)
 
@@ -31,7 +31,7 @@ class qlist(object):
         
         self.load_list()
 
-        print(json.dumps(self.list, indent=4))
+        #print(json.dumps(self.list, indent=4))
         
 
     def render_all_questions(self):
