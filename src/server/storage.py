@@ -10,7 +10,7 @@ class storage(object):
     dbname = "shkola.sql"
     
     def __init__(self):
-        self.db = sqlite3.connect(self.dbname, detect_types=sqlite3.PARSE_DECLTYPES)
+        self.db = sqlite3.connect(self.dbname, detect_types=sqlite3.PARSE_DECLTYPES, check_same_thread=False)
         self.create_tables()
 
 
@@ -51,10 +51,12 @@ class storage(object):
         cursor.execute('''
               CREATE TABLE IF NOT EXISTS 
                      users(id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                                 google_id INTEGER, 
-                                 temp_id INTEGER, 
+                                 user_id TEXT, 
+                                 name TEXT,
+                                 email TEXT,
                                  remote_ip TEXT,
-                                 user_agent TEXT)
+                                 user_agent TEXT, 
+                                 last_accessed TIMESTAMP)
         ''')
         self.db.commit()
 
@@ -78,27 +80,68 @@ class storage(object):
 
 
             
-    def get_user_by_temp_id(self, temp_id):
+    def get_user_by_id(self, user_id):
         cursor = self.db.cursor()
-        cursor.execute('''SELECT id FROM users where temp_id == (?)''', (temp_id,))
+        cursor.execute('''SELECT id FROM users where user_id == (?)''', (user_id,))
         user = cursor.fetchone()
         if user is not None:
             return user[0]
         else:
-            cursor.execute(''' INSERT INTO users(google_id, temp_id, remote_ip, user_agent) VALUES(?,?,?,?) ''', (0, temp_id, "", ""))
+            cursor.execute(''' INSERT INTO users(user_id) VALUES(?) ''', (user_id, ))
             self.db.commit()
             return cursor.lastrowid
 
 
-    def update_user_remote_ip(self, user_id, remote_ip):
+    def get_user_data(self, user_id):
         cursor = self.db.cursor()
-        cursor.execute(''' UPDATE users SET remote_ip == ? WHERE id == ? ''', (remote_ip, user_id))
+        cursor.execute('''SELECT * FROM users where user_id == (?)''', (user_id,))
+        user = cursor.fetchone()
+        if user is not None:
+            return {"id": row[0],
+                    "user_id": row[1],
+                    "name": row[2],
+                    "email": row[3],
+                    "remote_ip":row[4],
+                    "user_agent":row[5],
+                    "last_accessed":row[6]}
+        else:
+            return None
+        
+        
+
+    def update_user(self, user_id, name=None, email=None,
+                    remote_ip=None, user_agent=None, last_accessed=None):
+        first = True
+        cursor = self.db.cursor()
+        query = "UPDATE users SET "
+        vals = []
+        if name is not None:
+            query = query + ("" if first else ",") + " name == ?"
+            first = False;
+            vals.append(name)
+        if email is not None:
+            query = query + ("" if first else ",") + " email == ?"
+            first = False
+            vals.append(email)
+        if remote_ip is not None:
+            query = query + ("" if first else ",") + " remote_ip == ?"
+            first = False
+            vals.append(remote_ip)
+        if user_agent is not None:
+            query = query + ("" if first else ",") + " user_agent == ?"
+            first = False
+            vals.append(user_agent)
+        if last_accessed is not None:
+            query = query + ("" if first else ",") + " last_accessed == ?"
+            first = False
+            vals.append(last_accessed)
+        vals.append(user_id)
+        query = query + " WHERE id == ?"
+        tvals = tuple(vals)
+        
+        cursor.execute(query, tvals)
         self.db.commit()
 
-    def update_user_remote_agent(self, user_id, user_agent):
-        cursor = self.db.cursor()
-        cursor.execute(''' UPDATE users SET user_agent == ? WHERE id == ? ''', (user_agent, user_id))
-        self.db.commit()
 
         
         
@@ -147,9 +190,9 @@ class storage(object):
     def print_all_users(self):
         cursor = self.db.cursor()
         cursor.execute(''' SELECT * from users ''')
-        print("   ID     GOOGLE ID     TEMP ID         REMOTE IP                     USER AGENT")
+        print("   ID               USER ID                    NAME                      EMAIL                LAST ACCESSED        REMOTE IP                      USER AGENT          ")
         for row in cursor:
-            print("{:^8} {:^14} {:^10} {:^20} {:^40}".format(row[0], row[1], row[2], row[3], row[4]))
+            print("{:^8} {:^30} {:^20} {:^30} {:%d-%m-%y %H:%M:%S} {:^20} {:^40}".format(row[0], row[1], row[2], row[3], row[6], row[4], row[5]))
         
         print("\n")
 
@@ -160,23 +203,29 @@ if __name__ == '__main__':
     
     storage = storage()
 
-    wipe_all = True
-    #wipe_all = False
+    #wipe_all = True
+    wipe_all = False
 
     if wipe_all:
         storage.delete_all_tables()
         storage.create_tables()
     
-    user0 = storage.get_user_by_temp_id(0)
-    user1 = storage.get_user_by_temp_id(1)
-    storage.update_user_remote_ip(user0, "100.200.300.400")
-    storage.update_user_remote_ip(user1, "200.300.400.500")
-    storage.update_user_remote_agent(user0, "agent0")
-    storage.update_user_remote_agent(user1, "agent1")
-
-
     now = datetime.datetime.now()
     delta = datetime.timedelta(hours=1, minutes=2, seconds=3)
+
+    user0 = storage.get_user_by_id("test0")
+    user1 = storage.get_user_by_id("test1")
+    storage.update_user(user0, name="User0", email="Email0", remote_ip="100.200.300.400", user_agent="agent0", last_accessed=now)
+    storage.update_user(user1, name="User1", email="Email1", remote_ip="200.300.400.500", user_agent="agent1", last_accessed=now)
+    # storage.update_user_name(user1, "User1")
+    # storage.update_user_email(user0, "Email0")
+    # storage.update_user_email(user1, "Email1")
+    # storage.update_user_remote_ip(user0, "100.200.300.400")
+    # storage.update_user_remote_ip(user1, "200.300.400.500")
+    # storage.update_user_remote_agent(user0, "agent0")
+    # storage.update_user_remote_agent(user1, "agent1")
+
+
     
     response = {"user_id" : user0, "question_id": 0, "time": now, "duration": 0, "attempt": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
     storage.record_response(response)

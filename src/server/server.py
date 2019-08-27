@@ -13,6 +13,8 @@ from page import page
 from question import question
 from qlist import qlist
 from user_db import UserDB
+from storage import storage
+
 
 
 userdb = UserDB()
@@ -33,9 +35,11 @@ class editor(object):
     lists_path = "../../lists"
     state = {}
     config = {}
+    storage = None
 
 
     def __init__(self):
+        self.storage = storage()
         self.page = page()
         self.load_config()
 
@@ -205,7 +209,7 @@ class editor(object):
 
             login_str = login_str + "</select>\n"
 
-            
+
         #self.page.add_lines("\n\n<!-- LOGIN END -->\n")
         #self.page.add_lines(login_str)
         return login_str
