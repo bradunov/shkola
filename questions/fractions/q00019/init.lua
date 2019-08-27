@@ -1,7 +1,8 @@
 style = {["width"] = 150,
         ["height"] = 50,
         ["ratio"] = 0.3,
-	["color"] = "ff99cc"};
+	["color"] = "ff99cc",
+        ["text-align"] = "inline"};
 
 
 array_enum = {}

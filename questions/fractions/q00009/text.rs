@@ -7,7 +7,7 @@ Obojene delove izrazi razlomkom:
     @lib.add_cell("", whiteg)@
   @lib.end_row()@ 
 @lib.end_table()@ \
-== @lib.check_fraction_simple(1, 2)@
+@hspace@ = @hspace@ @lib.check_fraction_simple(1, 2)@
 
 @center@ @lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@
@@ -16,7 +16,7 @@ Obojene delove izrazi razlomkom:
     @lib.add_cell("", whiteo)@
   @lib.end_row()@
 @lib.end_table()@ \
-== @lib.check_fraction_simple(1, 3)@
+@hspace@ = @hspace@ @lib.check_fraction_simple(1, 3)@
 
 @center@ @lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@
@@ -26,7 +26,7 @@ Obojene delove izrazi razlomkom:
     @lib.add_cell("", whiteb)@
   @lib.end_row()@
 @lib.end_table()@ \
-== @lib.check_fraction_simple(1, 4)@
+@hspace@ = @hspace@ @lib.check_fraction_simple(1, 4)@
 
 @center@ @lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@
@@ -37,7 +37,7 @@ Obojene delove izrazi razlomkom:
     @lib.add_cell("", whitep)@
   @lib.end_row()@
 @lib.end_table()@ \
-== @lib.check_fraction_simple(1, 5)@
+@hspace@ = @hspace@ @lib.check_fraction_simple(1, 5)@
 
 @center@ @lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@
@@ -49,4 +49,7 @@ Obojene delove izrazi razlomkom:
     @lib.add_cell("", whiter)@
   @lib.end_row()@
 @lib.end_table()@ \
-== @lib.check_fraction_simple(1, 6)@
+@hspace@ = @hspace@ @lib.check_fraction_simple(1, 6)@
+
+                  
+                  

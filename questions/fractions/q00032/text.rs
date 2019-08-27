@@ -1,6 +1,6 @@
 Dopuni jednakosti:
 
-@repeat(3)@
+@repeat(4)@
 
-@center@ \(\frac{@brojilac@}{@imenilac@}\) = @lib.check_fraction_numerator(numer,denom)@
+@center@ \(\frac{@brojilac@}{@imenilac@}\) @hspace@ = @hspace@ @lib.check_fraction_numerator(numer,denom)@
 @/repeat@

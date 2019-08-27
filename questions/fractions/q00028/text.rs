@@ -2,24 +2,15 @@ Poredi veličine i upiši znak < , >  ili  = :
 
 @vspace@
 
-@center@ \(\frac{2}{5}\) kg @lib.check_string("=")@ 400 g
-
-@vspace@
+@center@ \(\frac{2}{5}\) kg @hspace@ @lib.check_string("=")@ @hspace@ 400 g
                  
-35 min. @lib.check_string(">")@ \(\frac{1}{2}\) h
+@center@ 35 min. @hspace@ @lib.check_string(">")@ @hspace@ \(\frac{1}{2}\) h
 
-@vspace@
+@center@ @min@ min. @hspace@ @lib.check_string(znak)@ @hspace@ \(\frac{@brojilac@}{@imenilac@}\) h
 
-@min@ min. @lib.check_string(znak)@ \(\frac{@brojilac@}{@imenilac@}\) h
+@center@ \(\frac{5}{10}\) km @hspace@ @lib.check_string("<")@ @hspace@ 600 m
 
-@vspace@
+@center@ \(\frac{3}{4}\) t @hspace@ @lib.check_string("=")@ @hspace@ 750 kg                  
 
-\(\frac{5}{10}\) km @lib.check_string("<")@ 600 m
 
-@vspace@
-
-\(\frac{3}{4}\) t @lib.check_string("=")@ 750 kg                  
-
-@vspace@
-@vspace@
 

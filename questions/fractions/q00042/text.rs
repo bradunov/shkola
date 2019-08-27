@@ -11,6 +11,6 @@ poređaj od najvećeg do najmanjeg:
    @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[2]])..");", false)@ \(\geq\) \
    @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[1]])..");", false)@                  
                   
-@vspace@   
+  
                   
                   

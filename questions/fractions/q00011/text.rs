@@ -14,7 +14,7 @@ Obojeni deo figure zapiši razlomkom:
     @lib.add_cell("", whiteg)@
   @lib.end_row()@
 @lib.end_table()@ \
-== @lib.check_fraction_simple(1, 8)@
+@hspace@ = @hspace@ @lib.check_fraction_simple(1, 8)@
 
 @center@ @lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@
@@ -39,10 +39,9 @@ Obojeni deo figure zapiši razlomkom:
     @lib.add_cell("", whitep)@
   @lib.end_row()@
 @lib.end_table()@ \
-== @lib.check_fraction_simple(1, 7)@
+@hspace@ = @hspace@ @lib.check_fraction_simple(1, 7)@
 
-
-@lib.start_table({["text-align"] = "inline"})@
+@center@ @lib.start_table({["text-align"] = "inline"})@
   @lib.start_row()@
     @lib.add_cell("", whiteb)@
     @lib.add_cell("", whiteb)@
@@ -59,4 +58,6 @@ Obojeni deo figure zapiši razlomkom:
     @lib.add_cell("", whiteb)@
   @lib.end_row()@
 @lib.end_table()@ \
-== @lib.check_fraction_simple(1, 9)@
+@hspace@ = @hspace@ @lib.check_fraction_simple(1, 9)@
+
+                 
