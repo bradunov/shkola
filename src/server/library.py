@@ -46,6 +46,7 @@ class library(object):
     def __init__(self, lua, page):
         self.page = page
         self.checks = []
+        self.clears = []
         self.object_id = 0
         self.lua = lua
         self.math = LibMath(lua)
