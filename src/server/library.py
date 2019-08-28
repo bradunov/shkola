@@ -543,19 +543,45 @@ class library(object):
 
     ### Buttons at the bottom of the page
 
-    def add_check_button(self):
+    def add_check_button(self, q_id, user_id):
+        ajax_results_script = """
+        <script>
+        function sendResultsToServer(str) {
+          var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+          xhr.open('POST', '/results');
+          xhr.onreadystatechange = function() {
+            console.log("Received");
+            console.log(xhr);
+            if (xhr.readyState>3 && xhr.status==200) { console.log(xhr.responseText); success(xhr.responseText); }
+          };
+          xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          xhr.send(str);
+          return xhr;
+        }
+        </script>
+        """
+
+        
         line = "\n<input type='button' style='font-size: 14px;' onclick='"
         cid = 0
         cond = "cond = "
+        report = "\"q_id=" + q_id + "&user_id=" + user_id + "&\" + "
         for c in self.checks:
             line = line + "c" + str(cid) + " = " + c + "; "
             cond = cond + "c" + str(cid) + " && "
+            report = report + "\"q" + str(cid) + "=\" + c" + str(cid) + ".toString() + \"&\" + " 
             cid = cid + 1
         cond = cond + "true;"
         line = line + cond
+        report = report + "\"now=\" + Date.now().toString();"
+        line = line + "res = " + report
+        line = line + "console.log(res);"
+        line = line + "sendResultsToServer(res);"
         line = line + "' value='Proveri' />\n"
         #print(line)
         self.page.add_lines("\n<!-- CHECK BUTTON -->\n")
+        self.page.add_lines(ajax_results_script)
         self.page.add_lines(line)
         self.checks = []
         
@@ -569,9 +595,9 @@ class library(object):
         self.page.add_lines(line)
         self.clears = []
 
-    def add_buttons(self):
+    def add_buttons(self, q_id, user_id):
         self.page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
-        self.add_check_button()
+        self.add_check_button(q_id, user_id)
         self.page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         self.add_clear_button()
         self.page.add_lines("\n</div>\n")

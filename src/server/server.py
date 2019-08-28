@@ -147,6 +147,13 @@ class editor(object):
 
 
     
+    def get_user_id(self):
+        s = cherrypy.session
+        if "user_id" not in s:
+            return ""
+        else:
+            return s["user_id"]
+    
     
     def get_login_header(self):
         login_str = ""
@@ -238,7 +245,7 @@ class editor(object):
             select = select + "</select>\n"
 
         # View list
-        elif self.page_name == "list":
+        elif self.page_name == "list" or self.page_name == "test":
             select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
                                 self.create_url(page_name = self.encap_str(self.page_name), \
                                                 l_id = "this.value", \
@@ -276,7 +283,7 @@ class editor(object):
                                                             menu = self.encap_str("full"), \
                                                             js = True) + ")'>\n"
             # View list
-            elif self.page_name == "list":
+            elif self.page_name == "list" or self.page_name == "test":
                 lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
@@ -301,7 +308,7 @@ class editor(object):
                                                             menu = self.encap_str("full"), \
                                                             js = True) + ")'>\n"
 
-        options = ["view", "edit", "list"]
+        options = ["view", "edit", "list", "test"]
 
         for o in options:
             if o == self.page_name:
@@ -341,7 +348,7 @@ class editor(object):
             select = select + "</select>\n"
 
         # View list
-        elif self.page_name == "list":
+        elif self.page_name == "list" or self.page_name == "test":
             select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
                                 self.create_url(page_name = self.encap_str(self.page_name), \
                                                 l_id = "this.value", \
@@ -375,7 +382,7 @@ class editor(object):
                                                             menu = self.encap_str("simple"), \
                                                             js = True) + ")'>\n"
             # View list
-            elif self.page_name == "list":
+            elif self.page_name == "list" or self.page_name == "test":
                 lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
@@ -513,7 +520,7 @@ class editor(object):
         self.parse_parameters("edit", q_id, l_id, language, state)
         
             
-        q = question(self.page, self.q_id, self.language, self.questions_path)
+        q = question(self.page, self.q_id, self.language, self.get_user_id(), self.questions_path)
         q.set_from_file_with_exception()
         self.add_question(q)
         self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
@@ -531,7 +538,7 @@ class editor(object):
 
         
         self.add_code(init_code, iter_code, text)
-        q = question(self.page, self.q_id, self.language, self.questions_path, init_code, iter_code, text)
+        q = question(self.page, self.q_id, self.language, self.get_user_id(), self.questions_path, init_code, iter_code, text)
         self.add_question(q)
 
         return self.render_page(menu)
@@ -546,7 +553,7 @@ class editor(object):
         self.parse_parameters("view", q_id, l_id, language, state)
 
                     
-        q = question(self.page, self.q_id, self.language, self.questions_path)
+        q = question(self.page, self.q_id, self.language, self.get_user_id(), self.questions_path)
         q.set_from_file_with_exception()
         self.add_question(q)
 
@@ -560,6 +567,21 @@ class editor(object):
         self.page.clear_lines()
 
         self.parse_parameters("list", q_id, l_id, language, state)
+
+        
+        self.render_menu(menu)
+        ql = qlist(self.page, self.l_id, self.language, self.questions_path, self.lists_path)
+        ql.render_all_questions()
+        return self.page.render()
+
+
+    
+    @cherrypy.expose
+    def test(self, q_id = None, l_id = None, language = "rs", menu = "full", state = None):
+        self.clear()
+        self.page.clear_lines()
+
+        self.parse_parameters("test", q_id, l_id, language, state)
 
         
         self.render_menu(menu)

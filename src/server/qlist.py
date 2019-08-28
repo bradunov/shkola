@@ -28,7 +28,7 @@ class qlist(object):
         self.l_id = l_id
         self.questions_path = questions_path
         self.lists_path = lists_path
-        
+
         self.load_list()
 
         #print(json.dumps(self.list, indent=4))
