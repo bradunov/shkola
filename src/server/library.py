@@ -543,10 +543,27 @@ class library(object):
 
     ### Buttons at the bottom of the page
 
-    def add_check_button(self, q_id, user_id):
+    def add_check_button(self, q_id, user_id, url_next=None):
+        
+        cid = 0
+        cond = "cond = "
+        assign = ""
+        report = "\"q_id=" + q_id + "&user_id=" + user_id + "&\" + "
+        for c in self.checks:
+            assign = assign + "c" + str(cid) + " = " + c + "; "
+            cond = cond + "c" + str(cid) + " && "
+            report = report + "\"q_res" + str(cid) + "=\" + c" + str(cid) + ".toString() + \"&\" + " 
+            cid = cid + 1
+        cond = cond + "true;"
+        report = "report = " + report + \
+                 "\"start=\" + question_start_time.toString() + " + \
+                 "\"&now=\" + Math.floor(Date.now()/1000).toString();"
+
+
         ajax_results_script = """
         <script>
-        function sendResultsToServer(str) {
+        question_start_time = Math.floor(Date.now()/1000);
+        function sendResultsToServer(str, type) {
           var xhr = new XMLHttpRequest();
           xhr.open('POST', '/results/register');
           xhr.onreadystatechange = function() {
@@ -555,32 +572,40 @@ class library(object):
             if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
           };
           xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-          xhr.send(str);
+          xhr.send(str + '&response_type=' + type);
+        }
+        function checkAll(){
+        """ + assign + "\n" \
+            + cond + "\n" \
+            + report + """
+          return [cond, report];
         }
         </script>
         """
 
-        
-        line = "\n<input type='button' style='font-size: 14px;' onclick='"
-        cid = 0
-        cond = "cond = "
-        report = "\"q_id=" + q_id + "&user_id=" + user_id + "&\" + "
-        for c in self.checks:
-            line = line + "c" + str(cid) + " = " + c + "; "
-            cond = cond + "c" + str(cid) + " && "
-            report = report + "\"q_res" + str(cid) + "=\" + c" + str(cid) + ".toString() + \"&\" + " 
-            cid = cid + 1
-        cond = cond + "true;"
-        line = line + cond
-        report = report + "\"now=\" + Math.floor(Date.now()/1000).toString();"
-        line = line + "res = " + report
-        line = line + "console.log(res);"
-        line = line + "sendResultsToServer(res);"
-        line = line + "' value='Proveri' />\n"
-        #print(line)
-        self.page.add_lines("\n<!-- CHECK BUTTON -->\n")
+        self.page.add_lines("\n<!-- CHECK NEXT BUTTON -->\n")
         self.page.add_lines(ajax_results_script)
-        self.page.add_lines(line)
+
+        OKline = "\n<input type='button' style='font-size: 14px;' onclick='[cond, report] = checkAll();"
+        OKline = OKline + "console.log(report);"
+        OKline = OKline + "sendResultsToServer(report, \"SUBMIT\");"
+        if url_next is not None:
+            OKline = OKline + "if (cond) {window.location.replace(\"" + url_next + "\")}"
+        OKline = OKline + "' value='Proveri' />\n"
+        self.page.add_lines(OKline)
+
+        if url_next is not None:
+            NEXTline = ""
+            NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='[cond, report] = checkAll();"
+            NEXTline = NEXTline + report
+            NEXTline = NEXTline + "console.log(report);"
+            NEXTline = NEXTline + "sendResultsToServer(report, \"SKIP\");"
+            NEXTline = NEXTline + "window.location.replace(\"" + url_next + "\");"
+            NEXTline = NEXTline + "' value='Preskoci' />\n"
+            self.page.add_lines(NEXTline)
+            
+        self.page.add_lines("\n<!-- END CHECK NEXT BUTTONS -->\n")
+            
         self.checks = []
         
     def add_clear_button(self):
@@ -591,11 +616,12 @@ class library(object):
         #print(line)
         self.page.add_lines("\n<!-- CLEAR BUTTON -->\n")
         self.page.add_lines(line)
+        self.page.add_lines("\n<!-- END CLEAR BUTTON -->\n")
         self.clears = []
 
-    def add_buttons(self, q_id, user_id):
+    def add_buttons(self, q_id, user_id, url_next=None):
         self.page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
-        self.add_check_button(q_id, user_id)
+        self.add_check_button(q_id, user_id, url_next)
         self.page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         self.add_clear_button()
         self.page.add_lines("\n</div>\n")

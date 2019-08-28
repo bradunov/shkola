@@ -553,7 +553,7 @@ class editor(object):
         self.parse_parameters("view", q_id, l_id, language, state)
 
                     
-        q = question(self.page, self.q_id, self.language, self.get_user_id(), self.questions_path)
+        q = question(self.page, self.q_id, self.language, self.get_user_id(), self.questions_path, "http://192.168.137.2:8080/view?q_id=fractions/q00004&language=rs&menu=full&state=gAN9cQAu")
         q.set_from_file_with_exception()
         self.add_question(q)
 

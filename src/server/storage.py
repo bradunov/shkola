@@ -67,11 +67,12 @@ class storage(object):
                      responses(id INTEGER PRIMARY KEY AUTOINCREMENT, 
                                      user_id TEXT, 
                                      question_id TEXT, 
-                                     time INTEGER, 
-                                     duration INTEGER, 
-                                     correct INTEGET, 
-                                     incorrect INTEGER,
-                                     questions TEXT)
+                                     response_type TEXT,             /* SUBMIT or SKIP */
+                                     time INTEGER,                   /* Time in seconds epoch from when the question is generated */
+                                     duration INTEGER,               /* Time in seconds epoch from when the question is generated to when the answer is created*/
+                                     correct INTEGET,                /* Number of correct answers on the form */
+                                     incorrect INTEGER,              /* Number of incorrect answers on the form */
+                                     questions TEXT                  /* Detailed answers for each question */)
         ''')
         self.db.commit()
             
@@ -145,8 +146,8 @@ class storage(object):
 
     def record_response(self, response):
         cursor = self.db.cursor()
-        cursor.execute(''' INSERT INTO responses(user_id, question_id, time, duration, correct, incorrect, questions)
-                  VALUES(:user_id, :question_id, :time, :duration, :correct, :incorrect, :questions)''', \
+        cursor.execute(''' INSERT INTO responses(user_id, question_id, response_type, time, duration, correct, incorrect, questions)
+                  VALUES(:user_id, :question_id, :response_type, :time, :duration, :correct, :incorrect, :questions)''', \
                        response)
         self.db.commit()
 
@@ -166,16 +167,17 @@ class storage(object):
         else:
             print("USER_ID = {}\n".format(user_id))
 
-        print("     QUESTION_ID             TIME            DURATION      CORRECT   INCORRECT                     QUESTIONS")
+        print("     QUESTION_ID     RESPONSE_TYPE           TIME                DURATION      CORRECT   INCORRECT                QUESTIONS")
         for row in cursor:
             if user_id is None:
                 print("{:^30} ".format(row[1]), end='')                                                      # UID
             print("{:^20} ".format(row[2]), end='')                                                          # QID
-            print("{:^20} ".format(time.strftime("%d-%m-%y %H:%M:%S", time.localtime(row[3]))), end='')      # TIME
-            print("{:^16} ".format(row[4]), end='')                                                          # DURATION
-            print("{:^10} ".format(row[5]), end='')                                                          # CORRECT
-            print("{:^10} ".format(row[6]), end='')                                                          # INCORRECT
-            print("{:^38} ".format(row[7]))                                                                  # QUESTIONS
+            print("{:^12} ".format(row[3]), end='')                                                          # RESPONSE TYPE
+            print("{:^26} ".format(time.strftime("%d-%m-%y %H:%M:%S", time.localtime(row[4]))), end='')      # TIME
+            print("{:^16} ".format(row[5]), end='')                                                          # DURATION
+            print("{:^10} ".format(row[6]), end='')                                                          # CORRECT
+            print("{:^10} ".format(row[7]), end='')                                                          # INCORRECT
+            print("{:^38} ".format(row[8]))                                                                  # QUESTIONS
 
         print("\n")
 
@@ -184,7 +186,7 @@ class storage(object):
     def print_all_users(self):
         cursor = self.db.cursor()
         cursor.execute(''' SELECT * from users ''')
-        print("           USER ID                    NAME                      EMAIL                LAST ACCESSED        REMOTE IP                      USER AGENT          ")
+        print("           USER ID                    NAME                      EMAIL                 LAST ACCESSED          REMOTE IP                      USER AGENT          ")
         for row in cursor:
             print("{:^30} {:^20} {:^30} {:^20} {:^20} {:^40}".format(row[0], row[1], row[2], time.strftime("%d-%m-%y %H:%M:%S", time.localtime(row[5])), row[3], row[4]))
         
@@ -218,16 +220,16 @@ if __name__ == '__main__':
         storage.update_user(user0, name="User0", email="Email0", remote_ip="100.200.300.400", user_agent="agent0", last_accessed=epoch_ms)
         storage.update_user(user1, name="User1", email="Email1", remote_ip="200.300.400.500", user_agent="agent1", last_accessed=epoch_ms)
     
-        response = {"user_id" : user0, "question_id": 0, "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        response = {"user_id" : user0, "question_id": 0, "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
         storage.record_response(response)
 
-        response = {"user_id" : user0, "question_id": 1, "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        response = {"user_id" : user0, "question_id": 1, "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
         storage.record_response(response)
 
-        response = {"user_id" : user1, "question_id": 0, "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        response = {"user_id" : user1, "question_id": 0, "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
         storage.record_response(response)
 
-        response = {"user_id" : user1, "question_id": 1, "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        response = {"user_id" : user1, "question_id": 1, "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
         storage.record_response(response)
 
 
