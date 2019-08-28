@@ -1,6 +1,6 @@
 import sqlite3
 import datetime
-
+import time
     
 
 
@@ -50,13 +50,12 @@ class storage(object):
         cursor = self.db.cursor()
         cursor.execute('''
               CREATE TABLE IF NOT EXISTS 
-                     users(id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                                 user_id TEXT, 
-                                 name TEXT,
-                                 email TEXT,
-                                 remote_ip TEXT,
-                                 user_agent TEXT, 
-                                 last_accessed TIMESTAMP)
+                     users(user_id TEXT PRIMARY KEY, 
+                           name TEXT,
+                           email TEXT,
+                           remote_ip TEXT,
+                           user_agent TEXT, 
+                           last_accessed INTEGER)
         ''')
         self.db.commit()
 
@@ -66,11 +65,10 @@ class storage(object):
         cursor.execute('''
               CREATE TABLE IF NOT EXISTS 
                      responses(id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                                     user_id INTEGER, 
+                                     user_id TEXT, 
                                      question_id TEXT, 
-                                     time TIMESTAMP, 
-                                     duration TIME, 
-                                     attempt INTEGER, 
+                                     time INTEGER, 
+                                     duration INTEGER, 
                                      correct INTEGET, 
                                      incorrect INTEGER,
                                      questions TEXT)
@@ -82,14 +80,14 @@ class storage(object):
             
     def get_user_by_id(self, user_id):
         cursor = self.db.cursor()
-        cursor.execute('''SELECT id FROM users where user_id == (?)''', (user_id,))
+        cursor.execute('''SELECT user_id FROM users where user_id == (?)''', (user_id,))
         user = cursor.fetchone()
         if user is not None:
-            return user[0]
+            return user_id
         else:
             cursor.execute(''' INSERT INTO users(user_id) VALUES(?) ''', (user_id, ))
             self.db.commit()
-            return cursor.lastrowid
+            return user_id
 
 
     def get_user_data(self, user_id):
@@ -97,13 +95,12 @@ class storage(object):
         cursor.execute('''SELECT * FROM users where user_id == (?)''', (user_id,))
         user = cursor.fetchone()
         if user is not None:
-            return {"id": row[0],
-                    "user_id": row[1],
-                    "name": row[2],
-                    "email": row[3],
-                    "remote_ip":row[4],
-                    "user_agent":row[5],
-                    "last_accessed":row[6]}
+            return {"user_id": row[0],
+                    "name": row[1],
+                    "email": row[2],
+                    "remote_ip":row[3],
+                    "user_agent":row[4],
+                    "last_accessed":row[5]}
         else:
             return None
         
@@ -136,7 +133,7 @@ class storage(object):
             first = False
             vals.append(last_accessed)
         vals.append(user_id)
-        query = query + " WHERE id == ?"
+        query = query + " WHERE user_id == ?"
         tvals = tuple(vals)
         
         cursor.execute(query, tvals)
@@ -148,8 +145,8 @@ class storage(object):
 
     def record_response(self, response):
         cursor = self.db.cursor()
-        cursor.execute(''' INSERT INTO responses(user_id, question_id, time, duration, attempt, correct, incorrect, questions)
-                  VALUES(:user_id, :question_id, :time, :duration, :attempt, :correct, :incorrect, :questions)''', \
+        cursor.execute(''' INSERT INTO responses(user_id, question_id, time, duration, correct, incorrect, questions)
+                  VALUES(:user_id, :question_id, :time, :duration, :correct, :incorrect, :questions)''', \
                        response)
         self.db.commit()
 
@@ -165,23 +162,20 @@ class storage(object):
 
 
         if user_id is None:
-            print("       USER_ID ", end='')
+            print("            USER_ID            ", end='')
         else:
             print("USER_ID = {}\n".format(user_id))
-            print("       ", end='')
 
-        print("QUESTION_ID         TIME           DURATION    ATTEMPT    CORRECT   INCORRECT                QUESTIONS")
+        print("     QUESTION_ID             TIME            DURATION      CORRECT   INCORRECT                     QUESTIONS")
         for row in cursor:
-            print("{:5}: ".format(row[0]), end='') 
             if user_id is None:
-                print("{:^7} ".format(row[1]), end='')                   # UID
-            print("{:^12} ".format(row[2]), end='')                      # QID
-            print(" {:%d-%m-%y %H:%M:%S}  ".format(row[3]), end='')      # TIME
-            print("{:^13} ".format(row[4]), end='')                      # DURATION
-            print("{:^9} ".format(row[5]), end='')                       # ATTEMPT
-            print("{:^10} ".format(row[6]), end='')                      # CORRECT
-            print("{:^10} ".format(row[7]), end='')                      # INCORRECT
-            print("{:^38} ".format(row[8]))                              # QUESTIONS
+                print("{:^30} ".format(row[1]), end='')                                                      # UID
+            print("{:^20} ".format(row[2]), end='')                                                          # QID
+            print("{:^20} ".format(time.strftime("%d-%m-%y %H:%M:%S", time.localtime(row[3]))), end='')      # TIME
+            print("{:^16} ".format(row[4]), end='')                                                          # DURATION
+            print("{:^10} ".format(row[5]), end='')                                                          # CORRECT
+            print("{:^10} ".format(row[6]), end='')                                                          # INCORRECT
+            print("{:^38} ".format(row[7]))                                                                  # QUESTIONS
 
         print("\n")
 
@@ -190,9 +184,9 @@ class storage(object):
     def print_all_users(self):
         cursor = self.db.cursor()
         cursor.execute(''' SELECT * from users ''')
-        print("   ID               USER ID                    NAME                      EMAIL                LAST ACCESSED        REMOTE IP                      USER AGENT          ")
+        print("           USER ID                    NAME                      EMAIL                LAST ACCESSED        REMOTE IP                      USER AGENT          ")
         for row in cursor:
-            print("{:^8} {:^30} {:^20} {:^30} {:%d-%m-%y %H:%M:%S} {:^20} {:^40}".format(row[0], row[1], row[2], row[3], row[6], row[4], row[5]))
+            print("{:^30} {:^20} {:^30} {:^20} {:^20} {:^40}".format(row[0], row[1], row[2], time.strftime("%d-%m-%y %H:%M:%S", time.localtime(row[5])), row[3], row[4]))
         
         print("\n")
 
@@ -203,49 +197,45 @@ if __name__ == '__main__':
     
     storage = storage()
 
-    #wipe_all = True
     wipe_all = False
+    #wipe_all = True
 
+    add_test_data = False
+    #add_test_data = True
+    
     if wipe_all:
         storage.delete_all_tables()
         storage.create_tables()
+
+
+
+    if add_test_data:
+        epoch_ms = int(time.time())
+        delta = 3600
+
+        user0 = storage.get_user_by_id("test0")
+        user1 = storage.get_user_by_id("test1")
+        storage.update_user(user0, name="User0", email="Email0", remote_ip="100.200.300.400", user_agent="agent0", last_accessed=epoch_ms)
+        storage.update_user(user1, name="User1", email="Email1", remote_ip="200.300.400.500", user_agent="agent1", last_accessed=epoch_ms)
     
-    now = datetime.datetime.now()
-    delta = datetime.timedelta(hours=1, minutes=2, seconds=3)
+        response = {"user_id" : user0, "question_id": 0, "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        storage.record_response(response)
 
-    user0 = storage.get_user_by_id("test0")
-    user1 = storage.get_user_by_id("test1")
-    storage.update_user(user0, name="User0", email="Email0", remote_ip="100.200.300.400", user_agent="agent0", last_accessed=now)
-    storage.update_user(user1, name="User1", email="Email1", remote_ip="200.300.400.500", user_agent="agent1", last_accessed=now)
-    # storage.update_user_name(user1, "User1")
-    # storage.update_user_email(user0, "Email0")
-    # storage.update_user_email(user1, "Email1")
-    # storage.update_user_remote_ip(user0, "100.200.300.400")
-    # storage.update_user_remote_ip(user1, "200.300.400.500")
-    # storage.update_user_remote_agent(user0, "agent0")
-    # storage.update_user_remote_agent(user1, "agent1")
+        response = {"user_id" : user0, "question_id": 1, "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        storage.record_response(response)
 
+        response = {"user_id" : user1, "question_id": 0, "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        storage.record_response(response)
 
-    
-    response = {"user_id" : user0, "question_id": 0, "time": now, "duration": 0, "attempt": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
-    storage.record_response(response)
-
-    response = {"user_id" : user0, "question_id": 1, "time": now+delta, "duration": 0, "attempt": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
-    storage.record_response(response)
-
-
-    response = {"user_id" : user1, "question_id": 0, "time": now, "duration": 0, "attempt": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
-    storage.record_response(response)
-
-    response = {"user_id" : user1, "question_id": 1, "time": now+delta, "duration": 0, "attempt": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
-    storage.record_response(response)
+        response = {"user_id" : user1, "question_id": 1, "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        storage.record_response(response)
 
 
     storage.print_all_users()
 
     storage.print_all_responses()
 
-    #storage.print_all_responses(1)
+    #storage.print_all_responses("local:Korisnik1")
 
     
 

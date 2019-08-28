@@ -14,11 +14,11 @@ from question import question
 from qlist import qlist
 from user_db import UserDB
 from storage import storage
-
+from results import Results
 
 
 userdb = UserDB()
-
+results = Results()
 
 
 class editor(object):
@@ -637,6 +637,7 @@ if __name__ == '__main__':
 
         cherrypy.tree.mount(editor(), '/', {'/': {'log.screen': False}})
         cherrypy.tree.mount(userdb, '/users', {'/' : {'log.screen': True}})
+        cherrypy.tree.mount(results, '/results', {'/' : {'log.screen': True}})
 
         cherrypy.engine.start()
         cherrypy.engine.block()

@@ -1,7 +1,7 @@
 import cherrypy
 import google.oauth2.id_token
 import google.auth.transport.requests
-import datetime
+import time
 from storage import storage
 
 GOOGLE_CLIENT_ID = "221670444651-i7ock63nksbnqeag7l3s2u0nf6jdb2bk.apps.googleusercontent.com"
@@ -50,7 +50,7 @@ class UserDB(object):
 
     def update_user_data(self, user_id, name, email, remote_ip, user_agent):
         user = self.storage.get_user_by_id(user_id)
-        now = datetime.datetime.now()
+        now = int(time.time())
         self.storage.update_user(user, name=name, email=email, remote_ip=remote_ip, user_agent=user_agent, last_accessed=now)
 
         

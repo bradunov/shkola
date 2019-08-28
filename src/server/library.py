@@ -547,17 +547,15 @@ class library(object):
         ajax_results_script = """
         <script>
         function sendResultsToServer(str) {
-          var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-          xhr.open('POST', '/results');
+          var xhr = new XMLHttpRequest();
+          xhr.open('POST', '/results/register');
           xhr.onreadystatechange = function() {
             console.log("Received");
             console.log(xhr);
-            if (xhr.readyState>3 && xhr.status==200) { console.log(xhr.responseText); success(xhr.responseText); }
+            if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
           };
-          xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
           xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
           xhr.send(str);
-          return xhr;
         }
         </script>
         """
@@ -570,11 +568,11 @@ class library(object):
         for c in self.checks:
             line = line + "c" + str(cid) + " = " + c + "; "
             cond = cond + "c" + str(cid) + " && "
-            report = report + "\"q" + str(cid) + "=\" + c" + str(cid) + ".toString() + \"&\" + " 
+            report = report + "\"q_res" + str(cid) + "=\" + c" + str(cid) + ".toString() + \"&\" + " 
             cid = cid + 1
         cond = cond + "true;"
         line = line + cond
-        report = report + "\"now=\" + Date.now().toString();"
+        report = report + "\"now=\" + Math.floor(Date.now()/1000).toString();"
         line = line + "res = " + report
         line = line + "console.log(res);"
         line = line + "sendResultsToServer(res);"
