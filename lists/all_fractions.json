@@ -1,4 +1,5 @@
-[
+{ "name" : "all_fractions", 
+ "questions":  [
     {"name" : "fractions/q00001", "repeat" : 1 },
     {"name" : "fractions/q00002", "repeat" : 1 },
     {"name" : "fractions/q00003", "repeat" : 1 },
@@ -43,4 +44,5 @@
     {"name" : "fractions/q00042", "repeat" : 1 },
     {"name" : "fractions/q00043", "repeat" : 1 },
     {"name" : "fractions/q00044", "repeat" : 1 }
-]
+    ]
+}

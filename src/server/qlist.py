@@ -22,10 +22,11 @@ class qlist(object):
             self.list = json.load(read_list)
 
     
-    def __init__(self, page, l_id, language, questions_path, lists_path):
+    def __init__(self, page, l_id, language, user_id, questions_path, lists_path):
         self.page = page
         self.language = language
         self.l_id = l_id
+        self.user_id = user_id
         self.questions_path = questions_path
         self.lists_path = lists_path
 
@@ -35,9 +36,10 @@ class qlist(object):
         
 
     def render_all_questions(self):
-        for i in self.list:
+        for i in self.list["questions"]:
             q_id = i["name"]
-            q = question(self.page, q_id, self.language, self.questions_path)
+            print(i, q_id)
+            q = question(self.page, q_id, self.language, self.user_id, self.questions_path)
             q.set_from_file_with_exception()
 
             self.page.add_lines("\n<!-- QUESTION HEADER -->\n")

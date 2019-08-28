@@ -64,7 +64,7 @@ class question(object):
     """
 
     
-    def __init__(self, page, path, language, user_id, questions_root_path, url_next=None, init_code = "", iter_code = "", text = ""):
+    def __init__(self, page, path, language, user_id, questions_root_path, url_next=None, init_code="", iter_code="", text=""):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.lib = library(self.lua, page)
         self.page = page

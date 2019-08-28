@@ -4,7 +4,6 @@ import cherrypy
 import re
 import pickle
 import urllib
-
 import base64
 
 from lupa import LuaRuntime
@@ -15,7 +14,8 @@ from qlist import qlist
 from user_db import UserDB
 from storage import storage
 from results import Results
-
+from helpers import create_url, encap_str
+from test import Test
 
 userdb = UserDB()
 results = Results()
@@ -33,7 +33,6 @@ class editor(object):
     page_name = ""
     questions_path = "../../questions"
     lists_path = "../../lists"
-    state = {}
     config = {}
     storage = None
 
@@ -98,52 +97,7 @@ class editor(object):
         qs.sort()
         return qs
 
-    def encap_str(self, string):
-        return "\"" + string + "\""
     
-    def create_url(self = None, page_name = None, q_id = None, l_id = None, lang = None, state = None, menu = None, js = False):
-        first = True
-
-        # Encode state
-        encoded_state = urllib.parse.quote_from_bytes(base64.b64encode(pickle.dumps(self.state)))
-
-        
-        if js:
-            glue = lambda first: " + \"" + ("?" if first else "&")
-            url = page_name
-            if q_id is not None:
-                url = url + glue(first) + "q_id=\" + " + q_id
-                first = False
-            if l_id is not None:
-                url = url + glue(first) + "l_id=\" + " + l_id
-                first = False
-            if lang is not None:
-                url = url + glue(first) + "language=\" + " + lang
-                first = False
-            if menu is not None:
-                url = url + glue(first) + "menu=\" + " + menu
-                first = False
-            if self.state is not None:
-                url = url + glue(first) + "state=" + encoded_state + "\""
-        else:
-            glue = lambda first: "?" if first else "@" 
-            url = page_name
-            if q_id is not None:
-                url = url + "?q_id=" + q_id
-                first = False
-            if l_id is not None:
-                url = url + "?l_id=" + q_id
-                first = False
-            if lang is not None:
-                url = url + glue(first) + "language=" + lang
-                first = False
-            if menu is not None:
-                url = url + glue(first) + "menu=" + lang
-                first = False
-            if self.state is not None:
-                url = url + glue(first) + encoded_state + "\""
-
-        return url
 
 
     
@@ -229,10 +183,10 @@ class editor(object):
         # Edit or view question
         if self.page_name == "edit" or self.page_name == "view":
             select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
-                                self.create_url(page_name = self.encap_str(self.page_name), \
+                                create_url(page_name = encap_str(self.page_name), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
-                                                menu = self.encap_str("full"), \
+                                                menu = encap_str("full"), \
                                                 js = True) + ")'>\n"
             qs = self.get_all_questions(self.language)
         
@@ -247,10 +201,10 @@ class editor(object):
         # View list
         elif self.page_name == "list" or self.page_name == "test":
             select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
-                                self.create_url(page_name = self.encap_str(self.page_name), \
+                                create_url(page_name = encap_str(self.page_name), \
                                                 l_id = "this.value", \
                                                 lang = "sel_lang.value", \
-                                                menu = self.encap_str("full"), \
+                                                menu = encap_str("full"), \
                                                 js = True) + ")'>\n"
             ls = self.get_all_lists()
         
@@ -277,17 +231,17 @@ class editor(object):
             lang_select="Jezik: <select id='sel_lang' name='sel_lang' onchange='window.location.replace("
 
             if self.page_name == "edit" or self.page_name == "view":
-                lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
+                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             q_id = "sel_q_id.value", \
                                                             lang = "this.value", \
-                                                            menu = self.encap_str("full"), \
+                                                            menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
             # View list
             elif self.page_name == "list" or self.page_name == "test":
-                lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
+                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
-                                                            menu = self.encap_str("full"), \
+                                                            menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
             
             for l in self.config["languages"]:
@@ -301,11 +255,11 @@ class editor(object):
 
 
         op_select = "Operacija: <select id='sel_op' name='sel_op' onchange='window.location.replace(" + \
-                                            self.create_url(page_name = "sel_op.value", \
-                                                            q_id = self.encap_str(self.q_id), \
-                                                            l_id = self.encap_str(self.l_id), \
-                                                            lang = self.encap_str(self.language), \
-                                                            menu = self.encap_str("full"), \
+                                            create_url(page_name = "sel_op.value", \
+                                                            q_id = encap_str(self.q_id), \
+                                                            l_id = encap_str(self.l_id), \
+                                                            lang = encap_str(self.language), \
+                                                            menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
 
         options = ["view", "edit", "list", "test"]
@@ -331,10 +285,10 @@ class editor(object):
         # Edit or view question
         if self.page_name == "edit" or self.page_name == "view":
             select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
-                                self.create_url(page_name = self.encap_str(self.page_name), \
+                                create_url(page_name = encap_str(self.page_name), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
-                                                menu = self.encap_str("simple"), \
+                                                menu = encap_str("simple"), \
                                                 js = True) + ")'>\n"
 
             qs = self.get_all_questions(self.language)
@@ -350,10 +304,10 @@ class editor(object):
         # View list
         elif self.page_name == "list" or self.page_name == "test":
             select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
-                                self.create_url(page_name = self.encap_str(self.page_name), \
+                                create_url(page_name = encap_str(self.page_name), \
                                                 l_id = "this.value", \
                                                 lang = "sel_lang.value", \
-                                                menu = self.encap_str("simple"), \
+                                                menu = encap_str("simple"), \
                                                 js = True) + ")'>\n"
             ls = self.get_all_lists()
         
@@ -376,17 +330,17 @@ class editor(object):
 
             if self.page_name == "edit" or self.page_name == "view":
                 #lang_select = lang_select + "?q_id=\" + sel_q_id.value + \"&"
-                lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
+                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             q_id = "sel_q_id.value", \
                                                             lang = "this.value", \
-                                                            menu = self.encap_str("simple"), \
+                                                            menu = encap_str("simple"), \
                                                             js = True) + ")'>\n"
             # View list
             elif self.page_name == "list" or self.page_name == "test":
-                lang_select = lang_select + self.create_url(page_name = self.encap_str(self.page_name), \
+                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
-                                                            menu = self.encap_str("simple"), \
+                                                            menu = encap_str("simple"), \
                                                             js = True) + ")'>\n"
             
             for l in self.config["languages"]:
@@ -485,12 +439,15 @@ class editor(object):
 
 
 
-    def parse_parameters(self, page_name, q_id = None, l_id = None, language = None, state = None):
+    def parse_parameters(self, page_name, q_id = None, l_id = None, language = None):
         self.page_name = page_name
 
         # If no question supplied, get the first one for the language
         if q_id is None or not q_id:
-            self.q_id = self.get_all_questions(language)[0]
+            if page_name == "test":
+                self.q_id = ""
+            else:
+                self.q_id = self.get_all_questions(language)[0]
         else:
             self.q_id = q_id
 
@@ -504,20 +461,15 @@ class editor(object):
         else:
             self.language = ""
             
-        if state is not None:
-            self.state = pickle.loads(base64.b64decode(urllib.parse.unquote_to_bytes(state)))
-            print("State:", self.state)
-        else:
-            state = {}
-            
+             
 
         
     @cherrypy.expose
-    def edit(self, q_id = None, l_id = None, language = "rs", menu = "full", state = None):
+    def edit(self, q_id = None, l_id = None, language = "rs", menu = "full"):
         self.clear()
         self.page.clear_lines()
 
-        self.parse_parameters("edit", q_id, l_id, language, state)
+        self.parse_parameters("edit", q_id, l_id, language)
         
             
         q = question(self.page, self.q_id, self.language, self.get_user_id(), self.questions_path)
@@ -534,7 +486,7 @@ class editor(object):
         self.clear()
         self.page.clear_lines()
 
-        self.parse_parameters("edit", q_id, l_id, language, state)
+        self.parse_parameters("edit", q_id, l_id, language)
 
         
         self.add_code(init_code, iter_code, text)
@@ -546,14 +498,14 @@ class editor(object):
 
 
     @cherrypy.expose
-    def view(self, q_id = None, l_id = None, language = "rs", menu = "full", state = None):
+    def view(self, q_id = None, l_id = None, language = "rs", menu = "full"):
         self.clear()
         self.page.clear_lines()
 
-        self.parse_parameters("view", q_id, l_id, language, state)
+        self.parse_parameters("view", q_id, l_id, language)
 
                     
-        q = question(self.page, self.q_id, self.language, self.get_user_id(), self.questions_path, "http://192.168.137.2:8080/view?q_id=fractions/q00004&language=rs&menu=full&state=gAN9cQAu")
+        q = question(self.page, self.q_id, self.language, self.get_user_id(), self.questions_path)
         q.set_from_file_with_exception()
         self.add_question(q)
 
@@ -562,33 +514,32 @@ class editor(object):
 
     
     @cherrypy.expose
-    def list(self, q_id = None, l_id = None, language = "rs", menu = "full", state = None):
+    def list(self, q_id = None, l_id = None, language = "rs", menu = "full"):
         self.clear()
         self.page.clear_lines()
 
-        self.parse_parameters("list", q_id, l_id, language, state)
+        self.parse_parameters("list", q_id, l_id, language)
 
         
         self.render_menu(menu)
-        ql = qlist(self.page, self.l_id, self.language, self.questions_path, self.lists_path)
+        ql = qlist(self.page, self.l_id, self.language, self.get_user_id(), self.questions_path, self.lists_path)
         ql.render_all_questions()
         return self.page.render()
 
 
     
     @cherrypy.expose
-    def test(self, q_id = None, l_id = None, language = "rs", menu = "full", state = None):
+    def test(self, q_id = None, l_id = None, language = "rs", menu = "full"):
         self.clear()
         self.page.clear_lines()
 
-        self.parse_parameters("test", q_id, l_id, language, state)
+        self.parse_parameters("test", q_id, l_id, language)
 
-        
+
         self.render_menu(menu)
-        ql = qlist(self.page, self.l_id, self.language, self.questions_path, self.lists_path)
-        ql.render_all_questions()
+        test = Test(self.page, self.l_id, self.q_id, self.language, self.get_user_id(), self.questions_path, self.lists_path)
+        test.render_next_questions()
         return self.page.render()
-
 
     
     @cherrypy.expose

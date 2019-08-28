@@ -588,8 +588,9 @@ class library(object):
 
         OKline = "\n<input type='button' style='font-size: 14px;' onclick='[cond, report] = checkAll();"
         OKline = OKline + "console.log(report);"
-        OKline = OKline + "sendResultsToServer(report, \"SUBMIT\");"
         if url_next is not None:
+            # Only send results to server if next_url specified (i.e. we are in the test mode)
+            OKline = OKline + "sendResultsToServer(report, \"SUBMIT\");"
             OKline = OKline + "if (cond) {window.location.replace(\"" + url_next + "\")}"
         OKline = OKline + "' value='Proveri' />\n"
         self.page.add_lines(OKline)
@@ -602,6 +603,7 @@ class library(object):
             NEXTline = NEXTline + "sendResultsToServer(report, \"SKIP\");"
             NEXTline = NEXTline + "window.location.replace(\"" + url_next + "\");"
             NEXTline = NEXTline + "' value='Preskoci' />\n"
+            self.page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
             self.page.add_lines(NEXTline)
             
         self.page.add_lines("\n<!-- END CHECK NEXT BUTTONS -->\n")
