@@ -1,10 +1,6 @@
 import os
 import json
 import cherrypy
-import re
-import pickle
-import urllib
-import base64
 
 from lupa import LuaRuntime
 
@@ -14,7 +10,7 @@ from qlist import qlist
 from user_db import UserDB
 from storage import storage
 from results import Results
-from helpers import create_url, encap_str
+from helpers import create_url, encap_str, is_user_on_mobile
 from test import Test
 
 userdb = UserDB()
@@ -114,7 +110,17 @@ class editor(object):
         s = cherrypy.session
             
         # self.page.add_lines("<div>{}</div>", cherrypy.request.path_info)
-        s['login_return'] = '/'
+        if is_user_on_mobile():
+            menu = "simple"
+        else:
+            menu = "full"
+            
+        s['login_return'] = "../" + create_url(page_name = self.page_name, \
+                                       q_id = self.q_id, \
+                                       l_id = self.l_id, \
+                                       lang = self.language, \
+                                       menu = "full", \
+                                       js = False)
 
         if cherrypy.config.get("use_google_auth"):
             if 'user_id' not in s:
@@ -541,15 +547,13 @@ class editor(object):
         test.render_next_questions()
         return self.page.render()
 
+
+        
+
     
     @cherrypy.expose
     def index(self, q_id = None, language = "rs"):
-        headers = cherrypy.request.headers
-        user_agent = headers['User-Agent'].lower()
-        
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-
-        if MOBILE_AGENT_RE.match(user_agent):
+        if is_user_on_mobile():
             return self.view(q_id, None, language, menu = "simple")
         else:
             return self.view(q_id, None, language, menu = "full")
@@ -565,6 +569,16 @@ class editor(object):
     @cherrypy.expose
     def nonmobile(self, q_id = None, language = "rs"):
         return self.view(q_id, None, language, menu = "full")
+
+    
+
+    @cherrypy.expose
+    def testiranje(self, l_id = None, language = "rs"):
+        if is_user_on_mobile():
+            return self.test(None, l_id, language, menu = "simple")
+        else:
+            return self.test(None, l_id, language, menu = "full")
+
     
 if __name__ == '__main__':
     

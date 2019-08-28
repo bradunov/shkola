@@ -1,3 +1,5 @@
+import cherrypy
+import re
 
 
 def encap_str(string):
@@ -39,3 +41,12 @@ def create_url(self = None, page_name = None, q_id = None, l_id = None, lang = N
             first = False
 
     return url
+
+
+def is_user_on_mobile():
+    headers = cherrypy.request.headers
+    user_agent = headers['User-Agent'].lower()
+        
+    MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
+
+    return MOBILE_AGENT_RE.match(user_agent)
