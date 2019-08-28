@@ -1,7 +1,7 @@
 import json
 import random
 from question import question
-from helpers import create_url
+from helpers import create_url, is_user_on_mobile
 
 
 class Test(object):
@@ -53,17 +53,18 @@ class Test(object):
 
     def render_next_questions(self):
 
-        print("AAAA", self.l_id, self.q_id)
+        if is_user_on_mobile():
+            menu = "simple"
+        else:
+            menu = "full"
         
         next_question = self.choose_next_question(self.q_id)
         next_question_url = create_url(page_name = "test", \
                                                 q_id = next_question["name"], \
                                                 l_id = self.l_id, \
                                                 lang = self.language, \
-                                                menu = "full", \
+                                                menu = menu, \
                                                 js = False)
-
-        print("AAAA", next_question, next_question_url)
 
         
         q = question(self.page, self.q_id, self.language, self.user_id, self.questions_path, next_question_url)

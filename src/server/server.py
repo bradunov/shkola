@@ -119,7 +119,7 @@ class editor(object):
                                        q_id = self.q_id, \
                                        l_id = self.l_id, \
                                        lang = self.language, \
-                                       menu = "full", \
+                                       menu = menu, \
                                        js = False)
 
         if cherrypy.config.get("use_google_auth"):
@@ -326,6 +326,8 @@ class editor(object):
             select = select + "</select>\n"
 
         
+        log_header = self.get_login_header()
+
         # Not sure why I have to put explicit height here, otherwise it is zero!
         self.page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
         self.page.add_lines("<span style='display:block;float:left;'>\n" + select + "\n</span>\n")
