@@ -330,7 +330,7 @@ class editor(object):
 
         # Not sure why I have to put explicit height here, otherwise it is zero!
         self.page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
-        self.page.add_lines("<span style='display:block;float:left;'>\n" + select + "\n</span>\n")
+        self.page.add_lines("<span style='display:block;float:left;'>\n" + select + log_header + "\n</span>\n")
         lright = "<span style='display:block;float:right;'>\n"
 
         if ("languages" in self.config):
