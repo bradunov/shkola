@@ -127,6 +127,7 @@ class question(object):
 
     
     def make_pretty(self, text):
+        assert (len(text) > 0)
         b = text
         # Beutify b like markdown, but we cannot use MD here as it would destroyed inlined HTML (e.g. MathJS)
         b = b.replace("\\\n", " ")

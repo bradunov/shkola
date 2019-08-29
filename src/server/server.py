@@ -498,7 +498,8 @@ class editor(object):
 
         
         self.add_code(init_code, iter_code, text)
-        q = question(self.page, self.q_id, self.language, self.get_user_id(), self.questions_path, init_code, iter_code, text)
+        q = question(self.page, self.q_id, self.language, self.get_user_id(), self.questions_path,
+                     init_code=init_code, iter_code=iter_code, text=text)
         self.add_question(q)
 
         return self.render_page(menu)
