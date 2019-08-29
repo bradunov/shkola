@@ -1,4 +1,4 @@
-include("imena")
+include("names")
 
 index_ime = math.random(#zensko_ime_nom);    
 ime = zensko_ime_nom[index_ime];                   

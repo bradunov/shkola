@@ -1,5 +1,5 @@
-@h3@ Calculate: @/h3@
+Calculate:
 
 @repeat(3)@
-@center@ \(\frac{1}{@imenilac@}\) of @broj@ is @lib.check_number(rezultat)@
+@center@ \(\frac{1}{@imenilac@}\) @hspace@ of @hspace@ @broj@ @hspace@ is @hspace@ @lib.check_number(rezultat)@
 @/repeat@

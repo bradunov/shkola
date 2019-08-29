@@ -3,7 +3,7 @@
 @vspace@
 @vspace@
 
-a) Koliko kilograma jabuka je @ime@ prodala? @lib.check_number(brojp)@   
+a) Koliko jabuka je @ime@ prodala? @lib.check_number(brojp)@   
 
 @vspace@
 
