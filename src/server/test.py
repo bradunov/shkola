@@ -67,7 +67,7 @@ class Test(object):
                                                 js = False)
 
         
-        q = question(self.page, self.q_id, self.language, self.user_id, self.questions_path, next_question_url)
+        q = question(self.page, self.q_id, self.l_id, self.language, self.user_id, self.questions_path, next_question_url)
         q.set_from_file_with_exception()
         q.eval_with_exception()
 

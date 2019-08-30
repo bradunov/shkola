@@ -49,6 +49,8 @@ class question(object):
     lib = None
 
     page = None
+
+    list_id = None
     
     text = ""
     init_code = None
@@ -64,7 +66,7 @@ class question(object):
     """
 
     
-    def __init__(self, page, path, language, user_id, questions_root_path, url_next=None, init_code="", iter_code="", text=""):
+    def __init__(self, page, path, list_id, language, user_id, questions_root_path, url_next=None, init_code="", iter_code="", text=""):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.lib = library(self.lua, page)
         self.page = page
@@ -72,6 +74,7 @@ class question(object):
         self.iter_code = iter_code
         self.text = text
         self.language = language
+        self.list_id = list_id
         self.user_id = user_id
         self.path = path
         self.questions_root_path = questions_root_path
@@ -427,7 +430,7 @@ class question(object):
         lua_fun(self.page, self.lib, strings)
             
         if self.lib is not None:
-            self.lib.add_buttons(self.path, self.user_id, self.url_next)
+            self.lib.add_buttons(self.path, self.list_id, self.user_id, self.url_next)
             
         self.page.add_lines("</div>\n")
         self.page.add_lines("\n\n<!-- QUESTIONS END -->\n\n")

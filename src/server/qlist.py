@@ -39,7 +39,7 @@ class qlist(object):
         for i in self.list["questions"]:
             q_id = i["name"]
             print(i, q_id)
-            q = question(self.page, q_id, self.language, self.user_id, self.questions_path)
+            q = question(self.page, q_id, self.l_id, self.language, self.user_id, self.questions_path)
             q.set_from_file_with_exception()
 
             self.page.add_lines("\n<!-- QUESTION HEADER -->\n")

@@ -543,12 +543,12 @@ class library(object):
 
     ### Buttons at the bottom of the page
 
-    def add_check_button(self, q_id, user_id, url_next=None):
+    def add_check_button(self, q_id, l_id, user_id, url_next=None):
         
         cid = 0
         cond = "cond = "
         assign = ""
-        report = "\"q_id=" + q_id + "&user_id=" + user_id + "&\" + "
+        report = "\"q_id=" + q_id + "&l_id=" + l_id + "&user_id=" + user_id + "&\" + "
         for c in self.checks:
             assign = assign + "c" + str(cid) + " = " + c + "; "
             cond = cond + "c" + str(cid) + " && "
@@ -621,9 +621,9 @@ class library(object):
         self.page.add_lines("\n<!-- END CLEAR BUTTON -->\n")
         self.clears = []
 
-    def add_buttons(self, q_id, user_id, url_next=None):
+    def add_buttons(self, q_id, l_id, user_id, url_next=None):
         self.page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
-        self.add_check_button(q_id, user_id, url_next)
+        self.add_check_button(q_id, l_id, user_id, url_next)
         self.page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         self.add_clear_button()
         self.page.add_lines("\n</div>\n")

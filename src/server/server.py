@@ -480,7 +480,7 @@ class editor(object):
         self.parse_parameters("edit", q_id, l_id, language)
         
             
-        q = question(self.page, self.q_id, self.language, self.get_user_id(), self.questions_path)
+        q = question(self.page, self.q_id, self.l_id, self.language, self.get_user_id(), self.questions_path)
         q.set_from_file_with_exception()
         self.add_question(q)
         self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
@@ -498,7 +498,7 @@ class editor(object):
 
         
         self.add_code(init_code, iter_code, text)
-        q = question(self.page, self.q_id, self.language, self.get_user_id(), self.questions_path,
+        q = question(self.page, self.q_id, self.l_id, self.language, self.get_user_id(), self.questions_path,
                      init_code=init_code, iter_code=iter_code, text=text)
         self.add_question(q)
 
@@ -514,7 +514,7 @@ class editor(object):
         self.parse_parameters("view", q_id, l_id, language)
 
                     
-        q = question(self.page, self.q_id, self.language, self.get_user_id(), self.questions_path)
+        q = question(self.page, self.q_id, self.l_id, self.language, self.get_user_id(), self.questions_path)
         q.set_from_file_with_exception()
         self.add_question(q)
 

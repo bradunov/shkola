@@ -15,7 +15,17 @@ class Results(object):
         correct = 0
         incorrect = 0
         questions = ""
+
+        
+        #DEBUG
+        print(args)
         if "q_id" in args.keys() and "user_id" in args.keys() and "now" in args.keys() and args["user_id"]:
+            if "l_id" not in args.keys() or not args["l_id"] or args["l_id"] is None:
+                l_id = ""
+            else:
+                l_id = args["l_id"]
+                
+
             for key, value in args.items():
                 if key[0:5] == "q_res":
                     questions = questions + key + "=" + value + ","
@@ -26,6 +36,7 @@ class Results(object):
                         
             response = {"user_id" : args["user_id"],
                         "question_id": args["q_id"],
+                        "list_id": l_id,
                         "response_type": args["response_type"],
                         "time": args["start"],
                         "duration": int(args["now"]) - int(args["start"]),
