@@ -66,17 +66,17 @@ class question(object):
     """
 
     
-    def __init__(self, page, path, list_id, language, user_id, questions_root_path, url_next=None, init_code="", iter_code="", text=""):
+    def __init__(self, page, params, user_id, questions_root_path, url_next=None, init_code="", iter_code="", text=""):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.lib = library(self.lua, page)
         self.page = page
+        self.path = params["q_id"]
+        self.list_id = params["l_id"]
+        self.language = params["language"]
         self.init_code = init_code
         self.iter_code = iter_code
         self.text = text
-        self.language = language
-        self.list_id = list_id
         self.user_id = user_id
-        self.path = path
         self.questions_root_path = questions_root_path
         self.url_next = url_next
 

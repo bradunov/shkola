@@ -2,7 +2,10 @@ import cherrypy
 import google.oauth2.id_token
 import google.auth.transport.requests
 import time
+from helpers import create_url
 from storage import storage
+from jinja2 import Template
+
 
 GOOGLE_CLIENT_ID = "221670444651-i7ock63nksbnqeag7l3s2u0nf6jdb2bk.apps.googleusercontent.com"
 
@@ -12,15 +15,19 @@ logger = cherrypy.log
 
 class UserDB(object):
     storage = None
+    template_env = None
     
-    def __init__(self):
+    def __init__(self, template_env):
+        self.template_env = template_env
         self.storage = storage()
         logger("User DB initialized")
 
-    def check_no_user(self):
+    def check_user(self):
         s = cherrypy.session
         if "user_id" in s:
-            raise Exception("User alredy logged in")
+            return True
+        else:
+            return False
 
     def session_logout(self):
         s = cherrypy.session
@@ -85,7 +92,7 @@ class UserDB(object):
 
     @cherrypy.expose
     def login_google(self, id_token):
-        self.check_no_user()
+        #self.check_no_user()
         headers = cherrypy.request.headers
 
         try:
@@ -117,3 +124,23 @@ class UserDB(object):
 
 
 
+    def login_page(self, params, menu):
+        if self.check_user():
+            return ""
+
+
+        template = self.template_env.get_template('login.rs.html')
+        
+        s = cherrypy.session
+        s['login_return'] = "../" + create_url(page_name = params["page_name"], \
+                                       q_id = params["q_id"], \
+                                       l_id = params["l_id"], \
+                                       lang = params["language"], \
+                                       menu = menu, \
+                                       js = False)
+
+        url = cherrypy.url('/users/login_google')
+        print("URL:", url)
+        print(template.render(url=url))
+
+        return template.render(url=url)

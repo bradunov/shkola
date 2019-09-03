@@ -13,20 +13,28 @@ from results import Results
 from helpers import create_url, encap_str, is_user_on_mobile
 from test import Test
 
-userdb = UserDB()
+from jinja2 import Environment, FileSystemLoader #, PackageLoader, select_autoescape
+
+
+#template_env = Environment(
+#    loader=PackageLoader('Shkola', 'templates'),
+#    autoescape=select_autoescape(['html'])
+#)
+
+template_env = Environment(loader=FileSystemLoader("templates"))
+
+userdb = UserDB(template_env)
 results = Results()
+
 
 
 class editor(object):
     page = None
-    q_id = ""
-    l_id = ""
-    language = ""
+    params = {}
     init_code = ""
     iter_code = ""
     text = ""
     question = None
-    page_name = ""
     questions_path = "../../questions"
     lists_path = "../../lists"
     config = {}
@@ -49,8 +57,7 @@ class editor(object):
         
     
     def clear(self):
-        self.q_id = ""
-        self.language = ""
+        self.params = {}
         self.init_code = ""
         self.iter_code = ""
         self.text = ""
@@ -76,8 +83,8 @@ class editor(object):
             # and only select folders that contain the desired language (i.e. text.<language>)
             if not dirnames and dirpath[len(root):len(root)+len("global")] != "global" and "text." + language in filenames:
                 qs.append(dirpath[len(root)+1:])
-                if (self.q_id == ""):
-                    self.q_id = dirpath[len(root)+1:]
+                if "q_id" not in self.params.keys() or self.params["q_id"] == "":
+                    self.params["q_id"] = dirpath[len(root)+1:]
         qs.sort()
         return qs
 
@@ -88,8 +95,8 @@ class editor(object):
             for f in filenames:
                 if f[len(f)-5:len(f)] == ".json":
                     qs.append(f)
-                    if self.l_id == "":
-                        self.l_id = f
+                    if "l_id" not in self.params.keys() or self.params["l_id"] == "":
+                        self.params["l_id"] = f
         qs.sort()
         return qs
 
@@ -115,10 +122,10 @@ class editor(object):
         else:
             menu = "full"
             
-        s['login_return'] = "../" + create_url(page_name = self.page_name, \
-                                       q_id = self.q_id, \
-                                       l_id = self.l_id, \
-                                       lang = self.language, \
+        s['login_return'] = "../" + create_url(page_name = self.params["page_name"], \
+                                       q_id = self.params["q_id"], \
+                                       l_id = self.params["l_id"], \
+                                       lang = self.params["language"], \
                                        menu = menu, \
                                        js = False)
 
@@ -187,17 +194,17 @@ class editor(object):
 
         self.page.add_lines("\n\n<!-- FULL MENU START -->\n")
         # Edit or view question
-        if self.page_name == "edit" or self.page_name == "view":
+        if self.params["page_name"] == "edit" or self.params["page_name"] == "view":
             select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
-                                create_url(page_name = encap_str(self.page_name), \
+                                create_url(page_name = encap_str(self.params["page_name"]), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
                                                 menu = encap_str("full"), \
                                                 js = True) + ")'>\n"
-            qs = self.get_all_questions(self.language)
+            qs = self.get_all_questions(self.params["language"])
         
             for q in qs:
-                if q == self.q_id:
+                if q == self.params["q_id"]:
                     selected = "SELECTED"
                 else:
                     selected = ""
@@ -205,9 +212,9 @@ class editor(object):
             select = select + "</select>\n"
 
         # View list
-        elif self.page_name == "list" or self.page_name == "test":
+        elif self.params["page_name"] == "list" or self.params["page_name"] == "test":
             select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
-                                create_url(page_name = encap_str(self.page_name), \
+                                create_url(page_name = encap_str(self.params["page_name"]), \
                                                 l_id = "this.value", \
                                                 lang = "sel_lang.value", \
                                                 menu = encap_str("full"), \
@@ -215,7 +222,7 @@ class editor(object):
             ls = self.get_all_lists()
         
             for l in ls:
-                if l == self.l_id:
+                if l == self.params["l_id"]:
                     selected = "SELECTED"
                 else:
                     selected = ""
@@ -236,22 +243,22 @@ class editor(object):
         if ("languages" in self.config):
             lang_select="Jezik: <select id='sel_lang' name='sel_lang' onchange='window.location.replace("
 
-            if self.page_name == "edit" or self.page_name == "view":
-                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
+            if self.params["page_name"] == "edit" or self.params["page_name"] == "view":
+                lang_select = lang_select + create_url(page_name = encap_str(self.params["page_name"]), \
                                                             q_id = "sel_q_id.value", \
                                                             lang = "this.value", \
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
             # View list
-            elif self.page_name == "list" or self.page_name == "test":
-                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
+            elif self.params["page_name"] == "list" or self.params["page_name"] == "test":
+                lang_select = lang_select + create_url(page_name = encap_str(self.params["page_name"]), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
             
             for l in self.config["languages"]:
-                if l == self.language:
+                if l == self.params["language"]:
                     selected = "SELECTED"
                 else:
                     selected = ""
@@ -262,16 +269,16 @@ class editor(object):
 
         op_select = "Operacija: <select id='sel_op' name='sel_op' onchange='window.location.replace(" + \
                                             create_url(page_name = "sel_op.value", \
-                                                            q_id = encap_str(self.q_id), \
-                                                            l_id = encap_str(self.l_id), \
-                                                            lang = encap_str(self.language), \
+                                                            q_id = encap_str(self.params["q_id"]), \
+                                                            l_id = encap_str(self.params["l_id"]), \
+                                                            lang = encap_str(self.params["language"]), \
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
 
         options = ["view", "edit", "list", "test"]
 
         for o in options:
-            if o == self.page_name:
+            if o == self.params["page_name"]:
                 selected = "SELECTED"
             else:
                 selected = ""
@@ -289,18 +296,18 @@ class editor(object):
     def render_menu_simple(self):
         self.page.add_lines("\n\n<!-- SIMPLE MENU START -->\n")
         # Edit or view question
-        if self.page_name == "edit" or self.page_name == "view":
+        if self.params["page_name"] == "edit" or self.params["page_name"] == "view":
             select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
-                                create_url(page_name = encap_str(self.page_name), \
+                                create_url(page_name = encap_str(self.params["page_name"]), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
                                                 menu = encap_str("simple"), \
                                                 js = True) + ")'>\n"
 
-            qs = self.get_all_questions(self.language)
+            qs = self.get_all_questions(self.params["language"])
         
             for q in qs:
-                if q == self.q_id:
+                if q == self.params["q_id"]:
                     selected = "SELECTED"
                 else:
                     selected = ""
@@ -308,9 +315,9 @@ class editor(object):
             select = select + "</select>\n"
 
         # View list
-        elif self.page_name == "list" or self.page_name == "test":
+        elif self.params["page_name"] == "list" or self.params["page_name"] == "test":
             select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
-                                create_url(page_name = encap_str(self.page_name), \
+                                create_url(page_name = encap_str(self.params["page_name"]), \
                                                 l_id = "this.value", \
                                                 lang = "sel_lang.value", \
                                                 menu = encap_str("simple"), \
@@ -318,7 +325,7 @@ class editor(object):
             ls = self.get_all_lists()
         
             for l in ls:
-                if l == self.l_id:
+                if l == self.params["l_id"]:
                     selected = "SELECTED"
                 else:
                     selected = ""
@@ -336,23 +343,23 @@ class editor(object):
         if ("languages" in self.config):
             lang_select="<select id='sel_lang' name='sel_lang' onchange='window.location.replace("
 
-            if self.page_name == "edit" or self.page_name == "view":
+            if self.params["page_name"] == "edit" or self.params["page_name"] == "view":
                 #lang_select = lang_select + "?q_id=\" + sel_q_id.value + \"&"
-                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
+                lang_select = lang_select + create_url(page_name = encap_str(self.params["page_name"]), \
                                                             q_id = "sel_q_id.value", \
                                                             lang = "this.value", \
                                                             menu = encap_str("simple"), \
                                                             js = True) + ")'>\n"
             # View list
-            elif self.page_name == "list" or self.page_name == "test":
-                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
+            elif self.params["page_name"] == "list" or self.params["page_name"] == "test":
+                lang_select = lang_select + create_url(page_name = encap_str(self.params["page_name"]), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
                                                             menu = encap_str("simple"), \
                                                             js = True) + ")'>\n"
             
             for l in self.config["languages"]:
-                if l == self.language:
+                if l == self.params["language"]:
                     selected = "SELECTED"
                 else:
                     selected = ""
@@ -388,8 +395,8 @@ class editor(object):
         <div>
           <span style='float:left;display:inline;""" + style + """'>
             <form method="post" action="generate">
-              <input type="hidden" id="q_id" name="q_id" value='""" + self.q_id + """'>
-              <input type="hidden" id="language" name="language" value='""" + self.language + """'>
+              <input type="hidden" id="q_id" name="q_id" value='""" + self.params["q_id"] + """'>
+              <input type="hidden" id="language" name="language" value='""" + self.params["language"] + """'>
               <div style='""" + style + """background-color:#fafaf0;'>
                   <h3>Init code:</h3>
                   <textarea name="init_code" rows="10" cols="80">
@@ -448,26 +455,26 @@ class editor(object):
 
 
     def parse_parameters(self, page_name, q_id = None, l_id = None, language = None):
-        self.page_name = page_name
+        self.params["page_name"] = page_name
 
         # If no question supplied, get the first one for the language
         if q_id is None or not q_id:
             if page_name == "test":
-                self.q_id = ""
+                self.params["q_id"] = ""
             else:
-                self.q_id = self.get_all_questions(language)[0]
+                self.params["q_id"] = self.get_all_questions(language)[0]
         else:
-            self.q_id = q_id
+            self.params["q_id"] = q_id
 
         if l_id is None or not l_id:
-            self.l_id = self.get_all_lists()[0]
+            self.params["l_id"] = self.get_all_lists()[0]
         else:
-            self.l_id = l_id
+            self.params["l_id"] = l_id
             
         if language is not None:
-            self.language = language
+            self.params["language"] = language
         else:
-            self.language = ""
+            self.params["language"] = ""
             
              
 
@@ -480,7 +487,11 @@ class editor(object):
         self.parse_parameters("edit", q_id, l_id, language)
         
             
-        q = question(self.page, self.q_id, self.l_id, self.language, self.get_user_id(), self.questions_path)
+        # login_page = userdb.login_page(self.params, menu)
+        # if login_page:
+        #     return login_page
+        
+        q = question(self.page, self.params, self.get_user_id(), self.questions_path)
         q.set_from_file_with_exception()
         self.add_question(q)
         self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
@@ -497,8 +508,12 @@ class editor(object):
         self.parse_parameters("edit", q_id, l_id, language)
 
         
+        # login_page = userdb.login_page(self.params, menu)
+        # if login_page:
+        #     return login_page
+        
         self.add_code(init_code, iter_code, text)
-        q = question(self.page, self.q_id, self.l_id, self.language, self.get_user_id(), self.questions_path,
+        q = question(self.page, self.params, self.get_user_id(), self.questions_path,
                      init_code=init_code, iter_code=iter_code, text=text)
         self.add_question(q)
 
@@ -514,7 +529,11 @@ class editor(object):
         self.parse_parameters("view", q_id, l_id, language)
 
                     
-        q = question(self.page, self.q_id, self.l_id, self.language, self.get_user_id(), self.questions_path)
+        # login_page = userdb.login_page(self.params, menu)
+        # if login_page:
+        #     return login_page
+        
+        q = question(self.page, self.params, self.get_user_id(), self.questions_path)
         q.set_from_file_with_exception()
         self.add_question(q)
 
@@ -529,9 +548,12 @@ class editor(object):
 
         self.parse_parameters("list", q_id, l_id, language)
 
+        # login_page = userdb.login_page(self.params, menu)
+        # if login_page:
+        #     return login_page
         
         self.render_menu(menu)
-        ql = qlist(self.page, self.l_id, self.language, self.get_user_id(), self.questions_path, self.lists_path)
+        ql = qlist(self.page, self.params, self.get_user_id(), self.questions_path, self.lists_path)
         ql.render_all_questions()
         return self.page.render()
 
@@ -545,8 +567,12 @@ class editor(object):
         self.parse_parameters("test", q_id, l_id, language)
 
 
+        login_page = userdb.login_page(self.params, menu)
+        if login_page:
+            return login_page
+        
         self.render_menu(menu)
-        test = Test(self.page, self.l_id, self.q_id, self.language, self.get_user_id(), self.questions_path, self.lists_path)
+        test = Test(self.page, self.params, self.get_user_id(), self.questions_path, self.lists_path)
         test.render_next_questions()
         return self.page.render()
 
@@ -588,6 +614,7 @@ if __name__ == '__main__':
     test = False
     #test = True
 
+    
     if test:
         editor = editor()
         output = editor.index("fractions/q00020", "rs")
@@ -600,7 +627,7 @@ if __name__ == '__main__':
             'server.socket_host': ip_address,
             'server.socket_port': 8080,
             'tools.sessions.on': True,
-            'use_google_auth': False
+            'use_google_auth': True
         })
 
         cherrypy.tree.mount(editor(), '/', {'/': {'log.screen': False}})
