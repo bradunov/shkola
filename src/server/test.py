@@ -2,13 +2,12 @@ import json
 import random
 from question import question
 from helpers import create_url, is_user_on_mobile
+from repository import Repository
 
 
 class Test(object):
     language = None
     l_id = None
-    lists_path = ""
-    questions_path = ""
     page = None
 
     list = None
@@ -18,9 +17,7 @@ class Test(object):
         if l_id is not None:
             self.l_id = l_id
 
-        #print(self.lists_path, self.l_id, self.lists_path + "/" + self.l_id)
-        with open(self.lists_path + "/" + self.l_id, "r") as read_list:
-            self.list = json.load(read_list)
+        self.list = self.repository.get_list(self.l_id)
 
     
     def choose_next_question(self, previous_question_name=None):
@@ -32,22 +29,19 @@ class Test(object):
         return self.list["questions"][next_question]
         
         
-    def __init__(self, page, l_id, q_id, language, user_id, questions_path, lists_path):
+    def __init__(self, repository, page, l_id, q_id, language, user_id):
+        self.repository = repository
         self.page = page
         self.language = language
         self.l_id = l_id
         self.q_id = q_id
         self.user_id = user_id
-        self.questions_path = questions_path
-        self.lists_path = lists_path
 
         self.load_list()
 
         if self.q_id is None or not self.q_id:
             self.q_id = self.choose_next_question()["name"]
 
-        print("Q: ", self.q_id)
-            
         #print(json.dumps(self.list, indent=4))
         
 
@@ -67,7 +61,7 @@ class Test(object):
                                                 js = False)
 
         
-        q = question(self.page, self.q_id, self.l_id, self.language, self.user_id, self.questions_path, next_question_url)
+        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.user_id, next_question_url)
         q.set_from_file_with_exception()
         q.eval_with_exception()
 

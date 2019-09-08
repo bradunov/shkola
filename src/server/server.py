@@ -12,7 +12,10 @@ from storage import storage
 from results import Results
 from helpers import create_url, encap_str, is_user_on_mobile
 from test import Test
+from repository import Repository
 
+
+repository= Repository("../..")
 userdb = UserDB()
 results = Results()
 
@@ -27,26 +30,14 @@ class editor(object):
     text = ""
     question = None
     page_name = ""
-    questions_path = "../../questions"
-    lists_path = "../../lists"
-    config = {}
     storage = None
 
 
-    def __init__(self):
+    def __init__(self, repository):
+        self.repository = repository
         self.storage = storage()
         self.page = page()
-        self.load_config()
 
-    
-    def load_config(self):
-        try:
-            self.config = json.load(open(self.questions_path + "/config.json", 'r'))
-        except:
-            self.config = {}
-
-        print("Config:", self.config)
-        
     
     def clear(self):
         self.q_id = ""
@@ -69,29 +60,14 @@ class editor(object):
 
 
     def get_all_questions(self, language):
-        root = self.questions_path
-        qs = []
-        for (dirpath, dirnames, filenames) in os.walk(root):
-            # Do not display directory and the content of global folder
-            # and only select folders that contain the desired language (i.e. text.<language>)
-            if not dirnames and dirpath[len(root):len(root)+len("global")] != "global" and "text." + language in filenames:
-                qs.append(dirpath[len(root)+1:])
-                if (self.q_id == ""):
-                    self.q_id = dirpath[len(root)+1:]
-        qs.sort()
-        return qs
+        l = self.repository.get_all_question_ids("", language)
+        l.sort()
+        return l
 
     def get_all_lists(self):
-        root = self.lists_path
-        qs = []
-        for (dirpath, dirnames, filenames) in os.walk(root):
-            for f in filenames:
-                if f[len(f)-5:len(f)] == ".json":
-                    qs.append(f)
-                    if self.l_id == "":
-                        self.l_id = f
-        qs.sort()
-        return qs
+        l = self.repository.get_all_lists_ids("")
+        l.sort()
+        return l
 
     
 
@@ -233,7 +209,7 @@ class editor(object):
         
         lright = "<span style='display:block;float:right;'>\n"
 
-        if ("languages" in self.config):
+        if ("languages" in self.repository.get_config()):
             lang_select="Jezik: <select id='sel_lang' name='sel_lang' onchange='window.location.replace("
 
             if self.page_name == "edit" or self.page_name == "view":
@@ -250,7 +226,7 @@ class editor(object):
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
             
-            for l in self.config["languages"]:
+            for l in self.repository.get_config()["languages"]:
                 if l == self.language:
                     selected = "SELECTED"
                 else:
@@ -333,7 +309,7 @@ class editor(object):
         self.page.add_lines("<span style='display:block;float:left;'>\n" + select + log_header + "\n</span>\n")
         lright = "<span style='display:block;float:right;'>\n"
 
-        if ("languages" in self.config):
+        if ("languages" in self.repository.get_config()):
             lang_select="<select id='sel_lang' name='sel_lang' onchange='window.location.replace("
 
             if self.page_name == "edit" or self.page_name == "view":
@@ -351,7 +327,7 @@ class editor(object):
                                                             menu = encap_str("simple"), \
                                                             js = True) + ")'>\n"
             
-            for l in self.config["languages"]:
+            for l in self.repository.get_config()["languages"]:
                 if l == self.language:
                     selected = "SELECTED"
                 else:
@@ -480,7 +456,7 @@ class editor(object):
         self.parse_parameters("edit", q_id, l_id, language)
         
             
-        q = question(self.page, self.q_id, self.l_id, self.language, self.get_user_id(), self.questions_path)
+        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.get_user_id())
         q.set_from_file_with_exception()
         self.add_question(q)
         self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
@@ -498,7 +474,7 @@ class editor(object):
 
         
         self.add_code(init_code, iter_code, text)
-        q = question(self.page, self.q_id, self.l_id, self.language, self.get_user_id(), self.questions_path,
+        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.get_user_id(), 
                      init_code=init_code, iter_code=iter_code, text=text)
         self.add_question(q)
 
@@ -514,7 +490,7 @@ class editor(object):
         self.parse_parameters("view", q_id, l_id, language)
 
                     
-        q = question(self.page, self.q_id, self.l_id, self.language, self.get_user_id(), self.questions_path)
+        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.get_user_id())
         q.set_from_file_with_exception()
         self.add_question(q)
 
@@ -531,7 +507,7 @@ class editor(object):
 
         
         self.render_menu(menu)
-        ql = qlist(self.page, self.l_id, self.language, self.get_user_id(), self.questions_path, self.lists_path)
+        ql = qlist(self.repository, self.page, self.l_id, self.language, self.get_user_id())
         ql.render_all_questions()
         return self.page.render()
 
@@ -546,7 +522,7 @@ class editor(object):
 
 
         self.render_menu(menu)
-        test = Test(self.page, self.l_id, self.q_id, self.language, self.get_user_id(), self.questions_path, self.lists_path)
+        test = Test(self.repository, self.page, self.l_id, self.q_id, self.language, self.get_user_id())
         test.render_next_questions()
         return self.page.render()
 
@@ -585,28 +561,19 @@ class editor(object):
     
 if __name__ == '__main__':
     
-    test = False
-    #test = True
+    ip_address = os.environ['SHKOLA_IP_ADDR']
 
-    if test:
-        editor = editor()
-        output = editor.index("fractions/q00020", "rs")
-        print("\n\n\n================================================\n\n\n")
-        print(output)
-    else:
-        ip_address = os.environ['SHKOLA_IP_ADDR']
+    cherrypy.config.update({
+        'server.socket_host': ip_address,
+        'server.socket_port': 8080,
+        'tools.sessions.on': True,
+        'use_google_auth': False
+    })
 
-        cherrypy.config.update({
-            'server.socket_host': ip_address,
-            'server.socket_port': 8080,
-            'tools.sessions.on': True,
-            'use_google_auth': False
-        })
+    cherrypy.tree.mount(editor(repository), '/', {'/': {'log.screen': False}})
+    cherrypy.tree.mount(userdb, '/users', {'/' : {'log.screen': True}})
+    cherrypy.tree.mount(results, '/results', {'/' : {'log.screen': True}})
 
-        cherrypy.tree.mount(editor(), '/', {'/': {'log.screen': False}})
-        cherrypy.tree.mount(userdb, '/users', {'/' : {'log.screen': True}})
-        cherrypy.tree.mount(results, '/results', {'/' : {'log.screen': True}})
-
-        cherrypy.engine.start()
-        cherrypy.engine.block()
+    cherrypy.engine.start()
+    cherrypy.engine.block()
 

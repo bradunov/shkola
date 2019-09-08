@@ -11,14 +11,12 @@ class Results(object):
 
     @cherrypy.expose
     def register(self, **args):
-        print("Register: ", args)
+        #print("Register: ", args)
         correct = 0
         incorrect = 0
         questions = ""
 
         
-        #DEBUG
-        print(args)
         if "q_id" in args.keys() and "user_id" in args.keys() and "now" in args.keys() and args["user_id"]:
             if "l_id" not in args.keys() or not args["l_id"] or args["l_id"] is None:
                 l_id = ""

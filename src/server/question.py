@@ -3,6 +3,7 @@ import traceback
 import math
 from lupa import LuaRuntime
 from library import library
+from repository import Repository
 
 
 
@@ -51,13 +52,13 @@ class question(object):
     page = None
 
     list_id = None
+
+    questions_root_path = "../../questions"
     
     text = ""
     init_code = None
     iter_code = None
 
-    questions_root_path = ""
-    
     main_script_begin = """
       function (page, lib, strings)
     """
@@ -66,10 +67,11 @@ class question(object):
     """
 
     
-    def __init__(self, page, path, list_id, language, user_id, questions_root_path, url_next=None, init_code="", iter_code="", text=""):
+    def __init__(self, repository, page, path, list_id, language, user_id, url_next=None, init_code="", iter_code="", text=""):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.lib = library(self.lua, page)
         self.page = page
+        self.repository = repository
         self.init_code = init_code
         self.iter_code = iter_code
         self.text = text
@@ -77,39 +79,43 @@ class question(object):
         self.list_id = list_id
         self.user_id = user_id
         self.path = path
-        self.questions_root_path = questions_root_path
         self.url_next = url_next
 
 
     def set_from_file(self):
-        try:
-            with open("{}/{}/init.lua".format(self.questions_root_path, self.path)) as f_init_code:
-                self.init_code = f_init_code.read()
-        except IOError:
-            self.init_code = ""
-            
-        try:
-            with open("{}/{}/iter.lua".format(self.questions_root_path, self.path)) as f_iter_code:
-                self.iter_code = f_iter_code.read()
-        except IOError:
-            self.iter_code = ""
+        self.init_code = ""
+        self.iter_code = ""
+        self.text = "\n\n<h3>ERROR: no code exists for question {} for language {}!</h3>".format(self.path, self.language)
+        
+        q = self.repository.get_question(self.path)
+        if q is None:
+            return
 
-        # No exception handling here, question text has to exist
-        try:
-            with open("{}/{}/text.{}".format(self.questions_root_path, self.path, self.language)) as f_text:
-                self.text = f_text.read()
-        except IOError:
-            self.text = "\n\n<h3>ERROR: no code exists for question {} for language {}!</h3>".format(self.path, self.language)
+        if "init.lua" in q.keys():
+            print(q.keys())
+            print(q)
+            self.init_code = q["init.lua"]
+
+        if "iter.lua" in q.keys():
+            self.iter_code = q["iter.lua"]
+
+        text_key = "text." + self.language
+        if text_key in q.keys():
+            self.text = q[text_key]
+            
             
     def set_from_file_with_exception(self):
-        try:
-            self.set_from_file()
-        except Exception as err:
-            err_str = "\n\n<br> Error reading from a question list: \n {} <br>\n".format(str(err))
-            self.page.add_lines(err_str)
-            for l in traceback.format_tb(err.__traceback__):
-                self.page.add_lines("<br> {}".format(l))
+        self.set_from_file()
+        
+        # try:
+        #     self.set_from_file()
+        # except Exception as err:
+        #     err_str = "\n\n<br> Error reading from a question list: \n {} <br>\n".format(str(err))
+        #     self.page.add_lines(err_str)
+        #     for l in traceback.format_tb(err.__traceback__):
+        #         self.page.add_lines("<br> {}".format(l))
 
+        
     def set_init_code(self, code):
         self.init_code = code
 
@@ -343,6 +349,7 @@ class question(object):
         code = self.main_script_begin
 
         # Define Lua include function with proper paths
+        # TBD TODO: This is still reading from a file. Rewrite to use repository
         code = code + """
            function require_if_exists(name)
              local f=io.open(name,"r")
@@ -375,18 +382,16 @@ class question(object):
                     strings[ind][len(strings[ind])-1] == ")"):
                     inc_file = strings[ind][len("include("):len(strings[ind])-1]
 
-                    try:
-                        with open("{}/{}/{}.{}.lua".format(self.questions_root_path, self.path, inc_file, self.language)) as f_include_code:
-                            include_code = f_include_code.read()
-                            print("Included {}/{}/{}.{}.lua".format(self.questions_root_path, self.path, inc_file, self.language))
-                    except IOError:
-                        try:
-                            with open("{}/global/{}.{}.lua".format(self.questions_root_path, inc_file, self.language)) as f_include_code:
-                                include_code = f_include_code.read()
-                                print("Included {}/global/{}.{}.lua".format(self.questions_root_path, inc_file, self.language))
-                        except IOError:
-                            include_code = ""
-                            
+                    q = self.repository.get_question(self.path)
+                    inc_name = inc_file + "." + self.language + ".lua"
+                    include_code = ""
+                    if q is not None and inc_name in q.keys():
+                        include_code = q[inc_name]
+                    else:
+                        g = self.repository.get_globals()
+                        if g is not None and inc_name in g.keys():
+                            include_code = g[inc_name]
+                                                    
                     code = code + include_code
 
                 # Ignore alignment tags
@@ -423,7 +428,7 @@ class question(object):
             for i in range(0, len(strings)):
                 print("string[{}]: {}".format(i, strings[i]))
 
-                print("\n\n********************\nCODE: ", code)
+            print("\n\n********************\nCODE: ", code)
 
         
         lua_fun = self.lua.eval(code)

@@ -1,13 +1,10 @@
 import json
 from question import question
-
-
+from repository import Repository
 
 class qlist(object):
     language = None
     l_id = None
-    lists_path = ""
-    questions_path = ""
     page = None
 
     list = None
@@ -17,18 +14,15 @@ class qlist(object):
         if l_id is not None:
             self.l_id = l_id
 
-        #print(self.lists_path, self.l_id, self.lists_path + "/" + self.l_id)
-        with open(self.lists_path + "/" + self.l_id, "r") as read_list:
-            self.list = json.load(read_list)
+        self.list = self.repository.get_list(self.l_id)
 
-    
-    def __init__(self, page, l_id, language, user_id, questions_path, lists_path):
+        
+    def __init__(self, repository, page, l_id, language, user_id):
+        self.repository = repository
         self.page = page
         self.language = language
         self.l_id = l_id
         self.user_id = user_id
-        self.questions_path = questions_path
-        self.lists_path = lists_path
 
         self.load_list()
 
@@ -39,7 +33,7 @@ class qlist(object):
         for i in self.list["questions"]:
             q_id = i["name"]
             print(i, q_id)
-            q = question(self.page, q_id, self.l_id, self.language, self.user_id, self.questions_path)
+            q = question(self.repository, self.page, q_id, self.l_id, self.language, self.user_id)
             q.set_from_file_with_exception()
 
             self.page.add_lines("\n<!-- QUESTION HEADER -->\n")
