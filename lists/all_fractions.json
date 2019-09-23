@@ -43,6 +43,8 @@
     {"name" : "fractions/q00041", "repeat" : 1 },
     {"name" : "fractions/q00042", "repeat" : 1 },
     {"name" : "fractions/q00043", "repeat" : 1 },
-    {"name" : "fractions/q00044", "repeat" : 1 }
+    {"name" : "fractions/q00044", "repeat" : 1 },
+    {"name" : "fractions/q00045", "repeat" : 1 },
+    {"name" : "fractions/q00046", "repeat" : 1 }
     ]
 }
