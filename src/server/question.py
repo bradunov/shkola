@@ -398,7 +398,8 @@ class question(object):
                 elif (strings[ind] != "left" and strings[ind] != "right" and strings[ind] != "center" and \
                     strings[ind] != "H1" and strings[ind] != "H2" and strings[ind] != "H3" and \
                     strings[ind] != "/H1" and strings[ind] != "/H2" and strings[ind] != "/H3"):
-                    code = code + "page.add_lines({})\n".format(strings[ind])
+                    code = code + "output = {}\n".format(strings[ind])
+                    code = code + "if (output ~= nil) then page.add_lines(output) end\n"
             elif item["type"] == "repeat":
                 no_iter = item["no_iter"]
                 start_repeat = ind

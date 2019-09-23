@@ -39,7 +39,12 @@ class library(object):
 
     # Table related
     table_inline = False
-    
+
+    # Canvas relates
+    canvas_id = None
+    canvas_align = None
+    canvas_check_code = None
+    canvas_items = []
 
     
     def __init__(self, lua, page):
@@ -82,25 +87,6 @@ class library(object):
         self.page.add_lines(script)
 
         
-    def fraction_circle(self, sizes):
-        object_id = str(self.get_object_id())
-        size = 105
-        r = 50
-        xc = (size - 2 * r) / 2 + r
-        line = "<div id=\"circle_" + object_id + "\"></div>\n"
-        line = line + "<script>\n"
-        line = line + "var paper_" + object_id + " = Raphael(\"circle_" + object_id + "\", " + str(size) + "," + str(size) + ");\n"
-        line = line + "var dot_" + object_id + " = paper_" + object_id + ".circle(" + str(xc) + ", " + str(xc) + ", " + str(r) + ").attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
-        a = 2 * math.pi / sizes
-        for i in range(sizes):
-            x = str(xc + math.sin(i*a) * r)
-            y = str(xc + math.cos(i*a) * r)
-            line = line + "var line_" + object_id + "_" + str(i) + " = paper_" + object_id + ".path( [\"M\", " + str(xc) + ", " + str(xc) + \
-                   " , \"L\", " + x + ", " + y + " ] ).attr({\"stroke-width\": 2});\n"
-        line = line + "</script>\n"
-
-        #self.page.add_lines( line )
-        return line
 
 
     # Inputs string/number and check that it matches <condition>
@@ -238,7 +224,7 @@ class library(object):
 
 
 
-    #############
+    #######################################
     # Table
     #
     # Style parameter: We use Lua/Python table/dict to pass keyword arguments to the table.
@@ -338,110 +324,45 @@ class library(object):
 
 
 
-    ### Code that implements select objects animation
+    
+    #############################################
+    ### Vector graphics/animation
 
-    def select_object_onmouse(self, object_id, n, color):
-        oid = str(object_id)
-        code = """
-  	for (let i=0; i<""" + str(n) + """; i++) {
-  	  sel_obj_""" + oid + """[i].mousedown( function() {
-	    if (sel_obj_""" + oid + """[i].attrs["fill"] == "#fff")
-  	      sel_obj_""" + oid + """[i].attr({fill: "#""" + color + """"});
-	    else
-  	      sel_obj_""" + oid + """[i].attr({fill: "#fff"});
-	  });
-        }
-        """
-        return code
-
-
-    def select_add_object(self, object_id, otype, x, y, width, height, ratio, \
-                          off_color = "fff", on_color = "aff", initial_state = None):
-        radiusx = width / (2*x* + 4*ratio)
-        radiusy = height / (2*y + 4*ratio)
-        r = min(radiusx, radiusy)
-        stepx = (width - 2*r*x) / (x+1)
-
-        if otype == "square":
-            obj_str = "sel_obj_{}[{}] = paper_{}.rect({}, {}, {}, {})"
-        elif otype == "triangle":
-            obj_str = "sel_obj_{}[{}] = paper_{}.path('M {} {} l {} {} l {} {} l {} {}')"
-        else:  # Default: otype == "circle":
-            obj_str = "sel_obj_{}[{}] = paper_{}.circle({}, {}, {})"
-            
-        off_attr_str = ".attr({fill: \"#" + off_color + "\", stroke: \"#000\", \"stroke-width\": 2});\n"
-        on_attr_str = ".attr({fill: \"#" + on_color + "\", stroke: \"#000\", \"stroke-width\": 2});\n"
-
-        code = ""
-        for iy in range(0, y):
-            for ix in range(0, x):
-                lx = stepx*(ix+1) + r*(2*ix+1)
-                ly = stepx*(iy+1) + r*(2*iy+1)
-
-                ind = iy * x + ix
-                if initial_state is not None and len(initial_state) > ind and initial_state[ind+1] == 1:
-                    attr_str = on_attr_str
-                else:
-                    attr_str = off_attr_str
-
-                if otype == "square":
-                    code = code + obj_str.format(object_id, iy*x+ix, object_id, lx-r, ly-r, 2*r, 2*r) + attr_str
-                elif otype == "triangle":
-                    code = code + obj_str.format(object_id, iy*x+ix, object_id, lx-r, ly+r, r, -2*r, r, 2*r, -2*r, 0) + attr_str
-                else: # Default otype == "circle":
-                    code = code + obj_str.format(object_id, iy*x+ix, object_id, lx, ly, r) + attr_str
-
-        return code
-
-
-    def select_add_table(self, object_id, x, y, width, height, ratio, \
-                         off_color = "fff", on_color = "aff", initial_state = None):
-        swidth = width / x
-        sheight = height / y
-
-        obj_str = "sel_obj_{}[{}] = paper_{}.rect({}, {}, {}, {})"
-        off_attr_str = ".attr({fill: \"#" + off_color + "\", stroke: \"#000\", \"stroke-width\": 2});\n"
-        on_attr_str = ".attr({fill: \"#" + on_color + "\", stroke: \"#000\", \"stroke-width\": 2});\n"
-
-        code = ""
-        for iy in range(0, y):
-            for ix in range(0, x):
-                lx = swidth * ix
-                ly = sheight * iy
-                ind = iy * x + ix
-                
-                if initial_state is not None and len(initial_state) > ind and initial_state[ind+1] == 1:
-                    attr_str = on_attr_str
-                else:
-                    attr_str = off_attr_str
-                code = code + obj_str.format(object_id, iy*x+ix, object_id, lx, ly, swidth, sheight) + \
-                       attr_str
-
-        return code
-
-
+    
+    ### Select objects
+    
     def select_checks_and_clears(self, object_id, n, check):
         oid = str(object_id)
 
-        # Special hack: JS doesn't have a sum function so we hard code it:
-        modified_check = check.replace("sum(result)", "(result.reduce((a, b) => a + b, 0))")
-        
         code_clear = """
         function sel_obj_""" + oid + """_clear() {
      	  for (let i=0; i<""" + str(n) + """; i++) {
-  	    sel_obj_""" + oid + """[i].attr({fill: "#fff"});
+            if (check_""" + oid + """[i]) {
+     	      sel_obj_""" + oid + """[i].attr({fill: off_color_""" + oid + """[i]});
+            }
           }
           clearAllNoBorder('sel_canvas_""" + oid + """');
         }
         """
-        code_check = """
+        self.clears.append("sel_obj_{}_clear();".format(oid))
+        code = code_clear
+        
+        if check is not None:
+            # Special hack: JS doesn't have a sum function so we hard code it:
+            modified_check = check.replace("sum(result)", "(result.reduce((a, b) => a + b, 0))")
+        
+            code_check = """
         function sel_obj_""" + oid + """_check() {
-          var result = []
+          var result = [];
+          var ind = 0;
      	  for (let i=0; i<""" + str(n) + """; i++) {
-            if (sel_obj_""" + oid + """[i].attrs['fill'] == '#fff') {
-  	      result[i] = 0;
-            } else {
-  	      result[i] = 1;
+            if (check_""" + oid + """[i]) {
+              if (sel_obj_""" + oid + """[i].attrs['fill'] == off_color_""" + oid + """[i]) {
+    	        result[ind] = 0;
+              } else {
+  	        result[ind] = 1;
+              }
+              ind++;
             }
           }
           if (""" + modified_check + """) {
@@ -453,9 +374,233 @@ class library(object):
           }
         }
         """
-        self.checks.append("sel_obj_{}_check();".format(oid))
-        self.clears.append("sel_obj_{}_clear();".format(oid))
-        return code_clear + code_check;
+            self.checks.append("sel_obj_{}_check();".format(oid))
+            code = code + code_check
+        
+        return code
+
+    
+    def select_object_onmouse(self, object_id, n):
+        oid = str(object_id)
+        code = """
+  	for (let i=0; i<""" + str(n) + """; i++) {
+          if (check_""" + oid + """[i]) {
+  	    sel_obj_""" + oid + """[i].mousedown( function() {
+	      if (sel_obj_""" + oid + """[i].attrs["fill"] == off_color_""" + oid + """[i])
+  	        sel_obj_""" + oid + """[i].attr({fill: on_color_""" + oid + """[i]});
+	      else
+  	        sel_obj_""" + oid + """[i].attr({fill: off_color_""" + oid + """[i]});
+	    });
+          }
+        }
+        """
+        return code
+
+
+
+
+    ### General drawing
+
+    def start_canvas(self, width, height, align=None, check_code=None):
+        if self.canvas_id is not None:
+            self.page.add_lines("Canvas should not have been started...")
+            return
+            
+        self.canvas_id = str(self.get_object_id())
+        self.canvas_align = align
+        self.canvas_check_code = check_code
+        self.canvas_items = []
+
+        
+        # Pass align style to surrounding div
+        inline = False
+        if align is not None:
+            if align == "inline":
+                inline = True
+            else:
+                div_ccs = "style='text-align:{}'".format(align)
+        else:
+            # default align is center
+            div_ccs = "style='text-align:center'"
+
+        if inline:
+            script = "<span style='vertical-align:middle;display:inline-block' id = 'sel_canvas_{}'>".format(self.canvas_id)
+        else:
+            script = "<div {} id = 'sel_canvas_{}'>".format(div_ccs,  self.canvas_id)
+            
+        script = script + """
+        <script type = "text/javascript">
+	var paper_""" + self.canvas_id +\
+            """ = Raphael("sel_canvas_""" + self.canvas_id + """", """ + \
+            str(width) + ", " + str(height) + """);
+        var on_color_""" + self.canvas_id + """ = [];
+        var off_color_""" + self.canvas_id + """ = [];
+        var check_""" + self.canvas_id + """ = [];
+	var sel_obj_""" + self.canvas_id + """ = [];
+        """
+
+        self.page.add_lines(script)
+
+
+
+    def _add_draw_object(self, string, \
+                         off_color="fff", on_color="aff", initial_state=None, check=None):
+        off_attr_str = ".attr({fill: \"#" + off_color + "\", stroke: \"#000\", \"stroke-width\": 2});\n"
+        on_attr_str = ".attr({fill: \"#" + on_color + "\", stroke: \"#000\", \"stroke-width\": 2});\n"
+
+        if check is None:
+            check = (self.canvas_check_code is not None and self.canvas_check_code)
+            
+        if initial_state:
+            attr_str = on_attr_str
+        else:
+            attr_str = off_attr_str
+
+        object_id = self.canvas_id
+        code = "sel_obj_{}[{}] = paper_{}.".format(\
+                        object_id, len(self.canvas_items), object_id) + string + attr_str
+        color_str = "on_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), on_color)\
+                  + "off_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), off_color)
+        check_str = "check_{}[{}] = {};\n".format(object_id, len(self.canvas_items), \
+                                                  "true" if check else "false")
+
+        self.canvas_items.append({"off_color": off_color, "on_color": on_color})
+        self.page.add_lines(color_str + check_str + code)
+        
+        
+
+    def add_rectangle(self, x, y, width, height, \
+                      off_color="fff", on_color="aff", initial_state = None, check=None):
+
+        obj_str = "rect({}, {}, {}, {})".format(x, y, width, height)
+        self._add_draw_object(obj_str, off_color, on_color, initial_state, check)
+
+    
+
+        
+    def add_triangle(self, x, y, width, height, \
+                     off_color="fff", on_color="aff", initial_state=None, check=None):
+
+        obj_str = "path('M {} {} l {} {} l {} {} l {} {}')".format(\
+                   x-width/2, y+height/2, width/2, -height, width/2, height, -width, 0)
+        self._add_draw_object(obj_str, off_color, on_color, initial_state, check)
+
+        
+    
+        
+    def add_circle(self, x, y, radius, \
+                   off_color="fff", on_color="aff", initial_state=None, check=None):
+
+        obj_str = "circle({}, {}, {})".format(x, y, radius)
+        self._add_draw_object(obj_str, off_color, on_color, initial_state, check)
+
+
+
+        
+    def add_ellipse(self, x, y, width, height, \
+                   off_color="fff", on_color="aff", initial_state=None, check=None):
+
+        print("C:", initial_state, ",", check)
+
+        obj_str = "ellipse({}, {}, {}, {})".format(x, y, width, height)
+        self._add_draw_object(obj_str, off_color, on_color, initial_state, check)
+
+
+
+        
+    def end_canvas(self):
+        if self.canvas_id is None:
+            self.page.add_lines("Canvas should have been started...")
+            return
+
+        if self.canvas_check_code is not None and self.canvas_check_code:
+            self.page.add_lines(self.select_checks_and_clears(self.canvas_id, len(self.canvas_items), self.canvas_check_code))
+            self.page.add_lines(self.select_object_onmouse(self.canvas_id, len(self.canvas_items)))
+
+
+        script = "\n</script>\n"
+        if self.canvas_align == "inline":
+            script = script + "</span>"
+        else:
+            script = script + "</div>"
+        self.page.add_lines(script)
+        self.canvas_id = None
+
+
+
+    
+    ### Pie chart
+    
+    def fraction_circle(self, sizes):
+        object_id = str(self.get_object_id())
+        size = 105
+        r = 50
+        xc = (size - 2 * r) / 2 + r
+        line = "<div id=\"circle_" + object_id + "\"></div>\n"
+        line = line + "<script>\n"
+        line = line + "var paper_" + object_id + " = Raphael(\"circle_" + object_id + "\", " + str(size) + "," + str(size) + ");\n"
+        line = line + "var dot_" + object_id + " = paper_" + object_id + ".circle(" + str(xc) + ", " + str(xc) + ", " + str(r) + ").attr({fill: \"#fff\", stroke: \"#000\", \"stroke-width\": 2});\n"
+        a = 2 * math.pi / sizes
+        for i in range(sizes):
+            x = str(xc + math.sin(i*a) * r)
+            y = str(xc + math.cos(i*a) * r)
+            line = line + "var line_" + object_id + "_" + str(i) + " = paper_" + object_id + ".path( [\"M\", " + str(xc) + ", " + str(xc) + \
+                   " , \"L\", " + x + ", " + y + " ] ).attr({\"stroke-width\": 2});\n"
+        line = line + "</script>\n"
+
+        #self.page.add_lines( line )
+        return line
+
+
+    
+    
+    ### Code that implements select objects in grid animation
+    
+    def select_add_grid(self, otype, x, y, width, height, ratio, \
+                          off_color = "fff", on_color = "aff", initial_state = None):
+        radiusx = width / (2*x* + 4*ratio)
+        radiusy = height / (2*y + 4*ratio)
+        r = min(radiusx, radiusy)
+        stepx = (width - 2*r*x) / (x+1)
+
+        for iy in range(0, y):
+            for ix in range(0, x):
+                lx = stepx*(ix+1) + r*(2*ix+1)
+                ly = stepx*(iy+1) + r*(2*iy+1)
+
+                ind = iy * x + ix
+                if initial_state is not None and len(initial_state) > ind and initial_state[ind+1] == 1:
+                    inits = True
+                else:
+                    inits = False
+
+                if otype == "square":
+                    self.add_rectangle(lx-r, ly-r, 2*r, 2*r, off_color, on_color, inits)
+                elif otype == "triangle":
+                    self.add_triangle(lx, ly, 2*r, 2*r, off_color, on_color, inits)
+                else: # Default otype == "circle":
+                    self.add_circle(lx, ly, r, off_color, on_color, inits)
+
+
+
+    def select_add_table(self, x, y, width, height, ratio, \
+                         off_color = "fff", on_color = "aff", initial_state = None):
+        swidth = width / x
+        sheight = height / y
+
+        for iy in range(0, y):
+            for ix in range(0, x):
+                lx = swidth * ix
+                ly = sheight * iy
+                
+                ind = iy * x + ix
+                if initial_state is not None and len(initial_state) > ind and initial_state[ind+1] == 1:
+                    inits = True
+                else:
+                    inits = False
+                self.add_rectangle(lx, ly, swidth, sheight, off_color, on_color, inits)
+
+
         
 
 
@@ -470,7 +615,6 @@ class library(object):
     #   - select: true (default) if the user is expected to enter input by selecting elements)
     #             false if it is used only for visualisation
     def select_objects(self, x, y, otype, check_code, style = {}):
-        object_id = str(self.get_object_id())
         width = 300
         height = 300
         ratio = 0.3
@@ -495,48 +639,25 @@ class library(object):
 
         if "initial_state" in style.keys():
             initial_state = style["initial_state"]
-            
-        if otype == "table":
-            object_code = self.select_add_table(object_id, x, y, width, height, ratio, on_color=color, initial_state=initial_state)
-        else: # default circle, square, ...
-            object_code = self.select_add_object(object_id, otype, x, y, width, height, ratio, on_color=color, initial_state=initial_state)
-            
+                        
 
         # Pass align style to surrounding div
-        inline = False
+
         if "text-align" in style.keys():
-            if style["text-align"] == "inline":
-                inline = True
-            else:
-                div_ccs = "style='text-align:{}'".format(style["text-align"])
+            text_align = style["text-align"]
         else:
-            # default align is center
-            div_ccs = "style='text-align:center'"
-
-        if inline:
-            script = "<span style='vertical-align:middle;display:inline-block' id = 'sel_canvas_{}'>".format(object_id)
-        else:
-            script = "<div {} id = 'sel_canvas_{}'>".format(div_ccs,  object_id)
+            text_align = None
             
-        script = script + """
-        <script type = "text/javascript">
-	var paper_""" + object_id +\
-            """ = Raphael("sel_canvas_""" + object_id + """", """ + \
-            str(width) + ", " + str(height) + """);
-	var sel_obj_""" + object_id + """ = [];
-        """ + object_code
-        if select:
-            script = script + \
-                     self.select_checks_and_clears(object_id, x*y, check_code) + \
-                     self.select_object_onmouse(object_id, x*y, color)
-        script = script + "\n</script>\n"
-        if inline:
-            script = script + "</span>"
-        else:
-            script = script + "</div>"
-            
+        self.start_canvas(width, height, text_align, check_code)
 
-        self.page.add_lines(script)
+
+        if otype == "table":
+            self.select_add_table(x, y, width, height, ratio, on_color=color, initial_state=initial_state)
+        else: # default circle, square, ...
+            self.select_add_grid(otype, x, y, width, height, ratio, on_color=color, initial_state=initial_state)
+
+        
+        self.end_canvas()
 
         
 
