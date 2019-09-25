@@ -8,7 +8,7 @@
 - CI and deployment, testing
 - Logging, Log Analycis interface, alerts, etc
 - Google Oauth registration of Azure web site
-
+- Load tester, performance evaluation and optimization
 
 
 
