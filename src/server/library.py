@@ -1,7 +1,7 @@
 import math
 import numpy
 import random
-
+import lupa
 
 class LibMath(object):
     lua = None
@@ -443,10 +443,34 @@ class library(object):
 
 
 
-    def _add_draw_object(self, string, \
-                         off_color="fff", on_color="aff", initial_state=None, check=None):
-        off_attr_str = ".attr({fill: \"#" + off_color + "\", stroke: \"#000\", \"stroke-width\": 2});\n"
-        on_attr_str = ".attr({fill: \"#" + on_color + "\", stroke: \"#000\", \"stroke-width\": 2});\n"
+    def _add_draw_object(self, string, style={}, initial_state=None, check=None):
+        off_color="fff"
+        on_color="aff"
+        line_color = "000"
+        line_width = "2"
+
+        if style is None or (not isinstance(style, dict) and lupa.lua_type(style) != "table"):
+            style = {}
+
+        
+        if "off_color" in style.keys():
+            off_color = style["off_color"]
+            
+        if "on_color" in style.keys():
+            on_color = style["on_color"]
+
+        if "line_color" in style.keys():
+            line_color = style["line_color"]
+
+        if "line_width" in style.keys():
+            line_width = style["line_width"]
+            
+        off_attr_str = ".attr({fill: \"#" + off_color + \
+                       "\", stroke: \"#" + line_color + \
+                       "\", \"stroke-width\": " + line_width + "});\n"
+        on_attr_str = ".attr({fill: \"#" + on_color + \
+                       "\", stroke: \"#" + line_color + \
+                       "\", \"stroke-width\": " + line_width + "});\n"
 
         if check is None:
             check = (self.canvas_check_code is not None and self.canvas_check_code)
@@ -466,47 +490,63 @@ class library(object):
 
         self.canvas_items.append({"off_color": off_color, "on_color": on_color})
         self.page.add_lines(color_str + check_str + code)
-        
+
         
 
-    def add_rectangle(self, x, y, width, height, \
-                      off_color="fff", on_color="aff", initial_state = None, check=None):
+    def add_rectangle(self, x, y, width, height, style={}, initial_state=None, check=None):
 
         obj_str = "rect({}, {}, {}, {})".format(x, y, width, height)
-        self._add_draw_object(obj_str, off_color, on_color, initial_state, check)
+        self._add_draw_object(obj_str, style, initial_state, check)
 
     
 
         
-    def add_triangle(self, x, y, width, height, \
-                     off_color="fff", on_color="aff", initial_state=None, check=None):
+    def add_triangle(self, x, y, width, height, style={}, initial_state=None, check=None):
 
         obj_str = "path('M {} {} l {} {} l {} {} l {} {}')".format(\
                    x-width/2, y+height/2, width/2, -height, width/2, height, -width, 0)
-        self._add_draw_object(obj_str, off_color, on_color, initial_state, check)
+        self._add_draw_object(obj_str, style, initial_state, check)
 
         
     
         
-    def add_circle(self, x, y, radius, \
-                   off_color="fff", on_color="aff", initial_state=None, check=None):
+    def add_circle(self, x, y, radius, style={}, initial_state=None, check=None):
 
         obj_str = "circle({}, {}, {})".format(x, y, radius)
-        self._add_draw_object(obj_str, off_color, on_color, initial_state, check)
+        self._add_draw_object(obj_str, style, initial_state, check)
 
 
 
         
-    def add_ellipse(self, x, y, width, height, \
-                   off_color="fff", on_color="aff", initial_state=None, check=None):
-
-        print("C:", initial_state, ",", check)
+    def add_ellipse(self, x, y, width, height, style={}, initial_state=None, check=None):
 
         obj_str = "ellipse({}, {}, {}, {})".format(x, y, width, height)
-        self._add_draw_object(obj_str, off_color, on_color, initial_state, check)
+        self._add_draw_object(obj_str, style, initial_state, check)
 
 
 
+        
+    def add_straight_path(self, x, y, path, style={}, initial_state=None, check=None):
+
+        obj_str = "path('M {} {} ".format(x, y)
+        for i in range(0, len(path)):
+            obj_str = obj_str + "l {} {} ".format(path[i+1][1], path[i+1][2])
+        obj_str = obj_str + "')"
+        self._add_draw_object(obj_str, style, initial_state, check)
+        
+
+        
+        
+    def add_curved_path(self, x, y, path, style={}, initial_state=None, check=None):
+
+        obj_str = "path('M {} {} ".format(x, y)
+        for i in range(0, len(path)):
+            obj_str = obj_str + "q {} {} {} {} ".format(path[i+1][1], path[i+1][2], path[i+1][3], path[i+1][4])
+        obj_str = obj_str + "')"
+        self._add_draw_object(obj_str, style, initial_state, check)
+        
+
+        
         
     def end_canvas(self):
         if self.canvas_id is None:
@@ -574,12 +614,13 @@ class library(object):
                 else:
                     inits = False
 
+                style = {"off_color" : off_color, "on_color" : on_color}
                 if otype == "square":
-                    self.add_rectangle(lx-r, ly-r, 2*r, 2*r, off_color, on_color, inits)
+                    self.add_rectangle(lx-r, ly-r, 2*r, 2*r, style, inits)
                 elif otype == "triangle":
-                    self.add_triangle(lx, ly, 2*r, 2*r, off_color, on_color, inits)
+                    self.add_triangle(lx, ly, 2*r, 2*r, style, inits)
                 else: # Default otype == "circle":
-                    self.add_circle(lx, ly, r, off_color, on_color, inits)
+                    self.add_circle(lx, ly, r, style, inits)
 
 
 
@@ -598,7 +639,8 @@ class library(object):
                     inits = True
                 else:
                     inits = False
-                self.add_rectangle(lx, ly, swidth, sheight, off_color, on_color, inits)
+                style = {"off_color" : off_color, "on_color" : on_color}
+                self.add_rectangle(lx, ly, swidth, sheight, style, inits)
 
 
         
