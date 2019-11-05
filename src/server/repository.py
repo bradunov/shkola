@@ -29,6 +29,9 @@ class Repository(object):
         
         self.load_all()
 
+
+    def check_extension(self, filename, extension):
+        return len(filename) > len(extension) and filename[len(filename)-len(extension):] == extension
         
 
     def find_key(self, d, rootkey):
@@ -53,10 +56,11 @@ class Repository(object):
                 if file[len(file)-1:] == "~":
                     print("Skipping:", file)
                     continue
-                if len(file) > len(".json") and file[len(file)-len(".json"):] == ".json":
+                #if len(file) > len(".json") and file[len(file)-len(".json"):] == ".json":
+                if self.check_extension(file, ".json"):
                     key = file[:len(file)-len(".json")]
                     d[key] = json.load(open(dirpath + "/" + file, 'r'))
-                else:
+                elif not self.check_extension(file, ".png"):
                     try:
                         with open(dirpath + "/" + file) as f_text:
                             text = f_text.read()
