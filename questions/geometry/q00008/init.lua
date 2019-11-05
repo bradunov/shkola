@@ -22,14 +22,17 @@ mycanvas = function(no)
   lib.add_rectangle(305, 10, 20, 50, style, true)
   lib.add_triangle(345, 50, 30, 20, different_style, true, false) 
   lib.add_triangle(380, 50, 30, 20, style, true, false) 
+  lib.add_text(348, 75, "1")
 
   lib.add_triangle(320, 150, 30, 20, different_style, true, false)
   lib.add_triangle(355, 150, 30, 20, style, true, false)
   lib.add_rectangle(375, 110, 20, 50, style, true)
+  lib.add_text(348, 175, "2")
 
   lib.add_triangle(320, 250, 30, 20, style, true, false)
   lib.add_rectangle(340, 210, 20, 50, style, true)
   lib.add_triangle(380, 250, 30, 20, different_style, true, false)
+  lib.add_text(348, 275, "3")
 
   lib.end_canvas()
 end

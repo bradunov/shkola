@@ -548,6 +548,16 @@ class library(object):
 
         
         
+    def add_text(self, x, y, text, style={}, initial_state=None, check=None):
+
+        obj_str = "text({}, {}, {})".format(x, y, text)
+        #object_id = self.canvas_id
+        #obj_str = "print({}, {}, \"{}\", paper_{}.getFont(\"Times\", 800), 30)".format(x, y, text, object_id);
+        self._add_draw_object(obj_str, style, initial_state, check)
+
+
+
+        
     def end_canvas(self):
         if self.canvas_id is None:
             self.page.add_lines("Canvas should have been started...")

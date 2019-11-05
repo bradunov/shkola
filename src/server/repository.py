@@ -1,6 +1,9 @@
 import os
 import json
 
+#DEBUG
+from pprint import pprint
+
 
 
 # Class that pre-loads the entire read-only repository of
@@ -61,7 +64,8 @@ class Repository(object):
                         text = ""
                     d[file] = text
 
-        #pprint.pprint(root)
+        # DEBUG
+        #pprint(root)
     
     def load_all(self):
         self.load_dir(self.questions, self.questions_path)
