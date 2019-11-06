@@ -1,5 +1,6 @@
-Oboj krovove dve kuće koje se nalaze u sredini
+Oboj kvadrate na slici
 
 @center@ @mycanvas()@
+
 
 

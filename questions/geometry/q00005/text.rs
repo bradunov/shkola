@@ -1,3 +1,3 @@
-Oboj višu figuru
+Oboj višu figuru:
  
 @center@ @mycanvas()@

@@ -1,4 +1,5 @@
 
+
 style = {["off_color"] = "fff",
         ["on_color"] = "fff",
         ["line_color"] = "000",
@@ -38,6 +39,7 @@ mycanvas = function(no)
   lib.start_canvas(450, 350, "center", "result[0] == 0 && result[1] == 0 && result[2] == 0")
 
   lib.add_rectangle(10, 40, 20, 20, style, false, false)
+  lib.add_text(20, 52, "5")
   lib.add_rectangle(10, 90, 20, 20, style, false, false)
   lib.add_rectangle(10, 140, 20, 20, style, false, false)
   lib.add_rectangle(10, 190, 20, 20, style, false, false)
@@ -49,18 +51,21 @@ mycanvas = function(no)
   lib.add_rectangle(180, 40, 30, 30, style, false, false)
   lib.add_triangle(240, 40, 30, 50, pored_style, false, false)
   lib.add_circle(240, 20, 10, pored_style, false, false) 
+  lib.add_text(192, 52, "1")
 
   lib.add_straight_path(350, 40, {{20, -10}, {30, 0}, {0, 30}, {-20, 10}}, style, "", false)
   lib.add_straight_path(380, 40, {{20, -10}}, style, "", false)
   lib.add_rectangle(350, 40, 30, 30, style, false, false)
   lib.add_triangle(370, 50, 30, 50, ispred_style, false, false)
   lib.add_circle(370, 30, 10, ispred_style, false, false) 
+  lib.add_text(390, 52, "2")
 
   lib.add_straight_path(190, 170, {{20, -10}, {30, 0}, {0, 30}, {-20, 10}}, style, "", false)
   lib.add_straight_path(220, 170, {{20, -10}}, style, "", false)
   lib.add_rectangle(190, 170, 30, 30, style, false, false)
   lib.add_triangle(220, 140, 30, 50, iznad_style, false, false)
   lib.add_circle(220, 120, 10, iznad_style, false, false) 
+  lib.add_text(208, 182, "3")
 
   lib.add_straight_path(290, 160, {{20, -10}, {30, 0}, {0, 30}, {-20, 10}}, style, "", false)
   lib.add_straight_path(320, 160, {{20, -10}}, style, "", false)
@@ -70,20 +75,22 @@ mycanvas = function(no)
   lib.add_straight_path(360, 160, {{20, -10}, {30, 0}, {0, 30}, {-20, 10}}, style, "", false)
   lib.add_straight_path(390, 160, {{20, -10}}, style, "", false)
   lib.add_rectangle(360, 160, 30, 30, style, false, false) 
+  lib.add_text(380, 178, "4")
 
   lib.add_triangle(220, 290, 50, 30, ispod_style, false, false)
   lib.add_straight_path(190, 270, {{20, -10}, {30, 0}, {0, 30}, {-20, 10}}, style, "", false)
   lib.add_straight_path(220, 270, {{20, -10}}, style, "", false)
   lib.add_rectangle(190, 270, 30, 30, style, false, false)
   lib.add_circle(205, 305, 10, ispod_style, false, false) 
+  lib.add_text(208, 285, "5")
 
   lib.add_triangle(380, 270, 30, 50, iza_style, false, false)
   lib.add_circle(380, 250, 10, iza_style, false, false)   
   lib.add_straight_path(350, 280, {{20, -10}, {30, 0}, {0, 30}, {-20, 10}}, style, "", false)
   lib.add_straight_path(380, 280, {{20, -10}}, style, "", false)
   lib.add_rectangle(350, 280, 30, 30, style, false, false)
+  lib.add_text(365, 295, "6")
 
   lib.end_canvas()
 end                   
                   
-  
