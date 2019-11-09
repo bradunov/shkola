@@ -5,6 +5,8 @@ style = {["off_color"] = "fff",
         ["line_color"] = "000",
         ["line_width"] = "2"};
 
+text_style = {["font_size"] = "16"}
+
 pored_style = {["off_color"] = "f90",
                ["on_color"] = "f90",
                ["line_color"] = "000",
@@ -39,7 +41,7 @@ mycanvas = function(no)
   lib.start_canvas(450, 350, "center", "result[0] == 0 && result[1] == 0 && result[2] == 0")
 
   lib.add_rectangle(10, 40, 20, 20, style, false, false)
-  lib.add_text(20, 52, "5")
+  lib.add_text(20, 52, "ispred", text_style)
   lib.add_rectangle(10, 90, 20, 20, style, false, false)
   lib.add_rectangle(10, 140, 20, 20, style, false, false)
   lib.add_rectangle(10, 190, 20, 20, style, false, false)

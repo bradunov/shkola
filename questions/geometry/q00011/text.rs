@@ -2,4 +2,4 @@ Oboj @name@ linije
 
 @vspace@
 
-@center@ @mycanvas()@
+@center@ @mycanvas(result)@

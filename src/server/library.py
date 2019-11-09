@@ -405,7 +405,11 @@ class library(object):
         if self.canvas_id is not None:
             self.page.add_lines("Canvas should not have been started...")
             return
-            
+
+
+        #DEBUG
+        print("CANVAS: ", check_code)
+        
         self.canvas_id = str(self.get_object_id())
         self.canvas_align = align
         self.canvas_check_code = check_code
@@ -464,13 +468,24 @@ class library(object):
 
         if "line_width" in style.keys():
             line_width = style["line_width"]
+
+
+        font_attr = ""
+        
+        if "font_size" in style.keys():
+            font_attr = font_attr + ", \"font-size\": \"{}\"".format(style["font_size"])
+
+        if not "font_family" in style.keys():
+            font_attr = font_attr + ", \"font-family\": \"{}\"".format(style["font_family"])
+
+            
             
         off_attr_str = ".attr({fill: \"#" + off_color + \
                        "\", stroke: \"#" + line_color + \
-                       "\", \"stroke-width\": " + line_width + "});\n"
+                       "\", \"stroke-width\": " + line_width + font_attr + "});\n"
         on_attr_str = ".attr({fill: \"#" + on_color + \
                        "\", stroke: \"#" + line_color + \
-                       "\", \"stroke-width\": " + line_width + "});\n"
+                       "\", \"stroke-width\": " + line_width + font_attr + "});\n"
 
         if check is None:
             check = (self.canvas_check_code is not None and self.canvas_check_code)
@@ -550,9 +565,25 @@ class library(object):
         
     def add_text(self, x, y, text, style={}, initial_state=None, check=None):
 
-        obj_str = "text({}, {}, {})".format(x, y, text)
-        #object_id = self.canvas_id
-        #obj_str = "print({}, {}, \"{}\", paper_{}.getFont(\"Times\", 800), 30)".format(x, y, text, object_id);
+        if not "off_color" in style.keys():
+            style["off_color"] = "000"
+            
+        if not "on_color" in style.keys():
+            style["on_color"] = "000"
+
+        if not "line_color" in style.keys():
+            style["line_color"] = "000"
+
+        if not "line_width" in style.keys():
+            style["line_width"] = "1"
+
+        if not "font_size" in style.keys():
+            style["font_size"] = "16"
+
+        if not "font_family" in style.keys():
+            style["font_family"] = "Arial, Helvetica, sans-serif"
+            
+        obj_str = "text({}, {}, \"{}\")".format(x, y, text)
         self._add_draw_object(obj_str, style, initial_state, check)
 
 
