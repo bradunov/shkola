@@ -460,7 +460,8 @@ class library(object):
     def _add_draw_object(self, string, style={}, initial_state=None, check=None):
         off_color="fff"
         on_color="aff"
-        line_color = "000"
+        on_line_color = "000"
+        off_line_color = "000"
         line_width = "2"
 
         object_id = self.canvas_id
@@ -482,7 +483,7 @@ class library(object):
         if "off_line_color" in style.keys():
             off_line_color = style["off_line_color"]
         else:
-            off_line_color = line_color
+            off_line_color = on_line_color
 
         if "line_width" in style.keys():
             line_width = style["line_width"]
@@ -502,7 +503,7 @@ class library(object):
                        "\", stroke: \"#" + off_line_color + \
                        "\", \"stroke-width\": " + line_width + font_attr + "});\n"
         on_attr_str = ".attr({fill: \"#" + on_color + \
-                       "\", stroke: \"#" + line_color + \
+                       "\", stroke: \"#" + on_line_color + \
                        "\", \"stroke-width\": " + line_width + font_attr + "});\n"
 
         if check is None:
