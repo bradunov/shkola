@@ -4,7 +4,7 @@ import math
 from lupa import LuaRuntime
 from library import library
 from repository import Repository
-
+import re
 
 
 class paragraph(object):
@@ -269,6 +269,10 @@ class question(object):
         # Replace spaces
         output = output.replace("@hspace@", "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         output = output.replace("@vspace@", "<div style='display:table;padding-top:0px;padding-bottom:0px;float:center'> </div>")
+
+        output = re.sub(r"@hspacept\((.*?)\)@", r"<div style='display:inline-block;padding-left:0px;padding-right:\1px;'> </div>", output)
+        output = re.sub(r"@vspacept\((.*?)\)@", r"<div style='display:table;padding-top:0px;padding-bottom:\1px;float:center'> </div>", output)
+
         
         # DEBUG
         #print("**************\nMAKE PRETTY: \n", output, "\n*****************")
