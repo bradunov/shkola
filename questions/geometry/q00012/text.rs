@@ -1,0 +1,5 @@
+Stikliraj
+
+@vspace@
+
+@center@ @mycanvas()@

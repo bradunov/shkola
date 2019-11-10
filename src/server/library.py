@@ -14,7 +14,7 @@ class LibMath(object):
     def gcd(self, x, y):
         return math.gcd(x, y)
 
-    # Returns indeices in array sorted according to values in array
+    # Returns indices in array sorted according to values in array
     def argsort(self, array):
         # Have to convert to Python array explicitly
         parray = list(array.values())
@@ -22,6 +22,12 @@ class LibMath(object):
         # Lua arrays start from 1 and python from 0
         return self.lua.table_from([a + 1 for a in sarray])
 
+    # Returns randomly shuffled input array
+    def random_shuffle(self, array):
+        # Have to convert to Python array explicitly
+        parray = list(array.values())
+        random.shuffle(parray)
+        return self.lua.table_from(parray)
 
     
     
@@ -338,7 +344,8 @@ class library(object):
         function sel_obj_""" + oid + """_clear() {
      	  for (let i=0; i<""" + str(n) + """; i++) {
             if (check_""" + oid + """[i]) {
-     	      sel_obj_""" + oid + """[i].attr({fill: off_color_""" + oid + """[i]});
+              state_""" + oid + """[i] = false;
+     	      sel_obj_""" + oid + """[i].attr({fill: off_color_""" + oid + """[i], stroke: off_line_color_""" + oid + """[i]});
             }
           }
           clearAllNoBorder('sel_canvas_""" + oid + """');
@@ -357,10 +364,10 @@ class library(object):
           var ind = 0;
      	  for (let i=0; i<""" + str(n) + """; i++) {
             if (check_""" + oid + """[i]) {
-              if (sel_obj_""" + oid + """[i].attrs['fill'] == off_color_""" + oid + """[i]) {
-    	        result[ind] = 0;
+              if (state_""" + oid + """[i]) {
+    	        result[ind] = 1;
               } else {
-  	        result[ind] = 1;
+  	        result[ind] = 0;
               }
               ind++;
             }
@@ -379,17 +386,21 @@ class library(object):
         
         return code
 
-    
+
+
     def select_object_onmouse(self, object_id, n):
         oid = str(object_id)
         code = """
   	for (let i=0; i<""" + str(n) + """; i++) {
           if (check_""" + oid + """[i]) {
   	    sel_obj_""" + oid + """[i].mousedown( function() {
-	      if (sel_obj_""" + oid + """[i].attrs["fill"] == off_color_""" + oid + """[i])
-  	        sel_obj_""" + oid + """[i].attr({fill: on_color_""" + oid + """[i]});
-	      else
-  	        sel_obj_""" + oid + """[i].attr({fill: off_color_""" + oid + """[i]});
+	      if (state_""" + oid + """[i]) {
+  	        sel_obj_""" + oid + """[i].attr({fill: off_color_""" + oid + """[i], stroke: off_line_color_""" + oid + """[i]});
+                state_""" + oid + """[i] = false;
+	      } else {
+  	        sel_obj_""" + oid + """[i].attr({fill: on_color_""" + oid + """[i], stroke: on_line_color_""" + oid + """[i]});
+                state_""" + oid + """[i] = true;
+              }
 	    });
           }
         }
@@ -406,10 +417,6 @@ class library(object):
             self.page.add_lines("Canvas should not have been started...")
             return
 
-
-        #DEBUG
-        print("CANVAS: ", check_code)
-        
         self.canvas_id = str(self.get_object_id())
         self.canvas_align = align
         self.canvas_check_code = check_code
@@ -439,7 +446,10 @@ class library(object):
             str(width) + ", " + str(height) + """);
         var on_color_""" + self.canvas_id + """ = [];
         var off_color_""" + self.canvas_id + """ = [];
+        var on_line_color_""" + self.canvas_id + """ = [];
+        var off_line_color_""" + self.canvas_id + """ = [];
         var check_""" + self.canvas_id + """ = [];
+        var state_""" + self.canvas_id + """ = [];
 	var sel_obj_""" + self.canvas_id + """ = [];
         """
 
@@ -453,6 +463,9 @@ class library(object):
         line_color = "000"
         line_width = "2"
 
+        object_id = self.canvas_id
+
+        
         if style is None or (not isinstance(style, dict) and lupa.lua_type(style) != "table"):
             style = {}
 
@@ -464,7 +477,12 @@ class library(object):
             on_color = style["on_color"]
 
         if "line_color" in style.keys():
-            line_color = style["line_color"]
+            on_line_color = style["line_color"]
+
+        if "off_line_color" in style.keys():
+            off_line_color = style["off_line_color"]
+        else:
+            off_line_color = line_color
 
         if "line_width" in style.keys():
             line_width = style["line_width"]
@@ -475,13 +493,13 @@ class library(object):
         if "font_size" in style.keys():
             font_attr = font_attr + ", \"font-size\": \"{}\"".format(style["font_size"])
 
-        if not "font_family" in style.keys():
+        if "font_family" in style.keys():
             font_attr = font_attr + ", \"font-family\": \"{}\"".format(style["font_family"])
 
             
             
         off_attr_str = ".attr({fill: \"#" + off_color + \
-                       "\", stroke: \"#" + line_color + \
+                       "\", stroke: \"#" + off_line_color + \
                        "\", \"stroke-width\": " + line_width + font_attr + "});\n"
         on_attr_str = ".attr({fill: \"#" + on_color + \
                        "\", stroke: \"#" + line_color + \
@@ -492,19 +510,27 @@ class library(object):
             
         if initial_state:
             attr_str = on_attr_str
+            state_str = "state_{}[{}] = {};\n".format(object_id, len(self.canvas_items), "true")
         else:
             attr_str = off_attr_str
+            state_str = "state_{}[{}] = {};\n".format(object_id, len(self.canvas_items), "false")
 
-        object_id = self.canvas_id
         code = "sel_obj_{}[{}] = paper_{}.".format(\
                         object_id, len(self.canvas_items), object_id) + string + attr_str
         color_str = "on_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), on_color)\
-                  + "off_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), off_color)
+                  + "off_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), off_color)\
+                  + "on_line_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), on_line_color)\
+                  + "off_line_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), off_line_color)
         check_str = "check_{}[{}] = {};\n".format(object_id, len(self.canvas_items), \
                                                   "true" if check else "false")
 
-        self.canvas_items.append({"off_color": off_color, "on_color": on_color})
-        self.page.add_lines(color_str + check_str + code)
+        self.canvas_items.append(
+            {"off_color": off_color,
+             "on_color": on_color,
+             "on_line_color": on_line_color,
+             "off_line_color": off_line_color
+            })
+        self.page.add_lines(color_str + check_str + state_str + code)
 
         
 
@@ -541,6 +567,14 @@ class library(object):
 
 
         
+    def add_line(self, x, y, width, height, style={}, initial_state=None, check=None):
+
+        obj_str = "path('M {} {} l {} {}')".format(x, y, width, height)
+        self._add_draw_object(obj_str, style, initial_state, check)
+
+
+
+        
     def add_straight_path(self, x, y, path, style={}, initial_state=None, check=None):
 
         obj_str = "path('M {} {} ".format(x, y)
@@ -561,8 +595,19 @@ class library(object):
         self._add_draw_object(obj_str, style, initial_state, check)
         
 
+
         
+    def add_check_box(self, x, y, width, height, style={}, initial_state=None, check=None):
+
+        if not "off_line_color" in style.keys():
+            style["off_line_color"] = "fff"
+
+        obj_str = "path('M {} {} l {} {} l {} {}')".format(x, y + 2*width/3, width/3, width/3, width-(width/3), -width)
+        self._add_draw_object(obj_str, style, initial_state, check)
         
+
+        
+                
     def add_text(self, x, y, text, style={}, initial_state=None, check=None):
 
         if not "off_color" in style.keys():
@@ -573,6 +618,9 @@ class library(object):
 
         if not "line_color" in style.keys():
             style["line_color"] = "000"
+
+        if not "off_line_color" in style.keys():
+            style["off_line_color"] = "000"
 
         if not "line_width" in style.keys():
             style["line_width"] = "1"
