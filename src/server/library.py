@@ -53,7 +53,7 @@ class library(object):
     canvas_items = []
 
     
-    def __init__(self, lua, page):
+    def __init__(self, lua, page, question_url):
         self.page = page
         self.checks = []
         self.clears = []
@@ -62,6 +62,7 @@ class library(object):
         self.math = LibMath(lua)
         # If we have more questions on the same page make sure all use pseudo-random thus unique IDs
         self.lib_id = str(int(random.random() * 1000000000))
+        self.question_url = question_url
     
     def get_object_id(self):
         self.object_id = self.object_id+1
@@ -72,7 +73,6 @@ class library(object):
         self.clears = []
         
 
-        
     # str_condition: ok == <condition>
     def condition_check_script(self, item_name, str_condition):
         script = """
@@ -594,8 +594,15 @@ class library(object):
             obj_str = obj_str + "q {} {} {} {} ".format(path[i+1][1], path[i+1][2], path[i+1][3], path[i+1][4])
         obj_str = obj_str + "')"
         self._add_draw_object(obj_str, style, initial_state, check)
-        
 
+
+        
+        
+    def add_image(self, name, x, y, width, height, style={}, initial_state=None, check=None):
+        obj_str = "image('{}', {}, {}, {}, {})".format("item?url=" + self.question_url + "/" + name, x, y, width, width)
+        self._add_draw_object(obj_str, style, initial_state, check)
+
+        
 
         
     def add_check_box(self, x, y, width, height, style={}, initial_state=None, check=None):

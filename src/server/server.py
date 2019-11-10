@@ -1,6 +1,7 @@
 import os
 import json
 import cherrypy
+from cherrypy.lib import static
 
 from lupa import LuaRuntime
 
@@ -567,7 +568,16 @@ class editor(object):
             return self.test(None, l_id, language, menu = "full")
 
 
+    @cherrypy.expose
+    def item(self, url):
+        # Serve a binary file (e.g. picture)
+        # TBD: Make this safe (e.g. cannot fetch random file from the system)
+        srv_abs_path = os.path.dirname(os.path.abspath(__file__))
+        abs_url = srv_abs_path + "/../../" + url
+        return static.serve_file(abs_url, 'application/x-download',
+                                 'attachment', os.path.basename(abs_url))
 
+        
     @cherrypy.expose
     def reload(self):
         # Reload all questions

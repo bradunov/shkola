@@ -53,7 +53,8 @@ class question(object):
 
     list_id = None
 
-    questions_root_path = "../../questions"
+    questions_rel_path = "questions"
+    questions_root_path = "../../" + questions_rel_path
     
     text = ""
     init_code = None
@@ -69,7 +70,6 @@ class question(object):
     
     def __init__(self, repository, page, path, list_id, language, user_id, url_next=None, init_code="", iter_code="", text=""):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
-        self.lib = library(self.lua, page)
         self.page = page
         self.repository = repository
         self.init_code = init_code
@@ -79,6 +79,7 @@ class question(object):
         self.list_id = list_id
         self.user_id = user_id
         self.path = path
+        self.lib = library(self.lua, page, self.questions_rel_path + "/" + self.path)
         self.url_next = url_next
 
 
@@ -114,7 +115,7 @@ class question(object):
         #     self.page.add_lines(err_str)
         #     for l in traceback.format_tb(err.__traceback__):
         #         self.page.add_lines("<br> {}".format(l))
-
+        
         
     def set_init_code(self, code):
         self.init_code = code
