@@ -15,7 +15,6 @@ from test import Test
 from repository import Repository
 
 
-repository= Repository("../..")
 userdb = UserDB()
 results = Results()
 
@@ -33,8 +32,8 @@ class editor(object):
     storage = None
 
 
-    def __init__(self, repository):
-        self.repository = repository
+    def __init__(self):
+        self.repository = Repository("../..")
         self.storage = storage()
         self.page = page()
 
@@ -209,6 +208,15 @@ class editor(object):
         
         lright = "<span style='display:block;float:right;'>\n"
 
+        lright = lright + \
+                 """<input type='button' style='font-size: 14px;' onclick='(function() {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("POST", "reload", true);
+                        xhr.send();
+                        console.log("Posted reload");
+                      }) ();' value='Reload'/>  
+                 """
+        
         if ("languages" in self.repository.get_config()):
             lang_select="Jezik: <select id='sel_lang' name='sel_lang' onchange='window.location.replace("
 
@@ -558,6 +566,15 @@ class editor(object):
         else:
             return self.test(None, l_id, language, menu = "full")
 
+
+
+    @cherrypy.expose
+    def reload(self):
+        # Reload all questions
+        print("Reloading questions...")
+        self.repository = Repository("../..")
+
+       
     
 if __name__ == '__main__':
     
@@ -570,7 +587,7 @@ if __name__ == '__main__':
         'use_google_auth': False
     })
 
-    cherrypy.tree.mount(editor(repository), '/', {'/': {'log.screen': False}})
+    cherrypy.tree.mount(editor(), '/', {'/': {'log.screen': False}})
     cherrypy.tree.mount(userdb, '/users', {'/' : {'log.screen': True}})
     cherrypy.tree.mount(results, '/results', {'/' : {'log.screen': True}})
 
