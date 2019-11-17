@@ -2,7 +2,7 @@ import cherrypy
 import google.oauth2.id_token
 import google.auth.transport.requests
 import time
-from storage import storage
+from storage_sql import storage_sql
 
 GOOGLE_CLIENT_ID = "221670444651-i7ock63nksbnqeag7l3s2u0nf6jdb2bk.apps.googleusercontent.com"
 
@@ -14,7 +14,7 @@ class UserDB(object):
     storage = None
     
     def __init__(self):
-        self.storage = storage()
+        self.storage = storage_sql()
         logger("User DB initialized")
 
     def check_no_user(self):

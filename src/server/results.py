@@ -1,5 +1,5 @@
 import cherrypy
-from storage import storage
+from storage_sql import storage_sql
 
 
 
@@ -7,7 +7,7 @@ class Results(object):
     storage = None
     
     def __init__(self):
-        self.storage = storage()
+        self.storage = storage_sql()
 
     @cherrypy.expose
     def register(self, **args):

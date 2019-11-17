@@ -1,13 +1,16 @@
 import sqlite3
 import datetime
 import time
-    
 
 
 
-class storage(object):
+class storage_sql:
     db = None
     dbname = "shkola.sql"
+
+
+    ##################################################################
+    # BEGIN - Common methods to implement storage interface
     
     def __init__(self):
         self.db = sqlite3.connect(self.dbname, detect_types=sqlite3.PARSE_DECLTYPES, check_same_thread=False)
@@ -17,69 +20,6 @@ class storage(object):
     def close(self):
         self.db.close()
         
-
-    def check_table_exists(self, table_name):
-        cursor = self.db.cursor()
-        try:
-            cursor.execute('''SELECT * FROM {}'''.format(table_name))
-            record = cursor.fetchone()
-        #TBD:
-        #except sqlite3.IntegrityError:
-        except e:
-            return False
-        return True
-
-
-    
-    def delete_table(self, table_name):
-        cursor = self.db.cursor()
-        cursor.execute('''DROP TABLE {}'''.format(table_name))
-        self.db.commit()
-
-
-
-    def delete_all_tables(self):
-        self.delete_table("users")
-        self.delete_table("responses")
-        
-        
-
-    def create_tables(self):
-
-        # Users
-        cursor = self.db.cursor()
-        cursor.execute('''
-              CREATE TABLE IF NOT EXISTS 
-                     users(user_id TEXT PRIMARY KEY, 
-                           name TEXT,
-                           email TEXT,
-                           remote_ip TEXT,
-                           user_agent TEXT, 
-                           last_accessed INTEGER)
-        ''')
-        self.db.commit()
-
-
-        # Responses
-        cursor = self.db.cursor()
-        cursor.execute('''
-              CREATE TABLE IF NOT EXISTS 
-                     responses(id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                                     user_id TEXT, 
-                                     question_id TEXT, 
-                                     list_id TEXT,
-                                     response_type TEXT,             /* SUBMIT or SKIP */
-                                     time INTEGER,                   /* Time in seconds epoch from when the question is generated */
-                                     duration INTEGER,               /* Time in seconds epoch from when the question is generated to when the answer is created*/
-                                     correct INTEGET,                /* Number of correct answers on the form */
-                                     incorrect INTEGER,              /* Number of incorrect answers on the form */
-                                     questions TEXT                  /* Detailed answers for each question */)
-        ''')
-        self.db.commit()
-            
-
-
-            
     def get_user_by_id(self, user_id):
         cursor = self.db.cursor()
         cursor.execute('''SELECT user_id FROM users where user_id == (?)''', (user_id,))
@@ -152,6 +92,75 @@ class storage(object):
                        response)
         self.db.commit()
 
+
+    # END - Common methods to implement storage interface
+    ##################################################################
+
+    
+
+        
+    def check_table_exists(self, table_name):
+        cursor = self.db.cursor()
+        try:
+            cursor.execute('''SELECT * FROM {}'''.format(table_name))
+            record = cursor.fetchone()
+        #TBD:
+        #except sqlite3.IntegrityError:
+        except e:
+            return False
+        return True
+
+
+    
+    def delete_table(self, table_name):
+        cursor = self.db.cursor()
+        cursor.execute('''DROP TABLE {}'''.format(table_name))
+        self.db.commit()
+
+
+
+    def delete_all_tables(self):
+        self.delete_table("users")
+        self.delete_table("responses")
+        
+        
+
+    def create_tables(self):
+
+        # Users
+        cursor = self.db.cursor()
+        cursor.execute('''
+              CREATE TABLE IF NOT EXISTS 
+                     users(user_id TEXT PRIMARY KEY, 
+                           name TEXT,
+                           email TEXT,
+                           remote_ip TEXT,
+                           user_agent TEXT, 
+                           last_accessed INTEGER)
+        ''')
+        self.db.commit()
+
+
+        # Responses
+        cursor = self.db.cursor()
+        cursor.execute('''
+              CREATE TABLE IF NOT EXISTS 
+                     responses(id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                                     user_id TEXT, 
+                                     question_id TEXT, 
+                                     list_id TEXT,
+                                     response_type TEXT,             /* SUBMIT or SKIP */
+                                     time INTEGER,                   /* Time in seconds epoch from when the question is generated */
+                                     duration INTEGER,               /* Time in seconds epoch from when the question is generated to when the answer is created*/
+                                     correct INTEGET,                /* Number of correct answers on the form */
+                                     incorrect INTEGER,              /* Number of incorrect answers on the form */
+                                     questions TEXT                  /* Detailed answers for each question */)
+        ''')
+        self.db.commit()
+            
+
+
+            
 
 
         
