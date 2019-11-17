@@ -1,7 +1,8 @@
 # To Do:
 
 - Front web server? (nginx, apache?)
-- https key registration
+- containerized install
+- SSL certificate registration
 - Azure table library
 - Azure table key management (read-only, write, etc)
 - Azure backup table and backup process
