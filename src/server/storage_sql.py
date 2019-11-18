@@ -17,9 +17,6 @@ class storage_sql:
         self.create_tables()
 
 
-    def close(self):
-        self.db.close()
-        
     def get_user_by_id(self, user_id):
         cursor = self.db.cursor()
         cursor.execute('''SELECT user_id FROM users where user_id == (?)''', (user_id,))
@@ -99,6 +96,10 @@ class storage_sql:
     
 
         
+    def close(self):
+        self.db.close()
+        
+
     def check_table_exists(self, table_name):
         cursor = self.db.cursor()
         try:
