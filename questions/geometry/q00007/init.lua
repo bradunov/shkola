@@ -35,7 +35,7 @@ iza_style = {["off_color"] = "f9c",
              ["line_color"] = "000",
              ["line_width"] = "2"};			   
 
-mycanvas = function(no)
+mycanvas = function()
   lib.start_canvas(400, 280, "center")
 
   lib.add_triangle(70, 60, 30, 50, iza_style, false, false)
