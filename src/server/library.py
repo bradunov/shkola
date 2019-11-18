@@ -74,12 +74,17 @@ class library(object):
         
 
     # str_condition: ok == <condition>
-    def condition_check_script(self, item_name, str_condition):
+    def condition_check_script(self, item_name, str_condition, extra_condition=None):
+        if extra_condition is not None:
+            extra_condition_str = "is_ok = is_ok && " + extra_condition + ";"
+        else:
+            extra_condition_str = ""
         script = """
         <script type = "text/javascript">
         function """ + item_name + """_cond() {
           var ok;
           """ + str_condition + """
+          """ + extra_condition_str + """
           if (is_ok) {
             setOK('""" + item_name + """');
             return true;
@@ -105,14 +110,17 @@ class library(object):
         n_answer = 'check_number_answer_{}'.format(qid)
         v_answer = "document.getElementById(\'" + n_answer + "\').value"
         if number:
+            extra_condition = v_answer + ".length > 0"
             v_answer = "Number(" + v_answer + ")"
+        else:
+            extra_condition = None
         if "answer" not in str(condition):
             str_condition = "is_ok = (" + v_answer + " == \'" + str(condition) + "\');"
         else:
             str_condition = condition.replace("answer", v_answer)
 
 
-        self.condition_check_script(n_answer, str_condition)
+        self.condition_check_script(n_answer, str_condition, extra_condition)
 
         line = "<input {}".format(self.input_style) + \
 	   "type='text' id='{}'/>".format(n_answer)
