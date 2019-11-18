@@ -29,7 +29,7 @@ if (izbor == 1) then
    rcurved = "0"
 else
    solution = curved
-   name = "krivim"
+   name = "i krivim"
    rstraight = "0"
    rcurved = "1"
 end   

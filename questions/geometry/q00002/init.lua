@@ -1,4 +1,3 @@
-
 style = {["off_color"] = "fff",
         ["on_color"] = "f30",
         ["line_color"] = "000",
@@ -10,7 +9,7 @@ different_style = {["off_color"] = "0cf",
         ["line_width"] = "2"};
 
 mycanvas = function(no)
-lib.start_canvas(500, 100, "center", "result[0] == 1 && result[1] == 1 && result[2] == 0 && result[3] == 0 && result[4] == 0 && result[5] == 0")
+lib.start_canvas(500, 100, "center", "result[0] == 1 && result[1] == 1 && result[2] == 0 && result[3] == 0 && result[4] == 0")
 
   lib.add_rectangle(20, 50, 60, 20, style, false, true)
   lib.add_circle(30, 75, 5, style, false, false)
@@ -24,7 +23,7 @@ lib.start_canvas(500, 100, "center", "result[0] == 1 && result[1] == 1 && result
   lib.add_curved_path(120, 50, {{40, -30, 40, 0}}, style, false, false)
   lib.add_straight_path(145, 50, {{0, -15}}, red_line, "", false)
 
-  lib.add_rectangle(180, 50, 60, 20, different_style, true, true)
+  lib.add_rectangle(180, 50, 60, 20, different_style, true, false)
   lib.add_circle(190, 75, 5, style, false, false)
   lib.add_circle(230, 75, 5, style, false, false)
   lib.add_curved_path(200, 50, {{40, -30, 40, 0}}, style, false, false)
@@ -51,4 +50,3 @@ lib.start_canvas(500, 100, "center", "result[0] == 1 && result[1] == 1 && result
   lib.end_canvas()
 end
  
-  

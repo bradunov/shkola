@@ -1,6 +1,6 @@
 gcd = math.random(3) + 2
 jimenilac = math.random(9) + 1
-jbrojilac = math.random(jimenilac)
+jbrojilac = math.random(jimenilac - 1)
 
 --[[ Here jimenilac and jbrojilac could have a common denominator,
      so make sure this is also removed.
@@ -13,3 +13,5 @@ jimenilac = jimenilac / gcd2
 jbrojilac = jbrojilac / gcd2
 imenilac = jimenilac * gcd * gcd2
 brojilac = jbrojilac * gcd * gcd2
+
+       
