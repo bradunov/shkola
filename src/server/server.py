@@ -9,7 +9,8 @@ from page import page
 from question import question
 from qlist import qlist
 from user_db import UserDB
-from storage_sql import storage_sql
+#from storage_sql import storage_sql
+from storage import get_storage
 from results import Results
 from helpers import create_url, encap_str, is_user_on_mobile
 from test import Test
@@ -35,7 +36,7 @@ class editor(object):
 
     def __init__(self):
         self.repository = Repository("../..")
-        self.storage = storage_sql()
+        self.storage = get_storage()
         self.page = page()
 
     

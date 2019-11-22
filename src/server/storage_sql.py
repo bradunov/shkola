@@ -17,7 +17,7 @@ class storage_sql:
         self.create_tables()
 
 
-    def get_user_by_id(self, user_id):
+    def insert_user_id(self, user_id):
         cursor = self.db.cursor()
         cursor.execute('''SELECT user_id FROM users where user_id == (?)''', (user_id,))
         user = cursor.fetchone()
@@ -209,7 +209,7 @@ class storage_sql:
 
 if __name__ == '__main__':
     
-    storage = storage()
+    storage = storage_sql()
 
     wipe_all = False
     #wipe_all = True
@@ -227,8 +227,8 @@ if __name__ == '__main__':
         epoch_ms = int(time.time())
         delta = 3600
 
-        user0 = storage.get_user_by_id("test0")
-        user1 = storage.get_user_by_id("test1")
+        user0 = storage.insert_user_id("test0")
+        user1 = storage.insert_user_id("test1")
         storage.update_user(user0, name="User0", email="Email0", remote_ip="100.200.300.400", user_agent="agent0", last_accessed=epoch_ms)
         storage.update_user(user1, name="User1", email="Email1", remote_ip="200.300.400.500", user_agent="agent1", last_accessed=epoch_ms)
     

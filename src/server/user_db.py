@@ -2,7 +2,7 @@ import cherrypy
 import google.oauth2.id_token
 import google.auth.transport.requests
 import time
-from storage_sql import storage_sql
+from storage import get_storage
 
 GOOGLE_CLIENT_ID = "221670444651-i7ock63nksbnqeag7l3s2u0nf6jdb2bk.apps.googleusercontent.com"
 
@@ -14,7 +14,7 @@ class UserDB(object):
     storage = None
     
     def __init__(self):
-        self.storage = storage_sql()
+        self.storage = get_storage()
         logger("User DB initialized")
 
     def check_no_user(self):
@@ -49,9 +49,10 @@ class UserDB(object):
         return self.get_user_data(user_id)
 
     def update_user_data(self, user_id, name, email, remote_ip, user_agent):
-        user = self.storage.get_user_by_id(user_id)
+        #user = self.storage.get_user_by_id(user_id)
         now = int(time.time())
-        self.storage.update_user(user, name=name, email=email, remote_ip=remote_ip, user_agent=user_agent, last_accessed=now)
+        #self.storage.update_user(user, name=name, email=email, remote_ip=remote_ip, user_agent=user_agent, last_accessed=now)
+        self.storage.update_user(user_id, name=name, email=email, remote_ip=remote_ip, user_agent=user_agent, last_accessed=now)
 
         
     @cherrypy.expose
