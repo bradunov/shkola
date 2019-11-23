@@ -1,15 +1,15 @@
 import os
 import json
-from lupa import LuaRuntime
 
-from question import question
-from qlist import qlist
-from user_db import UserDB
-from storage import get_storage
-from results import Results
-from helpers import create_url, encap_str, is_user_on_mobile
-from test import Test
-from repository import Repository
+
+from server.question import question
+from server.qlist import qlist
+from server.storage import get_storage
+from server.helpers import create_url, encap_str, is_user_on_mobile
+from server.test import Test
+from server.repository import Repository
+
+from lupa import LuaRuntime
 
 
 class page(object):
@@ -29,8 +29,8 @@ class page(object):
     on_loaded_script = ""
     title = ""
 
-    def __init__(self, title="Shkola"):
-        self.repository = Repository("../..")
+    def __init__(self, title="Shkola", rel_path="../.."):
+        self.repository = Repository(rel_path)
         self.storage = get_storage()
         self.title = title
 
@@ -43,6 +43,8 @@ class page(object):
         self.iter_code = ""
         self.text = ""
         self.question = None
+        self.lines = []
+
 
 
         
@@ -78,9 +80,6 @@ class page(object):
     def get_lines(self):
         return self.lines
         
-    def clear_lines(self):
-        self.lines = []
-
     def add_on_loaded_script_lines(self, code):
         self.on_loaded_script = self.on_loaded_script + code
         
@@ -163,6 +162,19 @@ class page(object):
 
 
 
+
+
+    ########
+    # Temporary version, doesn't work with Google Auth (yet)
+    def get_user_id(self):
+        # s = cherrypy.session
+        # if "user_id" not in s:
+        #     return ""
+        # else:
+        #     return s["user_id"]
+        return ""
+
+    
 
     ########
     # Temporary version, doesn't work with Google Auth (yet)
@@ -256,9 +268,13 @@ class page(object):
 
         self.add_lines("\n\n<!-- FULL MENU START -->\n")
         # Edit or view question
-        if self.page_name == "edit" or self.page_name == "view":
+        if self.page_name == "edit" or self.page_name == "view" or self.page_name == "generate" :
+            if self.page_name == "generate":
+                page_name = "edit"
+            else:
+                page_name = self.page_name
             select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
-                                create_url(page_name = encap_str(self.page_name), \
+                                create_url(page_name = encap_str(page_name), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
                                                 menu = encap_str("full"), \
@@ -465,7 +481,8 @@ class page(object):
         self.add_lines("""
         <div>
           <span style='float:left;display:inline;""" + style + """'>
-            <form method="post" action="generate">
+            <form method="post" action="main">
+              <input type="hidden" id="op" name="op" value="generate">
               <input type="hidden" id="q_id" name="q_id" value='""" + self.q_id + """'>
               <input type="hidden" id="language" name="language" value='""" + self.language + """'>
               <div style='""" + style + """background-color:#fafaf0;'>
@@ -550,3 +567,41 @@ class page(object):
              
 
         
+    def main(self, op = "view", q_id = None, l_id = None, language = "rs", menu = "full",
+             init_code = "", iter_code = "", text = ""):
+        
+        self.clear()
+        self.parse_parameters(op, q_id, l_id, language)
+
+        if op == "view":
+            q = question(self, self.get_user_id())
+            q.set_from_file_with_exception()
+            self.add_question(q)
+            return self.render_simple_page(menu)
+            
+        elif op == "edit":
+            q = question(self, self.get_user_id())
+            q.set_from_file_with_exception()
+            self.add_question(q)
+            self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
+            return self.render_page(menu)
+            
+        elif op == "generate":
+            print("GEN:", text)
+            self.add_code(init_code, iter_code, text)
+            q = question(self, self.get_user_id(), 
+                         init_code=init_code, iter_code=iter_code, text=text)
+            self.add_question(q)
+            return self.render_page(menu)
+
+        elif op == "list":
+            self.render_menu(menu)
+            ql = qlist(self, self.get_user_id())
+            ql.render_all_questions()
+            return self.render()
+
+        elif op == "test":
+            self.render_menu(menu)
+            test = Test(self, self.get_user_id())
+            test.render_next_questions()
+            return self.render()

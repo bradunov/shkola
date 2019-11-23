@@ -1,6 +1,6 @@
 import json
-from question import question
-from repository import Repository
+from server.question import question
+from server.repository import Repository
 
 class qlist(object):
     language = None

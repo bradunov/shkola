@@ -2,9 +2,9 @@ import sys
 import traceback
 import math
 from lupa import LuaRuntime
-from library import library
-from repository import Repository
 import re
+from server.library import library
+from server.repository import Repository
 
 
 class paragraph(object):
@@ -93,8 +93,8 @@ class question(object):
             return
 
         if "init.lua" in q.keys():
-            print(q.keys())
-            print(q)
+            #print(q.keys())
+            #print(q)
             self.init_code = q["init.lua"]
 
         if "iter.lua" in q.keys():

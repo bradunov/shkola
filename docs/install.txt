@@ -3,9 +3,9 @@ pip3 install cherrypy
 pip3 install lupa
 pip3 install numpy
 pip3 install google-auth-httplib2
+pip3 install azure-storage
 export SHKOLA_IP_ADDR=10.0.0.4
 
-pip3 install azure-storage
 
 
 # Not needed: export SHKOLA_IP_ADDR=`curl --silent -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"`
@@ -16,3 +16,25 @@ pip3 install azure-storage
 # https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-python
 
 # Reference design for serverless web app: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/serverless/web-app
+
+
+
+* Start python virtual env:
+
+  python3 -m venv .venv
+  source .venv/bin/activate
+
+
+* Exit virtual env:
+  deactivate
+
+
+* Install requirements in virtual environment
+  pip3 install -r requirements.txt
+
+* Start local hosting:
+  func host start
+
+
+
+

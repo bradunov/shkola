@@ -1,8 +1,8 @@
 import json
 import random
-from question import question
-from helpers import create_url, is_user_on_mobile
-from repository import Repository
+from server.question import question
+from server.helpers import create_url, is_user_on_mobile
+from server.repository import Repository
 
 
 class Test(object):

@@ -1,5 +1,5 @@
-from storage_az_table import storage_az_table
-from storage_sql import storage_sql
+from server.storage_az_table import storage_az_table
+from server.storage_sql import storage_sql
 import os
 
 

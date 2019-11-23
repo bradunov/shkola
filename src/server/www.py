@@ -5,7 +5,10 @@ from cherrypy.lib import static
 
 from lupa import LuaRuntime
 
-from page import page
+import sys
+sys.path.append("..")
+
+from server.page import page
 from question import question
 from qlist import qlist
 from user_db import UserDB
@@ -115,83 +118,82 @@ class editor(object):
 
 
 
+
+    # @cherrypy.expose
+    # def main(self, op = "view", q_id = None, l_id = None, language = "rs", menu = "full",
+    #          init_code = "", iter_code = "", text = ""):
+        
+    #     self.page.clear()
+    #     self.page.parse_parameters(op, q_id, l_id, language)
+
+    #     if op == "view":
+    #         q = question(self.page, self.get_user_id())
+    #         q.set_from_file_with_exception()
+    #         self.page.add_question(q)
+    #         return self.page.render_simple_page(menu)
+            
+    #     elif op == "edit":
+    #         q = question(self.page, self.get_user_id())
+    #         q.set_from_file_with_exception()
+    #         self.page.add_question(q)
+    #         self.page.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
+    #         return self.page.render_page(menu)
+            
+    #     elif op == "generate":
+    #         self.page.add_code(init_code, iter_code, text)
+    #         q = question(self.page, self.get_user_id(), 
+    #                      init_code=init_code, iter_code=iter_code, text=text)
+    #         self.page.add_question(q)
+    #         return self.page.render_page(menu)
+
+    #     elif op == "list":
+    #         self.page.render_menu(menu)
+    #         ql = qlist(self.page, self.get_user_id())
+    #         ql.render_all_questions()
+    #         return self.page.render()
+
+    #     elif op == "test":
+    #         self.page.render_menu(menu)
+    #         test = Test(self.page, self.get_user_id())
+    #         test.render_next_questions()
+    #         return self.page.render()
+
+            
+
+
+    @cherrypy.expose
+    def main(self, op = "view", q_id = None, l_id = None, language = "rs", menu = "full", init_code = "", iter_code = "", text = ""):
+        return self.page.main(op, q_id, l_id, language, menu, init_code, iter_code, text)
+
+    
+
     @cherrypy.expose
     def edit(self, q_id = None, l_id = None, language = "rs", menu = "full"):
-        self.page.clear()
-        self.page.clear_lines()
-
-        self.page.parse_parameters("edit", q_id, l_id, language)
-        
-            
-        q = question(self.page, self.get_user_id())
-        q.set_from_file_with_exception()
-        self.page.add_question(q)
-        self.page.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
-
-        return self.page.render_page(menu)
+        return self.page.main("edit", q_id, l_id, language, menu)
 
     
     
     @cherrypy.expose
     def generate(self, q_id = "", l_id = None, language = "", menu = "full", init_code = "", iter_code = "", text = ""):
-        self.page.clear()
-        self.page.clear_lines()
-
-        self.page.parse_parameters("edit", q_id, l_id, language)
-
-        
-        self.page.add_code(init_code, iter_code, text)
-        q = question(self.page, self.get_user_id(), 
-                     init_code=init_code, iter_code=iter_code, text=text)
-        self.page.add_question(q)
-
-        return self.page.render_page(menu)
+        return self.page.main("generate", q_id, l_id, language, menu, init_code, iter_code, text)
 
 
 
     @cherrypy.expose
     def view(self, q_id = None, l_id = None, language = "rs", menu = "full"):
-        self.page.clear()
-        self.page.clear_lines()
-
-        self.page.parse_parameters("view", q_id, l_id, language)
-
-                    
-        q = question(self.page, self.get_user_id())
-        q.set_from_file_with_exception()
-        self.page.add_question(q)
-
-        return self.page.render_simple_page(menu)
+        return self.page.main("view", q_id, l_id, language, menu)
 
 
     
     @cherrypy.expose
     def list(self, q_id = None, l_id = None, language = "rs", menu = "full"):
-        self.page.clear()
-        self.page.clear_lines()
-
-        self.page.parse_parameters("list", q_id, l_id, language)
-
-        
-        self.page.render_menu(menu)
-        ql = qlist(self.page, self.get_user_id())
-        ql.render_all_questions()
-        return self.page.render()
+        return self.page.main("list", q_id, l_id, language, menu)
 
 
     
     @cherrypy.expose
     def test(self, q_id = None, l_id = None, language = "rs", menu = "full"):
-        self.page.clear()
-        self.page.clear_lines()
-
-        self.page.parse_parameters("test", q_id, l_id, language)
-
-
-        self.page.render_menu(menu)
-        test = Test(self.page, self.get_user_id())
-        test.render_next_questions()
-        return self.page.render()
+        return self.page.main("test", q_id, l_id, language, menu)
 
 
         

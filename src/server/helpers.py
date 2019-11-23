@@ -1,4 +1,4 @@
-import cherrypy
+#import cherrypy
 import re
 
 
@@ -11,7 +11,10 @@ def create_url(self = None, page_name = None, q_id = None, l_id = None, lang = N
 
     if js:
         glue = lambda first: " + \"" + ("?" if first else "&")
-        url = page_name
+        url = "\"main\""
+        if page_name is not None:
+            url = url + glue(first) + "op=\" + " + page_name
+            first = False
         if q_id is not None:
             url = url + glue(first) + "q_id=\" + " + q_id
             first = False
@@ -26,7 +29,10 @@ def create_url(self = None, page_name = None, q_id = None, l_id = None, lang = N
             first = False
     else:
         glue = lambda first: "?" if first else "&" 
-        url = page_name
+        url = "main"
+        if page_name is not None:
+            url = url + glue(first) + "op=" + page_name
+            first = False
         if q_id is not None:
             url = url + glue(first) + "q_id=" + q_id
             first = False
@@ -44,7 +50,11 @@ def create_url(self = None, page_name = None, q_id = None, l_id = None, lang = N
 
 
 def is_user_on_mobile():
-    headers = cherrypy.request.headers
+    # TBD:
+    #headers = cherrypy.request.headers
+    headers = dict()
+    headers['User-Agent'] = ""
+    
     user_agent = headers['User-Agent'].lower()
         
     MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
