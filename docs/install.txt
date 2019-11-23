@@ -9,3 +9,10 @@ pip3 install azure-storage
 
 
 # Not needed: export SHKOLA_IP_ADDR=`curl --silent -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"`
+
+
+# How to install functions:
+# https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#v2
+# https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-python
+
+# Reference design for serverless web app: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/serverless/web-app

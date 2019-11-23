@@ -17,11 +17,11 @@ class qlist(object):
         self.list = self.repository.get_list(self.l_id)
 
         
-    def __init__(self, repository, page, l_id, language, user_id):
-        self.repository = repository
+    def __init__(self, page, user_id):
         self.page = page
-        self.language = language
-        self.l_id = l_id
+        self.repository = page.repository
+        self.language = page.language
+        self.l_id = page.l_id
         self.user_id = user_id
 
         self.load_list()
@@ -32,8 +32,10 @@ class qlist(object):
     def render_all_questions(self):
         for i in self.list["questions"]:
             q_id = i["name"]
-            print(i, q_id)
-            q = question(self.repository, self.page, q_id, self.l_id, self.language, self.user_id)
+            #print(i, q_id)
+            # TBD:
+            self.page.q_id = q_id
+            q = question(self.page, self.user_id)
             q.set_from_file_with_exception()
 
             self.page.add_lines("\n<!-- QUESTION HEADER -->\n")

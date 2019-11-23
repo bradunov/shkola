@@ -29,12 +29,12 @@ class Test(object):
         return self.list["questions"][next_question]
         
         
-    def __init__(self, repository, page, l_id, q_id, language, user_id):
-        self.repository = repository
+    def __init__(self, page, user_id):
+        self.repository = page.repository
         self.page = page
-        self.language = language
-        self.l_id = l_id
-        self.q_id = q_id
+        self.language = page.language
+        self.l_id = page.l_id
+        self.q_id = page.q_id
         self.user_id = user_id
 
         self.load_list()
@@ -61,7 +61,7 @@ class Test(object):
                                                 js = False)
 
         
-        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.user_id, next_question_url)
+        q = question(self.page, self.user_id, next_question_url)
         q.set_from_file_with_exception()
         q.eval_with_exception()
 
