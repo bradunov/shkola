@@ -618,7 +618,7 @@ class library(object):
         if not "off_line_color" in style.keys():
             style["off_line_color"] = "fff"
 
-        obj_str = "path('M {} {} l {} {} l {} {}')".format(x, y + 2*width/3, width/3, width/3, width-(width/3), -width)
+        obj_str = "path('M {} {} l {} {} l {} {}')".format(x, y + 2*height/3, width/3, height/3, width-(width/3), -height)
         self._add_draw_object(obj_str, style, initial_state, check)
         
 
