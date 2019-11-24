@@ -1,6 +1,8 @@
- Upiši broj koji stoji ispred grupe figura kojom treba nastaviti započeti niz:
+Upiši broj koji stoji ispred grupe figura kojom treba nastaviti započeti niz:
 
 @center@ @lib.check_number(izbor)@
+
+@vspace@
  
 @center@ @mycanvas()@
 

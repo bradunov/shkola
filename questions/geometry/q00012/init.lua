@@ -18,10 +18,9 @@ empty_style =
 
 check_style = 
 	{["off_color"] = "fff",
-        ["on_color"] = "fff",
-        ["line_color"] = "000",
-        ["off_line_color"] = "ccc",
-        ["line_width"] = "2"};
+        ["on_color"] = "ff00ff",
+        ["line_color"] = "fff",
+        ["line_width"] = "1"};
 
 
 
@@ -78,7 +77,7 @@ mycanvas = function()
   end
   
 
-  lib.start_canvas(500, 300, "center", results)
+  lib.start_canvas(350, 300, "center", results)
 
   w = 60
   ow = 40
@@ -88,16 +87,17 @@ mycanvas = function()
     element(0, i*w, vert[i])
     element(i*w, 0, horiz[i])
   end
+    lib.add_line(0, 5*w, 5*w, 0, style, false, false)
+    lib.add_line(5*w, 0, 0, 5*w, style, false, false)
 
   for i = 1,4 do
     for j = 1,4 do
       x = i*w + (w-ow)/2
       y = j*w + (w-ow)/2
-      lib.add_check_box(x, y, ow, ow, check_style, false, true)
+      lib.add_rectangle(x, y, ow, ow, check_style, false, true)
     end
   end
 
   lib.end_canvas()
 end
-
 
