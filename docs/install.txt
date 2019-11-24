@@ -8,6 +8,8 @@ export SHKOLA_IP_ADDR=10.0.0.4
 
 
 
+
+
 # Not needed: export SHKOLA_IP_ADDR=`curl --silent -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"`
 
 
@@ -38,3 +40,4 @@ export SHKOLA_IP_ADDR=10.0.0.4
 
 
 
+# For external BLOB access, add your IP to the storage whitelist

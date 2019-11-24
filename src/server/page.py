@@ -29,8 +29,8 @@ class page(object):
     on_loaded_script = ""
     title = ""
 
-    def __init__(self, title="Shkola", rel_path="../.."):
-        self.repository = Repository(rel_path)
+    def __init__(self, title="Shkola", rel_path="../..", use_azure_blob=False):
+        self.repository = Repository(rel_path, use_azure_blob)
         self.storage = get_storage()
         self.title = title
 

@@ -28,7 +28,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     global PAGE
     if PAGE is None:
-        PAGE = page.page(rel_path="..")
+        PAGE = page.page(use_azure_blob=True)
     
     print("DEB:", req.method, dict(req.params))
     # pprint({

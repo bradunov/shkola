@@ -1,6 +1,8 @@
 import os
 import json
 
+from server.azure_blob import azure_blob
+
 #DEBUG
 from pprint import pprint
 
@@ -12,20 +14,24 @@ from pprint import pprint
 class Repository(object):
     path = None
 
-    questions_path = None
-    lists_path = None
+    questions_path = "questions"
+    lists_path = "lists"
     
     questions = {}
     lists = {}
 
+    azure_blob = None
+
     
-    def __init__(self, path):
-        self.path = path
-        if path is None:
-            raise "Root path cannot be none."
+    def __init__(self, local_path=None, use_azure_blob=False):
+        self.local_path = local_path
+        if local_path is None and use_azure_blob == False:
+            raise "Either set root path or use blobs."
         
-        self.questions_path = path + "/questions"
-        self.lists_path = path + "/lists"
+
+        if (use_azure_blob):
+            self.azure_blob = azure_blob("/home/bozidar/shkola")
+            print("Using Azure Blob storage for questions")
         
         self.load_all()
 
@@ -45,36 +51,70 @@ class Repository(object):
             leaf = leaf[k]
         return leaf
         
-    def load_dir(self, root, dir_path):
-        for (dirpath, dirnames, filenames) in os.walk(dir_path):
-            rootkey = dirpath[len(self.questions_path)+1:]
-            d = self.find_key(root, rootkey)
-            for dir in dirnames:
-                d[dir] = {}                
+    def add_path(self, d, rootkey):
+        leaf = d
+        if not rootkey:
+            return d
+        # Remove the first key (e.g. questions)
+        keys = rootkey.split("/")[1:]
+        parent = None
+        for k in keys:
+            parent = leaf
+            if k not in leaf.keys():
+                leaf[k] = {}
+            leaf = leaf[k]
+            key = k
+        return (parent, key)
+        
+    def load_dir(self, root, path):
+        if not self.azure_blob:
+            local_path = self.local_path + "/" + path
+            
+            for (dirpath, dirnames, filenames) in os.walk(local_path):
+                rootkey = dirpath[len(local_path)+1:]
+                d = self.find_key(root, rootkey)
+                for dir in dirnames:
+                    d[dir] = {}                
 
-            for file in filenames:
+                for file in filenames:
+                    if file[len(file)-1:] == "~":
+                        print("Skipping:", file)
+                        continue
+                    #if len(file) > len(".json") and file[len(file)-len(".json"):] == ".json":
+                    if self.check_extension(file, ".json"):
+                        key = file[:len(file)-len(".json")]
+                        d[key] = json.load(open(dirpath + "/" + file, 'r'))
+                    elif not self.check_extension(file, ".png"):
+                        try:
+                            with open(dirpath + "/" + file) as f_text:
+                                text = f_text.read()
+                        except IOError:
+                            text = ""
+                        d[file] = text
+        else:
+            list_files = self.azure_blob.list_files(path)
+            for f in list_files:
+                file = f['name']
+                print("Loading: ", file)
+
                 if file[len(file)-1:] == "~":
                     print("Skipping:", file)
                     continue
-                #if len(file) > len(".json") and file[len(file)-len(".json"):] == ".json":
+                
                 if self.check_extension(file, ".json"):
                     key = file[:len(file)-len(".json")]
-                    d[key] = json.load(open(dirpath + "/" + file, 'r'))
+                    (parent, key) = self.add_path(root, key)
+                    parent[key] = json.loads(self.azure_blob.download_file(file))
                 elif not self.check_extension(file, ".png"):
-                    try:
-                        with open(dirpath + "/" + file) as f_text:
-                            text = f_text.read()
-                    except IOError:
-                        text = ""
-                    d[file] = text
-
+                    (parent, key) = self.add_path(root, file)
+                    parent[key] = self.azure_blob.download_file(file)
         # DEBUG
         #pprint(root)
-    
+
+        
     def load_all(self):
         self.load_dir(self.questions, self.questions_path)
         self.load_dir(self.lists, self.lists_path)
-
 
         
     def get_config(self):

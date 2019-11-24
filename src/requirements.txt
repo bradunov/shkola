@@ -3,3 +3,4 @@ lupa
 numpy
 google-auth-httplib2
 azure-storage
+azure-storage-blob

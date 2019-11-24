@@ -28,10 +28,9 @@ class editor(object):
 
 
     def __init__(self):
-        self.page = page()
+        self.page = page(use_azure_blob=True)
 
-    
-    
+        
     def get_user_id(self):
         s = cherrypy.session
         if "user_id" not in s:
