@@ -32,7 +32,7 @@
     var o = this.paper.canvas.getBoundingClientRect();
     this.div.css({
       'top': (this.y + (this.rounding) + (o.y)) + 'px',
-      'left': (this.x + (this.rounding) + (o.x)) + 'px'
+      'left': (this.x + (this.rounding) + (o.x)) + 'px',
       'height': (this.height - (this.rounding*2) + 'px'),
       'width': (this.width - (this.rounding*2) + 'px')
     });
