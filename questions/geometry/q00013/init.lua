@@ -4,6 +4,12 @@ style =
         ["line_color"] = "000",
         ["line_width"] = "3"};
 
+transparent_style = 
+	{["off_color"] = "none",
+        ["on_color"] = "fff",
+        ["line_color"] = "000",
+        ["line_width"] = "3"};
+
 marker_style = 
 	{["off_color"] = "fff",
         ["on_color"] = "6f6",
@@ -25,10 +31,10 @@ mycanvas = function(result)
   lib.add_rectangle(40, 70, 40, 40, style, false, false)
 
 --[[  lopta  ]]--
-  lib.add_circle(270, 70, 30, style, false, false) 
-  lib.add_curved_path (270, 40, {{30, 30, 0, 60}}, style, false, false)
-  lib.add_curved_path (240, 70, {{30, 30, 60, 0}}, style, false, false) 
-  lib.add_curved_path (245, 55, {{30, 30, 50, 0}}, style, false, false)
+  lib.add_circle(270, 70, 30, transparent_style, false, false) 
+  lib.add_curved_path (270, 40, {{30, 30, 0, 60}}, transparent_style, false, false)
+  lib.add_curved_path (240, 70, {{30, 30, 60, 0}}, transparent_style, false, false) 
+  lib.add_curved_path (245, 55, {{30, 30, 50, 0}}, transparent_style, false, false)
 
 --[[ kvadar  ]]--  
   lib.add_straight_path(210, 190, {{40, -50}, {20, 0}, {0, 50}, {-40, 50}}, style,  false, false)

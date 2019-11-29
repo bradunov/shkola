@@ -475,11 +475,12 @@ class library(object):
 
 
     def _add_draw_object(self, string, style={}, initial_state=None, check=None):
-        off_color="fff"
-        on_color="aff"
-        on_line_color = "000"
-        off_line_color = "000"
+        off_color="#fff"
+        on_color="#aff"
+        on_line_color = "#000"
+        off_line_color = "#000"
         line_width = "2"
+        opacity = "1"
 
         object_id = self.canvas_id
 
@@ -489,23 +490,28 @@ class library(object):
 
         
         if "off_color" in style.keys():
-            off_color = style["off_color"]
+            if off_color != "none":
+                off_color = "#" + style["off_color"]
             
         if "on_color" in style.keys():
-            on_color = style["on_color"]
+            if on_color != "none":
+                on_color = "#" + style["on_color"]
 
         if "line_color" in style.keys():
-            on_line_color = style["line_color"]
+            on_line_color = "#" + style["line_color"]
 
         if "off_line_color" in style.keys():
-            off_line_color = style["off_line_color"]
+            off_line_color = "#" + style["off_line_color"]
         else:
             off_line_color = on_line_color
 
         if "line_width" in style.keys():
             line_width = style["line_width"]
 
+        if "opacity" in style.keys():
+            opacity = style["opacity"]
 
+            
         font_attr = ""
         
         if "font_size" in style.keys():
@@ -516,11 +522,13 @@ class library(object):
 
             
             
-        off_attr_str = ".attr({fill: \"#" + off_color + \
-                       "\", stroke: \"#" + off_line_color + \
+        off_attr_str = ".attr({fill: \"" + off_color + \
+                       "\", stroke: \"" + off_line_color + \
+                       "\", opacity: \"" + opacity + \
                        "\", \"stroke-width\": " + line_width + font_attr + "});\n"
-        on_attr_str = ".attr({fill: \"#" + on_color + \
-                       "\", stroke: \"#" + on_line_color + \
+        on_attr_str = ".attr({fill: \"" + on_color + \
+                       "\", stroke: \"" + on_line_color + \
+                       "\", opacity: \"" + opacity + \
                        "\", \"stroke-width\": " + line_width + font_attr + "});\n"
 
         if check is None:
@@ -535,10 +543,10 @@ class library(object):
 
         code = "sel_obj_{}[{}] = paper_{}.".format(\
                         object_id, len(self.canvas_items), object_id) + string + attr_str
-        color_str = "on_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), on_color)\
-                  + "off_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), off_color)\
-                  + "on_line_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), on_line_color)\
-                  + "off_line_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), off_line_color)
+        color_str = "on_color_{}[{}] = \"{}\";\n".format(object_id, len(self.canvas_items), on_color)\
+                  + "off_color_{}[{}] = \"{}\";\n".format(object_id, len(self.canvas_items), off_color)\
+                  + "on_line_color_{}[{}] = \"{}\";\n".format(object_id, len(self.canvas_items), on_line_color)\
+                  + "off_line_color_{}[{}] = \"{}\";\n".format(object_id, len(self.canvas_items), off_line_color)
         check_str = "check_{}[{}] = {};\n".format(object_id, len(self.canvas_items), \
                                                   "true" if check else "false")
 
