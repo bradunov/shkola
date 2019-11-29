@@ -2,12 +2,17 @@
 class page(object):
     object_id = 0
     lines = []
+    script_lines = []
     on_loaded_script = ""
     title = ""
 
     def __init__(self, title="Shkola"):
         self.title = title
 
+    def add_script_lines(self, lines, *params):
+        if lines is not None:
+            self.script_lines.append(lines.format(*params) if params else lines)
+        
     def add_lines(self, lines, *params):
         # For some reason Lua passes None after every call to library
         if lines is not None:
@@ -16,7 +21,8 @@ class page(object):
     def get_lines(self):
         return self.lines
         
-    def clear_lines(self):
+    def clear(self):
+        self.script_lines = []
         self.lines = []
 
     def add_on_loaded_script_lines(self, code):
@@ -37,6 +43,8 @@ class page(object):
              </script>
              <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
              <script src="https://apis.google.com/js/platform.js" async defer></script>
+             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+             <script src="item?url=src/js/raphaeljs-infobox.js">
              <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
         """
         if self.on_loaded_script:
@@ -68,7 +76,7 @@ class page(object):
         
 
     def scripts(self):
-        return """
+        ret = """
         <script type = "text/javascript">
         function setError(id) {
           document.getElementById(id).style.border = "3px solid red";
@@ -84,7 +92,9 @@ class page(object):
         }
         </script>  
         """    
-
+        for l in self.script_lines:
+            ret = ret + l + "\n"
+        return ret
     
     def render(self):
         ret = ""

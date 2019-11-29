@@ -460,7 +460,7 @@ class editor(object):
     @cherrypy.expose
     def edit(self, q_id = None, l_id = None, language = "rs", menu = "full"):
         self.clear()
-        self.page.clear_lines()
+        self.page.clear()
 
         self.parse_parameters("edit", q_id, l_id, language)
         
@@ -477,7 +477,7 @@ class editor(object):
     @cherrypy.expose
     def generate(self, q_id = "", l_id = None, language = "", menu = "full", init_code = "", iter_code = "", text = ""):
         self.clear()
-        self.page.clear_lines()
+        self.page.clear()
 
         self.parse_parameters("edit", q_id, l_id, language)
 
@@ -494,7 +494,7 @@ class editor(object):
     @cherrypy.expose
     def view(self, q_id = None, l_id = None, language = "rs", menu = "full"):
         self.clear()
-        self.page.clear_lines()
+        self.page.clear()
 
         self.parse_parameters("view", q_id, l_id, language)
 
@@ -510,7 +510,7 @@ class editor(object):
     @cherrypy.expose
     def list(self, q_id = None, l_id = None, language = "rs", menu = "full"):
         self.clear()
-        self.page.clear_lines()
+        self.page.clear()
 
         self.parse_parameters("list", q_id, l_id, language)
 
@@ -525,7 +525,7 @@ class editor(object):
     @cherrypy.expose
     def test(self, q_id = None, l_id = None, language = "rs", menu = "full"):
         self.clear()
-        self.page.clear_lines()
+        self.page.clear()
 
         self.parse_parameters("test", q_id, l_id, language)
 

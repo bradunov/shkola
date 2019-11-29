@@ -95,7 +95,7 @@ class library(object):
         }
         </script>
         """
-        self.page.add_lines(script)
+        self.page.add_script_lines(script)
 
         
 
@@ -107,6 +107,11 @@ class library(object):
     # width: width of the input box in characters
     def _check_value(self, condition, width=3, number=False):
         qid = self.get_object_id()
+
+        # We use '' in JS strings so make sure there is no ' character in the condition
+        if isinstance(condition, str):
+            condition = condition.replace("'", '"')
+
         n_answer = 'check_number_answer_{}'.format(qid)
         v_answer = "document.getElementById(\'" + n_answer + "\').value"
         if number:
@@ -170,6 +175,10 @@ class library(object):
         n_answer_table = "check_fraction_answer_table_{}".format(qid)
 
         str_condition = condition
+
+        # We use '' in JS strings so make sure there is no ' character in the condition
+        if isinstance(str_condition, str):
+            str_condition = str_condition.replace("'", '"')
 
 
         if known is not None and "numerator" in known.keys():
@@ -651,6 +660,13 @@ class library(object):
         self._add_draw_object(obj_str, style, initial_state, check)
 
 
+        
+    def add_input(self, x, y, w, h, text):
+        print(self.canvas_id, x, y, w, h)
+        str = "new Infobox(paper_{}, ".format(self.canvas_id)
+        str = str + "{" + "x:{},y:{}, width:{}, height:{}".format(x, y, w, h) + "})"
+        str = str + ".div.html(\"{}\");\n".format(text)
+        self.page.add_lines(str)
 
         
     def end_canvas(self):
@@ -851,8 +867,8 @@ class library(object):
         </script>
         """
 
-        self.page.add_lines("\n<!-- CHECK NEXT BUTTON -->\n")
-        self.page.add_lines(ajax_results_script)
+        self.page.add_script_lines("\n<!-- CHECK NEXT BUTTON -->\n")
+        self.page.add_script_lines(ajax_results_script)
 
         OKline = "\n<input type='button' style='font-size: 14px;' onclick='[cond, report] = checkAll();"
         OKline = OKline + "console.log(report);"

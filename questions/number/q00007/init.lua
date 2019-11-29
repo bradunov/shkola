@@ -44,7 +44,7 @@ dim = 6 * w
 
 lib.start_canvas(350, 300, "center")
 
-lib.add_rectangle (30, 30, 120, dim, frame_style, true, true)
+  lib.add_rectangle (40, 30, 100, dim, frame_style, true, true)
 
   for i = 1, lindex1 do
       x = w + (w-ow)/2 + 10
@@ -57,7 +57,7 @@ lib.add_rectangle (30, 30, 120, dim, frame_style, true, true)
       lib.add_rectangle(x, y, ow, ow, left_style, false, true)
   end 
   
-  lib.add_rectangle (200, 30, 120, dim, frame_style, true, true)
+  lib.add_rectangle (210, 30, 100, dim, frame_style, true, true)
 
   for i = 1, rindex1 do
       x = w + (w-ow)/2 + 180
@@ -68,7 +68,9 @@ lib.add_rectangle (30, 30, 120, dim, frame_style, true, true)
      x = 2*w + (w-ow)/2 + 180
       y = j*w + (w-ow)/2 
       lib.add_rectangle(x, y, ow, ow, right_style, false, true)
-  end 
+  end
+
+  lib.add_input(150, 10+dim/2, 50, 50, lib.check_string(sign))
   
   lib.end_canvas()
 end                   

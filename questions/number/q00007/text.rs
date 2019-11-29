@@ -3,7 +3,6 @@ Upiši znak @hspacept(8)@<@hspacept(4)@, @hspacept(8)@> @hspacept(8)@ili @hspace
 
 @center@ @mycanvas(no)@
 
-@center@@lib.check_string(sign)@
                   
                   
                             
