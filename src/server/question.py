@@ -450,11 +450,16 @@ class question(object):
         
         
     def eval_with_exception(self):
-        try:
-            self.eval(self.page)
-        except Exception as err:
-            err_str = "\n\n<br> Error in program:\n {} <br>\n".format(str(err))
-            self.page.add_lines(err_str)
-            for l in traceback.format_tb(err.__traceback__):
-                self.page.add_lines("<br> {}".format(l))
+
+        # Don't catch the exception here
+        # Pass the exception to the server for unit testing
+        self.eval(self.page)
+
+        # try:
+        #     self.eval(self.page)
+        # except Exception as err:
+        #     err_str = "\n\n<br> Error in program:\n {} <br>\n".format(str(err))
+        #     self.page.add_lines(err_str)
+        #     for l in traceback.format_tb(err.__traceback__):
+        #         self.page.add_lines("<br> {}".format(l))
     
