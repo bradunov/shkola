@@ -1,4 +1,4 @@
-Označi figure istog oblika i iste boje znakom X, kao što je započeto.
+Oboj polja u tabeli koja odgovaraju figurama istog oblika i iste boje.
 
 @vspace@
 

@@ -95,7 +95,7 @@ class library(object):
         }
         </script>
         """
-        self.page.add_lines(script)
+        self.page.add_script_lines(script)
 
         
 
@@ -107,6 +107,11 @@ class library(object):
     # width: width of the input box in characters
     def _check_value(self, condition, width=3, number=False):
         qid = self.get_object_id()
+
+        # We use '' in JS strings so make sure there is no ' character in the condition
+        if isinstance(condition, str):
+            condition = condition.replace("'", '"')
+
         n_answer = 'check_number_answer_{}'.format(qid)
         v_answer = "document.getElementById(\'" + n_answer + "\').value"
         if number:
@@ -170,6 +175,10 @@ class library(object):
         n_answer_table = "check_fraction_answer_table_{}".format(qid)
 
         str_condition = condition
+
+        # We use '' in JS strings so make sure there is no ' character in the condition
+        if isinstance(str_condition, str):
+            str_condition = str_condition.replace("'", '"')
 
 
         if known is not None and "numerator" in known.keys():
@@ -466,11 +475,12 @@ class library(object):
 
 
     def _add_draw_object(self, string, style={}, initial_state=None, check=None):
-        off_color="fff"
-        on_color="aff"
-        on_line_color = "000"
-        off_line_color = "000"
+        off_color="#fff"
+        on_color="#aff"
+        on_line_color = "#000"
+        off_line_color = "#000"
         line_width = "2"
+        opacity = "1"
 
         object_id = self.canvas_id
 
@@ -480,23 +490,28 @@ class library(object):
 
         
         if "off_color" in style.keys():
-            off_color = style["off_color"]
+            if off_color != "none":
+                off_color = "#" + style["off_color"]
             
         if "on_color" in style.keys():
-            on_color = style["on_color"]
+            if on_color != "none":
+                on_color = "#" + style["on_color"]
 
         if "line_color" in style.keys():
-            on_line_color = style["line_color"]
+            on_line_color = "#" + style["line_color"]
 
         if "off_line_color" in style.keys():
-            off_line_color = style["off_line_color"]
+            off_line_color = "#" + style["off_line_color"]
         else:
             off_line_color = on_line_color
 
         if "line_width" in style.keys():
             line_width = style["line_width"]
 
+        if "opacity" in style.keys():
+            opacity = style["opacity"]
 
+            
         font_attr = ""
         
         if "font_size" in style.keys():
@@ -507,11 +522,13 @@ class library(object):
 
             
             
-        off_attr_str = ".attr({fill: \"#" + off_color + \
-                       "\", stroke: \"#" + off_line_color + \
+        off_attr_str = ".attr({fill: \"" + off_color + \
+                       "\", stroke: \"" + off_line_color + \
+                       "\", opacity: \"" + opacity + \
                        "\", \"stroke-width\": " + line_width + font_attr + "});\n"
-        on_attr_str = ".attr({fill: \"#" + on_color + \
-                       "\", stroke: \"#" + on_line_color + \
+        on_attr_str = ".attr({fill: \"" + on_color + \
+                       "\", stroke: \"" + on_line_color + \
+                       "\", opacity: \"" + opacity + \
                        "\", \"stroke-width\": " + line_width + font_attr + "});\n"
 
         if check is None:
@@ -526,10 +543,10 @@ class library(object):
 
         code = "sel_obj_{}[{}] = paper_{}.".format(\
                         object_id, len(self.canvas_items), object_id) + string + attr_str
-        color_str = "on_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), on_color)\
-                  + "off_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), off_color)\
-                  + "on_line_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), on_line_color)\
-                  + "off_line_color_{}[{}] = \"#{}\";\n".format(object_id, len(self.canvas_items), off_line_color)
+        color_str = "on_color_{}[{}] = \"{}\";\n".format(object_id, len(self.canvas_items), on_color)\
+                  + "off_color_{}[{}] = \"{}\";\n".format(object_id, len(self.canvas_items), off_color)\
+                  + "on_line_color_{}[{}] = \"{}\";\n".format(object_id, len(self.canvas_items), on_line_color)\
+                  + "off_line_color_{}[{}] = \"{}\";\n".format(object_id, len(self.canvas_items), off_line_color)
         check_str = "check_{}[{}] = {};\n".format(object_id, len(self.canvas_items), \
                                                   "true" if check else "false")
 
@@ -618,7 +635,7 @@ class library(object):
         if not "off_line_color" in style.keys():
             style["off_line_color"] = "fff"
 
-        obj_str = "path('M {} {} l {} {} l {} {}')".format(x, y + 2*width/3, width/3, width/3, width-(width/3), -width)
+        obj_str = "path('M {} {} l {} {} l {} {}')".format(x, y + 2*height/3, width/3, height/3, width-(width/3), -height)
         self._add_draw_object(obj_str, style, initial_state, check)
         
 
@@ -651,6 +668,13 @@ class library(object):
         self._add_draw_object(obj_str, style, initial_state, check)
 
 
+        
+    def add_input(self, x, y, w, h, text):
+        print(self.canvas_id, x, y, w, h)
+        str = "new Infobox(paper_{}, ".format(self.canvas_id)
+        str = str + "{" + "x:{},y:{}, width:{}, height:{}".format(x, y, w, h) + "})"
+        str = str + ".div.html(\"{}\");\n".format(text)
+        self.page.add_lines(str)
 
         
     def end_canvas(self):
@@ -851,8 +875,8 @@ class library(object):
         </script>
         """
 
-        self.page.add_lines("\n<!-- CHECK NEXT BUTTON -->\n")
-        self.page.add_lines(ajax_results_script)
+        self.page.add_script_lines("\n<!-- CHECK NEXT BUTTON -->\n")
+        self.page.add_script_lines(ajax_results_script)
 
         OKline = "\n<input type='button' style='font-size: 14px;' onclick='[cond, report] = checkAll();"
         OKline = OKline + "console.log(report);"

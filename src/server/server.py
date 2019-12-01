@@ -1,18 +1,27 @@
 import os
 import json
-
-
-from server.question import question
-from server.qlist import qlist
-from server.storage import get_storage
-from server.helpers import create_url, encap_str, is_user_on_mobile
-from server.test import Test
-from server.repository import Repository
+import cherrypy
+from cherrypy.lib import static
 
 from lupa import LuaRuntime
 
+from page import page
+from question import question
+from qlist import qlist
+from user_db import UserDB
+from storage import get_storage
+from results import Results
+from helpers import create_url, encap_str, is_user_on_mobile
+from test import Test
+from repository import Repository
 
-class page(object):
+
+userdb = UserDB()
+results = Results()
+
+
+class editor(object):
+    page = None
     q_id = ""
     l_id = ""
     language = ""
@@ -24,19 +33,12 @@ class page(object):
     storage = None
 
 
-    object_id = 0
-    lines = []
-    script_lines = []
-    on_loaded_script = ""
-    title = ""
-
-    def __init__(self, title="Shkola", rel_path="../..", use_azure_blob=False):
-        self.repository = Repository(rel_path, use_azure_blob)
+    def __init__(self):
+        self.repository = Repository("../..")
         self.storage = get_storage()
-        self.title = title
+        self.page = page()
 
-
-        
+    
     def clear(self):
         self.q_id = ""
         self.language = ""
@@ -44,22 +46,17 @@ class page(object):
         self.iter_code = ""
         self.text = ""
         self.question = None
-        self.lines = []
-        self.script_lines = []
-
-
-
         
+    
     def add_code(self, init_code = "", iter_code = "", text = ""):
         self.init_code = init_code
         self.iter_code = iter_code
         self.text = text
             
-
         
+
     def add_question(self, question):
         self.question = question
-
 
 
     def get_all_questions(self, language):
@@ -72,130 +69,21 @@ class page(object):
         l.sort()
         return l
 
-
-
-    def add_script_lines(self, lines, *params):
-        if lines is not None:
-            self.script_lines.append(lines.format(*params) if params else lines)
-        
-
-    def add_lines(self, lines, *params):
-        # For some reason Lua passes None after every call to library
-        if lines is not None:
-            self.lines.append(lines.format(*params) if params else lines)
-
-    def get_lines(self):
-        return self.lines
-        
-    def add_on_loaded_script_lines(self, code):
-        self.on_loaded_script = self.on_loaded_script + code
-        
-
-    def header(self):
-        head = "<!DOCTYPE html>"
-        head = head + "<html>\n"
-        head = head + "  <head>\n"
-        head = head + "    <title>{}</title>\n".format(self.title)
-        head = head + "    <meta name='viewport' content='width=device-width, initial-scale=1'>\n"
-        head = head + '    <meta name="google-signin-client_id" content="221670444651-i7ock63nksbnqeag7l3s2u0nf6jdb2bk.apps.googleusercontent.com">'
-        head = head + """
-             <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
-             <script type="text/javascript" async
-               src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
-             </script>
-             <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
-             <script src="https://apis.google.com/js/platform.js" async defer></script>
-             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-             <script src="item?url=src/js/raphaeljs-infobox.js">
-             <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
-        """
-        if self.on_loaded_script:
-            head = head + """
-              <script type="text/javascript">
-                function page_init() {
-                  """ + self.on_loaded_script + """
-                }
-                window.onload = page_init;
-              </script>
-            """
-
-        # Add our small standard library
-        head = head + """
-              <script type="text/javascript">
-              math = {}
-              math.eq = function(x, y, precision) { if (typeof(precision)==='undefined') precision = 0.00001; return Math.abs(x-y) < precision; }
-              </script>
-        """
-
-        head = head + "  </head>\n"
-        head = head + "  <body>\n"
-
-        return head
     
 
-    def footer(self):
-        return "</body>\n</html>\n"
-        
 
-    def scripts(self):
-        ret = """
-        <script type = "text/javascript">
-        function setError(id) {
-          document.getElementById(id).style.border = "3px solid red";
-        }
-        function setOK(id) {
-          document.getElementById(id).style.border = "3px solid green";
-        }
-        function clearAllWBorder(id) {
-          document.getElementById(id).style.border = "1px solid #ccc";
-        }
-        function clearAllNoBorder(id) {
-          document.getElementById(id).style.border = "0px solid white";
-        }
-        </script>  
-        """    
-        for l in self.script_lines:
-            ret = ret + l + "\n"
-        return ret
     
-    def render(self):
-        ret = ""
-        ret = ret + self.header()
-        ret = ret + self.scripts()
-        for l in self.lines:
-            #ret = ret + u''.join(l).encode('utf-8')
-            ret = ret + str(l)
-            
-        ret = ret + "\n" + self.footer()
-        return ret
-
-
-
-
-
-
-
-    ########
-    # Temporary version, doesn't work with Google Auth (yet)
     def get_user_id(self):
-        # s = cherrypy.session
-        # if "user_id" not in s:
-        #     return ""
-        # else:
-        #     return s["user_id"]
-        return ""
-
+        s = cherrypy.session
+        if "user_id" not in s:
+            return ""
+        else:
+            return s["user_id"]
     
-
-    ########
-    # Temporary version, doesn't work with Google Auth (yet)
     
     def get_login_header(self):
         login_str = ""
-
-        # TBD:
-        #s = cherrypy.session
-        s = dict()
+        s = cherrypy.session
             
         # self.page.add_lines("<div>{}</div>", cherrypy.request.path_info)
         if is_user_on_mobile():
@@ -210,7 +98,7 @@ class page(object):
                                        menu = menu, \
                                        js = False)
 
-        if False: #cherrypy.config.get("use_google_auth"):
+        if cherrypy.config.get("use_google_auth"):
             if 'user_id' not in s:
                 login_str = '<div class="g-signin2" style="margin-bottom:0px" data-onsuccess="onSignIn"></div>\n'
                 url = cherrypy.url('/users/login_google')
@@ -271,21 +159,13 @@ class page(object):
 
 
 
-    
-
-
-
     def render_menu_full(self):
 
-        self.add_lines("\n\n<!-- FULL MENU START -->\n")
+        self.page.add_lines("\n\n<!-- FULL MENU START -->\n")
         # Edit or view question
-        if self.page_name == "edit" or self.page_name == "view" or self.page_name == "generate" :
-            if self.page_name == "generate":
-                page_name = "edit"
-            else:
-                page_name = self.page_name
+        if self.page_name == "edit" or self.page_name == "view":
             select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
-                                create_url(page_name = encap_str(page_name), \
+                                create_url(page_name = encap_str(self.page_name), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
                                                 menu = encap_str("full"), \
@@ -322,8 +202,8 @@ class page(object):
         log_header = self.get_login_header()
         
         # Not sure why I have to put explicit height here, otherwise it is zero!
-        self.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
-        self.add_lines("<span style='display:block;float:left;'>\n" + select + log_header + "\n</span>\n")
+        self.page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
+        self.page.add_lines("<span style='display:block;float:left;'>\n" + select + log_header + "\n</span>\n")
 
 
         
@@ -384,15 +264,15 @@ class page(object):
         op_select = op_select + "</select>"
         lright = lright + op_select
         
-        self.add_lines(lright)
-        self.add_lines("</div>")
+        self.page.add_lines(lright)
+        self.page.add_lines("</div>")
 
-        self.add_lines("\n<!-- MENU END -->\n\n")
+        self.page.add_lines("\n<!-- MENU END -->\n\n")
         
 
 
     def render_menu_simple(self):
-        self.add_lines("\n\n<!-- SIMPLE MENU START -->\n")
+        self.page.add_lines("\n\n<!-- SIMPLE MENU START -->\n")
         # Edit or view question
         if self.page_name == "edit" or self.page_name == "view":
             select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
@@ -434,8 +314,8 @@ class page(object):
         log_header = self.get_login_header()
 
         # Not sure why I have to put explicit height here, otherwise it is zero!
-        self.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
-        self.add_lines("<span style='display:block;float:left;'>\n" + select + log_header + "\n</span>\n")
+        self.page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
+        self.page.add_lines("<span style='display:block;float:left;'>\n" + select + log_header + "\n</span>\n")
         lright = "<span style='display:block;float:right;'>\n"
 
         if ("languages" in self.repository.get_config()):
@@ -466,10 +346,10 @@ class page(object):
             lright = lright + lang_select
 
         
-        self.add_lines(lright)
-        self.add_lines("</div>")
+        self.page.add_lines(lright)
+        self.page.add_lines("</div>")
 
-        self.add_lines("\n<!-- MENU END -->\n\n")
+        self.page.add_lines("\n<!-- MENU END -->\n\n")
 
 
 
@@ -489,11 +369,10 @@ class page(object):
         self.render_menu(menu)
 
         style = "border:6px;padding:6px;"
-        self.add_lines("""
+        self.page.add_lines("""
         <div>
           <span style='float:left;display:inline;""" + style + """'>
-            <form method="post" action="main">
-              <input type="hidden" id="op" name="op" value="generate">
+            <form method="post" action="generate">
               <input type="hidden" id="q_id" name="q_id" value='""" + self.q_id + """'>
               <input type="hidden" id="language" name="language" value='""" + self.language + """'>
               <div style='""" + style + """background-color:#fafaf0;'>
@@ -522,20 +401,20 @@ class page(object):
         """)
 
         if self.question is not None:
-            self.add_lines("<span style='float:left;display:inline'>")
+            self.page.add_lines("<span style='float:left;display:inline'>")
             # Most common mogile web pages are 360 x 640 (https://www.hobo-web.co.uk/best-screen-size/)
             # but I can't seem to enforce a size in this view, so skipping for now
             #self.page.add_lines("<div style='border-style:dotted;display:table;height=360px;width=640px;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
-            self.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
+            self.page.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
             self.question.eval_with_exception()
-            self.add_lines("</div>")
-            self.add_lines("</span>")
+            self.page.add_lines("</div>")
+            self.page.add_lines("</span>")
             
-        self.add_lines("""
+        self.page.add_lines("""
         </div>
         """)
         
-        return self.render()
+        return self.page.render()
 
 
 
@@ -544,12 +423,12 @@ class page(object):
         self.render_menu(menu)
         
         if self.question is not None:
-            self.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>")
+            self.page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>")
             self.question.eval_with_exception()
-            self.add_lines("</div>")
+            self.page.add_lines("</div>")
             
         
-        return self.render()
+        return self.page.render()
 
 
 
@@ -578,41 +457,150 @@ class page(object):
              
 
         
-    def main(self, op = "view", q_id = None, l_id = None, language = "rs", menu = "full",
-             init_code = "", iter_code = "", text = ""):
-        
+    @cherrypy.expose
+    def edit(self, q_id = None, l_id = None, language = "rs", menu = "full"):
         self.clear()
-        self.parse_parameters(op, q_id, l_id, language)
+        self.page.clear()
 
-        if op == "view":
-            q = question(self, self.get_user_id())
-            q.set_from_file_with_exception()
-            self.add_question(q)
-            return self.render_simple_page(menu)
+        self.parse_parameters("edit", q_id, l_id, language)
+        
             
-        elif op == "edit":
-            q = question(self, self.get_user_id())
-            q.set_from_file_with_exception()
-            self.add_question(q)
-            self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
-            return self.render_page(menu)
-            
-        elif op == "generate":
-            print("GEN:", text)
-            self.add_code(init_code, iter_code, text)
-            q = question(self, self.get_user_id(), 
-                         init_code=init_code, iter_code=iter_code, text=text)
-            self.add_question(q)
-            return self.render_page(menu)
+        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.get_user_id())
+        q.set_from_file_with_exception()
+        self.add_question(q)
+        self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
 
-        elif op == "list":
-            self.render_menu(menu)
-            ql = qlist(self, self.get_user_id())
-            ql.render_all_questions()
-            return self.render()
+        return self.render_page(menu)
 
-        elif op == "test":
-            self.render_menu(menu)
-            test = Test(self, self.get_user_id())
-            test.render_next_questions()
-            return self.render()
+    
+    
+    @cherrypy.expose
+    def generate(self, q_id = "", l_id = None, language = "", menu = "full", init_code = "", iter_code = "", text = ""):
+        self.clear()
+        self.page.clear()
+
+        self.parse_parameters("edit", q_id, l_id, language)
+
+        
+        self.add_code(init_code, iter_code, text)
+        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.get_user_id(), 
+                     init_code=init_code, iter_code=iter_code, text=text)
+        self.add_question(q)
+
+        return self.render_page(menu)
+
+
+
+    @cherrypy.expose
+    def view(self, q_id = None, l_id = None, language = "rs", menu = "full"):
+        self.clear()
+        self.page.clear()
+
+        self.parse_parameters("view", q_id, l_id, language)
+
+                    
+        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.get_user_id())
+        q.set_from_file_with_exception()
+        self.add_question(q)
+
+        return self.render_simple_page(menu)
+
+
+    
+    @cherrypy.expose
+    def list(self, q_id = None, l_id = None, language = "rs", menu = "full"):
+        self.clear()
+        self.page.clear()
+
+        self.parse_parameters("list", q_id, l_id, language)
+
+        
+        self.render_menu(menu)
+        ql = qlist(self.repository, self.page, self.l_id, self.language, self.get_user_id())
+        ql.render_all_questions()
+        return self.page.render()
+
+
+    
+    @cherrypy.expose
+    def test(self, q_id = None, l_id = None, language = "rs", menu = "full"):
+        self.clear()
+        self.page.clear()
+
+        self.parse_parameters("test", q_id, l_id, language)
+
+
+        self.render_menu(menu)
+        test = Test(self.repository, self.page, self.l_id, self.q_id, self.language, self.get_user_id())
+        test.render_next_questions()
+        return self.page.render()
+
+
+        
+
+    
+    @cherrypy.expose
+    def index(self, q_id = None, language = "rs"):
+        if is_user_on_mobile():
+            return self.view(q_id, None, language, menu = "simple")
+        else:
+            return self.view(q_id, None, language, menu = "full")
+
+
+        
+    @cherrypy.expose
+    def mobile(self, q_id = None, language = "rs"):
+        return self.view(q_id, None, language, menu = "simple")
+
+
+    
+    @cherrypy.expose
+    def nonmobile(self, q_id = None, language = "rs"):
+        return self.view(q_id, None, language, menu = "full")
+
+    
+
+    @cherrypy.expose
+    def testiranje(self, l_id = None, language = "rs"):
+        if is_user_on_mobile():
+            return self.test(None, l_id, language, menu = "simple")
+        else:
+            return self.test(None, l_id, language, menu = "full")
+
+
+    @cherrypy.expose
+    def item(self, url):
+        # Serve a binary file (e.g. picture)
+        # TBD: Make this safe (e.g. cannot fetch random file from the system)
+        srv_abs_path = os.path.dirname(os.path.abspath(__file__))
+        abs_url = srv_abs_path + "/../../" + url
+        return static.serve_file(abs_url, 'application/x-download',
+                                 'attachment', os.path.basename(abs_url))
+
+        
+    @cherrypy.expose
+    def reload(self):
+        # Reload all questions
+        print("Reloading questions...")
+        self.repository = Repository("../..")
+
+       
+    
+if __name__ == '__main__':
+    
+    ip_address = os.environ['SHKOLA_IP_ADDR']
+
+    cherrypy.config.update({
+        'server.socket_host': ip_address,
+        'server.socket_port': 8080,
+        'tools.sessions.on': True,
+        'use_google_auth': False
+    })
+
+    cherrypy.tree.mount(editor(), '/', {'/': {'log.screen': False}})
+    cherrypy.tree.mount(userdb, '/users', {'/' : {'log.screen': True}})
+    cherrypy.tree.mount(results, '/results', {'/' : {'log.screen': True}})
+
+    cherrypy.engine.start()
+    cherrypy.engine.block()
+
