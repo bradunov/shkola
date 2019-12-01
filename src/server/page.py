@@ -30,8 +30,11 @@ class page(object):
     on_loaded_script = ""
     title = ""
 
-    def __init__(self, title="Shkola", rel_path="../..", use_azure_blob=False):
-        self.repository = Repository(rel_path, use_azure_blob)
+
+    # use_azure_blob = True: use blob for question storage rather than the local disk
+    # preload = True: fetch all questions in memory at start time (may be slow for a blob)
+    def __init__(self, title="Shkola", rel_path="../..", use_azure_blob=False, preload=True):
+        self.repository = Repository(rel_path, use_azure_blob, preload)
         self.storage = get_storage()
         self.title = title
 

@@ -21,9 +21,9 @@ class Repository(object):
     lists = {}
 
     azure_blob = None
-
+    preload = True
     
-    def __init__(self, local_path=None, use_azure_blob=False):
+    def __init__(self, local_path=None, use_azure_blob=False, preload=True):
         self.local_path = local_path
         if local_path is None and use_azure_blob == False:
             raise "Either set root path or use blobs."
@@ -32,10 +32,152 @@ class Repository(object):
         if (use_azure_blob):
             self.azure_blob = azure_blob("/home/bozidar/shkola")
             print("Using Azure Blob storage for questions")
+
+        self.preload = preload
+        if (preload):
+            self.load_all()
+
+
+
+    ##############################
+    # Disk API
+
+    def get_config_disk(self):
+        root = "../../" + self.questions_path
+        d = json.load(open(root + "/config.json", 'r'))
+        return d
+
+    def get_all_questions_disk(self, language):
+        root = "../../" + self.questions_path
+        qs = []
+        for (dirpath, dirnames, filenames) in os.walk(root):
+            # Do not display directory and the content of global folder
+            # and only select folders that contain the desired language (i.e. text.<language>)
+            if not dirnames and dirpath[len(root):len(root)+len("global")] != "global" and "text." + language in filenames:
+                qs.append(dirpath[len(root)+1:])
+        return qs
+
+    def get_all_lists_disk(self):
+        root = "../../" + self.lists_path
+        qs = []
+        for (dirpath, dirnames, filenames) in os.walk(root):
+            for f in filenames:
+                if f[len(f)-5:len(f)] == ".json":
+                    qs.append(f)
+                    #if self.l_id == "":
+                    #    self.l_id = f
+        return qs
+
+    def get_question_disk(self, q_id):
+        local_path = "../../" + self.questions_path + "/" + q_id
+        d = dict()
+        for (dirpath, dirnames, filenames) in os.walk(local_path):
+            rootkey = dirpath[len(local_path)+1:]
+
+            for file in filenames:
+                if file[len(file)-1:] == "~" or self.check_extension(file, ".png"):
+                    print("Skipping:", file)
+                    continue
+                try:
+                    with open(dirpath + "/" + file) as f_text:
+                        text = f_text.read()
+                except IOError:
+                    text = ""
+                d[file] = text
+        return d
+
+    def get_list_disk(self, l_id):
+        local_path = "../../" + self.lists_path + "/" + l_id
+        d = json.load(open(local_path, 'r'))
+        return d
+
+
+    def get_globals_disk(self):
+        local_path = "../../" + self.questions_path + "/globals"
+        d = dict()
+        for (dirpath, dirnames, filenames) in os.walk(local_path):
+            rootkey = dirpath[len(local_path)+1:]
+
+            for file in filenames:
+                if file[len(file)-1:] == "~" or self.check_extension(file, ".png"):
+                    print("Skipping:", file)
+                    continue
+                try:
+                    with open(dirpath + "/" + file) as f_text:
+                        text = f_text.read()
+                except IOError:
+                    text = ""
+                d[file] = text
+        return d
         
-        self.load_all()
+
+    
+    ##############################
+    # Blob API
+
+    def get_config_blob(self):
+        file = self.questions_path + "/config.json"
+        d = json.loads(self.azure_blob.download_file(file))
+        return d
+
+    def get_all_questions_blob(self, language):
+        root = self.questions_path
+        qs = []
+        list_files = self.azure_blob.list_files(root)
+        for f in list_files:
+            file = f['name']
+            # Do not display directory and the content of global folder
+            # and only select folders that contain the desired language (i.e. text.<language>)
+            if file[len(root):len(root)+len("global")] != "global" and "text." + language in file:
+                qs.append(file[len(root)+1:len(file)-len("text." + language)-1])
+        return qs
+
+    def get_all_lists_blob(self):
+        root = self.lists_path
+        qs = []
+        list_files = self.azure_blob.list_files(root)
+        for fi in list_files:
+            f = fi['name']
+            if f[len(f)-5:len(f)] == ".json":
+                qs.append(f[len(root)+1:])
+        return qs
+
+    def get_question_blob(self, q_id):
+        path = self.questions_path + "/" + q_id
+        d = dict()
+        list_files = self.azure_blob.list_files(path)
+        for f in list_files:
+            file = f['name']
+            file = file[len(path)+1:]
+            if file[len(file)-1:] == "~" or self.check_extension(file, ".png"):
+                print("Skipping:", file)
+                continue
+            d[file] = self.azure_blob.download_file(f['name'])
+        return d
+
+    def get_list_blob(self, l_id):
+        path = self.lists_path + "/" + l_id
+        d = json.loads(self.azure_blob.download_file(path))
+        return d
 
 
+    def get_globals_blob(self):
+        path = self.questions_path + "/globals"
+        d = dict()
+        list_files = self.azure_blob.list_files(path)
+        for f in list_files:
+            file = f['name']
+            file = file[len(path)+1:]
+            if file[len(file)-1:] == "~" or self.check_extension(file, ".png"):
+                print("Skipping:", file)
+                continue
+            d[file] = self.azure_blob.download_file(f['name'])
+        return d
+
+    #################
+
+    
+    
     def check_extension(self, filename, extension):
         return len(filename) > len(extension) and filename[len(filename)-len(extension):] == extension
         
@@ -118,51 +260,87 @@ class Repository(object):
 
         
     def get_config(self):
-        if "config" in self.questions.keys():
-            return self.questions["config"]
+        if self.preload:
+            if "config" in self.questions.keys():
+                return self.questions["config"]
+            else:
+                return {}
         else:
-            return {}
+            if self.azure_blob is None:
+                return self.get_config_disk()
+            else:
+                return self.get_config_blob()
 
 
     def get_question(self, q_id):
-        return self.find_key(self.questions, q_id)
+        if self.preload:
+            return self.find_key(self.questions, q_id)
+        else:
+            if self.azure_blob is None:
+                return self.get_question_disk(q_id)
+            else:
+                return self.get_question_blob(q_id)
 
     
     def get_all_question_ids(self, q_path, language):
-        q_ids = []
-        q = self.find_key(self.questions, q_path)
-        all_keys = [q]
-        paths = [""]
-        while all_keys:
-            l = all_keys.pop()
-            p = paths.pop()
-            for k in l.keys():
-                if (k[0] == "q" and ("text."+language) in l[k].keys()):
-                    q_ids.append(p + "/" + k)
-                if (k != "config" and k != "global" and k[0] != "q"):
-                    all_keys.append(l[k])
-                    paths.append(((p + "/") if p else "") + k)
-        return q_ids
+        if self.preload:
+            q_ids = []
+            q = self.find_key(self.questions, q_path)
+            all_keys = [q]
+            paths = [""]
+            while all_keys:
+                l = all_keys.pop()
+                p = paths.pop()
+                for k in l.keys():
+                    if (k[0] == "q" and ("text."+language) in l[k].keys()):
+                        q_ids.append(p + "/" + k)
+                    if (k != "config" and k != "global" and k[0] != "q"):
+                        all_keys.append(l[k])
+                        paths.append(((p + "/") if p else "") + k)
+            return q_ids
+        else:
+            if self.azure_blob is None:
+                return self.get_all_questions_disk(language)
+            else:
+                return self.get_all_questions_blob(language)
 
     
     def get_globals(self):
-        if "globals" in self.questions.keys():
-            return self.questions["globals"]
+        if self.preload:
+            if "globals" in self.questions.keys():
+                return self.questions["globals"]
+            else:
+                return None
         else:
-            return None
+            if self.azure_blob is None:
+                self.get_globals_disk()
+            else:
+                self.get_globals_blob()
+                
 
         
     def get_list(self, l_id):
-        if l_id is None or not l_id:
-            for l_id in self.lists.keys():
-                break
-        return self.find_key(self.lists, l_id)
-    
+        if self.preload:
+            if l_id is None or not l_id:
+                for l_id in self.lists.keys():
+                    break
+            return self.find_key(self.lists, l_id)
+        else:
+            if self.azure_blob is None:
+                return self.get_list_disk(l_id)
+            else:
+                return self.get_list_blob(l_id)
+
 
     def get_all_lists_ids(self, l_path):
-        l_ids = []
-        l = self.find_key(self.lists, l_path)
-        for k in l.keys():
-            l_ids.append(k)
-
-        return l_ids
+        if self.preload:
+            l_ids = []
+            l = self.find_key(self.lists, l_path)
+            for k in l.keys():
+                l_ids.append(k)
+            return l_ids
+        else:
+            if self.azure_blob is None:
+                return self.get_all_lists_disk()
+            else:
+                return self.get_all_lists_blob()

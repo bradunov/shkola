@@ -28,7 +28,7 @@ class editor(object):
 
 
     def __init__(self):
-        self.page = page(use_azure_blob=True)
+        self.page = page(use_azure_blob=False, preload=True)
 
         
     def get_user_id(self):
