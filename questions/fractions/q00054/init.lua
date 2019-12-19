@@ -5,15 +5,15 @@ ime = zensko_ime_nom[index_ime];
 padez = zensko_ime_dativ[index_ime];  
 
 imenilac1 = math.random(3)+1
-imenilac2 = math.random(3)+3
-strane = 180
+imenilac2 = math.random(4)+3
+strane = 420
 
 dan1 = strane/imenilac1
 dan2 = strane/imenilac2
 ostalo = strane - dan1 - dan2
 provera =  ostalo/strane 
 
-            
-
+                    
+       
                     
                   
