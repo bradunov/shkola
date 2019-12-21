@@ -16,6 +16,8 @@ fraction_table = function()
         condition = "is_ok = (numerator * "..tostring(r+1).." == denominator);"
         text = text .. lib.add_cell(lib.check_fraction_condition(condition), style)
       else
+        style["border"] = "1px solid #ddd"
+        style["background-color"] = "#ffffff"
         text = text .. lib.add_cell("", style)
       end
     end

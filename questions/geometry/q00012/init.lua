@@ -90,11 +90,17 @@ mycanvas = function()
     lib.add_line(0, 5*w, 5*w, 0, style, false, false)
     lib.add_line(5*w, 0, 0, 5*w, style, false, false)
 
+  example_set = false
   for i = 1,4 do
     for j = 1,4 do
       x = i*w + (w-ow)/2
       y = j*w + (w-ow)/2
-      lib.add_rectangle(x, y, ow, ow, check_style, false, true)
+      if (horiz[i] == vert[j] and not example_set) then
+        example_set = true
+        lib.add_rectangle(x, y, ow, ow, check_style, true, true)
+      else
+        lib.add_rectangle(x, y, ow, ow, check_style, false, true)
+      end
     end
   end
 
