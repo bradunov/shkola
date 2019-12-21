@@ -367,6 +367,7 @@ class question(object):
 
               require_if_exists(root_path.."/"..question_path.."/"..name.."."..language..".lua");
               require_if_exists(root_path.."/global/"..name.."."..language..".lua");
+              require_if_exists(root_path.."/global/"..name..".lua");
            end
         """
         

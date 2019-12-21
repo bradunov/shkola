@@ -15,12 +15,18 @@ array_position = {"gore levo", "gore desno", "dole levo", "dole desno"}
 choice = math.random(4)
 place = array_position[choice] 
 
+
+include("shapes")
+
+
 mycanvas = function()
 
-results = ""
+  results = ""
   for i = 1,12 do  
+    if (i > 1) then
       results = results .. "&& "
-      results = results .. "result[" .. tostring(i-1) .. "] == "
+    end
+    results = results .. "result[" .. tostring(i-1) .. "] == "
       if (i == choice) then
         results = results .. "1 "
       else
@@ -38,24 +44,23 @@ results = ""
     lib.add_line(ow+(i-1)*w, ow, 0, 3*w, style, false, false)
   end
 
+  scale = 1
+
   lib.add_triangle (85, 80, 40, 40, diff_style, false, true)
   lib.add_circle (225, 80, 20, diff_style, false, true )
   lib.add_rectangle (65, 205, 40, 40, diff_style, false, true)
   lib.add_rectangle (200, 205, 50, 30, diff_style, false, true)  
   
-  lib.add_curved_path(160, 100, {{40, -50, 0, -30}}, diff_style, false, true)
-  lib.add_curved_path(160, 100, {{-40, -50, 0, -30}}, diff_style, false, true)
-  
-  lib.add_straight_path(65, 150, {{15, 0}, {0,-15}, {10,0}, {0,15}, {15,0}, {0,10}, {-15,0}, {0,15}, {-10,0}, {0,-15}, {-15,0}, {0,-10} }, diff_style, false, true)
+  heart(lib, 160, 100, scale, diff_style, false, true)
 
-lib.add_ellipse(155, 155, 25, 10, diff_style, false, true)
+  cross(lib, 65, 150, scale, diff_style, false, true)
 
-  lib.add_triangle (225, 170, 5, 20, diff_style, false, true)
-  lib.add_curved_path(225, 130, {{30, 50, 0, 40}}, diff_style, false, true)
-  lib.add_curved_path(225, 130, {{-30, 50, 0, 40}}, diff_style, false, true)
+  lib.add_ellipse(155, 155, 25, 10, diff_style, false, true)
 
-  lib.add_straight_path(140, 220, {{15, -5}, {5,-15}, {5,15}, {15,5}, {-15,5}, {-5,15}, {-5,-15}, {-15, -5} }, diff_style, false, true)
-  
+  leaf(lib, 225, 130, scale, diff_style, false, true)
+
+  diamond(lib, 140, 220, scale, diff_style, false, true)
+
   lib.end_canvas()
 end
                   
