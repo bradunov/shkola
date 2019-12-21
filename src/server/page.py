@@ -109,7 +109,7 @@ class page(object):
              <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
              <script src="https://apis.google.com/js/platform.js" async defer></script>
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-             <script src="item?url=src/js/raphaeljs-infobox.js">
+             <script src="item?url=src/js/raphaeljs-infobox.js"></script>
              <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
         """
         if self.on_loaded_script:

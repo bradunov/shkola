@@ -308,9 +308,9 @@ class library(object):
         # default background color
         if "background-color" not in style:
             if self.table_row % 2 == 0:
-                css = css +  "background-color: #f0f0ff;padding: 8px;"
+                css = css +  "background-color: #f0f0ff;"
             else:
-                css = css +  "background-color: #fff0f0;padding: 8px;"
+                css = css +  "background-color: #fff0f0;"
         
         return "  <tr style='{}'>\n".format(css) 
         

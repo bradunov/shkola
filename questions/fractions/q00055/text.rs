@@ -4,8 +4,8 @@ Koliko mu je vremena potrebno da pretrči ostatak staze, ako za @3@ minuta pretr
 
 @vspace@
 
-Potrebno mu je @lib.check_number(vreme)@ minuta.  
+Potrebno mu je  @lib.check_number(vreme)@ minuta, a to je @hspace@@lib.check_fraction_condition(condition, true)@ časova. 
 
                   
 
-
+                  
