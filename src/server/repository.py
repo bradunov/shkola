@@ -21,6 +21,7 @@ class Repository(object):
     
     def __init__(self, path):
         self.path = path
+
         if path is None:
             raise "Root path cannot be none."
         

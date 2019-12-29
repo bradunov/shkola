@@ -54,7 +54,8 @@ class question(object):
     list_id = None
 
     questions_rel_path = "questions"
-    questions_root_path = "../../" + questions_rel_path
+    rel_path = None
+    questions_root_path = None
     
     text = ""
     init_code = None
@@ -68,7 +69,7 @@ class question(object):
     """
 
     
-    def __init__(self, repository, page, path, list_id, language, user_id, url_next=None, init_code="", iter_code="", text=""):
+    def __init__(self, repository, page, path, list_id, language, user_id, rel_path=None, url_next=None, init_code="", iter_code="", text=""):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.page = page
         self.repository = repository
@@ -81,6 +82,8 @@ class question(object):
         self.path = path
         self.lib = library(self.lua, page, self.questions_rel_path + "/" + self.path)
         self.url_next = url_next
+        self.rel_path = rel_path
+        self.questions_root_path = self.rel_path + "/" + self.questions_rel_path
 
 
     def set_from_file(self):

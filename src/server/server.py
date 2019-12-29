@@ -31,10 +31,18 @@ class editor(object):
     question = None
     page_name = ""
     storage = None
+    rel_path = os.getenv('SHKOLA_REL_PATH')
 
 
-    def __init__(self):
-        self.repository = Repository("../..")
+    def __init__(self, rel_path=None):
+        if rel_path is not None:
+            self.rel_path = rel_path
+
+        if not self.rel_path:
+            print("Please define SHKOLA_REL_PATH")
+            exit(1)
+
+        self.repository = Repository(self.rel_path)
         self.storage = get_storage()
         self.page = page()
 
@@ -465,7 +473,7 @@ class editor(object):
         self.parse_parameters("edit", q_id, l_id, language)
         
             
-        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.get_user_id())
+        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.get_user_id(), self.rel_path)
         q.set_from_file_with_exception()
         self.add_question(q)
         self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
@@ -483,7 +491,7 @@ class editor(object):
 
         
         self.add_code(init_code, iter_code, text)
-        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.get_user_id(), 
+        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.get_user_id(), self.rel_path, 
                      init_code=init_code, iter_code=iter_code, text=text)
         self.add_question(q)
 
@@ -499,7 +507,7 @@ class editor(object):
         self.parse_parameters("view", q_id, l_id, language)
 
                     
-        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.get_user_id())
+        q = question(self.repository, self.page, self.q_id, self.l_id, self.language, self.get_user_id(), self.rel_path)
         q.set_from_file_with_exception()
         self.add_question(q)
 
@@ -516,7 +524,7 @@ class editor(object):
 
         
         self.render_menu(menu)
-        ql = qlist(self.repository, self.page, self.l_id, self.language, self.get_user_id())
+        ql = qlist(self.repository, self.page, self.l_id, self.language, self.get_user_id(), self.rel_path)
         ql.render_all_questions()
         return self.page.render()
 
@@ -531,7 +539,7 @@ class editor(object):
 
 
         self.render_menu(menu)
-        test = Test(self.repository, self.page, self.l_id, self.q_id, self.language, self.get_user_id())
+        test = Test(self.repository, self.page, self.l_id, self.q_id, self.language, self.get_user_id(), self.rel_path)
         test.render_next_questions()
         return self.page.render()
 
@@ -573,7 +581,7 @@ class editor(object):
         # Serve a binary file (e.g. picture)
         # TBD: Make this safe (e.g. cannot fetch random file from the system)
         srv_abs_path = os.path.dirname(os.path.abspath(__file__))
-        abs_url = srv_abs_path + "/../../" + url
+        abs_url = srv_abs_path + "/" + self.rel_path + "/" + url
         return static.serve_file(abs_url, 'application/x-download',
                                  'attachment', os.path.basename(abs_url))
 
@@ -582,7 +590,7 @@ class editor(object):
     def reload(self):
         # Reload all questions
         print("Reloading questions...")
-        self.repository = Repository("../..")
+        self.repository = Repository(self.rel_path)
 
        
     
