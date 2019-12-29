@@ -44,3 +44,20 @@ func azure functionapp publish shkola --build remote
 
 
 # For external BLOB access, add your IP to the storage whitelist
+
+
+
+
+# Docker config
+Q: How to set up credentials?
+https://github.com/docker/docker-credential-helpers/issues/102
+
+
+
+
+# Docker deployment:
+
+az group create --name testdoc --location westeurope
+az storage account create --name testdocshkola --location westeurope --resource-group testdoc --sku Standard_LRS
+az functionapp plan create --resource-group testdoc --name myTestPlan --location westeurope --number-of-workers 1 --sku CP1 --is-linux
+az functionapp create --name testshkoladocker --storage-account testdocshkola --resource-group testdoc --plan myTestPlan --deployment-container-image-name bradunov/shkola:v0.0.1
