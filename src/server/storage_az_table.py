@@ -3,6 +3,7 @@ import os
 import datetime
 import time
 import re
+import logging
 
 
 class storage_az_table():
@@ -22,12 +23,12 @@ class storage_az_table():
         try:
             self.table_service.create_table(self.users_table_name)
         except Exception as err:
-            print('Error creating table, ' + self.users_table_name + 'check if it already exists')
+            logging.exception('Error creating table, ' + self.users_table_name + 'check if it already exists')
 
         try:
             self.table_service.create_table(self.responses_table_name)
         except Exception as err:
-            print('Error creating table, ' + self.responses_table_name + 'check if it already exists')
+            logging.exception('Error creating table, ' + self.responses_table_name + 'check if it already exists')
             
 
             
@@ -38,7 +39,7 @@ class storage_az_table():
         try:
             entity = table_service.get_entity(self.users_table_name, partition_key, user_id)
         except Exception as err:
-            print('Error querying table ' + self.user_table_name + ': {}/{}'.format(partition_key, user_id))
+            logging.exception('Error querying table ' + self.user_table_name + ': {}/{}'.format(partition_key, user_id))
             return None
 
         entity["user_id"] = user_id
@@ -70,7 +71,7 @@ class storage_az_table():
         try:
             self.table_service.insert_or_merge_entity(self.users_table_name, properties)
         except Exception as err:
-            print('Error adding to table ' + self.users_table_name + ' record: {}'.format(properties))
+            logging.exception('Error adding to table ' + self.users_table_name + ' record: {}'.format(properties))
 
         
         
@@ -93,7 +94,7 @@ class storage_az_table():
         try:
             self.table_service.insert_entity(self.responses_table_name, response)
         except Exception as err:
-            print('Error adding response: ' + str(err))
+            logging.exception('Error adding response: ' + str(err))
 
 
 
@@ -120,12 +121,12 @@ class storage_az_table():
         try:
             self.table_service.delete_table(self.users_table_name)
         except Exception as err:
-            print('Error deleting table, ' + self.users_table_name + ': ' + str(err))
+            logging.exception('Error deleting table, ' + self.users_table_name + ': ' + str(err))
 
         try:
             self.table_service.delete_table(self.responses_table_name)
         except Exception as err:
-            print('Error deleting table, ' + self.responses_table_name + ':' + str(err))
+            logging.exception('Error deleting table, ' + self.responses_table_name + ':' + str(err))
         
 
             

@@ -1,5 +1,6 @@
 import os
 import json
+import logging
 
 #DEBUG
 from pprint import pprint
@@ -55,7 +56,7 @@ class Repository(object):
 
             for file in filenames:
                 if file[len(file)-1:] == "~":
-                    print("Skipping:", file)
+                    logging.info("Skipping: %s", file)
                     continue
                 #if len(file) > len(".json") and file[len(file)-len(".json"):] == ".json":
                 if self.check_extension(file, ".json"):

@@ -1,6 +1,8 @@
 import json
 from question import question
 from repository import Repository
+import logging
+
 
 class qlist(object):
     language = None
@@ -21,7 +23,7 @@ class qlist(object):
 
         self.load_list()
 
-        #print(json.dumps(self.list, indent=4))
+        #logging.debug(json.dumps(self.list, indent=4))
         
 
     def load_list(self, l_id=None):
@@ -34,7 +36,7 @@ class qlist(object):
     def render_all_questions(self):
         for i in self.list["questions"]:
             q_id = i["name"]
-            print(i, q_id)
+            logging.debug("%d, %d", i, q_id)
             q = question(self.repository, self.page, q_id, self.l_id, self.language, self.user_id, self.rel_path)
             q.set_from_file_with_exception()
 

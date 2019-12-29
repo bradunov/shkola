@@ -1,6 +1,6 @@
 import cherrypy
 from storage import get_storage
-
+import logging
 
 
 class Results(object):
@@ -11,7 +11,7 @@ class Results(object):
 
     @cherrypy.expose
     def register(self, **args):
-        #print("Register: ", args)
+        #logging.debug("Register: ", args)
         correct = 0
         incorrect = 0
         questions = ""

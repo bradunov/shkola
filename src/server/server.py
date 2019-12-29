@@ -1,6 +1,7 @@
 import os
 import json
 import cherrypy
+import logging
 from cherrypy.lib import static
 
 from lupa import LuaRuntime
@@ -15,6 +16,8 @@ from helpers import create_url, encap_str, is_user_on_mobile
 from test import Test
 from repository import Repository
 
+
+logging.basicConfig(level=logging.INFO)
 
 userdb = UserDB()
 results = Results()
@@ -39,7 +42,7 @@ class editor(object):
             self.rel_path = rel_path
 
         if not self.rel_path:
-            print("Please define SHKOLA_REL_PATH")
+            logging.exception("Please define SHKOLA_REL_PATH")
             exit(1)
 
         self.repository = Repository(self.rel_path)
@@ -589,7 +592,7 @@ class editor(object):
     @cherrypy.expose
     def reload(self):
         # Reload all questions
-        print("Reloading questions...")
+        logging.debug("Reloading questions...")
         self.repository = Repository(self.rel_path)
 
        
