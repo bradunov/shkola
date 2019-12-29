@@ -341,7 +341,7 @@ class library(object):
         line = line + str(content)
         line = line + "    </td>\n"
 
-        #print(line)
+        #logging.debug(line)
         return line
 
 
@@ -670,7 +670,7 @@ class library(object):
 
         
     def add_input(self, x, y, w, h, text):
-        print(self.canvas_id, x, y, w, h)
+        logging.debug("%d %d %d %d %d", self.canvas_id, x, y, w, h)
         str = "new Infobox(paper_{}, ".format(self.canvas_id)
         str = str + "{" + "x:{},y:{}, width:{}, height:{}".format(x, y, w, h) + "})"
         str = str + ".div.html(\"{}\");\n".format(text)

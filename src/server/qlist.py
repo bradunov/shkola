@@ -1,41 +1,45 @@
 import json
 from server.question import question
 from server.repository import Repository
+import logging
 
 class qlist(object):
     language = None
     l_id = None
     page = None
+    rel_path = None
 
     list = None
 
 
-    def load_list(self, l_id = None):
+    def __init__(self, page, user_id, rel_path=None):
+        self.page = page
+        self.repository = page.repository
+        self.language = page.language
+        self.l_id = page.l_id
+        self.user_id = user_id
+        self.rel_path = rel_path
+
+        self.load_list()
+
+        #logging.debug(json.dumps(self.list, indent=4))
+        
+
+    def load_list(self, l_id=None):
         if l_id is not None:
             self.l_id = l_id
 
         self.list = self.repository.get_list(self.l_id)
 
         
-    def __init__(self, page, user_id):
-        self.page = page
-        self.repository = page.repository
-        self.language = page.language
-        self.l_id = page.l_id
-        self.user_id = user_id
-
-        self.load_list()
-
-        #print(json.dumps(self.list, indent=4))
-        
-
     def render_all_questions(self):
         for i in self.list["questions"]:
             q_id = i["name"]
+            logging.debug("%d, %d", i, q_id)
             #print(i, q_id)
             # TBD:
             self.page.q_id = q_id
-            q = question(self.page, self.user_id)
+            q = question(self.page, self.user_id, self.rel_path)
             q.set_from_file_with_exception()
 
             self.page.add_lines("\n<!-- QUESTION HEADER -->\n")

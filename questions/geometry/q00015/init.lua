@@ -39,8 +39,6 @@ all_indices = {
 
 
 index = math.random(4)
-print("I: ", index)
-
 
 position = directions[index]
 indices = all_indices[index]

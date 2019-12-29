@@ -5,6 +5,7 @@ from lupa import LuaRuntime
 import re
 from server.library import library
 from server.repository import Repository
+import logging
 
 
 class paragraph(object):
@@ -54,7 +55,8 @@ class question(object):
     list_id = None
 
     questions_rel_path = "questions"
-    questions_root_path = "../../" + questions_rel_path
+    rel_path = None
+    questions_root_path = None
     
     text = ""
     init_code = None
@@ -68,7 +70,7 @@ class question(object):
     """
 
     
-    def __init__(self, page, user_id, url_next=None, init_code="", iter_code="", text=""):
+    def __init__(self, page, user_id, rel_path=None, url_next=None, init_code="", iter_code="", text=""):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.page = page
         self.repository = page.repository
@@ -81,6 +83,11 @@ class question(object):
         self.path = page.q_id 
         self.lib = library(self.lua, page, self.questions_rel_path + "/" + self.path)
         self.url_next = url_next
+        self.rel_path = rel_path
+        self.questions_root_path = self.rel_path + "/" + self.questions_rel_path
+        logging.info("Rendering question %s, list_id=%s, user_id=%s, language=%s, url_next=%s", 
+            self.questions_rel_path + "/" + self.path, 
+            str(list_id), str(user_id), str(language), str(url_next))
 
 
     def set_from_file(self):
@@ -93,8 +100,7 @@ class question(object):
             return
 
         if "init.lua" in q.keys():
-            #print(q.keys())
-            #print(q)
+            logging.debug("%s, %s", str(q.keys()), str(q))
             self.init_code = q["init.lua"]
 
         if "iter.lua" in q.keys():
@@ -276,7 +282,7 @@ class question(object):
 
         
         # DEBUG
-        #print("**************\nMAKE PRETTY: \n", output, "\n*****************")
+        #logging.debug("**************\nMAKE PRETTY: \n", output, "\n*****************")
         
         return output
 
@@ -431,11 +437,11 @@ class question(object):
 
         # DEBUG
         if False:
-            print("\n\n********************\nSTRINGS: \n")
+            logging.debug("\n\n********************\nSTRINGS: \n")
             for i in range(0, len(strings)):
-                print("string[{}]: {}".format(i, strings[i]))
+                logging.debug("string[{}]: {}".format(i, strings[i]))
 
-            print("\n\n********************\nCODE: ", code)
+            logging.debug("\n\n********************\nCODE: ", code)
 
         
         lua_fun = self.lua.eval(code)

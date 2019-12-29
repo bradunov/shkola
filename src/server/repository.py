@@ -1,5 +1,6 @@
 import os
 import json
+import logging
 
 from server.azure_blob import azure_blob
 
@@ -240,7 +241,7 @@ class Repository(object):
                 print("Loading: ", file)
 
                 if file[len(file)-1:] == "~":
-                    print("Skipping:", file)
+                    logging.info("Skipping: %s", file)
                     continue
                 
                 if self.check_extension(file, ".json"):

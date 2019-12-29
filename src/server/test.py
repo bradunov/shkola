@@ -9,11 +9,30 @@ class Test(object):
     language = None
     l_id = None
     page = None
+    rel_path = None
 
     list = None
 
 
-    def load_list(self, l_id = None):
+    def __init__(self, page, user_id, rel_path=None):
+        self.repository = page.repository
+        self.page = page
+        self.language = page.language
+        self.l_id = page.l_id
+        self.q_id = page.q_id
+        self.user_id = user_id
+        self.rel_path = rel_path
+
+        self.load_list()
+
+        if self.q_id is None or not self.q_id:
+            self.q_id = self.choose_next_question()["name"]
+
+        #print(json.dumps(self.list, indent=4))
+        
+
+
+    def load_list(self, l_id=None):
         if l_id is not None:
             self.l_id = l_id
 
@@ -29,22 +48,6 @@ class Test(object):
         return self.list["questions"][next_question]
         
         
-    def __init__(self, page, user_id):
-        self.repository = page.repository
-        self.page = page
-        self.language = page.language
-        self.l_id = page.l_id
-        self.q_id = page.q_id
-        self.user_id = user_id
-
-        self.load_list()
-
-        if self.q_id is None or not self.q_id:
-            self.q_id = self.choose_next_question()["name"]
-
-        #print(json.dumps(self.list, indent=4))
-        
-
     def render_next_questions(self):
 
         if is_user_on_mobile():
@@ -61,7 +64,7 @@ class Test(object):
                                                 js = False)
 
         
-        q = question(self.page, self.user_id, next_question_url)
+        q = question(self.page, self.user_id, self.rel_path, next_question_url)
         q.set_from_file_with_exception()
         q.eval_with_exception()
 
