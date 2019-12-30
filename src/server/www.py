@@ -6,7 +6,10 @@ from cherrypy.lib import static
 from lupa import LuaRuntime
 
 import sys
+sys.path.append("/mnt/c/Users/bozidar/Documents/Code/shkola/src")
 sys.path.append("..")
+sys.path.append(".")
+print("SYS: " + str(sys.path))
 
 from server.page import page
 from question import question

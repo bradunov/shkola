@@ -10,6 +10,7 @@ from server.test import Test
 from server.repository import Repository
 
 from lupa import LuaRuntime
+import logging
 
 
 class page(object):
@@ -30,15 +31,26 @@ class page(object):
     on_loaded_script = ""
     title = ""
 
+    rel_path = os.getenv('SHKOLA_REL_PATH')
+
 
     # use_azure_blob = True: use blob for question storage rather than the local disk
     # preload = True: fetch all questions in memory at start time (may be slow for a blob)
-    def __init__(self, title="Shkola", rel_path="../..", use_azure_blob=False, preload=True):
-        self.repository = Repository(rel_path, use_azure_blob, preload)
+    def __init__(self, title="Shkola", rel_path=None, use_azure_blob=False, preload=True):
+        if rel_path is not None:
+            self.rel_path = rel_path
+
+        if not self.rel_path:
+            logging.exception("Please define SHKOLA_REL_PATH")
+            exit(1)
+
+        logging.warning("rel_path=%s", self.rel_path)
+
+        self.repository = Repository(self.rel_path, use_azure_blob, preload)
         self.storage = get_storage()
         self.title = title
 
-
+        
         
     def clear(self):
         self.q_id = ""
@@ -588,34 +600,33 @@ class page(object):
         self.parse_parameters(op, q_id, l_id, language)
 
         if op == "view":
-            q = question(self, self.get_user_id())
+            q = question(self, self.get_user_id(), self.rel_path)
             q.set_from_file_with_exception()
             self.add_question(q)
             return self.render_simple_page(menu)
             
         elif op == "edit":
-            q = question(self, self.get_user_id())
+            q = question(self, self.get_user_id(), self.rel_path)
             q.set_from_file_with_exception()
             self.add_question(q)
             self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
             return self.render_page(menu)
             
         elif op == "generate":
-            print("GEN:", text)
             self.add_code(init_code, iter_code, text)
-            q = question(self, self.get_user_id(), 
+            q = question(self, self.get_user_id(), self.rel_path, 
                          init_code=init_code, iter_code=iter_code, text=text)
             self.add_question(q)
             return self.render_page(menu)
 
         elif op == "list":
             self.render_menu(menu)
-            ql = qlist(self, self.get_user_id())
+            ql = qlist(self, self.get_user_id(), self.rel_path)
             ql.render_all_questions()
             return self.render()
 
         elif op == "test":
             self.render_menu(menu)
-            test = Test(self, self.get_user_id())
+            test = Test(self, self.get_user_id(), self.rel_path)
             test.render_next_questions()
             return self.render()

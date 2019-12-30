@@ -87,7 +87,7 @@ class question(object):
         self.questions_root_path = self.rel_path + "/" + self.questions_rel_path
         logging.info("Rendering question %s, list_id=%s, user_id=%s, language=%s, url_next=%s", 
             self.questions_rel_path + "/" + self.path, 
-            str(list_id), str(user_id), str(language), str(url_next))
+            str(self.list_id), str(self.user_id), str(self.language), str(self.url_next))
 
 
     def set_from_file(self):

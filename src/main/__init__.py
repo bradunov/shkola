@@ -6,7 +6,8 @@ import sys
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/..")
 
 logging.warning("System path: " + str(sys.path))
-
+logging.warning("File path: " + str(os.path.dirname(os.path.realpath(__file__))))
+logging.warning("Current path: " + str(os.getcwd()))
 
 
 from server import page
@@ -33,9 +34,17 @@ def get_user_id():
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
 
+    logging.warning("AAAA: " + str(os.environ))
+
+    logging.warning("System path: " + str(sys.path))
+    logging.warning("File path: " + str(os.path.dirname(os.path.realpath(__file__))))
+    logging.warning("Current path: " + str(os.getcwd()))
+
+
     global PAGE
     if PAGE is None:
-        PAGE = page.page(use_azure_blob=True, preload=False)
+        PAGE = page.page(use_azure_blob=False, preload=True)
+        #PAGE = page.page(use_azure_blob=True, preload=False)
     
     print("DEB:", req.method, dict(req.params))
     # pprint({

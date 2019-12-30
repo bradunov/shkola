@@ -57,6 +57,8 @@ https://github.com/docker/docker-credential-helpers/issues/102
 
 # Docker deployment:
 
+~/Documents/Code/shkola$ docker build -f src/Dockerfile --tag bradunov/shkola:v0.0.1 .
+
 az group create --name testdoc --location westeurope
 az storage account create --name testdocshkola --location westeurope --resource-group testdoc --sku Standard_LRS
 az functionapp plan create --resource-group testdoc --name myTestPlan --location westeurope --number-of-workers 1 --sku CP1 --is-linux
