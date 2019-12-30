@@ -63,3 +63,12 @@ az group create --name testdoc --location westeurope
 az storage account create --name testdocshkola --location westeurope --resource-group testdoc --sku Standard_LRS
 az functionapp plan create --resource-group testdoc --name myTestPlan --location westeurope --number-of-workers 1 --sku CP1 --is-linux
 az functionapp create --name testshkoladocker --storage-account testdocshkola --resource-group testdoc --plan myTestPlan --deployment-container-image-name bradunov/shkola:v0.0.1
+
+
+
+# Continuous deployment:
+https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=nodejs#enable-continuous-deployment
+
+az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name testshkoladocker --resource-group testdoc
+
+

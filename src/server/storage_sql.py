@@ -1,7 +1,7 @@
 import sqlite3
 import datetime
 import time
-
+import logging
 
 
 class storage_sql:
@@ -83,6 +83,8 @@ class storage_sql:
         
 
     def record_response(self, response):
+        logging.debug("Record response %s", str(response))
+
         cursor = self.db.cursor()
         cursor.execute(''' INSERT INTO responses(user_id, question_id, list_id, response_type, time, duration, correct, incorrect, questions)
                   VALUES(:user_id, :question_id, :list_id, :response_type, :time, :duration, :correct, :incorrect, :questions)''', \

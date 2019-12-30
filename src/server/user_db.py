@@ -3,6 +3,7 @@ import google.oauth2.id_token
 import google.auth.transport.requests
 import time
 from storage import get_storage
+import logging
 
 GOOGLE_CLIENT_ID = "221670444651-i7ock63nksbnqeag7l3s2u0nf6jdb2bk.apps.googleusercontent.com"
 
@@ -51,6 +52,7 @@ class UserDB(object):
     def update_user_data(self, user_id, name, email, remote_ip, user_agent):
         #user = self.storage.get_user_by_id(user_id)
         now = int(time.time())
+        logging.debug("User %s %s (%s, %s, %s %s)", str(user_id), str(name), str(email), str(remote_ip), str(user_agent), str(now))
         #self.storage.update_user(user, name=name, email=email, remote_ip=remote_ip, user_agent=user_agent, last_accessed=now)
         self.storage.update_user(user_id, name=name, email=email, remote_ip=remote_ip, user_agent=user_agent, last_accessed=now)
 

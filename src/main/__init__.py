@@ -25,6 +25,9 @@ PAGE = None
 import azure.functions as func
 
 
+logging.basicConfig(level=logging.INFO)
+
+
 
 # TBD:
 def get_user_id():
@@ -33,20 +36,11 @@ def get_user_id():
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
-
-    logging.warning("AAAA: " + str(os.environ))
-
-    logging.warning("System path: " + str(sys.path))
-    logging.warning("File path: " + str(os.path.dirname(os.path.realpath(__file__))))
-    logging.warning("Current path: " + str(os.getcwd()))
-
-
     global PAGE
     if PAGE is None:
         PAGE = page.page(use_azure_blob=False, preload=True)
         #PAGE = page.page(use_azure_blob=True, preload=False)
     
-    print("DEB:", req.method, dict(req.params))
     # pprint({
     #         'method': req.method,
     #         'url': req.url,
@@ -60,8 +54,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     except ValueError:
         pass
     else:
-        print("D:", req_body)
-        print("DD:", req_body.get('op'))
+        logging.warning("Request body:", req_body)
 
     # Q: How do we do POST???
     

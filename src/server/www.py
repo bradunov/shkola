@@ -6,12 +6,9 @@ from cherrypy.lib import static
 from lupa import LuaRuntime
 
 import sys
-sys.path.append("/mnt/c/Users/bozidar/Documents/Code/shkola/src")
 sys.path.append("..")
-sys.path.append(".")
-print("SYS: " + str(sys.path))
 
-from server.page import page
+from page import page
 from question import question
 from qlist import qlist
 from user_db import UserDB
@@ -20,6 +17,10 @@ from results import Results
 from helpers import create_url, encap_str, is_user_on_mobile
 from test import Test
 from repository import Repository
+
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 userdb = UserDB()
