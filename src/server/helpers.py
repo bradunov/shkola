@@ -1,13 +1,33 @@
 #import cherrypy
 import re
 
+import pickle
+import urllib
+import base64
 
-def encap_str(string):
-    return "\"" + string + "\""
+
+def encap_str(str):
+    return "\"" + str + "\""
+
+def encode_str(str):
+    return urllib.parse.quote_from_bytes(base64.b64encode(str))
+
+def decode_str(enc_str):
+    return base64.b64decode(urllib.parse.unquote_to_bytes(enc_str))
+
+def encode_dict(indict):
+    return encode_str(pickle.dumps(indict))
+
+def decode_dict(enc_dict):
+    return pickle.loads(decode_str(enc_dict))
 
 
-def create_url(self = None, page_name = None, q_id = None, l_id = None, lang = None, menu = None, js = False):
+
+def create_url(self=None, page_name=None, q_id=None, l_id=None, lang=None, state=None, menu=None, js=False):
     first = True
+
+    # Encode state
+    encoded_state = encode_dict(state)
 
     if js:
         glue = lambda first: " + \"" + ("?" if first else "&")
@@ -27,6 +47,8 @@ def create_url(self = None, page_name = None, q_id = None, l_id = None, lang = N
         if menu is not None:
             url = url + glue(first) + "menu=\" + " + menu
             first = False
+        if state is not None:
+            url = url + glue(first) + "state=\" + " + encap_str(encoded_state)
     else:
         glue = lambda first: "?" if first else "&" 
         url = "main"
@@ -45,6 +67,8 @@ def create_url(self = None, page_name = None, q_id = None, l_id = None, lang = N
         if menu is not None:
             url = url + glue(first) + "menu=" + menu
             first = False
+        if state is not None:
+            url = url + glue(first) + "state=" + encoded_state
 
     return url
 

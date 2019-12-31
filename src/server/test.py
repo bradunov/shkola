@@ -61,6 +61,7 @@ class Test(object):
                                                 l_id = self.l_id, \
                                                 lang = self.language, \
                                                 menu = menu, \
+                                                state = self.page.get_state(), \
                                                 js = False)
 
         

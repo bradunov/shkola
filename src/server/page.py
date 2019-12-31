@@ -5,9 +5,10 @@ import json
 from server.question import question
 from server.qlist import qlist
 from server.storage import get_storage
-from server.helpers import create_url, encap_str, is_user_on_mobile
+from server.helpers import *
 from server.test import Test
 from server.repository import Repository
+from user_db import UserDB
 
 from lupa import LuaRuntime
 import logging
@@ -20,10 +21,11 @@ class page(object):
     init_code = ""
     iter_code = ""
     text = ""
+    state = None
     question = None
     page_name = ""
     storage = None
-
+    userdb = None
 
     object_id = 0
     lines = []
@@ -49,6 +51,7 @@ class page(object):
         self.repository = Repository(self.rel_path, use_azure_blob, preload)
         self.storage = get_storage()
         self.title = title
+        self.userdb = UserDB()
 
         
         
@@ -86,6 +89,9 @@ class page(object):
         l = self.repository.get_all_lists_ids("")
         l.sort()
         return l
+
+    def get_state(self):
+        return self.state
 
 
 
@@ -193,11 +199,10 @@ class page(object):
     ########
     # Temporary version, doesn't work with Google Auth (yet)
     def get_user_id(self):
-        # s = cherrypy.session
-        # if "user_id" not in s:
-        #     return ""
-        # else:
-        #     return s["user_id"]
+        if "user_id" not in self.state:
+            return ""
+        else:
+            return self.state["user_id"]
         return ""
 
     
@@ -208,27 +213,27 @@ class page(object):
     def get_login_header(self):
         login_str = ""
 
-        # TBD:
-        #s = cherrypy.session
-        s = dict()
-            
         # self.page.add_lines("<div>{}</div>", cherrypy.request.path_info)
         if is_user_on_mobile():
             menu = "simple"
         else:
             menu = "full"
             
-        s['login_return'] = "../" + create_url(page_name = self.page_name, \
-                                       q_id = self.q_id, \
-                                       l_id = self.l_id, \
-                                       lang = self.language, \
-                                       menu = menu, \
-                                       js = False)
+        login_return = {}
+        login_return["page_name"] = self.page_name
+        login_return["q_id"] = self.q_id
+        login_return["l_id"] = self.l_id
+        login_return["lang"] = self.language
+        login_return["state"] = self.state
+        login_return["menu"] = menu
+        login_return["js"] = False
+        login_return = encode_dict(login_return)
 
         if False: #cherrypy.config.get("use_google_auth"):
+            # Currently doesn't work
             if 'user_id' not in s:
                 login_str = '<div class="g-signin2" style="margin-bottom:0px" data-onsuccess="onSignIn"></div>\n'
-                url = cherrypy.url('/users/login_google')
+                url = cherrypy.url('/login_google')
                 login_str = login_str + """
                 <script>
                 function onSignIn(googleUser) {
@@ -254,25 +259,18 @@ class page(object):
                 </script>
                 """
         else:
-            # self.page.add_lines("\n\n<!-- LOGIN START -->\n")
-            # self.page.add_lines("<div style='display:block;width=100%'>")
-            # if 'user_id' in s:
-            #     s['login_return'] = '/'
-            #     self.page.add_lines("Korisnik: {} {} (<a href='users/login_test'>Promeni korisnika</a>)", s['user_id'], userdb.get_user_data()["name"])
-            # else:
-            #     s['login_return'] = '/'
-            #     self.page.add_lines("Niste izabrali korisnika: <a href='users/login_test'>Udjite kao test korisnik</a>")
+            login_str = "<select id='sel_user_id' name='sel_user_id' " + \
+                        "onchange='window.location.replace(\"login_test?" + "login_return=" + \
+                        login_return + "&user_id=\" + this.value)'>n"
+           
 
-            login_str = "<select id='sel_user_id' name='sel_user_id' onchange='window.location.replace(\"users/login_test?user_id=\" + this.value)'>n"
-            
-
-            if 'user_id' not in s:
+            if 'user_id' not in self.state:
                 login_str = login_str + "<option value='NONE' SELECTED></option>"
 
             for i in range(1,4):
                 sel_user = format("Korisnik{}").format(i)
                 selected = ""
-                if 'user_id' in s and s['user_id'] == "local:"+sel_user:
+                if 'user_id' in self.state and self.state['user_id'] == "local:"+sel_user:
                     selected = "SELECTED"
 
                 login_str = login_str + "<option value='{}' {}>{}</option>".format(sel_user, selected, sel_user)
@@ -303,6 +301,7 @@ class page(object):
                                 create_url(page_name = encap_str(page_name), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
+                                                state = self.state, \
                                                 menu = encap_str("full"), \
                                                 js = True) + ")'>\n"
             qs = self.get_all_questions(self.language)
@@ -321,6 +320,7 @@ class page(object):
                                 create_url(page_name = encap_str(self.page_name), \
                                                 l_id = "this.value", \
                                                 lang = "sel_lang.value", \
+                                                state = self.state, \
                                                 menu = encap_str("full"), \
                                                 js = True) + ")'>\n"
             ls = self.get_all_lists()
@@ -360,6 +360,7 @@ class page(object):
                 lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             q_id = "sel_q_id.value", \
                                                             lang = "this.value", \
+                                                            state = self.state, \
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
             # View list
@@ -367,6 +368,7 @@ class page(object):
                 lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
+                                                            state = self.state, \
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
             
@@ -385,6 +387,7 @@ class page(object):
                                                             q_id = encap_str(self.q_id), \
                                                             l_id = encap_str(self.l_id), \
                                                             lang = encap_str(self.language), \
+                                                            state = self.state, \
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
 
@@ -414,6 +417,7 @@ class page(object):
                                 create_url(page_name = encap_str(self.page_name), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
+                                                state = self.state, \
                                                 menu = encap_str("simple"), \
                                                 js = True) + ")'>\n"
 
@@ -433,6 +437,7 @@ class page(object):
                                 create_url(page_name = encap_str(self.page_name), \
                                                 l_id = "this.value", \
                                                 lang = "sel_lang.value", \
+                                                state = self.state, \
                                                 menu = encap_str("simple"), \
                                                 js = True) + ")'>\n"
             ls = self.get_all_lists()
@@ -461,6 +466,7 @@ class page(object):
                 lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             q_id = "sel_q_id.value", \
                                                             lang = "this.value", \
+                                                            state = self.state, \
                                                             menu = encap_str("simple"), \
                                                             js = True) + ")'>\n"
             # View list
@@ -468,6 +474,7 @@ class page(object):
                 lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
+                                                            state = self.state, \
                                                             menu = encap_str("simple"), \
                                                             js = True) + ")'>\n"
             
@@ -568,7 +575,7 @@ class page(object):
 
 
 
-    def parse_parameters(self, page_name, q_id = None, l_id = None, language = None):
+    def parse_parameters(self, page_name, q_id=None, l_id=None, language=None, state=None):
         self.page_name = page_name
 
         # If no question supplied, get the first one for the language
@@ -589,15 +596,22 @@ class page(object):
             self.language = language
         else:
             self.language = ""
+
+
+        if state is not None:
+            self.state = decode_dict(state)
+        else:
+            self.state = {}
+        logging.debug("State: %s", str(self.state))
             
              
 
         
-    def main(self, op = "view", q_id = None, l_id = None, language = "rs", menu = "full",
-             init_code = "", iter_code = "", text = ""):
+    def main(self, op="view", q_id=None, l_id=None, language="rs", menu="full",
+             state=None, init_code="", iter_code="", text=""):
         
         self.clear()
-        self.parse_parameters(op, q_id, l_id, language)
+        self.parse_parameters(op, q_id, l_id, language, state)
 
         if op == "view":
             q = question(self, self.get_user_id(), self.rel_path)
@@ -630,3 +644,83 @@ class page(object):
             test = Test(self, self.get_user_id(), self.rel_path)
             test.render_next_questions()
             return self.render()
+
+
+
+
+    def logout(self, login_return=None):
+        login_return = decode_dict(login_return)
+
+        self.userdb.session_logout(login_return.state)
+
+        return self.main(login_return["page_name"], login_return["q_id"], login_return["l_id"], 
+                         login_return["lang"], login_return["menu"], login_return["state"])
+
+
+
+
+    def login_test(self, user_id=None, login_return=None):
+        login_return = decode_dict(login_return)
+
+        if login_return is not None and "state" in login_return:
+            state = login_return["state"]
+        else:
+            state = None
+        #self.check_no_user(state)
+        #headers = cherrypy.request.headers
+        #remote_ip=headers["Remote-Addr"]
+        #user_agent=headers["User-Agent"]
+        remote_ip=""
+        user_agent=""
+
+        if user_id is None:
+            self.userdb.session_login_and_update_user(state, 'local', 'test',
+                                               name='test',
+                                               email='test',
+                                               remote_ip=remote_ip,
+                                               user_agent=user_agent)
+        else:
+            self.userdb.session_login_and_update_user(state, 'local', user_id,
+                                               name=user_id,
+                                               email=user_id,
+                                               remote_ip=remote_ip,
+                                               user_agent=user_agent)
+
+        enc_state = encode_dict(login_return["state"])
+
+        return self.main(login_return["page_name"], login_return["q_id"], login_return["l_id"], 
+                         login_return["lang"], login_return["menu"], enc_state)
+
+
+
+    # To be ported to new architecture
+    # def login_google(self, id_token, state=None):
+    #     self.userdb.check_no_user(state)
+    #     headers = cherrypy.request.headers
+
+    #     try:
+    #         idinfo = google.oauth2.id_token.verify_oauth2_token(
+    #             id_token,
+    #             google.auth.transport.requests.Request(),
+    #             GOOGLE_CLIENT_ID
+    #         )
+    #         if idinfo['iss'] not in ['accounts.google.com', 'https://accounts.google.com']:
+    #             raise ValueError('Wrong issuer: {}'.format(idinfo['iss']))
+
+    #         auth_user_id = idinfo['sub']
+    #         logger("Google validation success: {}".format(idinfo))
+
+    #         name = idinfo['name']
+    #         email = idinfo['email']
+
+    #     except ValueError as ex:
+    #         logger("Failed google authentication: {}".format(ex))
+    #         return "ERROR"
+
+    #     self.session_login_and_update_user(state, 'google', auth_user_id,
+    #                                        name=name,
+    #                                        email=email,
+    #                                        remote_ip=headers["Remote-Addr"],
+    #                                        user_agent=headers["User-Agent"])
+
+    #     return "OK"

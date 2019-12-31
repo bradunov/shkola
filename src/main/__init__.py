@@ -29,10 +29,6 @@ logging.basicConfig(level=logging.INFO)
 
 
 
-# TBD:
-def get_user_id():
-    return ""
-
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:

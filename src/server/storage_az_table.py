@@ -33,7 +33,7 @@ class storage_az_table():
 
             
     def get_user_data(self, user_id):
-        print("*** get_user_data")
+        logging.debug("*** get_user_data")
         partition_key = self.default_partition_key
 
         try:
@@ -49,7 +49,7 @@ class storage_az_table():
 
     def update_user(self, user_id, name=None, email=None,
                     remote_ip=None, user_agent=None, last_accessed=None):
-        print("*** update_user")
+        logging.debug("*** update_user")
         properties = dict()
             
         # Nothing better at the moment:
@@ -89,7 +89,7 @@ class storage_az_table():
         response['RowKey'] = re.sub("[\ /?#]", "", response['RowKey'])
 
         
-        print("*** record response:", response)
+        logging.debug("*** record response:", response)
 
         try:
             self.table_service.insert_entity(self.responses_table_name, response)
