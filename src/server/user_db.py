@@ -37,7 +37,7 @@ class UserDB(object):
         state["user_id"] = user_id
 
         now = int(time.time())
-        logging.debug("User %s %s (%s, %s, %s %s)", str(user_id), str(name), str(email), str(remote_ip), str(user_agent), str(now))
+        #logging.debug("User %s %s (%s, %s, %s %s)", str(user_id), str(name), str(email), str(remote_ip), str(user_agent), str(now))
         self.storage.update_user(user_id, name=name, email=email, remote_ip=remote_ip, user_agent=user_agent, last_accessed=now)
 
 

@@ -857,7 +857,7 @@ class library(object):
         question_start_time = Math.floor(Date.now()/1000);
         function sendResultsToServer(str, type) {
           var xhr = new XMLHttpRequest();
-          xhr.open('POST', '/results/register');
+          xhr.open('POST', '/register');
           xhr.onreadystatechange = function() {
             console.log("Received");
             console.log(xhr);
@@ -907,7 +907,7 @@ class library(object):
         for c in self.clears:
             line = line + c
         line = line + "\" value='Obriši' />\n"
-        #print(line)
+        #logging.debug(line)
         self.page.add_lines("\n<!-- CLEAR BUTTON -->\n")
         self.page.add_lines(line)
         self.page.add_lines("\n<!-- END CLEAR BUTTON -->\n")

@@ -13,7 +13,6 @@ from question import question
 from qlist import qlist
 from user_db import UserDB
 from storage import get_storage
-from results import Results
 from helpers import *
 from test import Test
 from repository import Repository
@@ -22,8 +21,6 @@ import logging
 
 logging.basicConfig(level=logging.DEBUG)
 
-
-results = Results()
 
 
 class editor(object):
@@ -118,8 +115,6 @@ class editor(object):
         self.repository = Repository("../..")
 
        
-
-    
     @cherrypy.expose
     def logout(self, login_return=None):
         return self.page.logout(login_return)
@@ -130,7 +125,10 @@ class editor(object):
         return self.page.login_test(user_id, login_return)
 
 
-
+    @cherrypy.expose
+    def register(self, **args):
+        self.page.register(args)
+        return "OK"
 
 
 
@@ -147,8 +145,6 @@ if __name__ == '__main__':
     })
 
     cherrypy.tree.mount(editor(), '/', {'/': {'log.screen': False}})
-    #cherrypy.tree.mount(UserWWW(), '/users', {'/' : {'log.screen': True}})
-    cherrypy.tree.mount(results, '/results', {'/' : {'log.screen': True}})
 
     cherrypy.engine.start()
     cherrypy.engine.block()

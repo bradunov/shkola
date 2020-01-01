@@ -47,6 +47,11 @@ class storage_sql:
 
     def update_user(self, user_id, name=None, email=None,
                     remote_ip=None, user_agent=None, last_accessed=None):
+        #logging.debug("*** SQL update_user")
+
+        # Make sure user is there
+        self.insert_user_id(user_id)
+
         first = True
         cursor = self.db.cursor()
         query = "UPDATE users SET "

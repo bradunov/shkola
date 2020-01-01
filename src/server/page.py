@@ -648,6 +648,49 @@ class page(object):
 
 
 
+    def register(self, args):
+        correct = 0
+        incorrect = 0
+        questions = ""
+        
+        if "q_id" in args.keys() and "user_id" in args.keys() and "now" in args.keys() and args["user_id"]:
+            if "l_id" not in args.keys() or not args["l_id"] or args["l_id"] is None:
+                l_id = ""
+            else:
+                l_id = args["l_id"]
+                
+
+            for key, value in args.items():
+                if key[0:5] == "q_res":
+                    questions = questions + key + "=" + value + ","
+                    if value == "true":
+                        correct = correct + 1
+                    else:
+                        incorrect = incorrect + 1
+                        
+            response = {"user_id" : args["user_id"],
+                        "question_id": args["q_id"],
+                        "list_id": l_id,
+                        "response_type": args["response_type"],
+                        "time": args["start"],
+                        "duration": int(args["now"]) - int(args["start"]),
+                        "correct": correct,
+                        "incorrect": incorrect,
+                        "questions": questions}
+
+            logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, response_type=%s, " +
+                        "start=%s, duration=%s, correct=%s, incorrect=%s, questions=\"%s\"", 
+                        str(args["user_id"]), str(args["q_id"]), 
+                        str(l_id), str(args["response_type"]), 
+                        str(args["start"]), str(int(args["now"]) - int(args["start"])),
+                        str(correct), str(incorrect), str(questions))
+
+            self.storage.record_response(response)
+
+        
+
+
+
     def logout(self, login_return=None):
         login_return = decode_dict(login_return)
 
@@ -673,13 +716,16 @@ class page(object):
         remote_ip=""
         user_agent=""
 
+
         if user_id is None:
+            logging.debug("Login test user %s, %s, %s, %s", 'test', 'test', str(remote_ip), str(user_agent))
             self.userdb.session_login_and_update_user(state, 'local', 'test',
                                                name='test',
                                                email='test',
                                                remote_ip=remote_ip,
                                                user_agent=user_agent)
         else:
+            logging.debug("Login test user %s, %s, %s, %s", user_id, user_id, str(remote_ip), str(user_agent))
             self.userdb.session_login_and_update_user(state, 'local', user_id,
                                                name=user_id,
                                                email=user_id,

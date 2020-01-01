@@ -49,7 +49,7 @@ class storage_az_table():
 
     def update_user(self, user_id, name=None, email=None,
                     remote_ip=None, user_agent=None, last_accessed=None):
-        logging.debug("*** update_user")
+        #logging.debug("*** azure table update_user")
         properties = dict()
             
         # Nothing better at the moment:
@@ -89,7 +89,7 @@ class storage_az_table():
         response['RowKey'] = re.sub("[\ /?#]", "", response['RowKey'])
 
         
-        logging.debug("*** record response:", response)
+        #logging.debug("*** record response:", response)
 
         try:
             self.table_service.insert_entity(self.responses_table_name, response)
