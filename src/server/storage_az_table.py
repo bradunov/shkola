@@ -13,12 +13,12 @@ class storage_az_table():
     # BEGIN - Common methods to implement storage interface
     
     def __init__(self):
-        account_name = 'shkola'
-        account_key = os.environ['SHKOLA_AZ_TABLE_KEY']
+        connection_string = os.environ['SHKOLA_AZ_TABLE_CONN_STR']
+        self.table_service = TableService(connection_string=connection_string)
+
         self.default_partition_key = "USER"
         self.users_table_name = 'users'
         self.responses_table_name = 'responses'
-        self.table_service = TableService(account_name, account_key)
 
         try:
             self.table_service.create_table(self.users_table_name)
@@ -49,7 +49,6 @@ class storage_az_table():
 
     def update_user(self, user_id, name=None, email=None,
                     remote_ip=None, user_agent=None, last_accessed=None):
-        #logging.debug("*** azure table update_user")
         properties = dict()
             
         # Nothing better at the moment:
@@ -67,6 +66,8 @@ class storage_az_table():
             properties["user_agent"] = user_agent
         if last_accessed is not None:
             properties["last_accessed"] = last_accessed
+
+        logging.debug("azure table update_user %s: %s", str(name), str(properties))
 
         try:
             self.table_service.insert_or_merge_entity(self.users_table_name, properties)
