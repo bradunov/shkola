@@ -1,7 +1,7 @@
 import json
 import random
 from server.question import question
-from server.helpers import create_url, is_user_on_mobile
+from server.helpers import create_url
 from server.repository import Repository
 
 
@@ -10,11 +10,12 @@ class Test(object):
     l_id = None
     page = None
     rel_path = None
+    mobile = False
 
     list = None
 
 
-    def __init__(self, page, user_id, rel_path=None):
+    def __init__(self, page, user_id, rel_path=None, mobile=False):
         self.repository = page.repository
         self.page = page
         self.language = page.language
@@ -22,6 +23,7 @@ class Test(object):
         self.q_id = page.q_id
         self.user_id = user_id
         self.rel_path = rel_path
+        self.mobile = mobile
 
         self.load_list()
 
@@ -50,7 +52,7 @@ class Test(object):
         
     def render_next_questions(self):
 
-        if is_user_on_mobile():
+        if self.mobile:
             menu = "simple"
         else:
             menu = "full"

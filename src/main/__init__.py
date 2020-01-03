@@ -3,13 +3,18 @@ import logging
 import os
 import sys
 
-sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/..")
 
-logging.warning("System path: " + str(sys.path))
-logging.warning("File path: " + str(os.path.dirname(os.path.realpath(__file__))))
-logging.warning("Current path: " + str(os.getcwd()))
+# This is the web root dir that has to be defined in Dockerfile 
+sys.path.append(os.environ['AzureWebJobsScriptRoot']) 
+
+#sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/..")
+
+#logging.warning("System path: " + str(sys.path))
+#logging.warning("File path: " + str(os.path.dirname(os.path.realpath(__file__))))
+#logging.warning("Current path: " + str(os.getcwd()))
 
 
+from server.helpers import *
 from server import page
 from server import question
 
@@ -25,25 +30,31 @@ PAGE = None
 import azure.functions as func
 
 
-logging.basicConfig(level=logging.INFO)
+#logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 
 
-
+use_azure_blob = False
+preload = True
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     global PAGE
     if PAGE is None:
-        PAGE = page.page(use_azure_blob=False, preload=True)
+        logging.info("Reloading page (%s, %s)", str(use_azure_blob), str(preload))
+        PAGE = page.page(use_azure_blob=use_azure_blob, preload=preload)
         #PAGE = page.page(use_azure_blob=True, preload=False)
-    
-    # pprint({
-    #         'method': req.method,
-    #         'url': req.url,
-    #         'headers': dict(req.headers),
-    #         'params': dict(req.params),
-    #         'get_body': req.get_body().decode()
-    #     })
+
+    headers = dict(req.headers)
+    user_agent = headers["user-agent"]
+
+    # logging.info("METHOD: " + str(req.method))
+    # logging.info("URL: " + str(req.url))
+    # logging.info("HEADERS: " + str(dict(req.headers)))
+    # logging.info("PARAMS: " + str(dict(req.params)))
+    # logging.info("ROUTE PARAMS: " + str(dict(req.route_params)))
+    # logging.info("GET BODY: " + str(req.get_body().decode()))
+
 
     try:
         req_body = req.get_json()
@@ -78,7 +89,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     if not language:
         language = "rs"
     if not menu:
-        menu = "full"
+        if is_user_on_mobile(user_agent):
+            menu = "simple"
+        else:
+            menu = "full"
     if not init_code:
         init_code = ""
     if not iter_code:
@@ -87,8 +101,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         text = ""
 
     logging.info("Python HTTP trigger function processed a request <{}>: "
-                 "q_id={}, l_id={}, language={}, menu={}, init_code={}, iter_code={}, text={}.".
-                 format(op, q_id, l_id, language, menu, init_code, iter_code, text))
+                 "q_id={}, l_id={}, language={}, menu={}, init_code={}, iter_code={}, text={}, "
+                 "user_agent={}, language={}.".
+                 format(op, q_id, l_id, language, menu, init_code, iter_code, text,
+                 user_agent, headers["accept-language"]))
 
 
     return func.HttpResponse(

@@ -5,6 +5,7 @@ import pickle
 import urllib
 import base64
 
+import logging
 
 def encap_str(str):
     return "\"" + str + "\""
@@ -19,7 +20,10 @@ def encode_dict(indict):
     return encode_str(pickle.dumps(indict))
 
 def decode_dict(enc_dict):
-    return pickle.loads(decode_str(enc_dict))
+    if not enc_dict:
+        return {}
+    else:
+        return pickle.loads(decode_str(enc_dict))
 
 
 
@@ -73,13 +77,13 @@ def create_url(self=None, page_name=None, q_id=None, l_id=None, lang=None, state
     return url
 
 
-def is_user_on_mobile():
+def is_user_on_mobile(user_agent):
     # TBD:
     #headers = cherrypy.request.headers
     headers = dict()
     headers['User-Agent'] = ""
     
-    user_agent = headers['User-Agent'].lower()
+    user_agent = user_agent.lower()
         
     MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
 

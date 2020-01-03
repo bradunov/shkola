@@ -8,7 +8,7 @@ from server.storage import get_storage
 from server.helpers import *
 from server.test import Test
 from server.repository import Repository
-from user_db import UserDB
+from server.user_db import UserDB
 
 from lupa import LuaRuntime
 import logging
@@ -26,6 +26,7 @@ class page(object):
     page_name = ""
     storage = None
     userdb = None
+    mobile = False
 
     object_id = 0
     lines = []
@@ -38,7 +39,7 @@ class page(object):
 
     # use_azure_blob = True: use blob for question storage rather than the local disk
     # preload = True: fetch all questions in memory at start time (may be slow for a blob)
-    def __init__(self, title="Shkola", rel_path=None, use_azure_blob=False, preload=True):
+    def __init__(self, title="Shkola", rel_path=None, use_azure_blob=False, preload=True, mobile=False):
         if rel_path is not None:
             self.rel_path = rel_path
 
@@ -52,6 +53,7 @@ class page(object):
         self.storage = get_storage()
         self.title = title
         self.userdb = UserDB()
+        self.mobile = mobile
 
         
         
@@ -214,7 +216,7 @@ class page(object):
         login_str = ""
 
         # self.page.add_lines("<div>{}</div>", cherrypy.request.path_info)
-        if is_user_on_mobile():
+        if self.mobile:
             menu = "simple"
         else:
             menu = "full"
@@ -641,7 +643,7 @@ class page(object):
 
         elif op == "test":
             self.render_menu(menu)
-            test = Test(self, self.get_user_id(), self.rel_path)
+            test = Test(self, self.get_user_id(), self.rel_path, self.mobile)
             test.render_next_questions()
             return self.render()
 

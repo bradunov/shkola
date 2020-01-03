@@ -57,7 +57,26 @@ https://github.com/docker/docker-credential-helpers/issues/102
 
 # Docker deployment:
 
+NOTE: All environment variables go into Dockerfile
+
+~/Documents/Code/shkola$ docker rm -f shkola 
 ~/Documents/Code/shkola$ docker build -f src/Dockerfile --tag bradunov/shkola:v0.0.1 .
+
+- To run with local SQL results
+~/Documents/Code/shkola$ docker run -p 8080:80 --name shkola -it bradunov/shkola:v0.0.1
+
+- To run with Azure table for results
+~/Documents/Code/shkola$ docker run -p 8080:80 --name shkola -e SHKOLA_AZ_TABLE_CONN_STR="<connection_str>" -it bradunov/shkola:v0.0.1
+
+
+
+# Debug:
+
+~/Documents/Code/shkola$ docker exec -it shkola bash
+root@c05eacf46021:/# ls /home/site/wwwroot/
+
+
+
 
 az group create --name testdoc --location westeurope
 az storage account create --name testdocshkola --location westeurope --resource-group testdoc --sku Standard_LRS

@@ -30,6 +30,10 @@ class editor(object):
         self.page = page(use_azure_blob=False, preload=True)
         
 
+    def get_user_agent(self):
+        headers = cherrypy.request.headers
+        return headers['User-Agent']
+
 
     @cherrypy.expose
     def main(self, op="view", q_id=None, l_id=None, language="rs", menu="full", state=None, init_code="", iter_code="", text=""):
@@ -71,7 +75,7 @@ class editor(object):
     
     @cherrypy.expose
     def index(self, q_id = None, language = "rs"):
-        if is_user_on_mobile():
+        if is_user_on_mobile(self.get_user_agent()):
             return self.view(q_id, None, language, menu = "simple")
         else:
             return self.view(q_id, None, language, menu = "full")
@@ -92,7 +96,7 @@ class editor(object):
 
     @cherrypy.expose
     def testiranje(self, l_id = None, language = "rs"):
-        if is_user_on_mobile():
+        if is_user_on_mobile(self.get_user_agent()):
             return self.test(None, l_id, language, menu = "simple")
         else:
             return self.test(None, l_id, language, menu = "full")
