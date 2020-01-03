@@ -4,6 +4,8 @@ from server.question import question
 from server.helpers import create_url
 from server.repository import Repository
 
+import logging
+
 
 class Test(object):
     language = None
@@ -27,8 +29,10 @@ class Test(object):
 
         self.load_list()
 
+
         if self.q_id is None or not self.q_id:
             self.q_id = self.choose_next_question()["name"]
+            self.page.q_id = self.q_id
 
         #print(json.dumps(self.list, indent=4))
         

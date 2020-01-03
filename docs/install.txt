@@ -69,6 +69,11 @@ NOTE: All environment variables go into Dockerfile
 ~/Documents/Code/shkola$ docker run -p 8080:80 --name shkola -e SHKOLA_AZ_TABLE_CONN_STR="<connection_str>" -it bradunov/shkola:v0.0.1
 
 
+Web site: http://127.0.0.1:8080/main
+
+
+
+
 
 # Debug:
 
