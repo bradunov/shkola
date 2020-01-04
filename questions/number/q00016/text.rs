@@ -1,4 +1,4 @@
-Zapiši ciframa:
+Napiši:
 
 @repeat(4)@
 

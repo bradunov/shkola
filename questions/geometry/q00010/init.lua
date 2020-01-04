@@ -76,7 +76,7 @@ end
 
 
 mycanvas = function(all, results)
-  lib.start_canvas(300, 100, "center", results)
+  lib.start_canvas(600, 100, "center", results)
 
   w = 30
   x = w/2 + 5
@@ -87,14 +87,7 @@ mycanvas = function(all, results)
       lib.add_text(x + (i-1)*w, y, all[i], text_style, true, false)
       lib.add_check_box(x + (i-1)*w - (w-ow)/2, y + w, ow, ow, check_style, false, true) 
     ]]
-    if i > #all/2 then
-      lx = x + (i-1-#all/2)*(w+2)
-      ly = y + w + 10
-    else
-      lx = x + (i-1)*(w+2)
-      ly = y
-      end
-    lib.add_text(lx, ly, all[i], text_style, false, true)
+    lib.add_text(x + (i-1)*w, y, all[i], text_style, false, true)
    end
 
   lib.end_canvas()

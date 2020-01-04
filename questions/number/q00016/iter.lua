@@ -9,10 +9,10 @@ index = math.random(4)
 izbor = array_izbor[index]
 
 if (index == 1) then
-    value = (factor-1) * 10
+    value = (factor-1) * 10+2
 end	
 if (index == 2) then   
-	value = (factor-1) * 10 + 8 
+	value = factor * 10  
 end
 if (index == 3) then
 	value = (factor-1) * 10 + 1

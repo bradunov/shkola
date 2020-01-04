@@ -1,4 +1,4 @@
-Zapiši ciframa po redu:
+Napiši redom:
 
 @repeat(4)@
 

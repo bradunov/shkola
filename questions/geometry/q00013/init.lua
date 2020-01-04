@@ -68,15 +68,13 @@ izbor = math.random(2)
 
 
 if (izbor == 1) then
-   name = "geometrijska tela"
+   name = "geometrijskih tela"
    result = "result[0] == 0 && result[1] == 0 && result[2] == 0 && result[3] == 1 && result[4] == 1 && result[5] == 1 && result[6] == 1 && result[7] == 1"
 else
-   name = "geometrijske figure"
+   name = "geometrijskih figura"
    result = "result[0] == 1 && result[1] == 1 && result[2] == 1 && result[3] == 0 && result[4] == 0 && result[5] == 0 && result[6] == 0 && result[7] == 0"
 end   
-                 
-                  
-                  
+       
                   
             
                   

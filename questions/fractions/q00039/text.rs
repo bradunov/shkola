@@ -3,5 +3,5 @@
 Ko je vozio brže i za koliko?
 
 @vspace@
-Vozio je brže @hspace@ @lib.check_string(ime, 50)@, @hspace@ za @lib.check_number(brzina)@ km/h.                
+Vozio je brže @hspace@ @lib.check_string(ime)@, @hspace@ za @lib.check_number(brzina)@ km/h.                
           
