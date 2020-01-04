@@ -50,6 +50,10 @@
     {"name" : "fractions/q00048", "repeat" : 1 },
     {"name" : "fractions/q00049", "repeat" : 1 },
     {"name" : "fractions/q00050", "repeat" : 1 },
-    {"name" : "fractions/q00051", "repeat" : 1 }
+    {"name" : "fractions/q00051", "repeat" : 1 },
+	{"name" : "fractions/q00052", "repeat" : 1 },
+    {"name" : "fractions/q00053", "repeat" : 1 },
+    {"name" : "fractions/q00054", "repeat" : 1 },
+    {"name" : "fractions/q00055", "repeat" : 1 }
     ]
 }
