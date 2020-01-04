@@ -47,9 +47,9 @@ mycanvas = function(no)
       lib.add_text(x+w/2, 3*(2*ow+w)/4, sign, text_style)  
       lib.add_text(x+w/2+10, 3*(2*ow+w)/4, add, text_style)     
    end
---[[ 
+
    lib.add_input(x+w+5, y+grad*ow, 50, 50, lib.check_number(value)) 
---]]
+
    grad = -grad
   end  
 
