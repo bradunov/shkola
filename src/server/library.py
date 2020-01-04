@@ -2,6 +2,7 @@ import math
 import numpy
 import random
 import lupa
+import logging
 
 class LibMath(object):
     lua = None
