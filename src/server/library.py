@@ -74,6 +74,13 @@ class library(object):
         self.clears = []
         
 
+    def modify_input_style(self, width):
+        start = self.input_style.find("width:")
+        end = self.input_style.find(";", start)
+        modified_style = self.input_style[0:start + len("width:")] + str(width) + self.input_style[end - len("px"):]
+        return modified_style
+
+
     # str_condition: ok == <condition>
     def condition_check_script(self, item_name, str_condition, extra_condition=None):
         if extra_condition is not None:
@@ -106,7 +113,7 @@ class library(object):
     # - answer > <correct_answer>, or any boolean with answer in it, or
     # - <correct_answer>, in which case the boolean condition is answer == <correct_answer>
     # width: width of the input box in characters
-    def _check_value(self, condition, width=3, number=False):
+    def _check_value(self, condition, width=None, number=False):
         qid = self.get_object_id()
 
         # We use '' in JS strings so make sure there is no ' character in the condition
@@ -128,8 +135,12 @@ class library(object):
 
         self.condition_check_script(n_answer, str_condition, extra_condition)
 
-        line = "<input {}".format(self.input_style) + \
-	   "type='text' id='{}'/>".format(n_answer)
+        if width is not None:
+            modified_style = self.modify_input_style(width)
+        else:
+            modified_style = self.input_style
+
+        line = "<input {}".format(modified_style) + "type='text' id='{}'/>".format(n_answer)
 
         self.checks.append("{}_cond()".format(n_answer))
         self.clears.append("document.getElementById('{}').value = '';clearAllWBorder('{}');".format(n_answer, n_answer))
@@ -137,10 +148,10 @@ class library(object):
         #self.page.add_lines( line )
         return line
 
-    def check_number(self, condition, width=3):
+    def check_number(self, condition, width=None):
         return self._check_value(condition, width, True)
 
-    def check_string(self, condition, width=3):
+    def check_string(self, condition, width=None):
         return self._check_value(condition, width, False)
 
 

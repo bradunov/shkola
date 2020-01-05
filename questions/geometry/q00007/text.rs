@@ -1,4 +1,4 @@
-Gde se nalazi figura u odnosu na kocku? Upiši broj odgovarajuće slike, kao što je započeto. 
+Gde se nalazi figura u odnosu na kocku? Upiši odgovarajući broj pored datih reči, kao što je započeto. 
 
 @vspace@
 

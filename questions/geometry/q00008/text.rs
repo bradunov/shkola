@@ -1,4 +1,4 @@
-Upiši broj koji stoji ispred grupe figura kojom treba nastaviti započeti niz:
+Na kojoj slici su figure kojima treba nastaviti započeti niz? Upiši broj.
 
 @center@ @lib.check_number(izbor)@
 

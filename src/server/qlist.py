@@ -33,18 +33,42 @@ class qlist(object):
 
         
     def render_all_questions(self):
+
+        title = "List: <em>"
+        if "name" in self.list.keys():
+            title = title + self.list["name"]
+        else:
+            title = title + "UNKNOWN"
+        title = title + "</em><div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+        title = title + " - "
+
+        for key, value in self.list.items():
+            if key != "name" and key != "questions":
+                title = title + "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+                title = title + str(key) + "=<em>" + str(value) + "</em> "
+
+        self.page.add_lines("\n<!-- LIST HEADER -->\n")
+        self.page.add_lines("<div style='display:block;width=100%;background-color:#f080f0'>\n")
+        self.page.add_lines("{}\n".format(title))
+        self.page.add_lines("</div>\n\n")
+
+
         for i in self.list["questions"]:
             q_id = i["name"]
-            logging.debug("%d, %d", i, q_id)
-            #print(i, q_id)
-            # TBD:
+
+            title = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div> - "
+            for key, value in i.items():
+                if key != "name" :
+                    title = title + "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+                    title = title + str(key) + "=<em>" + str(value) + "</em> "
+
             self.page.q_id = q_id
             q = question(self.page, self.user_id, self.rel_path)
             q.set_from_file_with_exception()
 
             self.page.add_lines("\n<!-- QUESTION HEADER -->\n")
-            self.page.add_lines("<div style='display:block;width=100%;background-color:#00f0f0'>\n")
-            self.page.add_lines("Question: {}\n".format(q_id))
+            self.page.add_lines("<div style='display:block;width=100%;background-color:#80f0f0'>\n")
+            self.page.add_lines("Question: <em>{}</em>{}\n".format(q_id, title))
             self.page.add_lines("</div>\n")
 
             self.page.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")

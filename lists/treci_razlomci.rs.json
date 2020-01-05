@@ -1,0 +1,75 @@
+{ "name" : "Treci razred razlomci",
+  "level": "Treci", 
+  "theme" : "Razlomci", 
+  "questions":  [
+    {
+      "name" : "fractions/q00001", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00008", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "2"
+    },
+    {
+      "name" : "fractions/q00012", "random": "0", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00019", "random": "0", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "2"
+    },
+    {
+      "name" : "fractions/q00020", "random": "0", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "3"
+    },
+    {
+      "name" : "fractions/q00022", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "2"
+    },
+    {
+      "name" : "fractions/q00023", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "3"
+    },
+    {
+      "name" : "fractions/q00024", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "2"
+    },
+    {
+      "name" : "fractions/q00026", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "2"
+    },
+    {
+      "name" : "fractions/q00027", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "3"
+    },
+    {
+      "name" : "fractions/q00028", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "2"
+    },
+    {
+      "name" : "fractions/q00030", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00034", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00040", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "2"
+    },
+    {
+      "name" : "fractions/q00045", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00046", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "3"
+    },
+    {
+      "name" : "fractions/q00052", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "3"
+    }
+  ]
+ }
+ 
