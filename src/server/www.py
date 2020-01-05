@@ -70,7 +70,13 @@ class editor(object):
         return self.page.main("test", q_id, l_id, language, menu, state)
 
 
-        
+
+    @cherrypy.expose
+    def content(self, q_id = None, l_id = None, language = "rs", menu = "full", state=None):
+        return self.page.main("content", q_id, l_id, language, menu, state)
+
+
+
 
     
     @cherrypy.expose

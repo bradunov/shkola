@@ -8,8 +8,6 @@ import logging
 
 
 class Test(object):
-    language = None
-    l_id = None
     page = None
     rel_path = None
     mobile = False
@@ -18,31 +16,23 @@ class Test(object):
 
 
     def __init__(self, page, user_id, rel_path=None, mobile=False):
-        self.repository = page.repository
         self.page = page
-        self.language = page.language
-        self.l_id = page.l_id
-        self.q_id = page.q_id
-        self.user_id = user_id
         self.rel_path = rel_path
         self.mobile = mobile
 
         self.load_list()
 
 
-        if self.q_id is None or not self.q_id:
-            self.q_id = self.choose_next_question()["name"]
-            self.page.q_id = self.q_id
-
-        #print(json.dumps(self.list, indent=4))
+        if self.page.q_id is None or not self.page.q_id:
+            self.page.q_id = self.choose_next_question()["name"]
         
 
 
     def load_list(self, l_id=None):
         if l_id is not None:
-            self.l_id = l_id
+            self.page.l_id = l_id
 
-        self.list = self.repository.get_list(self.l_id)
+        self.list = self.page.repository.get_list(self.page.l_id)
 
     
     def choose_next_question(self, previous_question_name=None):
@@ -56,22 +46,22 @@ class Test(object):
         
     def render_next_questions(self):
 
-        if self.mobile:
+        if self.page.mobile:
             menu = "simple"
         else:
             menu = "full"
         
-        next_question = self.choose_next_question(self.q_id)
+        next_question = self.choose_next_question(self.page.q_id)
         next_question_url = create_url(page_name = "test", \
                                                 q_id = next_question["name"], \
-                                                l_id = self.l_id, \
-                                                lang = self.language, \
+                                                l_id = self.page.l_id, \
+                                                lang = self.page.language, \
                                                 menu = menu, \
                                                 state = self.page.get_state(), \
                                                 js = False)
 
         
-        q = question(self.page, self.user_id, self.rel_path, next_question_url)
+        q = question(self.page, self.page.get_user_id(), self.rel_path, next_question_url)
         q.set_from_file_with_exception()
         q.eval_with_exception()
 

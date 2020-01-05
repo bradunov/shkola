@@ -20,6 +20,7 @@ class Repository(object):
     
     questions = {}
     lists = {}
+    content = {}
 
     azure_blob = None
     preload = True
@@ -243,7 +244,7 @@ class Repository(object):
             list_files = self.azure_blob.list_files(path)
             for f in list_files:
                 file = f['name']
-                print("Loading: ", file)
+                logging.debug("Loading file from BLOB: %s", file)
 
                 if file[len(file)-1:] == "~":
                     logging.info("Skipping: %s", file)
@@ -260,9 +261,67 @@ class Repository(object):
         #pprint(root)
 
         
+
+    # Create separate lists for each theme, subtheme, level, etc.
+    def create_content(self):
+        self.content = {}
+
+        for list_name, list_dict in self.lists.items():
+            if len(list_name)>=len("notest_") and list_name[0:len("notest_")]=="no_tests":
+                logging.debug("Skipping list %s in content - starting with notest_", list_name)
+                continue
+            if "level" not in list_dict.keys() or \
+                "theme" not in list_dict.keys() or \
+                "questions" not in list_dict.keys():
+                logging.debug("Skipping list %s in content - no level or theme or questions", list_name)
+                continue
+            level = list_dict["level"]
+            theme = list_dict["theme"]
+            questions = list_dict["questions"]
+            if level not in self.content.keys():
+                self.content[level] = {}
+            if theme not in self.content.keys():
+                self.content[level][theme] = {}
+            
+            for q in questions:
+                if "period" not in q.keys() or \
+                    "subtheme" not in q.keys() or \
+                    "difficulty" not in q.keys():
+                    logging.debug("Skipping question %s list %s in content - no period or subtheme or difficulty", 
+                        q["name"], list_name)
+                    continue
+
+                if isinstance(q["subtheme"], list): 
+                    for st in q["subtheme"]:
+                        label = "{}/{}/{}".format(st, q["period"], q["difficulty"])
+
+                        if label not in self.content[level][theme].keys():
+                            self.content[level][theme][label] = {"questions" : []}
+
+                        self.content[level][theme][label]["questions"].append(q)
+                else:
+                    label = "{}/{}/{}".format(q["subtheme"], q["period"], q["difficulty"])
+
+                    if label not in self.content[level][theme].keys():
+                        self.content[level][theme][label] = {"questions" : []}
+
+                    self.content[level][theme][label]["questions"].append(q)
+
+        
+
+
+
+
     def load_all(self):
         self.load_dir(self.questions, self.questions_path)
         self.load_dir(self.lists, self.lists_path)
+
+        #print("AAA: ")
+        #pprint(self.lists)
+
+        self.create_content()
+        #print("BBB: ")
+        #pprint(self.content)
 
         
     def get_config(self):

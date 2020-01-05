@@ -7,6 +7,7 @@ from server.qlist import qlist
 from server.storage import get_storage
 from server.helpers import *
 from server.test import Test
+from server.content import Content
 from server.repository import Repository
 from server.user_db import UserDB
 
@@ -643,10 +644,15 @@ class page(object):
 
         elif op == "test":
             self.render_menu(menu)
-            test = Test(self, self.get_user_id(), self.rel_path, self.mobile)
+            test = Test(self, self.rel_path, self.mobile)
             test.render_next_questions()
             return self.render()
 
+        elif op == "content":
+            #self.render_menu(menu)
+            content = Content(self, self.mobile)
+            content.render_content()
+            return self.render()
 
 
 
