@@ -294,6 +294,7 @@ class page(object):
     def render_menu_full(self):
 
         self.add_lines("\n\n<!-- FULL MENU START -->\n")
+        print("AAA:", self.page_name)
         # Edit or view question
         if self.page_name == "edit" or self.page_name == "view" or self.page_name == "generate" :
             if self.page_name == "generate":
@@ -335,7 +336,8 @@ class page(object):
                     selected = ""
                 select = select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
             select = select + "</select>\n"
-
+        else:
+            select = ""
 
         log_header = self.get_login_header()
         
@@ -649,7 +651,7 @@ class page(object):
             return self.render()
 
         elif op == "content":
-            #self.render_menu(menu)
+            self.render_menu(menu)
             content = Content(self, self.mobile)
             content.render_content()
             return self.render()
