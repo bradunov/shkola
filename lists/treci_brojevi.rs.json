@@ -9,7 +9,12 @@
     {
       "name" : "numbers/q00099", "random": "1", "period": "Jesen", 
       "subtheme": "Operacije", "difficulty": "3"
+    },
+    {
+      "name" : "numbers/q00048", "random": "1", "period": "Jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
     }
+	
   ]
  }
  

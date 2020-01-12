@@ -20,18 +20,22 @@ mycanvas = function(no)
 
   for i = 1,6 do
       add = math.random(9);
-    if (value < add) then
-	     value = value + add
-	     sign = "+"
-    else   
-        znak = math.random(2)
-	    if (znak == 1) then
-	        value = value + add
-			sign = "+"
-        else
-	        value = value - add
-            sign = "-"		  
-	    end  
+      if (value < add) then
+	      value = value + add
+	      sign = "+"
+      else  
+          znak = math.random(2)
+	      if (znak == 1) then
+	          value = value + add
+	          sign = "+"
+              if (value > 20) then
+                  value = value - 2*add
+	              sign = "-"
+              end                   
+          else
+	          value = value - add
+              sign = "-"		  
+	  end  
     end
 
    x = i*(w +w/2)
@@ -55,4 +59,5 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end
+      
       
