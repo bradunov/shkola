@@ -23,65 +23,69 @@
       "subtheme": "Poredjenje", "difficulty": "3"
     },
     {
-      "name" : "numbers/q000033", "random": "1", "period": "Jesen", 
+      "name" : "numbers/q00033", "random": "1", "period": "Jesen", 
       "subtheme": "Operacije", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000034", "random": "1", "period": "Jesen", 
+      "name" : "numbers/q00034", "random": "1", "period": "Jesen", 
       "subtheme": "Operacije", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000035", "random": "1", "period": "Zima", 
+      "name" : "numbers/q00035", "random": "1", "period": "Zima", 
       "subtheme": "Operacije", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000036", "random": "1", "period": "Zima", 
+      "name" : "numbers/q00036", "random": "1", "period": "Zima", 
       "subtheme": "Operacije", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000037", "random": "1", "period": "Proleće", 
+      "name" : "numbers/q00037", "random": "1", "period": "Proleće", 
       "subtheme": "Operacije", "difficulty": "2"
     },
     {
-      "name" : "numbers/q000038", "random": "1", "period": "Proleće", 
+      "name" : "numbers/q00038", "random": "1", "period": "Proleće", 
       "subtheme": "Operacije", "difficulty": "2"
     },
     {
-      "name" : "numbers/q000039", "random": "1", "period": "Proleće", 
+      "name" : "numbers/q00039", "random": "1", "period": "Proleće", 
       "subtheme": "Operacije", "difficulty": "2"
     },
     {
-      "name" : "numbers/q000040", "random": "1", "period": "Leto", 
+      "name" : "numbers/q00040", "random": "1", "period": "Leto", 
       "subtheme": "Operacije", "difficulty": "2"
     },
     {
-      "name" : "numbers/q000041", "random": "1", "period": "Leto", 
+      "name" : "numbers/q00041", "random": "1", "period": "Leto", 
       "subtheme": "Operacije", "difficulty": "2"
     },
     {
-      "name" : "numbers/q000042", "random": "1", "period": "Leto", 
+      "name" : "numbers/q00042", "random": "1", "period": "Leto", 
       "subtheme": "Operacije", "difficulty": "2"
     },
     {
-      "name" : "numbers/q000043", "random": "1", "period": "Leto", 
+      "name" : "numbers/q00043", "random": "1", "period": "Leto", 
       "subtheme": "Operacije", "difficulty": "2"
     },
     {
-      "name" : "numbers/q000044", "random": "1", "period": "Leto", 
+      "name" : "numbers/q00044", "random": "1", "period": "Leto", 
       "subtheme": "Operacije", "difficulty": "2"
     },
     {
-      "name" : "numbers/q000045", "random": "1", "period": "Leto", 
+      "name" : "numbers/q00045", "random": "1", "period": "Leto", 
       "subtheme": "Operacije", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000047", "random": "1", "period": "Zima", 
+      "name" : "numbers/q00047", "random": "1", "period": "Zima", 
       "subtheme": "Operacije", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000049", "random": "1", "period": "Zima", 
+      "name" : "numbers/q00049", "random": "1", "period": "Zima", 
       "subtheme": "Operacije", "difficulty": "2"
-    }		
+    },
+    {
+      "name" : "numbers/q00050", "random": "1", "period": "Leto", 
+      "subtheme": "Operacije", "difficulty": "2"
+    }	
   ]
  }
  

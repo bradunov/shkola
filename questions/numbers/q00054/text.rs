@@ -1,0 +1,11 @@
+Izračunaj: 
+
+@repeat(6)@
+@center@ @umanjenik@ @hspace@ - @hspace@  @umanjilac@  @hspace@ = @hspace@ @lib.check_number(rezultat)@
+@/repeat@
+
+
+
+
+
+
