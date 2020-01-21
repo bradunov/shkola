@@ -1,13 +1,18 @@
-Broj @term1@ povećaj za @term2@. @hspacept(3)@ Upiši broj koji dobiješ @hspacept(8)@ @lib.check_number(summ)@
+Upiši broj koji dobiješ kada:
 
 @vspace@ 
-Broj  @term1@ povećaj @term2@ puta. @hspacept(3)@ Upiši broj koji dobiješ @hspacept(8)@ @lib.check_number(prod)@
+
+broj @term1@ povećaš za @term2@ @hspacept(8)@ @lib.check_number(summ)@
 
 @vspace@ 
-Broj  @term1@ smanji za @term2@. @hspacept(3)@ Upiši broj koji dobiješ @hspacept(8)@ @lib.check_number(diff)@
+broj  @term1@ povećaš @term2@ puta @hspacept(8)@ @lib.check_number(prod)@
+
+@vspace@ 
+broj  @term1@ smanjiš za @term2@  @hspacept(8)@ @lib.check_number(diff)@
 
 @vspace@
-Broj  @term1@ smanji @term2@ puta. @hspacept(3)@ Upiši broj koji dobiješ @hspacept(8)@ @lib.check_number(div)@
+broj  @term1@ smanjiš @term2@ puta @hspacept(8)@ @lib.check_number(div)@
+
 
 
 
