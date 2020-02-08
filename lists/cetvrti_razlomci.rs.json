@@ -3,27 +3,27 @@
   "theme" : "Razlomci", 
   "questions":  [
     {
-      "name" : "fractions/q00031", "random": "1", "period": "Jesen", 
+      "name" : "fractions/q00031", "random": "1", "period": "leto", 
       "subtheme": "Razlomci", "difficulty": "1"
     },
     {
-      "name" : "fractions/q00037", "random": "1", "period": "Jesen", 
+      "name" : "fractions/q00037", "random": "1", "period": "leto", 
       "subtheme": "Razlomci", "difficulty": "2"
     },
     {
-      "name" : "fractions/q00039", "random": "0", "period": "Jesen", 
+      "name" : "fractions/q00039", "random": "0", "period": "leto", 
       "subtheme": "Razlomci", "difficulty": "3"
     },
     {
-      "name" : "fractions/q00041", "random": "0", "period": "Jesen", 
+      "name" : "fractions/q00041", "random": "0", "period": "leto", 
       "subtheme": "Razlomci", "difficulty": "1"
     },
     {
-      "name" : "fractions/q00042", "random": "0", "period": "Jesen", 
+      "name" : "fractions/q00042", "random": "0", "period": "leto", 
       "subtheme": "Razlomci", "difficulty": "1"
     },
     {
-      "name" : "fractions/q00050", "random": "1", "period": "Jesen", 
+      "name" : "fractions/q00050", "random": "1", "period": "leto", 
       "subtheme": "Razlomci", "difficulty": "1"
     }
   ]

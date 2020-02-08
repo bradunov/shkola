@@ -61,7 +61,9 @@ class Repository(object):
                 #if len(file) > len(".json") and file[len(file)-len(".json"):] == ".json":
                 if self.check_extension(file, ".json"):
                     key = file[:len(file)-len(".json")]
+                    #print("Processing {}".format(dirpath + "/" + file))
                     d[key] = json.load(open(dirpath + "/" + file, 'r'))
+
                 elif not self.check_extension(file, ".png"):
                     try:
                         with open(dirpath + "/" + file) as f_text:
