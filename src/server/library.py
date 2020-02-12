@@ -130,7 +130,7 @@ class library(object):
         if "answer" not in str(condition):
             str_condition = "is_ok = (" + v_answer + " == \'" + str(condition) + "\');"
         else:
-            str_condition = condition.replace("answer", v_answer)
+            str_condition = "is_ok = (" + condition.replace("answer", v_answer) + ");"
 
 
         self.condition_check_script(n_answer, str_condition, extra_condition)
