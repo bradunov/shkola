@@ -105,8 +105,40 @@ class library(object):
         """
         self.page.add_script_lines(script)
 
-        
 
+
+
+
+    def check_one_option(self, options, correct):
+        qid = self.get_object_id()
+        n_answer = 'check_radio_answer_{}'.format(qid)
+
+        space = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+        line = "<div id={}> ".format(n_answer) + space
+        clear_str = ""
+
+
+        cnt = 0
+
+        # Have to convert to Python array explicitly
+        aoptions = list(options.values())
+
+        for opt in aoptions:
+            line = line + "<input type='radio' id='{}_{}' name='{}'/> {}".format(n_answer, cnt, n_answer, opt) + space
+            clear_str = clear_str + "document.getElementById('{}_{}').checked=false;".format(n_answer, cnt)
+            cnt = cnt + 1
+
+        line = line + "</div>"
+        
+        self.condition_check_script(n_answer, "is_ok = (document.getElementById('{}_{}').checked);".format(n_answer, correct))
+        
+        self.checks.append("{}_cond()".format(n_answer))
+        self.clears.append(clear_str)
+        
+        return line
+
+    
+        
 
     # Inputs string/number and check that it matches <condition>
     # <condition> can be of form:
