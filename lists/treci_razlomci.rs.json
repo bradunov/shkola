@@ -69,7 +69,15 @@
     {
       "name" : "fractions/q00052", "random": "1", "period": "leto", 
       "subtheme": "Razlomci", "difficulty": "3"
-    }
+    },
+    {
+      "name" : "fractions/q00056", "random": "1", "period": "jesen", 
+      "subtheme": "Razlomci", "difficulty": "2"
+    },
+    {
+      "name" : "fractions/q00057", "random": "1", "period": "jesen", 
+      "subtheme": "Razlomci", "difficulty": "2"
+    }	
   ]
  }
  

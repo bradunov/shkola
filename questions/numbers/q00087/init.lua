@@ -1,9 +1,3 @@
-style = {["width"] = 25,
-        ["height"] = 100,
-        ["ratio"] = 0.4,
-		["text-align"] = "inline",
-	    ["color"] = "aaf"};
-           
 term = {} 
 qA = {}
 qB = {}
@@ -26,39 +20,57 @@ summB = term[3] + term[4];
                   
 
 qA[1] = term[1]
-qA[2] = term[1] + math.random(9) * 10
+qA[2] = term[1] + math.random(9) * 10 
 
-if (term[1] == term[2]) then
-    qA[3] = 1
-else
-    qA[3] = 0
+qA[3] = term[1] - math.random(9) * 10 
+if (qA[3] < 0) then
+    qA[3] = - qA[3]
 end	
 
 qA[4] = term[1] - term[2]
-
 if (term[1] < term[2]) then
-    qA[4] = term[2] - term[1]   
+    qA[4] = -qA[4]   
 end
+
+for i = 1,3 do
+    if(qA[4] == qA[i]) then
+	   qA[4] = 0
+	end
+end	
 
 answA = lib.math.random_shuffle(qA)                  
 
+for i = 1,4 do  
+    if(answA[i] == term[1]) then 
+       indA = i-1
+    end
+end	
 
 
 qB[1] = term[4]
 qB[2] = term[4] + math.random(9) * 10
 
-if (term[3] == term[4]) then
-    qB[3] = 1
-else
-    qB[3] = 0
+qB[3] = term[4] - math.random(9) * 10
+if (qB[3] < 0) then
+    qB[3] = - qB[3]
 end	
 
 qB[4] = term[3] - term[4]
-
 if (term[3] < term[4]) then
-    qB[4] = term[4] - term[3]   
+    qB[4] = -qB[4]   
 end
+
+for i = 1,3 do
+    if(qB[4] == qB[i]) then
+	   qB[4] = 0
+	end
+end	
 
 answB = lib.math.random_shuffle(qB)                  
                     
-                  
+for i = 1,4 do  
+    if(answB[i] == term[4]) then 
+       indB = i-1
+    end
+end                                
+         
