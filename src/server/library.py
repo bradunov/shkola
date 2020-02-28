@@ -109,12 +109,11 @@ class library(object):
 
 
 
-    def check_one_option(self, options, correct):
+    def check_one_option(self, options, correct, vertical=False):
         qid = self.get_object_id()
         n_answer = 'check_radio_answer_{}'.format(qid)
-
-        space = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
-        line = "<div id={}> ".format(n_answer) + space
+        hspace = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+        line = "<div id={}> ".format(n_answer)
         clear_str = ""
 
 
@@ -123,10 +122,21 @@ class library(object):
         # Have to convert to Python array explicitly
         aoptions = list(options.values())
 
+        if vertical:
+            line = line + "<table>"
+        else:
+            line = line + hspace
+        
         for opt in aoptions:
-            line = line + "<input type='radio' id='{}_{}' name='{}'/> {}".format(n_answer, cnt, n_answer, opt) + space
+            if vertical:
+                line = line + "<tr><td><input type='radio' id='{}_{}' name='{}'/></td> <td style=\"text-align:left\">{}</td></tr>".format(n_answer, cnt, n_answer, opt)
+            else:
+                line = line + "<input type='radio' id='{}_{}' name='{}'/> {}".format(n_answer, cnt, n_answer, opt) + hspace
             clear_str = clear_str + "document.getElementById('{}_{}').checked=false;".format(n_answer, cnt)
             cnt = cnt + 1
+
+        if vertical:
+            line = line + "</table>"
 
         line = line + "</div>"
         

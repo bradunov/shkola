@@ -4,10 +4,11 @@ Oboj kružić pored tačnog odgovora.
 
 @vspace@
 
-@center@ @lib.check_one_option(answ,ind)@ 
+@center@ @lib.check_one_option(answ,ind,true)@ 
 
 @vspace@
 @ime1@ i @ime2@ imaju ukupno @lib.check_number(result)@ dinara.
+
                
     
 
