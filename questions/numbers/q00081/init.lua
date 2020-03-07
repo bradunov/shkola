@@ -17,13 +17,13 @@ addition_table = function()
 
   style = {}
   style["text-align"] = "center"
-  style["width"] = "60px"
+  style["width"] = "70px"
 
   text = lib.start_table()
   text = text .. lib.start_row()
   text = text .. lib.add_cell("A", style)
-  text = text .. lib.add_cell("B=A+" .. "" .. tostring(adder) .. "" , style)
-  text = text .. lib.add_cell("C=B-" .. "" .. tostring(substr) .. "" , style)
+  text = text .. lib.add_cell("B=A+" .. tostring(adder), style)
+  text = text .. lib.add_cell("C=B-" .. tostring(substr), style)
   text = text .. lib.end_row()
   for c=0,columns-1 do
     text = text .. lib.start_row()

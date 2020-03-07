@@ -1,6 +1,6 @@
 
 answ = {""}
-sign = {".", ":"}
+sign = {"&middot;", ":"}
 result = {}
 
 factor1 = math.random(5) + 2
@@ -34,6 +34,6 @@ answ[3] = "( " .. tostring(term1) .. " " .. sign[1] .. " " .. tostring(term2) ..
                 
       
             
-			  
+		  
 			  
 		  

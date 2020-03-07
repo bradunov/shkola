@@ -17,7 +17,7 @@ if (ind == 1) then
     term2 = factor1 
     term3 = prod2
     term4 = factor2
-	sign[1] = "."
+	sign[1] = "&middot;"
 	sign[2] = ":"
 	result = prod1 + factor4
 	if (prod1 >= factor4) then
@@ -30,7 +30,7 @@ else
 	term3 = factor4
 	term4 = factor2
 	sign[1] = ":"
-	sign[2] = "."
+	sign[2] = "&middot;"
 	result = factor3 + prod2  
 	if (prod2 <= factor3) then
 	    result = factor3 - prod4

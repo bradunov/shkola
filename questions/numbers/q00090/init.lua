@@ -1,5 +1,4 @@
 
-
 addition_table = function()
   columns = 8
   min_range = 101
@@ -22,7 +21,7 @@ addition_table = function()
   text = text .. lib.start_row()
   text = text .. lib.add_cell("A", style)
   text = text .. lib.add_cell("B", style)
-  text = text .. lib.add_cell("A . B", style)
+  text = text .. lib.add_cell("A &middot; B", style)
   text = text .. lib.end_row()
   for c=0,columns-1 do
     text = text .. lib.start_row()

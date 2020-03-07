@@ -1,10 +1,6 @@
-Reši jednačine. 
-
-@repeat(5)@
-@center@ x @hspacept8@ @sign@ @hspacept8@  @term2@  @hspacept8@ = @hspacept8@ @result@,  @hspace@ x = @lib.check_number(solution)@
-
-@vspace@
-@/repeat@
+@total@ kg brašna je ravnomerno raspoređeno u @number@ džakova. 
+Koliko kilograma brašna ima u @part@ džakova? @hspacept(5)@ @lib.check_number(rezult)@kg
+                  
 
 
 

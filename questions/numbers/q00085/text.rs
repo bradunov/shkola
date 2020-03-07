@@ -1,13 +1,9 @@
-Reši jednačine. 
 
-@repeat(5)@
+@ime@ je platila @book@  dinara za knjigu i @factor@ puta manje za svesku.
 
-@center@  @term@ @hspacept8@ @sign@ @hspacept8@ x  @hspacept8@ = @hspacept8@ @value@,  @hspace@ x = @lib.check_number(solution)@
-
-@vspace@
-@/repeat@
+Koliko je ukupno @ime@ potrošila dinara? @hspacept(5)@ @lib.check_number(result)@
 
 
 
 
-
+                                 

@@ -1,0 +1,16 @@
+{ "name" : "all_equations", 
+ "questions":  [
+    {"name" : "equations/q00001"},
+    {"name" : "equations/q00002"},
+    {"name" : "equations/q00003"},
+    {"name" : "equations/q00004"},
+	{"name" : "equations/q00005"},
+    {"name" : "equations/q00006"},
+    {"name" : "equations/q00007"},
+    {"name" : "equations/q00008"},
+    {"name" : "equations/q00009"},
+    {"name" : "equations/q00010"},
+    {"name" : "equations/q00011"},
+    {"name" : "equations/q00012"}	
+    ]
+}

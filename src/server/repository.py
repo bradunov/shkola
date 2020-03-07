@@ -62,7 +62,13 @@ class Repository(object):
                 if self.check_extension(file, ".json"):
                     key = file[:len(file)-len(".json")]
                     #print("Processing {}".format(dirpath + "/" + file))
-                    d[key] = json.load(open(dirpath + "/" + file, 'r'))
+                    try:
+                        d[key] = json.load(open(dirpath + "/" + file, 'r'))
+                    except:
+                        print("\n\n*************************************")
+                        print("Errof reading JSON list {}".format(dirpath + "/" + file))
+                        print("*************************************\n\n")
+                        raise
 
                 elif not self.check_extension(file, ".png"):
                     try:
