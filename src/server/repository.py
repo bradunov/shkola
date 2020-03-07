@@ -253,7 +253,13 @@ class Repository(object):
                 if self.check_extension(file, ".json"):
                     key = file[:len(file)-len(".json")]
                     (parent, key) = self.add_path(root, key)
-                    parent[key] = json.loads(self.azure_blob.download_file(file))
+                    try:
+                        parent[key] = json.loads(self.azure_blob.download_file(file))
+                    except:
+                        print("\n\n*************************************")
+                        print("Errof reading JSON list {}".format(file))
+                        print("*************************************\n\n")
+                        raise
                 elif not self.check_extension(file, ".png"):
                     (parent, key) = self.add_path(root, file)
                     parent[key] = self.azure_blob.download_file(file)

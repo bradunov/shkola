@@ -1,0 +1,15 @@
+{ "name" : "Treci razred brojevi",
+  "level": "Treci", 
+  "theme" : "Geometrija", 
+  "questions":  [
+    {
+      "name" : "numbers/q00016", "random": "1", "period": "zima", 
+      "subtheme": "mere", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00017", "random": "1", "period": "zima", 
+      "subtheme": "obim figura", "difficulty": "1"
+    }	
+  ]
+ }
+ 

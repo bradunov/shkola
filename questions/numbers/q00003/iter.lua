@@ -1,4 +1,4 @@
-umanjenik = math.random(10);
-umanjilac = math.random(umanjenik) - 1;
-rezultat = umanjenik - umanjilac;
+rezultat = math.random(8);
+umanjilac = math.random(9 - rezultat) + 1;
+umanjenik = rezultat + umanjilac;
 

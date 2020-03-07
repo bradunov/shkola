@@ -1,0 +1,17 @@
+Napiši redom, od najmanjeg do najvećeg, sve trocifrene brojeve koji su 
+
+@repeat(4)@
+veći od @leftb@, a manji od @rightb@ @hspace@ 
+@lib.check_number(array_value[1])@, @lib.check_number(array_value[2])@, @lib.check_number(array_value[3])@, @lib.check_number(array_value[4])@, @lib.check_number(array_value[5])@  
+                 
+@/repeat@                 
+                           
+                       
+                           
+                  
+                  
+                  
+                                 
+                  
+
+                  

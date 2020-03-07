@@ -9,7 +9,227 @@
     {
       "name" : "numbers/q00099", "random": "1", "period": "Jesen", 
       "subtheme": "Operacije", "difficulty": "3"
-    }
+    },
+    {
+      "name" : "numbers/q00047", "random": "1", "period": "jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
+    },	
+    {
+      "name" : "numbers/q00048", "random": "1", "period": "Jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00051", "random": "1", "period": "Jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00052", "random": "1", "period": "Jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00053", "random": "1", "period": "Jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00054", "random": "1", "period": "Jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00055", "random": "1", "period": "jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00056", "random": "1", "period": "jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00057", "random": "1", "period": "jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00058", "random": "1", "period": "jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00059", "random": "1", "period": "jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00060", "random": "1", "period": "jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00061", "random": "1", "period": "jesen", 
+      "subtheme": "Operacije", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00062", "random": "1", "period": "jesen", 
+      "subtheme": "Operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00063", "random": "1", "period": "jesen", 
+      "subtheme": "Operacije", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00064", "random": "1", "period": "jesen", 
+      "subtheme": "zapis broja", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00065", "random": "1", "period": "Jesen", 
+      "subtheme": "brojanje", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00066", "random": "1", "period": "Jesen", 
+      "subtheme": "poredjenje", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00067", "random": "1", "period": "Jesen", 
+      "subtheme": "poredjenje", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00068", "random": "1", "period": "Jesen", 
+      "subtheme": "poredjenje", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00069", "random": "1", "period": "Jesen", 
+      "subtheme": "poredjenje", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00070", "random": "1", "period": "Jesen", 
+      "subtheme": "poredjenje", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00071", "random": "1", "period": "Jesen", 
+      "subtheme": "poredjenje", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00072", "random": "1", "period": "Jesen", 
+      "subtheme": "poredjenje", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00073", "random": "1", "period": "Jesen", 
+      "subtheme": "poredjenje", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00074", "random": "1", "period": "Zima", 
+      "subtheme": "operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00075", "random": "1", "period": "Zima", 
+      "subtheme": "operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00076", "random": "1", "period": "Zima", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00077", "random": "1", "period": "Zima", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00078", "random": "1", "period": "Zima", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00079", "random": "1", "period": "zima", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00080", "random": "1", "period": "zima", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00081", "random": "1", "period": "zima", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00082", "random": "1", "period": "zima", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00083", "random": "1", "period": "zima", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00084", "random": "1", "period": "jesen", 
+      "subtheme": "problem", "difficulty": "1"
+    },
+   {
+      "name" : "numbers/q00085", "random": "1", "period": "jesen", 
+      "subtheme": "problem", "difficulty": "1"
+    },	
+   {
+      "name" : "numbers/q00086", "random": "1", "period": "zima", 
+      "subtheme": "problem", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00087", "random": "1", "period": "jesen", 
+      "subtheme": "problem", "difficulty": "1"
+    },	
+   {
+      "name" : "numbers/q00088", "random": "1", "period": "jesen", 
+      "subtheme": "problem", "difficulty": "3"
+    },	
+    {
+      "name" : "fractions/q00056", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+    {
+      "name" : "fractions/q00057", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "2"
+    },	
+   {
+      "name" : "numbers/q00089", "random": "1", "period": "jesen", 
+      "subtheme": "izrazi", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00090", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00091", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00092", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "1"
+    },
+   {
+      "name" : "numbers/q00093", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00094", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00095", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00096", "random": "1", "period": "jesen", 
+      "subtheme": "problem", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00097", "random": "1", "period": "jesen", 
+      "subtheme": "problem", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00100", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00101", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "3"
+    },
+   {
+      "name" : "numbers/q00102", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "3"
+    },
+   {
+      "name" : "numbers/q00103", "random": "1", "period": "jesen", 
+      "subtheme": "problem", "difficulty": "2"
+    }	
   ]
  }
  
