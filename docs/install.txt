@@ -96,3 +96,13 @@ https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function
 az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name testshkoladocker --resource-group testdoc
 
 
+
+
+
+#### LOGGING:
+
+Do not print with print(), use logging.<level>
+Q: How to change the default log message to add SHKOLA in it for searchable logs?
+
+
+

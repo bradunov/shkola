@@ -48,8 +48,6 @@ class page(object):
             logging.exception("Please define SHKOLA_REL_PATH")
             exit(1)
 
-        logging.warning("rel_path=%s", self.rel_path)
-
         self.repository = Repository(self.rel_path, use_azure_blob, preload)
         self.storage = get_storage()
         self.title = title
@@ -262,10 +260,14 @@ class page(object):
                 </script>
                 """
         else:
-            login_str = "<select id='sel_user_id' name='sel_user_id' " + \
-                        "onchange='window.location.replace(\"login_test?" + "login_return=" + \
-                        login_return + "&user_id=\" + this.value)'>n"
+            # login_str = "<select id='sel_user_id' name='sel_user_id' " + \
+            #             "onchange='window.location.replace(\"login_test?" + "login_return=" + \
+            #             login_return + "&user_id=\" + this.value)'>n"
            
+            login_str = "<select id='sel_user_id' name='sel_user_id' " + \
+                        "onchange='window.location.replace(\"main?op=login_test&" + "login_return=" + \
+                        login_return + "&user_id=\" + this.value)'>n"
+
 
             if 'user_id' not in self.state:
                 login_str = login_str + "<option value='NONE' SELECTED></option>"
@@ -646,7 +648,7 @@ class page(object):
 
         elif op == "test":
             self.render_menu(menu)
-            test = Test(self, self.rel_path, self.mobile)
+            test = Test(self, self.get_user_id(), self.rel_path, self.mobile)
             test.render_next_questions()
             return self.render()
 
@@ -655,6 +657,9 @@ class page(object):
             content = Content(self, self.mobile)
             content.render_content()
             return self.render()
+
+        else:
+            return "ERROR - operation {} not known".format(op)
 
 
 

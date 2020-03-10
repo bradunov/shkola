@@ -102,6 +102,8 @@ def exec_req(name, params, req):
                  params["menu"], params["init_code"], params["iter_code"], params["text"],
                  params["user_agent"], params["accept-language"]))
 
+    if params["op"] == "login_test":
+        return self.page.login_test(params["user_id"], params["login_return"])
 
     return func.HttpResponse(
         PAGE.main(params["op"], params["q_id"], params["l_id"], params["language"], 
