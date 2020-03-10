@@ -229,6 +229,26 @@
    {
       "name" : "numbers/q00103", "random": "1", "period": "jesen", 
       "subtheme": "problem", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00104", "random": "1", "period": "jesen", 
+      "subtheme": "problem", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00105", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00106", "random": "1", "period": "jesen", 
+      "subtheme": "problem", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00107", "random": "1", "period": "jesen", 
+      "subtheme": "problem", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00108", "random": "1", "period": "jesen", 
+      "subtheme": "problem", "difficulty": "2"
     }	
   ]
  }
