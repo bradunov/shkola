@@ -145,7 +145,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         params["op"] = "test"
         
     #if params["mobile"]:
-    params["menu"] = "simple"
+    #params["menu"] = "simple"
+    params["menu"] = "mobile"
 
     return exec_req("MAIN", params, req)
 

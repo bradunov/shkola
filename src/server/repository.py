@@ -287,7 +287,7 @@ class Repository(object):
             if level not in self.content.keys():
                 self.content[level] = {}
             if theme not in self.content.keys():
-                self.content[level][theme] = {}
+                self.content[level][theme] = {"name" : list_name}
             
             for q in questions:
                 if "period" not in q.keys() or \
@@ -328,6 +328,7 @@ class Repository(object):
         self.create_content()
         #print("BBB: ")
         #pprint(self.content)
+        #logging.info(self.content)
 
         
     def get_config(self):

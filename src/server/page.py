@@ -127,6 +127,16 @@ class page(object):
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
              <script src="item?url=src/js/raphaeljs-infobox.js"></script>
              <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+             <style type="text/css">
+                div.space {
+                    display:inline-block;
+                    padding-left:6px;
+                    padding-right:6px;
+                }
+            </style>
         """
         if self.on_loaded_script:
             head = head + """
@@ -199,14 +209,17 @@ class page(object):
     ########
     # Temporary version, doesn't work with Google Auth (yet)
     
-    def get_login_header(self):
+    def get_login_header(self, mobile=False):
         login_str = ""
 
         # self.page.add_lines("<div>{}</div>", cherrypy.request.path_info)
-        if self.mobile:
-            menu = "simple"
+        if mobile:
+            menu = "mobile"
         else:
-            menu = "full"
+            if self.mobile:
+                menu = "simple"
+            else:
+                menu = "full"
             
         login_return = {}
         login_return["page_name"] = self.page_name
@@ -248,27 +261,36 @@ class page(object):
                 </script>
                 """
         else:
-            # login_str = "<select id='sel_user_id' name='sel_user_id' " + \
-            #             "onchange='window.location.replace(\"login_test?" + "login_return=" + \
-            #             login_return + "&user_id=\" + this.value)'>n"
-           
-            login_str = "<select id='sel_user_id' name='sel_user_id' " + \
-                        "onchange='window.location.replace(\"main?op=login_test&" + "login_return=" + \
-                        login_return + "&user_id=\" + this.value)'>n"
+            if mobile:
+                login_str = ""
+                for i in range(1,4):
+                    username = "Korisnik{}".format(i)
+                    link = "main?op=login_test&" + "login_return=" + \
+                                login_return + "&user_id=local:{}".format(username) 
+                    str_indent = "<div class='space'></div>"
+                    login_str = login_str + "<a href='" + link + "' class='w3-bar-item w3-button'> " + str_indent + username + "</a>\n"
+            else:
+                # login_str = "<select id='sel_user_id' name='sel_user_id' " + \
+                #             "onchange='window.location.replace(\"login_test?" + "login_return=" + \
+                #             login_return + "&user_id=\" + this.value)'>n"
+            
+                login_str = "<select id='sel_user_id' name='sel_user_id' " + \
+                            "onchange='window.location.replace(\"main?op=login_test&" + "login_return=" + \
+                            login_return + "&user_id=\" + this.value)'>n"
 
 
-            if self.user_id is None or not self.user_id:
-                login_str = login_str + "<option value='NONE' SELECTED></option>"
+                if self.user_id is None or not self.user_id:
+                    login_str = login_str + "<option value='NONE' SELECTED></option>"
 
-            for i in range(1,4):
-                sel_user = format("Korisnik{}").format(i)
-                selected = ""
-                if self.user_id is not None and self.user_id == "local:"+sel_user:
-                    selected = "SELECTED"
+                for i in range(1,4):
+                    sel_user = format("Korisnik{}").format(i)
+                    selected = ""
+                    if self.user_id is not None and self.user_id == "local:"+sel_user:
+                        selected = "SELECTED"
 
-                login_str = login_str + "<option value='{}' {}>{}</option>".format(sel_user, selected, sel_user)
+                    login_str = login_str + "<option value='{}' {}>{}</option>".format(sel_user, selected, sel_user)
 
-            login_str = login_str + "</select>\n"
+                login_str = login_str + "</select>\n"
 
 
         #self.page.add_lines("\n\n<!-- LOGIN END -->\n")
@@ -491,8 +513,86 @@ class page(object):
 
         
 
+
+    # Inspired by https://www.w3schools.com/w3css/w3css_sidebar.asp
+    def render_menu_mobile(self):
+        self.add_lines("\n\n<!-- MOBILE MENU START -->\n")
+
+        self.add_lines("""
+            <script>
+            function myAccFunc(title) {
+                var x = document.getElementById(title);
+                if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+                x.previousElementSibling.className += " w3-green";
+                } else { 
+                x.className = x.className.replace(" w3-show", "");
+                x.previousElementSibling.className = 
+                x.previousElementSibling.className.replace(" w3-green", "");
+                }
+            }
+            function w3_open() {
+                document.getElementById("mySidebar").style.display = "block";
+            }
+            function w3_close() {
+                document.getElementById("mySidebar").style.display = "none";
+            }
+            </script>
+            <div class="w3-dark-grey">
+            <button class="w3-button w3-dark-grey w3-large" onclick="w3_open()">☰</button>
+            </div>
+            <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+                <button onclick="w3_close()" class="w3-bar-item w3-large">Zatvori &times;</button>
+
+                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc('accLevel')">
+                    Zadaci <i class="fa fa-caret-down"></i>
+                </button>
+                <div id='accLevel' class="w3-hide w3-white w3-card">
+        """)
+
+
+        content = Content(self, self.mobile)
+        content.render_menu_mobile("main?op={}&language={}&menu={}&user_id={}".format(
+            self.page_name, self.language, "mobile", self.user_id ), 1)
+
+
+
+        self.add_lines("""
+                </div>
+
+                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc('accUser')">
+                    Korisnik <i class="fa fa-caret-down"></i>
+                </button>
+                <div id='accUser' class="w3-hide w3-white w3-card">
+        """)
+
+
+        self.add_lines(self.get_login_header(True))
+
+
+        self.add_lines("""
+                </div>
+            </div>
+        """)
+
+        self.add_lines("\n<!-- MENU END -->\n\n")
+
+
+
+        
+
+
+
+
+
+
+
+
+
     def render_menu(self, menu_type = "full"):
-        if menu_type == "simple":
+        if menu_type == "mobile":
+            self.render_menu_mobile()
+        elif menu_type == "simple":
             self.render_menu_simple()
         else:
             self.render_menu_full()
