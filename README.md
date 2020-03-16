@@ -40,7 +40,7 @@ and also change `"logging"` key in host.json. For Azure, TBD.
 
 The code is stored in `/home/site/wwwroot/` inside the container. To access it, use `docker exec -it shkola bash`.
 
-Continuous deployment can be enabled on Azure using these [instructions] (https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=nodejs#enable-continuous-deployment).
+Continuous deployment can be enabled on Azure using these [instructions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=nodejs#enable-continuous-deployment).
 
 
 
