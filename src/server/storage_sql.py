@@ -2,6 +2,7 @@ import sqlite3
 import datetime
 import time
 import logging
+import os
 
 
 class storage_sql:
@@ -13,7 +14,16 @@ class storage_sql:
     # BEGIN - Common methods to implement storage interface
     
     def __init__(self):
-        self.db = sqlite3.connect(self.dbname, detect_types=sqlite3.PARSE_DECLTYPES, check_same_thread=False)
+
+        if 'SHKOLA_SQL_PATH' in os.environ.keys():
+            dbpath = os.environ['SHKOLA_SQL_PATH']
+            if dbpath.endswith("/"):
+                full_name = dbpath + self.dbname
+            else:
+                full_name = dbpath + "/" + self.dbname
+        else:
+            full_name = self.dbname
+        self.db = sqlite3.connect(full_name, detect_types=sqlite3.PARSE_DECLTYPES, check_same_thread=False)
         self.create_tables()
 
 

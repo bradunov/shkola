@@ -36,44 +36,44 @@ class editor(object):
 
 
     @cherrypy.expose
-    def main(self, op="view", q_id=None, l_id=None, language="rs", menu="full", state=None, init_code="", iter_code="", text=""):
-        return self.page.main(op, q_id, l_id, language, menu, state, init_code, iter_code, text)
+    def main(self, op="view", q_id=None, l_id=None, language="rs", menu="full", user_id=None, init_code="", iter_code="", text=""):
+        return self.page.main(op, q_id, l_id, language, menu, user_id, init_code, iter_code, text)
 
     
 
     @cherrypy.expose
-    def edit(self, q_id = None, l_id = None, language = "rs", menu = "full", state=None):
-        return self.page.main("edit", q_id, l_id, language, menu, state)
+    def edit(self, q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
+        return self.page.main("edit", q_id, l_id, language, menu, user_id)
 
     
     
     @cherrypy.expose
-    def generate(self, q_id = "", l_id = None, language = "", menu = "full", state=None, init_code = "", iter_code = "", text = ""):
-        return self.page.main("generate", q_id, l_id, language, menu, state, init_code, iter_code, text)
+    def generate(self, q_id = "", l_id = None, language = "", menu = "full", user_id=None, init_code = "", iter_code = "", text = ""):
+        return self.page.main("generate", q_id, l_id, language, menu, user_id, init_code, iter_code, text)
 
 
 
     @cherrypy.expose
-    def view(self, q_id = None, l_id = None, language = "rs", menu = "full", state=None):
-        return self.page.main("view", q_id, l_id, language, menu, state)
+    def view(self, q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
+        return self.page.main("view", q_id, l_id, language, menu, user_id)
 
 
     
     @cherrypy.expose
-    def list(self, q_id = None, l_id = None, language = "rs", menu = "full", state=None):
-        return self.page.main("list", q_id, l_id, language, menu, state)
+    def list(self, q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
+        return self.page.main("list", q_id, l_id, language, menu, user_id)
 
 
     
     @cherrypy.expose
-    def test(self, q_id = None, l_id = None, language = "rs", menu = "full", state=None):
-        return self.page.main("test", q_id, l_id, language, menu, state)
+    def test(self, q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
+        return self.page.main("test", q_id, l_id, language, menu, user_id)
 
 
 
     @cherrypy.expose
-    def content(self, q_id = None, l_id = None, language = "rs", menu = "full", state=None):
-        return self.page.main("content", q_id, l_id, language, menu, state)
+    def content(self, q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
+        return self.page.main("content", q_id, l_id, language, menu, user_id)
 
 
 

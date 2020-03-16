@@ -2,7 +2,8 @@ import logging
 
 import os
 import sys
-
+from urllib.parse import urlparse
+from urllib.parse import parse_qs
 
 # This is the web root dir that has to be defined in Dockerfile 
 sys.path.append(os.environ['AzureWebJobsScriptRoot']) 
@@ -33,6 +34,8 @@ import azure.functions as func
 #logging.basicConfig(level=logging.INFO)
 logging.basicConfig(level=logging.DEBUG)
 
+# https://stackoverflow.com/a/57896847
+logging.Logger.root.level = logging.DEBUG
 
 
 use_azure_blob = False
@@ -42,12 +45,14 @@ preload = True
 
 def parse_req(req): 
 
-    # logging.info("METHOD: " + str(req.method))
-    # logging.info("URL: " + str(req.url))
-    # logging.info("HEADERS: " + str(dict(req.headers)))
-    # logging.info("PARAMS: " + str(dict(req.params)))
-    # logging.info("ROUTE PARAMS: " + str(dict(req.route_params)))
-    # logging.info("GET BODY: " + str(req.get_body().decode()))
+    if False:
+        logging.debug("METHOD: " + str(req.method))
+        logging.debug("URL: " + str(req.url))
+        logging.debug("HEADERS: " + str(dict(req.headers)))
+        logging.debug("PARAMS: " + str(dict(req.params)))
+        logging.debug("ROUTE PARAMS: " + str(dict(req.route_params)))
+        logging.debug("GET BODY: " + str(req.get_body().decode()))
+
 
     params = {}
     if req.method == "POST":
@@ -59,6 +64,8 @@ def parse_req(req):
         params["init_code"] = req.params.post('init_code')
         params["iter_code"] = req.params.post('iter_code')
         params["text"] = req.params.post('text')
+        params["user_id"] = req.params.post('user_id')
+        params["login_return"] = req.params.post('login_return')
     else:
         params["op"] = req.params.get('op')
         params["q_id"] = req.params.get('q_id')
@@ -68,6 +75,8 @@ def parse_req(req):
         params["init_code"] = req.params.get('init_code')
         params["iter_code"] = req.params.get('iter_code')
         params["text"] = req.params.get('text')
+        params["user_id"] = req.params.get('user_id')
+        params["login_return"] = req.params.get('login_return')
 
     if not params["language"]:
         params["language"] = "rs"
@@ -97,17 +106,19 @@ def exec_req(name, params, req):
 
     logging.info("Python HTTP trigger function processed a request {} <{}>: "
                  "q_id={}, l_id={}, language={}, menu={}, init_code={}, iter_code={}, text={}, "
-                 "user_agent={}, language={}.".
+                 "user_agent={}, language={}, user_id={}.".
                  format(name, params["op"], params["q_id"], params["l_id"], params["language"], 
                  params["menu"], params["init_code"], params["iter_code"], params["text"],
-                 params["user_agent"], params["accept-language"]))
+                 params["user_agent"], params["accept-language"], 
+                 params["user_id"]))
 
     if params["op"] == "login_test":
-        return self.page.login_test(params["user_id"], params["login_return"])
+        return func.HttpResponse(PAGE.login_test(params["user_id"], params["login_return"]),
+            mimetype="text/html")
 
     return func.HttpResponse(
         PAGE.main(params["op"], params["q_id"], params["l_id"], params["language"], 
-        params["menu"], params["init_code"], params["iter_code"], params["text"]), 
+        params["menu"], params["user_id"], params["init_code"], params["iter_code"], params["text"]), 
         mimetype="text/html")
 
 
@@ -121,9 +132,18 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         PAGE = page.page(use_azure_blob=use_azure_blob, preload=preload)
 
 
+    # POST for registering results
+    if req.method == "POST" and req.params['op'] == "register":
+        return register(req)
+
+
     params = parse_req(req) 
 
-    params["op"] = "test"
+    # For now always run test (as in kids testing knowledge)
+    # mode in production
+    if params["op"] != "login_test":
+        params["op"] = "test"
+        
     #if params["mobile"]:
     params["menu"] = "simple"
 
@@ -150,3 +170,17 @@ def edit(req: func.HttpRequest) -> func.HttpResponse:
     params["menu"] = "full"
 
     return exec_req("EDIT", params, req)
+
+
+
+
+# Callback to register response
+def register(req: func.HttpRequest) -> func.HttpResponse:
+    global PAGE
+    if PAGE is None:
+        logging.info("Reloading page (%s, %s)", str(use_azure_blob), str(preload))
+        PAGE = page.page(use_azure_blob=use_azure_blob, preload=preload)
+
+    PAGE.register(parse_qs(req.get_body().decode()))
+
+    return "OK"

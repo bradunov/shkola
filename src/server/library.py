@@ -911,7 +911,7 @@ class library(object):
         question_start_time = Math.floor(Date.now()/1000);
         function sendResultsToServer(str, type) {
           var xhr = new XMLHttpRequest();
-          xhr.open('POST', '/register');
+          xhr.open('POST', '/main?op=register');
           xhr.onreadystatechange = function() {
             console.log("Received");
             console.log(xhr);

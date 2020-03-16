@@ -27,11 +27,8 @@ def decode_dict(enc_dict):
 
 
 
-def create_url(self=None, page_name=None, q_id=None, l_id=None, lang=None, state=None, menu=None, js=False):
+def create_url(self=None, page_name=None, q_id=None, l_id=None, lang=None, user_id=None, menu=None, js=False):
     first = True
-
-    # Encode state
-    encoded_state = encode_dict(state)
 
     if js:
         glue = lambda first: " + \"" + ("?" if first else "&")
@@ -51,8 +48,8 @@ def create_url(self=None, page_name=None, q_id=None, l_id=None, lang=None, state
         if menu is not None:
             url = url + glue(first) + "menu=\" + " + menu
             first = False
-        if state is not None:
-            url = url + glue(first) + "state=\" + " + encap_str(encoded_state)
+        if user_id is not None:
+            url = url + glue(first) + "user_id=\" + " + user_id
     else:
         glue = lambda first: "?" if first else "&" 
         url = "main"
@@ -71,8 +68,8 @@ def create_url(self=None, page_name=None, q_id=None, l_id=None, lang=None, state
         if menu is not None:
             url = url + glue(first) + "menu=" + menu
             first = False
-        if state is not None:
-            url = url + glue(first) + "state=" + encoded_state
+        if user_id is not None:
+            url = url + glue(first) + "user_id=" + user_id
 
     return url
 

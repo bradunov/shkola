@@ -84,13 +84,10 @@ class question(object):
         self.lib = library(self.lua, page, self.questions_rel_path + "/" + self.path)
         self.url_next = url_next
         self.rel_path = rel_path
-        logging.info("Rendering question %s, list_id=%s, user_id=%s, language=%s, url_next=%s", 
+        logging.debug("Rendering question %s, list_id=%s, user_id=%s, language=%s, url_next=%s", 
             self.questions_rel_path + "/" + self.path, 
             str(self.list_id), str(self.user_id), str(self.language), str(self.url_next))
         self.questions_root_path = self.rel_path + "/" + self.questions_rel_path
-        logging.info("Rendering question %s, list_id=%s, user_id=%s, language=%s, url_next=%s", 
-            self.questions_rel_path + "/" + self.path, 
-            str(self.list_id), str(self.user_id), str(self.language), str(self.url_next))
 
 
     def set_from_file(self):

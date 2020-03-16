@@ -62,8 +62,13 @@ NOTE: All environment variables go into Dockerfile
 ~/Documents/Code/shkola$ docker rm -f shkola 
 ~/Documents/Code/shkola$ docker build -f src/Dockerfile --tag bradunov/shkola:v0.0.1 .
 
+
 - To run with local SQL results
 ~/Documents/Code/shkola$ docker run -p 8080:80 --name shkola -it bradunov/shkola:v0.0.1
+
+NOTE: This doesn't seem to work on WSL!:
+~/Documents/Code/shkola$ docker run -p 8080:80 --name shkola -v /c/Users/bozidar/Documents/Code/shkola/sql:/var/log/sql -e SHKOLA_SQL_PATH="/var/log/sql" -it bradunov/shkola:v0.0.1
+(if running on WSL, enable drive sharing on docker for windows)
 
 - To run with Azure table for results
 ~/Documents/Code/shkola$ docker run -p 8080:80 --name shkola -e SHKOLA_AZ_TABLE_CONN_STR="<connection_str>" -it bradunov/shkola:v0.0.1

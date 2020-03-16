@@ -57,11 +57,11 @@ class Test(object):
                                                 l_id = self.page.l_id, \
                                                 lang = self.page.language, \
                                                 menu = menu, \
-                                                state = self.page.get_state(), \
+                                                user_id = self.page.user_id, \
                                                 js = False)
 
         
-        q = question(self.page, self.page.get_user_id(), self.rel_path, next_question_url)
+        q = question(self.page, self.page.user_id, self.rel_path, next_question_url)
         q.set_from_file_with_exception()
         q.eval_with_exception()
 

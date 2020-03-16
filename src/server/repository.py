@@ -247,7 +247,7 @@ class Repository(object):
                 logging.debug("Loading file from BLOB: %s", file)
 
                 if file[len(file)-1:] == "~":
-                    logging.info("Skipping: %s", file)
+                    logging.debug("Skipping: %s", file)
                     continue
                 
                 if self.check_extension(file, ".json"):

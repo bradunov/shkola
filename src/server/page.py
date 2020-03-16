@@ -22,9 +22,9 @@ class page(object):
     init_code = ""
     iter_code = ""
     text = ""
-    state = None
     question = None
     page_name = ""
+    user_id = ""
     storage = None
     userdb = None
     mobile = False
@@ -90,9 +90,6 @@ class page(object):
         l = self.repository.get_all_lists_ids("")
         l.sort()
         return l
-
-    def get_state(self):
-        return self.state
 
 
 
@@ -195,19 +192,10 @@ class page(object):
 
 
 
-
+    
 
     ########
     # Temporary version, doesn't work with Google Auth (yet)
-    def get_user_id(self):
-        if "user_id" not in self.state:
-            return ""
-        else:
-            return self.state["user_id"]
-        return ""
-
-    
-
     ########
     # Temporary version, doesn't work with Google Auth (yet)
     
@@ -225,7 +213,7 @@ class page(object):
         login_return["q_id"] = self.q_id
         login_return["l_id"] = self.l_id
         login_return["lang"] = self.language
-        login_return["state"] = self.state
+        login_return["user_id"] = self.user_id
         login_return["menu"] = menu
         login_return["js"] = False
         login_return = encode_dict(login_return)
@@ -269,13 +257,13 @@ class page(object):
                         login_return + "&user_id=\" + this.value)'>n"
 
 
-            if 'user_id' not in self.state:
+            if self.user_id is None or not self.user_id:
                 login_str = login_str + "<option value='NONE' SELECTED></option>"
 
             for i in range(1,4):
                 sel_user = format("Korisnik{}").format(i)
                 selected = ""
-                if 'user_id' in self.state and self.state['user_id'] == "local:"+sel_user:
+                if self.user_id is not None and self.user_id == "local:"+sel_user:
                     selected = "SELECTED"
 
                 login_str = login_str + "<option value='{}' {}>{}</option>".format(sel_user, selected, sel_user)
@@ -296,7 +284,6 @@ class page(object):
     def render_menu_full(self):
 
         self.add_lines("\n\n<!-- FULL MENU START -->\n")
-        print("AAA:", self.page_name)
         # Edit or view question
         if self.page_name == "edit" or self.page_name == "view" or self.page_name == "generate" :
             if self.page_name == "generate":
@@ -307,7 +294,7 @@ class page(object):
                                 create_url(page_name = encap_str(page_name), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
-                                                state = self.state, \
+                                                user_id = self.user_id, \
                                                 menu = encap_str("full"), \
                                                 js = True) + ")'>\n"
             qs = self.get_all_questions(self.language)
@@ -326,7 +313,7 @@ class page(object):
                                 create_url(page_name = encap_str(self.page_name), \
                                                 l_id = "this.value", \
                                                 lang = "sel_lang.value", \
-                                                state = self.state, \
+                                                user_id = self.user_id, \
                                                 menu = encap_str("full"), \
                                                 js = True) + ")'>\n"
             ls = self.get_all_lists()
@@ -367,7 +354,7 @@ class page(object):
                 lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             q_id = "sel_q_id.value", \
                                                             lang = "this.value", \
-                                                            state = self.state, \
+                                                            user_id = self.user_id, \
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
             # View list
@@ -375,7 +362,7 @@ class page(object):
                 lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
-                                                            state = self.state, \
+                                                            user_id = self.user_id, \
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
             
@@ -394,7 +381,7 @@ class page(object):
                                                             q_id = encap_str(self.q_id), \
                                                             l_id = encap_str(self.l_id), \
                                                             lang = encap_str(self.language), \
-                                                            state = self.state, \
+                                                            user_id = self.user_id, \
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
 
@@ -424,7 +411,7 @@ class page(object):
                                 create_url(page_name = encap_str(self.page_name), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
-                                                state = self.state, \
+                                                user_id = self.user_id, \
                                                 menu = encap_str("simple"), \
                                                 js = True) + ")'>\n"
 
@@ -444,7 +431,7 @@ class page(object):
                                 create_url(page_name = encap_str(self.page_name), \
                                                 l_id = "this.value", \
                                                 lang = "sel_lang.value", \
-                                                state = self.state, \
+                                                user_id = self.user_id, \
                                                 menu = encap_str("simple"), \
                                                 js = True) + ")'>\n"
             ls = self.get_all_lists()
@@ -473,7 +460,7 @@ class page(object):
                 lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             q_id = "sel_q_id.value", \
                                                             lang = "this.value", \
-                                                            state = self.state, \
+                                                            user_id = self.user_id, \
                                                             menu = encap_str("simple"), \
                                                             js = True) + ")'>\n"
             # View list
@@ -481,7 +468,7 @@ class page(object):
                 lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
-                                                            state = self.state, \
+                                                            user_id = self.user_id, \
                                                             menu = encap_str("simple"), \
                                                             js = True) + ")'>\n"
             
@@ -582,7 +569,7 @@ class page(object):
 
 
 
-    def parse_parameters(self, page_name, q_id=None, l_id=None, language=None, state=None):
+    def parse_parameters(self, page_name, q_id=None, l_id=None, language=None, user_id=None):
         self.page_name = page_name
 
         # If no question supplied, get the first one for the language
@@ -605,29 +592,28 @@ class page(object):
             self.language = ""
 
 
-        if state is not None:
-            self.state = decode_dict(state)
+        if user_id is not None:
+            self.user_id = user_id
         else:
-            self.state = {}
-        logging.debug("State: %s", str(self.state))
+            self.user_id = ""
             
              
 
         
     def main(self, op="view", q_id=None, l_id=None, language="rs", menu="full",
-             state=None, init_code="", iter_code="", text=""):
-        
+             user_id=None, init_code="", iter_code="", text=""):
+
         self.clear()
-        self.parse_parameters(op, q_id, l_id, language, state)
+        self.parse_parameters(op, q_id, l_id, language, user_id)
 
         if op == "view":
-            q = question(self, self.get_user_id(), self.rel_path)
+            q = question(self, user_id, self.rel_path)
             q.set_from_file_with_exception()
             self.add_question(q)
             return self.render_simple_page(menu)
             
         elif op == "edit":
-            q = question(self, self.get_user_id(), self.rel_path)
+            q = question(self, user_id, self.rel_path)
             q.set_from_file_with_exception()
             self.add_question(q)
             self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
@@ -635,20 +621,20 @@ class page(object):
             
         elif op == "generate":
             self.add_code(init_code, iter_code, text)
-            q = question(self, self.get_user_id(), self.rel_path, 
+            q = question(self, user_id, self.rel_path, 
                          init_code=init_code, iter_code=iter_code, text=text)
             self.add_question(q)
             return self.render_page(menu)
 
         elif op == "list":
             self.render_menu(menu)
-            ql = qlist(self, self.get_user_id(), self.rel_path)
+            ql = qlist(self, user_id, self.rel_path)
             ql.render_all_questions()
             return self.render()
 
         elif op == "test":
             self.render_menu(menu)
-            test = Test(self, self.get_user_id(), self.rel_path, self.mobile)
+            test = Test(self, user_id, self.rel_path, self.mobile)
             test.render_next_questions()
             return self.render()
 
@@ -663,19 +649,21 @@ class page(object):
 
 
 
+    # args is in format returned by urllib.parse.parse_qs
     def register(self, args):
         correct = 0
         incorrect = 0
         questions = ""
         
-        if "q_id" in args.keys() and "user_id" in args.keys() and "now" in args.keys() and args["user_id"]:
-            if "l_id" not in args.keys() or not args["l_id"] or args["l_id"] is None:
+        if "q_id" in args.keys() and "user_id" in args.keys() and "now" in args.keys() and args["user_id"][0]:
+            if "l_id" not in args.keys() or not args["l_id"][0] or args["l_id"][0] is None:
                 l_id = ""
             else:
-                l_id = args["l_id"]
+                l_id = args["l_id"][0]
                 
 
-            for key, value in args.items():
+            for key, v in args.items():
+                value = v[0]
                 if key[0:5] == "q_res":
                     questions = questions + key + "=" + value + ","
                     if value == "true":
@@ -683,21 +671,21 @@ class page(object):
                     else:
                         incorrect = incorrect + 1
                         
-            response = {"user_id" : args["user_id"],
-                        "question_id": args["q_id"],
+            response = {"user_id" : args["user_id"][0],
+                        "question_id": args["q_id"][0],
                         "list_id": l_id,
-                        "response_type": args["response_type"],
-                        "time": args["start"],
-                        "duration": int(args["now"]) - int(args["start"]),
+                        "response_type": args["response_type"][0],
+                        "time": args["start"][0],
+                        "duration": int(args["now"][0]) - int(args["start"][0]),
                         "correct": correct,
                         "incorrect": incorrect,
                         "questions": questions}
 
-            logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, response_type=%s, " +
+            logging.info("Register results: user_id=%s, q_id=%s, l_id=%s, response_type=%s, " +
                         "start=%s, duration=%s, correct=%s, incorrect=%s, questions=\"%s\"", 
-                        str(args["user_id"]), str(args["q_id"]), 
-                        str(l_id), str(args["response_type"]), 
-                        str(args["start"]), str(int(args["now"]) - int(args["start"])),
+                        str(args["user_id"][0]), str(args["q_id"][0]), 
+                        str(l_id), str(args["response_type"][0]), 
+                        str(args["start"][0]), str(int(args["now"][0]) - int(args["start"][0])),
                         str(correct), str(incorrect), str(questions))
 
             self.storage.record_response(response)
@@ -707,12 +695,8 @@ class page(object):
 
 
     def logout(self, login_return=None):
-        login_return = decode_dict(login_return)
-
-        self.userdb.session_logout(login_return.state)
-
         return self.main(login_return["page_name"], login_return["q_id"], login_return["l_id"], 
-                         login_return["lang"], login_return["menu"], login_return["state"])
+                         login_return["lang"], login_return["menu"])
 
 
 
@@ -720,37 +704,29 @@ class page(object):
     def login_test(self, user_id=None, login_return=None):
         login_return = decode_dict(login_return)
 
-        if login_return is not None and "state" in login_return:
-            state = login_return["state"]
-        else:
-            state = None
-        #self.check_no_user(state)
-        #headers = cherrypy.request.headers
         #remote_ip=headers["Remote-Addr"]
         #user_agent=headers["User-Agent"]
         remote_ip=""
         user_agent=""
 
-
         if user_id is None:
             logging.debug("Login test user %s, %s, %s, %s", 'test', 'test', str(remote_ip), str(user_agent))
-            self.userdb.session_login_and_update_user(state, 'local', 'test',
+            self.userdb.session_login_and_update_user('local', 'test',
                                                name='test',
                                                email='test',
                                                remote_ip=remote_ip,
                                                user_agent=user_agent)
         else:
             logging.debug("Login test user %s, %s, %s, %s", user_id, user_id, str(remote_ip), str(user_agent))
-            self.userdb.session_login_and_update_user(state, 'local', user_id,
+            self.userdb.session_login_and_update_user('local', user_id,
                                                name=user_id,
                                                email=user_id,
                                                remote_ip=remote_ip,
                                                user_agent=user_agent)
 
-        enc_state = encode_dict(login_return["state"])
-
+        full_user_id = "local:" + user_id
         return self.main(login_return["page_name"], login_return["q_id"], login_return["l_id"], 
-                         login_return["lang"], login_return["menu"], enc_state)
+                         login_return["lang"], login_return["menu"], full_user_id)
 
 
 
@@ -778,7 +754,7 @@ class page(object):
     #         logger("Failed google authentication: {}".format(ex))
     #         return "ERROR"
 
-    #     self.session_login_and_update_user(state, 'google', auth_user_id,
+    #     self.session_login_and_update_user('google', auth_user_id,
     #                                        name=name,
     #                                        email=email,
     #                                        remote_ip=headers["Remote-Addr"],
