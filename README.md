@@ -20,7 +20,7 @@ The prefer install is as an Azure function. For local testing, in shkola root ty
 
 ### Azure install
 
-This documentation is derived from the following [page](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=portal%2Cbash&pivots=programming-language-python)
+This documentation is derived from the following [page](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=portal%2Cbash&pivots=programming-language-python).
 
 Runes to deploy on Azure (change westeurope for preferred Azure location):
 ```
@@ -36,10 +36,10 @@ az functionapp deployment container config --enable-cd --query CI_CD_URL --outpu
 ```
 Then log on to Docker hub and copy paste the link obtained above into the webhook tab. 
 Every time you commit and push an image to Docker hub, it will get updated in the function.
-More details [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=portal%2Cbash&pivots=programming-language-python#enable-continuous-deployment-to-azure)
+More details [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=portal%2Cbash&pivots=programming-language-python#enable-continuous-deployment-to-azure).
 
 
-For different pricing options check this [link](https://azure.microsoft.com/en-gb/pricing/details/app-service/windows/)
+For different pricing options check this [link](https://azure.microsoft.com/en-gb/pricing/details/app-service/windows/).
 
 
 ### Logging
@@ -51,8 +51,6 @@ and also change `"logging"` key in host.json. For Azure, TBD.
 ### Various notes
 
 The code is stored in `/home/site/wwwroot/` inside the container. To access it, use `docker exec -it shkola bash`.
-
-Continuous deployment can be enabled on Azure using these [instructions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=nodejs#enable-continuous-deployment).
 
 
 
