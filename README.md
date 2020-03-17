@@ -20,14 +20,26 @@ The prefer install is as an Azure function. For local testing, in shkola root ty
 
 ### Azure install
 
+This documentation is derived from the following [page](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=portal%2Cbash&pivots=programming-language-python)
+
 Runes to deploy on Azure (change westeurope for preferred Azure location):
 ```
 az group create --name <resource_group_name> --location westeurope
 az storage account create --name <storage_name> --location westeurope --resource-group <resource_group_name> --sku Standard_LRS
-az functionapp plan create --resource-group <resource_group_name> --name <plan_name> --location westeurope --number-of-workers 1 --sku CP1 --is-linux
+az functionapp plan create --resource-group <resource_group_name> --name <plan_name> --location westeurope --number-of-workers 1 --sku B1 --is-linux
 az functionapp create --name <function_name> --storage-account <storage_name> --resource-group <resource_group_name> --plan <plan_name> --deployment-container-image-name <username>/shkola:v0.0.1
 ```
 
+To register continuous integration and get your function deployed every time it is pushed to a Docker hub, first obtain a web hook:
+```
+az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name testshkoladocker --resource-group testdoc
+```
+Then log on to Docker hub and copy paste the link obtained above into the webhook tab. 
+Every time you commit and push an image to Docker hub, it will get updated in the function.
+More details [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=portal%2Cbash&pivots=programming-language-python#enable-continuous-deployment-to-azure)
+
+
+For different pricing options check this [link](https://azure.microsoft.com/en-gb/pricing/details/app-service/windows/)
 
 
 ### Logging
