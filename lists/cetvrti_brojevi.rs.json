@@ -1,0 +1,35 @@
+{ "name" : "Cetvrti razred brojevi",
+  "level": "Cetvrti", 
+  "theme" : "Brojevi", 
+  "questions":  [
+   {
+      "name" : "numbers/q00109", "random": "1", "period": "jesen", 
+      "subtheme": "brojevna prava", "difficulty": "1"
+    },
+  {
+      "name" : "numbers/q00110", "random": "1", "period": "jesen", 
+      "subtheme": "brojevna prava", "difficulty": "1"
+    },
+  {
+      "name" : "numbers/q00111", "random": "1", "period": "jesen", 
+      "subtheme": "poredjenje brojeva", "difficulty": "1"
+    },
+  {
+      "name" : "numbers/q00112", "random": "1", "period": "jesen", 
+      "subtheme": "poredjenje brojeva", "difficulty": "1"
+    },
+  {
+      "name" : "numbers/q00113", "random": "1", "period": "jesen", 
+      "subtheme": "zapis brojeva", "difficulty": "1"
+    },
+  {
+      "name" : "numbers/q00114", "random": "1", "period": "jesen", 
+      "subtheme": "zapis brojeva", "difficulty": "1"
+    },
+  {
+      "name" : "numbers/q00115", "random": "1", "period": "jesen", 
+      "subtheme": "zapis brojeva", "difficulty": "1"
+    }	
+  ]
+ }
+ 
