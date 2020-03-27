@@ -29,6 +29,30 @@
   {
       "name" : "numbers/q00115", "random": "1", "period": "jesen", 
       "subtheme": "zapis brojeva", "difficulty": "1"
+    },
+  {
+      "name" : "numbers/q00116", "random": "1", "period": "jesen", 
+      "subtheme": "zapis brojeva", "difficulty": "1"
+    },
+  {
+      "name" : "numbers/q00117", "random": "1", "period": "jesen", 
+      "subtheme": "zapis brojeva", "difficulty": "1"
+    },
+  {
+      "name" : "numbers/q00118", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "1"
+    },
+  {
+      "name" : "numbers/q00119", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "1"
+    },
+  {
+      "name" : "numbers/q00120", "random": "1", "period": "jesen", 
+      "subtheme": "operacije", "difficulty": "1"
+    },
+   {
+      "name" : "numbers/q00061", "random": "1", "period": "jesen", 
+      "subtheme": "problem", "difficulty": "2"
     }	
   ]
  }

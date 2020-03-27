@@ -89,10 +89,6 @@
     {
       "name" : "fractions/q00060", "random": "1", "period": "jesen", 
       "subtheme": "problem", "difficulty": "2"
-    },
-   {
-      "name" : "numbers/q00061", "random": "1", "period": "jesen", 
-      "subtheme": "problem", "difficulty": "2"
     }	
   ]
  }
