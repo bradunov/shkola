@@ -266,7 +266,7 @@ class page(object):
                 for i in range(1,4):
                     username = "Korisnik{}".format(i)
                     link = "main?op=login_test&" + "login_return=" + \
-                                login_return + "&user_id=local:{}".format(username) 
+                                login_return + "&user_id={}".format(username) 
                     str_indent = "<div class='space'></div>"
                     login_str = login_str + "<a href='" + link + "' class='w3-bar-item w3-button'> " + str_indent + username + "</a>\n"
             else:
