@@ -1,0 +1,79 @@
+{ "name" : "Cetvrti razred brojevi",
+  "level": "Cetvrti", 
+  "theme" : "Geometrija", 
+  "questions":  [
+    {
+      "name" : "geometry/q00020", "random": "0", "period": "zima", 
+      "subtheme": "povrsina", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00021", "random": "0", "period": "zima", 
+      "subtheme": "povrsina", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00022", "random": "0", "period": "zima", 
+      "subtheme": "povrsina", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00023", "random": "1", "period": "zima", 
+      "subtheme": "mere za povrsinu", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00024", "random": "1", "period": "zima", 
+      "subtheme": "mere za povrsinu", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00025", "random": "1", "period": "zima", 
+      "subtheme": "mere za povrsinu", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00026", "random": "1", "period": "zima", 
+      "subtheme": "mere za povrsinu", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00027", "random": "1", "period": "zima", 
+      "subtheme": "mere za povrsinu", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00028", "random": "1", "period": "zima", 
+      "subtheme": "mere za povrsinu", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00029", "random": "1", "period": "zima", 
+      "subtheme": "mere za povrsinu", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00030", "random": "1", "period": "zima", 
+      "subtheme": "mere za povrsinu", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00031", "random": "1", "period": "zima", 
+      "subtheme": "mere za povrsinu", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00032", "random": "1", "period": "zima", 
+      "subtheme": "povrsina", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00033", "random": "1", "period": "zima", 
+      "subtheme": "povrsina", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00034", "random": "1", "period": "zima", 
+      "subtheme": "povrsina", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00035", "random": "1", "period": "zima", 
+      "subtheme": "povrsina", "difficulty": "2"
+    },
+    {
+      "name" : "geometry/q00036", "random": "1", "period": "zima", 
+      "subtheme": "povrsina", "difficulty": "2"
+    },
+    {
+      "name" : "geometry/q00037", "random": "1", "period": "zima", 
+      "subtheme": "povrsina", "difficulty": "3"
+    }	
+  ]
+ }
+ 

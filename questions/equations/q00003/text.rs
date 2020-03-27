@@ -1,4 +1,4 @@
-Koji broj je rešenje jednačine. 
+Koji broj je rešenje jednačine? 
 Oboj kružić pored tačnog odgovora. 
 
 @vspacept(15)@
