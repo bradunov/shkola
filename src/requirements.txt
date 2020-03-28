@@ -2,5 +2,5 @@ azure-functions
 lupa
 numpy
 google-auth-httplib2
-azure-storage
+azure-cosmosdb-table
 azure-storage-blob
