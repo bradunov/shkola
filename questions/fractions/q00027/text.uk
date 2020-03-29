@@ -1,0 +1,15 @@
+A package has @total@ marbles. \(\frac{1}{@blue@}\) of them are blue \
+and \(\frac{1}{@yellow@}\) are yellow.
+
+If there are any marbles of another color, then they are red. 
+
+@vspace@
+
+@vspace@
+
+How many red marbles are there?   @lib.check_number(red)@
+
+                  
+
+                  
+                  

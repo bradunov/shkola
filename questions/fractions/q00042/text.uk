@@ -1,9 +1,9 @@
-Fractions
+Order the fractions
 
 @center@ 
 \(\frac{@array_enum[1]@}{@array_denom[1]@}\),@hspace@ \(\frac{@array_enum[2]@}{@array_denom[2]@}\),@hspace@ \(\frac{@array_enum[3]@}{@array_denom[3]@}\),@hspace@ \(\frac{@array_enum[4]@}{@array_denom[4]@}\)
 
-order from the largest to the smallest:
+from the largest to the smallest:
 
 @center@ 
 @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[4]])..");", false)@ \(\geq\) \

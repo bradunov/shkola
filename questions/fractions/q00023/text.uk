@@ -1,0 +1,18 @@
+
+@ime1@ has @420@ pounds and @ime2@ has @20@ pounds less than him. @ime1@ spent \(\frac{1}{7}\) and @ime2@ spent \(\frac{1}{8}\) of his money. 
+
+@vspace@
+
+a) Who spent more money and by how much? 
+
+@lib.check_string(ime1)@ spent @lib.check_number(10)@ pounds more than @lib.check_string(padezg2)@ .
+
+@vspace@
+
+b) How much money do @padezd1@ and @padezd2@ have left?
+         
+@padezd1@ has @lib.check_number(360)@ pounds and @padezd2@ has @lib.check_number(350)@ pounds left. 
+                  
+                  
+
+

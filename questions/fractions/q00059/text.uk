@@ -1,0 +1,5 @@
+@ime@ read @deo[ind - 1]@ of a book. She has @number@ more pages to read. 
+
+How many pages does the book have? @hspace@ @lib.check_number(rezult)@
+
+                 

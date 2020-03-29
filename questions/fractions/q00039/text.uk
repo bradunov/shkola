@@ -1,4 +1,5 @@
-@ime1@ travelled \(\frac{@brojilac1@}{@imenilac1@}\)h @put1@km by car and @ime2@ took \(\frac{@brojilac2@}{@imenilac2@}\)h to drive @put2@km. 
+It took @ime1@ \(\frac{@brojilac1@}{@imenilac1@}\) of an hour to travel @put1@km by car and \
+it took @ime2@ \(\frac{@brojilac2@}{@imenilac2@}\) of an hour to drive @put2@km. 
 
 Who drove faster, and by how much?
 

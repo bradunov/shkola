@@ -1,4 +1,4 @@
-dev = {"trećine", "četvrtine", "petine", "šestine", "sedmine", "osmine"} compare = {"veći", "manji"}
+include("operation")
 
 indev = math.random(6)
 part = dev[indev]

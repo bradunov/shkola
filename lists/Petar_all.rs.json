@@ -18,15 +18,15 @@
       "name" : "fractions/q00065", "random": "1", "period": "zima", 
       "subtheme": "sabiranje razlomaka", "difficulty": "1"
     },
-	{
+  	{
       "name" : "fractions/q00066", "random": "1", "period": "zima", 
       "subtheme": "sabiranje razlomaka", "difficulty": "1"
     },
-	{
+	  {
       "name" : "fractions/q00067", "random": "1", "period": "zima", 
       "subtheme": "sabiranje razlomaka", "difficulty": "1"
     },
-	{
+	  {
       "name" : "fractions/q00068", "random": "1", "period": "zima", 
       "subtheme": "sabiranje razlomaka", "difficulty": "1"
     },	
@@ -97,10 +97,6 @@
     {
       "name" : "fractions/q00040", "random": "1", "period": "leto", 
       "subtheme": "Razlomci", "difficulty": "2"
-    },
-    {
-      "name" : "fractions/q00045", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "1"
     },
     {
       "name" : "fractions/q00046", "random": "1", "period": "leto", 

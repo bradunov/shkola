@@ -1,10 +1,11 @@
-@name@ went to the granny and travelled \(\frac{1}{@deo@}\) of the road. \
-@600@ meters remains. 
+@ime@ runs on a @put@ km long track. He has already run \(\frac{1}{@deo@}\) of the track. 
+
+How long will it take him to finish the track if he runs @500@ meters in @3@ minutes ?
 
 @vspace@
 
-@name@ walked @hspace@ @lib.check_number(put1)@ @hspace@ meters.
+He needs @lib.check_number(vreme)@ more minutes.  
 
-@name@'s house is @hspace@ @lib.check_number(put)@ @hspace@ meters from granny's house, \
-which is @hspace@ @lib.check_fraction_condition(condition, true)@ @hspace@ km.
+                  
+
 
