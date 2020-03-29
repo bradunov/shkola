@@ -1,31 +1,31 @@
-{ "name" : "Cetvrti razred razlomci",
-  "level": "Cetvrti", 
-  "theme" : "Razlomci", 
-  "language" : "rs",
+{ "name" : "Y5 fractions",
+  "level": "Y5", 
+  "theme" : "Fractions", 
+  "language" : "uk",
   "questions":  [
     {
       "name" : "fractions/q00031", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "1"
+      "subtheme": "Fractions", "difficulty": "1"
     },
     {
       "name" : "fractions/q00037", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "2"
+      "subtheme": "Fractions", "difficulty": "2"
     },
     {
       "name" : "fractions/q00039", "random": "0", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "3"
+      "subtheme": "Fractions", "difficulty": "3"
     },
     {
       "name" : "fractions/q00041", "random": "0", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "1"
+      "subtheme": "Fractions", "difficulty": "1"
     },
     {
       "name" : "fractions/q00042", "random": "0", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "1"
+      "subtheme": "Fractions", "difficulty": "1"
     },
     {
       "name" : "fractions/q00050", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "1"
+      "subtheme": "Fractions", "difficulty": "1"
     }
   ]
  }

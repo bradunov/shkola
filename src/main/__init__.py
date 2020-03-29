@@ -79,7 +79,7 @@ def parse_req(req):
         params["login_return"] = req.params.get('login_return')
 
     if not params["language"]:
-        params["language"] = "rs"
+        params["language"] = "uk"
 
     if not params["init_code"]:
         params["init_code"] = ""

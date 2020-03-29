@@ -1,5 +1,6 @@
 { "name" : "all_geometry", 
- "questions":  [
+  "language" : "rs",
+  "questions":  [
     {"name" : "geometry/q00001"},
     {"name" : "geometry/q00002"},
     {"name" : "geometry/q00003"},

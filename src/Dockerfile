@@ -12,3 +12,4 @@ RUN pip install -r /requirements.txt
 COPY src /home/site/wwwroot
 COPY questions /home/site/wwwroot/questions
 COPY lists /home/site/wwwroot/lists
+COPY messages /home/site/wwwroot/messages

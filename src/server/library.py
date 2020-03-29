@@ -938,7 +938,7 @@ class library(object):
             # Only send results to server if next_url specified (i.e. we are in the test mode)
             OKline = OKline + "sendResultsToServer(report, \"SUBMIT\");"
             OKline = OKline + "if (cond) {window.location.replace(\"" + url_next + "\")}"
-        OKline = OKline + "' value='Proveri' />\n"
+        OKline = OKline + "' value='{}' />\n".format(self.page.get_messages()["check"])
         self.page.add_lines(OKline)
 
         if url_next is not None:
@@ -948,7 +948,7 @@ class library(object):
             NEXTline = NEXTline + "console.log(report);"
             NEXTline = NEXTline + "sendResultsToServer(report, \"SKIP\");"
             NEXTline = NEXTline + "window.location.replace(\"" + url_next + "\");"
-            NEXTline = NEXTline + "' value='Preskoci' />\n"
+            NEXTline = NEXTline + "' value='{}' />\n".format(self.page.get_messages()["skip"])
             self.page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
             self.page.add_lines(NEXTline)
             
@@ -960,7 +960,7 @@ class library(object):
         line = "\n<input type='button' style='font-size: 14px;' onclick=\""
         for c in self.clears:
             line = line + c
-        line = line + "\" value='Obriši' />\n"
+        line = line + "\" value='{}' />\n".format(self.page.get_messages()["clear"])
         #logging.debug(line)
         self.page.add_lines("\n<!-- CLEAR BUTTON -->\n")
         self.page.add_lines(line)

@@ -1,6 +1,7 @@
 { "name" : "Drugi razred razlomci",
   "level": "Drugi", 
   "theme" : "Razlomci", 
+  "language" : "rs",
   "questions":  [
     {
       "name" : "fractions/q00002", "random": "1", "period": "leto", 

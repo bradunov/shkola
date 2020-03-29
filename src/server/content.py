@@ -9,8 +9,8 @@ class Content(object):
 
 
 
-    def render_content(self, level="Prvi"):
-      content = self.page.repository.content
+    def render_content(self, language, level="Prvi"):
+      content = self.page.repository.get_content(language)
 
       if level not in content.keys():
         logging.info("No level %s in content, rendering empty page", level)
@@ -32,8 +32,8 @@ class Content(object):
 
 
 
-    def render_menu_mobile(self, link, indent=0):
-      content = self.page.repository.content
+    def render_menu_mobile(self, language, link, indent=0):
+      content = self.page.repository.get_content(language)
 
       str_indent1 = ""
       for i in range(0, indent):

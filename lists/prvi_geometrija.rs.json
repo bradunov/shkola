@@ -1,6 +1,7 @@
 { "name" : "Prvi razred geometrija",
   "level": "Prvi", 
   "theme" : "Geometrija", 
+  "language" : "rs",
   "questions":  [
     {
       "name" : "geometry/q00001", "random": "1", "period": "Jesen", 

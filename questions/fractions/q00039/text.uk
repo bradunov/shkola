@@ -1,0 +1,6 @@
+@ime1@ travelled \(\frac{@brojilac1@}{@imenilac1@}\)h @put1@km by car and @ime2@ took \(\frac{@brojilac2@}{@imenilac2@}\)h to drive @put2@km. 
+
+Who drove faster, and by how much?
+
+@vspace@
+@lib.check_string(ime, 50)@ @hspace@ drove faster, @hspace@ by @lib.check_number(brzina)@ km/h.                

@@ -269,7 +269,7 @@ class Repository(object):
         
 
     # Create separate lists for each theme, subtheme, level, etc.
-    def create_content(self):
+    def create_content(self, language=None):
         self.content = {}
 
         for list_name, list_dict in self.lists.items():
@@ -278,16 +278,20 @@ class Repository(object):
                 continue
             if "level" not in list_dict.keys() or \
                 "theme" not in list_dict.keys() or \
-                "questions" not in list_dict.keys():
-                logging.debug("Skipping list %s in content - no level or theme or questions", list_name)
+                "questions" not in list_dict.keys() or \
+                "language" not in list_dict.keys():
+                logging.debug("Skipping list %s in content - no level or theme or questions or language", list_name)
                 continue
+            language = list_dict["language"]
             level = list_dict["level"]
             theme = list_dict["theme"]
             questions = list_dict["questions"]
+            if language not in self.content.keys():
+                self.content[language] = {}
             if level not in self.content.keys():
-                self.content[level] = {}
+                self.content[language][level] = {}
             if theme not in self.content.keys():
-                self.content[level][theme] = {"name" : list_name}
+                self.content[language][level][theme] = {"name" : list_name}
             
             for q in questions:
                 if "period" not in q.keys() or \
@@ -301,17 +305,17 @@ class Repository(object):
                     for st in q["subtheme"]:
                         label = "{}/{}/{}".format(st, q["period"], q["difficulty"])
 
-                        if label not in self.content[level][theme].keys():
-                            self.content[level][theme][label] = {"questions" : []}
+                        if label not in self.content[language][level][theme].keys():
+                            self.content[language][level][theme][label] = {"questions" : []}
 
-                        self.content[level][theme][label]["questions"].append(q)
+                        self.content[language][level][theme][label]["questions"].append(q)
                 else:
                     label = "{}/{}/{}".format(q["subtheme"], q["period"], q["difficulty"])
 
-                    if label not in self.content[level][theme].keys():
-                        self.content[level][theme][label] = {"questions" : []}
+                    if label not in self.content[language][level][theme].keys():
+                        self.content[language][level][theme][label] = {"questions" : []}
 
-                    self.content[level][theme][label]["questions"].append(q)
+                    self.content[language][level][theme][label]["questions"].append(q)
 
         
 
@@ -326,9 +330,7 @@ class Repository(object):
         #pprint(self.lists)
 
         self.create_content()
-        #print("BBB: ")
-        #pprint(self.content)
-        #logging.info(self.content)
+        logging.debug("BBB {}".format(self.content))
 
         
     def get_config(self):
@@ -404,15 +406,20 @@ class Repository(object):
                 return self.get_list_blob(l_id)
 
 
-    def get_all_lists_ids(self, l_path):
+    def get_all_lists_ids(self, l_path, language=None):
         if self.preload:
             l_ids = []
             l = self.find_key(self.lists, l_path)
             for k in l.keys():
-                l_ids.append(k)
+                if language is None or l[k]["language"] == language:
+                    l_ids.append(k)
             return l_ids
         else:
             if self.azure_blob is None:
                 return self.get_all_lists_disk()
             else:
                 return self.get_all_lists_blob()
+
+
+    def get_content(self, language):
+        return self.content[language]

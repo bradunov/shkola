@@ -1,7 +1,6 @@
 import os
 import json
 
-
 from server.question import question
 from server.qlist import qlist
 from server.storage import get_storage
@@ -29,6 +28,8 @@ class page(object):
     userdb = None
     mobile = False
 
+    messages = {}                   # GUI messages in different languages
+
     object_id = 0
     lines = []
     script_lines = []
@@ -53,6 +54,7 @@ class page(object):
         self.title = title
         self.userdb = UserDB()
         self.mobile = mobile
+        self.load_languages()
 
         
         
@@ -86,8 +88,8 @@ class page(object):
         l.sort()
         return l
 
-    def get_all_lists(self):
-        l = self.repository.get_all_lists_ids("")
+    def get_all_lists(self, language=None):
+        l = self.repository.get_all_lists_ids("", language)
         l.sort()
         return l
 
@@ -109,6 +111,33 @@ class page(object):
     def add_on_loaded_script_lines(self, code):
         self.on_loaded_script = self.on_loaded_script + code
         
+
+
+
+    def load_languages(self):
+        local_path = self.rel_path + "/messages/"
+        self.messages = dict()
+
+        for (dirpath, dirnames, filenames) in os.walk(local_path):
+            for f in filenames:
+                if f[len(f)-5:len(f)] == ".json":
+                    lang = json.load(open(dirpath + f, 'r'))
+                    if lang["key"] in self.messages.keys():
+                        logging.error("Language with key {} defined twice!".format(lang["key"]))
+                    self.messages[lang["key"].lower()] = lang
+
+    def get_language_list(self):
+        return self.messages.keys()
+
+    def get_messages(self, language=None):
+        if language is None:
+            language = self.language
+        if language in self.messages.keys():
+            return self.messages[language]
+        return self.messages["uk"]
+
+
+
 
     def header(self):
         head = "<!DOCTYPE html>"
@@ -261,10 +290,12 @@ class page(object):
                 </script>
                 """
         else:
+            test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh"]
+            test_users.sort()
+
             if mobile:
                 login_str = ""
-                for i in range(1,4):
-                    username = "Korisnik{}".format(i)
+                for username in test_users:
                     link = "main?op=login_test&" + "login_return=" + \
                                 login_return + "&user_id={}".format(username) 
                     str_indent = "<div class='space'></div>"
@@ -282,8 +313,7 @@ class page(object):
                 if self.user_id is None or not self.user_id:
                     login_str = login_str + "<option value='NONE' SELECTED></option>"
 
-                for i in range(1,4):
-                    sel_user = format("Korisnik{}").format(i)
+                for username in test_users:
                     selected = ""
                     if self.user_id is not None and self.user_id == "local:"+sel_user:
                         selected = "SELECTED"
@@ -518,6 +548,7 @@ class page(object):
     def render_menu_mobile(self):
         self.add_lines("\n\n<!-- MOBILE MENU START -->\n")
 
+
         self.add_lines("""
             <script>
             function myAccFunc(title) {
@@ -531,28 +562,37 @@ class page(object):
                 x.previousElementSibling.className.replace(" w3-green", "");
                 }
             }
-            function w3_open() {
-                document.getElementById("mySidebar").style.display = "block";
+            function shm_toggle() {
+                if (document.getElementById("shMenu").style.display == "none") {
+                    document.getElementById("shMenu").style.display = "block";
+                } else {
+                    document.getElementById("shMenu").style.display = "none";
+                }
             }
-            function w3_close() {
-                document.getElementById("mySidebar").style.display = "none";
+            function shl_toggle() {
+                if (document.getElementById("shLang").style.display == "none") {
+                    document.getElementById("shLang").style.display = "block";
+                } else {
+                    document.getElementById("shLang").style.display = "none";
+                }
             }
             </script>
             <div class="w3-dark-grey">
-            <button class="w3-button w3-dark-grey w3-large" onclick="w3_open()">☰</button>
+            <button class="w3-button w3-dark-grey w3-large" onclick="shm_toggle()">☰</button>
+            <span style='display:block;float:right;'>
+            <button class="w3-button w3-dark-grey w3-large" onclick="shl_toggle()">""" + self.get_messages()["language"] + """</button>
+            </span>
             </div>
-            <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-                <button onclick="w3_close()" class="w3-bar-item w3-large">Zatvori &times;</button>
-
+            <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="shMenu">
                 <button class="w3-button w3-block w3-left-align" onclick="myAccFunc('accLevel')">
-                    Zadaci <i class="fa fa-caret-down"></i>
+                    """ + self.get_messages()["questions"] + """ <i class="fa fa-caret-down"></i>
                 </button>
                 <div id='accLevel' class="w3-hide w3-white w3-card">
         """)
 
 
         content = Content(self, self.mobile)
-        content.render_menu_mobile("main?op={}&language={}&menu={}&user_id={}".format(
+        content.render_menu_mobile(self.language, "main?op={}&language={}&menu={}&user_id={}".format(
             self.page_name, self.language, "mobile", self.user_id ), 1)
 
 
@@ -561,7 +601,7 @@ class page(object):
                 </div>
 
                 <button class="w3-button w3-block w3-left-align" onclick="myAccFunc('accUser')">
-                    Korisnik <i class="fa fa-caret-down"></i>
+                    """ + self.get_messages()["user"] + """ <i class="fa fa-caret-down"></i>
                 </button>
                 <div id='accUser' class="w3-hide w3-white w3-card">
         """)
@@ -574,6 +614,33 @@ class page(object):
                 </div>
             </div>
         """)
+
+        if ("languages" in self.repository.get_config()):
+            
+            lang_select = """
+                        <div class="w3-sidebar w3-bar-block w3-border-left" style="width:200px;right:0;display:none"  id="shLang">
+                        """
+
+            #lang_select="<select id='sel_lang' name='sel_lang' onchange='window.location.replace("
+
+            #  <a href="http://127.0.0.1:8080/main?op=test&amp;language=rs&amp;menu=mobile&amp;user_id=&amp;l_id=treci_geometrija.rs" class="w3-bar-item w3-button">UK</a>
+
+            for lang in self.get_language_list():
+                lang_select = lang_select + "<a href='" + \
+                        create_url(page_name = self.page_name, \
+                                                lang = lang, \
+                                                user_id = self.user_id, \
+                                                menu = "mobile", \
+                                                js = False) + \
+                        "' class='w3-bar-item w3-button'>" + self.get_messages(lang)["name"] + "</a>"
+            
+            lang_select = lang_select + """
+                        </div>
+                        """
+            self.add_lines(lang_select)
+
+
+
 
         self.add_lines("\n<!-- MENU END -->\n\n")
 
@@ -672,6 +739,11 @@ class page(object):
     def parse_parameters(self, page_name, q_id=None, l_id=None, language=None, user_id=None):
         self.page_name = page_name
 
+        if language is not None:
+            self.language = language
+        else:
+            self.language = ""
+
         # If no question supplied, get the first one for the language
         if q_id is None or not q_id:
             if page_name == "test":
@@ -682,16 +754,10 @@ class page(object):
             self.q_id = q_id
 
         if l_id is None or not l_id:
-            self.l_id = self.get_all_lists()[0]
+            self.l_id = self.get_all_lists(language)[0]
         else:
             self.l_id = l_id
             
-        if language is not None:
-            self.language = language
-        else:
-            self.language = ""
-
-
         if user_id is not None:
             self.user_id = user_id
         else:
@@ -741,7 +807,7 @@ class page(object):
         elif op == "content":
             self.render_menu(menu)
             content = Content(self, self.mobile)
-            content.render_content()
+            content.render_content(self.language)
             return self.render()
 
         else:
