@@ -1,0 +1,7 @@
+Calculate: 
+
+@repeat(5)@
+@center@ \(\frac{@brojilac@}{@imenilac@}\) @hspace@ of @hspace@ @broj@ @hspace@ is @hspace@ @lib.check_number(rezultat)@
+@/repeat@
+
+                  

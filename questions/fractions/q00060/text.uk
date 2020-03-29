@@ -1,0 +1,9 @@
+
+@ime@ has @red@ red and @white@ white flowers. That is \(\frac{@1@}{@fract@}\) of all the flowers in her garden. 
+
+How many flowers does @ime@ have in her garden?
+
+@vspace@ 
+@center@ @lib.check_number(result)@
+
+

@@ -74,6 +74,10 @@
     {
       "name" : "geometry/q00037", "random": "1", "period": "zima", 
       "subtheme": "povrsina", "difficulty": "3"
+    },
+    {
+      "name" : "geometry/q00038", "random": "1", "period": "zima", 
+      "subtheme": "povrsina", "difficulty": "3"
     }	
   ]
  }

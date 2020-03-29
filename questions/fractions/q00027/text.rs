@@ -1,5 +1,5 @@
 U pakovanju ima @total@ klikera. Plavih ima \(\frac{1}{@blue@}\) \
-i žutih \(\frac{1}{@yelow@}\). 
+i žutih \(\frac{1}{@yellow@}\). 
 
 Ako ima klikera druge boje, oni su crveni.
   

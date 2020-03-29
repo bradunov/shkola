@@ -1,0 +1,15 @@
+                
+@ime@ brought @ukupno@ kg of apples to a market. \
+In the morning he sold  \(\frac{1}{@imenilac1@}\) of the apples, \
+and in the afternoon  \(\frac{1}{@imenilac2@}\) what remained. 
+
+@vspace@
+
+How many kilograms of apples did @ime@ have left at the end of the day ? @lib.check_number(ostalo)@   
+                 
+
+
+
+
+
+                 

@@ -1,4 +1,4 @@
-Fill in: 
+Fill in the gaps: 
 
 @repeat(5)@
 @center@ @rezultat@ @hspace@ is @hspace@\(\frac{@brojilac@}{@imenilac@}\) @hspace@ then @hspace@ @lib.check_number(broj)@   

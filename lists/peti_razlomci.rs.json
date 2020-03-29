@@ -64,9 +64,33 @@
       "subtheme": "Razlomci", "difficulty": "3"
     }, 
     {
-      "name" : "fractions/q00055", "random": "1", "period": "Jesen", 
-      "subtheme": "Razlomci", "difficulty": "3"
-    }
+      "name" : "fractions/q00062", "random": "1", "period": "zima", 
+      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+    },
+	{
+      "name" : "fractions/q00063", "random": "1", "period": "zima", 
+      "subtheme": "oduzimanje razlomaka", "difficulty": "1"
+    },
+	{
+      "name" : "fractions/q00064", "random": "1", "period": "zima", 
+      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+    },
+	{
+      "name" : "fractions/q00065", "random": "1", "period": "zima", 
+      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+    },
+	{
+      "name" : "fractions/q00066", "random": "1", "period": "zima", 
+      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+    },
+	{
+      "name" : "fractions/q00067", "random": "1", "period": "zima", 
+      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+    },
+	{
+      "name" : "fractions/q00068", "random": "1", "period": "zima", 
+      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+    }	
   ]
  }
  

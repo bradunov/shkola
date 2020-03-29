@@ -1,0 +1,13 @@
+Calculate by how much is:
+
+@repeat(4)@
+
+@vspace@
+ \(\frac{1}{@fact1@}\) of the number @numb2@ less than the number @numb1@.  @hspacept(5)@ @lib.check_number(result)@
+
+@/repeat@
+  
+                  
+                  
+          
+            

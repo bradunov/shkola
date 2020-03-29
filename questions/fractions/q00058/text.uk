@@ -1,0 +1,8 @@
+Calculate how many times is:
+@repeat(4)@
+
+@vspace@
+the number @numb1@ @sign@ then a @part@ of the number @numb2@.  @hspacept(5)@ @lib.check_number(result)@
+
+@/repeat@
+  

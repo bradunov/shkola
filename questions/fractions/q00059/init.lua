@@ -1,9 +1,8 @@
 include("names")
+include("operation")
 
 r = math.random(#zensko_ime_nom);
 ime = zensko_ime_nom[r];
-
-deo = {"polovinu", "trećinu", "četvrtinu", "petinu", "šestinu", "sedminu", "osminu"}
 
 ind = 1 + math.random(7) 
 
