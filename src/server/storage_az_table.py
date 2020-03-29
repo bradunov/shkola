@@ -1,4 +1,4 @@
-from azure.storage.table import TableService
+from azure.cosmosdb.table.tableservice import TableService
 import os
 import datetime
 import time
