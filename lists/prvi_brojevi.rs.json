@@ -83,31 +83,31 @@
       "subtheme": "Operacije", "difficulty": "2"
     },
     {
-      "name" : "numbers/q000027", "random": "1", "period": "Zima", 
+      "name" : "numbers/q00027", "random": "1", "period": "Zima", 
       "subtheme": "Operacije", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000028", "random": "1", "period": "Proleće", 
+      "name" : "numbers/q00028", "random": "1", "period": "Proleće", 
       "subtheme": "Operacije", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000029", "random": "1", "period": "Leto", 
+      "name" : "numbers/q00029", "random": "1", "period": "Leto", 
       "subtheme": "Operacije", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000030", "random": "1", "period": "Zima", 
+      "name" : "numbers/q00030", "random": "1", "period": "Zima", 
       "subtheme": "Operacije", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000031", "random": "1", "period": "Proleće", 
+      "name" : "numbers/q00031", "random": "1", "period": "Proleće", 
       "subtheme": "Operacije", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000032", "random": "1", "period": "Leto", 
+      "name" : "numbers/q00032", "random": "1", "period": "Leto", 
       "subtheme": "Operacije", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000046", "random": "1", "period": "Leto", 
+      "name" : "numbers/q00046", "random": "1", "period": "Leto", 
       "subtheme": "Operacije", "difficulty": "1"
     },
     {
@@ -117,7 +117,7 @@
     {
       "name" : "numbers/q00122", "random": "1", "period": "zima", 
       "subtheme": "brojevi", "difficulty": "1"
-    },	
+    }
   ]
  }
  
