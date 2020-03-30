@@ -46,13 +46,32 @@ preload = True
 def parse_req(req): 
 
     if False:
+        #logging.debug("REQ1: {}".format(req.__dict__))
+        #logging.debug("REQ2: {}".format(vars(req)))
         logging.debug("METHOD: " + str(req.method))
         logging.debug("URL: " + str(req.url))
         logging.debug("HEADERS: " + str(dict(req.headers)))
         logging.debug("PARAMS: " + str(dict(req.params)))
         logging.debug("ROUTE PARAMS: " + str(dict(req.route_params)))
         logging.debug("GET BODY: " + str(req.get_body().decode()))
+        #logging.debug("REQ3: {}".format(req.__dict__["_HttpRequest__headers"].__dict__))
+ 
 
+    # Header example from Azure:
+    # HEADERS: {'x-client-port': '51166', 'sec-fetch-site': 'same-origin', 'disguised-host': 'testshkoladocker.azurewebsites.net', 
+    #           'x-forwarded-for': '82.69.90.27:51166', 'x-appservice-proto': 'https', 'sec-fetch-dest': 'document', 
+    #           'referer': 'https://testshkoladocker.azurewebsites.net/main', 'sec-fetch-mode': 'navigate', 
+    #           'accept-language': 'en-US, en; q=0.9, hr; q=0.8, bs; q=0.7, sr; q=0.6, sl; q=0.5', 
+    #           'host': 'testshkoladocker.azurewebsites.net', 'upgrade-insecure-requests': '1', 
+    #           'x-arr-ssl': '2048|256|C=US, S=Washington, L=Redmond, O=Microsoft Corporation, OU=Microsoft IT, CN=Microsoft IT TLS CA 5|CN=*.azurewebsites.net', 
+    #           'was-default-hostname': 'testshkoladocker.azurewebsites.net', 
+    #           'x-waws-unencoded-url': '/main?op=login_test&login_return=gASVaQAAAAAAAAB9lCiMCXBhZ2VfbmFtZZSMBHRlc3SUjARxX2lklIwAlIwEbF9pZJSMD3k1X2ZyYWN0aW9ucy51a5SMBGxhbmeUjAJ1a5SMB3VzZXJfaWSUaASMBG1lbnWUjAZtb2JpbGWUjAJqc5SJdS4%3D&user_id=Zomebody', 
+    #           'x-original-url': '/main?op=login_test&login_return=gASVaQAAAAAAAAB9lCiMCXBhZ2VfbmFtZZSMBHRlc3SUjARxX2lklIwAlIwEbF9pZJSMD3k1X2ZyYWN0aW9ucy51a5SMBGxhbmeUjAJ1a5SMB3VzZXJfaWSUaASMBG1lbnWUjAZtb2JpbGWUjAJqc5SJdS4%3D&user_id=Zomebody', 
+    #           'request-id': '|9fe76d08-44458cf4688911f9.1.', 
+    #           'accept': 'text/html, application/xhtml+xml, application/xml; q=0.9, image/webp, image/apng, */*; q=0.8, application/signed-exchange; v=b3; q=0.9', 
+    #           'x-site-deployment-id': 'testshkoladocker', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36', 
+    #           'x-client-ip': '82.69.90.27', 'content-length': '0', 'connection': 'close', 'accept-encoding': 'gzip, deflate, br', 'client-ip': '82.69.90.27:51166', 'sec-fetch-user': '?1', 
+    #           'x-arr-log-id': 'd69d498a-19fe-4673-9809-d2aa180c87c5', 'x-forwarded-proto': 'https', 'max-forwards': '10'}
 
     params = {}
     if req.method == "POST":
@@ -90,7 +109,14 @@ def parse_req(req):
 
     headers = dict(req.headers)
     params["user_agent"] = headers["user-agent"]
-    params["accept-language"] = headers["accept-language"]
+    params["user_language"] = headers["accept-language"]
+
+    if "x-client-ip" in headers.keys():
+        # NB: This exists only on Azure, not on a local deployment
+        params["remote_ip"] = headers["x-client-ip"]
+    else:
+        params["remote_ip"] = "0.0.0.0"
+
 
     if is_user_on_mobile(params["user_agent"]):
         params["mobile"] = True
@@ -109,16 +135,18 @@ def exec_req(name, params, req):
                  "user_agent={}, language={}, user_id={}.".
                  format(name, params["op"], params["q_id"], params["l_id"], params["language"], 
                  params["menu"], params["init_code"], params["iter_code"], params["text"],
-                 params["user_agent"], params["accept-language"], 
+                 params["user_agent"], params["user_language"], 
                  params["user_id"]))
 
     if params["op"] == "login_test":
-        return func.HttpResponse(PAGE.login_test(params["user_id"], params["login_return"]),
+        return func.HttpResponse(
+            PAGE.login_test(params["user_id"], params["login_return"], params["remote_ip"], params["user_agent"], params["user_language"]),
             mimetype="text/html")
 
     return func.HttpResponse(
         PAGE.main(params["op"], params["q_id"], params["l_id"], params["language"], 
-        params["menu"], params["user_id"], params["init_code"], params["iter_code"], params["text"]), 
+        params["menu"], params["user_id"], params["init_code"], params["iter_code"], params["text"],
+        params["user_agent"], params["user_language"]), 
         mimetype="text/html")
 
 

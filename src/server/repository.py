@@ -330,7 +330,7 @@ class Repository(object):
         #pprint(self.lists)
 
         self.create_content()
-        logging.debug("BBB {}".format(self.content))
+        #logging.debug("BBB {}".format(self.content))
 
         
     def get_config(self):
@@ -411,7 +411,7 @@ class Repository(object):
             l_ids = []
             l = self.find_key(self.lists, l_path)
             for k in l.keys():
-                if language is None or l[k]["language"] == language:
+                if language is None or ("language" in l[k].keys() and l[k]["language"] == language):
                     l_ids.append(k)
             return l_ids
         else:

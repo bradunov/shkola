@@ -48,13 +48,14 @@ class storage_az_table():
         
 
     def update_user(self, user_id, name=None, email=None,
-                    remote_ip=None, user_agent=None, last_accessed=None):
+                    remote_ip=None, user_agent=None, user_language=None, last_accessed=None):
         properties = dict()
             
         # Nothing better at the moment:
         properties['PartitionKey'] = self.default_partition_key
         properties['RowKey'] = user_id
         properties['user_id'] = user_id
+        properties['user_language'] = user_language
         
         if name is not None:
             properties["name"] = name
@@ -64,6 +65,8 @@ class storage_az_table():
             properties["remote_ip"] = remote_ip
         if user_agent is not None:
             properties["user_agent"] = user_agent
+        if user_language is not None:
+            properties["user_language"] = user_language
         if last_accessed is not None:
             properties["last_accessed"] = last_accessed
 
@@ -165,7 +168,7 @@ class storage_az_table():
 
     def print_all_users(self):
         entries = self.table_service.query_entities(self.users_table_name, "")
-        print("           USER ID                    NAME                      EMAIL                 LAST ACCESSED          REMOTE IP                      USER AGENT          ")
+        print("           USER ID                    NAME                      EMAIL                 LAST ACCESSED          REMOTE IP                      USER AGENT             USER LANGUAGE")
         for row in entries:
             print("{:^30} {:^20} {:^30} {:^20} {:^20} {:^40}".format(
                 row['user_id'],
@@ -173,7 +176,8 @@ class storage_az_table():
                 row['email'],
                 time.strftime("%d-%m-%y %H:%M:%S", time.localtime(row['last_accessed'])),
                 row['remote_ip'],
-                row['user_agent']))
+                row['user_agent'],
+                row['user_language']))
         
         print("\n")
         
@@ -206,8 +210,8 @@ if __name__ == '__main__':
 
         user0 = storage.insert_user_id("test0")
         user1 = storage.insert_user_id("test1")
-        storage.update_user(user0, name="User0", email="Email0", remote_ip="100.200.300.400", user_agent="agent0", last_accessed=epoch_ms)
-        storage.update_user(user1, name="User1", email="Email1", remote_ip="200.300.400.500", user_agent="agent1", last_accessed=epoch_ms)
+        storage.update_user(user0, name="User0", email="Email0", remote_ip="100.200.300.400", user_agent="agent0", user_language="", last_accessed=epoch_ms)
+        storage.update_user(user1, name="User1", email="Email1", remote_ip="200.300.400.500", user_agent="agent1", user_language="", last_accessed=epoch_ms)
     
         response = {"user_id" : user0, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
         storage.record_response(response)

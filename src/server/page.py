@@ -24,6 +24,9 @@ class page(object):
     question = None
     page_name = ""
     user_id = ""
+    user_agent = None
+    user_language = None
+
     storage = None
     userdb = None
     mobile = False
@@ -290,7 +293,7 @@ class page(object):
                 </script>
                 """
         else:
-            test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh"]
+            test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Zomebody"]
             test_users.sort()
 
             if mobile:
@@ -548,6 +551,16 @@ class page(object):
     def render_menu_mobile(self):
         self.add_lines("\n\n<!-- MOBILE MENU START -->\n")
 
+        # Temporary, for debugging:
+        debug_str = ""
+        if self.user_id is not None and self.user_id:
+            if len(self.user_id) >= len("local:") and self.user_id[:len("local:")] == "local:":
+                debug_str = debug_str + "Hi {} ".format(self.user_id[len("local:"):])
+            else:
+                debug_str = debug_str + "Hi {} ".format(self.user_id)
+        if self.q_id is not None and self.q_id:
+            debug_str = debug_str + "(Q: {})".format(self.q_id)
+
 
         self.add_lines("""
             <script>
@@ -579,6 +592,7 @@ class page(object):
             </script>
             <div class="w3-dark-grey">
             <button class="w3-button w3-dark-grey w3-large" onclick="shm_toggle()">☰</button>
+            """ + debug_str + """
             <span style='display:block;float:right;'>
             <button class="w3-button w3-dark-grey w3-large" onclick="shl_toggle()">""" + self.get_messages()["language"] + """</button>
             </span>
@@ -736,7 +750,9 @@ class page(object):
 
 
 
-    def parse_parameters(self, page_name, q_id=None, l_id=None, language=None, user_id=None):
+    def parse_parameters(self, page_name, q_id=None, l_id=None, 
+            language=None, user_id=None, user_agent=None, user_language=None):
+
         self.page_name = page_name
 
         if language is not None:
@@ -762,12 +778,15 @@ class page(object):
             self.user_id = user_id
         else:
             self.user_id = ""
-            
-             
+
+        self.user_agent = user_agent
+        self.user_language = user_language
+
 
         
     def main(self, op="view", q_id=None, l_id=None, language="rs", menu="full",
-             user_id=None, init_code="", iter_code="", text=""):
+             user_id=None, init_code="", iter_code="", text="", 
+             user_agent="", user_language=""):
 
         self.clear()
         self.parse_parameters(op, q_id, l_id, language, user_id)
@@ -821,7 +840,15 @@ class page(object):
         incorrect = 0
         questions = ""
         
-        if "q_id" in args.keys() and "user_id" in args.keys() and "now" in args.keys() and args["user_id"][0]:
+        user_id = None
+
+        if "user_id" in args.keys() and args["user_id"][0]:
+            user_id = args["user_id"][0]
+        else:
+            # DEBUG: we log everything for stats, as unknown
+            user_id = "UNKNOWN"
+
+        if "q_id" in args.keys() and "now" in args.keys() and user_id is not None:
             if "l_id" not in args.keys() or not args["l_id"][0] or args["l_id"][0] is None:
                 l_id = ""
             else:
@@ -837,7 +864,7 @@ class page(object):
                     else:
                         incorrect = incorrect + 1
                         
-            response = {"user_id" : args["user_id"][0],
+            response = {"user_id" : user_id,
                         "question_id": args["q_id"][0],
                         "list_id": l_id,
                         "response_type": args["response_type"][0],
@@ -847,14 +874,17 @@ class page(object):
                         "incorrect": incorrect,
                         "questions": questions}
 
-            logging.info("Register results: user_id=%s, q_id=%s, l_id=%s, response_type=%s, " +
+            logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, response_type=%s, " +
                         "start=%s, duration=%s, correct=%s, incorrect=%s, questions=\"%s\"", 
-                        str(args["user_id"][0]), str(args["q_id"][0]), 
+                        str(user_id), str(args["q_id"][0]), 
                         str(l_id), str(args["response_type"][0]), 
                         str(args["start"][0]), str(int(args["now"][0]) - int(args["start"][0])),
                         str(correct), str(incorrect), str(questions))
 
-            self.storage.record_response(response)
+            try:
+                self.storage.record_response(response)
+            except Exception as err:
+                logging.error("Error submitting record response: {}".format(str(err)))
 
         
 
@@ -867,13 +897,8 @@ class page(object):
 
 
 
-    def login_test(self, user_id=None, login_return=None):
+    def login_test(self, user_id=None, login_return=None, remote_ip="", user_agent="", user_language=""):
         login_return = decode_dict(login_return)
-
-        #remote_ip=headers["Remote-Addr"]
-        #user_agent=headers["User-Agent"]
-        remote_ip=""
-        user_agent=""
 
         if user_id is None:
             logging.debug("Login test user %s, %s, %s, %s", 'test', 'test', str(remote_ip), str(user_agent))
@@ -881,14 +906,16 @@ class page(object):
                                                name='test',
                                                email='test',
                                                remote_ip=remote_ip,
-                                               user_agent=user_agent)
+                                               user_agent=user_agent,
+                                               user_language=user_language)
         else:
             logging.debug("Login test user %s, %s, %s, %s", user_id, user_id, str(remote_ip), str(user_agent))
             self.userdb.session_login_and_update_user('local', user_id,
                                                name=user_id,
                                                email=user_id,
                                                remote_ip=remote_ip,
-                                               user_agent=user_agent)
+                                               user_agent=user_agent,
+                                               user_language=user_language)
 
         full_user_id = "local:" + user_id
         return self.main(login_return["page_name"], login_return["q_id"], login_return["l_id"], 

@@ -56,7 +56,7 @@ class storage_sql:
         
 
     def update_user(self, user_id, name=None, email=None,
-                    remote_ip=None, user_agent=None, last_accessed=None):
+                    remote_ip=None, user_agent=None, user_language=None, last_accessed=None):
         #logging.debug("*** SQL update_user")
 
         # Make sure user is there
@@ -246,8 +246,8 @@ if __name__ == '__main__':
 
         user0 = storage.insert_user_id("test0")
         user1 = storage.insert_user_id("test1")
-        storage.update_user(user0, name="User0", email="Email0", remote_ip="100.200.300.400", user_agent="agent0", last_accessed=epoch_ms)
-        storage.update_user(user1, name="User1", email="Email1", remote_ip="200.300.400.500", user_agent="agent1", last_accessed=epoch_ms)
+        storage.update_user(user0, name="User0", email="Email0", remote_ip="100.200.300.400", user_agent="agent0", user_language="", last_accessed=epoch_ms)
+        storage.update_user(user1, name="User1", email="Email1", remote_ip="200.300.400.500", user_agent="agent1", user_language="", last_accessed=epoch_ms)
     
         response = {"user_id" : user0, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
         storage.record_response(response)

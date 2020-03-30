@@ -16,7 +16,9 @@ class Content(object):
         logging.info("No level %s in content, rendering empty page", level)
         return
 
-      for theme_name, theme_dict in content[level].items():
+      for theme_name in sorted(content[level].keys()):
+        theme_dict = content[level][theme_name]
+
         self.page.add_lines("\n\n<!-- NEW THEME -->\n")
         self.page.add_lines("  <div style='display:inline-block;font-weight:bold;font-size:18px;padding-top:6px;padding-bottom:4px;'>\n")
         self.page.add_lines("    {}\n".format(theme_name))
@@ -40,7 +42,7 @@ class Content(object):
         str_indent1 = str_indent1 + "<div class='space'></div>"
       str_indent2 = str_indent1 + "<div class='space'></div>"
 
-      for level in content.keys():
+      for level in sorted(content.keys()):
         self.page.add_lines("""
           <button class="w3-button w3-block w3-left-align" onclick="myAccFunc('acc""" + level + """')">
             """ + str_indent1 + level + """ <i class="fa fa-caret-down"></i>
@@ -48,7 +50,7 @@ class Content(object):
           <div id='acc""" + level + """' class="w3-hide w3-white w3-card">
         """)
 
-        for theme in content[level].keys():
+        for theme in sorted(content[level].keys()):
           self.page.add_lines("""
             <a href='""" + link + "&l_id=" + content[level][theme]["name"] + """' class="w3-bar-item w3-button"> """ + str_indent2 + theme + """</a>
           """)

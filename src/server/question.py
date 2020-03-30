@@ -100,7 +100,7 @@ class question(object):
             return
 
         if "init.lua" in q.keys():
-            logging.debug("%s, %s", str(q.keys()), str(q))
+            #logging.debug("%s, %s", str(q.keys()), str(q))
             self.init_code = q["init.lua"]
 
         if "iter.lua" in q.keys():
