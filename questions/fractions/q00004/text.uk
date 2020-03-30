@@ -1,6 +1,6 @@
 Simplify the fractions:
 
 @repeat(5)@
-@center@ \(\frac{@brojilac@}{@imenilac@}\) @hspace@ je @hspace@ @lib.check_fraction_simple(jbrojilac, jimenilac)@
+@center@ \(\frac{@brojilac@}{@imenilac@}\) @hspace@ is @hspace@ @lib.check_fraction_simple(jbrojilac, jimenilac)@
 @/repeat@
               
