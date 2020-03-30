@@ -108,8 +108,15 @@ def parse_req(req):
         params["text"] = ""
 
     headers = dict(req.headers)
-    params["user_agent"] = headers["user-agent"]
-    params["user_language"] = headers["accept-language"]
+    if "user-agent" in headers.keys():
+        params["user_agent"] = headers["user-agent"]
+    else:
+        params["user_agent"] = ""
+
+    if "accept-language" in headers.keys():
+        params["user_language"] = headers["accept-language"]
+    else:
+        params["user_language"] = ""
 
     if "x-client-ip" in headers.keys():
         # NB: This exists only on Azure, not on a local deployment
