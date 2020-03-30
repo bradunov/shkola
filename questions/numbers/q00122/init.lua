@@ -65,16 +65,16 @@ mycanvas = function()
   ow = 30
 
   for i = 1,5 do
-    answ = tostring(vert[i])
+    answ = tostring(math.floor(vert[i]))
     lib.add_line(ow, ow+i*w, 4*w, 0, style, false, false)
-    lib.add_text(ow+20, ow+i*w+29,  answ, text_style)
+    lib.add_text(ow+20, ow+i*w+29,  answ, text_style, false, false)
   end
   lib.add_line(ow, ow+6*w, 4*w, 0, style, false, false)
 
   for i = 1,3 do
-    answ = tostring(horiz[i])
+    answ = tostring(math.floor(horiz[i]))
     lib.add_line(ow+i*w, ow, 0, 6*w, style, false, false)
-    lib.add_text(ow+i*w+20, ow+20, answ, text_style)
+    lib.add_text(ow+i*w+20, ow+20, answ, text_style, false, false)
   end
   lib.add_line(ow+4*w, ow, 0, 6*w, style, false, false)  
 
