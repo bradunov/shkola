@@ -1,2 +1,2 @@
-r = math.random(#names);
-name = names[r];
+r = math.random(#zensko_ime_nom);
+ime = zensko_ime_nom[r];
