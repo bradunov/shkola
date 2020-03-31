@@ -173,11 +173,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 
     params = parse_req(req) 
-
-    # For now always run test (as in kids testing knowledge)
-    # mode in production
-    if params["op"] != "login_test":
-        params["op"] = "test"
         
     #if params["mobile"]:
     #params["menu"] = "simple"

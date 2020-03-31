@@ -908,12 +908,14 @@ class library(object):
         cond = cond + "true;"
         report = "report = " + report + \
                  "\"start=\" + question_start_time.toString() + " + \
-                 "\"&now=\" + Math.floor(Date.now()/1000).toString();"
+                 "\"&now=\" + Math.floor(Date.now()/1000).toString() + " + \
+                 "\"&attempt=\" + attempt.toString();"
 
 
         ajax_results_script = """
         <script>
         question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
         function sendResultsToServer(str, type) {
           var xhr = new XMLHttpRequest();
           xhr.open('POST', '/""" + base_url(menu) + """?op=register');
@@ -924,6 +926,8 @@ class library(object):
           };
           xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
           xhr.send(str + '&response_type=' + type);
+          console.log("AAA: ", str);
+          attempt = attempt + 1;
         }
         function checkAll(){
         """ + assign + "\n" \

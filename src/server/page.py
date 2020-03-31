@@ -796,7 +796,6 @@ class page(object):
         self.parse_parameters(op, q_id, l_id, language, user_id)
 
         self.menu = menu
-        logging.info("CCCCCCCCCCCCCCCCCCCCCCCCC: {}".format(menu))
 
         if op == "view":
             q = question(self, user_id, self.rel_path)
@@ -846,7 +845,7 @@ class page(object):
         correct = 0
         incorrect = 0
         questions = ""
-        
+
         user_id = None
 
         if "user_id" in args.keys() and args["user_id"][0]:
@@ -875,6 +874,7 @@ class page(object):
                         "question_id": args["q_id"][0],
                         "list_id": l_id,
                         "response_type": args["response_type"][0],
+                        "attempt": args["attempt"][0],
                         "time": args["start"][0],
                         "duration": int(args["now"][0]) - int(args["start"][0]),
                         "correct": correct,
@@ -882,9 +882,9 @@ class page(object):
                         "questions": questions}
 
             logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, response_type=%s, " +
-                        "start=%s, duration=%s, correct=%s, incorrect=%s, questions=\"%s\"", 
+                        "attempt=%s, start=%s, duration=%s, correct=%s, incorrect=%s, questions=\"%s\"", 
                         str(user_id), str(args["q_id"][0]), 
-                        str(l_id), str(args["response_type"][0]), 
+                        str(l_id), str(args["response_type"][0]), str(args["attempt"][0]),
                         str(args["start"][0]), str(int(args["now"][0]) - int(args["start"][0])),
                         str(correct), str(incorrect), str(questions))
 
