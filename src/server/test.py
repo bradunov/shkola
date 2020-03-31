@@ -45,20 +45,15 @@ class Test(object):
         
         
     def render_next_questions(self):
-
-        if self.page.mobile:
-            menu = "simple"
-        else:
-            menu = "full"
-        
+       
         next_question = self.choose_next_question(self.page.q_id)
         next_question_url = create_url(page_name = "test", \
-                                                q_id = next_question["name"], \
-                                                l_id = self.page.l_id, \
-                                                lang = self.page.language, \
-                                                menu = menu, \
-                                                user_id = self.page.user_id, \
-                                                js = False)
+                                        q_id = next_question["name"], \
+                                        l_id = self.page.l_id, \
+                                        lang = self.page.language, \
+                                        menu = self.page.menu, \
+                                        user_id = self.page.user_id, \
+                                        js = False)
 
         
         q = question(self.page, self.page.user_id, self.rel_path, next_question_url)

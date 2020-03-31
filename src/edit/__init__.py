@@ -181,7 +181,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         
     #if params["mobile"]:
     #params["menu"] = "simple"
-    params["menu"] = "mobile"
+    params["menu"] = "full"
 
     return exec_req("MAIN", params, req)
 
@@ -192,13 +192,16 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 
 
+
 # Callback to register response
 def register(req: func.HttpRequest) -> func.HttpResponse:
-    global PAGE
-    if PAGE is None:
-        logging.info("Reloading page (%s, %s)", str(use_azure_blob), str(preload))
-        PAGE = page.page(use_azure_blob=use_azure_blob, preload=preload)
+    # This is the test mode, do nothing
 
-    PAGE.register(parse_qs(req.get_body().decode()))
+    # global PAGE
+    # if PAGE is None:
+    #     logging.info("Reloading page (%s, %s)", str(use_azure_blob), str(preload))
+    #     PAGE = page.page(use_azure_blob=use_azure_blob, preload=preload)
+
+    # PAGE.register(parse_qs(req.get_body().decode()))
 
     return "OK"

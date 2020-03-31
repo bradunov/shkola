@@ -27,12 +27,21 @@ def decode_dict(enc_dict):
 
 
 
+def base_url(menu=None):
+    logging.info("AAAAAAAAAAAAAAAAAAAAAAAAA: {}".format(menu))
+    if menu is not None and (menu == '"full"' or menu == 'full'):
+        return "edit"
+    else:
+        return "main"
+
+
 def create_url(self=None, page_name=None, q_id=None, l_id=None, lang=None, user_id=None, menu=None, js=False):
     first = True
 
+    logging.info("BBBBBBBBBBBBBBBBBBBBBBBBBBB: {}".format(menu))
     if js:
         glue = lambda first: " + \"" + ("?" if first else "&")
-        url = "\"main\""
+        url = "\"" + base_url(menu) + "\""
         if page_name is not None:
             url = url + glue(first) + "op=\" + " + page_name
             first = False
@@ -52,7 +61,7 @@ def create_url(self=None, page_name=None, q_id=None, l_id=None, lang=None, user_
             url = url + glue(first) + "user_id=\" + " + user_id
     else:
         glue = lambda first: "?" if first else "&" 
-        url = "main"
+        url = base_url(menu)
         if page_name is not None:
             url = url + glue(first) + "op=" + page_name
             first = False

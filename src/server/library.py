@@ -3,6 +3,8 @@ import numpy
 import random
 import lupa
 import logging
+from server.helpers import *
+
 
 class LibMath(object):
     lua = None
@@ -889,7 +891,7 @@ class library(object):
 
     ### Buttons at the bottom of the page
 
-    def add_check_button(self, q_id, l_id, user_id, url_next=None):
+    def add_check_button(self, q_id, l_id, user_id, url_next=None, menu=None):
         
         cid = 0
         cond = "cond = "
@@ -911,7 +913,7 @@ class library(object):
         question_start_time = Math.floor(Date.now()/1000);
         function sendResultsToServer(str, type) {
           var xhr = new XMLHttpRequest();
-          xhr.open('POST', '/main?op=register');
+          xhr.open('POST', '/""" + base_url(menu) + """?op=register');
           xhr.onreadystatechange = function() {
             console.log("Received");
             console.log(xhr);
@@ -967,9 +969,9 @@ class library(object):
         self.page.add_lines("\n<!-- END CLEAR BUTTON -->\n")
         self.clears = []
 
-    def add_buttons(self, q_id, l_id, user_id, url_next=None):
+    def add_buttons(self, q_id, l_id, user_id, url_next=None, menu=None):
         self.page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
-        self.add_check_button(q_id, l_id, user_id, url_next)
+        self.add_check_button(q_id, l_id, user_id, url_next, menu)
         self.page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         self.add_clear_button()
         self.page.add_lines("\n</div>\n")

@@ -33,6 +33,9 @@ class page(object):
 
     messages = {}                   # GUI messages in different languages
 
+    menu = None                     # Page design
+
+
     object_id = 0
     lines = []
     script_lines = []
@@ -142,7 +145,7 @@ class page(object):
 
 
 
-    def header(self):
+    def header(self, menu):
         head = "<!DOCTYPE html>"
         head = head + "<html>\n"
         head = head + "  <head>\n"
@@ -159,8 +162,6 @@ class page(object):
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
              <script src="item?url=src/js/raphaeljs-infobox.js"></script>
              <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
-             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
              <style type="text/css">
                 div.space {
@@ -170,6 +171,14 @@ class page(object):
                 }
             </style>
         """
+
+        if menu == "mobile":
+            head = head + """
+             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            """
+            
+
         if self.on_loaded_script:
             head = head + """
               <script type="text/javascript">
@@ -194,11 +203,11 @@ class page(object):
         return head
     
 
-    def footer(self):
+    def footer(self, menu):
         return "</body>\n</html>\n"
         
 
-    def scripts(self):
+    def scripts(self, menu):
         ret = """
         <script type = "text/javascript">
         function setError(id) {
@@ -219,15 +228,15 @@ class page(object):
             ret = ret + l + "\n"
         return ret
     
-    def render(self):
+    def render(self, menu):
         ret = ""
-        ret = ret + self.header()
-        ret = ret + self.scripts()
+        ret = ret + self.header(menu)
+        ret = ret + self.scripts(menu)
         for l in self.lines:
             #ret = ret + u''.join(l).encode('utf-8')
             ret = ret + str(l)
             
-        ret = ret + "\n" + self.footer()
+        ret = ret + "\n" + self.footer(menu)
         return ret
 
 
@@ -299,7 +308,7 @@ class page(object):
             if mobile:
                 login_str = ""
                 for username in test_users:
-                    link = "main?op=login_test&" + "login_return=" + \
+                    link = base_url(menu) + "?op=login_test&" + "login_return=" + \
                                 login_return + "&user_id={}".format(username) 
                     str_indent = "<div class='space'></div>"
                     login_str = login_str + "<a href='" + link + "' class='w3-bar-item w3-button'> " + str_indent + username + "</a>\n"
@@ -309,14 +318,14 @@ class page(object):
                 #             login_return + "&user_id=\" + this.value)'>n"
             
                 login_str = "<select id='sel_user_id' name='sel_user_id' " + \
-                            "onchange='window.location.replace(\"main?op=login_test&" + "login_return=" + \
+                            "onchange='window.location.replace(\"" + base_url(menu) + "?op=login_test&" + "login_return=" + \
                             login_return + "&user_id=\" + this.value)'>n"
 
 
                 if self.user_id is None or not self.user_id:
                     login_str = login_str + "<option value='NONE' SELECTED></option>"
 
-                for username in test_users:
+                for sel_user in test_users:
                     selected = ""
                     if self.user_id is not None and self.user_id == "local:"+sel_user:
                         selected = "SELECTED"
@@ -436,7 +445,7 @@ class page(object):
                                                             q_id = encap_str(self.q_id), \
                                                             l_id = encap_str(self.l_id), \
                                                             lang = encap_str(self.language), \
-                                                            user_id = self.user_id, \
+                                                            user_id = encap_str(self.user_id), \
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
 
@@ -486,7 +495,7 @@ class page(object):
                                 create_url(page_name = encap_str(self.page_name), \
                                                 l_id = "this.value", \
                                                 lang = "sel_lang.value", \
-                                                user_id = self.user_id, \
+                                                user_id = encap_str(self.user_id), \
                                                 menu = encap_str("simple"), \
                                                 js = True) + ")'>\n"
             ls = self.get_all_lists()
@@ -515,7 +524,7 @@ class page(object):
                 lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             q_id = "sel_q_id.value", \
                                                             lang = "this.value", \
-                                                            user_id = self.user_id, \
+                                                            user_id = encap_str(self.user_id), \
                                                             menu = encap_str("simple"), \
                                                             js = True) + ")'>\n"
             # View list
@@ -523,7 +532,7 @@ class page(object):
                 lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
-                                                            user_id = self.user_id, \
+                                                            user_id = encap_str(self.user_id), \
                                                             menu = encap_str("simple"), \
                                                             js = True) + ")'>\n"
             
@@ -606,7 +615,7 @@ class page(object):
 
 
         content = Content(self, self.mobile)
-        content.render_menu_mobile(self.language, "main?op={}&language={}&menu={}&user_id={}".format(
+        content.render_menu_mobile(self.language, base_url("mobile") + "?op={}&language={}&menu={}&user_id={}".format(
             self.page_name, self.language, "mobile", self.user_id ), 1)
 
 
@@ -634,11 +643,6 @@ class page(object):
             lang_select = """
                         <div class="w3-sidebar w3-bar-block w3-border-left" style="width:200px;right:0;display:none"  id="shLang">
                         """
-
-            #lang_select="<select id='sel_lang' name='sel_lang' onchange='window.location.replace("
-
-            #  <a href="http://127.0.0.1:8080/main?op=test&amp;language=rs&amp;menu=mobile&amp;user_id=&amp;l_id=treci_geometrija.rs" class="w3-bar-item w3-button">UK</a>
-
             for lang in self.get_language_list():
                 lang_select = lang_select + "<a href='" + \
                         create_url(page_name = self.page_name, \
@@ -689,7 +693,7 @@ class page(object):
         self.add_lines("""
         <div>
           <span style='float:left;display:inline;""" + style + """'>
-            <form method="post" action="main">
+            <form method="post" action='""" + base_url(menu) + """'>
               <input type="hidden" id="op" name="op" value="generate">
               <input type="hidden" id="q_id" name="q_id" value='""" + self.q_id + """'>
               <input type="hidden" id="language" name="language" value='""" + self.language + """'>
@@ -732,7 +736,7 @@ class page(object):
         </div>
         """)
         
-        return self.render()
+        return self.render(menu)
 
 
 
@@ -746,7 +750,7 @@ class page(object):
             self.add_lines("</div>")
             
         
-        return self.render()
+        return self.render(menu)
 
 
 
@@ -791,6 +795,9 @@ class page(object):
         self.clear()
         self.parse_parameters(op, q_id, l_id, language, user_id)
 
+        self.menu = menu
+        logging.info("CCCCCCCCCCCCCCCCCCCCCCCCC: {}".format(menu))
+
         if op == "view":
             q = question(self, user_id, self.rel_path)
             q.set_from_file_with_exception()
@@ -815,19 +822,19 @@ class page(object):
             self.render_menu(menu)
             ql = qlist(self, user_id, self.rel_path)
             ql.render_all_questions()
-            return self.render()
+            return self.render(menu)
 
         elif op == "test":
             self.render_menu(menu)
             test = Test(self, user_id, self.rel_path, self.mobile)
             test.render_next_questions()
-            return self.render()
+            return self.render(menu)
 
         elif op == "content":
             self.render_menu(menu)
             content = Content(self, self.mobile)
             content.render_content(self.language)
-            return self.render()
+            return self.render(menu)
 
         else:
             return "ERROR - operation {} not known".format(op)
