@@ -172,7 +172,10 @@ class library(object):
         else:
             extra_condition = None
         if "answer" not in str(condition):
-            str_condition = "is_ok = (" + v_answer + " == \'" + str(condition) + "\');"
+            if number:
+                str_condition = "is_ok = (" + v_answer + " == \'" + str(condition) + "\');"
+            else:
+                str_condition = "is_ok = (" + v_answer + ".toLowerCase() == \'" + str(condition) + "\'.toLowerCase());"
         else:
             str_condition = "is_ok = (" + condition.replace("answer", v_answer) + ");"
 

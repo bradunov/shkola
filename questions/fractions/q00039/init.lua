@@ -30,3 +30,8 @@ else
    brzina = brzina1 - brzina2;
    ime = ime1;
 end                 
+
+
+ime_low = string.lower(ime)	
+	
+reply = "answer == '" .. ime .. "' "  .. "|| answer == '" .. ime_low .. "'" ;
