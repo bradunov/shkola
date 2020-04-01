@@ -894,8 +894,7 @@ class library(object):
 
     ### Buttons at the bottom of the page
 
-    def add_check_button(self, q_id, l_id, user_id, url_next=None, menu=None):
-        
+    def add_check_button(self, q_id, l_id, user_id, url_next=None, menu=None):        
         cid = 0
         cond = "cond = "
         assign = ""

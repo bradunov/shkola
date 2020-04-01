@@ -42,8 +42,8 @@ class editor(object):
     
 
     @cherrypy.expose
-    def edit(self, q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
-        return self.page.main("edit", q_id, l_id, language, menu, user_id)
+    def edit(self, op="edit", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
+        return self.page.main(op, q_id, l_id, language, menu, user_id)
 
     
     
@@ -54,26 +54,26 @@ class editor(object):
 
 
     @cherrypy.expose
-    def view(self, q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
-        return self.page.main("view", q_id, l_id, language, menu, user_id)
+    def view(self, op="view", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
+        return self.page.main(op, q_id, l_id, language, menu, user_id)
 
 
     
     @cherrypy.expose
-    def list(self, q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
-        return self.page.main("list", q_id, l_id, language, menu, user_id)
+    def list(self, op="list", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
+        return self.page.main(op, q_id, l_id, language, menu, user_id)
 
 
     
     @cherrypy.expose
-    def test(self, q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
-        return self.page.main("test", q_id, l_id, language, menu, user_id)
+    def test(self, op="test", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
+        return self.page.main(op, q_id, l_id, language, menu, user_id)
 
 
 
     @cherrypy.expose
-    def content(self, q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
-        return self.page.main("content", q_id, l_id, language, menu, user_id)
+    def content(self, op="content", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
+        return self.page.main(op, q_id, l_id, language, menu, user_id)
 
 
 
@@ -82,30 +82,30 @@ class editor(object):
     @cherrypy.expose
     def index(self, q_id = None, language = "rs"):
         if is_user_on_mobile(self.get_user_agent()):
-            return self.view(q_id, None, language, menu = "simple")
+            return self.view("view", q_id, None, language, menu = "simple")
         else:
-            return self.view(q_id, None, language, menu = "full")
+            return self.view("view", q_id, None, language, menu = "full")
 
 
         
     @cherrypy.expose
     def mobile(self, q_id = None, language = "rs"):
-        return self.view(q_id, None, language, menu = "simple")
+        return self.view("view", q_id, None, language, menu = "simple")
 
 
     
     @cherrypy.expose
     def nonmobile(self, q_id = None, language = "rs"):
-        return self.view(q_id, None, language, menu = "full")
+        return self.view("view", q_id, None, language, menu = "full")
 
     
 
     @cherrypy.expose
     def testiranje(self, l_id = None, language = "rs"):
         if is_user_on_mobile(self.get_user_agent()):
-            return self.test(None, l_id, language, menu = "simple")
+            return self.test("test", None, l_id, language, menu = "simple")
         else:
-            return self.test(None, l_id, language, menu = "full")
+            return self.test("test", None, l_id, language, menu = "full")
 
 
     @cherrypy.expose

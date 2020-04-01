@@ -358,7 +358,7 @@ class page(object):
                                 create_url(page_name = encap_str(page_name), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
-                                                user_id = self.user_id, \
+                                                user_id = encap_str(self.user_id), \
                                                 menu = encap_str("full"), \
                                                 js = True) + ")'>\n"
             qs = self.get_all_questions(self.language)
@@ -377,7 +377,7 @@ class page(object):
                                 create_url(page_name = encap_str(self.page_name), \
                                                 l_id = "this.value", \
                                                 lang = "sel_lang.value", \
-                                                user_id = self.user_id, \
+                                                user_id = encap_str(self.user_id), \
                                                 menu = encap_str("full"), \
                                                 js = True) + ")'>\n"
             ls = self.get_all_lists()
@@ -418,7 +418,7 @@ class page(object):
                 lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             q_id = "sel_q_id.value", \
                                                             lang = "this.value", \
-                                                            user_id = self.user_id, \
+                                                            user_id = encap_str(self.user_id), \
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
             # View list
@@ -426,7 +426,7 @@ class page(object):
                 lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
                                                             l_id = "sel_l_id.value", \
                                                             lang = "this.value",
-                                                            user_id = self.user_id, \
+                                                            user_id = encap_str(self.user_id), \
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
             
@@ -475,7 +475,7 @@ class page(object):
                                 create_url(page_name = encap_str(self.page_name), \
                                                 q_id = "this.value", \
                                                 lang = "sel_lang.value", \
-                                                user_id = self.user_id, \
+                                                user_id = encap_str(self.user_id), \
                                                 menu = encap_str("simple"), \
                                                 js = True) + ")'>\n"
 
@@ -798,13 +798,13 @@ class page(object):
         self.menu = menu
 
         if op == "view":
-            q = question(self, user_id, self.rel_path)
+            q = question(self, self.user_id, self.rel_path)
             q.set_from_file_with_exception()
             self.add_question(q)
             return self.render_simple_page(menu)
             
         elif op == "edit":
-            q = question(self, user_id, self.rel_path)
+            q = question(self, self.user_id, self.rel_path)
             q.set_from_file_with_exception()
             self.add_question(q)
             self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
@@ -812,20 +812,20 @@ class page(object):
             
         elif op == "generate":
             self.add_code(init_code, iter_code, text)
-            q = question(self, user_id, self.rel_path, 
+            q = question(self, self.user_id, self.rel_path, 
                          init_code=init_code, iter_code=iter_code, text=text)
             self.add_question(q)
             return self.render_page(menu)
 
         elif op == "list":
             self.render_menu(menu)
-            ql = qlist(self, user_id, self.rel_path)
+            ql = qlist(self, self.user_id, self.rel_path)
             ql.render_all_questions()
             return self.render(menu)
 
         elif op == "test":
             self.render_menu(menu)
-            test = Test(self, user_id, self.rel_path, self.mobile)
+            test = Test(self, self.user_id, self.rel_path, self.mobile)
             test.render_next_questions()
             return self.render(menu)
 

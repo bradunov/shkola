@@ -45,7 +45,7 @@ preload = True
 
 def parse_req(req): 
 
-    if False:
+    if True:
         #logging.debug("REQ1: {}".format(req.__dict__))
         #logging.debug("REQ2: {}".format(vars(req)))
         logging.debug("METHOD: " + str(req.method))
@@ -98,7 +98,7 @@ def parse_req(req):
         params["login_return"] = req.params.get('login_return')
 
     if not params["language"]:
-        params["language"] = "uk"
+        params["language"] = "rs"
 
     if not params["init_code"]:
         params["init_code"] = ""
@@ -149,6 +149,9 @@ def exec_req(name, params, req):
         return func.HttpResponse(
             PAGE.login_test(params["user_id"], params["login_return"], params["remote_ip"], params["user_agent"], params["user_language"]),
             mimetype="text/html")
+
+    if params["op"] is None:
+        params["op"] = "view"
 
     return func.HttpResponse(
         PAGE.main(params["op"], params["q_id"], params["l_id"], params["language"], 
