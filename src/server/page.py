@@ -429,6 +429,14 @@ class page(object):
                                                             user_id = encap_str(self.user_id), \
                                                             menu = encap_str("full"), \
                                                             js = True) + ")'>\n"
+            # Generate? 
+            else:
+                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
+                                                            q_id = "sel_q_id.value", \
+                                                            lang = "this.value", \
+                                                            user_id = encap_str(self.user_id), \
+                                                            menu = encap_str("full"), \
+                                                            js = True) + ")'>\n"
             
             for l in self.repository.get_config()["languages"]:
                 if l == self.language:
@@ -728,7 +736,7 @@ class page(object):
             # but I can't seem to enforce a size in this view, so skipping for now
             #self.page.add_lines("<div style='border-style:dotted;display:table;height=360px;width=640px;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
             self.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
-            self.question.eval_with_exception()
+            self.question.eval_with_exception(True)
             self.add_lines("</div>")
             self.add_lines("</span>")
             
