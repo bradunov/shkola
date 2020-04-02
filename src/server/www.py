@@ -42,8 +42,8 @@ class editor(object):
     
 
     @cherrypy.expose
-    def edit(self, op="edit", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
-        return self.page.main(op, q_id, l_id, language, menu, user_id)
+    def edit(self, op="edit", q_id=None, l_id=None, language="rs", menu="full", user_id=None, init_code="", iter_code="", text=""):
+        return self.page.main(op, q_id, l_id, language, menu, user_id, init_code, iter_code, text)
 
     
     
