@@ -894,67 +894,86 @@ class library(object):
 
     ### Buttons at the bottom of the page
 
-    def add_check_button(self, q_id, l_id, user_id, url_next=None, menu=None):        
+    def add_check_code(self):        
         cid = 0
         cond = "cond = "
         assign = ""
-        report = "\"q_id=" + q_id + "&l_id=" + l_id + "&user_id=" + user_id + "&\" + "
+        report = "'q_id=' + q_id + '&l_id=' + l_id + '&user_id=' + user_id + '&' + "
         for c in self.checks:
-            assign = assign + "c" + str(cid) + " = " + c + "; "
+            assign = assign + "c" + str(cid) + " = " + c + ";\n"
             cond = cond + "c" + str(cid) + " && "
             report = report + "\"q_res" + str(cid) + "=\" + c" + str(cid) + ".toString() + \"&\" + " 
             cid = cid + 1
         cond = cond + "true;"
         report = "report = " + report + \
-                 "\"start=\" + question_start_time.toString() + " + \
-                 "\"&now=\" + Math.floor(Date.now()/1000).toString() + " + \
-                 "\"&attempt=\" + attempt.toString();"
+                "\"start=\" + question_start_time.toString() + " + \
+                "\"&now=\" + Math.floor(Date.now()/1000).toString() + " + \
+                "\"&attempt=\" + attempt.toString();\n"
 
 
-        ajax_results_script = """
+        check_script = """
         <script>
         question_start_time = Math.floor(Date.now()/1000);
         attempt = 0;
-        function sendResultsToServer(str, type) {
-          var xhr = new XMLHttpRequest();
-          xhr.open('POST', '/""" + base_url(menu) + """?op=register');
-          xhr.onreadystatechange = function() {
-            console.log("Received");
-            console.log(xhr);
-            if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
-          };
-          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-          xhr.send(str + '&response_type=' + type);
-          console.log("AAA: ", str);
-          attempt = attempt + 1;
+        function sendResultsToServer(report, type, post_url) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/' + post_url + '?op=register');
+            xhr.onreadystatechange = function() {
+                console.log("Received");
+                console.log(xhr);
+                if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            console.log("Sending report " + report + '&response_type=' + type);
+            xhr.send(report + '&response_type=' + type);
+            attempt = attempt + 1;
         }
-        function checkAll(){
+
+        // operation == SUBMIT | SKIP
+        // post_url == URL to which to post the results
+        function checkAll(operation, post_url, q_id, l_id, user_id){
         """ + assign + "\n" \
-            + cond + "\n" \
-            + report + """
-          return [cond, report];
+            + cond + "\n" + """
+          if (!(operation === undefined)) {
+              """
+
+        check_script = check_script + report
+        check_script = check_script + "sendResultsToServer(report, operation, post_url);"
+
+        check_script = check_script + """
+          }
+          return cond;
         }
         </script>
         """
 
-        self.page.add_script_lines("\n<!-- CHECK NEXT BUTTON -->\n")
-        self.page.add_script_lines(ajax_results_script)
+        self.page.add_script_lines("\n<!-- START CHECK AND REPORT -->\n")
+        self.page.add_script_lines(check_script)
+        self.page.add_script_lines("\n<!-- END CHECK AND REPORT -->\n")
 
-        OKline = "\n<input type='button' style='font-size: 14px;' onclick='[cond, report] = checkAll();"
-        OKline = OKline + "console.log(report);"
+
+
+    def add_check_button(self, q_id, l_id, user_id, url_next=None, menu=None):        
+
+        self.add_check_code()
+
+        OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
+        OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='cond = checkAll();"
         if url_next is not None:
             # Only send results to server if next_url specified (i.e. we are in the test mode)
-            OKline = OKline + "sendResultsToServer(report, \"SUBMIT\");"
+            OKline = OKline + "checkAll(\"SUBMIT\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
+                base_url(menu), q_id, l_id, user_id)
             OKline = OKline + "if (cond) {window.location.replace(\"" + url_next + "\")}"
+        else:
+            OKline = OKline + "checkAll();"
         OKline = OKline + "' value='{}' />\n".format(self.page.get_messages()["check"])
         self.page.add_lines(OKline)
 
         if url_next is not None:
             NEXTline = ""
-            NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='[cond, report] = checkAll();"
-            NEXTline = NEXTline + report
-            NEXTline = NEXTline + "console.log(report);"
-            NEXTline = NEXTline + "sendResultsToServer(report, \"SKIP\");"
+            NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='cond = "
+            NEXTline = NEXTline + "checkAll(\"SKIP\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
+                base_url(menu), q_id, l_id, user_id)
             NEXTline = NEXTline + "window.location.replace(\"" + url_next + "\");"
             NEXTline = NEXTline + "' value='{}' />\n".format(self.page.get_messages()["skip"])
             self.page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
@@ -965,10 +984,23 @@ class library(object):
         self.checks = []
         
     def add_clear_button(self):
-        line = "\n<input type='button' style='font-size: 14px;' onclick=\""
+        script_clear = """
+        <script>
+        function clearAll(){
+        """ 
         for c in self.clears:
-            line = line + c
-        line = line + "\" value='{}' />\n".format(self.page.get_messages()["clear"])
+            script_clear = script_clear + c         
+
+        script_clear = script_clear + """
+        }
+        </script>
+        """
+        self.page.add_script_lines("\n<!-- CLEAR ALL -->\n")
+        self.page.add_script_lines(script_clear)
+        self.page.add_script_lines("\n<!-- END CLEAR ALL -->\n")
+
+        line = "\n<input type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
+            self.page.get_messages()["clear"])
         #logging.debug(line)
         self.page.add_lines("\n<!-- CLEAR BUTTON -->\n")
         self.page.add_lines(line)
