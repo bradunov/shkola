@@ -9,6 +9,7 @@ from server.test import Test
 from server.content import Content
 from server.repository import Repository
 from server.user_db import UserDB
+from server.design import Design
 
 from lupa import LuaRuntime
 import logging
@@ -341,355 +342,22 @@ class page(object):
 
 
 
-    
-
-
-
-    def render_menu_full(self):
-
-        self.add_lines("\n\n<!-- FULL MENU START -->\n")
-        # Edit or view question
-        if self.page_name == "edit" or self.page_name == "view" or self.page_name == "generate" :
-            if self.page_name == "generate":
-                page_name = "edit"
-            else:
-                page_name = self.page_name
-            select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
-                                create_url(page_name = encap_str(page_name), \
-                                                q_id = "this.value", \
-                                                lang = "sel_lang.value", \
-                                                user_id = encap_str(self.user_id), \
-                                                menu = encap_str("full"), \
-                                                js = True) + ")'>\n"
-            qs = self.get_all_questions(self.language)
-        
-            for q in qs:
-                if q == self.q_id:
-                    selected = "SELECTED"
-                else:
-                    selected = ""
-                select = select + "<option value='{}' {}> {} </option>\n".format(q, selected, q)
-            select = select + "</select>\n"
-
-        # View list
-        elif self.page_name == "list" or self.page_name == "test":
-            select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
-                                create_url(page_name = encap_str(self.page_name), \
-                                                l_id = "this.value", \
-                                                lang = "sel_lang.value", \
-                                                user_id = encap_str(self.user_id), \
-                                                menu = encap_str("full"), \
-                                                js = True) + ")'>\n"
-            ls = self.get_all_lists()
-        
-            for l in ls:
-                if l == self.l_id:
-                    selected = "SELECTED"
-                else:
-                    selected = ""
-                select = select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
-            select = select + "</select>\n"
-        else:
-            select = ""
-
-        log_header = self.get_login_header()
-        
-        # Not sure why I have to put explicit height here, otherwise it is zero!
-        self.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
-        self.add_lines("<span style='display:block;float:left;'>\n" + select + log_header + "\n</span>\n")
-
-
-        
-        lright = "<span style='display:block;float:right;'>\n"
-
-        lright = lright + \
-                 """<input type='button' style='font-size: 14px;' onclick='(function() {
-                        var xhr = new XMLHttpRequest();
-                        xhr.open("POST", "reload", true);
-                        xhr.send();
-                        console.log("Posted reload");
-                      }) ();' value='Reload'/>  
-                 """
-        
-        if ("languages" in self.repository.get_config()):
-            lang_select="Jezik: <select id='sel_lang' name='sel_lang' onchange='window.location.replace("
-
-            if self.page_name == "edit" or self.page_name == "view":
-                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
-                                                            q_id = "sel_q_id.value", \
-                                                            lang = "this.value", \
-                                                            user_id = encap_str(self.user_id), \
-                                                            menu = encap_str("full"), \
-                                                            js = True) + ")'>\n"
-            # View list
-            elif self.page_name == "list" or self.page_name == "test":
-                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
-                                                            l_id = "sel_l_id.value", \
-                                                            lang = "this.value",
-                                                            user_id = encap_str(self.user_id), \
-                                                            menu = encap_str("full"), \
-                                                            js = True) + ")'>\n"
-            # Generate? 
-            else:
-                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
-                                                            q_id = "sel_q_id.value", \
-                                                            lang = "this.value", \
-                                                            user_id = encap_str(self.user_id), \
-                                                            menu = encap_str("full"), \
-                                                            js = True) + ")'>\n"
-            
-            for l in self.repository.get_config()["languages"]:
-                if l == self.language:
-                    selected = "SELECTED"
-                else:
-                    selected = ""
-                lang_select = lang_select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
-            lang_select = lang_select + "</select>\n"
-            lright = lright + lang_select
-
-
-        op_select = "Operacija: <select id='sel_op' name='sel_op' onchange='window.location.replace(" + \
-                                            create_url(page_name = "sel_op.value", \
-                                                            q_id = encap_str(self.q_id), \
-                                                            l_id = encap_str(self.l_id), \
-                                                            lang = encap_str(self.language), \
-                                                            user_id = encap_str(self.user_id), \
-                                                            menu = encap_str("full"), \
-                                                            js = True) + ")'>\n"
-
-        options = ["view", "edit", "list", "test"]
-
-        for o in options:
-            if o == self.page_name:
-                selected = "SELECTED"
-            else:
-                selected = ""
-            op_select = op_select + "<option value='{}' {}> {} </option>\n".format(o, selected, o)
-        op_select = op_select + "</select>"
-        lright = lright + op_select
-        
-        self.add_lines(lright)
-        self.add_lines("</div>")
-
-        self.add_lines("\n<!-- MENU END -->\n\n")
-        
-
-
-    def render_menu_simple(self):
-        self.add_lines("\n\n<!-- SIMPLE MENU START -->\n")
-        # Edit or view question
-        if self.page_name == "edit" or self.page_name == "view":
-            select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
-                                create_url(page_name = encap_str(self.page_name), \
-                                                q_id = "this.value", \
-                                                lang = "sel_lang.value", \
-                                                user_id = encap_str(self.user_id), \
-                                                menu = encap_str("simple"), \
-                                                js = True) + ")'>\n"
-
-            qs = self.get_all_questions(self.language)
-        
-            for q in qs:
-                if q == self.q_id:
-                    selected = "SELECTED"
-                else:
-                    selected = ""
-                select = select + "<option value='{}' {}> {} </option>\n".format(q, selected, q)
-            select = select + "</select>\n"
-
-        # View list
-        elif self.page_name == "list" or self.page_name == "test":
-            select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
-                                create_url(page_name = encap_str(self.page_name), \
-                                                l_id = "this.value", \
-                                                lang = "sel_lang.value", \
-                                                user_id = encap_str(self.user_id), \
-                                                menu = encap_str("simple"), \
-                                                js = True) + ")'>\n"
-            ls = self.get_all_lists()
-        
-            for l in ls:
-                if l == self.l_id:
-                    selected = "SELECTED"
-                else:
-                    selected = ""
-                select = select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
-            select = select + "</select>\n"
-
-        
-        log_header = self.get_login_header()
-
-        # Not sure why I have to put explicit height here, otherwise it is zero!
-        self.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
-        self.add_lines("<span style='display:block;float:left;'>\n" + select + log_header + "\n</span>\n")
-        lright = "<span style='display:block;float:right;'>\n"
-
-        if ("languages" in self.repository.get_config()):
-            lang_select="<select id='sel_lang' name='sel_lang' onchange='window.location.replace("
-
-            if self.page_name == "edit" or self.page_name == "view":
-                #lang_select = lang_select + "?q_id=\" + sel_q_id.value + \"&"
-                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
-                                                            q_id = "sel_q_id.value", \
-                                                            lang = "this.value", \
-                                                            user_id = encap_str(self.user_id), \
-                                                            menu = encap_str("simple"), \
-                                                            js = True) + ")'>\n"
-            # View list
-            elif self.page_name == "list" or self.page_name == "test":
-                lang_select = lang_select + create_url(page_name = encap_str(self.page_name), \
-                                                            l_id = "sel_l_id.value", \
-                                                            lang = "this.value",
-                                                            user_id = encap_str(self.user_id), \
-                                                            menu = encap_str("simple"), \
-                                                            js = True) + ")'>\n"
-            
-            for l in self.repository.get_config()["languages"]:
-                if l == self.language:
-                    selected = "SELECTED"
-                else:
-                    selected = ""
-                lang_select = lang_select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
-            lang_select = lang_select + "</select>\n"
-            lright = lright + lang_select
-
-        
-        self.add_lines(lright)
-        self.add_lines("</div>")
-
-        self.add_lines("\n<!-- MENU END -->\n\n")
-
-
-
-        
-
-
-    # Inspired by https://www.w3schools.com/w3css/w3css_sidebar.asp
-    def render_menu_mobile(self):
-        self.add_lines("\n\n<!-- MOBILE MENU START -->\n")
-
-        # Temporary, for debugging:
-        debug_str = ""
-        if self.user_id is not None and self.user_id:
-            if len(self.user_id) >= len("local:") and self.user_id[:len("local:")] == "local:":
-                debug_str = debug_str + "Hi {} ".format(self.user_id[len("local:"):])
-            else:
-                debug_str = debug_str + "Hi {} ".format(self.user_id)
-        if self.q_id is not None and self.q_id:
-            debug_str = debug_str + "(Q: {})".format(self.q_id)
-
-
-        self.add_lines("""
-            <script>
-            function myAccFunc(title) {
-                var x = document.getElementById(title);
-                if (x.className.indexOf("w3-show") == -1) {
-                x.className += " w3-show";
-                x.previousElementSibling.className += " w3-green";
-                } else { 
-                x.className = x.className.replace(" w3-show", "");
-                x.previousElementSibling.className = 
-                x.previousElementSibling.className.replace(" w3-green", "");
-                }
-            }
-            function shm_toggle() {
-                if (document.getElementById("shMenu").style.display == "none") {
-                    document.getElementById("shMenu").style.display = "block";
-                } else {
-                    document.getElementById("shMenu").style.display = "none";
-                }
-            }
-            function shl_toggle() {
-                if (document.getElementById("shLang").style.display == "none") {
-                    document.getElementById("shLang").style.display = "block";
-                } else {
-                    document.getElementById("shLang").style.display = "none";
-                }
-            }
-            </script>
-            <div class="w3-dark-grey">
-            <button class="w3-button w3-dark-grey w3-large" onclick="shm_toggle()">☰</button>
-            """ + debug_str + """
-            <span style='display:block;float:right;'>
-            <button class="w3-button w3-dark-grey w3-large" onclick="shl_toggle()">""" + self.get_messages()["language"] + """</button>
-            </span>
-            </div>
-            <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="shMenu">
-                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc('accLevel')">
-                    """ + self.get_messages()["questions"] + """ <i class="fa fa-caret-down"></i>
-                </button>
-                <div id='accLevel' class="w3-hide w3-white w3-card">
-        """)
-
-
-        content = Content(self, self.mobile)
-        content.render_menu_mobile(self.language, base_url("mobile") + "?op={}&language={}&menu={}&user_id={}".format(
-            self.page_name, self.language, "mobile", self.user_id ), 1)
-
-
-
-        self.add_lines("""
-                </div>
-
-                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc('accUser')">
-                    """ + self.get_messages()["user"] + """ <i class="fa fa-caret-down"></i>
-                </button>
-                <div id='accUser' class="w3-hide w3-white w3-card">
-        """)
-
-
-        self.add_lines(self.get_login_header(True))
-
-
-        self.add_lines("""
-                </div>
-            </div>
-        """)
-
-        if ("languages" in self.repository.get_config()):
-            
-            lang_select = """
-                        <div class="w3-sidebar w3-bar-block w3-border-left" style="width:200px;right:0;display:none"  id="shLang">
-                        """
-            for lang in self.get_language_list():
-                lang_select = lang_select + "<a href='" + \
-                        create_url(page_name = self.page_name, \
-                                                lang = lang, \
-                                                user_id = self.user_id, \
-                                                menu = "mobile", \
-                                                js = False) + \
-                        "' class='w3-bar-item w3-button'>" + self.get_messages(lang)["name"] + "</a>"
-            
-            lang_select = lang_select + """
-                        </div>
-                        """
-            self.add_lines(lang_select)
-
-
-
-
-        self.add_lines("\n<!-- MENU END -->\n\n")
-
-
-
-        
-
-
-
-
-
 
 
 
 
     def render_menu(self, menu_type = "full"):
+
+        Design.render_menu(self)
+
+        '''
         if menu_type == "mobile":
             self.render_menu_mobile()
         elif menu_type == "simple":
             self.render_menu_simple()
         else:
             self.render_menu_full()
-        
+        '''
 
 
 
@@ -841,11 +509,13 @@ class page(object):
 
             return self.render(menu)
 
+            '''
         elif op == "content":
             self.render_menu(menu)
             content = Content(self, self.mobile)
             content.render_content(self.language)
             return self.render(menu)
+            '''
 
         else:
             return "ERROR - operation {} not known".format(op)

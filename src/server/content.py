@@ -4,7 +4,7 @@ import logging
 class Content(object):
     page = None
 
-    def __init__(self, page, mobile=False):
+    def __init__(self, page):
         self.page = page
 
 
