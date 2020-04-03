@@ -1,7 +1,6 @@
 { "name" : "Treci razred jednacine i nejednacine",
   "level": "Treci", 
   "theme" : "Jednacine", 
-  "language" : "rs",
   "questions":  [
    {
       "name" : "equations/q00001", "random": "1", "period": "proleće", 

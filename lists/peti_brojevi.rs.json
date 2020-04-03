@@ -17,6 +17,30 @@
     {
       "name" : "numbers/q00126", "random": "1", "period": "Jesen", 
       "subtheme": "operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00127", "random": "1", "period": "Jesen", 
+      "subtheme": "uredjenje brojeva", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00128", "random": "1", "period": "Jesen", 
+      "subtheme": "uredjenje brojeva", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00129", "random": "1", "period": "Jesen", 
+      "subtheme": "zapis broja", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00116", "random": "1", "period": "Jesen", 
+      "subtheme": "zapis broja", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00130", "random": "1", "period": "Jesen", 
+      "subtheme": "zapis broja", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00131", "random": "1", "period": "Jesen", 
+      "subtheme": "zaokrugljivanje broja", "difficulty": "1"
     }	
   ]
  }

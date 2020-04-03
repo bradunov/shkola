@@ -1,7 +1,6 @@
 { "name" : "Peti razred razlomci",
   "level": "Peti", 
   "theme" : "Razlomci", 
-  "language" : "rs",
   "questions":  [
     {
       "name" : "fractions/q00018", "random": "1", "period": "Jesen", 

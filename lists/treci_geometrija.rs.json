@@ -1,7 +1,6 @@
 { "name" : "Treci razred brojevi",
   "level": "Treci", 
   "theme" : "Geometrija", 
-  "language" : "rs",
   "questions":  [
     {
       "name" : "geometry/q00016", "random": "1", "period": "zima", 

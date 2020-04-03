@@ -1,7 +1,6 @@
 { "name" : "Cetvrti razred brojevi",
   "level": "Cetvrti", 
   "theme" : "Brojevi", 
-  "language" : "rs",
   "questions":  [
    {
       "name" : "numbers/q00109", "random": "1", "period": "jesen", 
@@ -54,6 +53,14 @@
    {
       "name" : "numbers/q00061", "random": "1", "period": "jesen", 
       "subtheme": "problem", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00129", "random": "1", "period": "Jesen", 
+      "subtheme": "zapis broja", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00130", "random": "1", "period": "Jesen", 
+      "subtheme": "zapis broja", "difficulty": "1"
     }	
   ]
  }

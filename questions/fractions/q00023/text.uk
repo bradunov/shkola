@@ -1,16 +1,16 @@
-
 @first@ has @money@ pounds and @second@ has @diff@ pounds less than him. @first@ spent \(\frac{1}{@fract_f@}\) and @second@ spent \(\frac{1}{@fract_s@}\) of his money. 
 
 @vspace@
 
 a) Who spent more money and by how much? 
 
-@lib.check_string(reply1,60)@ spent @lib.check_number(cost)@ pounds more than @lib.check_string(reply2,60)@.
+@lib.check_string(ime,60)@ spent @lib.check_number(cost)@ pounds more than @lib.check_string(ime_UK,60)@.
 
 @vspace@
 
-b) How much money do @padezd1@ and @padezd2@ have left?
+b) How much money do @ime1@ and @ime2@ have left?
          
-@padezd1@ has @lib.check_number(rest1)@ pounds and @padezd2@ has @lib.check_number(rest2)@ pounds left. 
+@ime1@ has @lib.check_number(rest1)@ pounds and @ime2@ has @lib.check_number(rest2)@ pounds left. 
                   
  
+                   

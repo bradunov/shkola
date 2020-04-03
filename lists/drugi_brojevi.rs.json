@@ -1,7 +1,6 @@
 { "name" : "Drugi razred brojevi",
   "level": "Drugi", 
   "theme" : "Brojevi", 
-  "language" : "rs",
   "questions":  [
     {
       "name" : "numbers/q00009", "random": "0", "period": "zima", 

@@ -1,7 +1,6 @@
 { "name" : "Cetvrti razred brojevi",
   "level": "Cetvrti", 
   "theme" : "Geometrija", 
-  "language" : "rs",
   "questions":  [
     {
       "name" : "geometry/q00020", "random": "0", "period": "zima", 

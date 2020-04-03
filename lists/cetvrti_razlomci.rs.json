@@ -1,7 +1,6 @@
 { "name" : "Cetvrti razred razlomci",
   "level": "Cetvrti", 
   "theme" : "Razlomci", 
-  "language" : "rs",
   "questions":  [
     {
       "name" : "fractions/q00031", "random": "1", "period": "leto", 

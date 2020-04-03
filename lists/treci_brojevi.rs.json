@@ -1,7 +1,6 @@
 { "name" : "Treci razred brojevi",
   "level": "Treci", 
   "theme" : "Brojevi", 
-  "language" : "rs",
   "questions":  [
     {
       "name" : "numbers/q00098", "random": "1", "period": "Jesen", 
