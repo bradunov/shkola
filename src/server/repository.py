@@ -326,8 +326,7 @@ class Repository(object):
         self.load_dir(self.questions, self.questions_path)
         self.load_dir(self.lists, self.lists_path)
 
-        #print("AAA: ")
-        #pprint(self.lists)
+        #logging.debug("AAA {}".format(self.lists))
 
         self.create_content()
         #logging.debug("BBB {}".format(self.content))

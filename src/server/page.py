@@ -302,7 +302,7 @@ class page(object):
                 </script>
                 """
         else:
-            test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Zomebody"]
+            test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Jovana", "Zomebody"]
             test_users.sort()
 
             if mobile:
