@@ -894,7 +894,7 @@ class library(object):
 
     ### Buttons at the bottom of the page
 
-    def add_check_code(self):        
+    def add_check_button_code(self):        
         cid = 0
         cond = "cond = "
         assign = ""
@@ -951,39 +951,13 @@ class library(object):
         self.page.add_script_lines(check_script)
         self.page.add_script_lines("\n<!-- END CHECK AND REPORT -->\n")
 
-
-
-    def add_check_button(self, q_id, l_id, user_id, url_next=None, menu=None):        
-
-        self.add_check_code()
-
-        OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
-        OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='cond = checkAll();"
-        if url_next is not None:
-            # Only send results to server if next_url specified (i.e. we are in the test mode)
-            OKline = OKline + "checkAll(\"SUBMIT\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
-                base_url(menu), q_id, l_id, user_id)
-            OKline = OKline + "if (cond) {window.location.replace(\"" + url_next + "\")}"
-        else:
-            OKline = OKline + "checkAll();"
-        OKline = OKline + "' value='{}' />\n".format(self.page.get_messages()["check"])
-        self.page.add_lines(OKline)
-
-        if url_next is not None:
-            NEXTline = ""
-            NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='cond = "
-            NEXTline = NEXTline + "checkAll(\"SKIP\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
-                base_url(menu), q_id, l_id, user_id)
-            NEXTline = NEXTline + "window.location.replace(\"" + url_next + "\");"
-            NEXTline = NEXTline + "' value='{}' />\n".format(self.page.get_messages()["skip"])
-            self.page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-            self.page.add_lines(NEXTline)
-            
-        self.page.add_lines("\n<!-- END CHECK NEXT BUTTONS -->\n")
-            
         self.checks = []
-        
-    def add_clear_button(self):
+
+
+
+                
+
+    def add_clear_button_code(self):
         script_clear = """
         <script>
         function clearAll(){
@@ -999,20 +973,9 @@ class library(object):
         self.page.add_script_lines(script_clear)
         self.page.add_script_lines("\n<!-- END CLEAR ALL -->\n")
 
-        line = "\n<input type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
-            self.page.get_messages()["clear"])
-        #logging.debug(line)
-        self.page.add_lines("\n<!-- CLEAR BUTTON -->\n")
-        self.page.add_lines(line)
-        self.page.add_lines("\n<!-- END CLEAR BUTTON -->\n")
         self.clears = []
 
-    def add_buttons(self, q_id, l_id, user_id, url_next=None, menu=None):
-        self.page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
-        self.add_check_button(q_id, l_id, user_id, url_next, menu)
-        self.page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-        self.add_clear_button()
-        self.page.add_lines("\n</div>\n")
+
 
 
 

@@ -73,6 +73,7 @@ class qlist(object):
 
             self.page.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
             q.eval_with_exception()
+            self.page.add_buttons()
             self.page.add_lines("</div>")
 
             

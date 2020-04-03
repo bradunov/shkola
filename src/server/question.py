@@ -446,9 +446,10 @@ class question(object):
         
         lua_fun = self.lua.eval(code)
         lua_fun(self.page, self.lib, strings)
-            
+                        
         if self.lib is not None:
-            self.lib.add_buttons(self.path, self.list_id, self.user_id, self.url_next, self.page.menu)
+            self.lib.add_check_button_code()
+            self.lib.add_clear_button_code()
             
         self.page.add_lines("</div>\n")
         self.page.add_lines("\n\n<!-- QUESTIONS END -->\n\n")

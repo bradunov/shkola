@@ -737,6 +737,7 @@ class page(object):
             #self.page.add_lines("<div style='border-style:dotted;display:table;height=360px;width=640px;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
             self.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
             self.question.eval_with_exception(True)
+            self.add_buttons()
             self.add_lines("</div>")
             self.add_lines("</span>")
             
@@ -755,6 +756,7 @@ class page(object):
         if self.question is not None:
             self.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>")
             self.question.eval_with_exception()
+            self.add_buttons()
             self.add_lines("</div>")
             
         
@@ -834,7 +836,9 @@ class page(object):
         elif op == "test":
             self.render_menu(menu)
             test = Test(self, self.user_id, self.rel_path, self.mobile)
-            test.render_next_questions()
+            next_question_url = test.render_next_questions()
+            self.add_buttons(next_question_url)
+
             return self.render(menu)
 
         elif op == "content":
@@ -901,7 +905,63 @@ class page(object):
             except Exception as err:
                 logging.error("Error submitting record response: {}".format(str(err)))
 
+
+
+
+
+
+    def add_check_button(self, url_next=None):        
+
+
+        OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
+        OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='cond = checkAll();"
+        if url_next is not None:
+            # Only send results to server if next_url specified (i.e. we are in the test mode)
+            OKline = OKline + "checkAll(\"SUBMIT\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
+                base_url(self.menu), self.q_id, self.l_id, self.user_id)
+            OKline = OKline + "if (cond) {window.location.replace(\"" + url_next + "\")}"
+        else:
+            OKline = OKline + "checkAll();"
+        OKline = OKline + "' value='{}' />\n".format(self.get_messages()["check"])
+        self.add_lines(OKline)
+
+        if url_next is not None:
+            NEXTline = ""
+            NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='cond = "
+            NEXTline = NEXTline + "checkAll(\"SKIP\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
+                base_url(self.menu), self.q_id, self.l_id, self.user_id)
+            NEXTline = NEXTline + "window.location.replace(\"" + url_next + "\");"
+            NEXTline = NEXTline + "' value='{}' />\n".format(self.get_messages()["skip"])
+            self.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+            self.add_lines(NEXTline)
+            
+        self.add_lines("\n<!-- END CHECK NEXT BUTTONS -->\n")
+
+
+
+    
+
+    def add_buttons(self, url_next=None):
+        self.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
+        self.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
+        self.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
+
+        self.add_check_button(url_next)
         
+        self.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        
+        self.add_lines("\n<!-- CLEAR BUTTON -->\n")
+        self.add_lines("\n<input type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
+            self.get_messages()["clear"]))
+        self.add_lines("\n<!-- END CLEAR BUTTON -->\n")
+
+        self.add_lines("\n</div>\n")
+        self.add_lines("</div>\n")
+        self.add_lines("\n\n<!-- QUESTIONS END -->\n\n")
+
+        
+
+
 
 
 

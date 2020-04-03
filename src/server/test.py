@@ -60,6 +60,8 @@ class Test(object):
         q.set_from_file_with_exception()
         q.eval_with_exception()
 
+        return next_question_url
+
 
 
 
