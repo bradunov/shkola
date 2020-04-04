@@ -1,6 +1,5 @@
 { "name" : "all_fractions", 
-  "language" : "rs",
-  "questions":  [
+ "questions":  [
     {"name" : "fractions/q00001"},
     {"name" : "fractions/q00002"},
     {"name" : "fractions/q00003"},

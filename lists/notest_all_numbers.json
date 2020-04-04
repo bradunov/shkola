@@ -1,6 +1,5 @@
 { "name" : "all_numbers", 
-  "language" : "rs",
-  "questions":  [
+ "questions":  [
     {"name" : "numbers/q00001"},
     {"name" : "numbers/q00002"},
     {"name" : "numbers/q00003"},

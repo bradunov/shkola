@@ -48,17 +48,12 @@ if (cost1 > cost2) then
     cost = cost1 - cost2
 	ime = ime1
 	padezg = padezg2
+	ime_UK = ime2
 else
     cost = cost2 - cost1
     ime = ime2
 	padezg = padezg1
+	ime_UK = ime1
 end
 
 
-ime_low = string.lower(ime)	
-padezg_low = string.lower(padezg)
-	
-reply1 = "answer == '" .. ime .. "' "  .. "|| answer == '" .. ime_low .. "'" ;
-
-reply2 = "answer == '" .. padezg .. "' "  .. "|| answer == '" .. padezg_low .. "'" ;
-       

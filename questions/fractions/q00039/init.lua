@@ -2,6 +2,10 @@ include("names")
 r1 = math.random(#musko_ime_nom)
 r2 = math.random(#musko_ime_nom-1)
 if (r2 >= r1) then r2 = r2 + 1 end
+include("names")
+r1 = math.random(#musko_ime_nom)
+r2 = math.random(#musko_ime_nom-1)
+if (r2 >= r1) then r2 = r2 + 1 end
 ime1 = musko_ime_nom[r1]
 ime2 = musko_ime_nom[r2] 
 
@@ -32,6 +36,4 @@ else
 end                 
 
 
-ime_low = string.lower(ime)	
-	
-reply = "answer == '" .. ime .. "' "  .. "|| answer == '" .. ime_low .. "'" ;
+                  

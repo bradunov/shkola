@@ -9,12 +9,13 @@ padezg2 = musko_ime_gen[r2]
 padezd1 = musko_ime_dativ[r1]; 
 padezd2 = musko_ime_dativ[r2];
 
-imenilac1 = math.random(6) + 1;
+imenilac1 = math.random(5) + 1;
 imenilac2 = imenilac1 + math.random(4);
-brojilac = math.random(imenilac1);
+brojilac = math.random(imenilac1-1);
 	
 -- padezd2_low = string.lower(padezd2)
 -- reply = "answer == '" .. padezd2 .. "' "  .. "|| answer == '" .. padezd2_low .. "'" ;
            
 reply = padezd2;
  
+             

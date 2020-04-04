@@ -10,7 +10,7 @@ Compare the measures and write sign < , >  or  = :
 
 @center@ \(\frac{5}{10}\) km @hspace@ @lib.check_string("<")@ @hspace@ 600 m
 
-@center@ \(\frac{3}{4}\) tones @hspace@ @lib.check_string("=")@ @hspace@ 750 kg                  
+@center@ \(\frac{3}{4}\) t @hspace@ @lib.check_string("=")@ @hspace@ 750 kg                  
 
 
 

@@ -3,7 +3,5 @@
 Ko je vozio brže i za koliko?
 
 @vspace@
-Vozio je brže @hspacept(3)@ @lib.check_string(reply, 50)@, @hspacept(3)@ za @lib.check_number(brzina)@ km/h.                
-                               
-                          
-          
+Vozio je brže @hspacept(3)@ @lib.check_string(ime, 50)@, @hspacept(3)@ za @lib.check_number(brzina)@ km/h.                
+                                    

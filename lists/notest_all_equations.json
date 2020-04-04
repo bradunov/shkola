@@ -1,6 +1,5 @@
 { "name" : "all_equations", 
-  "language" : "rs",
-  "questions":  [
+ "questions":  [
     {"name" : "equations/q00001"},
     {"name" : "equations/q00002"},
     {"name" : "equations/q00003"},
@@ -13,5 +12,5 @@
     {"name" : "equations/q00010"},
     {"name" : "equations/q00011"},
     {"name" : "equations/q00012"}	
-  ]
+    ]
 }
