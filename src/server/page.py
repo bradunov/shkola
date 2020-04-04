@@ -1,18 +1,21 @@
 import os
 import json
 
+from server.types import *
+
 from server.question import question
 from server.qlist import qlist
 from server.storage import get_storage
 from server.helpers import *
 from server.test import Test
-from server.content import Content
 from server.repository import Repository
 from server.user_db import UserDB
 from server.design import Design
 
 from lupa import LuaRuntime
 import logging
+
+
 
 
 class page(object):
@@ -244,104 +247,17 @@ class page(object):
 
 
 
-    
-
-    ########
-    # Temporary version, doesn't work with Google Auth (yet)
-    ########
-    # Temporary version, doesn't work with Google Auth (yet)
-    
-    def get_login_header(self, mobile=False):
-        login_str = ""
-
-        # self.page.add_lines("<div>{}</div>", cherrypy.request.path_info)
-        if mobile:
-            menu = "mobile"
+    def on_click(self, operation:Operation=None, url_next=None):
+        ret_str = "cond = "
+        if url_next is not None:
+            # Only send results to server if next_url specified (i.e. we are in the test mode)
+            ret_str = ret_str + "checkAll(\"{}\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
+                Operation.toStr(operation), base_url(self.menu), self.q_id, self.l_id, self.user_id)
+            ret_str = ret_str + "if (cond) {window.location.replace(\"" + url_next + "\")}"
         else:
-            if self.mobile:
-                menu = "simple"
-            else:
-                menu = "full"
-            
-        login_return = {}
-        login_return["page_name"] = self.page_name
-        login_return["q_id"] = self.q_id
-        login_return["l_id"] = self.l_id
-        login_return["lang"] = self.language
-        login_return["user_id"] = self.user_id
-        login_return["menu"] = menu
-        login_return["js"] = False
-        login_return = encode_dict(login_return)
+            ret_str = ret_str + "checkAll();"
 
-        if False: #cherrypy.config.get("use_google_auth"):
-            # Currently doesn't work
-            if 'user_id' not in s:
-                login_str = '<div class="g-signin2" style="margin-bottom:0px" data-onsuccess="onSignIn"></div>\n'
-                url = cherrypy.url('/login_google')
-                login_str = login_str + """
-                <script>
-                function onSignIn(googleUser) {
-                    console.log('Google sign in');
-                    var profile = googleUser.getBasicProfile();
-                    var id_token = googleUser.getAuthResponse().id_token;
-                    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-                    console.log('Name: ' + profile.getName());
-                    console.log('Image URL: ' + profile.getImageUrl());
-                    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('POST', '""" + url + """');
-                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                    xhr.onload = function() {
-                      console.log('Sign in response: ' + xhr.responseText);
-                      if (xhr.responseText == 'OK') {
-                          location.reload();
-                      }
-                    };
-                    xhr.send('id_token=' + id_token);
-                }
-                </script>
-                """
-        else:
-            test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Jovana", "Zomebody"]
-            test_users.sort()
-
-            if mobile:
-                login_str = ""
-                for username in test_users:
-                    link = base_url(menu) + "?op=login_test&" + "login_return=" + \
-                                login_return + "&user_id={}".format(username) 
-                    str_indent = "<div class='space'></div>"
-                    login_str = login_str + "<a href='" + link + "' class='w3-bar-item w3-button'> " + str_indent + username + "</a>\n"
-            else:
-                # login_str = "<select id='sel_user_id' name='sel_user_id' " + \
-                #             "onchange='window.location.replace(\"login_test?" + "login_return=" + \
-                #             login_return + "&user_id=\" + this.value)'>n"
-            
-                login_str = "<select id='sel_user_id' name='sel_user_id' " + \
-                            "onchange='window.location.replace(\"" + base_url(menu) + "?op=login_test&" + "login_return=" + \
-                            login_return + "&user_id=\" + this.value)'>n"
-
-
-                if self.user_id is None or not self.user_id:
-                    login_str = login_str + "<option value='NONE' SELECTED></option>"
-
-                for sel_user in test_users:
-                    selected = ""
-                    if self.user_id is not None and self.user_id == "local:"+sel_user:
-                        selected = "SELECTED"
-
-                    login_str = login_str + "<option value='{}' {}>{}</option>".format(sel_user, selected, sel_user)
-
-                login_str = login_str + "</select>\n"
-
-
-        #self.page.add_lines("\n\n<!-- LOGIN END -->\n")
-        #self.page.add_lines(login_str)
-        return login_str
-
-
-
+        return ret_str
 
 
 
@@ -362,73 +278,6 @@ class page(object):
 
 
             
-    def render_page(self, menu = "full"):
-        self.render_menu(menu)
-
-        style = "border:6px;padding:6px;"
-        self.add_lines("""
-        <div>
-          <span style='float:left;display:inline;""" + style + """'>
-            <form method="post" action='""" + base_url(menu) + """'>
-              <input type="hidden" id="op" name="op" value="generate">
-              <input type="hidden" id="q_id" name="q_id" value='""" + self.q_id + """'>
-              <input type="hidden" id="language" name="language" value='""" + self.language + """'>
-              <div style='""" + style + """background-color:#fafaf0;'>
-                  <h3>Init code:</h3>
-                  <textarea name="init_code" rows="10" cols="80">
-""" + self.init_code + """
-                  </textarea>
-              </div>
-              <div style='""" + style + """background-color:#faf0fa;'>
-                  <h3>Iter code:</h3>
-                  <textarea name="iter_code" rows="10" cols="80">
-""" + self.iter_code + """
-                  </textarea>
-              </div>
-              <div style='""" + style + """background-color:#f0fafa;'>
-                  <h3>Question text:</h3>
-                  <textarea name="text" rows="10" cols="80">
-""" + self.text + """
-                  </textarea>
-              </div>
-              <div style='""" + style + """background-color:#f0faf0;'>
-                  <button type="submit">Test</button>
-              </div>
-                </form>
-          </span>
-        """)
-
-        if self.question is not None:
-            self.add_lines("<span style='float:left;display:inline'>")
-            # Most common mogile web pages are 360 x 640 (https://www.hobo-web.co.uk/best-screen-size/)
-            # but I can't seem to enforce a size in this view, so skipping for now
-            #self.page.add_lines("<div style='border-style:dotted;display:table;height=360px;width=640px;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
-            self.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
-            self.question.eval_with_exception(True)
-            self.add_buttons()
-            self.add_lines("</div>")
-            self.add_lines("</span>")
-            
-        self.add_lines("""
-        </div>
-        """)
-        
-        return self.render(menu)
-
-
-
-    def render_simple_page(self, menu = "full"):
-
-        self.render_menu(menu)
-        
-        if self.question is not None:
-            self.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>")
-            self.question.eval_with_exception()
-            self.add_buttons()
-            self.add_lines("</div>")
-            
-        
-        return self.render(menu)
 
 
 
@@ -466,6 +315,9 @@ class page(object):
 
 
         
+
+
+        
     def main(self, op="view", q_id=None, l_id=None, language="rs", menu="full",
              user_id=None, init_code="", iter_code="", text="", 
              user_agent="", user_language=""):
@@ -479,21 +331,24 @@ class page(object):
             q = question(self, self.user_id, self.rel_path)
             q.set_from_file_with_exception()
             self.add_question(q)
-            return self.render_simple_page(menu)
+            self.render_simple_page(menu)
+            return self.render(menu)
             
         elif op == "edit":
             q = question(self, self.user_id, self.rel_path)
             q.set_from_file_with_exception()
             self.add_question(q)
             self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
-            return self.render_page(menu)
+            self.render_page(menu)
+            return self.render(menu)
             
         elif op == "generate":
             self.add_code(init_code, iter_code, text)
             q = question(self, self.user_id, self.rel_path, 
                          init_code=init_code, iter_code=iter_code, text=text)
             self.add_question(q)
-            return self.render_page(menu)
+            self.render_page(menu)
+            return self.render(menu)
 
         elif op == "list":
             self.render_menu(menu)
@@ -505,17 +360,8 @@ class page(object):
             self.render_menu(menu)
             test = Test(self, self.user_id, self.rel_path, self.mobile)
             next_question_url = test.render_next_questions()
-            self.add_buttons(next_question_url)
-
+            Design_test.add_buttons(page, next_question_url)
             return self.render(menu)
-
-            '''
-        elif op == "content":
-            self.render_menu(menu)
-            content = Content(self, self.mobile)
-            content.render_content(self.language)
-            return self.render(menu)
-            '''
 
         else:
             return "ERROR - operation {} not known".format(op)
@@ -578,60 +424,7 @@ class page(object):
 
 
 
-
-
-    def add_check_button(self, url_next=None):        
-
-
-        OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
-        OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='cond = checkAll();"
-        if url_next is not None:
-            # Only send results to server if next_url specified (i.e. we are in the test mode)
-            OKline = OKline + "checkAll(\"SUBMIT\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
-                base_url(self.menu), self.q_id, self.l_id, self.user_id)
-            OKline = OKline + "if (cond) {window.location.replace(\"" + url_next + "\")}"
-        else:
-            OKline = OKline + "checkAll();"
-        OKline = OKline + "' value='{}' />\n".format(self.get_messages()["check"])
-        self.add_lines(OKline)
-
-        if url_next is not None:
-            NEXTline = ""
-            NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='cond = "
-            NEXTline = NEXTline + "checkAll(\"SKIP\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
-                base_url(self.menu), self.q_id, self.l_id, self.user_id)
-            NEXTline = NEXTline + "window.location.replace(\"" + url_next + "\");"
-            NEXTline = NEXTline + "' value='{}' />\n".format(self.get_messages()["skip"])
-            self.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-            self.add_lines(NEXTline)
-            
-        self.add_lines("\n<!-- END CHECK NEXT BUTTONS -->\n")
-
-
-
     
-
-    def add_buttons(self, url_next=None):
-        self.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
-        self.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
-        self.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
-
-        self.add_check_button(url_next)
-        
-        self.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-        
-        self.add_lines("\n<!-- CLEAR BUTTON -->\n")
-        self.add_lines("\n<input type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
-            self.get_messages()["clear"]))
-        self.add_lines("\n<!-- END CLEAR BUTTON -->\n")
-
-        self.add_lines("\n</div>\n")
-        self.add_lines("</div>\n")
-        self.add_lines("\n\n<!-- QUESTIONS END -->\n\n")
-
-        
-
-
 
 
 
@@ -667,35 +460,3 @@ class page(object):
                          login_return["lang"], login_return["menu"], full_user_id)
 
 
-
-    # To be ported to new architecture
-    # def login_google(self, id_token, state=None):
-    #     self.userdb.check_no_user(state)
-    #     headers = cherrypy.request.headers
-
-    #     try:
-    #         idinfo = google.oauth2.id_token.verify_oauth2_token(
-    #             id_token,
-    #             google.auth.transport.requests.Request(),
-    #             GOOGLE_CLIENT_ID
-    #         )
-    #         if idinfo['iss'] not in ['accounts.google.com', 'https://accounts.google.com']:
-    #             raise ValueError('Wrong issuer: {}'.format(idinfo['iss']))
-
-    #         auth_user_id = idinfo['sub']
-    #         logger("Google validation success: {}".format(idinfo))
-
-    #         name = idinfo['name']
-    #         email = idinfo['email']
-
-    #     except ValueError as ex:
-    #         logger("Failed google authentication: {}".format(ex))
-    #         return "ERROR"
-
-    #     self.session_login_and_update_user('google', auth_user_id,
-    #                                        name=name,
-    #                                        email=email,
-    #                                        remote_ip=headers["Remote-Addr"],
-    #                                        user_agent=headers["User-Agent"])
-
-    #     return "OK"

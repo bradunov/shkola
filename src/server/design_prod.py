@@ -1,8 +1,24 @@
 from helpers import *
+from types import *
 
 
 class Design_prod(object):
   
+
+
+  @staticmethod
+  def render_page(page):
+      menu = "full"
+
+      Design_prod.render_menu(menu)
+      
+      if page.question is not None:
+          page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>")
+          page.question.eval_with_exception()
+          Design_prod.add_buttons()
+          page.add_lines("</div>")
+                  
+
 
   # Inspired by https://www.w3schools.com/w3css/w3css_sidebar.asp
 
@@ -79,7 +95,7 @@ class Design_prod(object):
     """)
 
 
-    page.add_lines(page.get_login_header(True))
+    page.add_lines(Design_prod.get_login_header(page, True))
 
 
     page.add_lines("""
@@ -167,5 +183,93 @@ class Design_prod(object):
 
       page.add_lines("</div>")
         
+
+
+
+
+  @staticmethod    
+  def get_login_header(page, mobile=False):
+      login_str = ""
+
+      if mobile:
+          menu = "simple"
+      else:
+          menu = "full"
+
+
+      login_return = {}
+      login_return["page_name"] = page.page_name
+      login_return["q_id"] = page.q_id
+      login_return["l_id"] = page.l_id
+      login_return["lang"] = page.language
+      login_return["user_id"] = page.user_id
+      login_return["menu"] = menu
+      login_return["js"] = False
+      login_return = encode_dict(login_return)
+
+
+      test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Jovana", "Zomebody"]
+      test_users.sort()
+
+  
+      login_str = "<select id='sel_user_id' name='sel_user_id' " + \
+                  "onchange='window.location.replace(\"" + base_url(menu) + "?op=login_test&" + "login_return=" + \
+                  login_return + "&user_id=\" + this.value)'>n"
+
+
+      if page.user_id is None or not page.user_id:
+          login_str = login_str + "<option value='NONE' SELECTED></option>"
+
+      for sel_user in test_users:
+          selected = ""
+          if page.user_id is not None and page.user_id == "local:"+sel_user:
+              selected = "SELECTED"
+
+          login_str = login_str + "<option value='{}' {}>{}</option>".format(sel_user, selected, sel_user)
+
+      login_str = login_str + "</select>\n"
+
+
+      return login_str
+
+
+
+
+
+  @staticmethod    
+  def add_buttons(page, url_next=None):
+      page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
+      page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
+      page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
+
+      OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
+      OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
+          page.on_click(Operation.SUBMIT, url_next), page.get_messages()["check"])
+      page.add_lines(OKline)
+
+      if url_next is not None:
+          NEXTline = ""
+          NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
+              page.on_click(Operation.SUBMIT, url_next), page.get_messages()["skip"])
+          page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+          page.add_lines(NEXTline)
+          
+      page.add_lines("\n<!-- END CHECK NEXT BUTTONS -->\n")
+
+
+
+      page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+      
+      page.add_lines("\n<!-- CLEAR BUTTON -->\n")
+      page.add_lines("\n<input type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
+          page.get_messages()["clear"]))
+      page.add_lines("\n<!-- END CLEAR BUTTON -->\n")
+
+      page.add_lines("\n</div>\n")
+      page.add_lines("</div>\n")
+      page.add_lines("\n\n<!-- QUESTIONS END -->\n\n")
+
+      
+
 
 
