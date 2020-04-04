@@ -172,6 +172,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         return register(req)
 
 
+    # GET for files
+    if req.method == "GET" and 'url' in req.params.keys() and 'op' in req.params.keys() and req.params['op'] == "item":
+        return item(req)
+
+
     params = parse_req(req) 
 
     # For now always run test (as in kids testing knowledge)
@@ -185,7 +190,33 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     return exec_req("MAIN", params, req)
 
-    
+
+
+
+
+
+def item(req: func.HttpRequest) -> func.HttpResponse:
+    # Serve a binary file (e.g. picture)
+    url = req.params['url']
+
+    srv_abs_path = os.path.dirname(os.path.abspath(__file__))
+    abs_url = srv_abs_path + "/../" + url
+
+    # TBD: Make this safe (e.g. cannot fetch random file from the system)
+    if ".." in url or url[0] == "/":
+        logging.error("Url {} contains forbidden characters.".format(url))
+        return func.HttpResponse("ERROR", status_code="400", mimetype="text/html")
+
+    try:
+        with open(abs_url, mode='rb') as file: 
+            fileContent = file.read()
+    except IOError:
+        logging.error("File {} cannot be read.".format(abs_url))
+        return func.HttpResponse("ERROR", status_code="400", mimetype="text/html")
+
+    logging.debug("Serving file: {}".format(abs_url))
+    return func.HttpResponse(fileContent, mimetype="application/octet-stream")
+
 
 
 
@@ -202,3 +233,6 @@ def register(req: func.HttpRequest) -> func.HttpResponse:
     PAGE.register(parse_qs(req.get_body().decode()))
 
     return "OK"
+
+
+
