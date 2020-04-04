@@ -35,7 +35,6 @@ class page(object):
 
     menu = None                     # Page design
 
-
     object_id = 0
     lines = []
     script_lines = []
@@ -157,10 +156,10 @@ class page(object):
              <script type="text/javascript" async
                src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
              </script>
-             <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
              <script src="https://apis.google.com/js/platform.js" async defer></script>
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-             <script src="item?url=src/js/raphaeljs-infobox.js"></script>
+             <script src='""" + base_url(menu) + """?op=item&url=js/raphaeljs-infobox.js'></script>
              <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
 
              <style type="text/css">
@@ -302,7 +301,7 @@ class page(object):
                 </script>
                 """
         else:
-            test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Jovana", "Zomebody"]
+            test_users = ["Ana", "Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Jovana", "Zomebody"]
             test_users.sort()
 
             if mobile:

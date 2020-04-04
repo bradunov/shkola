@@ -36,44 +36,51 @@ class editor(object):
 
 
     @cherrypy.expose
-    def main(self, op="view", q_id=None, l_id=None, language="rs", menu="full", user_id=None, init_code="", iter_code="", text=""):
+    def main(self, op="view", q_id=None, l_id=None, language="rs", menu="full", user_id=None, init_code="", iter_code="", text="", url=""):
+        if op=="item":
+            return self.item(url)
         return self.page.main(op, q_id, l_id, language, menu, user_id, init_code, iter_code, text)
 
     
 
     @cherrypy.expose
-    def edit(self, op="edit", q_id=None, l_id=None, language="rs", menu="full", user_id=None, init_code="", iter_code="", text=""):
+    def edit(self, op="edit", q_id=None, l_id=None, language="rs", menu="full", user_id=None, init_code="", iter_code="", text="", url=""):
+        if op=="item":
+            return self.item(url)
         return self.page.main(op, q_id, l_id, language, menu, user_id, init_code, iter_code, text)
 
     
     
     @cherrypy.expose
-    def generate(self, q_id = "", l_id = None, language = "", menu = "full", user_id=None, init_code = "", iter_code = "", text = ""):
+    def generate(self, q_id = "", l_id = None, language = "", menu = "full", user_id=None, init_code="", iter_code="", text="", url=""):
+        if op=="item":
+            return self.item(url)
         return self.page.main("generate", q_id, l_id, language, menu, user_id, init_code, iter_code, text)
 
 
 
     @cherrypy.expose
-    def view(self, op="view", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
+    def view(self, op="view", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None, url=""):
+        if op=="item":
+            return self.item(url)
         return self.page.main(op, q_id, l_id, language, menu, user_id)
 
 
     
     @cherrypy.expose
-    def list(self, op="list", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
+    def list(self, op="list", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None, url=""):
+        if op=="item":
+            return self.item(url)
         return self.page.main(op, q_id, l_id, language, menu, user_id)
 
 
     
     @cherrypy.expose
-    def test(self, op="test", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
+    def test(self, op="test", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None, url=""):
+        if op=="item":
+            return self.item(url)
         return self.page.main(op, q_id, l_id, language, menu, user_id)
 
-
-
-    @cherrypy.expose
-    def content(self, op="content", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None):
-        return self.page.main(op, q_id, l_id, language, menu, user_id)
 
 
 
@@ -108,12 +115,23 @@ class editor(object):
             return self.test("test", None, l_id, language, menu = "full")
 
 
-    @cherrypy.expose
+    #@cherrypy.expose
     def item(self, url):
         # Serve a binary file (e.g. picture)
+
         # TBD: Make this safe (e.g. cannot fetch random file from the system)
+        if ".." in url or url[0] == "/":
+            logging.error("Url {} contains forbidden characters.".format(url))
+            raise cherrypy.HTTPError(status=400)
+
         srv_abs_path = os.path.dirname(os.path.abspath(__file__))
-        abs_url = srv_abs_path + "/../../" + url
+        if url[:2] == "js":
+            abs_url = srv_abs_path + "/../" + url
+        elif url[:len("questions")] == "questions" or url[:len("lists")] == "lists":
+            abs_url = srv_abs_path + "/../../" + url
+
+        print("Serving file: {}".format(abs_url))
+
         return static.serve_file(abs_url, 'application/x-download',
                                  'attachment', os.path.basename(abs_url))
 
