@@ -326,10 +326,10 @@ class Repository(object):
         self.load_dir(self.questions, self.questions_path)
         self.load_dir(self.lists, self.lists_path)
 
-        #logging.debug("AAA {}".format(self.lists))
+        #logging.debug("self.lists: {}".format(self.lists))
 
         self.create_content()
-        #logging.debug("BBB {}".format(self.content))
+        #logging.debug("self.content: {}".format(self.content))
 
         
     def get_config(self):

@@ -5,7 +5,7 @@ import logging
 import os
 
 
-class storage_sql:
+class Storage_sql:
     db = None
     dbname = "shkola.sql"
 

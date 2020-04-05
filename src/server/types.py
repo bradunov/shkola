@@ -1,5 +1,5 @@
-from enum import Enum, unique
-from helper import *
+from enum import Enum, unique, auto
+from server.helpers import *
 
 
 class PageParameterParsingError(Exception):
@@ -12,7 +12,7 @@ class ResponseOperation(Enum):
     SUBMIT = auto()
     SKIP = auto()
     @classmethod
-    def toStr(cls, enum : ResponseOperation) -> str:
+    def toStr(cls, enum ) -> str:
         if enum == ResponseOperation.SUBMIT:
             return "SUBMIT"
         elif enum == ResponseOperation.SKIP:
@@ -26,14 +26,14 @@ class PageDesign(Enum):
     DEFAULT = auto()
     DEV = auto()
     @classmethod
-    def toStr(cls, enum : PageDesign) -> str:
+    def toStr(cls, enum) -> str:
         if enum == PageDesign.DEFAULT:
             return "default"
         elif enum == PageDesign.DEV:
             return "dev"
 
     @classmethod
-    def fromStr(cls, name:str) -> PageDesign:
+    def fromStr(cls, name:str):
         if name.lower() == "default":
             return PageDesign.DEFAULT
         elif name.lower() == "dev":
@@ -63,7 +63,7 @@ class PageOperation(Enum):
     LOGIN = auto()
 
     @classmethod
-    def toStr(cls, enum : PageOperation) -> str:
+    def toStr(cls, enum) -> str:
         if enum == PageOperation.VIEW:
             return "view"
         elif enum == PageOperation.EDIT:
@@ -80,7 +80,7 @@ class PageOperation(Enum):
             return "login"
 
     @classmethod
-    def fromStr(cls, name:str, with_exception : bool = False) -> PageOperation:
+    def fromStr(cls, name:str, with_exception : bool = False):
         if name.lower() == "view":
             return PageOperation.VIEW
         elif name.lower() == "edit":
@@ -110,14 +110,14 @@ class PageLanguage(Enum):
     UK = auto()
 
     @classmethod
-    def toStr(cls, enum : PageLanguage) -> str:
+    def toStr(cls, enum) -> str:
         if enum == PageLanguage.RS:
             return "rs"
         elif enum == PageLanguage.UK:
             return "uk"
 
     @classmethod
-    def fromStr(cls, name : str, with_exception : bool = False) -> PageOperation:
+    def fromStr(cls, name : str, with_exception : bool = False):
         if name.lower() == "rs":
             return PageLanguage.RS
         elif name.lower() == "uk":
@@ -142,8 +142,12 @@ class PageUserID(object):
     def __init__(self, user_id : str):
         self.user_id = user_id
 
-    def toStr(self) -> str:
-        return self.user_id
+    @classmethod
+    def toStr(cls, user_id) -> str:
+        if user_id is None:
+            return ""
+        else:
+            return user_id.user_id
 
 
 
@@ -161,10 +165,11 @@ class PageParameters(object):
 
 
     # General parameters
+    root : str = ""                                         # main URL handle (http://<web_site>/<root>)
     op : PageOperation = PageOperation.TEST
     q_id : str = ""
     l_id : str = ""
-    language : str = PageLanguage.RS
+    language : PageLanguage = PageLanguage.RS
     user_id : PageUserID = None
     user_param : UserParameters = UserParameters()
 
@@ -175,7 +180,8 @@ class PageParameters(object):
 
 
     # Design style
-    design : PageDesign = PageDesign.DEFAULT
+    design : PageDesign = PageDesign.DEV
+
     # Is user on a mobile device
     mobile : bool = True
 
@@ -219,10 +225,16 @@ class PageParameters(object):
         else:
             args = in_args
 
+
         self.all_state = args
 
         if "raise_exception" in args.keys() and args["raise_exception"] == 1:
             self.with_exception = True
+
+        if "root" in args.keys():
+            self.root = args["root"]
+        else:
+            self.root = ""
 
         if "op" in args.keys():
             self.op = PageOperation.fromStr(args["op"], self.with_exception)
@@ -236,27 +248,37 @@ class PageParameters(object):
         if "user_id" in args.keys():
             self.user_id = PageUserID(args["user_id"])
 
-        if ("q_id" in args.keys()) and (not args["q_id"] is None) and (not args["q_id"]):
+        if ("q_id" in args.keys()) and (not args["q_id"] is None) and args["q_id"]:
             self.q_id = args["q_id"]
             #self.q_id = self.get_all_questions(language)[0]
         else:
             self.q_id = ""
 
-        if ("l_id" in args.keys()) and (not args["l_id"] is None) and (not args["l_id"]):
+        if ("l_id" in args.keys()) and (not args["l_id"] is None) and args["l_id"]:
             self.l_id = args["l_id"]
             #self.l_id = self.get_all_lists(language)[0]
         else:
             self.l_id = ""
             
-        if "user_id" in args.keys():
-            self.language = PageUserID(args["user_id"])
+
+        if "init_code" in args.keys():
+            self.init_code = args["init_code"]
+
+        if "iter_code" in args.keys():
+            self.init_code = args["iter_code"]
+
+        if "text" in args.keys():
+            self.init_code = args["text"]
+
+
+        if "remote_ip" in args.keys():
+            self.user_param.remote_ip = args["remote_ip"]
 
         if "user_agent" in args.keys():
             self.user_param.user_agent = args["user_agent"]
 
         if "user_language" in args.keys():
             self.user_param.user_language = args["user_language"]
-
 
 
 

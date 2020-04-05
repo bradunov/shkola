@@ -3,8 +3,8 @@ import json
 
 from server.types import *
 
-from server.question import question
-from server.qlist import qlist
+from server.question import Question
+from server.qlist import Qlist
 from server.storage import get_storage
 from server.helpers import *
 from server.test import Test
@@ -18,7 +18,7 @@ import logging
 
 
 
-class page(object):
+class Page(object):
     page_params : PageParameters = PageParameters()
 
     question = None
@@ -110,7 +110,8 @@ class page(object):
         if url_next is not None:
             # Only send results to server if next_url specified (i.e. we are in the test mode)
             ret_str = ret_str + "checkAll(\"{}\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
-                ResponseOperation.toStr(operation), base_url(self.menu), self.q_id, self.l_id, self.user_id)
+                ResponseOperation.toStr(operation), self.page_params.root, self.page_params.q_id, 
+                self.page_params.l_id, PageUserID.toStr(self.page_params.user_id))
             ret_str = ret_str + "if (cond) {window.location.replace(\"" + url_next + "\")}"
         else:
             ret_str = ret_str + "checkAll();"
@@ -128,6 +129,40 @@ class page(object):
         ret = ret + "\n" + self.footer()
         return ret
 
+
+    def create_url(self, root=None, op=None, q_id=None, l_id=None, language=None, user_id=None, design=None, js=False):
+        if root is None:
+            root = self.page_params.root
+            root = encap_str(root) if js else root
+        if op is None:
+            op = PageOperation.toStr(self.page_params.op)
+            op = encap_str(op) if js else op
+        if q_id is None:
+            q_id = self.page_params.q_id                
+            q_id = "" if q_id is None else q_id
+            q_id = encap_str(q_id) if js else q_id
+        if l_id is None:
+            l_id = self.page_params.l_id
+            l_id = "" if l_id is None else l_id
+            l_id = encap_str(l_id) if js else l_id
+        if language is None:
+            language = PageLanguage.toStr(self.page_params.language)
+            language = encap_str(language) if js else language
+        if design is None:
+            design = PageDesign.toStr(self.page_params.design)
+            design = encap_str(design) if js else design
+        if user_id is None:
+            user_id = PageUserID.toStr(self.page_params.user_id)
+            user_id = encap_str(user_id) if js else user_id
+
+        if js:
+            url = "{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} + \"&language=\" + {} + \"&design=\" + {} + \"&user_id=\" + {} ".format(
+                root, op, q_id, l_id, language, design, user_id)
+        else:
+            url = "{}?op={}&q_id={}&l_id={}&language={}&design={}&user_id={}".format(
+                root, op, q_id, l_id, language, design, user_id)
+
+        return url
 
 
 
@@ -153,12 +188,13 @@ class page(object):
 
     def get_messages(self, language=None):
         if language is None:
-            language = self.language
+            language = PageLanguage.toStr(self.page_params.language)
         if language in self.messages.keys():
             return self.messages[language]
         return self.messages["uk"]
 
-
+    def get_file_url(self, file):
+        return "item?url={}".format(file)
 
 
 
@@ -181,7 +217,7 @@ class page(object):
              <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
              <script src="https://apis.google.com/js/platform.js" async defer></script>
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-             <script src='""" + base_url(menu) + """?op=item&url=js/raphaeljs-infobox.js'></script>
+             <script src='""" + self.get_file_url("js/raphaeljs-infobox.js") + """'></script>
              <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
 
              <style type="text/css">
@@ -250,20 +286,21 @@ class page(object):
     def main(self, args):
 
         # Special ops to register results
-        if PageOperation.name() in args.keys() and PageOperation.toStr(PageOperation.REGISTER):
+        if "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.REGISTER):
             return self.register(args)
 
         self.clear()
         self.page_params.parse(args)
 
-        logging.info("New request {} <{}>: "
+
+        logging.info("New request: op={} <design={}> - "
                     "q_id={}, l_id={}, language={}, user_id={}, init_code={}, iter_code={}, text={}, "
                     "remote_ip={}, user_agent={}, user_language={}.".format(
                         PageOperation.toStr(self.page_params.op), 
                         PageDesign.toStr(self.page_params.design),
                         self.page_params.q_id, self.page_params.l_id, 
                         PageLanguage.toStr(self.page_params.language), 
-                        self.page_params.user_id.toStr(), 
+                        PageUserID.toStr(self.page_params.user_id), 
                         self.page_params.init_code, self.page_params.iter_code, self.page_params.text,
                         self.page_params.user_param.remote_ip, 
                         self.page_params.user_param.user_agent, 
@@ -277,40 +314,38 @@ class page(object):
 
 
         if self.page_params.op == PageOperation.VIEW:
-            q = question(self, self.rel_path)
+            q = Question(self)
             q.set_from_file_with_exception()
             self.add_question(q)
-            Design.render_page(page)
-            return self.render(menu)
+            Design.render_page(self)
+            return self.render()
             
         elif self.page_params.op == PageOperation.EDIT:
-            q = question(self, self.rel_path)
+            q = Question(self)
             q.set_from_file_with_exception()
             self.add_question(q)
             self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
-            Design.render_page(page)
-            return self.render(menu)
+            Design.render_page(self)
+            return self.render()
             
         elif self.page_params.op == PageOperation.GENERATE:
-            self.add_code(init_code, iter_code, text)
-            q = question(self, self.rel_path, 
-                         init_code=init_code, iter_code=iter_code, text=text)
+            q = Question(self)
             self.add_question(q)
-            Design.render_page(page)
-            return self.render(menu)
+            Design.render_page(self)
+            return self.render()
 
         elif self.page_params.op == PageOperation.LIST:
-            Design.render_menu(page)
-            ql = qlist(self, self.rel_path)
+            Design.render_menu(self)
+            ql = Qlist(self)
             ql.render_all_questions()
-            return self.render(menu)
+            return self.render()
 
         elif self.page_params.op == PageOperation.TEST:
-            Design.render_menu(page)
-            test = Test(self, self.rel_path, self.mobile)
+            Design.render_menu(self)
+            test = Test(self)
             next_question_url = test.render_next_questions()
-            Design_dev.add_buttons(page, next_question_url)
-            return self.render(menu)
+            Design_dev.add_buttons(self, next_question_url)
+            return self.render()
 
         elif self.page_params.op == PageOperation.REGISTER:
             self.register(self.page_params.all_state)
@@ -391,7 +426,7 @@ class page(object):
 
     def login(self) -> PageOperation:
 
-        user_id = self.page_params.user_id.toStr()
+        user_id = PageUserID.toStr(self.page_params.user_id)
 
         # Logint and register user
         if user_id is None:

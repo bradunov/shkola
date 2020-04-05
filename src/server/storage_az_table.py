@@ -6,7 +6,7 @@ import re
 import logging
 
 
-class storage_az_table():
+class Storage_az_table():
     
 
     ##################################################################

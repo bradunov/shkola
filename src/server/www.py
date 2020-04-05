@@ -8,9 +8,9 @@ from lupa import LuaRuntime
 import sys
 sys.path.append("..")
 
-from page import page
-from question import question
-from qlist import qlist
+from page import Page
+from question import Question
+from qlist import Qlist
 from user_db import UserDB
 from storage import get_storage
 from helpers import *
@@ -27,7 +27,7 @@ class editor(object):
     page = None
 
     def __init__(self):
-        self.page = page(use_azure_blob=False, preload=True)
+        self.page = Page(use_azure_blob=False, preload=True)
         
 
     def get_user_agent(self):
@@ -36,15 +36,16 @@ class editor(object):
 
 
     @cherrypy.expose
-    def main(self, args):
-        args["op"] = "main"
+    def main(self, **args):
+        print(args)
+        args["root"] = "main"
         return self.page.main(args)
 
     
 
     @cherrypy.expose
     def edit(self, args):
-        args["op"] = "main"
+        args["root"] = "main"
         return self.page.main(args)
 
     
@@ -113,7 +114,7 @@ class editor(object):
             return self.test("test", None, l_id, language, menu = "full")
 
 
-    #@cherrypy.expose
+    @cherrypy.expose
     def item(self, url):
         # Serve a binary file (e.g. picture)
 

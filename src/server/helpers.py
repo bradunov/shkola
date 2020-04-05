@@ -27,58 +27,7 @@ def decode_dict(enc_dict : str):
 
 
 
-def base_url(menu=None):
-    if menu is not None and (menu == '"full"' or menu == 'full'):
-        return "edit"
-    else:
-        return "main"
 
-
-def create_url(self=None, page_name=None, q_id=None, l_id=None, lang=None, user_id=None, menu=None, js=False):
-    first = True
-
-    if js:
-        glue = lambda first: " + \"" + ("?" if first else "&")
-        url = "\"" + base_url(menu) + "\""
-        if page_name is not None:
-            url = url + glue(first) + "op=\" + " + page_name
-            first = False
-        if q_id is not None:
-            url = url + glue(first) + "q_id=\" + " + q_id
-            first = False
-        if l_id is not None:
-            url = url + glue(first) + "l_id=\" + " + l_id
-            first = False
-        if lang is not None:
-            url = url + glue(first) + "language=\" + " + lang
-            first = False
-        if menu is not None:
-            url = url + glue(first) + "menu=\" + " + menu
-            first = False
-        if user_id is not None:
-            url = url + glue(first) + "user_id=\" + " + user_id
-    else:
-        glue = lambda first: "?" if first else "&" 
-        url = base_url(menu)
-        if page_name is not None:
-            url = url + glue(first) + "op=" + page_name
-            first = False
-        if q_id is not None:
-            url = url + glue(first) + "q_id=" + q_id
-            first = False
-        if l_id is not None:
-            url = url + glue(first) + "l_id=" + l_id
-            first = False
-        if lang is not None:
-            url = url + glue(first) + "language=" + lang
-            first = False
-        if menu is not None:
-            url = url + glue(first) + "menu=" + menu
-            first = False
-        if user_id is not None:
-            url = url + glue(first) + "user_id=" + user_id
-
-    return url
 
 
 def is_user_on_mobile(user_agent):

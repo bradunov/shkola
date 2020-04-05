@@ -1,35 +1,24 @@
 import json
-from server.question import question
+from server.question import Question
 from server.repository import Repository
 import logging
 
-class qlist(object):
+class Qlist(object):
     language = None
     l_id = None
     page = None
-    rel_path = None
 
     list = None
 
 
-    def __init__(self, page, user_id, rel_path=None):
+    def __init__(self, page):
         self.page = page
-        self.repository = page.repository
-        self.language = page.language
-        self.l_id = page.l_id
-        self.user_id = user_id
-        self.rel_path = rel_path
-
         self.load_list()
-
         #logging.debug(json.dumps(self.list, indent=4))
         
 
-    def load_list(self, l_id=None):
-        if l_id is not None:
-            self.l_id = l_id
-
-        self.list = self.repository.get_list(self.l_id)
+    def load_list(self):
+        self.list = self.page.repository.get_list(self.page.page_params.l_id)
 
         
     def render_all_questions(self):
@@ -63,7 +52,7 @@ class qlist(object):
                     title = title + str(key) + "=<em>" + str(value) + "</em> "
 
             self.page.q_id = q_id
-            q = question(self.page, self.user_id, self.rel_path)
+            q = Question(self.page)
             q.set_from_file_with_exception()
 
             self.page.add_lines("\n<!-- QUESTION HEADER -->\n")

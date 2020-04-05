@@ -35,7 +35,7 @@ class LibMath(object):
     
     
 
-class library(object):
+class Library(object):
     object_id = 0
     page = None
     checks = []
@@ -684,7 +684,7 @@ class library(object):
         
     def add_image(self, name, x, y, width, height, style={}, initial_state=None, check=None):
         obj_str = "image('{}', {}, {}, {}, {})".format(
-            base_url(page.menu) + "?op=item&url=" + self.question_url + "/" + name, x, y, width, width)
+            self.page.get_file_url(self.question_url + "/" + name), x, y, width, width)
         self._add_draw_object(obj_str, style, initial_state, check)
 
         

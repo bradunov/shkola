@@ -3,12 +3,13 @@ import traceback
 import math
 from lupa import LuaRuntime
 import re
-from server.library import library
+from server.types import *
+from server.library import Library
 from server.repository import Repository
 import logging
 
 
-class paragraph(object):
+class Paragraph(object):
     style = "style='display:content;border:6px;padding:6px'"
     text = ""
     alignment = ""
@@ -43,7 +44,7 @@ class paragraph(object):
 
         
 
-class question(object):
+class Question(object):
     # Lua interpreter
     lua = None
 
@@ -55,7 +56,6 @@ class question(object):
     list_id = None
 
     questions_rel_path = "questions"
-    rel_path = None
     questions_root_path = None
     
     text = ""
@@ -70,31 +70,23 @@ class question(object):
     """
 
     
-    def __init__(self, page, rel_path=None, url_next=None, init_code="", iter_code="", text=""):
+    def __init__(self, page):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.page = page
         self.repository = page.repository
-        self.init_code = init_code
-        self.iter_code = iter_code
-        self.text = text
-        self.language = page.language
-        self.list_id = page.l_id
-        self.path = page.q_id 
-        self.lib = library(self.lua, page, self.questions_rel_path + "/" + self.path)
-        self.url_next = url_next
-        self.rel_path = rel_path
-        logging.debug("Rendering question %s, list_id=%s, language=%s, url_next=%s", 
-            self.questions_rel_path + "/" + self.path, 
-            str(self.list_id), str(self.language), str(self.url_next))
-        self.questions_root_path = self.rel_path + "/" + self.questions_rel_path
+        self.lib = Library(self.lua, page, self.questions_rel_path + "/" + self.page.page_params.q_id)
+        logging.debug("Rendering question %s, list_id=%s, language=%s", 
+            self.questions_rel_path + "/" + self.page.page_params.q_id, 
+            self.page.page_params.l_id, PageLanguage.toStr(self.page.page_params.language))
+        self.questions_root_path = self.page.rel_path + "/" + self.questions_rel_path
 
 
     def set_from_file(self):
         self.init_code = ""
         self.iter_code = ""
-        self.text = "\n\n<h3>ERROR: no code exists for question {} for language {}!</h3>".format(self.path, self.language)
+        self.text = "\n\n<h3>ERROR: no code exists for question {} for language {}!</h3>".format(self.page.page_params.q_id, PageLanguage.toStr(self.page.page_params.language))
         
-        q = self.repository.get_question(self.path)
+        q = self.repository.get_question(self.page.page_params.q_id)
         if q is None:
             return
 
@@ -105,7 +97,7 @@ class question(object):
         if "iter.lua" in q.keys():
             self.iter_code = q["iter.lua"]
 
-        text_key = "text." + self.language
+        text_key = "text." + PageLanguage.toStr(self.page.page_params.language)
         if text_key in q.keys():
             self.text = q[text_key]
             
@@ -202,7 +194,7 @@ class question(object):
         # Insert <div> </div> around every line starting and ending with "\n"
         # to maintain the same visual design as edited file
 
-        para = paragraph()
+        para = Paragraph()
         
         while True:
             if (sa_ind < len(special_areas)):
@@ -367,8 +359,8 @@ class question(object):
            end
            function include(name)
               local root_path = '""" + self.questions_root_path + """';
-              local question_path = '""" + self.path + """';
-              local language = '""" + self.language + """';
+              local question_path = '""" + self.page.page_params.q_id + """';
+              local language = '""" + PageLanguage.toStr(self.page.page_params.language) + """';
 
               require_if_exists(root_path.."/"..question_path.."/"..name.."."..language..".lua");
               require_if_exists(root_path.."/global/"..name.."."..language..".lua");
@@ -393,8 +385,8 @@ class question(object):
                     strings[ind][len(strings[ind])-1] == ")"):
                     inc_file = strings[ind][len("include("):len(strings[ind])-1]
 
-                    q = self.repository.get_question(self.path)
-                    inc_name = inc_file + "." + self.language + ".lua"
+                    q = self.repository.get_question(self.page.page_params.q_id)
+                    inc_name = inc_file + "." + PageLanguage.toStr(self.page.page_params.language) + ".lua"
                     include_code = ""
                     if q is not None and inc_name in q.keys():
                         include_code = q[inc_name]
