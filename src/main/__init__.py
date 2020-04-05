@@ -137,24 +137,6 @@ def parse_req(req):
 
 def exec_req(name, params, req):
 
-    logging.info("Python HTTP trigger function processed a request {} <{}>: "
-                 "q_id={}, l_id={}, language={}, menu={}, init_code={}, iter_code={}, text={}, "
-                 "user_agent={}, language={}, user_id={}.".
-                 format(name, params["op"], params["q_id"], params["l_id"], params["language"], 
-                 params["menu"], params["init_code"], params["iter_code"], params["text"],
-                 params["user_agent"], params["user_language"], 
-                 params["user_id"]))
-
-    if params["op"] == "login_test":
-        return func.HttpResponse(
-            PAGE.login_test(params["user_id"], params["login_return"], params["remote_ip"], params["user_agent"], params["user_language"]),
-            mimetype="text/html")
-
-    return func.HttpResponse(
-        PAGE.main(params["op"], params["q_id"], params["l_id"], params["language"], 
-        params["menu"], params["user_id"], params["init_code"], params["iter_code"], params["text"],
-        params["user_agent"], params["user_language"]), 
-        mimetype="text/html")
 
 
 
@@ -167,14 +149,19 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         PAGE = page.page(use_azure_blob=use_azure_blob, preload=preload)
 
 
+    if False:
+        logging.debug("METHOD: " + str(req.method))
+        logging.debug("URL: " + str(req.url))
+        logging.debug("HEADERS: " + str(dict(req.headers)))
+        logging.debug("PARAMS: " + str(dict(req.params)))
+        logging.debug("ROUTE PARAMS: " + str(dict(req.route_params)))
+        logging.debug("GET BODY: " + str(req.get_body().decode()))
+ 
+
+
     # POST for registering results
     if req.method == "POST" and req.params['op'] == "register":
         return register(req)
-
-
-    # GET for files
-    if req.method == "GET" and 'url' in req.params.keys() and 'op' in req.params.keys() and req.params['op'] == "item":
-        return item(req)
 
 
     params = parse_req(req) 
@@ -188,34 +175,17 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     #params["menu"] = "simple"
     params["menu"] = "mobile"
 
-    return exec_req("MAIN", params, req)
 
 
+    if params["op"] == "login_test":
+        return func.HttpResponse(
+            PAGE.login_test(params["user_id"], params["login_return"], params["remote_ip"], params["user_agent"], params["user_language"]),
+            mimetype="text/html")
 
+    return func.HttpResponse(
+        PAGE.main(parse_qs(req.get_body().decode())), 
+        mimetype="text/html")
 
-
-
-def item(req: func.HttpRequest) -> func.HttpResponse:
-    # Serve a binary file (e.g. picture)
-    url = req.params['url']
-
-    srv_abs_path = os.path.dirname(os.path.abspath(__file__))
-    abs_url = srv_abs_path + "/../" + url
-
-    # TBD: Make this safe (e.g. cannot fetch random file from the system)
-    if ".." in url or url[0] == "/":
-        logging.error("Url {} contains forbidden characters.".format(url))
-        return func.HttpResponse("ERROR", status_code="400", mimetype="text/html")
-
-    try:
-        with open(abs_url, mode='rb') as file: 
-            fileContent = file.read()
-    except IOError:
-        logging.error("File {} cannot be read.".format(abs_url))
-        return func.HttpResponse("ERROR", status_code="400", mimetype="text/html")
-
-    logging.debug("Serving file: {}".format(abs_url))
-    return func.HttpResponse(fileContent, mimetype="application/octet-stream")
 
 
 

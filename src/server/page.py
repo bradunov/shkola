@@ -249,8 +249,32 @@ class page(object):
         
     def main(self, args):
 
+        # Special ops to register results
+        if PageOperation.name() in args.keys() and PageOperation.toStr(PageOperation.REGISTER):
+            return self.register(args)
+
         self.clear()
         self.page_params.parse(args)
+
+        logging.info("New request {} <{}>: "
+                    "q_id={}, l_id={}, language={}, user_id={}, init_code={}, iter_code={}, text={}, "
+                    "remote_ip={}, user_agent={}, user_language={}.".format(
+                        PageOperation.toStr(self.page_params.op), 
+                        PageDesign.toStr(self.page_params.design),
+                        self.page_params.q_id, self.page_params.l_id, 
+                        PageLanguage.toStr(self.page_params.language), 
+                        self.page_params.user_id.toStr(), 
+                        self.page_params.init_code, self.page_params.iter_code, self.page_params.text,
+                        self.page_params.user_param.remote_ip, 
+                        self.page_params.user_param.user_agent, 
+                        self.page_params.user_param.user_laguage))
+
+
+        # If login, update user and replace op with the original op
+        if self.page_params.op == PageOperation.LOGIN:
+            new_op = self.login()
+            self.page_params.op = new_op
+
 
         if self.page_params.op == PageOperation.VIEW:
             q = question(self, self.rel_path)
@@ -259,7 +283,7 @@ class page(object):
             Design.render_page(page)
             return self.render(menu)
             
-        elif op == "edit":
+        elif self.page_params.op == PageOperation.EDIT:
             q = question(self, self.rel_path)
             q.set_from_file_with_exception()
             self.add_question(q)
@@ -267,7 +291,7 @@ class page(object):
             Design.render_page(page)
             return self.render(menu)
             
-        elif op == "generate":
+        elif self.page_params.op == PageOperation.GENERATE:
             self.add_code(init_code, iter_code, text)
             q = question(self, self.rel_path, 
                          init_code=init_code, iter_code=iter_code, text=text)
@@ -275,24 +299,29 @@ class page(object):
             Design.render_page(page)
             return self.render(menu)
 
-        elif op == "list":
+        elif self.page_params.op == PageOperation.LIST:
             Design.render_menu(page)
             ql = qlist(self, self.rel_path)
             ql.render_all_questions()
             return self.render(menu)
 
-        elif op == "test":
+        elif self.page_params.op == PageOperation.TEST:
             Design.render_menu(page)
             test = Test(self, self.rel_path, self.mobile)
             next_question_url = test.render_next_questions()
             Design_dev.add_buttons(page, next_question_url)
             return self.render(menu)
 
+        elif self.page_params.op == PageOperation.REGISTER:
+            self.register(self.page_params.all_state)
+
+
         else:
             return "ERROR - operation {} not known".format(op)
 
 
 
+    # Called directly from 
     # args is in format returned by urllib.parse.parse_qs
     def register(self, args):
         correct = 0
@@ -351,18 +380,20 @@ class page(object):
 
     
 
+# Just redirect with an empty user
+
+#    def logout(self, login_return=None):
+#        return self.main(login_return["page_name"], login_return["q_id"], login_return["l_id"], 
+#                         login_return["lang"], login_return["menu"])
 
 
-    def logout(self, login_return=None):
-        return self.main(login_return["page_name"], login_return["q_id"], login_return["l_id"], 
-                         login_return["lang"], login_return["menu"])
 
 
+    def login(self) -> PageOperation:
 
+        user_id = self.page_params.user_id.toStr()
 
-    def login_test(self, user_id=None, login_return=None, remote_ip="", user_agent="", user_language=""):
-        login_return = decode_dict(login_return)
-
+        # Logint and register user
         if user_id is None:
             logging.debug("Login test user %s, %s, %s, %s", 'test', 'test', str(remote_ip), str(user_agent))
             self.userdb.session_login_and_update_user('local', 'test',
@@ -380,8 +411,8 @@ class page(object):
                                                user_agent=user_agent,
                                                user_language=user_language)
 
-        full_user_id = "local:" + user_id
-        return self.main(login_return["page_name"], login_return["q_id"], login_return["l_id"], 
-                         login_return["lang"], login_return["menu"], full_user_id)
-
+        if "orig_op" not in self.page_params.all_state.keys():
+            raise PageParameterParsingError
+        
+        return PageOperation.fromStr(self.page_params.all_state["orig_op"])
 

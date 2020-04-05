@@ -36,18 +36,16 @@ class editor(object):
 
 
     @cherrypy.expose
-    def main(self, op="view", q_id=None, l_id=None, language="rs", menu="full", user_id=None, init_code="", iter_code="", text="", url=""):
-        if op=="item":
-            return self.item(url)
-        return self.page.main(op, q_id, l_id, language, menu, user_id, init_code, iter_code, text)
+    def main(self, args):
+        args["op"] = "main"
+        return self.page.main(args)
 
     
 
     @cherrypy.expose
-    def edit(self, op="edit", q_id=None, l_id=None, language="rs", menu="full", user_id=None, init_code="", iter_code="", text="", url=""):
-        if op=="item":
-            return self.item(url)
-        return self.page.main(op, q_id, l_id, language, menu, user_id, init_code, iter_code, text)
+    def edit(self, args):
+        args["op"] = "main"
+        return self.page.main(args)
 
     
     

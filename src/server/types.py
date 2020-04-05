@@ -20,6 +20,7 @@ class ResponseOperation(Enum):
             
 
 
+
 @unique
 class PageDesign(Enum):
     DEFAULT = auto()
@@ -30,6 +31,7 @@ class PageDesign(Enum):
             return "default"
         elif enum == PageDesign.DEV:
             return "dev"
+
     @classmethod
     def fromStr(cls, name:str) -> PageDesign:
         if name.lower() == "default":
@@ -38,17 +40,27 @@ class PageDesign(Enum):
             return PageDesign.DEV
         else:
             return PageDesign.DEFAULT
-
    
+
+
 
 
 @unique
 class PageOperation(Enum):
-    VIEW = auto()
-    EDIT = auto()
+    # Testing - the default view for users
     TEST = auto()
+    # View one question (DEV mode)
+    VIEW = auto()
+    # Editor view of one question (DEV mode)
+    EDIT = auto()
+    # View all questions in a list (DEV mode)
     LIST = auto()
+    # Generate modified question in editor mode (DEV mode)
     GENERATE = auto()
+    # Register new a result in the table
+    REGISTER = auto()
+    # Submit login request
+    LOGIN = auto()
 
     @classmethod
     def toStr(cls, enum : PageOperation) -> str:
@@ -62,6 +74,10 @@ class PageOperation(Enum):
             return "list"
         elif enum == PageOperation.GENERATE:
             return "generate"
+        elif enum == PageOperation.REGISTER:
+            return "register"
+        elif enum == PageOperation.LOGIN:
+            return "login"
 
     @classmethod
     def fromStr(cls, name:str, with_exception : bool = False) -> PageOperation:
@@ -75,13 +91,14 @@ class PageOperation(Enum):
             return PageOperation.LIST
         elif name.lower() == "generate":
             return PageOperation.GENERATE
+        elif name.lower() == "login":
+            return PageOperation.LOGIN
         else:
             if with_exception:
                 raise PageParameterParsingError
             else:
                 # Default operation
                 return PageOperation.TEST
-
 
 
 
@@ -119,11 +136,14 @@ class PageLanguage(Enum):
 
 
 
-
 class PageUserID(object):
     user_id : str
 
+    def __init__(self, user_id : str):
+        self.user_id = user_id
 
+    def toStr(self) -> str:
+        return self.user_id
 
 
 
@@ -145,8 +165,8 @@ class PageParameters(object):
     q_id : str = ""
     l_id : str = ""
     language : str = PageLanguage.RS
+    user_id : PageUserID = None
     user_param : UserParameters = UserParameters()
-
 
     # Parameters for edit mode
     init_code : str = ""
@@ -155,13 +175,19 @@ class PageParameters(object):
 
 
     # Design style
-    style : PageDesign = PageDesign.DEFAULT
+    design : PageDesign = PageDesign.DEFAULT
     # Is user on a mobile device
     mobile : bool = True
 
     # Raise exception on any error - useful for testing
     # Set raise_exception=1 in URL to trigger exceptions
     with_exception = False
+
+
+    # The entire state as arrived in the request 
+    # (with encoded state decoded and added to the dict)
+    all_state : dict
+
 
 
     @staticmethod
@@ -193,14 +219,22 @@ class PageParameters(object):
         else:
             args = in_args
 
+        self.all_state = args
+
         if "raise_exception" in args.keys() and args["raise_exception"] == 1:
             self.with_exception = True
 
         if "op" in args.keys():
             self.op = PageOperation.fromStr(args["op"], self.with_exception)
 
+        if "design" in args.keys():
+            self.design = PageDesign.fromStr(args["design"])
+
         if "language" in args.keys():
             self.language = PageLanguage.fromStr(args["language"], self.with_exception)
+
+        if "user_id" in args.keys():
+            self.user_id = PageUserID(args["user_id"])
 
         if ("q_id" in args.keys()) and (not args["q_id"] is None) and (not args["q_id"]):
             self.q_id = args["q_id"]
@@ -215,13 +249,15 @@ class PageParameters(object):
             self.l_id = ""
             
         if "user_id" in args.keys():
-            self.language = PageUserID.fromStr(args["user_id"], self.with_exception)
+            self.language = PageUserID(args["user_id"])
 
         if "user_agent" in args.keys():
             self.user_param.user_agent = args["user_agent"]
 
         if "user_language" in args.keys():
             self.user_param.user_language = args["user_language"]
+
+
 
 
     def add_code(self, init_code : str = "", iter_code : str = "", text : str = ""):
