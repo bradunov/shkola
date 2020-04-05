@@ -288,9 +288,9 @@ class Repository(object):
             questions = list_dict["questions"]
             if language not in self.content.keys():
                 self.content[language] = {}
-            if level not in self.content.keys():
+            if level not in self.content[language].keys():
                 self.content[language][level] = {}
-            if theme not in self.content.keys():
+            if theme not in self.content[language][level].keys():
                 self.content[language][level][theme] = {"name" : list_name}
             
             for q in questions:
