@@ -19,38 +19,27 @@ import logging
 
 
 class page(object):
-    q_id = ""
-    l_id = ""
-    language = ""
-    init_code = ""
-    iter_code = ""
-    text = ""
-    question = None
-    page_name = ""
-    user_id = ""
-    user_agent = None
-    user_language = None
+    page_params : PageParameters = PageParameters()
 
+    question = None
     storage = None
     userdb = None
-    mobile = False
 
     messages = {}                   # GUI messages in different languages
 
-    menu = None                     # Page design
 
-    object_id = 0
-    lines = []
-    script_lines = []
-    on_loaded_script = ""
-    title = ""
+    object_id = 0                   # Unique ID counter for all HTML objects on the page
+    lines = []                      # HTML body lines
+    script_lines = []               # HTML header lines
+    on_loaded_script = ""           # JS code to be run on page load
+    title = ""                      # Web site title in the HTML header
 
     rel_path = os.getenv('SHKOLA_REL_PATH')
 
 
     # use_azure_blob = True: use blob for question storage rather than the local disk
     # preload = True: fetch all questions in memory at start time (may be slow for a blob)
-    def __init__(self, title="Shkola", rel_path=None, use_azure_blob=False, preload=True, mobile=False):
+    def __init__(self, title="Shkola", rel_path=None, use_azure_blob=False, preload=True):
         if rel_path is not None:
             self.rel_path = rel_path
 
@@ -62,28 +51,20 @@ class page(object):
         self.storage = get_storage()
         self.title = title
         self.userdb = UserDB()
-        self.mobile = mobile
         self.load_languages()
 
         
         
     def clear(self):
-        self.q_id = ""
-        self.language = ""
-        self.init_code = ""
-        self.iter_code = ""
-        self.text = ""
+        self.page_params = PageParameters()
         self.question = None
         self.lines = []
         self.script_lines = []
 
 
-
         
     def add_code(self, init_code = "", iter_code = "", text = ""):
-        self.init_code = init_code
-        self.iter_code = iter_code
-        self.text = text
+        self.page_params.add_code(init_code, iter_code, text)
             
 
         
@@ -104,6 +85,10 @@ class page(object):
 
 
 
+
+    #################################################
+    # HTML generation methods
+
     def add_script_lines(self, lines, *params):
         if lines is not None:
             self.script_lines.append(lines.format(*params) if params else lines)
@@ -120,8 +105,36 @@ class page(object):
     def add_on_loaded_script_lines(self, code):
         self.on_loaded_script = self.on_loaded_script + code
         
+    def on_click(self, operation:ResponseOperation=None, url_next=None):
+        ret_str = "cond = "
+        if url_next is not None:
+            # Only send results to server if next_url specified (i.e. we are in the test mode)
+            ret_str = ret_str + "checkAll(\"{}\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
+                ResponseOperation.toStr(operation), base_url(self.menu), self.q_id, self.l_id, self.user_id)
+            ret_str = ret_str + "if (cond) {window.location.replace(\"" + url_next + "\")}"
+        else:
+            ret_str = ret_str + "checkAll();"
+
+        return ret_str
+
+    def render(self):
+        ret = ""
+        ret = ret + self.header()
+        ret = ret + self.scripts()
+        for l in self.lines:
+            #ret = ret + u''.join(l).encode('utf-8')
+            ret = ret + str(l)
+            
+        ret = ret + "\n" + self.footer()
+        return ret
 
 
+
+
+
+
+    #################################################
+    # Language support
 
     def load_languages(self):
         local_path = self.rel_path + "/messages/"
@@ -148,7 +161,12 @@ class page(object):
 
 
 
-    def header(self, menu):
+
+
+    #################################################
+    # Standard page elements
+
+    def header(self):
         head = "<!DOCTYPE html>"
         head = head + "<html>\n"
         head = head + "  <head>\n"
@@ -174,12 +192,6 @@ class page(object):
                 }
             </style>
         """
-
-        if menu == "mobile":
-            head = head + """
-             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-            """
             
 
         if self.on_loaded_script:
@@ -206,11 +218,11 @@ class page(object):
         return head
     
 
-    def footer(self, menu):
+    def footer(self):
         return "</body>\n</html>\n"
         
 
-    def scripts(self, menu):
+    def scripts(self):
         ret = """
         <script type = "text/javascript">
         function setError(id) {
@@ -231,135 +243,49 @@ class page(object):
             ret = ret + l + "\n"
         return ret
     
-    def render(self, menu):
-        ret = ""
-        ret = ret + self.header(menu)
-        ret = ret + self.scripts(menu)
-        for l in self.lines:
-            #ret = ret + u''.join(l).encode('utf-8')
-            ret = ret + str(l)
-            
-        ret = ret + "\n" + self.footer(menu)
-        return ret
 
-
-
-
-
-    def on_click(self, operation:Operation=None, url_next=None):
-        ret_str = "cond = "
-        if url_next is not None:
-            # Only send results to server if next_url specified (i.e. we are in the test mode)
-            ret_str = ret_str + "checkAll(\"{}\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
-                Operation.toStr(operation), base_url(self.menu), self.q_id, self.l_id, self.user_id)
-            ret_str = ret_str + "if (cond) {window.location.replace(\"" + url_next + "\")}"
-        else:
-            ret_str = ret_str + "checkAll();"
-
-        return ret_str
-
-
-
-
-    def render_menu(self, menu_type = "full"):
-
-        Design.render_menu(self)
-
-        '''
-        if menu_type == "mobile":
-            self.render_menu_mobile()
-        elif menu_type == "simple":
-            self.render_menu_simple()
-        else:
-            self.render_menu_full()
-        '''
-
-
-
-            
-
-
-
-    def parse_parameters(self, page_name, q_id=None, l_id=None, 
-            language=None, user_id=None, user_agent=None, user_language=None):
-
-        self.page_name = page_name
-
-        if language is not None:
-            self.language = language
-        else:
-            self.language = ""
-
-        # If no question supplied, get the first one for the language
-        if q_id is None or not q_id:
-            if page_name == "test":
-                self.q_id = ""
-            else:
-                self.q_id = self.get_all_questions(language)[0]
-        else:
-            self.q_id = q_id
-
-        if l_id is None or not l_id:
-            self.l_id = self.get_all_lists(language)[0]
-        else:
-            self.l_id = l_id
-            
-        if user_id is not None:
-            self.user_id = user_id
-        else:
-            self.user_id = ""
-
-        self.user_agent = user_agent
-        self.user_language = user_language
 
 
         
-
-
-        
-    def main(self, op="view", q_id=None, l_id=None, language="rs", menu="full",
-             user_id=None, init_code="", iter_code="", text="", 
-             user_agent="", user_language=""):
+    def main(self, args):
 
         self.clear()
-        self.parse_parameters(op, q_id, l_id, language, user_id)
+        self.page_params.parse(args)
 
-        self.menu = menu
-
-        if op == "view":
-            q = question(self, self.user_id, self.rel_path)
+        if self.page_params.op == PageOperation.VIEW:
+            q = question(self, self.rel_path)
             q.set_from_file_with_exception()
             self.add_question(q)
-            self.render_simple_page(menu)
+            Design.render_page(page)
             return self.render(menu)
             
         elif op == "edit":
-            q = question(self, self.user_id, self.rel_path)
+            q = question(self, self.rel_path)
             q.set_from_file_with_exception()
             self.add_question(q)
             self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
-            self.render_page(menu)
+            Design.render_page(page)
             return self.render(menu)
             
         elif op == "generate":
             self.add_code(init_code, iter_code, text)
-            q = question(self, self.user_id, self.rel_path, 
+            q = question(self, self.rel_path, 
                          init_code=init_code, iter_code=iter_code, text=text)
             self.add_question(q)
-            self.render_page(menu)
+            Design.render_page(page)
             return self.render(menu)
 
         elif op == "list":
-            self.render_menu(menu)
-            ql = qlist(self, self.user_id, self.rel_path)
+            Design.render_menu(page)
+            ql = qlist(self, self.rel_path)
             ql.render_all_questions()
             return self.render(menu)
 
         elif op == "test":
-            self.render_menu(menu)
-            test = Test(self, self.user_id, self.rel_path, self.mobile)
+            Design.render_menu(page)
+            test = Test(self, self.rel_path, self.mobile)
             next_question_url = test.render_next_questions()
-            Design_test.add_buttons(page, next_question_url)
+            Design_dev.add_buttons(page, next_question_url)
             return self.render(menu)
 
         else:

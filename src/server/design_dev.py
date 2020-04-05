@@ -1,12 +1,12 @@
 from helpers import *
 from types import *
 
-class Design_test(object):
+class Design_dev(object):
 
 
     @staticmethod
     def render_page(page):
-        Design_test.render_simple_page(page)
+        Design_dev.render_simple_page(page)
 
 
     @staticmethod
@@ -56,7 +56,7 @@ class Design_test(object):
         else:
             select = ""
 
-        log_header = Design_test.get_login_header(page)
+        log_header = Design_dev.get_login_header(page)
         
         # Not sure why I have to put explicit height here, otherwise it is zero!
         page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
@@ -183,7 +183,7 @@ class Design_test(object):
             select = select + "</select>\n"
 
         
-        log_header = Design_test.get_login_header(page)
+        log_header = Design_dev.get_login_header(page)
 
         # Not sure why I have to put explicit height here, otherwise it is zero!
         page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
@@ -231,7 +231,7 @@ class Design_test(object):
 
     @staticmethod
     def render_page_edit(page, menu = "full"):
-        Design_test.render_menu_full(menu)
+        Design_dev.render_menu_full(menu)
 
         style = "border:6px;padding:6px;"
         page.add_lines("""
@@ -273,7 +273,7 @@ class Design_test(object):
             #page.page.add_lines("<div style='border-style:dotted;display:table;height=360px;width=640px;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
             page.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
             page.question.eval_with_exception(True)
-            Design_test.add_buttons(page)
+            Design_dev.add_buttons(page)
             page.add_lines("</div>")
             page.add_lines("</span>")
             
@@ -289,12 +289,12 @@ class Design_test(object):
     @staticmethod
     def render_simple_page(page, menu = "full"):
 
-        Design_test.render_menu_simple(menu)
+        Design_dev.render_menu_simple(menu)
         
         if page.question is not None:
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>")
             page.question.eval_with_exception()
-            Design_test.add_buttons()
+            Design_dev.add_buttons()
             page.add_lines("</div>")
                     
 
@@ -348,13 +348,13 @@ class Design_test(object):
 
         OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
         OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-            page.on_click(Operation.SUBMIT, url_next), page.get_messages()["check"])
+            page.on_click(ResponseOperation.SUBMIT, url_next), page.get_messages()["check"])
         page.add_lines(OKline)
 
         if url_next is not None:
             NEXTline = ""
             NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
-                page.on_click(Operation.SUBMIT, url_next), page.get_messages()["skip"])
+                page.on_click(ResponseOperation.SUBMIT, url_next), page.get_messages()["skip"])
             page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
             page.add_lines(NEXTline)
             

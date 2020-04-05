@@ -2,7 +2,7 @@ from helpers import *
 from types import *
 
 
-class Design_prod(object):
+class Design_default(object):
   
 
 
@@ -10,12 +10,12 @@ class Design_prod(object):
   def render_page(page):
       menu = "full"
 
-      Design_prod.render_menu(menu)
+      Design_default.render_menu(menu)
       
       if page.question is not None:
           page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>")
           page.question.eval_with_exception()
-          Design_prod.add_buttons()
+          Design_default.add_buttons()
           page.add_lines("</div>")
                   
 
@@ -36,6 +36,10 @@ class Design_prod(object):
     if page.q_id is not None and page.q_id:
         debug_str = debug_str + "(Q: {})".format(page.q_id)
 
+    page.add_script_lines("""
+             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            """)
 
     page.add_lines("""
         <script>
@@ -80,7 +84,7 @@ class Design_prod(object):
     """)
 
 
-    Design_prod.render_menu_drop(page, page.language, base_url("mobile") + "?op={}&language={}&menu={}&user_id={}".format(
+    Design_default.render_menu_drop(page, page.language, base_url("mobile") + "?op={}&language={}&menu={}&user_id={}".format(
         page.page_name, page.language, "mobile", page.user_id ), 1)
 
 
@@ -95,7 +99,7 @@ class Design_prod(object):
     """)
 
 
-    page.add_lines(Design_prod.get_login_header(page, True))
+    page.add_lines(Design_default.get_login_header(page, True))
 
 
     page.add_lines("""
@@ -244,13 +248,13 @@ class Design_prod(object):
 
       OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
       OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-          page.on_click(Operation.SUBMIT, url_next), page.get_messages()["check"])
+          page.on_click(ResponseOperation.SUBMIT, url_next), page.get_messages()["check"])
       page.add_lines(OKline)
 
       if url_next is not None:
           NEXTline = ""
           NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
-              page.on_click(Operation.SUBMIT, url_next), page.get_messages()["skip"])
+              page.on_click(ResponseOperation.SUBMIT, url_next), page.get_messages()["skip"])
           page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
           page.add_lines(NEXTline)
           

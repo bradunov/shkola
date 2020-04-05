@@ -70,7 +70,7 @@ class question(object):
     """
 
     
-    def __init__(self, page, user_id, rel_path=None, url_next=None, init_code="", iter_code="", text=""):
+    def __init__(self, page, rel_path=None, url_next=None, init_code="", iter_code="", text=""):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.page = page
         self.repository = page.repository
@@ -79,14 +79,13 @@ class question(object):
         self.text = text
         self.language = page.language
         self.list_id = page.l_id
-        self.user_id = user_id
         self.path = page.q_id 
         self.lib = library(self.lua, page, self.questions_rel_path + "/" + self.path)
         self.url_next = url_next
         self.rel_path = rel_path
-        logging.debug("Rendering question %s, list_id=%s, user_id=%s, language=%s, url_next=%s", 
+        logging.debug("Rendering question %s, list_id=%s, language=%s, url_next=%s", 
             self.questions_rel_path + "/" + self.path, 
-            str(self.list_id), str(self.user_id), str(self.language), str(self.url_next))
+            str(self.list_id), str(self.language), str(self.url_next))
         self.questions_root_path = self.rel_path + "/" + self.questions_rel_path
 
 

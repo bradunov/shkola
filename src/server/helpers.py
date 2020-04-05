@@ -7,19 +7,19 @@ import base64
 
 import logging
 
-def encap_str(str):
-    return "\"" + str + "\""
+def encap_str(s : str):
+    return "\"" + s + "\""
 
-def encode_str(str):
-    return urllib.parse.quote_from_bytes(base64.b64encode(str))
+def encode_str(s : str):
+    return urllib.parse.quote_from_bytes(base64.b64encode(s))
 
-def decode_str(enc_str):
+def decode_str(enc_str : str):
     return base64.b64decode(urllib.parse.unquote_to_bytes(enc_str))
 
-def encode_dict(indict):
+def encode_dict(indict : dict):
     return encode_str(pickle.dumps(indict))
 
-def decode_dict(enc_dict):
+def decode_dict(enc_dict : str):
     if not enc_dict:
         return {}
     else:
