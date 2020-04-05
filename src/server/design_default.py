@@ -2,12 +2,13 @@ from copy import copy
 
 from server.helpers import encode_dict, encap_str
 
-from server.types import PageUserID
 from server.types import PageLanguage
 from server.types import PageOperation
 from server.types import ResponseOperation
 
 from server.test import Test
+from server.user_db import TEST_USERS
+import server.context as context
 
 class Design_default(object):
   
@@ -127,11 +128,14 @@ class Design_default(object):
 
         # Temporary, for debugging:
         debug_str = ""
-        if page.page_params.user_id is not None and PageUserID.toStr(page.page_params.user_id):
-            if len(PageUserID.toStr(page.page_params.user_id)) >= len("local:") and PageUserID.toStr(page.page_params.user_id)[:len("local:")] == "local:":
-                debug_str = debug_str + "Hi {} ".format(PageUserID.toStr(page.page_params.user_id)[len("local:"):])
-            else:
-                debug_str = debug_str + "Hi {} ".format(PageUserID.toStr(page.page_params.user_id))
+
+        user = context.c.user
+
+        if user is not None:
+            debug_str = debug_str + "Hi {} ({})".format(
+                user.domain_user_id, context.c.session.get('page_counter', 0)
+            )
+
         if page.page_params.q_id is not None and page.page_params.q_id:
             debug_str = debug_str + "(Q: {})".format(page.page_params.q_id)
 
@@ -184,9 +188,9 @@ class Design_default(object):
 
 
         Design_default.render_menu_drop(page, PageLanguage.toStr(page.page_params.language), 
-            page.page_params.root + "?op={}&language={}&menu={}&user_id={}".format(
+            page.page_params.root + "?op={}&language={}&menu={}".format(
             PageOperation.toStr(page.page_params.op), PageLanguage.toStr(page.page_params.language), 
-            "mobile", PageUserID.toStr(page.page_params.user_id) ), 1)
+            "mobile"), 1)
 
 
 
@@ -295,22 +299,16 @@ class Design_default(object):
     def get_login_header(page):
         login_str = ""
 
-
         login_return = page.page_params.all_state
         login_return["js"] = False
         login_return = encode_dict(login_return)
 
-
-        test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Jovana", "Zomebody"]
-        test_users.sort()
-
         login_str = ""
-        for username in test_users:
+        for username in sorted(TEST_USERS):
             link = page.page_params.root + "?op=login_test&" + "login_return=" + \
-                        login_return + "&user_id={}".format(username) 
+                        login_return + "&user_id={}".format(username)
             str_indent = "<div class='space'></div>"
             login_str = login_str + "<a href='" + link + "' class='w3-bar-item w3-button'> " + str_indent + username + "</a>\n"
-
 
         return login_str
 

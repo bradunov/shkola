@@ -899,7 +899,7 @@ class Library(object):
         cid = 0
         cond = "cond = "
         assign = ""
-        report = "'q_id=' + q_id + '&l_id=' + l_id + '&user_id=' + user_id + '&' + "
+        report = "'q_id=' + q_id + '&l_id=' + l_id + '&' + "
         for c in self.checks:
             assign = assign + "c" + str(cid) + " = " + c + ";" + \
                 "if (c" + str(cid) + ") {q_correct++;} else {q_incorrect++;}\n"
@@ -935,7 +935,7 @@ class Library(object):
 
         // operation == SUBMIT | SKIP
         // post_url == URL to which to post the results
-        function checkAll(operation, post_url, q_id, l_id, user_id){
+        function checkAll(operation, post_url, q_id, l_id) {
             q_correct=0; q_incorrect=0;
         """ + assign + "\n" \
             + cond + "\n" + """

@@ -102,7 +102,7 @@ class PageOperation(Enum):
             return PageOperation.LIST
         elif name.lower() == "generate":
             return PageOperation.GENERATE
-        elif name.lower() == "login":
+        elif name.lower() == "login_test":
             return PageOperation.LOGIN
         elif name.lower() == "menu":
             return PageOperation.MENU
@@ -110,7 +110,7 @@ class PageOperation(Enum):
             return PageOperation.STATS
         else:
             if with_exception:
-                raise PageParameterParsingError
+                raise PageParameterParsingError()
             else:
                 # Default operation
                 return PageOperation.TEST
@@ -139,30 +139,10 @@ class PageLanguage(Enum):
             return PageLanguage.UK
         else:
             if with_exception:
-                raise PageParameterParsingError
+                raise PageParameterParsingError()
             else:
                 # Default language
                 return PageLanguage.RS
-
-
-
-
-
-
-
-
-class PageUserID(object):
-    def __init__(self, user_id : str):
-        self.user_id = user_id
-
-    @classmethod
-    def toStr(cls, user_id) -> str:
-        if user_id is None:
-            return ""
-        else:
-            return user_id.user_id
-
-
 
 
 class PageParameters(object):
@@ -225,7 +205,7 @@ class PageParameters(object):
     def decode_params(args : dict, with_exception : bool = False):
         if not "state" in args.keys() or not args["state"]:
             if with_exception:
-                raise PageParameterParsingError
+                raise PageParameterParsingError()
             else:
                 return {}
         return decode_dict(args["state"])
@@ -236,7 +216,7 @@ class PageParameters(object):
             self.parse(args)
 
 
-    def parse(self, in_args : dict, page):
+    def parse(self, in_args : dict):
 
         # First check if there are any parameters packet encoded in "state" variable
         if "state" in in_args.keys():
@@ -272,9 +252,6 @@ class PageParameters(object):
 
         if "language" in args.keys():
             self.language = PageLanguage.fromStr(args["language"], self.with_exception)
-
-        if "user_id" in args.keys():
-            self.user_id = PageUserID(args["user_id"])
 
         if ("q_id" in args.keys()) and (not args["q_id"] is None) and args["q_id"]:
             self.q_id = args["q_id"]
@@ -349,7 +326,7 @@ class PageParameters(object):
 
 
     def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, theme=None, 
-                   menu_state=None, language=None, user_id=None, design=None, 
+                   menu_state=None, language=None, design=None,
                    correct=None, incorrect=None, js=False):
         if root is None:
             root = self.root
@@ -365,9 +342,6 @@ class PageParameters(object):
         if design is None:
             design = PageDesign.toStr(self.design)
             design = encap_str(design) if js else design
-        if user_id is None:
-            user_id = PageUserID.toStr(self.user_id)
-            user_id = encap_str(user_id) if js else user_id
         year = self._str_to_url(year, self.year, js)
         theme = self._str_to_url(theme, self.theme, js)
         correct = self._str_to_url(correct, self.correct, js)
@@ -378,12 +352,12 @@ class PageParameters(object):
             url = ("{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} " +
                    "+ \"&year=\" + {} + \"&theme=\" + {} + \"&menu_state=\" + {} " +
                    "+ \"&language=\" + {} + \"&design=\" + {} " + 
-                   "+ \"&correct=\" + {} + \"&incorrect=\" + {} " + 
-                   "+ \"&user_id=\" + {} ").format(
-                root, op, q_id, l_id, year, theme, menu_state, language, design, correct, incorrect, user_id)
+                   "+ \"&correct=\" + {} + \"&incorrect=\" + {}"
+                   ).format(
+                root, op, q_id, l_id, year, theme, menu_state, language, design, correct, incorrect)
         else:
             url = ("{}?op={}&q_id={}&l_id={}&year={}&theme={}&menu_state={}" + 
-                  "&language={}&design={}&correct={}&incorrect={}&user_id={}").format(
-                root, op, q_id, l_id, year, theme, menu_state, language, design, correct, incorrect, user_id)
+                  "&language={}&design={}&correct={}&incorrect={}").format(
+                root, op, q_id, l_id, year, theme, menu_state, language, design, correct, incorrect)
 
         return url

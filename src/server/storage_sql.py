@@ -22,6 +22,7 @@ class Storage_sql:
                 full_name = dbpath + "/" + self.dbname
         else:
             full_name = self.dbname
+        logging.info("Opening SQL database: %s", full_name)
         self.db = sqlite3.connect(full_name, detect_types=sqlite3.PARSE_DECLTYPES, check_same_thread=False)
         self.create_tables()
 
@@ -38,9 +39,10 @@ class Storage_sql:
             return user_id
 
 
-    def get_user_data(self, user_id):
+    def get_user(self, user_id):
         cursor = self.db.cursor()
-        cursor.execute('''SELECT * FROM users where user_id == (?)''', (user_id,))
+        query = "SELECT user_id, name, email, remote_ip, user_agent, last_accessed FROM users where user_id == (?)"
+        cursor.execute(query, (user_id,))
         row = cursor.fetchone()
         if row is not None:
             return {"user_id": row[0],
@@ -51,49 +53,53 @@ class Storage_sql:
                     "last_accessed":row[5]}
         else:
             return None
-        
-        
 
-    def update_user(self, user_id, name=None, email=None,
-                    remote_ip=None, user_agent=None, user_language=None, last_accessed=None):
-        #logging.debug("*** SQL update_user")
 
-        # Make sure user is there
+    def update_user(self, user_id, **data):
         self.insert_user_id(user_id)
+        self._update_data("users", "user_id", user_id, data)
 
-        first = True
+
+    def _update_data(self, table_name, row_id_name, row_id, data):
+        query = f"UPDATE {table_name} SET "
+
+        vals = list(data.values())[:]
+
+        query_list = ["{} = ?".format(f) for f in data.keys()]
+        query += ", ".join(query_list)
+
+        query = query + f" WHERE {row_id_name} == ?"
+        logging.info("QUERY: %s", query)
+        vals.append(row_id)
+
         cursor = self.db.cursor()
-        query = "UPDATE users SET "
-        vals = []
-        if name is not None:
-            query = query + ("" if first else ",") + " name == ?"
-            first = False;
-            vals.append(name)
-        if email is not None:
-            query = query + ("" if first else ",") + " email == ?"
-            first = False
-            vals.append(email)
-        if remote_ip is not None:
-            query = query + ("" if first else ",") + " remote_ip == ?"
-            first = False
-            vals.append(remote_ip)
-        if user_agent is not None:
-            query = query + ("" if first else ",") + " user_agent == ?"
-            first = False
-            vals.append(user_agent)
-        if last_accessed is not None:
-            query = query + ("" if first else ",") + " last_accessed == ?"
-            first = False
-            vals.append(last_accessed)
-        vals.append(user_id)
-        query = query + " WHERE user_id == ?"
-        tvals = tuple(vals)
-        
-        cursor.execute(query, tvals)
+        cursor.execute(query, vals)
         self.db.commit()
 
 
+    def get_session(self, session_id):
+        cursor = self.db.cursor()
+        query = "SELECT user_id, data FROM sessions where id == (?)"
+        cursor.execute(query, (session_id,))
+        row = cursor.fetchone()
+        if row is not None:
+            return {
+                "user_id": row[0],
+                "data": row[1]
+            }
+        else:
+            return None
+
+    def insert_session(self, session_id):
+        query = "INSERT INTO sessions(id) VALUES(?)"
+
+        cursor = self.db.cursor()
+        cursor.execute(query, [session_id])
+        self.db.commit()
         
+
+    def update_session(self, session_id, **data):
+        self._update_data("sessions", "id", session_id, data)
         
 
     def record_response(self, response):
@@ -153,7 +159,8 @@ class Storage_sql:
                            name TEXT,
                            email TEXT,
                            remote_ip TEXT,
-                           user_agent TEXT, 
+                           user_agent TEXT,
+                           user_language TEXT,
                            last_accessed INTEGER)
         ''')
         self.db.commit()
@@ -176,12 +183,20 @@ class Storage_sql:
         ''')
         self.db.commit()
             
+        # Sessions
+        cursor = self.db.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS sessions (
+                id TEXT PRIMARY KEY,
+                user_id TEXT,
+                data TEXT,
+                FOREIGN KEY(user_id) REFERENCES users(user_id)
+            )
+        ''')
+        self.db.commit()
 
 
-            
 
-
-        
     def print_all_responses(self, user_id = None):
         cursor = self.db.cursor()
         if user_id is None:
