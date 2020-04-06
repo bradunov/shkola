@@ -378,21 +378,21 @@ class Page(object):
 
         user_id = None
 
-        if "user_id" in args.keys() and args["user_id"][0]:
-            user_id = args["user_id"][0]
+        if "user_id" in args.keys() and args["user_id"]:
+            user_id = args["user_id"]
         else:
             # DEBUG: we log everything for stats, as unknown
             user_id = "UNKNOWN"
 
         if "q_id" in args.keys() and "now" in args.keys() and user_id is not None:
-            if "l_id" not in args.keys() or not args["l_id"][0] or args["l_id"][0] is None:
+            if "l_id" not in args.keys() or not args["l_id"] or args["l_id"] is None:
                 l_id = ""
             else:
-                l_id = args["l_id"][0]
+                l_id = args["l_id"]
                 
 
             for key, v in args.items():
-                value = v[0]
+                value = v
                 if key[0:5] == "q_res":
                     questions = questions + key + "=" + value + ","
                     if value == "true":
@@ -401,21 +401,21 @@ class Page(object):
                         incorrect = incorrect + 1
                         
             response = {"user_id" : user_id,
-                        "question_id": args["q_id"][0],
+                        "question_id": args["q_id"],
                         "list_id": l_id,
-                        "response_type": args["response_type"][0],
-                        "attempt": args["attempt"][0],
-                        "time": args["start"][0],
-                        "duration": int(args["now"][0]) - int(args["start"][0]),
+                        "response_type": args["response_type"],
+                        "attempt": args["attempt"],
+                        "time": args["start"],
+                        "duration": int(args["now"]) - int(args["start"]),
                         "correct": correct,
                         "incorrect": incorrect,
                         "questions": questions}
 
             logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, response_type=%s, " +
                         "attempt=%s, start=%s, duration=%s, correct=%s, incorrect=%s, questions=\"%s\"", 
-                        str(user_id), str(args["q_id"][0]), 
-                        str(l_id), str(args["response_type"][0]), str(args["attempt"][0]),
-                        str(args["start"][0]), str(int(args["now"][0]) - int(args["start"][0])),
+                        str(user_id), str(args["q_id"]), 
+                        str(l_id), str(args["response_type"]), str(args["attempt"]),
+                        str(args["start"]), str(int(args["now"]) - int(args["start"])),
                         str(correct), str(incorrect), str(questions))
 
             try:

@@ -918,15 +918,15 @@ class Library(object):
         attempt = 0;
         function sendResultsToServer(report, type, post_url) {
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/' + post_url + '?op=register');
+            xhr.open('POST', '/' + post_url);
             xhr.onreadystatechange = function() {
                 console.log("Received");
                 console.log(xhr);
                 if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
             };
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            console.log("Sending report " + report + '&response_type=' + type);
-            xhr.send(report + '&response_type=' + type);
+            console.log("Sending report " + report + '&op=register&response_type=' + type);
+            xhr.send(report + '&op=register&response_type=' + type);
             attempt = attempt + 1;
         }
 
