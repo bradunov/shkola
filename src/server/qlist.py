@@ -1,7 +1,12 @@
 import json
 from server.question import Question
 from server.repository import Repository
+from server.design_dev import Design_dev
 import logging
+
+
+
+# This is not (yet?) design agnostic
 
 class Qlist(object):
     language = None
@@ -62,7 +67,7 @@ class Qlist(object):
 
             self.page.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
             q.eval_with_exception()
-            self.page.add_buttons()
+            Design_dev.add_buttons(self.page)
             self.page.add_lines("</div>")
 
             

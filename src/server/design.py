@@ -23,3 +23,14 @@ class Design(object):
     else:
       Design_default.render_menu(page)
 
+
+  @staticmethod
+  def add_buttons(page, next_question_url):
+    if page.page_params.design == PageDesign.DEFAULT:
+      Design_default.add_buttons(page, next_question_url)
+    elif page.page_params.design == PageDesign.DEV:
+      Design_dev.add_buttons(page, next_question_url)
+    else:
+      Design_default.add_buttons(page, next_question_url)
+
+

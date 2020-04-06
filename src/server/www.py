@@ -35,83 +35,58 @@ class editor(object):
         return headers['User-Agent']
 
 
+    def append_mobile(self, args):
+        if is_user_on_mobile(self.get_user_agent()):
+            args["mobile"] = True
+        else:
+            args["mobile"] = False
+        return args
+
+
     @cherrypy.expose
     def main(self, **args):
-        print(args)
         args["root"] = "main"
+        args["design"] = "default"
+        args = self.append_mobile(args)
         return self.page.main(args)
 
     
 
     @cherrypy.expose
-    def edit(self, args):
-        args["root"] = "main"
+    def edit(self, **args):
+        args["root"] = "edit"
+        args["design"] = "dev"
+        args = self.append_mobile(args)
         return self.page.main(args)
 
     
     
     @cherrypy.expose
-    def generate(self, q_id = "", l_id = None, language = "", menu = "full", user_id=None, init_code="", iter_code="", text="", url=""):
-        if op=="item":
-            return self.item(url)
-        return self.page.main("generate", q_id, l_id, language, menu, user_id, init_code, iter_code, text)
-
-
-
-    @cherrypy.expose
-    def view(self, op="view", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None, url=""):
-        if op=="item":
-            return self.item(url)
-        return self.page.main(op, q_id, l_id, language, menu, user_id)
-
-
-    
-    @cherrypy.expose
-    def list(self, op="list", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None, url=""):
-        if op=="item":
-            return self.item(url)
-        return self.page.main(op, q_id, l_id, language, menu, user_id)
-
-
-    
-    @cherrypy.expose
-    def test(self, op="test", q_id = None, l_id = None, language = "rs", menu = "full", user_id=None, url=""):
-        if op=="item":
-            return self.item(url)
-        return self.page.main(op, q_id, l_id, language, menu, user_id)
-
-
-
-
-
-    
-    @cherrypy.expose
-    def index(self, q_id = None, language = "rs"):
-        if is_user_on_mobile(self.get_user_agent()):
-            return self.view("view", q_id, None, language, menu = "simple")
-        else:
-            return self.view("view", q_id, None, language, menu = "full")
+    def index(self, **args):
+        args["root"] = "edit"
+        args["design"] = "dev"
+        args = self.append_mobile(args)
+        return self.page.main(args)
 
 
         
     @cherrypy.expose
-    def mobile(self, q_id = None, language = "rs"):
-        return self.view("view", q_id, None, language, menu = "simple")
+    def mobile(self, **args):
+        args["mobile"] = True
+        args["root"] = "main"
+        args["op"] = "view"
+        return self.page.main(args)
 
 
     
     @cherrypy.expose
-    def nonmobile(self, q_id = None, language = "rs"):
-        return self.view("view", q_id, None, language, menu = "full")
+    def nonmobile(self, **args):
+        args["mobile"] = False
+        args["root"] = "main"
+        args["op"] = "view"
+        return self.page.main(args)
 
     
-
-    @cherrypy.expose
-    def testiranje(self, l_id = None, language = "rs"):
-        if is_user_on_mobile(self.get_user_agent()):
-            return self.test("test", None, l_id, language, menu = "simple")
-        else:
-            return self.test("test", None, l_id, language, menu = "full")
 
 
     @cherrypy.expose
@@ -142,20 +117,7 @@ class editor(object):
         self.repository = Repository("../..")
 
        
-    @cherrypy.expose
-    def logout(self, login_return=None):
-        return self.page.logout(login_return)
 
-
-    @cherrypy.expose
-    def login_test(self, user_id=None, login_return=None):
-        return self.page.login_test(user_id, login_return)
-
-
-    @cherrypy.expose
-    def register(self, **args):
-        self.page.register(args)
-        return "OK"
 
 
 

@@ -227,13 +227,19 @@ class Design_default(object):
 
         OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
         OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-            page.on_click(ResponseOperation.SUBMIT, url_next), page.get_messages()["check"])
+            page.on_click(\
+                operation=ResponseOperation.SUBMIT, \
+                url_next=url_next, \
+                record=True), page.get_messages()["check"])
         page.add_lines(OKline)
 
         if url_next is not None:
             NEXTline = ""
             NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
-                page.on_click(ResponseOperation.SUBMIT, url_next), page.get_messages()["skip"])
+                page.on_click(\
+                    operation=ResponseOperation.SKIP, \
+                    url_next=url_next, \
+                    record=True), page.get_messages()["skip"])
             page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
             page.add_lines(NEXTline)
             

@@ -216,7 +216,7 @@ class PageParameters(object):
             self.parse(args)
 
 
-    def parse(self, in_args : dict):
+    def parse(self, in_args : dict, page):
 
         # First check if there are any parameters packet encoded in "state" variable
         if "state" in in_args.keys():
@@ -242,6 +242,11 @@ class PageParameters(object):
         if "design" in args.keys():
             self.design = PageDesign.fromStr(args["design"])
 
+        if "mobile" in args.keys():
+            self.mobile = args["mobile"]
+        else:
+            self.mobile = True
+
         if "language" in args.keys():
             self.language = PageLanguage.fromStr(args["language"], self.with_exception)
 
@@ -250,25 +255,23 @@ class PageParameters(object):
 
         if ("q_id" in args.keys()) and (not args["q_id"] is None) and args["q_id"]:
             self.q_id = args["q_id"]
-            #self.q_id = self.get_all_questions(language)[0]
         else:
-            self.q_id = ""
+            self.q_id = page.get_all_questions(PageLanguage.toStr(self.language))[0]
 
         if ("l_id" in args.keys()) and (not args["l_id"] is None) and args["l_id"]:
             self.l_id = args["l_id"]
-            #self.l_id = self.get_all_lists(language)[0]
         else:
-            self.l_id = ""
+            self.l_id = page.get_all_lists(PageLanguage.toStr(self.language))[0]
             
 
         if "init_code" in args.keys():
             self.init_code = args["init_code"]
 
         if "iter_code" in args.keys():
-            self.init_code = args["iter_code"]
+            self.iter_code = args["iter_code"]
 
         if "text" in args.keys():
-            self.init_code = args["text"]
+            self.text = args["text"]
 
 
         if "remote_ip" in args.keys():

@@ -70,10 +70,26 @@ class Question(object):
     """
 
     
-    def __init__(self, page):
+    def __init__(self, page, init_code=None, iter_code=None, text=None):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.page = page
         self.repository = page.repository
+
+        if not init_code is None:
+            self.init_code = init_code
+        else:
+            self.init_code = page.page_params.init_code
+
+        if not iter_code is None:
+            self.iter_code = iter_code
+        else:
+            self.iter_code = page.page_params.iter_code
+
+        if not text is None:
+            self.text = text
+        else:
+            self.text = page.page_params.text
+
         self.lib = Library(self.lua, page, self.questions_rel_path + "/" + self.page.page_params.q_id)
         logging.debug("Rendering question %s, list_id=%s, language=%s", 
             self.questions_rel_path + "/" + self.page.page_params.q_id, 

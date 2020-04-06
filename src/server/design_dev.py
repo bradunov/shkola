@@ -13,6 +13,14 @@ class Design_dev(object):
 
 
     @staticmethod
+    def render_menu(page):
+        if page.page_params.mobile:
+            Design_dev.render_menu_simple(page)
+        else:
+            Design_dev.render_menu_full(page)
+
+
+    @staticmethod
     def render_menu_full(page):
         page.add_lines("\n\n<!-- FULL MENU START -->\n")
         # Edit or view question
@@ -267,8 +275,10 @@ class Design_dev(object):
 
     @staticmethod
     def render_simple_page(page):
-
-        Design_dev.render_menu_full(page)
+        if page.page_params.mobile:
+            Design_dev.render_menu_simple(page)
+        else:
+            Design_dev.render_menu_full(page)
         
         if page.question is not None:
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>")
@@ -295,18 +305,19 @@ class Design_dev(object):
     
         login_str = "<select id='sel_user_id' name='sel_user_id' " + \
                     "onchange='window.location.replace(\"" + page.page_params.root + "?op=login_test&" + "login_return=" + \
-                    login_return + "&user_id=\" + this.value)'>n"
+                    login_return + "&user_id=local:\" + this.value)'>\n"
 
 
         if page.page_params.user_id is None or not PageUserID.toStr(page.page_params.user_id):
-            login_str = login_str + "<option value='NONE' SELECTED></option>"
+            login_str = login_str + "<option value='NONE' SELECTED></option>\n"
 
         for sel_user in test_users:
             selected = ""
+
             if page.page_params.user_id is not None and PageUserID.toStr(page.page_params.user_id) == "local:"+sel_user:
                 selected = "SELECTED"
 
-            login_str = login_str + "<option value='{}' {}>{}</option>".format(sel_user, selected, sel_user)
+            login_str = login_str + "<option value='{}' {}>{}</option>\n".format(sel_user, selected, sel_user)
 
         login_str = login_str + "</select>\n"
 
@@ -326,13 +337,19 @@ class Design_dev(object):
 
         OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
         OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-            page.on_click(ResponseOperation.SUBMIT, url_next), page.get_messages()["check"])
+            page.on_click(\
+                operation=ResponseOperation.SUBMIT, \
+                url_next=url_next, \
+                record=True), page.get_messages()["check"])
         page.add_lines(OKline)
 
         if url_next is not None:
             NEXTline = ""
             NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
-                page.on_click(ResponseOperation.SUBMIT, url_next), page.get_messages()["skip"])
+                page.on_click(\
+                    operation=ResponseOperation.SKIP, \
+                    url_next=url_next, \
+                    record=True), page.get_messages()["skip"])
             page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
             page.add_lines(NEXTline)
             

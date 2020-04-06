@@ -105,16 +105,19 @@ class Page(object):
     def add_on_loaded_script_lines(self, code):
         self.on_loaded_script = self.on_loaded_script + code
         
-    def on_click(self, operation:ResponseOperation=None, url_next=None):
-        ret_str = "cond = "
-        if url_next is not None:
+    def on_click(self, operation:ResponseOperation=None, url_next=None, record=False):
+        if record:
             # Only send results to server if next_url specified (i.e. we are in the test mode)
-            ret_str = ret_str + "checkAll(\"{}\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
+            ret_str = "cond = checkAll(\"{}\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
                 ResponseOperation.toStr(operation), self.page_params.root, self.page_params.q_id, 
                 self.page_params.l_id, PageUserID.toStr(self.page_params.user_id))
-            ret_str = ret_str + "if (cond) {window.location.replace(\"" + url_next + "\")}"
         else:
-            ret_str = ret_str + "checkAll();"
+            ret_str = "cond = checkAll();"
+
+        if url_next is not None:
+            if operation == ResponseOperation.SUBMIT:
+                ret_str = ret_str + "if (cond) "
+            ret_str = ret_str + " {window.location.replace(\"" + url_next + "\");}"
 
         return ret_str
 
@@ -290,14 +293,15 @@ class Page(object):
             return self.register(args)
 
         self.clear()
-        self.page_params.parse(args)
+        self.page_params.parse(args, self)
 
 
-        logging.info("New request: op={} <design={}> - "
+        logging.info("New request: op={} <design={}, mobile={}> - "
                     "q_id={}, l_id={}, language={}, user_id={}, init_code={}, iter_code={}, text={}, "
                     "remote_ip={}, user_agent={}, user_language={}.".format(
                         PageOperation.toStr(self.page_params.op), 
                         PageDesign.toStr(self.page_params.design),
+                        self.page_params.mobile, 
                         self.page_params.q_id, self.page_params.l_id, 
                         PageLanguage.toStr(self.page_params.language), 
                         PageUserID.toStr(self.page_params.user_id), 
@@ -329,6 +333,9 @@ class Page(object):
             return self.render()
             
         elif self.page_params.op == PageOperation.GENERATE:
+            # Use init_code, iter_code, text from the page's parameter 
+            # (as submitted by user) and go to edit mode
+            self.page_params.op = PageOperation.EDIT
             q = Question(self)
             self.add_question(q)
             Design.render_page(self)
@@ -344,7 +351,7 @@ class Page(object):
             Design.render_menu(self)
             test = Test(self)
             next_question_url = test.render_next_questions()
-            Design_dev.add_buttons(self, next_question_url)
+            Design.add_buttons(self, next_question_url)
             return self.render()
 
         elif self.page_params.op == PageOperation.REGISTER:
