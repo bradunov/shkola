@@ -1,9 +1,5 @@
-import json
 import random
 from server.question import Question
-from server.repository import Repository
-
-import logging
 
 
 class Test(object):

@@ -1,11 +1,7 @@
 import logging
 
-import base64
 import os
 import sys
-from urllib.parse import urlparse
-from urllib.parse import parse_qs
-import urllib
 
 # This is the web root dir that has to be defined in Dockerfile 
 sys.path.append(os.environ['AzureWebJobsScriptRoot']) 
@@ -17,11 +13,11 @@ sys.path.append(os.environ['AzureWebJobsScriptRoot'])
 #logging.warning("Current path: " + str(os.getcwd()))
 
 
-from server.helpers import *
+from server.helpers import extract_dict_from_post 
 from server.page import Page
 
 #DEBUG
-from pprint import pprint
+#from pprint import pprint
 
 
 # Cached page object, to speed up load time

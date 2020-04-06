@@ -1,18 +1,24 @@
 import os
 import json
 
-from server.types import *
+from server.types import PageParameters
+from server.types import ResponseOperation
+from server.types import PageUserID
+from server.types import PageOperation
+from server.types import PageLanguage
+from server.types import PageDesign
+from server.types import PageParameterParsingError
 
 from server.question import Question
 from server.qlist import Qlist
 from server.storage import get_storage
-from server.helpers import *
 from server.test import Test
 from server.repository import Repository
 from server.user_db import UserDB
 from server.design import Design
 
-from lupa import LuaRuntime
+from server.helpers import encap_str
+
 import logging
 
 
@@ -360,7 +366,7 @@ class Page(object):
 
 
         else:
-            return "ERROR - operation {} not known".format(op)
+            return "ERROR - operation {} not known".format(args["op"])
 
 
 
@@ -437,21 +443,25 @@ class Page(object):
 
         # Logint and register user
         if user_id is None:
-            logging.debug("Login test user %s, %s, %s, %s", 'test', 'test', str(remote_ip), str(user_agent))
+            logging.debug("Login test user %s, %s, %s, %s", 'test', 'test', 
+                str(self.page_params.user_param.remote_ip), 
+                str(self.page_params.user_param.user_agent))
             self.userdb.session_login_and_update_user('local', 'test',
                                                name='test',
                                                email='test',
-                                               remote_ip=remote_ip,
-                                               user_agent=user_agent,
-                                               user_language=user_language)
+                                               remote_ip=self.page_params.user_param.remote_ip,
+                                               user_agent=self.page_params.user_param.user_agent,
+                                               user_language=self.page_params.user_param.user_language)
         else:
-            logging.debug("Login test user %s, %s, %s, %s", user_id, user_id, str(remote_ip), str(user_agent))
+            logging.debug("Login test user %s, %s, %s, %s", user_id, user_id, 
+                str(self.page_params.user_param.remote_ip), 
+                str(self.page_params.user_param.user_agent))
             self.userdb.session_login_and_update_user('local', user_id,
-                                               name=user_id,
-                                               email=user_id,
-                                               remote_ip=remote_ip,
-                                               user_agent=user_agent,
-                                               user_language=user_language)
+                                               name=self.page_params.user_id.toStr(),
+                                               email=self.page_params.user_id.toStr(),
+                                               remote_ip=self.page_params.user_param.remote_ip,
+                                               user_agent=self.page_params.user_param.user_agent,
+                                               user_language=self.page_params.user_param.user_language)
 
         if "orig_op" not in self.page_params.all_state.keys():
             raise PageParameterParsingError

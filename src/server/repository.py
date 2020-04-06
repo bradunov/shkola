@@ -5,7 +5,7 @@ import logging
 from server.azure_blob import azure_blob
 
 #DEBUG
-from pprint import pprint
+#from pprint import pprint
 
 
 
@@ -74,7 +74,7 @@ class Repository(object):
         local_path = "../../" + self.questions_path + "/" + q_id
         d = dict()
         for (dirpath, dirnames, filenames) in os.walk(local_path):
-            rootkey = dirpath[len(local_path)+1:]
+            #rootkey = dirpath[len(local_path)+1:]
 
             for file in filenames:
                 if file[len(file)-1:] == "~" or self.check_extension(file, ".png"):
@@ -98,7 +98,7 @@ class Repository(object):
         local_path = "../../" + self.questions_path + "/globals"
         d = dict()
         for (dirpath, dirnames, filenames) in os.walk(local_path):
-            rootkey = dirpath[len(local_path)+1:]
+            #rootkey = dirpath[len(local_path)+1:]
 
             for file in filenames:
                 if file[len(file)-1:] == "~" or self.check_extension(file, ".png"):

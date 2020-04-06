@@ -1,5 +1,5 @@
-import google.oauth2.id_token
-import google.auth.transport.requests
+#import google.oauth2.id_token
+#import google.auth.transport.requests
 import time
 from server.storage import get_storage
 import logging

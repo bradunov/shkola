@@ -1,5 +1,7 @@
 from enum import Enum, unique, auto
-from server.helpers import *
+from server.helpers import encode_dict
+from server.helpers import decode_dict
+from server.helpers import is_user_on_mobile
 
 
 class PageParameterParsingError(Exception):

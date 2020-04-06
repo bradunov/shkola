@@ -1,6 +1,8 @@
 from server.design_dev import Design_dev
 from server.design_default import Design_default
-from server.types import *
+
+from server.types import PageDesign
+
 
 class Design(object):
 

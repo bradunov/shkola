@@ -1,6 +1,5 @@
 from azure.cosmosdb.table.tableservice import TableService
 import os
-import datetime
 import time
 import re
 import logging
@@ -22,12 +21,12 @@ class Storage_az_table():
 
         try:
             self.table_service.create_table(self.users_table_name)
-        except Exception as err:
+        except Exception:
             logging.exception('Error creating table, ' + self.users_table_name + 'check if it already exists')
 
         try:
             self.table_service.create_table(self.responses_table_name)
-        except Exception as err:
+        except Exception:
             logging.exception('Error creating table, ' + self.responses_table_name + 'check if it already exists')
             
 
@@ -37,8 +36,8 @@ class Storage_az_table():
         partition_key = self.default_partition_key
 
         try:
-            entity = table_service.get_entity(self.users_table_name, partition_key, user_id)
-        except Exception as err:
+            entity = self.table_service.get_entity(self.users_table_name, partition_key, user_id)
+        except Exception:
             logging.exception('Error querying table ' + self.user_table_name + ': {}/{}'.format(partition_key, user_id))
             return None
 
@@ -74,7 +73,7 @@ class Storage_az_table():
 
         try:
             self.table_service.insert_or_merge_entity(self.users_table_name, properties)
-        except Exception as err:
+        except Exception:
             logging.exception('Error adding to table ' + self.users_table_name + ' record: {}'.format(properties))
 
         
@@ -186,7 +185,7 @@ class Storage_az_table():
         
 if __name__ == '__main__':
     
-    storage = storage_az_table()
+    storage = Storage_az_table()
     print("Opened storage")
     
     wipe_all = False

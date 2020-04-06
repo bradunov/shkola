@@ -3,7 +3,7 @@ import numpy
 import random
 import lupa
 import logging
-from server.helpers import *
+#from server.helpers import *
 
 
 class LibMath(object):
@@ -849,7 +849,7 @@ class Library(object):
         width = 300
         height = 300
         ratio = 0.3
-        select = True
+        #select = True
         color = "aaa"
         initial_state = None
 
@@ -865,8 +865,8 @@ class Library(object):
         if "color" in style.keys():
             color = style["color"]
 
-        if "select" in style.keys():
-            select = style["select"]
+        #if "select" in style.keys():
+        #    select = style["select"]
 
         if "initial_state" in style.keys():
             initial_state = style["initial_state"]

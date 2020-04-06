@@ -1,5 +1,4 @@
 import sqlite3
-import datetime
 import time
 import logging
 import os
@@ -42,8 +41,8 @@ class Storage_sql:
     def get_user_data(self, user_id):
         cursor = self.db.cursor()
         cursor.execute('''SELECT * FROM users where user_id == (?)''', (user_id,))
-        user = cursor.fetchone()
-        if user is not None:
+        row = cursor.fetchone()
+        if row is not None:
             return {"user_id": row[0],
                     "name": row[1],
                     "email": row[2],
@@ -121,10 +120,11 @@ class Storage_sql:
         cursor = self.db.cursor()
         try:
             cursor.execute('''SELECT * FROM {}'''.format(table_name))
-            record = cursor.fetchone()
+            #record = cursor.fetchone()
+            cursor.fetchone()
         #TBD:
         #except sqlite3.IntegrityError:
-        except e:
+        except:
             return False
         return True
 
@@ -226,7 +226,7 @@ class Storage_sql:
 
 if __name__ == '__main__':
     
-    storage = storage_sql()
+    storage = Storage_sql()
 
     wipe_all = False
     #wipe_all = True

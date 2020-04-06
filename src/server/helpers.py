@@ -5,7 +5,6 @@ import pickle
 import urllib
 import base64
 
-import logging
 
 def encap_str(s : str):
     return "\"" + s + "\""

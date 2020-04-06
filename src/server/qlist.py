@@ -1,9 +1,5 @@
-import json
 from server.question import Question
-from server.repository import Repository
 from server.design_dev import Design_dev
-import logging
-
 
 
 # This is not (yet?) design agnostic
