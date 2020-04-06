@@ -1,9 +1,11 @@
 import logging
 
+import base64
 import os
 import sys
 from urllib.parse import urlparse
 from urllib.parse import parse_qs
+import urllib
 
 # This is the web root dir that has to be defined in Dockerfile 
 sys.path.append(os.environ['AzureWebJobsScriptRoot']) 
@@ -16,8 +18,7 @@ sys.path.append(os.environ['AzureWebJobsScriptRoot'])
 
 
 from server.helpers import *
-from server import page
-from server import question
+from server.page import Page
 
 #DEBUG
 from pprint import pprint
@@ -43,20 +44,23 @@ preload = True
 
 
 
-def parse_req(req): 
 
-    if True:
-        #logging.debug("REQ1: {}".format(req.__dict__))
-        #logging.debug("REQ2: {}".format(vars(req)))
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    global PAGE
+    if PAGE is None:
+        logging.info("Reloading page (%s, %s)", str(use_azure_blob), str(preload))
+        PAGE = Page(use_azure_blob=use_azure_blob, preload=preload)
+
+
+    if False:
         logging.debug("METHOD: " + str(req.method))
         logging.debug("URL: " + str(req.url))
         logging.debug("HEADERS: " + str(dict(req.headers)))
         logging.debug("PARAMS: " + str(dict(req.params)))
         logging.debug("ROUTE PARAMS: " + str(dict(req.route_params)))
         logging.debug("GET BODY: " + str(req.get_body().decode()))
-        #logging.debug("REQ3: {}".format(req.__dict__["_HttpRequest__headers"].__dict__))
  
-
     # Header example from Azure:
     # HEADERS: {'x-client-port': '51166', 'sec-fetch-site': 'same-origin', 'disguised-host': 'testshkoladocker.azurewebsites.net', 
     #           'x-forwarded-for': '82.69.90.27:51166', 'x-appservice-proto': 'https', 'sec-fetch-dest': 'document', 
@@ -73,133 +77,16 @@ def parse_req(req):
     #           'x-client-ip': '82.69.90.27', 'content-length': '0', 'connection': 'close', 'accept-encoding': 'gzip, deflate, br', 'client-ip': '82.69.90.27:51166', 'sec-fetch-user': '?1', 
     #           'x-arr-log-id': 'd69d498a-19fe-4673-9809-d2aa180c87c5', 'x-forwarded-proto': 'https', 'max-forwards': '10'}
 
-    params = {}
+
+
     if req.method == "POST":
-        params["op"] = req.params.post('op')
-        params["q_id"] = req.params.post('q_id')
-        params["l_id"] = req.params.post('l_id')
-        params["language"] = req.params.post('language')
-        params["menu"] = req.params.post('menu')
-        params["init_code"] = req.params.post('init_code')
-        params["iter_code"] = req.params.post('iter_code')
-        params["text"] = req.params.post('text')
-        params["user_id"] = req.params.post('user_id')
-        params["login_return"] = req.params.post('login_return')
+        args = extract_dict_from_post(req.get_body())
     else:
-        params["op"] = req.params.get('op')
-        params["q_id"] = req.params.get('q_id')
-        params["l_id"] = req.params.get('l_id')
-        params["language"] = req.params.get('language')
-        params["menu"] = req.params.get('menu')
-        params["init_code"] = req.params.get('init_code')
-        params["iter_code"] = req.params.get('iter_code')
-        params["text"] = req.params.get('text')
-        params["user_id"] = req.params.get('user_id')
-        params["login_return"] = req.params.get('login_return')
+        # req.method == "GET":
+        args = dict(req.params)
 
-    if not params["language"]:
-        params["language"] = "rs"
+    args["root"] = "edit"
 
-    if not params["init_code"]:
-        params["init_code"] = ""
-    if not params["iter_code"]:
-        params["iter_code"] = ""
-    if not params["text"]:
-        params["text"] = ""
-
-    headers = dict(req.headers)
-    if "user-agent" in headers.keys():
-        params["user_agent"] = headers["user-agent"]
-    else:
-        params["user_agent"] = ""
-
-    if "accept-language" in headers.keys():
-        params["user_language"] = headers["accept-language"]
-    else:
-        params["user_language"] = ""
-
-    if "x-client-ip" in headers.keys():
-        # NB: This exists only on Azure, not on a local deployment
-        params["remote_ip"] = headers["x-client-ip"]
-    else:
-        params["remote_ip"] = "0.0.0.0"
+    return func.HttpResponse(PAGE.main(args), mimetype="text/html")
 
 
-    if is_user_on_mobile(params["user_agent"]):
-        params["mobile"] = True
-    else:
-        params["mobile"] = False
-
-
-    return params
-
-
-
-def exec_req(name, params, req):
-
-    logging.info("Python HTTP trigger function processed a request {} <{}>: "
-                 "q_id={}, l_id={}, language={}, menu={}, init_code={}, iter_code={}, text={}, "
-                 "user_agent={}, language={}, user_id={}.".
-                 format(name, params["op"], params["q_id"], params["l_id"], params["language"], 
-                 params["menu"], params["init_code"], params["iter_code"], params["text"],
-                 params["user_agent"], params["user_language"], 
-                 params["user_id"]))
-
-    if params["op"] == "login_test":
-        return func.HttpResponse(
-            PAGE.login_test(params["user_id"], params["login_return"], params["remote_ip"], params["user_agent"], params["user_language"]),
-            mimetype="text/html")
-
-    if params["op"] is None:
-        params["op"] = "view"
-
-    return func.HttpResponse(
-        PAGE.main(params["op"], params["q_id"], params["l_id"], params["language"], 
-        params["menu"], params["user_id"], params["init_code"], params["iter_code"], params["text"],
-        params["user_agent"], params["user_language"]), 
-        mimetype="text/html")
-
-
-
-
-
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    global PAGE
-    if PAGE is None:
-        logging.info("Reloading page (%s, %s)", str(use_azure_blob), str(preload))
-        PAGE = page.page(use_azure_blob=use_azure_blob, preload=preload)
-
-
-    # POST for registering results
-    if req.method == "POST" and req.params['op'] == "register":
-        return register(req)
-
-
-    params = parse_req(req) 
-        
-    #if params["mobile"]:
-    #params["menu"] = "simple"
-    params["menu"] = "full"
-
-    return exec_req("MAIN", params, req)
-
-    
-
-
-
-
-
-
-
-# Callback to register response
-def register(req: func.HttpRequest) -> func.HttpResponse:
-    # This is the test mode, do nothing
-
-    # global PAGE
-    # if PAGE is None:
-    #     logging.info("Reloading page (%s, %s)", str(use_azure_blob), str(preload))
-    #     PAGE = page.page(use_azure_blob=use_azure_blob, preload=preload)
-
-    # PAGE.register(parse_qs(req.get_body().decode()))
-
-    return "OK"

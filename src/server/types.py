@@ -238,6 +238,9 @@ class PageParameters(object):
 
         if "op" in args.keys():
             self.op = PageOperation.fromStr(args["op"], self.with_exception)
+        else:
+            if self.root == "edit":
+                self.op = PageOperation.VIEW
 
         if "design" in args.keys():
             self.design = PageDesign.fromStr(args["design"])
@@ -256,7 +259,12 @@ class PageParameters(object):
         if ("q_id" in args.keys()) and (not args["q_id"] is None) and args["q_id"]:
             self.q_id = args["q_id"]
         else:
-            self.q_id = page.get_all_questions(PageLanguage.toStr(self.language))[0]
+            if self.op == PageOperation.TEST:
+                # If in test mode leave the question empty and the engine will choose one 
+                self.q_id = ""
+            else:
+                # Otherwise select the first one from all available in the language
+                self.q_id = page.get_all_questions(PageLanguage.toStr(self.language))[0]
 
         if ("l_id" in args.keys()) and (not args["l_id"] is None) and args["l_id"]:
             self.l_id = args["l_id"]
@@ -279,6 +287,9 @@ class PageParameters(object):
 
         if "user_agent" in args.keys():
             self.user_param.user_agent = args["user_agent"]
+            self.mobile = is_user_on_mobile(self.user_param.user_agent)
+        else:
+            self.mobile = False
 
         if "user_language" in args.keys():
             self.user_param.user_language = args["user_language"]

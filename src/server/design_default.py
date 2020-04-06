@@ -1,4 +1,4 @@
-from helpers import *
+from server.helpers import *
 from server.types import *
 
 
@@ -99,7 +99,7 @@ class Design_default(object):
         """)
 
 
-        page.add_lines(Design_default.get_login_header(page, True))
+        page.add_lines(Design_default.get_login_header(page))
 
 
         page.add_lines("""
@@ -166,7 +166,7 @@ class Design_default(object):
         str_indent1 = ""
         for i in range(0, indent):
             str_indent1 = str_indent1 + "<div class='space'></div>"
-            str_indent2 = str_indent1 + "<div class='space'></div>"
+        str_indent2 = str_indent1 + "<div class='space'></div>"
 
         for level in sorted(content.keys()):
             page.add_lines("""
@@ -176,13 +176,13 @@ class Design_default(object):
                 <div id='acc""" + level + """' class="w3-hide w3-white w3-card">
             """)
 
-        for theme in sorted(content[level].keys()):
-            page.add_lines("""
-            <a href='""" + link + "&l_id=" + content[level][theme]["name"] + 
-            """' class="w3-bar-item w3-button"> """ + str_indent2 + theme + """</a>
-            """)
+            for theme in sorted(content[level].keys()):
+                page.add_lines("""
+                <a href='""" + link + "&l_id=" + content[level][theme]["name"] + 
+                """' class="w3-bar-item w3-button"> """ + str_indent2 + theme + """</a>
+                """)
 
-        page.add_lines("</div>")
+            page.add_lines("</div>")
             
 
 

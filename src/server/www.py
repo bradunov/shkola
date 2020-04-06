@@ -35,19 +35,12 @@ class editor(object):
         return headers['User-Agent']
 
 
-    def append_mobile(self, args):
-        if is_user_on_mobile(self.get_user_agent()):
-            args["mobile"] = True
-        else:
-            args["mobile"] = False
-        return args
-
 
     @cherrypy.expose
     def main(self, **args):
         args["root"] = "main"
         args["design"] = "default"
-        args = self.append_mobile(args)
+        args["user_agent"] = self.get_user_agent()
         return self.page.main(args)
 
     
@@ -56,7 +49,7 @@ class editor(object):
     def edit(self, **args):
         args["root"] = "edit"
         args["design"] = "dev"
-        args = self.append_mobile(args)
+        args["user_agent"] = self.get_user_agent()
         return self.page.main(args)
 
     
@@ -65,7 +58,7 @@ class editor(object):
     def index(self, **args):
         args["root"] = "edit"
         args["design"] = "dev"
-        args = self.append_mobile(args)
+        args["user_agent"] = self.get_user_agent()
         return self.page.main(args)
 
 
@@ -75,6 +68,7 @@ class editor(object):
         args["mobile"] = True
         args["root"] = "main"
         args["op"] = "view"
+        args["user_agent"] = self.get_user_agent()
         return self.page.main(args)
 
 
@@ -84,6 +78,7 @@ class editor(object):
         args["mobile"] = False
         args["root"] = "main"
         args["op"] = "view"
+        args["user_agent"] = self.get_user_agent()
         return self.page.main(args)
 
     
@@ -114,7 +109,7 @@ class editor(object):
     def reload(self):
         # Reload all questions
         print("Reloading questions...")
-        self.repository = Repository("../..")
+        self.page.repository = Repository("../..")
 
        
 

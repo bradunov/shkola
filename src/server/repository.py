@@ -217,11 +217,11 @@ class Repository(object):
             logging.debug("* File path: " + str(os.path.dirname(os.path.realpath(__file__))))
             logging.debug("* Current path: " + str(os.getcwd()))
             logging.debug("* Local path: " + str(local_path))
-            logging.debug("* Load dir: " + str(root) + " - " + str(path))
+            #logging.debug("* Load dir: " + str(root) + " - " + str(path))
 
             for (dirpath, dirnames, filenames) in os.walk(local_path):
                 rootkey = dirpath[len(local_path)+1:]
-                d = self.find_key(root, rootkey)
+                d = self.find_key(root, rootkey)                
                 for dir in dirnames:
                     d[dir] = {}                
 

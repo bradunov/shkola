@@ -292,6 +292,7 @@ class Page(object):
         if "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.REGISTER):
             return self.register(args)
 
+
         self.clear()
         self.page_params.parse(args, self)
 
@@ -363,7 +364,6 @@ class Page(object):
 
 
 
-    # Called directly from 
     # args is in format returned by urllib.parse.parse_qs
     def register(self, args):
         correct = 0
