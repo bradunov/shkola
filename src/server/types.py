@@ -320,8 +320,7 @@ class PageParameters(object):
             s = default                
             s = "" if s is None else s
             s = encap_str(s) if js else s
-        else:
-            return s
+        return s
 
     def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, topic=None, 
                    menu_state=None, language=None, user_id=None, design=None, js=False):
