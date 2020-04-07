@@ -353,6 +353,6 @@ class PageParameters(object):
         else:
             url = ("{}?op={}&q_id={}&l_id={}&year={}&topic={}&menu_state={}" + 
                   "&language={}&design={}&user_id={}").format(
-                root, op, q_id, l_id, language, design, user_id)
+                root, op, q_id, l_id, year, topic, menu_state, language, design, user_id)
 
         return url
