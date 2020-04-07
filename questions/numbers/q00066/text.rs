@@ -9,7 +9,4 @@ Date brojeve poređaj od najmanjeg do najvećeg:
 
 @center@ @lib.check_number(array_out[5])@ @hspacept(5)@ @lib.check_number(array_out[6])@ @hspacept(5)@ @lib.check_number(array_out[7])@ @hspacept(5)@ @lib.check_number(array_out[8])@    
                  
-                                             
-                  
-
-                  
+     
