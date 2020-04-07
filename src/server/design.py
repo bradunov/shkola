@@ -2,9 +2,70 @@ from server.design_dev import Design_dev
 from server.design_default import Design_default
 
 from server.types import PageDesign
+from server.types import PageOperation
+
+from server.question import Question
+from server.qlist import Qlist
+from server.test import Test
 
 
 class Design(object):
+
+  @staticmethod
+  def main(page):
+    # If login, update user and replace op with the original op
+    if page.page_params.op == PageOperation.LOGIN:
+        new_op = page.login()
+        page.page_params.op = new_op
+
+
+    if page.page_params.op == PageOperation.VIEW:
+        q = Question(page)
+        q.set_from_file_with_exception()
+        page.add_question(q)
+        Design.render_page(page)
+        return page.render()
+        
+    elif page.page_params.op == PageOperation.EDIT:
+        q = Question(page)
+        q.set_from_file_with_exception()
+        page.add_question(q)
+        page.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
+        Design.render_page(page)
+        return page.render()
+        
+    elif page.page_params.op == PageOperation.GENERATE:
+        # Use init_code, iter_code, text from the page's parameter 
+        # (as submitted by user) and go to edit mode
+        page.page_params.op = PageOperation.EDIT
+        q = Question(page)
+        page.add_question(q)
+        Design.render_page(page)
+        return page.render()
+
+    elif page.page_params.op == PageOperation.LIST:
+        Design.render_menu(page)
+        ql = Qlist(page)
+        ql.render_all_questions()
+        return page.render()
+
+    elif page.page_params.op == PageOperation.TEST:
+        Design.render_menu(page)
+        test = Test(page)
+        next_question_url = test.render_next_questions()
+        Design.add_buttons(page, next_question_url)
+        return page.render()
+
+    #elif page.page_params.op == PageOperation.MENU:
+
+    elif page.page_params.op == PageOperation.REGISTER:
+        page.register(page.page_params.all_state)
+
+    else:
+        return "ERROR - operation not known"
+
+
+
 
   @staticmethod
   def update_design(page):

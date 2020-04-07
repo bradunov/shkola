@@ -9,10 +9,7 @@ from server.types import PageLanguage
 from server.types import PageDesign
 from server.types import PageParameterParsingError
 
-from server.question import Question
-from server.qlist import Qlist
 from server.storage import get_storage
-from server.test import Test
 from server.repository import Repository
 from server.user_db import UserDB
 from server.design import Design
@@ -283,57 +280,9 @@ class Page(object):
                         self.page_params.user_param.user_laguage))
 
 
-        # If login, update user and replace op with the original op
-        if self.page_params.op == PageOperation.LOGIN:
-            new_op = self.login()
-            self.page_params.op = new_op
+        return Design.main(self)
 
 
-        if self.page_params.op == PageOperation.VIEW:
-            q = Question(self)
-            q.set_from_file_with_exception()
-            self.add_question(q)
-            Design.render_page(self)
-            return self.render()
-            
-        elif self.page_params.op == PageOperation.EDIT:
-            q = Question(self)
-            q.set_from_file_with_exception()
-            self.add_question(q)
-            self.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
-            Design.render_page(self)
-            return self.render()
-            
-        elif self.page_params.op == PageOperation.GENERATE:
-            # Use init_code, iter_code, text from the page's parameter 
-            # (as submitted by user) and go to edit mode
-            self.page_params.op = PageOperation.EDIT
-            q = Question(self)
-            self.add_question(q)
-            Design.render_page(self)
-            return self.render()
-
-        elif self.page_params.op == PageOperation.LIST:
-            Design.render_menu(self)
-            ql = Qlist(self)
-            ql.render_all_questions()
-            return self.render()
-
-        elif self.page_params.op == PageOperation.TEST:
-            Design.render_menu(self)
-            test = Test(self)
-            next_question_url = test.render_next_questions()
-            Design.add_buttons(self, next_question_url)
-            return self.render()
-
-        #elif self.page_params.op == PageOperation.MENU:
-
-        elif self.page_params.op == PageOperation.REGISTER:
-            self.register(self.page_params.all_state)
-
-
-        else:
-            return "ERROR - operation {} not known".format(args["op"])
 
 
 
