@@ -25,7 +25,7 @@ import logging
 
 
 class Page(object):
-    page_params : PageParameters = PageParameters()
+    page_params = PageParameters()
 
     question = None
     storage = None

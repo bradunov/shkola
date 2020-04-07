@@ -1,4 +1,4 @@
-from enum import Enum, unique, auto
+from enum import Enum, unique
 from server.helpers import encode_dict
 from server.helpers import decode_dict
 from server.helpers import is_user_on_mobile
@@ -11,8 +11,8 @@ class PageParameterParsingError(Exception):
 # Register response in the table
 @unique
 class ResponseOperation(Enum):
-    SUBMIT = auto()
-    SKIP = auto()
+    SUBMIT = 0
+    SKIP = 1
     @classmethod
     def toStr(cls, enum ) -> str:
         if enum == ResponseOperation.SUBMIT:
@@ -25,8 +25,8 @@ class ResponseOperation(Enum):
 
 @unique
 class PageDesign(Enum):
-    DEFAULT = auto()
-    DEV = auto()
+    DEFAULT = 0
+    DEV = 1
     @classmethod
     def toStr(cls, enum) -> str:
         if enum == PageDesign.DEFAULT:
@@ -50,19 +50,19 @@ class PageDesign(Enum):
 @unique
 class PageOperation(Enum):
     # Testing - the default view for users
-    TEST = auto()
+    TEST = 0
     # View one question (DEV mode)
-    VIEW = auto()
+    VIEW = 1
     # Editor view of one question (DEV mode)
-    EDIT = auto()
+    EDIT = 2
     # View all questions in a list (DEV mode)
-    LIST = auto()
+    LIST = 3
     # Generate modified question in editor mode (DEV mode)
-    GENERATE = auto()
+    GENERATE = 4
     # Register new a result in the table
-    REGISTER = auto()
+    REGISTER = 5
     # Submit login request
-    LOGIN = auto()
+    LOGIN = 6
 
     @classmethod
     def toStr(cls, enum) -> str:
@@ -108,8 +108,8 @@ class PageOperation(Enum):
 
 @unique
 class PageLanguage(Enum):
-    RS = auto()
-    UK = auto()
+    RS = 0
+    UK = 1
 
     @classmethod
     def toStr(cls, enum) -> str:
@@ -139,8 +139,6 @@ class PageLanguage(Enum):
 
 
 class PageUserID(object):
-    user_id : str
-
     def __init__(self, user_id : str):
         self.user_id = user_id
 
@@ -157,9 +155,6 @@ class PageUserID(object):
 class PageParameters(object):
     # Parameters learned about the user from HTTP request
     class UserParameters(object):
-        remote_ip : str
-        user_agent : str
-        user_laguage : str
         def __init__(self, remote_ip=None, user_agent=None, user_laguage=None):
             self.remote_ip = remote_ip if remote_ip else ""
             self.user_agent = user_agent if user_agent else ""
@@ -167,25 +162,25 @@ class PageParameters(object):
 
 
     # General parameters
-    root : str = ""                                         # main URL handle (http://<web_site>/<root>)
-    op : PageOperation = PageOperation.TEST
-    q_id : str = ""
-    l_id : str = ""
+    root = ""                                         # main URL handle (http://<web_site>/<root>)
+    op = PageOperation.TEST
+    q_id = ""
+    l_id = ""
     language : PageLanguage = PageLanguage.RS
     user_id : PageUserID = None
     user_param : UserParameters = UserParameters()
 
     # Parameters for edit mode
-    init_code : str = ""
-    iter_code : str = ""
-    text : str = ""
+    init_code = ""
+    iter_code = ""
+    text = ""
 
 
     # Design style
-    design : PageDesign = PageDesign.DEV
+    design = PageDesign.DEV
 
     # Is user on a mobile device
-    mobile : bool = True
+    mobile = True
 
     # Raise exception on any error - useful for testing
     # Set raise_exception=1 in URL to trigger exceptions
@@ -194,7 +189,7 @@ class PageParameters(object):
 
     # The entire state as arrived in the request 
     # (with encoded state decoded and added to the dict)
-    all_state : dict
+    all_state = {}
 
 
 
