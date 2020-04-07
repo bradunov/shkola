@@ -36,7 +36,7 @@ class Design_dev(object):
             else:
                 page_name = PageOperation.toStr(page.page_params.op)
             select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
-                                page.create_url( \
+                                page.page_params.create_url( \
                                     op = encap_str(page_name), \
                                     q_id = "this.value", \
                                     language = "sel_lang.value", \
@@ -54,7 +54,7 @@ class Design_dev(object):
         # View list
         elif page.page_params.op == PageOperation.LIST or page.page_params.op == PageOperation.TEST:
             select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
-                                page.create_url(\
+                                page.page_params.create_url(\
                                     l_id = "this.value", \
                                     language = "sel_lang.value", \
                                     js = True) + ")'>\n"
@@ -93,17 +93,17 @@ class Design_dev(object):
             lang_select="Jezik: <select id='sel_lang' name='sel_lang' onchange='window.location.replace("
 
             if page.page_params.op == PageOperation.EDIT or page.page_params.op == PageOperation.VIEW:
-                lang_select = lang_select + page.create_url(q_id = "sel_q_id.value", \
+                lang_select = lang_select + page.page_params.create_url(q_id = "sel_q_id.value", \
                                                             language = "this.value", \
                                                             js = True) + ")'>\n"
             # View list
             elif page.page_params.op == PageOperation.LIST or page.page_params.op == PageOperation.TEST:
-                lang_select = lang_select + page.create_url(l_id = "sel_l_id.value", \
+                lang_select = lang_select + page.page_params.create_url(l_id = "sel_l_id.value", \
                                                             language = "this.value",
                                                             js = True) + ")'>\n"
             # Generate? 
             else:
-                lang_select = lang_select + page.create_url(q_id = "sel_q_id.value", \
+                lang_select = lang_select + page.page_params.create_url(q_id = "sel_q_id.value", \
                                                             language = "this.value", \
                                                             js = True) + ")'>\n"
             
@@ -118,7 +118,7 @@ class Design_dev(object):
 
 
         op_select = "Operacija: <select id='sel_op' name='sel_op' onchange='window.location.replace(" + \
-                                            page.create_url(op = "sel_op.value", \
+                                            page.page_params.create_url(op = "sel_op.value", \
                                                             js = True) + ")'>\n"
 
         options = [
@@ -151,7 +151,7 @@ class Design_dev(object):
         # Edit or view question
         if page.page_params.op == PageOperation.EDIT or page.page_params.op == PageOperation.VIEW:
             select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
-                                page.create_url(q_id = "this.value", \
+                                page.page_params.create_url(q_id = "this.value", \
                                                 language = "sel_lang.value", \
                                                 js = True) + ")'>\n"
 
@@ -168,7 +168,7 @@ class Design_dev(object):
         # View list
         elif page.page_params.op == PageOperation.LIST or page.page_params.op == PageOperation.TEST:
             select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
-                                page.create_url(l_id = "this.value", \
+                                page.page_params.create_url(l_id = "this.value", \
                                                 language = "sel_lang.value", \
                                                 js = True) + ")'>\n"
             ls = page.get_all_lists()
@@ -194,12 +194,12 @@ class Design_dev(object):
 
             if page.page_params.op == PageOperation.EDIT or page.page_params.op == PageOperation.VIEW:
                 #lang_select = lang_select + "?q_id=\" + sel_q_id.value + \"&"
-                lang_select = lang_select + page.create_url(q_id = "sel_q_id.value", \
+                lang_select = lang_select + page.page_params.create_url(q_id = "sel_q_id.value", \
                                                             language = "this.value", \
                                                             js = True) + ")'>\n"
             # View list
             elif page.page_params.op == PageOperation.LIST or page.page_params.op == PageOperation.TEST:
-                lang_select = lang_select + page.create_url(l_id = "sel_l_id.value", \
+                lang_select = lang_select + page.page_params.create_url(l_id = "sel_l_id.value", \
                                                             language = "this.value",
                                                             js = True) + ")'>\n"
             

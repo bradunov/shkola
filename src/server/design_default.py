@@ -118,7 +118,7 @@ class Design_default(object):
                         """
             for lang in page.get_language_list():
                 lang_select = lang_select + "<a href='" + \
-                        page.create_url(language = lang, js = False) + \
+                        page.page_params.create_url(language = lang, js = False) + \
                         "' class='w3-bar-item w3-button'>" + page.get_messages(lang)["name"] + "</a>"
             
             lang_select = lang_select + """

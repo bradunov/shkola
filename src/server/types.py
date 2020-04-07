@@ -2,6 +2,7 @@ from enum import Enum, unique
 from server.helpers import encode_dict
 from server.helpers import decode_dict
 from server.helpers import is_user_on_mobile
+from server.helpers import encap_str
 
 
 class PageParameterParsingError(Exception):
@@ -63,6 +64,8 @@ class PageOperation(Enum):
     REGISTER = 5
     # Submit login request
     LOGIN = 6
+    # Full-screen menu
+    MENU = 7
 
     @classmethod
     def toStr(cls, enum) -> str:
@@ -166,9 +169,12 @@ class PageParameters(object):
     op = PageOperation.TEST
     q_id = ""
     l_id = ""
+    year = ""
+    topic = ""
     language = PageLanguage.RS
     user_id = None
     user_param = UserParameters()
+    menu_state = ""
 
     # Parameters for edit mode
     init_code = ""
@@ -267,7 +273,17 @@ class PageParameters(object):
             self.l_id = args["l_id"]
         else:
             self.l_id = page.get_all_lists(PageLanguage.toStr(self.language))[0]
-            
+
+
+        if ("year" in args.keys()) and (not args["year"] is None) and args["year"]:
+            self.year = args["year"]
+
+        if ("topic" in args.keys()) and (not args["topic"] is None) and args["topic"]:
+            self.topic = args["topic"]
+
+        if ("menu_state" in args.keys()) and (not args["menu_state"] is None) and args["menu_state"]:
+            self.topic = args["menu_state"]
+
 
         if "init_code" in args.keys():
             self.init_code = args["init_code"]
@@ -297,3 +313,47 @@ class PageParameters(object):
         self.init_code = init_code
         self.iter_code = iter_code
         self.text = text
+
+
+    def _str_to_url(self, s, default, js):
+        if s is None:
+            s = default                
+            s = "" if s is None else s
+            s = encap_str(s) if js else s
+        else:
+            return s
+
+    def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, topic=None, 
+                   menu_state=None, language=None, user_id=None, design=None, js=False):
+        if root is None:
+            root = self.root
+            root = encap_str(root) if js else root
+        if op is None:
+            op = PageOperation.toStr(self.op)
+            op = encap_str(op) if js else op
+        q_id = self._str_to_url(q_id, self.q_id, js)
+        l_id = self._str_to_url(l_id, self.l_id, js)
+        if language is None:
+            language = PageLanguage.toStr(self.language)
+            language = encap_str(language) if js else language
+        if design is None:
+            design = PageDesign.toStr(self.design)
+            design = encap_str(design) if js else design
+        if user_id is None:
+            user_id = PageUserID.toStr(self.user_id)
+            user_id = encap_str(user_id) if js else user_id
+        year = self._str_to_url(year, self.year, js)
+        topic = self._str_to_url(topic, self.topic, js)
+        menu_state = self._str_to_url(menu_state, self.menu_state, js)
+
+        if js:
+            url = ("{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} " +
+                   "+ \"&year=\" + {} + \"&topic=\" + {} + \"&menu_state=\" + {} " 
+                   "+ \"&language=\" + {} + \"&design=\" + {} + \"&user_id=\" + {} ").format(
+                root, op, q_id, l_id, year, topic, menu_state, language, design, user_id)
+        else:
+            url = ("{}?op={}&q_id={}&l_id={}&year={}&topic={}&menu_state={}" + 
+                  "&language={}&design={}&user_id={}").format(
+                root, op, q_id, l_id, language, design, user_id)
+
+        return url

@@ -34,7 +34,7 @@ class Test(object):
     def render_next_questions(self):
        
         next_question = self.choose_next_question(self.page.page_params.q_id)
-        next_question_url = self.page.create_url(\
+        next_question_url = self.page.page_params.create_url(\
             op = "test", \
             q_id = next_question["name"], \
             js = False)

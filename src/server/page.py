@@ -17,8 +17,6 @@ from server.repository import Repository
 from server.user_db import UserDB
 from server.design import Design
 
-from server.helpers import encap_str
-
 import logging
 
 
@@ -139,39 +137,6 @@ class Page(object):
         return ret
 
 
-    def create_url(self, root=None, op=None, q_id=None, l_id=None, language=None, user_id=None, design=None, js=False):
-        if root is None:
-            root = self.page_params.root
-            root = encap_str(root) if js else root
-        if op is None:
-            op = PageOperation.toStr(self.page_params.op)
-            op = encap_str(op) if js else op
-        if q_id is None:
-            q_id = self.page_params.q_id                
-            q_id = "" if q_id is None else q_id
-            q_id = encap_str(q_id) if js else q_id
-        if l_id is None:
-            l_id = self.page_params.l_id
-            l_id = "" if l_id is None else l_id
-            l_id = encap_str(l_id) if js else l_id
-        if language is None:
-            language = PageLanguage.toStr(self.page_params.language)
-            language = encap_str(language) if js else language
-        if design is None:
-            design = PageDesign.toStr(self.page_params.design)
-            design = encap_str(design) if js else design
-        if user_id is None:
-            user_id = PageUserID.toStr(self.page_params.user_id)
-            user_id = encap_str(user_id) if js else user_id
-
-        if js:
-            url = "{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} + \"&language=\" + {} + \"&design=\" + {} + \"&user_id=\" + {} ".format(
-                root, op, q_id, l_id, language, design, user_id)
-        else:
-            url = "{}?op={}&q_id={}&l_id={}&language={}&design={}&user_id={}".format(
-                root, op, q_id, l_id, language, design, user_id)
-
-        return url
 
 
 
@@ -360,6 +325,8 @@ class Page(object):
             next_question_url = test.render_next_questions()
             Design.add_buttons(self, next_question_url)
             return self.render()
+
+        #elif self.page_params.op == PageOperation.MENU:
 
         elif self.page_params.op == PageOperation.REGISTER:
             self.register(self.page_params.all_state)
