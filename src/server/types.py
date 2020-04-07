@@ -166,9 +166,9 @@ class PageParameters(object):
     op = PageOperation.TEST
     q_id = ""
     l_id = ""
-    language : PageLanguage = PageLanguage.RS
-    user_id : PageUserID = None
-    user_param : UserParameters = UserParameters()
+    language = PageLanguage.RS
+    user_id = None
+    user_param = UserParameters()
 
     # Parameters for edit mode
     init_code = ""
