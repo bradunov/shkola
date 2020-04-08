@@ -106,7 +106,7 @@ class Page(object):
     def add_on_loaded_script_lines(self, code):
         self.on_loaded_script = self.on_loaded_script + code
         
-    def on_click(self, operation:ResponseOperation=None, url_next=None, record=False):
+    def on_click(self, operation:ResponseOperation=None, url_next=None, record=False, quoted=True):
         if record:
             # Only send results to server if next_url specified (i.e. we are in the test mode)
             ret_str = "cond = checkAll(\"{}\", \"{}\", \"{}\", \"{}\", \"{}\");".format(
@@ -118,7 +118,10 @@ class Page(object):
         if url_next is not None:
             if operation == ResponseOperation.SUBMIT:
                 ret_str = ret_str + "if (cond) "
-            ret_str = ret_str + " {window.location.replace(\"" + url_next + "\");}"
+            if quoted:
+                ret_str = ret_str + " {window.location.replace(\"" + url_next + "\");}"
+            else:
+                ret_str = ret_str + " {window.location.replace(" + url_next + ");}"
 
         return ret_str
 
@@ -166,6 +169,13 @@ class Page(object):
 
     def get_file_url(self, file):
         return "item?url={}".format(file)
+
+    def get_default_question(self):
+        return self.get_all_questions(PageLanguage.toStr(self.page_params.language))[0]
+
+    def get_default_list(self):
+        return self.get_all_lists(PageLanguage.toStr(self.page_params.language))[0]
+
 
 
 

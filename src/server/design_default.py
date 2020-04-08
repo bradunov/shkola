@@ -1,24 +1,119 @@
-from server.helpers import encode_dict
+from copy import copy
+
+from server.helpers import encode_dict, encap_str
 
 from server.types import PageUserID
 from server.types import PageLanguage
 from server.types import PageOperation
 from server.types import ResponseOperation
+from server.types import PageParameters
 
-
+from server.test import Test
 
 class Design_default(object):
   
+
+
+
+
     @staticmethod
-    def render_page(page):
+    def render_main_page(page):
 
         Design_default.render_menu(page)
-        
-        if page.question is not None:
-            page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>")
-            page.question.eval_with_exception()
-            Design_default.add_buttons(page)
-            page.add_lines("</div>")
+
+        if isinstance(page.page_params.menu_state, dict) and \
+            "summary" in page.page_params.menu_state.keys() and \
+                page.page_params.menu_state["summary"]:
+            # Last page
+            Design_default.render_summary_page(page)
+        elif page.page_params.year is None or not page.page_params.year:
+            # No year selected, first select year
+            Design_default.render_select_year_page(page)
+        elif page.page_params.theme is None or not page.page_params.theme:
+            # No theme selected, select it
+            Design_default.render_select_theme_page(page)
+
+
+
+
+    @staticmethod
+    def render_select_year_page(page):
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
+        if content:
+
+            page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+            page.add_lines("<h1>Izaberi godinu</h1>\n")
+            page.add_lines("</div>\n")
+
+            for year in sorted(content.keys()):
+                page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+                page.add_lines("<a href='" + \
+                        page.page_params.create_url(year = year, js = False) + \
+                        "'> Razred: " + year + "</a>\n")
+                page.add_lines("</div>\n")
+
+
+
+
+    @staticmethod
+    def render_select_theme_page(page):
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
+        if content and page.page_params.year in content.keys():
+            
+            page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+            page.add_lines("<h1>Izaberi temu</h1>\n")
+            page.add_lines("</div>\n")
+
+            for theme in sorted(content[page.page_params.year].keys()):
+                page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+                page.add_lines("<a href='" + \
+                        page.page_params.create_url(
+                            op = "test", theme = theme, menu_state = {"q_number": 1}, 
+                            l_id = content[page.page_params.year][theme]["name"], js = False) + \
+                        "'> Godina " + theme + "</a>\n")
+                page.add_lines("</div>\n")
+
+            page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+            page.add_lines("<a href='" + \
+                    page.page_params.create_url(year = "", js = False) + \
+                    "'> Nazad na izbor godine</a>\n")
+            page.add_lines("</div>\n")
+
+
+
+
+    @staticmethod
+    def render_summary_page(page):
+        page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+        page.add_lines("<h1>Bravo!</h1>\n")
+        page.add_lines("</div>\n")
+
+        del page.page_params.menu_state["summary"]
+        page.add_lines("<a href='" + \
+                page.page_params.create_url(year=page.page_params.year, 
+                                            js=False) + \
+                "'> Nazad na izbor teme </a>\n")
+        return page.render()
+
+
+
+
+    @staticmethod
+    def render_question_page(page):
+        Design_default.render_menu(page)
+        test = Test(page)
+
+        if isinstance(page.page_params.menu_state, dict) and "q_number" in page.page_params.menu_state.keys():
+            current_number = page.page_params.menu_state["q_number"]
+            page.page_params.menu_state["q_number"] = page.page_params.menu_state["q_number"] + 1
+
+        next_question_url = test.render_next_questions()
+        Design_default.add_buttons(page, next_question_url)
+        if page.page_params.root == "main":
+            page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+            page.add_lines("Pitanje {} od 3\n".format(current_number))
+            page.add_lines("</div>\n")
+        return page.render()
                     
 
 
@@ -229,23 +324,60 @@ class Design_default(object):
         page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
         page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
 
-        OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
-        OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-            page.on_click(\
-                operation=ResponseOperation.SUBMIT, \
-                url_next=url_next, \
-                record=True), page.get_messages()["check"])
-        page.add_lines(OKline)
+        total_questions = 4
+
+        if isinstance(page.page_params.menu_state, dict) and "q_number" in page.page_params.menu_state.keys():
+            q_number = page.page_params.menu_state["q_number"]
+        else:
+            q_number = 0
+
+        if q_number == total_questions:
+            new_params = copy(page.page_params.menu_state)
+            new_params["summary"] = True
+            home_url = page.page_params.create_url( op=encap_str(PageOperation.toStr(PageOperation.MENU)),
+                                                    year=encap_str(page.page_params.year), 
+                                                    q_id=encap_str(""), 
+                                                    l_id=encap_str(""), 
+                                                    theme=encap_str(""), 
+                                                    menu_state=new_params,
+                                                    js=True)
+
+        if q_number == total_questions:
+            OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
+            OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
+                page.on_click(\
+                    operation=ResponseOperation.SUBMIT, \
+                    url_next=home_url, quoted=False, \
+                    record=True), page.get_messages()["check"])
+            page.add_lines(OKline)
+        else:
+            OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
+            OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
+                page.on_click(\
+                    operation=ResponseOperation.SUBMIT, \
+                    url_next=url_next, \
+                    record=True), page.get_messages()["check"])
+            page.add_lines(OKline)
 
         if url_next is not None:
-            NEXTline = ""
-            NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
-                page.on_click(\
-                    operation=ResponseOperation.SKIP, \
-                    url_next=url_next, \
-                    record=True), page.get_messages()["skip"])
-            page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-            page.add_lines(NEXTline)
+            if q_number == total_questions:
+                NEXTline = ""
+                NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
+                    page.on_click(\
+                        operation=ResponseOperation.SKIP, \
+                        url_next=home_url, quoted=False, \
+                        record=True), page.get_messages()["skip"])
+                page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+                page.add_lines(NEXTline)
+            else:
+                NEXTline = ""
+                NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
+                    page.on_click(\
+                        operation=ResponseOperation.SKIP, \
+                        url_next=url_next, \
+                        record=True), page.get_messages()["skip"])
+                page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+                page.add_lines(NEXTline)
             
         page.add_lines("\n<!-- END CHECK NEXT BUTTONS -->\n")
 

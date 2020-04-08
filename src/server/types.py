@@ -83,6 +83,8 @@ class PageOperation(Enum):
             return "register"
         elif enum == PageOperation.LOGIN:
             return "login"
+        elif enum == PageOperation.MENU:
+            return "menu"
 
     @classmethod
     def fromStr(cls, name:str, with_exception : bool = False):
@@ -98,6 +100,8 @@ class PageOperation(Enum):
             return PageOperation.GENERATE
         elif name.lower() == "login":
             return PageOperation.LOGIN
+        elif name.lower() == "menu":
+            return PageOperation.MENU
         else:
             if with_exception:
                 raise PageParameterParsingError
@@ -170,11 +174,18 @@ class PageParameters(object):
     q_id = ""
     l_id = ""
     year = ""
-    topic = ""
+    theme = ""
     language = PageLanguage.RS
     user_id = None
     user_param = UserParameters()
+
+    # Arbitrary user state (as encoded dictionary)
     menu_state = ""
+
+    # Results from the last question asked
+    # (not encoded to be filled in by JS)
+    correct = ""
+    incorrect = ""
 
     # Parameters for edit mode
     init_code = ""
@@ -262,28 +273,27 @@ class PageParameters(object):
         if ("q_id" in args.keys()) and (not args["q_id"] is None) and args["q_id"]:
             self.q_id = args["q_id"]
         else:
-            if self.op == PageOperation.TEST:
-                # If in test mode leave the question empty and the engine will choose one 
-                self.q_id = ""
-            else:
-                # Otherwise select the first one from all available in the language
-                self.q_id = page.get_all_questions(PageLanguage.toStr(self.language))[0]
+            self.q_id = ""
 
         if ("l_id" in args.keys()) and (not args["l_id"] is None) and args["l_id"]:
             self.l_id = args["l_id"]
         else:
-            self.l_id = page.get_all_lists(PageLanguage.toStr(self.language))[0]
-
+            self.l_id = ""
 
         if ("year" in args.keys()) and (not args["year"] is None) and args["year"]:
             self.year = args["year"]
 
-        if ("topic" in args.keys()) and (not args["topic"] is None) and args["topic"]:
-            self.topic = args["topic"]
+        if ("theme" in args.keys()) and (not args["theme"] is None) and args["theme"]:
+            self.theme = args["theme"]
 
         if ("menu_state" in args.keys()) and (not args["menu_state"] is None) and args["menu_state"]:
-            self.topic = args["menu_state"]
+            self.menu_state = decode_dict(args["menu_state"])
 
+        if "correct" in args.keys():
+            self.correct = args["correct"]
+
+        if "incorrect" in args.keys():
+            self.incorrect = args["incorrect"]
 
         if "init_code" in args.keys():
             self.init_code = args["init_code"]
@@ -322,8 +332,19 @@ class PageParameters(object):
             s = encap_str(s) if js else s
         return s
 
-    def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, topic=None, 
-                   menu_state=None, language=None, user_id=None, design=None, js=False):
+
+    def _dict_to_url(self, s, default, js):
+        if s is None:
+            s = default                
+            s = {} if s is None else s
+        s = encode_dict(s)
+        s = encap_str(s) if js else s
+        return s
+
+
+    def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, theme=None, 
+                   menu_state=None, language=None, user_id=None, design=None, 
+                   correct=None, incorrect=None, js=False):
         if root is None:
             root = self.root
             root = encap_str(root) if js else root
@@ -342,17 +363,21 @@ class PageParameters(object):
             user_id = PageUserID.toStr(self.user_id)
             user_id = encap_str(user_id) if js else user_id
         year = self._str_to_url(year, self.year, js)
-        topic = self._str_to_url(topic, self.topic, js)
-        menu_state = self._str_to_url(menu_state, self.menu_state, js)
+        theme = self._str_to_url(theme, self.theme, js)
+        correct = self._str_to_url(correct, self.correct, js)
+        incorrect = self._str_to_url(incorrect, self.incorrect, js)
+        menu_state = self._dict_to_url(menu_state, self.menu_state, js)
 
         if js:
             url = ("{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} " +
-                   "+ \"&year=\" + {} + \"&topic=\" + {} + \"&menu_state=\" + {} " 
-                   "+ \"&language=\" + {} + \"&design=\" + {} + \"&user_id=\" + {} ").format(
-                root, op, q_id, l_id, year, topic, menu_state, language, design, user_id)
+                   "+ \"&year=\" + {} + \"&theme=\" + {} + \"&menu_state=\" + {} " +
+                   "+ \"&language=\" + {} + \"&design=\" + {} " + 
+                   "+ \"&correct=\" + {} + \"&incorrect=\" + {} " + 
+                   "+ \"&user_id=\" + {} ").format(
+                root, op, q_id, l_id, year, theme, menu_state, language, design, correct, incorrect, user_id)
         else:
-            url = ("{}?op={}&q_id={}&l_id={}&year={}&topic={}&menu_state={}" + 
-                  "&language={}&design={}&user_id={}").format(
-                root, op, q_id, l_id, year, topic, menu_state, language, design, user_id)
+            url = ("{}?op={}&q_id={}&l_id={}&year={}&theme={}&menu_state={}" + 
+                  "&language={}&design={}&correct={}&incorrect={}&user_id={}").format(
+                root, op, q_id, l_id, year, theme, menu_state, language, design, correct, incorrect, user_id)
 
         return url

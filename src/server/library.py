@@ -901,7 +901,8 @@ class Library(object):
         assign = ""
         report = "'q_id=' + q_id + '&l_id=' + l_id + '&user_id=' + user_id + '&' + "
         for c in self.checks:
-            assign = assign + "c" + str(cid) + " = " + c + ";\n"
+            assign = assign + "c" + str(cid) + " = " + c + ";" + \
+                "if (c" + str(cid) + ") {q_correct++;} else {q_incorrect++;}\n"
             cond = cond + "c" + str(cid) + " && "
             report = report + "\"q_res" + str(cid) + "=\" + c" + str(cid) + ".toString() + \"&\" + " 
             cid = cid + 1
@@ -916,6 +917,8 @@ class Library(object):
         <script>
         question_start_time = Math.floor(Date.now()/1000);
         attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
         function sendResultsToServer(report, type, post_url) {
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '/' + post_url);
@@ -933,6 +936,7 @@ class Library(object):
         // operation == SUBMIT | SKIP
         // post_url == URL to which to post the results
         function checkAll(operation, post_url, q_id, l_id, user_id){
+            q_correct=0; q_incorrect=0;
         """ + assign + "\n" \
             + cond + "\n" + """
           if (!(operation === undefined)) {
