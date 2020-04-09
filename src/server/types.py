@@ -4,6 +4,8 @@ from server.helpers import decode_dict
 from server.helpers import is_user_on_mobile
 from server.helpers import encap_str
 
+import logging
+
 
 class PageParameterParsingError(Exception):
     pass
@@ -179,8 +181,8 @@ class PageParameters(object):
     user_id = None
     user_param = UserParameters()
 
-    # Arbitrary user state (as encoded dictionary)
-    menu_state = ""
+    # Arbitrary user state (sent as encoded dictionary)
+    menu_state = {}
 
     # Results from the last question asked
     # (not encoded to be filled in by JS)
@@ -228,6 +230,15 @@ class PageParameters(object):
     def __init__(self, args : dict = None):
         if not args is None:
             self.parse(args)
+
+
+    def delete_history(self):
+        self.correct = 0
+        self.incorrect = 0
+        if "summary" in self.menu_state.keys():
+            del self.menu_state["summary"]
+        if "history" in self.menu_state.keys():
+            del self.menu_state["history"]
 
 
     def parse(self, in_args : dict, page):
@@ -317,6 +328,23 @@ class PageParameters(object):
         if "user_language" in args.keys():
             self.user_param.user_language = args["user_language"]
 
+
+        # Update internal state
+        try:
+            if not isinstance(self.menu_state,dict):
+                self.menu_state = {}
+            if not "history" in self.menu_state.keys() or not isinstance(self.menu_state["history"], list):
+                self.menu_state["history"] = []
+            if "last_question" in self.menu_state.keys():
+                self.menu_state["history"].append(
+                    {"question": self.menu_state["last_question"], 
+                    "correct": int(self.correct), 
+                    "incorrect": int(self.incorrect)})
+            self.menu_state["last_question"] = self.q_id
+        except Exception as e:
+            # if any problem with state just report
+            logging.info("Problem with menu_state: {}".format(e))
+            pass
 
 
     def add_code(self, init_code : str = "", iter_code : str = "", text : str = ""):

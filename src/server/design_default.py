@@ -37,6 +37,8 @@ class Design_default(object):
 
     @staticmethod
     def render_select_year_page(page):
+        page.page_params.delete_history()
+
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
         if content:
 
@@ -56,6 +58,8 @@ class Design_default(object):
 
     @staticmethod
     def render_select_theme_page(page):
+        page.page_params.delete_history()
+
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
         if content and page.page_params.year in content.keys():
             
@@ -84,10 +88,24 @@ class Design_default(object):
     @staticmethod
     def render_summary_page(page):
         page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-        page.add_lines("<h1>Bravo!</h1>\n")
+        page.add_lines("<h1>Bravo!</h1><br>\n")
+        correct = 0
+        incorrect = 0
+        try:
+            if "history" in page.page_params.menu_state.keys():
+                page.add_lines("Tvoj rezultat po pitanjima:<br><br>\n")
+                for r in page.page_params.menu_state["history"]:
+                    page.add_lines("{}: tacno {}, netacno {} <br>\n".format(r["question"], r["correct"], r["incorrect"]))
+                    correct = correct + int(r["correct"])
+                    incorrect = incorrect + int(r["incorrect"])
+                page.add_lines("<br> Ukupno tacno {}/{} ({} %):<br><br>\n", 
+                    correct, correct + incorrect, correct / (correct + incorrect))
+        except:
+            pass
         page.add_lines("</div>\n")
 
-        del page.page_params.menu_state["summary"]
+        page.page_params.delete_history()
+
         page.add_lines("<a href='" + \
                 page.page_params.create_url(year=page.page_params.year, 
                                             js=False) + \
@@ -111,6 +129,7 @@ class Design_default(object):
         if page.page_params.root == "main":
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             page.add_lines("Pitanje {} od 3\n".format(current_number))
+            page.add_lines("Prethodno: {} / {}".format(page.page_params.correct, page.page_params.incorrect))
             page.add_lines("</div>\n")
         return page.render()
                     
@@ -339,6 +358,7 @@ class Design_default(object):
                                                     l_id=encap_str(""), 
                                                     theme=encap_str(""), 
                                                     menu_state=new_params,
+                                                    correct="q_correct", incorrect="q_incorrect", \
                                                     js=True)
 
         if q_number == total_questions:
@@ -346,7 +366,7 @@ class Design_default(object):
             OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
                 page.on_click(\
                     operation=ResponseOperation.SUBMIT, \
-                    url_next=home_url, quoted=False, \
+                    url_next=home_url, quoted=False, 
                     record=True), page.get_messages()["check"])
             page.add_lines(OKline)
         else:

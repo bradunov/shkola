@@ -276,18 +276,21 @@ class Page(object):
 
 
         logging.info("New request: op={} <design={}, mobile={}> - "
-                    "q_id={}, l_id={}, language={}, user_id={}, init_code={}, iter_code={}, text={}, "
-                    "remote_ip={}, user_agent={}, user_language={}.".format(
+                    "q_id={}, l_id={}, language={}, user_id={}, "
+                    "correct={}, incorrect={}, init_code={}, iter_code={}, text={}, "
+                    "remote_ip={}, user_agent={}, user_language={}, menu_state={}.".format(
                         PageOperation.toStr(self.page_params.op), 
                         PageDesign.toStr(self.page_params.design),
                         self.page_params.mobile, 
                         self.page_params.q_id, self.page_params.l_id, 
                         PageLanguage.toStr(self.page_params.language), 
                         PageUserID.toStr(self.page_params.user_id), 
+                        self.page_params.correct, self.page_params.incorrect, 
                         self.page_params.init_code, self.page_params.iter_code, self.page_params.text,
                         self.page_params.user_param.remote_ip, 
                         self.page_params.user_param.user_agent, 
-                        self.page_params.user_param.user_laguage))
+                        self.page_params.user_param.user_laguage,
+                        self.page_params.menu_state))
 
 
         return Design.main(self)

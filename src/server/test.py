@@ -15,7 +15,13 @@ class Test(object):
 
         if self.page.page_params.q_id is None or not self.page.page_params.q_id:
             self.page.page_params.q_id = self.choose_next_question()["name"]
-        
+            try:
+                print("BBB: {} {}".format(type(self.page.page_params.menu_state), self.page.page_params.menu_state))
+                self.page.page_params.menu_state["last_question"] = self.page.page_params.q_id
+            except:
+                print("AAAAAAAAAAAAAAAAAAAAA")
+                pass
+
 
 
     def load_list(self):
@@ -37,6 +43,7 @@ class Test(object):
         next_question_url = self.page.page_params.create_url(\
             op = "test", \
             q_id = next_question["name"], \
+            correct="\" + q_correct + \"", incorrect="\" + q_incorrect + \"", \
             js = False)
 
         
