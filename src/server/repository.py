@@ -4,8 +4,6 @@ import logging
 
 from server.azure_blob import azure_blob
 
-#DEBUG
-#from pprint import pprint
 
 
 
@@ -306,14 +304,24 @@ class Repository(object):
                         label = "{}/{}/{}".format(st, q["period"], q["difficulty"])
 
                         if label not in self.content[language][level][theme].keys():
-                            self.content[language][level][theme][label] = {"questions" : []}
+                            self.content[language][level][theme][label] = {
+                                "subtheme" : q["subtheme"],
+                                "period" : q["period"],
+                                "difficulty" : q["difficulty"],
+                                "questions" : []
+                            }
 
                         self.content[language][level][theme][label]["questions"].append(q)
                 else:
                     label = "{}/{}/{}".format(q["subtheme"], q["period"], q["difficulty"])
 
                     if label not in self.content[language][level][theme].keys():
-                        self.content[language][level][theme][label] = {"questions" : []}
+                        self.content[language][level][theme][label] = {
+                            "subtheme" : q["subtheme"],
+                            "period" : q["period"],
+                            "difficulty" : q["difficulty"],
+                            "questions" : []
+                        }
 
                     self.content[language][level][theme][label]["questions"].append(q)
 
@@ -329,7 +337,7 @@ class Repository(object):
         #logging.debug("self.lists: {}".format(self.lists))
 
         self.create_content()
-        #logging.debug("self.content: {}".format(self.content))
+        #logging.debug("self.content: {}".format(json.dumps(self.content, indent=2)))
 
         
     def get_config(self):
