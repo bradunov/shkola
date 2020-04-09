@@ -110,7 +110,10 @@ class Design_default(object):
         Design_default.add_buttons(page, next_question_url)
         if page.page_params.root == "main":
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines("Pitanje {} od 3\n".format(current_number))
+            try:
+                page.add_lines("Pitanje {} od 3\n".format(current_number))
+            except:
+                pass
             page.add_lines("</div>\n")
         return page.render()
                     
