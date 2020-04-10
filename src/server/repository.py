@@ -280,9 +280,9 @@ class Repository(object):
                 "language" not in list_dict.keys():
                 logging.debug("Skipping list %s in content - no level or theme or questions or language", list_name)
                 continue
-            language = list_dict["language"]
-            level = list_dict["level"]
-            theme = list_dict["theme"]
+            language = list_dict["language"].lower()
+            level = list_dict["level"].lower()
+            theme = list_dict["theme"].lower()
             questions = list_dict["questions"]
             if language not in self.content.keys():
                 self.content[language] = {}
@@ -301,25 +301,25 @@ class Repository(object):
 
                 if isinstance(q["subtheme"], list): 
                     for st in q["subtheme"]:
-                        label = "{}|{}|{}".format(st, q["period"], q["difficulty"])
+                        label = "{}|{}|{}".format(st.lower(), q["period"].lower(), q["difficulty"].lower())
 
                         if label not in self.content[language][level][theme].keys():
                             self.content[language][level][theme][label] = {
-                                "subtheme" : q["subtheme"],
-                                "period" : q["period"],
-                                "difficulty" : q["difficulty"],
+                                "subtheme" : st.lower(),
+                                "period" : q["period"].lower(),
+                                "difficulty" : q["difficulty"].lower(),
                                 "questions" : []
                             }
 
                         self.content[language][level][theme][label]["questions"].append(q)
                 else:
-                    label = "{}|{}|{}".format(q["subtheme"], q["period"], q["difficulty"])
+                    label = "{}|{}|{}".format(q["subtheme"].lower(), q["period"].lower(), q["difficulty"].lower())
 
                     if label not in self.content[language][level][theme].keys():
                         self.content[language][level][theme][label] = {
-                            "subtheme" : q["subtheme"],
-                            "period" : q["period"],
-                            "difficulty" : q["difficulty"],
+                            "subtheme" : q["subtheme"].lower(),
+                            "period" : q["period"].lower(),
+                            "difficulty" : q["difficulty"].lower(),
                             "questions" : []
                         }
 

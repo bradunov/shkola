@@ -48,7 +48,7 @@ class Design_default(object):
         if content:
 
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines("<h1>Izaberi godinu</h1>\n")
+            page.add_lines("<h1>Izaberi razred</h1>\n")
             page.add_lines("</div>\n")
 
             for year in sorted(content.keys()):
@@ -60,7 +60,7 @@ class Design_default(object):
                                                     period = "", \
                                                     difficulty = "", \
                                                     js = False) + \
-                        "'> Razred: " + year + "</a>\n")
+                        "'> " + year.title() + "</a>\n")
                 page.add_lines("</div>\n")
 
 
@@ -74,7 +74,7 @@ class Design_default(object):
         if content and page.page_params.year in content.keys():
             
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines("<h1>Izaberi temu</h1>\n")
+            page.add_lines("<h1>Izaberi oblast</h1>\n")
             page.add_lines("</div>\n")
 
             for theme in sorted(content[page.page_params.year].keys()):
@@ -86,13 +86,13 @@ class Design_default(object):
                             period = "", \
                             difficulty = "", \
                             js = False) + \
-                        "'> " + theme + "</a>\n")
+                        "'> " + theme.title() + "</a>\n")
                 page.add_lines("</div>\n")
 
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             page.add_lines("<a href='" + \
                     page.page_params.create_url(year = "", js = False) + \
-                    "'> Nazad na izbor godine</a>\n")
+                    "'> Nazad na izbor razreda</a>\n")
             page.add_lines("</div>\n")
 
 
@@ -107,7 +107,7 @@ class Design_default(object):
                        page.page_params.theme in content[page.page_params.year].keys():
             
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines("<h1>Izaberi podtemu</h1>\n")
+            page.add_lines("<h1>Izaberi temu</h1>\n")
             page.add_lines("</div>\n")
 
             for subclass in sorted(content[page.page_params.year][page.page_params.theme].keys()):
@@ -120,7 +120,7 @@ class Design_default(object):
                                 difficulty = content[page.page_params.year][page.page_params.theme][subclass]["difficulty"], 
                                 menu_state = {"intro": True}, 
                                 l_id = content[page.page_params.year][page.page_params.theme]["name"], js = False) + \
-                            "'> Podtema " + subclass + "</a>\n")
+                            "'> " + subclass.title() + "</a>\n")
                     page.add_lines("</div>\n")
 
 
@@ -138,7 +138,7 @@ class Design_default(object):
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             page.add_lines("<a href='" + \
                     page.page_params.create_url(theme = "", js = False) + \
-                    "'> Nazad na izbor teme</a>\n")
+                    "'> Nazad na izbor oblasti</a>\n")
             page.add_lines("</div>\n")
 
 
