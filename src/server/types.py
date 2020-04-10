@@ -382,6 +382,8 @@ class PageParameters(object):
         return s
 
 
+    # These parameters have to be strings (even op, language, design, user_id)
+    # as they can be JS variables
     def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, 
                    theme=None, subtheme=None, period=None, difficulty=None,
                    menu_state=None, language=None, user_id=None, design=None, 

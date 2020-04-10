@@ -1,4 +1,4 @@
-from copy import copy
+from copy import copy, deepcopy
 
 from server.helpers import encode_dict, encap_str
 
@@ -139,13 +139,13 @@ class Design_default(object):
         page.add_lines("<h1>Pocetak</h1>\n")
         page.add_lines("<br>Neke zadatke ces resiti lakse ako spremis papir i olovku.\n")
         page.add_lines("<br>Kad uradis 10 zadataka bez greske, napravi pauzu.\n")
-        page.add_lines("<br>Da predjes na sledeci zadatak ili da se vratis na prethodni, koristi trotined.\n")
+        page.add_lines("<br>Da predjes na sledeci zadatak ili da se vratis na prethodni, koristi trotinet.\n")
         page.add_lines("</div>\n")
 
         page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
         page.add_lines("<a href='" + \
                 page.page_params.create_url(\
-                    op = "test", 
+                    op = PageOperation.toStr(PageOperation.TEST), 
                     menu_state = {"q_number": 1}, 
                     js = False) + \
                 "'> Pocni</a>\n")
@@ -202,12 +202,36 @@ class Design_default(object):
         Design_default.render_menu(page)
         test = Test(page)
 
+
         if isinstance(page.page_params.menu_state, dict) and "q_number" in page.page_params.menu_state.keys():
             current_number = page.page_params.menu_state["q_number"]
+            if current_number > 1 and "history" in page.page_params.menu_state.keys () and \
+                                                   len(page.page_params.menu_state["history"]) >= 1:
+
+                # Go back to the previous page and reset history:
+                # Remove the last item in history, decrease the page counter
+                # and delete "last_question" key 
+                # The last one is a "hack", otherwise this question will be added to the history
+                new_menu_state = deepcopy(page.page_params.menu_state)
+                del new_menu_state["history"][-1]
+                new_menu_state["q_number"] = new_menu_state["q_number"] - 1
+                del new_menu_state["last_question"]
+
+                prev_url = page.page_params.create_url(\
+                            q_id = page.page_params.menu_state["history"][-1]["question"], \
+                            menu_state = new_menu_state,
+                            js = False)
+            else:
+                prev_url = page.page_params.create_url(\
+                            op = PageOperation.toStr(PageOperation.MENU), 
+                            menu_state = {"intro": True}, 
+                            js = False)
+
             page.page_params.menu_state["q_number"] = page.page_params.menu_state["q_number"] + 1
 
         next_question_url = test.render_next_questions()
-        Design_default.add_buttons(page, next_question_url)
+
+        Design_default.add_buttons(page, next_question_url, prev_url)
         if page.page_params.root == "main":
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             page.add_lines("Pitanje {} od 3\n".format(current_number))
@@ -419,7 +443,7 @@ class Design_default(object):
 
 
     @staticmethod    
-    def add_buttons(page, url_next=None):
+    def add_buttons(page, url_next=None, url_prev=None):
         page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
         page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
         page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
@@ -443,53 +467,68 @@ class Design_default(object):
                                                     correct="q_correct", incorrect="q_incorrect", \
                                                     js=True)
 
-        if q_number == total_questions + 1:
-            OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
-            OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-                page.on_click(\
-                    operation=ResponseOperation.SUBMIT, \
-                    url_next=home_url, quoted=False, 
-                    record=True), page.get_messages()["check"])
-            page.add_lines(OKline)
-        else:
-            OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
-            OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-                page.on_click(\
-                    operation=ResponseOperation.SUBMIT, \
-                    url_next=url_next, \
-                    record=True), page.get_messages()["check"])
-            page.add_lines(OKline)
 
-        if url_next is not None:
-            if q_number == total_questions + 1:
-                NEXTline = ""
-                NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
-                    page.on_click(\
-                        operation=ResponseOperation.SKIP, \
-                        url_next=home_url, quoted=False, \
-                        record=True), page.get_messages()["skip"])
-                page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-                page.add_lines(NEXTline)
-            else:
-                NEXTline = ""
-                NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
-                    page.on_click(\
-                        operation=ResponseOperation.SKIP, \
-                        url_next=url_next, \
-                        record=True), page.get_messages()["skip"])
-                page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-                page.add_lines(NEXTline)
-            
-        page.add_lines("\n<!-- END CHECK NEXT BUTTONS -->\n")
+        if url_prev is not None:
+            page.add_lines("\n\n<!-- PREV BUTTON -->\n")
+            page.add_lines("\n<input type='button' style='font-size: 14px;' "\
+                "onclick='window.location.replace(\"{}\")' value='{}' />\n".format(url_prev, "Nazad"))
+            page.add_lines("\n<!-- END PREV BUTTON -->\n\n")
 
-
-
-        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-        
+        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")        
         page.add_lines("\n<!-- CLEAR BUTTON -->\n")
         page.add_lines("\n<input type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
             page.get_messages()["clear"]))
         page.add_lines("\n<!-- END CLEAR BUTTON -->\n")
+
+
+        # page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        # page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
+        # page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
+        #     page.on_click(\
+        #         operation=ResponseOperation.SUBMIT, \
+        #         record=True), page.get_messages()["check"]))
+        # page.add_lines("\n<!-- END CHECK BUTTONS -->\n")
+
+
+        if q_number == total_questions + 1:
+            page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
+            page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
+                page.on_click(\
+                    operation=ResponseOperation.SUBMIT, \
+                    url_next=home_url, quoted=False, \
+                    record=True), page.get_messages()["check"]))
+            page.add_lines("\n<!-- END CHECK BUTTON -->\n")
+        else:
+            page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
+            page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
+                page.on_click(\
+                    operation=ResponseOperation.SUBMIT, \
+                    url_next=url_next, \
+                    record=True), page.get_messages()["check"]))
+            page.add_lines("\n<!-- END CHECK BUTTON -->\n")
+
+
+        if url_next is not None:
+            if q_number == total_questions + 1:
+                page.add_lines("\n\n<!-- NEXT BUTTON -->\n")
+                page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+                page.add_lines("\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
+                    page.on_click(\
+                        operation=ResponseOperation.SKIP, \
+                        url_next=home_url, quoted=False, \
+                        record=True), page.get_messages()["skip"]))
+                page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
+            else:
+                page.add_lines("\n\n<!-- NEXT BUTTON -->\n")
+                page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+                page.add_lines("\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
+                    page.on_click(\
+                        operation=ResponseOperation.SKIP, \
+                        url_next=url_next, \
+                        record=True), page.get_messages()["skip"]))
+                page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
+            
+
 
         page.add_lines("\n</div>\n")
         page.add_lines("</div>\n")

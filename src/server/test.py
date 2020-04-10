@@ -1,5 +1,6 @@
 import random
 from server.question import Question
+from server.types import PageOperation
 
 
 class Test(object):
@@ -51,8 +52,7 @@ class Test(object):
             # Otherwise give randomly any question
             next_question = potential_questions_w_repeat[random.randrange(len(potential_questions_w_repeat))]
 
-        print("\n\nAAAA: {} {} {} {}\n\n".format(next_question, potential_questions, potential_questions_w_repeat, asked_questions))
-
+ 
         return next_question
         
 
@@ -61,7 +61,7 @@ class Test(object):
        
         next_question = self.choose_next_question(self.page.page_params.q_id)
         next_question_url = self.page.page_params.create_url(\
-            op = "test", \
+            op = PageOperation.toStr(PageOperation.TEST), \
             q_id = next_question, \
             correct="\" + q_correct + \"", incorrect="\" + q_incorrect + \"", \
             js = False)
