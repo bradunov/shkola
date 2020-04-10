@@ -49,7 +49,7 @@ class Design_default(object):
         if content:
 
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines("<h1>Izaberi razred</h1>\n")
+            page.add_lines("<h3>Izaberi razred</h3>\n")
             page.add_lines("</div>\n")
 
             for year in sorted(content.keys()):
@@ -75,7 +75,7 @@ class Design_default(object):
         if content and page.page_params.year in content.keys():
             
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines("<h1> {} razred - izaberi oblast</h1>\n".format(page.page_params.year.title()))
+            page.add_lines("<h3> {} razred - izaberi oblast</h3>\n".format(page.page_params.year.title()))
             page.add_lines("</div>\n")
 
             for theme in sorted(content[page.page_params.year].keys()):
@@ -108,7 +108,7 @@ class Design_default(object):
                        page.page_params.theme in content[page.page_params.year].keys():
             
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines("<h1> {} razred, {} - izaberi temu</h1>\n".format(\
+            page.add_lines("<h3> {} razred, {} - izaberi temu</h3>\n".format(\
                 page.page_params.year.title(), page.page_params.theme.title() ))
             page.add_lines("</div>\n")
 
@@ -150,7 +150,7 @@ class Design_default(object):
         page.page_params.delete_history()
 
         page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-        page.add_lines("<h1> {} razred, {}, {}|{}|{} - Pocetak </h1>\n".format(\
+        page.add_lines("<h3> {} razred, {}, {}|{}|{} - Pocetak </h3>\n".format(\
             page.page_params.year.title(), page.page_params.theme.title(), \
             page.page_params.subtheme.title(), page.page_params.period.title(), \
             page.page_params.difficulty.title() ))
@@ -184,7 +184,7 @@ class Design_default(object):
     @staticmethod
     def render_summary_page(page):
         page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-        page.add_lines("<h1>Bravo!</h1><br>\n")
+        page.add_lines("<h3>Bravo!</h3><br>\n")
         correct = 0
         incorrect = 0
         try:
@@ -264,6 +264,11 @@ class Design_default(object):
 
     @staticmethod
     def render_menu(page):
+
+        # For now remove the language menu
+        show_language_menu = False
+
+
         page.add_lines("\n\n<!-- MOBILE MENU START -->\n")
 
         # Temporary, for debugging:
@@ -310,8 +315,10 @@ class Design_default(object):
             }
             </script>
             <div class="w3-dark-grey w3-right-align">
-                """ + debug_str + """
-                <button class="w3-button w3-dark-grey w3-large" onclick="shl_toggle()">""" + page.get_messages()["language"] + """</button>
+                """ + debug_str +  \
+                (("<button class=\"w3-button w3-dark-grey w3-large\" onclick=\"shl_toggle()\">" + \
+                    page.get_messages()["language"] + "</button>") if show_language_menu else "") \
+                + """
                 <button class="w3-button w3-dark-grey w3-large" onclick="shm_toggle()">☰</button>
             </span>
             </div>
@@ -347,20 +354,22 @@ class Design_default(object):
             </div>
         """)
 
-        if ("languages" in page.repository.get_config()):
-            
-            lang_select = """
-                        <div class="w3-sidebar w3-bar-block w3-border-left" style="width:200px;right:0;display:none"  id="shLang">
-                        """
-            for lang in page.get_language_list():
-                lang_select = lang_select + "<a href='" + \
-                        page.page_params.create_url(language = lang, js = False) + \
-                        "' class='w3-bar-item w3-button'>" + page.get_messages(lang)["name"] + "</a>"
-            
-            lang_select = lang_select + """
-                        </div>
-                        """
-            page.add_lines(lang_select)
+
+        if show_language_menu:
+            if ("languages" in page.repository.get_config()):
+                
+                lang_select = """
+                            <div class="w3-sidebar w3-bar-block w3-border-left" style="width:200px;right:0;display:none"  id="shLang">
+                            """
+                for lang in page.get_language_list():
+                    lang_select = lang_select + "<a href='" + \
+                            page.page_params.create_url(language = lang, js = False) + \
+                            "' class='w3-bar-item w3-button'>" + page.get_messages(lang)["name"] + "</a>"
+                
+                lang_select = lang_select + """
+                            </div>
+                            """
+                page.add_lines(lang_select)
 
 
 
@@ -511,43 +520,39 @@ class Design_default(object):
         # page.add_lines("\n<!-- END CHECK BUTTONS -->\n")
 
 
+        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")        
+        page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
         if q_number == total_questions + 1:
-            page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
             page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
                 page.on_click(\
                     operation=ResponseOperation.SUBMIT, \
                     url_next=home_url, quoted=False, \
                     record=True), page.get_messages()["check"]))
-            page.add_lines("\n<!-- END CHECK BUTTON -->\n")
         else:
-            page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
             page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
                 page.on_click(\
                     operation=ResponseOperation.SUBMIT, \
                     url_next=url_next, \
                     record=True), page.get_messages()["check"]))
-            page.add_lines("\n<!-- END CHECK BUTTON -->\n")
+        page.add_lines("\n<!-- END CHECK BUTTON -->\n")
 
 
         if url_next is not None:
+            page.add_lines("\n\n<!-- NEXT BUTTON -->\n")
+            page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
             if q_number == total_questions + 1:
-                page.add_lines("\n\n<!-- NEXT BUTTON -->\n")
-                page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
                 page.add_lines("\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
                     page.on_click(\
                         operation=ResponseOperation.SKIP, \
                         url_next=home_url, quoted=False, \
                         record=True), page.get_messages()["skip"]))
-                page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
             else:
-                page.add_lines("\n\n<!-- NEXT BUTTON -->\n")
-                page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
                 page.add_lines("\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
                     page.on_click(\
                         operation=ResponseOperation.SKIP, \
                         url_next=url_next, \
                         record=True), page.get_messages()["skip"]))
-                page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
+            page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
             
 
 
