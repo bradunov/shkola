@@ -177,6 +177,9 @@ class PageParameters(object):
     l_id = ""
     year = ""
     theme = ""
+    subtheme = ""
+    period = ""
+    difficulty = ""
     language = PageLanguage.RS
     user_id = None
     user_param = UserParameters()
@@ -297,6 +300,15 @@ class PageParameters(object):
         if ("theme" in args.keys()) and (not args["theme"] is None) and args["theme"]:
             self.theme = args["theme"]
 
+        if ("subtheme" in args.keys()) and (not args["subtheme"] is None) and args["subtheme"]:
+            self.subtheme = args["subtheme"]
+
+        if ("period" in args.keys()) and (not args["period"] is None) and args["period"]:
+            self.period = args["period"]
+
+        if ("difficulty" in args.keys()) and (not args["difficulty"] is None) and args["difficulty"]:
+            self.difficulty = args["difficulty"]
+
         if ("menu_state" in args.keys()) and (not args["menu_state"] is None) and args["menu_state"]:
             self.menu_state = decode_dict(args["menu_state"])
 
@@ -370,7 +382,8 @@ class PageParameters(object):
         return s
 
 
-    def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, theme=None, 
+    def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, 
+                   theme=None, subtheme=None, period=None, difficulty=None,
                    menu_state=None, language=None, user_id=None, design=None, 
                    correct=None, incorrect=None, js=False):
         if root is None:
@@ -392,20 +405,26 @@ class PageParameters(object):
             user_id = encap_str(user_id) if js else user_id
         year = self._str_to_url(year, self.year, js)
         theme = self._str_to_url(theme, self.theme, js)
+        subtheme = self._str_to_url(subtheme, self.subtheme, js)
+        period = self._str_to_url(period, self.period, js)
+        difficulty = self._str_to_url(difficulty, self.difficulty, js)
         correct = self._str_to_url(correct, self.correct, js)
         incorrect = self._str_to_url(incorrect, self.incorrect, js)
         menu_state = self._dict_to_url(menu_state, self.menu_state, js)
 
         if js:
             url = ("{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} " +
-                   "+ \"&year=\" + {} + \"&theme=\" + {} + \"&menu_state=\" + {} " +
-                   "+ \"&language=\" + {} + \"&design=\" + {} " + 
+                   "+ \"&year=\" + {} + \"&theme=\" + {} "
+                   "+ \"&subtheme=\" + {} + \"&period=\" + {} + \"&difficulty=\" + {} " +
+                   "+ \"&menu_state=\" + {} + \"&language=\" + {} + \"&design=\" + {} " + 
                    "+ \"&correct=\" + {} + \"&incorrect=\" + {} " + 
                    "+ \"&user_id=\" + {} ").format(
-                root, op, q_id, l_id, year, theme, menu_state, language, design, correct, incorrect, user_id)
+                root, op, q_id, l_id, year, theme, subtheme, period, difficulty, 
+                menu_state, language, design, correct, incorrect, user_id)
         else:
-            url = ("{}?op={}&q_id={}&l_id={}&year={}&theme={}&menu_state={}" + 
-                  "&language={}&design={}&correct={}&incorrect={}&user_id={}").format(
-                root, op, q_id, l_id, year, theme, menu_state, language, design, correct, incorrect, user_id)
+            url = ("{}?op={}&q_id={}&l_id={}&year={}&theme={}&subtheme={}&period={}&difficulty={}" + 
+                  "&menu_state={}&language={}&design={}&correct={}&incorrect={}&user_id={}").format(
+                root, op, q_id, l_id, year, theme, subtheme, period, difficulty, 
+                menu_state, language, design, correct, incorrect, user_id)
 
         return url

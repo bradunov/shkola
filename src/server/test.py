@@ -14,12 +14,10 @@ class Test(object):
         self.load_list()
 
         if self.page.page_params.q_id is None or not self.page.page_params.q_id:
-            self.page.page_params.q_id = self.choose_next_question()["name"]
+            self.page.page_params.q_id = self.choose_next_question()
             try:
-                print("BBB: {} {}".format(type(self.page.page_params.menu_state), self.page.page_params.menu_state))
                 self.page.page_params.menu_state["last_question"] = self.page.page_params.q_id
             except:
-                print("AAAAAAAAAAAAAAAAAAAAA")
                 pass
 
 
@@ -29,20 +27,42 @@ class Test(object):
 
     
     def choose_next_question(self, previous_question_name=None):
-        next_question = random.randrange(len(self.list["questions"]))
-        if previous_question_name is not None and len(self.list["questions"]) > 1:
-            cnt = 0
-            while self.list["questions"][next_question]["name"] == previous_question_name and cnt < 100:
-                next_question = random.randrange(len(self.list["questions"]))
-        return self.list["questions"][next_question]
+
+        potential_questions = []
+        potential_questions_w_repeat = []
+        asked_questions = list(map(lambda hist: hist["question"], self.page.page_params.menu_state["history"]))
+        asked_questions.append(self.page.page_params.menu_state["last_question"])
+
+        # Find the list of all question in the subtopic (potential_questions_w_repeat), 
+        # and also those among them that haven't been already asked in this session (potential_questions)
+        for q in self.list["questions"]:
+            if self.page.page_params.subtheme and q["subtheme"] == self.page.page_params.subtheme and \
+               self.page.page_params.period and q["period"] == self.page.page_params.period and \
+               self.page.page_params.difficulty and q["difficulty"] == self.page.page_params.difficulty:
+                potential_questions_w_repeat.append(q["name"])
+                if not q["name"] in asked_questions:
+                    potential_questions.append(q["name"])
+
+        next_question = ""
+        if potential_questions:
+            # Give a random, previously unasked question, if such remains
+            next_question = potential_questions[random.randrange(len(potential_questions))]
+        elif potential_questions_w_repeat:
+            # Otherwise give randomly any question
+            next_question = potential_questions_w_repeat[random.randrange(len(potential_questions_w_repeat))]
+
+        print("\n\nAAAA: {} {} {} {}\n\n".format(next_question, potential_questions, potential_questions_w_repeat, asked_questions))
+
+        return next_question
         
+
         
     def render_next_questions(self):
        
         next_question = self.choose_next_question(self.page.page_params.q_id)
         next_question_url = self.page.page_params.create_url(\
             op = "test", \
-            q_id = next_question["name"], \
+            q_id = next_question, \
             correct="\" + q_correct + \"", incorrect="\" + q_incorrect + \"", \
             js = False)
 

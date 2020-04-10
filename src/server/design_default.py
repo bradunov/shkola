@@ -25,13 +25,18 @@ class Design_default(object):
                 page.page_params.menu_state["summary"]:
             # Last page
             Design_default.render_summary_page(page)
-        elif page.page_params.year is None or not page.page_params.year:
+        elif not page.page_params.year:
             # No year selected, first select year
             Design_default.render_select_year_page(page)
-        elif page.page_params.theme is None or not page.page_params.theme:
+        elif not page.page_params.theme:
             # No theme selected, select it
             Design_default.render_select_theme_page(page)
-
+        elif not page.page_params.subtheme:
+            # No theme selected, select it
+            Design_default.render_select_subtheme_page(page)
+        elif isinstance(page.page_params.menu_state, dict) and \
+            "intro" in page.page_params.menu_state.keys() and page.page_params.menu_state["intro"]:
+            Design_default.render_select_get_started_page(page)
 
 
 
@@ -49,7 +54,12 @@ class Design_default(object):
             for year in sorted(content.keys()):
                 page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
                 page.add_lines("<a href='" + \
-                        page.page_params.create_url(year = year, js = False) + \
+                        page.page_params.create_url(year = year, \
+                                                    theme = "", \
+                                                    subtheme = "", \
+                                                    period = "", \
+                                                    difficulty = "", \
+                                                    js = False) + \
                         "'> Razred: " + year + "</a>\n")
                 page.add_lines("</div>\n")
 
@@ -71,9 +81,12 @@ class Design_default(object):
                 page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
                 page.add_lines("<a href='" + \
                         page.page_params.create_url(
-                            op = "test", theme = theme, menu_state = {"q_number": 1}, 
-                            l_id = content[page.page_params.year][theme]["name"], js = False) + \
-                        "'> Godina " + theme + "</a>\n")
+                            theme = theme, \
+                            subtheme = "", \
+                            period = "", \
+                            difficulty = "", \
+                            js = False) + \
+                        "'> " + theme + "</a>\n")
                 page.add_lines("</div>\n")
 
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
@@ -83,6 +96,71 @@ class Design_default(object):
             page.add_lines("</div>\n")
 
 
+
+
+    @staticmethod
+    def render_select_subtheme_page(page):
+        page.page_params.delete_history()
+
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
+        if content and page.page_params.year in content.keys() and \
+                       page.page_params.theme in content[page.page_params.year].keys():
+            
+            page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+            page.add_lines("<h1>Izaberi podtemu</h1>\n")
+            page.add_lines("</div>\n")
+
+            for subclass in sorted(content[page.page_params.year][page.page_params.theme].keys()):
+                if not subclass == "name":
+                    page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+                    page.add_lines("<a href='" + \
+                            page.page_params.create_url(
+                                subtheme = content[page.page_params.year][page.page_params.theme][subclass]["subtheme"], 
+                                period = content[page.page_params.year][page.page_params.theme][subclass]["period"], 
+                                difficulty = content[page.page_params.year][page.page_params.theme][subclass]["difficulty"], 
+                                menu_state = {"intro": True}, 
+                                l_id = content[page.page_params.year][page.page_params.theme]["name"], js = False) + \
+                            "'> Podtema " + subclass + "</a>\n")
+                    page.add_lines("</div>\n")
+
+            page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+            page.add_lines("<a href='" + \
+                    page.page_params.create_url(theme = "", js = False) + \
+                    "'> Nazad na izbor teme</a>\n")
+            page.add_lines("</div>\n")
+
+
+
+    @staticmethod
+    def render_select_get_started_page(page):
+        page.page_params.delete_history()
+
+        page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+        page.add_lines("<h1>Pocetak</h1>\n")
+        page.add_lines("<br>Neke zadatke ces resiti lakse ako spremis papir i olovku.\n")
+        page.add_lines("<br>Kad uradis 10 zadataka bez greske, napravi pauzu.\n")
+        page.add_lines("<br>Da predjes na sledeci zadatak ili da se vratis na prethodni, koristi trotined.\n")
+        page.add_lines("</div>\n")
+
+        page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+        page.add_lines("<a href='" + \
+                page.page_params.create_url(\
+                    op = "test", 
+                    menu_state = {"q_number": 1}, 
+                    js = False) + \
+                "'> Pocni</a>\n")
+        page.add_lines("</div>\n")
+
+        page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+        page.add_lines("<a href='" + \
+                page.page_params.create_url(\
+                    subtheme = "", 
+                    period = "", 
+                    difficulty = "", 
+                    menu_state = {}, 
+                    l_id = "", js = False) + \
+                "'> Nazad na izbor podteme</a>\n")
+        page.add_lines("</div>\n")
 
 
     @staticmethod
@@ -107,7 +185,11 @@ class Design_default(object):
         page.page_params.delete_history()
 
         page.add_lines("<a href='" + \
-                page.page_params.create_url(year=page.page_params.year, 
+                page.page_params.create_url(year=page.page_params.year, \
+                                            theme = "", \
+                                            subtheme = "", \
+                                            difficulty = "", \
+                                            period = "", \
                                             js=False) + \
                 "'> Nazad na izbor teme </a>\n")
         return page.render()
@@ -342,14 +424,14 @@ class Design_default(object):
         page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
         page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
 
-        total_questions = 4
+        total_questions = 3
 
         if isinstance(page.page_params.menu_state, dict) and "q_number" in page.page_params.menu_state.keys():
             q_number = page.page_params.menu_state["q_number"]
         else:
             q_number = 0
 
-        if q_number == total_questions:
+        if q_number == total_questions + 1:
             new_params = copy(page.page_params.menu_state)
             new_params["summary"] = True
             home_url = page.page_params.create_url( op=encap_str(PageOperation.toStr(PageOperation.MENU)),
@@ -361,7 +443,7 @@ class Design_default(object):
                                                     correct="q_correct", incorrect="q_incorrect", \
                                                     js=True)
 
-        if q_number == total_questions:
+        if q_number == total_questions + 1:
             OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
             OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
                 page.on_click(\
@@ -379,7 +461,7 @@ class Design_default(object):
             page.add_lines(OKline)
 
         if url_next is not None:
-            if q_number == total_questions:
+            if q_number == total_questions + 1:
                 NEXTline = ""
                 NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
                     page.on_click(\

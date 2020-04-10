@@ -301,7 +301,7 @@ class Repository(object):
 
                 if isinstance(q["subtheme"], list): 
                     for st in q["subtheme"]:
-                        label = "{}/{}/{}".format(st, q["period"], q["difficulty"])
+                        label = "{}|{}|{}".format(st, q["period"], q["difficulty"])
 
                         if label not in self.content[language][level][theme].keys():
                             self.content[language][level][theme][label] = {
@@ -313,7 +313,7 @@ class Repository(object):
 
                         self.content[language][level][theme][label]["questions"].append(q)
                 else:
-                    label = "{}/{}/{}".format(q["subtheme"], q["period"], q["difficulty"])
+                    label = "{}|{}|{}".format(q["subtheme"], q["period"], q["difficulty"])
 
                     if label not in self.content[language][level][theme].keys():
                         self.content[language][level][theme][label] = {
