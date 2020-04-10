@@ -6,6 +6,7 @@ from server.types import PageUserID
 from server.types import PageLanguage
 from server.types import PageOperation
 from server.types import ResponseOperation
+from server.types import PageParameters
 
 from server.test import Test
 
@@ -74,7 +75,7 @@ class Design_default(object):
         if content and page.page_params.year in content.keys():
             
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines("<h1>Izaberi oblast</h1>\n")
+            page.add_lines("<h1> {} razred - izaberi oblast</h1>\n".format(page.page_params.year.title()))
             page.add_lines("</div>\n")
 
             for theme in sorted(content[page.page_params.year].keys()):
@@ -107,7 +108,8 @@ class Design_default(object):
                        page.page_params.theme in content[page.page_params.year].keys():
             
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines("<h1>Izaberi temu</h1>\n")
+            page.add_lines("<h1> {} razred, {} - izaberi temu</h1>\n".format(\
+                page.page_params.year.title(), page.page_params.theme.title() ))
             page.add_lines("</div>\n")
 
             for subclass in sorted(content[page.page_params.year][page.page_params.theme].keys()):
@@ -148,7 +150,10 @@ class Design_default(object):
         page.page_params.delete_history()
 
         page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-        page.add_lines("<h1>Pocetak</h1>\n")
+        page.add_lines("<h1> {} razred, {}, {}|{}|{} - Pocetak </h1>\n".format(\
+            page.page_params.year.title(), page.page_params.theme.title(), \
+            page.page_params.subtheme.title(), page.page_params.period.title(), \
+            page.page_params.difficulty.title() ))
         page.add_lines("<br>Neke zadatke ces resiti lakse ako spremis papir i olovku.\n")
         page.add_lines("<br>Kad uradis 10 zadataka bez greske, napravi pauzu.\n")
         page.add_lines("<br>Da predjes na sledeci zadatak ili da se vratis na prethodni, koristi trotinet.\n")
@@ -304,14 +309,13 @@ class Design_default(object):
                 }
             }
             </script>
-            <div class="w3-dark-grey">
-            <button class="w3-button w3-dark-grey w3-large" onclick="shm_toggle()">☰</button>
-            """ + debug_str + """
-            <span style='display:block;float:right;'>
-            <button class="w3-button w3-dark-grey w3-large" onclick="shl_toggle()">""" + page.get_messages()["language"] + """</button>
+            <div class="w3-dark-grey w3-right-align">
+                """ + debug_str + """
+                <button class="w3-button w3-dark-grey w3-large" onclick="shl_toggle()">""" + page.get_messages()["language"] + """</button>
+                <button class="w3-button w3-dark-grey w3-large" onclick="shm_toggle()">☰</button>
             </span>
             </div>
-            <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="shMenu">
+            <div class="w3-sidebar w3-bar-block w3-border-left" style="width:200px;right:0;display:none" id="shMenu">
                 <button class="w3-button w3-block w3-left-align" onclick="myAccFunc('accLevel')">
                     """ + page.get_messages()["questions"] + """ <i class="fa fa-caret-down"></i>
                 </button>
@@ -319,12 +323,11 @@ class Design_default(object):
         """)
 
 
-        Design_default.render_menu_drop(page, PageLanguage.toStr(page.page_params.language), 
-            page.page_params.root + "?op={}&language={}&menu={}&user_id={}".format(
-            PageOperation.toStr(page.page_params.op), PageLanguage.toStr(page.page_params.language), 
-            "mobile", PageUserID.toStr(page.page_params.user_id) ), 1)
-
-
+        new_page_params = PageParameters()
+        new_page_params.root = page.page_params.root 
+        new_page_params.op = PageOperation.MENU
+        new_page_params.language = page.page_params.language
+        Design_default.render_menu_drop(page, new_page_params, 1)
 
         page.add_lines("""
                 </div>
@@ -397,8 +400,8 @@ class Design_default(object):
 
 
     @staticmethod
-    def render_menu_drop(page, language, link, indent=0):
-        content = page.repository.get_content(language)
+    def render_menu_drop(page, new_page_params : PageParameters, indent=0):
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
 
         str_indent1 = ""
         for i in range(0, indent):
@@ -406,21 +409,25 @@ class Design_default(object):
         str_indent2 = str_indent1 + "<div class='space'></div>"
 
         for level in sorted(content.keys()):
-            page.add_lines("""
-                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc('acc""" + level + """')">
-                """ + str_indent1 + level + """ <i class="fa fa-caret-down"></i>
-                </button>
-                <div id='acc""" + level + """' class="w3-hide w3-white w3-card">
-            """)
+            new_page_params.year = level
+            new_page_params.theme = ""
+            page.add_lines(str_indent1 + \
+                "<a href=\"" + new_page_params.create_url(js = False) + "\" style='text-decoration:none'> " + level + "</a>" + \
+                """
+                    <button class="w3-button w3-left-align" onclick="myAccFunc('acc""" + level + """')">
+                    """ +  """ <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div id='acc""" + level + """' class="w3-hide w3-white w3-card">
+                """)
 
             for theme in sorted(content[level].keys()):
-                page.add_lines("""
-                <a href='""" + link + "&l_id=" + content[level][theme]["name"] + 
-                """' class="w3-bar-item w3-button"> """ + str_indent2 + theme + """</a>
-                """)
+                new_page_params.theme = theme
+                page.add_lines("<a href=\"" + new_page_params.create_url(js = False) + \
+                    "\" class=\"w3-bar-item w3-button\"> " + str_indent2 + theme + "</a>\n")
 
             page.add_lines("</div>")
             
+            page.add_lines("<br>")
 
 
 
