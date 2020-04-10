@@ -47,12 +47,18 @@ class Test(object):
         next_question = ""
         if potential_questions:
             # Give a random, previously unasked question, if such remains
-            next_question = potential_questions[random.randrange(len(potential_questions))]
+            total = len(potential_questions)
+            index = random.randrange(total)
+            next_question = potential_questions[index]
         elif potential_questions_w_repeat:
             # Otherwise give randomly any question
-            next_question = potential_questions_w_repeat[random.randrange(len(potential_questions_w_repeat))]
+            total = len(potential_questions_w_repeat)
+            index = random.randrange(total)
+            next_question = potential_questions_w_repeat[index]
 
-        #print("NEXT Q: {} {} {}".format(potential_questions_w_repeat, potential_questions, next_question))
+        # print("\n\nNEXT Q: {} {} {}/{} {}\n\n".format(
+        #     potential_questions_w_repeat, potential_questions, 
+        #     index, total, next_question))
  
         return next_question
         

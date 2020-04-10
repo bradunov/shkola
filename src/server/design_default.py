@@ -158,6 +158,7 @@ class Design_default(object):
         page.add_lines("<a href='" + \
                 page.page_params.create_url(\
                     op = PageOperation.toStr(PageOperation.TEST), 
+                    q_id = "", 
                     menu_state = {"q_number": 1}, 
                     js = False) + \
                 "'> Pocni</a>\n")
@@ -236,6 +237,7 @@ class Design_default(object):
             else:
                 prev_url = page.page_params.create_url(\
                             op = PageOperation.toStr(PageOperation.MENU), 
+                            q_id = "", 
                             menu_state = {"intro": True}, 
                             js = False)
 
