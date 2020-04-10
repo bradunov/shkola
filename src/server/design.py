@@ -13,6 +13,14 @@ class Design(object):
 
     @staticmethod
     def main(page):
+
+        # Select default
+        if page.page_params.op == PageOperation.DEFAULT:
+            if page.page_params.root == "edit":
+                page.page_params.op = PageOperation.VIEW
+            else:
+                page.page_params.op = PageOperation.MENU
+
         # If login, update user and replace op with the original op
         if page.page_params.op == PageOperation.LOGIN:
             new_op = page.login()

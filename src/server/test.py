@@ -52,7 +52,7 @@ class Test(object):
             # Otherwise give randomly any question
             next_question = potential_questions_w_repeat[random.randrange(len(potential_questions_w_repeat))]
 
-        print("NEXT Q: {} {} {}".format(potential_questions_w_repeat, potential_questions, next_question))
+        #print("NEXT Q: {} {} {}".format(potential_questions_w_repeat, potential_questions, next_question))
  
         return next_question
         

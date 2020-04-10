@@ -68,6 +68,8 @@ class PageOperation(Enum):
     LOGIN = 6
     # Full-screen menu
     MENU = 7
+    # Set this when not specified, so each menu can decide
+    DEFAULT = 8
 
     @classmethod
     def toStr(cls, enum) -> str:
@@ -87,6 +89,8 @@ class PageOperation(Enum):
             return "login"
         elif enum == PageOperation.MENU:
             return "menu"
+        elif enum == PageOperation.DEFAULT:
+            return "default"
 
     @classmethod
     def fromStr(cls, name:str, with_exception : bool = False):
@@ -104,12 +108,13 @@ class PageOperation(Enum):
             return PageOperation.LOGIN
         elif name.lower() == "menu":
             return PageOperation.MENU
+        elif name.lower() == "default":
+            return PageOperation.DEFAULT
         else:
             if with_exception:
                 raise PageParameterParsingError
             else:
-                # Default operation
-                return PageOperation.TEST
+                return PageOperation.DEFAULT
 
 
 
@@ -267,8 +272,7 @@ class PageParameters(object):
         if "op" in args.keys():
             self.op = PageOperation.fromStr(args["op"], self.with_exception)
         else:
-            if self.root == "edit":
-                self.op = PageOperation.VIEW
+            self.op = PageOperation.DEFAULT
 
         if "design" in args.keys():
             self.design = PageDesign.fromStr(args["design"])
