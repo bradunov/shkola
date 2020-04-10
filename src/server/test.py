@@ -37,9 +37,9 @@ class Test(object):
         # Find the list of all question in the subtopic (potential_questions_w_repeat), 
         # and also those among them that haven't been already asked in this session (potential_questions)
         for q in self.list["questions"]:
-            if self.page.page_params.subtheme and q["subtheme"] == self.page.page_params.subtheme and \
-               self.page.page_params.period and q["period"] == self.page.page_params.period and \
-               self.page.page_params.difficulty and q["difficulty"] == self.page.page_params.difficulty:
+            if self.page.page_params.subtheme and (self.page.page_params.subtheme == "*" or q["subtheme"] == self.page.page_params.subtheme) and \
+               self.page.page_params.period and (self.page.page_params.period == "*" or q["period"] == self.page.page_params.period) and \
+               self.page.page_params.difficulty and (self.page.page_params.difficulty == "*" or q["difficulty"] == self.page.page_params.difficulty):
                 potential_questions_w_repeat.append(q["name"])
                 if not q["name"] in asked_questions:
                     potential_questions.append(q["name"])
@@ -52,6 +52,7 @@ class Test(object):
             # Otherwise give randomly any question
             next_question = potential_questions_w_repeat[random.randrange(len(potential_questions_w_repeat))]
 
+        print("NEXT Q: {} {} {}".format(potential_questions_w_repeat, potential_questions, next_question))
  
         return next_question
         

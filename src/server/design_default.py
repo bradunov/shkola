@@ -123,6 +123,18 @@ class Design_default(object):
                             "'> Podtema " + subclass + "</a>\n")
                     page.add_lines("</div>\n")
 
+
+            page.add_lines("<br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+            page.add_lines("<a href='" + \
+                    page.page_params.create_url(
+                        subtheme = "*", 
+                        period = "*", 
+                        difficulty = "*", 
+                        menu_state = {"intro": True}, 
+                        l_id = content[page.page_params.year][page.page_params.theme]["name"], js = False) + \
+                    "'> Supermix </a>\n")
+            page.add_lines("</div>\n")
+
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             page.add_lines("<a href='" + \
                     page.page_params.create_url(theme = "", js = False) + \
