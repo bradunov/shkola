@@ -8,7 +8,6 @@ from server.types import PageUserID
 from server.question import Question
 from server.qlist import Qlist
 from server.test import Test
-from server.stats import Stats
 
 
 class Design(object):
@@ -85,9 +84,10 @@ class Design(object):
                 u_id = PageUserID.toStr(page.page_params.user_id)
                 if len(u_id) >= len("local:") and u_id[:len("local:")] == "local:":
                     u_id = u_id[len("local:"):]
-                Design_dev.render_user_stats(page, u_id)
+                Design.render_user_stats(page, u_id)
             else:
-                Design_dev.render_page_stats(page)
+                if page.page_params.root == "edit":
+                    Design_dev.render_page_stats(page)
             return page.render()
 
         elif page.page_params.op == PageOperation.REGISTER:
@@ -142,3 +142,13 @@ class Design(object):
             Design_default.add_buttons(page, next_question_url)
 
 
+
+    @staticmethod
+    def render_user_stats(page, u_id):
+        Design.update_design(page)
+        if page.page_params.design == PageDesign.DEFAULT:
+            Design_default.render_user_stats(page, u_id)
+        elif page.page_params.design == PageDesign.DEV:
+            Design_dev.render_user_stats(page, u_id)
+        else:
+            Design_default.render_user_stats(page, u_id)

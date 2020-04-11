@@ -9,6 +9,9 @@ from server.types import ResponseOperation
 from server.types import PageParameters
 
 from server.test import Test
+from server.stats import Stats
+
+
 
 class Design_default(object):
   
@@ -338,7 +341,16 @@ class Design_default(object):
 
         page.add_lines("""
                 </div>
+        """)
 
+        if not page.page_params.user_id is None and PageUserID.toStr(page.page_params.user_id):
+            print("\n\nAAAAA:{}\n\n".format(PageUserID.toStr(page.page_params.user_id)))
+            page.add_lines("<a href=\"" + \
+                page.page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False) + \
+                "\" class=\"w3-bar-item w3-button\"> Rezultati </a>\n")
+
+
+        page.add_lines("""
                 <button class="w3-button w3-block w3-left-align" onclick="myAccFunc('accUser')">
                     """ + page.get_messages()["user"] + """ <i class="fa fa-caret-down"></i>
                 </button>
@@ -561,6 +573,79 @@ class Design_default(object):
         page.add_lines("\n\n<!-- QUESTIONS END -->\n\n")
 
         
+
+
+
+
+
+    @staticmethod
+    def _render_user_one_cat_rec(page, cat, desc, indent):
+        hspace = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+
+        page.add_lines("  <tr>")
+
+        if indent > 1:
+            page.add_lines("<td></td> ")
+
+        page.add_lines("<td style='text-align:left'>{}{}{}</td> ".format(hspace, desc, hspace))
+
+        if indent <= 1:
+            page.add_lines("<td></td> ")
+
+        if "all" in cat.keys():
+            page.add_lines("<td style='text-align:center'>{}{}/{}({:3d}%/{:3d})%{}</td> ".format(
+                hspace,
+                cat["all"]["total"],
+                cat["all"]["subtotal"], 
+                int(cat["all"]["questions"]*100), 
+                int(cat["all"]["subquestions"]*100),
+                hspace
+            ))
+        else:
+            page.add_lines("<td></td> ")
+
+        for d in range(1,4):
+            diff = str(d)
+            if "difficulty" in cat.keys() and diff in cat["difficulty"].keys():
+                page.add_lines("<td style='text-align:center'>{}{}/{}({:3d}%/{:3d}%){}</td> ".format(
+                    hspace, 
+                    cat["difficulty"][diff]["total"],
+                    cat["difficulty"][diff]["subtotal"], 
+                    int(cat["difficulty"][diff]["questions"]*100), 
+                    int(cat["difficulty"][diff]["subquestions"]*100),
+                    hspace
+                ))
+            else:
+                page.add_lines("<td></td> ")
+        page.add_lines("</tr>\n")
+
+        for kt in cat.keys():
+            if not (kt == "all" or kt == "difficulty"):
+                for k in cat[kt].keys():
+                    Design_default._render_user_one_cat_rec(page, cat[kt][k], k, indent+1)
+
+
+
+
+    @staticmethod
+    def render_user_stats(page, u_id):
+        Design_default.render_menu(page)
+        stats = Stats.render_user_stats(page, u_id)
+
+        hspace = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+        page.add_lines("<table style='border: none; border-collapse: collapse;'>")
+        page.add_lines("<tr><td style='text-align:left'>{}Oblast{}</td> ".format(hspace, hspace) + \
+                "<td style='text-align:left'>{}Tema{}</td> ".format(hspace, hspace) + \
+                "<td style='text-align:center'>{}Svi zadaci{}</td> ".format(hspace, hspace) + \
+                "<td style='text-align:center'>{}1 zvezda{}</td> ".format(hspace, hspace) + \
+                "<td style='text-align:center'>{}2 zvezde{}</td> ".format(hspace, hspace) + \
+                "<td style='text-align:center'>{}3 zvezde{}</td> ".format(hspace, hspace) + \
+                "</tr>\n")
+        Design_default._render_user_one_cat_rec(page, stats, "Svi", 0)
+        page.add_lines("</table><br>")
+
+
+
 
 
 
