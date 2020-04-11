@@ -418,4 +418,74 @@ class Design_dev(object):
 
 
 
+    @staticmethod
+    def _render_user_one_cat_rec(page, cat, desc, indent):
+        hspace = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+
+        page.add_lines("  <tr>")
+
+        if indent > 1:
+            page.add_lines("<td></td> ")
+
+        page.add_lines("<td style='text-align:left'>{}{}{}</td> ".format(hspace, desc, hspace))
+
+        if indent <= 1:
+            page.add_lines("<td></td> ")
+
+        if "all" in cat.keys():
+            page.add_lines("<td style='text-align:center'>{}{}/{}({:3d}%/{:3d})%{}</td> ".format(
+                hspace,
+                cat["all"]["total"],
+                cat["all"]["subtotal"], 
+                int(cat["all"]["questions"]*100), 
+                int(cat["all"]["subquestions"]*100),
+                hspace
+            ))
+        else:
+            page.add_lines("<td></td> ")
+
+        for d in range(1,4):
+            diff = str(d)
+            if "difficulty" in cat.keys() and diff in cat["difficulty"].keys():
+                page.add_lines("<td style='text-align:center'>{}{}/{}({:3d}%/{:3d}%){}</td> ".format(
+                    hspace, 
+                    cat["difficulty"][diff]["total"],
+                    cat["difficulty"][diff]["subtotal"], 
+                    int(cat["difficulty"][diff]["questions"]*100), 
+                    int(cat["difficulty"][diff]["subquestions"]*100),
+                    hspace
+                ))
+            else:
+                page.add_lines("<td></td> ")
+        page.add_lines("</tr>\n")
+
+        for kt in cat.keys():
+            if not (kt == "all" or kt == "difficulty"):
+                for k in cat[kt].keys():
+                    Design_dev._render_user_one_cat_rec(page, cat[kt][k], k, indent+1)
+
+
+
+
+    @staticmethod
+    def render_user_stats(page, u_id):
+        Design_dev.render_menu(page)
+        stats = Stats.render_user_stats(page, u_id)
+
+        hspace = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+        page.add_lines("<table style='border: none; border-collapse: collapse;'>")
+        page.add_lines("<tr><td style='text-align:left'>{}Oblast{}</td> ".format(hspace, hspace) + \
+                "<td style='text-align:left'>{}Tema{}</td> ".format(hspace, hspace) + \
+                "<td style='text-align:center'>{}Svi zadaci{}</td> ".format(hspace, hspace) + \
+                "<td style='text-align:center'>{}1 zvezda{}</td> ".format(hspace, hspace) + \
+                "<td style='text-align:center'>{}2 zvezde{}</td> ".format(hspace, hspace) + \
+                "<td style='text-align:center'>{}3 zvezde{}</td> ".format(hspace, hspace) + \
+                "</tr>\n")
+        Design_dev._render_user_one_cat_rec(page, stats, "Svi", 0)
+        page.add_lines("</table><br>")
+
+
+
+
+
 

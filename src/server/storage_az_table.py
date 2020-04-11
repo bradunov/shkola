@@ -202,6 +202,7 @@ class Storage_az_table():
 
         result = []
         for row in entries:
+            # TBD DEBUG: temporary cleanup foer various user names we used over time
             if "user_id" not in row.keys() or \
                 "local:Korisnik" in row["user_id"] or \
                 "UNKNOWN" in row["user_id"] or \
@@ -213,15 +214,33 @@ class Storage_az_table():
         return result
 
 
+
+
+    def get_user_stats(self, u_id, from_date=None):
+
+        # TBD DEBUG: temporary cleanup foer various user names we used over time
+        req = "((PartitionKey eq '{}') or (PartitionKey eq 'local:{}'))".format(u_id, u_id) 
+
+        if from_date:
+            if len(req) > 0:
+                req = req + " and "
+            req = req + "(Timestamp ge datetime'{}')".format(from_date)
+
+        #print(req)
+
+        entries = self.table_service.query_entities(self.responses_table_name, req)
+
+        result = []
+        for row in entries:
+            result.append(row)
+
+        return result
+
+
+        
         
 if __name__ == '__main__':
     
-    s = "q_res0=false,q_res1=false,q_res2=false,q_res3=false,q_res4=false,"
-    print(s.split(","))
-    a= list(map(lambda x : (1 if x.split("=")[1] == "true" else 0), s.split(",")[:-1]))
-    print(a)
-    exit()
-
     storage = Storage_az_table()
     print("Opened storage")
     
@@ -269,6 +288,10 @@ if __name__ == '__main__':
 
     #storage.get_question_stats("fractions/q00022")
     #print(storage.get_question_stats("fractions/q00022", "2020-03-01T00:00:00.000Z"))
+
+    print(storage.get_user_stats("Petar"))
+    #print(storage.get_question_stats("fractions/q00022", "2020-03-01T00:00:00.000Z"))
+
 
     #storage.print_all_responses("local:Korisnik1")
 
