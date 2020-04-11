@@ -5,6 +5,7 @@ from server.types import PageOperation
 from server.types import PageUserID
 from server.types import ResponseOperation
 from server.types import PageLanguage
+from server.stats import Stats
 
 
 class Design_dev(object):
@@ -70,8 +71,15 @@ class Design_dev(object):
         else:
             select = ""
 
-        log_header = Design_dev.get_login_header(page)
-        
+
+
+        # No need to select user in stats mode
+        if not page.page_params.op == PageOperation.STATS:
+            log_header = Design_dev.get_login_header(page)
+        else:
+            log_header = ""
+
+
         # Not sure why I have to put explicit height here, otherwise it is zero!
         page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
         page.add_lines("<span style='display:block;float:left;'>\n" + select + log_header + "\n</span>\n")
@@ -125,7 +133,8 @@ class Design_dev(object):
             PageOperation.toStr(PageOperation.EDIT),
             PageOperation.toStr(PageOperation.VIEW),
             PageOperation.toStr(PageOperation.LIST),
-            PageOperation.toStr(PageOperation.TEST)
+            PageOperation.toStr(PageOperation.TEST),
+            PageOperation.toStr(PageOperation.STATS)
             ]
 
         for o in options:
@@ -375,6 +384,38 @@ class Design_dev(object):
         page.add_lines("\n\n<!-- QUESTIONS END -->\n\n")
 
         
+
+    @staticmethod
+    def render_page_stats(page):
+        Design_dev.render_menu(page)
+        stats = Stats.render_question_stats(page)
+
+        for folder in stats.keys():            
+            page.add_lines("<h2> {} </h2><br>\n".format(folder))
+            page.add_lines("<table style='border: 1px solid black; border-collapse: collapse; border-spacing: 10px 0;'>")
+
+            page.add_lines("  <tr style='border: 1px solid black'>")
+            page.add_lines("    <th style='border: 1px solid black'>Pitanje</th>")
+            page.add_lines("    <th style='border: 1px solid black'>Ukupno odgovora</th>")
+            page.add_lines("    <th colspan='{}' style='border: 1px solid black'> Statistika po podpitanjima</th>".format(
+                stats[folder]["width"]))
+            page.add_lines("  </tr>")
+
+            for q in stats[folder]["content"]:
+                hspace = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+                page.add_lines("  <tr style='border: 1px solid black'>")
+                page.add_lines("<th style='border: 1px solid black'>{}{}{}</th>".format(hspace, q["q_id"], hspace))
+                page.add_lines("<th style='border: 1px solid black'>{}{}{}</th>".format(hspace, q["total"], hspace))
+                #line = "<br><b>{}</b>: ukupno odgovora {}, tacno po pitanjima ".format(q_id, total)
+                for s in q["correct"]:
+                    page.add_lines("<th style='border: 1px solid black'>{}{:3d}%{}</th>".format(
+                        hspace, int(100 * s / q["total"]), hspace))
+                for s in range(0, stats[folder]["width"] - len(q["correct"])):
+                    page.add_lines("<th style='border: 1px solid black'></th>")
+                page.add_lines("<tr>\n")
+            page.add_lines("</table><br>")
+
+
 
 
 

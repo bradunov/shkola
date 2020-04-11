@@ -7,6 +7,7 @@ from server.types import PageOperation
 from server.question import Question
 from server.qlist import Qlist
 from server.test import Test
+from server.stats import Stats
 
 
 class Design(object):
@@ -67,6 +68,10 @@ class Design(object):
 
         elif page.page_params.op == PageOperation.MENU:
             Design_default.render_main_page(page)
+            return page.render()
+
+        elif page.page_params.op == PageOperation.STATS:
+            Design_dev.render_page_stats(page)
             return page.render()
 
         elif page.page_params.op == PageOperation.REGISTER:

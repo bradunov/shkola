@@ -174,17 +174,54 @@ class Storage_az_table():
                 row['name'],
                 row['email'],
                 time.strftime("%d-%m-%y %H:%M:%S", time.localtime(row['last_accessed'])),
-                row['remote_ip'],
-                row['user_agent'],
-                row['user_language']))
+                row['remote_ip'] if 'remote_ip' in row.keys() else "",
+                row['user_agent'] if 'user_agent' in row.keys() else "",
+                row['user_language'] if 'user_language' in row.keys() else ""
+            ))
         
         print("\n")
-        
+
+
+
+    def get_question_stats(self, q_id=None, from_date=None):
+        req = ""
+
+        if q_id:
+            # Remove / from q_id
+            mq_id = ("".join("fractions/q00022".split("/")))
+            req = req + "((RowKey ge '{}|') and (RowKey lt '{}{}'))".format(mq_id, mq_id, chr(255)) 
+
+        if from_date:
+            if len(req) > 0:
+                req = req + " and "
+            req = req + "(Timestamp ge datetime'{}')".format(from_date)
+
+        #print(req)
+
+        entries = self.table_service.query_entities(self.responses_table_name, req)
+
+        result = []
+        for row in entries:
+            if "user_id" not in row.keys() or \
+                "local:Korisnik" in row["user_id"] or \
+                "UNKNOWN" in row["user_id"] or \
+                "Zomebody" in row["user_id"]:
+                continue
+
+            result.append(row)
+
+        return result
 
 
         
 if __name__ == '__main__':
     
+    s = "q_res0=false,q_res1=false,q_res2=false,q_res3=false,q_res4=false,"
+    print(s.split(","))
+    a= list(map(lambda x : (1 if x.split("=")[1] == "true" else 0), s.split(",")[:-1]))
+    print(a)
+    exit()
+
     storage = Storage_az_table()
     print("Opened storage")
     
@@ -196,38 +233,42 @@ if __name__ == '__main__':
 
     # WARNING: Delete table takes 40s, so everything else will fail
     # Rerun with wipe_all disabled to test
-    if wipe_all:
-        print("Wiping out existing data: ", end="")
-        storage.delete_all_tables()
-        print("Done")
+    # if wipe_all:
+    #     print("Wiping out existing data: ", end="")
+    #     storage.delete_all_tables()
+    #     print("Done")
 
 
 
-    if add_test_data:
-        epoch_ms = int(time.time())
-        delta = 3600
+    # if add_test_data:
+    #     epoch_ms = int(time.time())
+    #     delta = 3600
 
-        user0 = storage.insert_user_id("test0")
-        user1 = storage.insert_user_id("test1")
-        storage.update_user(user0, name="User0", email="Email0", remote_ip="100.200.300.400", user_agent="agent0", user_language="", last_accessed=epoch_ms)
-        storage.update_user(user1, name="User1", email="Email1", remote_ip="200.300.400.500", user_agent="agent1", user_language="", last_accessed=epoch_ms)
+    #     user0 = storage.insert_user_id("test0")
+    #     user1 = storage.insert_user_id("test1")
+    #     storage.update_user(user0, name="User0", email="Email0", remote_ip="100.200.300.400", user_agent="agent0", user_language="", last_accessed=epoch_ms)
+    #     storage.update_user(user1, name="User1", email="Email1", remote_ip="200.300.400.500", user_agent="agent1", user_language="", last_accessed=epoch_ms)
     
-        response = {"user_id" : user0, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
-        storage.record_response(response)
+    #     response = {"user_id" : user0, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+    #     storage.record_response(response)
 
-        response = {"user_id" : user0, "question_id": "q1", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
-        storage.record_response(response)
+    #     response = {"user_id" : user0, "question_id": "q1", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+    #     storage.record_response(response)
 
-        response = {"user_id" : user1, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
-        storage.record_response(response)
+    #     response = {"user_id" : user1, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+    #     storage.record_response(response)
 
-        response = {"user_id" : user1, "question_id": "q1", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
-        storage.record_response(response)
+    #     response = {"user_id" : user1, "question_id": "q1", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+    #     storage.record_response(response)
 
 
-    storage.print_all_users()
+    #storage.print_all_users()
 
-    storage.print_all_responses()
+    #storage.print_all_responses()
+
+
+    #storage.get_question_stats("fractions/q00022")
+    #print(storage.get_question_stats("fractions/q00022", "2020-03-01T00:00:00.000Z"))
 
     #storage.print_all_responses("local:Korisnik1")
 

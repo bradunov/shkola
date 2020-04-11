@@ -66,6 +66,8 @@ class PageOperation(Enum):
     LOGIN = 6
     # Full-screen menu
     MENU = 7
+    # Stats
+    STATS = 8
 
     @classmethod
     def toStr(cls, enum) -> str:
@@ -85,6 +87,8 @@ class PageOperation(Enum):
             return "login"
         elif enum == PageOperation.MENU:
             return "menu"
+        elif enum == PageOperation.STATS:
+            return "stats"
 
     @classmethod
     def fromStr(cls, name:str, with_exception : bool = False):
@@ -102,6 +106,8 @@ class PageOperation(Enum):
             return PageOperation.LOGIN
         elif name.lower() == "menu":
             return PageOperation.MENU
+        elif name.lower() == "stats":
+            return PageOperation.STATS
         else:
             if with_exception:
                 raise PageParameterParsingError
