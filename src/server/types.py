@@ -70,6 +70,8 @@ class PageOperation(Enum):
     MENU = 7
     # Set this when not specified, so each menu can decide
     DEFAULT = 8
+    # Stats
+    STATS = 9
 
     @classmethod
     def toStr(cls, enum) -> str:
@@ -91,6 +93,8 @@ class PageOperation(Enum):
             return "menu"
         elif enum == PageOperation.DEFAULT:
             return "default"
+        elif enum == PageOperation.STATS:
+            return "stats"
 
     @classmethod
     def fromStr(cls, name:str, with_exception : bool = False):
@@ -110,6 +114,8 @@ class PageOperation(Enum):
             return PageOperation.MENU
         elif name.lower() == "default":
             return PageOperation.DEFAULT
+        elif name.lower() == "stats":
+            return PageOperation.STATS
         else:
             if with_exception:
                 raise PageParameterParsingError
