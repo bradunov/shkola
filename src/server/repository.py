@@ -229,14 +229,28 @@ class Repository(object):
                         continue
                     #if len(file) > len(".json") and file[len(file)-len(".json"):] == ".json":
                     if self.check_extension(file, ".json"):
-                        key = file[:len(file)-len(".json")]
-                        d[key] = json.load(open(dirpath + "/" + file, 'r'))
+                        try:
+                            key = file[:len(file)-len(".json")]
+                            d[key] = json.load(open(dirpath + "/" + file, 'r'))
+                        except:
+                            logging.warn( \
+                                "\n\n**********************************************\n" + \
+                                "Error parsing JSON file: {}\n".format(file) + \
+                                "**********************************************\n"\
+                                )
+                            pass
                     elif not self.check_extension(file, ".png"):
                         try:
                             with open(dirpath + "/" + file) as f_text:
                                 text = f_text.read()
                         except IOError:
+                            logging.warn( \
+                                "\n\n**********************************************\n" + \
+                                "Error parsing PNG file: {}\n".format(file) + \
+                                "**********************************************\n"\
+                                )
                             text = ""
+                            pass
                         d[file] = text
         else:
             list_files = self.azure_blob.list_files(path)
