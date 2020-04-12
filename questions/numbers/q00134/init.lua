@@ -31,7 +31,6 @@ hscale = 1.4
 vscale = 5
 
   lib.add_straight_path(15*hscale, 9*vscale, {{270*hscale, 0}}, style, false, true)
-  lib.add_text(290*hscale, 7*vscale, "&#8451", text_style)  
   
   lib.add_straight_path(20*hscale, 8*vscale, {{0, 10}}, style, false, true)
   lib.add_text(20*hscale, 6*vscale, "-5", text_style)

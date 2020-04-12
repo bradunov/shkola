@@ -1,4 +1,4 @@
-value = {"jedinica", "desetica", "stotina", "hiljada", "desetica hiljada", "stotine hiljada", "miliona"}
+value = {"jedinica", "desetica", "stotina", "hiljada", "desetica hiljada", "stotina hiljada", "miliona"}
 
 cifre = {}
             
