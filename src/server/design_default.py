@@ -595,7 +595,7 @@ class Design_default(object):
             page.add_lines(\
                 "<a class=\"sh-font\" href=\"" + new_page_params.create_url(js = False) + \
                     "\" style='padding: 8px 0px 8px 16px ; text-decoration:none'> " + \
-                    str_indent1 + level + "</a>" + \
+                    str_indent1 + level.title() + "</a>" + \
                 """
                     <button class="sh-button-arrow sh-left-align sh-font" onclick="myAccFunc('acc""" + level + """')">
                     """ +  """ <i class="fa fa-caret-down"></i>
@@ -606,7 +606,7 @@ class Design_default(object):
             for theme in sorted(content[level].keys()):
                 new_page_params.theme = theme
                 page.add_lines("<a href=\"" + new_page_params.create_url(js = False) + \
-                    "\" class=\"sh-bar-item sh-button sh-font\"> " + str_indent2 + theme + "</a>\n")
+                    "\" class=\"sh-bar-item sh-button sh-font\"> " + str_indent2 + theme.title() + "</a>\n")
 
             page.add_lines("</div>")
             
