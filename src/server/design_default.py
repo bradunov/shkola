@@ -421,22 +421,42 @@ class Design_default(object):
 
         page.add_script_lines("""
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
                 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />
                 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+
+                <style>
+                .sh-font{font-family: 'Bubblegum Sans'; font-size: 18px; color: #029194}
+                .sh-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;background-color:white;text-align:center;cursor:pointer;white-space:nowrap}
+                .sh-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}   
+                .sh-button-arrow{border:none;display:inline-block;padding:8px 0px 8px 0px;vertical-align:middle;overflow:hidden;text-decoration:none;background-color:white;text-align:center;cursor:pointer;white-space:nowrap}
+                .sh-button-arrow{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}   
+                .sh-border-left{border-left:1px solid #ccc!important}
+                .sh-sidebar{height:100%;width:200px;background-color:#fff;position:fixed!important;z-index:1;overflow:auto}
+                .sh-left-align{text-align:left!important}
+                .sh-right-align{text-align:right!important}
+                .sh-block{display:block;width:100%}
+                .sh-card{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}
+                .sh-hide{display:none!important}
+                .sh-show{display:block!important}
+                .sh-green{color:#fff!important;background-color:#4CAF50!important}
+                .sh-bar .sh-bar-item{padding:8px 16px;float:left;width:auto;border:none;display:block;outline:0}
+                .sh-bar .sh-dropdown-hover,.sh-bar .sh-dropdown-click{position:static;float:left}
+                .sh-bar .sh-button{white-space:normal}
+                .sh-bar-block .sh-bar-item{width:100%;display:block;padding:8px 16px;text-align:left;border:none;white-space:normal;float:none;outline:0}
+                .sh-bar-block .sh-center .sh-bar-item{text-align:center}.sh-block{display:block;width:100%}
+                </style>
                 """)
 
         page.add_lines("""
             <script>
             function myAccFunc(title) {
                 var x = document.getElementById(title);
-                if (x.className.indexOf("w3-show") == -1) {
-                x.className += " w3-show";
-                x.previousElementSibling.className += " w3-green";
+                if (x.className.indexOf("sh-show") == -1) {
+                x.className += " sh-show";
+                //x.previousElementSibling.className += " sh-green";
                 } else { 
-                x.className = x.className.replace(" w3-show", "");
-                x.previousElementSibling.className = 
-                x.previousElementSibling.className.replace(" w3-green", "");
+                x.className = x.className.replace(" sh-show", "");
+                //x.previousElementSibling.className = x.previousElementSibling.className.replace(" sh-green", "");
                 }
             }
             function shm_toggle() {
@@ -455,21 +475,21 @@ class Design_default(object):
             }
             </script>
 
-            <div class="w3-white">
-                <div class="w3-button" style="font-family: 'Bubblegum Sans'; font-size: 24px; color: #029194"> TATA MATA </div> 
+            <div>
+                <div class="sh-button" style="font-family: 'Bubblegum Sans'; font-size: 24px; color: #029194"> TATA MATA </div> 
                 <span style='display:block;float:right;'> """ + \
-                (("<button class=\"w3-button w3-dark-grey w3-large\" onclick=\"shl_toggle()\">" + \
+                (("<button class=\"sh-button sh-dark-grey sh-large sh-font\" onclick=\"shl_toggle()\">" + \
                     page.get_messages()["language"] + "</button>") if show_language_menu else "") \
                 + """
-                <button class="w3-button" style="font-size: 20px; font-weight: 900; color: #029194" onclick="shm_toggle()">☰</button>
+                <button class="sh-button" style="font-size: 20px; font-weight: 900; color: #029194" onclick="shm_toggle()">☰</button>
                 </span>
             </div>
 
-            <div class="w3-sidebar w3-bar-block w3-border-left" style="width:200px;right:0;display:none" id="shMenu">
-                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc('accLevel')">
+            <div class="sh-sidebar sh-bar-block sh-border-left" style="width:200px;right:0;display:none" id="shMenu">
+                <button class="sh-button sh-block sh-left-align sh-font" onclick="myAccFunc('accLevel')">
                     """ + page.get_messages()["questions"] + """ <i class="fa fa-caret-down"></i>
                 </button>
-                <div id='accLevel' class="w3-hide w3-white w3-card">
+                <div id='accLevel' class="sh-hide sh-white sh-card">
         """)
 
 
@@ -485,16 +505,16 @@ class Design_default(object):
 
         if not page.page_params.user_id is None and PageUserID.toStr(page.page_params.user_id):
             #print("\n\nAAAAA:{}\n\n".format(PageUserID.toStr(page.page_params.user_id)))
-            page.add_lines("<a href=\"" + \
+            page.add_lines("<a class=\"sh-font\" href=\"" + \
                 page.page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False) + \
-                "\" class=\"w3-bar-item w3-button\"> Rezultati </a>\n")
+                "\" class=\"sh-bar-item sh-button\"> Rezultati </a>\n")
 
 
         page.add_lines("""
-                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc('accUser')">
+                <button class="sh-button sh-block sh-left-align sh-font" onclick="myAccFunc('accUser')">
                     """ + page.get_messages()["user"] + """ <i class="fa fa-caret-down"></i>
                 </button>
-                <div id='accUser' class="w3-hide w3-white w3-card">
+                <div id='accUser' class="sh-hide sh-white sh-card">
         """)
 
 
@@ -511,12 +531,12 @@ class Design_default(object):
             if ("languages" in page.repository.get_config()):
                 
                 lang_select = """
-                            <div class="w3-sidebar w3-bar-block w3-border-left" style="width:200px;right:0;display:none"  id="shLang">
+                            <div class="sh-sidebar sh-bar-block sh-border-left" style="width:200px;right:0;display:none"  id="shLang">
                             """
                 for lang in page.get_language_list():
-                    lang_select = lang_select + "<a href='" + \
+                    lang_select = lang_select + "<a class=\"sh-font\" href='" + \
                             page.page_params.create_url(language = lang, js = False) + \
-                            "' class='w3-bar-item w3-button'>" + page.get_messages(lang)["name"] + "</a>"
+                            "' class='sh-bar-item sh-button'>" + page.get_messages(lang)["name"] + "</a>"
                 
                 lang_select = lang_select + """
                             </div>
@@ -572,19 +592,21 @@ class Design_default(object):
         for level in sorted(content.keys()):
             new_page_params.year = level
             new_page_params.theme = ""
-            page.add_lines(str_indent1 + \
-                "<a href=\"" + new_page_params.create_url(js = False) + "\" style='text-decoration:none'> " + level + "</a>" + \
+            page.add_lines(\
+                "<a class=\"sh-font\" href=\"" + new_page_params.create_url(js = False) + \
+                    "\" style='padding: 8px 0px 8px 16px ; text-decoration:none'> " + \
+                    str_indent1 + level + "</a>" + \
                 """
-                    <button class="w3-button w3-left-align" onclick="myAccFunc('acc""" + level + """')">
+                    <button class="sh-button-arrow sh-left-align sh-font" onclick="myAccFunc('acc""" + level + """')">
                     """ +  """ <i class="fa fa-caret-down"></i>
                     </button>
-                    <div id='acc""" + level + """' class="w3-hide w3-white w3-card">
+                    <div id='acc""" + level + """' class="sh-hide sh-white sh-card">
                 """)
 
             for theme in sorted(content[level].keys()):
                 new_page_params.theme = theme
                 page.add_lines("<a href=\"" + new_page_params.create_url(js = False) + \
-                    "\" class=\"w3-bar-item w3-button\"> " + str_indent2 + theme + "</a>\n")
+                    "\" class=\"sh-bar-item sh-button sh-font\"> " + str_indent2 + theme + "</a>\n")
 
             page.add_lines("</div>")
             
@@ -613,7 +635,7 @@ class Design_default(object):
             link = page.page_params.root + "?op=login_test&" + "login_return=" + \
                         login_return + "&user_id={}".format(username) 
             str_indent = "<div class='space'></div>"
-            login_str = login_str + "<a href='" + link + "' class='w3-bar-item w3-button'> " + str_indent + username + "</a>\n"
+            login_str = login_str + "<a href='" + link + "' class='sh-font sh-bar-item sh-button'> " + str_indent + username + "</a>\n"
 
 
         return login_str
