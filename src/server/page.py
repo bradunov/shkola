@@ -35,14 +35,19 @@ class Page(object):
     on_loaded_script = ""           # JS code to be run on page load
     title = ""                      # Web site title in the HTML header
 
-    rel_path = os.getenv('SHKOLA_REL_PATH')
-
 
     # use_azure_blob = True: use blob for question storage rather than the local disk
     # preload = True: fetch all questions in memory at start time (may be slow for a blob)
     def __init__(self, title="Shkola", rel_path=None, use_azure_blob=False, preload=True):
-        if rel_path is not None:
+        if not rel_path is None:
             self.rel_path = rel_path
+        else:
+            try:
+                self.rel_path = os.getenv('SHKOLA_REL_PATH')                    
+            except:
+                pass
+            if self.rel_path is None:
+                self.rel_path = "../.."
 
         if not self.rel_path:
             logging.exception("Please define SHKOLA_REL_PATH")
@@ -152,7 +157,7 @@ class Page(object):
         for (dirpath, dirnames, filenames) in os.walk(local_path):
             for f in filenames:
                 if f[len(f)-5:len(f)] == ".json":
-                    lang = json.load(open(dirpath + f, 'r'))
+                    lang = json.load(open(dirpath + f, 'r', encoding='utf-8'))
                     if lang["key"] in self.messages.keys():
                         logging.error("Language with key {} defined twice!".format(lang["key"]))
                     self.messages[lang["key"].lower()] = lang

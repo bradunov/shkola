@@ -110,7 +110,11 @@ class editor(object):
 
 if __name__ == '__main__':
     
-    ip_address = os.environ['SHKOLA_IP_ADDR']
+    try:
+        ip_address = os.environ['SHKOLA_IP_ADDR']
+    except:
+        ip_address = "127.0.0.1"
+        pass
 
     cherrypy.config.update({
         'server.socket_host': ip_address,

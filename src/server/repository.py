@@ -186,7 +186,13 @@ class Repository(object):
         leaf = d
         if not rootkey:
             return d
-        keys = rootkey.split("/")
+        if (os.sep == '\\'):
+            if os.sep in rootkey:
+                keys = rootkey.split(os.sep)
+            else:
+                keys = rootkey.split('/')
+        else:
+            keys = rootkey.split(os.sep)
         for k in keys:
             if k not in leaf.keys():
                 return None
@@ -198,7 +204,7 @@ class Repository(object):
         if not rootkey:
             return d
         # Remove the first key (e.g. questions)
-        keys = rootkey.split("/")[1:]
+        keys = rootkey.split(os.sep)[1:]
         parent = None
         for k in keys:
             parent = leaf
@@ -241,7 +247,7 @@ class Repository(object):
                             pass
                     elif not self.check_extension(file, ".png"):
                         try:
-                            with open(dirpath + "/" + file) as f_text:
+                            with open(dirpath + "/" + file, encoding='utf-8') as f_text:
                                 text = f_text.read()
                         except IOError:
                             logging.warn( \
