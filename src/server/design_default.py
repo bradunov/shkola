@@ -84,17 +84,31 @@ class Design_default(object):
 
             color_list = ["#ff6956", "#489cba", "#f7b500", "#6ab288"]
 
-            for i in range(0,4):
-                if i % 2 == 0 and i > 0:
-                    page.add_lines("</div>\n")
-                    page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
+            # for i in range(0,4):
+            #     if i % 2 == 0 and i > 0:
+            #         page.add_lines("</div>\n")
+            #         page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
+
+            years = ["peti", "cetvrti", "drugi", "treci", "prvi"]
+            ynumbers = [5, 4, 2, 3, 1]
+            # width = 137
+            # height = 140
+            # font_size = 111
+            # margin = 10
+            scale = 0.6
+            width = int(137 * scale)
+            height = int(140 * scale)
+            font_size = int(111 * scale)
+            margin = int(10 * scale)
+
+            for i in range(0, len(ynumbers)):
 
                 # One button
 
                 back_color = "#f9f9f9"
                 color = color_list[i % len(color_list)]
-                razred = i+1
-                years = ["prvi", "drugi", "treci", "cetvrti", "peti"]
+                razred = ynumbers[i]
+                year = years[i]
 
                 button = """
                     <a id="button_{}" class="" 
@@ -103,12 +117,12 @@ class Design_default(object):
                                 border: 0.1px solid #000000;
                                 padding: 0px;
                                 color: {};
-                                width: 137px;
-                                height: 140px;
-                                margin-right: 10px;
-                                margin-left: 10px;
-                                margin-bottom: 10px;
-                                margin-top: 10px;
+                                width: {}px;
+                                height: {}px;
+                                margin-right: {}px;
+                                margin-left: {}px;
+                                margin-bottom: {}px;
+                                margin-top: {}px;
                                 box-shadow: 0px 5px ;"
                                 onmouseover="invert_colors('{}', '{}', '{}');" 
                                 onmouseout="invert_colors('{}', '{}', '{}');" 
@@ -116,20 +130,27 @@ class Design_default(object):
                         <div id="text_{}", class="" 
                             style="display: inline-block;
                                 font-family: 'Bubblegum Sans'; 
-                                font-size: 111px; 
+                                font-size: {}px; 
                                 color: {}"> {} </div>
-                    </a>""".format(i, back_color, 
+                    </a>""".format(i, back_color, height, width, 
+                        margin, margin, margin, margin, 
                         i, color, back_color, 
                         i, back_color, color, 
-                        page.page_params.create_url(year = years[i], \
+                        page.page_params.create_url(year = year, \
                                                     theme = "", \
                                                     subtheme = "", \
                                                     period = "", \
                                                     difficulty = "", \
                                                     js = False),
-                        i, color, razred)
+                        i, font_size, color, razred)
 
                 page.add_lines(button)
+
+                if not i == 2:
+                    page.add_lines("</div>\n")
+                    page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
+
+
 
             page.add_lines("</div>\n")
             page.add_lines("</div>\n")
