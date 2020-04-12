@@ -62,6 +62,20 @@ class Design_default(object):
             </script>
             """)
 
+            page.add_lines("""
+            <style>
+            body {
+                height: 100%;
+                background-image: url(""" + page.get_file_url("images/background.svg") + """);
+                background-color: white;
+                background-size:100% 100%;
+                -o-background-size: 100% 100%;
+                -webkit-background-size: 100% 100%;
+                background-size:cover;
+            }
+            </style>
+            """)
+
 
             page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; "
                 "margin-top:12px; font-family: 'Lato'; font-weight: 400; font-size: 20px; color: #636661\">\n")
@@ -84,18 +98,20 @@ class Design_default(object):
 
             color_list = ["#ff6956", "#489cba", "#f7b500", "#6ab288"]
 
-            # for i in range(0,4):
-            #     if i % 2 == 0 and i > 0:
-            #         page.add_lines("</div>\n")
-            #         page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
+            # Skolice
+            # years = ["peti", "cetvrti", "drugi", "treci", "prvi"]
+            # ynumbers = [5, 4, 2, 3, 1]
+            # scale = 0.6
+            # new_line = [4, 3, 1, 0]
 
-            years = ["peti", "cetvrti", "drugi", "treci", "prvi"]
-            ynumbers = [5, 4, 2, 3, 1]
-            # width = 137
-            # height = 140
-            # font_size = 111
-            # margin = 10
-            scale = 0.6
+
+            years = ["prvi", "drugi", "treci", "cetvrti", "peti"]
+            ynumbers = [1, 2, 3, 4, 5, 6, 7, 8]
+            scale = 1
+            new_line = [1, 3, 5, 7, 9]
+
+
+
             width = int(137 * scale)
             height = int(140 * scale)
             font_size = int(111 * scale)
@@ -108,14 +124,27 @@ class Design_default(object):
                 back_color = "#f9f9f9"
                 color = color_list[i % len(color_list)]
                 razred = ynumbers[i]
-                year = years[i]
+                if i < len(years):
+                    obj = "a"
+                    link = "href=\"{}\"".format(page.page_params.create_url(year = years[i], \
+                                                    theme = "", \
+                                                    subtheme = "", \
+                                                    period = "", \
+                                                    difficulty = "", \
+                                                    js = False))
+                else:
+                    back_color = "#f9f9f9"
+                    color = "#999999"
+                    obj = "div"
+                    link = ""
 
                 button = """
-                    <a id="button_{}" class="" 
+                    <{} id="button_{}" class="" 
                         style="display: inline-block;
                                 border-radius: 10px;
                                 border: 0.1px solid #000000;
                                 padding: 0px;
+                                background: {};
                                 color: {};
                                 width: {}px;
                                 height: {}px;
@@ -123,30 +152,25 @@ class Design_default(object):
                                 margin-left: {}px;
                                 margin-bottom: {}px;
                                 margin-top: {}px;
-                                box-shadow: 0px 5px ;"
+                                box-shadow: 0px 5px 5px #dddddd;"
                                 onmouseover="invert_colors('{}', '{}', '{}');" 
                                 onmouseout="invert_colors('{}', '{}', '{}');" 
-                        href="{}">
+                        {}>
                         <div id="text_{}", class="" 
                             style="display: inline-block;
                                 font-family: 'Bubblegum Sans'; 
                                 font-size: {}px; 
                                 color: {}"> {} </div>
-                    </a>""".format(i, back_color, height, width, 
+                    </{}>""".format(obj, i, back_color, back_color, height, width, 
                         margin, margin, margin, margin, 
                         i, color, back_color, 
                         i, back_color, color, 
-                        page.page_params.create_url(year = year, \
-                                                    theme = "", \
-                                                    subtheme = "", \
-                                                    period = "", \
-                                                    difficulty = "", \
-                                                    js = False),
-                        i, font_size, color, razred)
+                        link,
+                        i, font_size, color, razred, obj)
 
                 page.add_lines(button)
 
-                if not i == 2:
+                if i in new_line:
                     page.add_lines("</div>\n")
                     page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
 
