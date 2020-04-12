@@ -84,15 +84,27 @@ class editor(object):
             logging.error("Url {} contains forbidden characters.".format(url))
             raise cherrypy.HTTPError(status=400)
 
+
         srv_abs_path = os.path.dirname(os.path.abspath(__file__))
         if url[:2] == "js":
+            abs_url = srv_abs_path + "/../" + url
+        elif url[:6] == "images":
             abs_url = srv_abs_path + "/../" + url
         elif url[:len("questions")] == "questions" or url[:len("lists")] == "lists":
             abs_url = srv_abs_path + "/../../" + url
 
+        filename, file_extension = os.path.splitext(url)
+        if file_extension == ".svg":
+            # SVG has to be served with this content type, otherwise won't be displayed! 
+            # https://css-tricks.com/snippets/htaccess/serve-svg-correct-content-type/
+            content_type = "image/svg+xml"
+        else:
+            # Other types seem fine with the generic one
+            content_type = "application/x-download"
+
         print("Serving file: {}".format(abs_url))
 
-        return static.serve_file(abs_url, 'application/x-download',
+        return static.serve_file(abs_url, content_type,
                                  'attachment', os.path.basename(abs_url))
 
         
