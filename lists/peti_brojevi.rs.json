@@ -69,7 +69,7 @@
     },
     {
       "name" : "numbers/q00138", "random": "1", "period": "prolece", 
-      "subtheme": "operacije sa negativnim brojevima", "difficulty": "1"
+      "subtheme": "negativni brojevi", "difficulty": "1"
     },
     {
       "name" : "numbers/q00139", "random": "1", "period": "prolece", 
@@ -90,6 +90,54 @@
     {
       "name" : "numbers/q00143", "random": "1", "period": "prolece", 
       "subtheme": "operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00144", "random": "1", "period": "prolece", 
+      "subtheme": "problem", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00145", "random": "1", "period": "prolece", 
+      "subtheme": "problem", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00146", "random": "1", "period": "prolece", 
+      "subtheme": "problem", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00147", "random": "1", "period": "prolece", 
+      "subtheme": "negativni brojevi", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00148", "random": "1", "period": "prolece", 
+      "subtheme": "zaokrugljivanje brojeva", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00149", "random": "1", "period": "prolece", 
+      "subtheme": "zaokrugljivanje u operacijama", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00150", "random": "1", "period": "prolece", 
+      "subtheme": "cinioci broja", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00151", "random": "1", "period": "prolece", 
+      "subtheme": "cinioci broja", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00152", "random": "1", "period": "prolece", 
+      "subtheme": "cinioci broja", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00153", "random": "1", "period": "prolece", 
+      "subtheme": "racunske operacije", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00154", "random": "1", "period": "prolece", 
+      "subtheme": "racunske operacije", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00155", "random": "1", "period": "prolece", 
+      "subtheme": "problem", "difficulty": "2"
     }	
   ]
  }

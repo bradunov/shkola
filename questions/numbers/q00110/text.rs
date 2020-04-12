@@ -1,5 +1,9 @@
-Na brojevnoj pravoj upiši brojeve koji nedostaju.
+Dopuni niz brojevima koji nedostaju.
 
-@center@ @mycanvas()@
+@repeat(4)@
+@vspace@
+@center@ @reply@
 
+@/repeat@
+                  
  
