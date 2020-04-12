@@ -3,6 +3,13 @@
 Shkola is a web framework for testing math.
 
 
+### Environment
+
+Shkola is built to be agnostic to the choice of a web server. 
+We currently run on Azure functions and CherryPy (tested on Linux and Windows).
+
+
+
 ### Local install
 
 The prefer install is as an Azure function. For local testing, in shkola root type:
@@ -40,6 +47,22 @@ More details [here](https://docs.microsoft.com/en-us/azure/azure-functions/funct
 
 
 For different pricing options check this [link](https://azure.microsoft.com/en-gb/pricing/details/app-service/windows/).
+
+
+
+### Local install with CherryPy
+
+It is also possible to run Shkola on Linux and Windows (and possibly other OSs) with CherryPy. To do so:
+
+* Install the same requirements as for Azure functions: `python -m pip install -r src/requirements.txt`
+
+* Install CherryPy: `python -m pip install cherrypy`
+
+* Run: `python src/server/www.py`
+
+* Local web access: `http://127.0.0.1:8080/main`
+
+
 
 
 ### Logging
