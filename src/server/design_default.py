@@ -51,21 +51,111 @@ class Design_default(object):
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
         if content:
 
-            page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines("<h3>Izaberi razred</h3>\n")
+            page.add_lines("""
+            <script>
+                function invert_colors(index, cb, ct) {
+                var button = document.getElementById("button_"+index);
+                var text = document.getElementById("text_"+index);
+                button.style.background=cb;
+                text.style.color=ct;
+                }
+            </script>
+            """)
+
+
+            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; "
+                "margin-top:12px; font-family: 'Lato'; font-weight: 400; font-size: 20px; color: #636661\">\n")
+            page.add_lines("  Nije teško savladati\n")
             page.add_lines("</div>\n")
 
-            for year in sorted(content.keys()):
-                page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-                page.add_lines("<a href='" + \
-                        page.page_params.create_url(year = year, \
+            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; "
+                "margin-top:-12px; font-family: 'Lato'; font-weight: 400; font-size: 40px; color: #636661\">\n")
+            page.add_lines("  matematiku!\n")
+            page.add_lines("</div>\n")
+
+            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; "
+                "margin-top:12px; margin-bottom:34px; font-family: 'Lato'; font-weight: 400; font-size: 20px; color: #636661\">\n")
+            page.add_lines("  Odaberi razred.")
+            page.add_lines("</div>\n")
+
+
+            page.add_lines("<div style=\"display:table; margin:0 auto\">\n")
+            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
+
+            color_list = ["#ff6956", "#489cba", "#f7b500", "#6ab288"]
+
+            for i in range(0,4):
+                if i % 2 == 0 and i > 0:
+                    page.add_lines("</div>\n")
+                    page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
+
+                # One button
+
+                back_color = "#f9f9f9"
+                color = color_list[i % len(color_list)]
+                razred = i+1
+                years = ["prvi", "drugi", "treci", "cetvrti", "peti"]
+
+                button = """
+                    <a id="button_{}" class="" 
+                        style="display: inline-block;
+                                border-radius: 10px;
+                                border: 0.1px solid #000000;
+                                padding: 0px;
+                                color: {};
+                                width: 137px;
+                                height: 140px;
+                                margin-right: 10px;
+                                margin-left: 10px;
+                                margin-bottom: 10px;
+                                margin-top: 10px;
+                                box-shadow: 0px 5px ;"
+                                onmouseover="invert_colors('{}', '{}', '{}');" 
+                                onmouseout="invert_colors('{}', '{}', '{}');" 
+                        href="{}">
+                        <div id="text_{}", class="" 
+                            style="display: inline-block;
+                                font-family: 'Bubblegum Sans'; 
+                                font-size: 111px; 
+                                color: {}"> {} </div>
+                    </a>""".format(i, back_color, 
+                        i, color, back_color, 
+                        i, back_color, color, 
+                        page.page_params.create_url(year = years[i], \
                                                     theme = "", \
                                                     subtheme = "", \
                                                     period = "", \
                                                     difficulty = "", \
-                                                    js = False) + \
-                        "'> " + year.title() + "</a>\n")
-                page.add_lines("</div>\n")
+                                                    js = False),
+                        i, color, razred)
+
+                page.add_lines(button)
+
+            page.add_lines("</div>\n")
+            page.add_lines("</div>\n")
+
+
+
+
+
+
+            page.add_lines("")
+
+            # page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+            # page.add_lines("<h3>Izaberi razred</h3>\n")
+            # page.add_lines("</div>\n")
+
+            # for year in sorted(content.keys()):
+            #     page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+            #     page.add_lines("<a href='" + \
+            #             page.page_params.create_url(year = year, \
+            #                                         theme = "", \
+            #                                         subtheme = "", \
+            #                                         period = "", \
+            #                                         difficulty = "", \
+            #                                         js = False) + \
+            #             "'> " + year.title() + "</a>\n")
+            #     page.add_lines("</div>\n")
 
 
 
@@ -275,18 +365,20 @@ class Design_default(object):
         page.add_lines("\n\n<!-- MOBILE MENU START -->\n")
 
         # Temporary, for debugging:
-        debug_str = ""
-        if page.page_params.user_id is not None and PageUserID.toStr(page.page_params.user_id):
-            if len(PageUserID.toStr(page.page_params.user_id)) >= len("local:") and PageUserID.toStr(page.page_params.user_id)[:len("local:")] == "local:":
-                debug_str = debug_str + "Hi {} ".format(PageUserID.toStr(page.page_params.user_id)[len("local:"):])
-            else:
-                debug_str = debug_str + "Hi {} ".format(PageUserID.toStr(page.page_params.user_id))
-        if page.page_params.q_id is not None and page.page_params.q_id:
-            debug_str = debug_str + "(Q: {})".format(page.page_params.q_id)
+        # debug_str = ""
+        # if page.page_params.user_id is not None and PageUserID.toStr(page.page_params.user_id):
+        #     if len(PageUserID.toStr(page.page_params.user_id)) >= len("local:") and PageUserID.toStr(page.page_params.user_id)[:len("local:")] == "local:":
+        #         debug_str = debug_str + "Hi {} ".format(PageUserID.toStr(page.page_params.user_id)[len("local:"):])
+        #     else:
+        #         debug_str = debug_str + "Hi {} ".format(PageUserID.toStr(page.page_params.user_id))
+        # if page.page_params.q_id is not None and page.page_params.q_id:
+        #     debug_str = debug_str + "(Q: {})".format(page.page_params.q_id)
 
         page.add_script_lines("""
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+                <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />
+                <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
                 """)
 
         page.add_lines("""
@@ -317,14 +409,17 @@ class Design_default(object):
                 }
             }
             </script>
-            <div class="w3-dark-grey w3-right-align">
-                """ + debug_str +  \
+
+            <div class="w3-white">
+                <div class="w3-button" style="font-family: 'Bubblegum Sans'; font-size: 24px; color: #029194"> TATA MATA </div> 
+                <span style='display:block;float:right;'> """ + \
                 (("<button class=\"w3-button w3-dark-grey w3-large\" onclick=\"shl_toggle()\">" + \
                     page.get_messages()["language"] + "</button>") if show_language_menu else "") \
                 + """
-                <button class="w3-button w3-dark-grey w3-large" onclick="shm_toggle()">☰</button>
-            </span>
+                <button class="w3-button" style="font-size: 20px; font-weight: 900; color: #029194" onclick="shm_toggle()">☰</button>
+                </span>
             </div>
+
             <div class="w3-sidebar w3-bar-block w3-border-left" style="width:200px;right:0;display:none" id="shMenu">
                 <button class="w3-button w3-block w3-left-align" onclick="myAccFunc('accLevel')">
                     """ + page.get_messages()["questions"] + """ <i class="fa fa-caret-down"></i>
@@ -344,7 +439,7 @@ class Design_default(object):
         """)
 
         if not page.page_params.user_id is None and PageUserID.toStr(page.page_params.user_id):
-            print("\n\nAAAAA:{}\n\n".format(PageUserID.toStr(page.page_params.user_id)))
+            #print("\n\nAAAAA:{}\n\n".format(PageUserID.toStr(page.page_params.user_id)))
             page.add_lines("<a href=\"" + \
                 page.page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False) + \
                 "\" class=\"w3-bar-item w3-button\"> Rezultati </a>\n")
