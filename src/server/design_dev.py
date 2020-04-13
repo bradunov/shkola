@@ -388,7 +388,7 @@ class Design_dev(object):
     @staticmethod
     def render_page_stats(page):
         Design_dev.render_menu(page)
-        stats = Stats.render_question_stats(page)
+        stats = Stats.render_question_stats()
 
         for folder in stats.keys():            
             page.add_lines("<h2> {} </h2><br>\n".format(folder))

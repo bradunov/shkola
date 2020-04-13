@@ -9,7 +9,7 @@ from server.types import PageLanguage
 from server.types import PageDesign
 from server.types import PageParameterParsingError
 
-from server.storage import get_storage
+import server.storage
 from server.repository import Repository
 from server.user_db import UserDB
 from server.design import Design
@@ -54,7 +54,7 @@ class Page(object):
             exit(1)
 
         self.repository = Repository(self.rel_path, use_azure_blob, preload)
-        self.storage = get_storage()
+        self.storage = server.storage.get_storage()
         self.title = title
         self.userdb = UserDB()
         self.load_languages()

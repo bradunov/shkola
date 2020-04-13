@@ -131,7 +131,7 @@ class Design_default(object):
         login_return = encode_dict(login_return)
 
 
-        test_users = ["User1", "User2"]
+        test_users = ["Petar", "User2"]
         test_users.sort()
 
     

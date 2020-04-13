@@ -1,7 +1,7 @@
 #import google.oauth2.id_token
 #import google.auth.transport.requests
 import time
-from server.storage import get_storage
+import server.storage 
 import logging
 
 GOOGLE_CLIENT_ID = "221670444651-i7ock63nksbnqeag7l3s2u0nf6jdb2bk.apps.googleusercontent.com"
@@ -13,7 +13,7 @@ class UserDB(object):
 
     
     def __init__(self):
-        self.storage = get_storage()
+        self.storage = server.storage.get_storage()
         logging.debug("User DB initialized")
         
 

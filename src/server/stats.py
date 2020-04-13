@@ -1,4 +1,4 @@
-from server.storage import get_storage
+import server.storage
 import logging
 #import pprint
 
@@ -15,8 +15,8 @@ class Stats(object):
 
 
     @staticmethod
-    def render_question_stats(page, l_id=None, q_id=None, from_date=None):
-        storage = get_storage()
+    def render_question_stats(l_id=None, q_id=None, from_date=None):
+        storage = server.storage.get_storage()
         if not from_date:
             from_date = "2020-03-15T00:00:00.000Z"
         results = storage.get_question_stats(from_date=from_date)
@@ -97,7 +97,7 @@ class Stats(object):
 
     @staticmethod
     def render_user_stats(page, u_id, from_date=None):
-        storage = get_storage()
+        storage = server.storage.get_storage()
         if not from_date:
             from_date = "2020-03-15T00:00:00.000Z"
         results = storage.get_user_stats(u_id=u_id, from_date=from_date)

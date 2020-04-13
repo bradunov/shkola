@@ -132,8 +132,9 @@ class Storage_az_table():
             logging.exception('Error deleting table, ' + self.responses_table_name + ':' + str(err))
         
 
-            
-    def print_all_responses(self, user_id = None):
+
+
+    def get_all_responses(self, user_id = None):
         if user_id is None:
             req = ""
         else:
@@ -141,6 +142,22 @@ class Storage_az_table():
 
 
         entries = self.table_service.query_entities(self.responses_table_name, req)
+
+        return entries
+
+
+
+
+    def get_all_users(self):
+        entries = self.table_service.query_entities(self.users_table_name, "")
+
+        return entries
+
+            
+
+
+    def print_all_responses(self, user_id = None):
+        entries = self.get_all_responses(user_id)
 
 
         if user_id is None:
@@ -166,7 +183,8 @@ class Storage_az_table():
 
 
     def print_all_users(self):
-        entries = self.table_service.query_entities(self.users_table_name, "")
+        entries = self.get_all_users()
+
         print("           USER ID                    NAME                      EMAIL                 LAST ACCESSED          REMOTE IP                      USER AGENT             USER LANGUAGE")
         for row in entries:
             print("{:^30} {:^20} {:^30} {:^20} {:^20} {:^40}".format(

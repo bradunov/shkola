@@ -3,6 +3,16 @@ import time
 import logging
 import os
 
+import sys
+sys.path.append("..")
+
+
+import storage_az_table
+import stats
+import page
+
+import pprint
+
 
 class Storage_sql:
     db = None
@@ -100,8 +110,8 @@ class Storage_sql:
         logging.debug("Record response %s", str(response))
 
         cursor = self.db.cursor()
-        cursor.execute(''' INSERT INTO responses(user_id, question_id, list_id, response_type, time, duration, correct, incorrect, questions)
-                  VALUES(:user_id, :question_id, :list_id, :response_type, :time, :duration, :correct, :incorrect, :questions)''', \
+        cursor.execute(''' INSERT INTO responses(user_id, question_id, list_id, response_type, time, duration, correct, incorrect, attempt, questions)
+                  VALUES(:user_id, :question_id, :list_id, :response_type, :time, :duration, :correct, :incorrect, :attempt, :questions)''', \
                        response)
         self.db.commit()
 
@@ -172,6 +182,7 @@ class Storage_sql:
                                      duration INTEGER,               /* Time in seconds epoch from when the question is generated to when the answer is created*/
                                      correct INTEGET,                /* Number of correct answers on the form */
                                      incorrect INTEGER,              /* Number of incorrect answers on the form */
+                                     attempt INTEGER,                /* Number of previous attempts on the same question */
                                      questions TEXT                  /* Detailed answers for each question */)
         ''')
         self.db.commit()
@@ -195,7 +206,7 @@ class Storage_sql:
         else:
             print("USER_ID = {}\n".format(user_id))
 
-        print("     QUESTION_ID          LIST_ID     RESPONSE_TYPE           TIME                DURATION      CORRECT   INCORRECT                QUESTIONS")
+        print("     QUESTION_ID          LIST_ID     RESPONSE_TYPE           TIME                DURATION      CORRECT   INCORRECT         ATTEMPTS       QUESTIONS")
         for row in cursor:
             if user_id is None:
                 print("{:^30} ".format(row[1]), end='')                                                      # UID
@@ -206,7 +217,8 @@ class Storage_sql:
             print("{:^16} ".format(row[6]), end='')                                                          # DURATION
             print("{:^10} ".format(row[7]), end='')                                                          # CORRECT
             print("{:^10} ".format(row[8]), end='')                                                          # INCORRECT
-            print("{:^38} ".format(row[9]))                                                                  # QUESTIONS
+            print("{:^8} ".format(row[9]),  end='')                                                          # ATTEMPTS
+            print("{:^38} ".format(row[10]))                                                                 # QUESTIONS
 
         print("\n")
 
@@ -223,17 +235,144 @@ class Storage_sql:
 
         
             
+    def get_question_stats(self, q_id=None, from_date=None):
+        req = ""
+
+        if q_id:
+            # Remove / from q_id
+            mq_id = ("".join("fractions/q00022".split("/")))
+            req = req + " QUESTION_ID BETWEEN '{}|' and '{}{}'".format(mq_id, mq_id, chr(255)) 
+
+        # if from_date:
+        #     if len(req) > 0:
+        #         req = req + " and "
+        #     req = req + "(Timestamp ge datetime'{}')".format(from_date)
+
+        if req:
+            req = ''' SELECT * from responses WHERE ''' + req
+        else:
+            req = ''' SELECT * from responses '''
+
+        print("REQ: {}".format(req))
+
+        cursor = self.db.cursor()
+        #cursor.execute(''' SELECT * from responses WHERE ''')
+        cursor.execute(req)
+
+
+
+        result = []
+        for row in cursor:
+            r = {
+                "user_id": row[1],
+                "question_id": row[2],
+                "list_id": row[3],
+                "response_type": row[4],
+                "time": row[5],
+                "duration": row[6],
+                "correct": row[7],
+                "incorrect": row[8],
+                "attempt": row[9],
+                "questions": row[10]
+            }
+
+            # TBD DEBUG: temporary cleanup foer various user names we used over time
+            if "user_id" not in r.keys() or \
+                "local:Korisnik" in r["user_id"] or \
+                "UNKNOWN" in r["user_id"] or \
+                "Zomebody" in r["user_id"]:
+                continue
+
+            result.append(r)
+
+        return result
+
+
+
+    def get_user_stats(self, u_id, from_date=None):
+
+        # TBD DEBUG: temporary cleanup foer various user names we used over time
+        req = " USER_ID = '{}' OR USER_ID = 'local:{}'".format(u_id, u_id) 
+
+        # if from_date:
+        #     if len(req) > 0:
+        #         req = req + " and "
+        #     req = req + "(Timestamp ge datetime'{}')".format(from_date)
+
+        if req:
+            req = ''' SELECT * from responses WHERE ''' + req
+        else:
+            req = ''' SELECT * from responses '''
+
+        print("REQ: {}".format(req))
+
+        cursor = self.db.cursor()
+        cursor.execute(req)
+
+
+
+        result = []
+        for row in cursor:
+            r = {
+                "user_id": row[1],
+                "question_id": row[2],
+                "list_id": row[3],
+                "response_type": row[4],
+                "time": row[5],
+                "duration": row[6],
+                "correct": row[7],
+                "incorrect": row[8],
+                "attempt": row[9],
+                "questions": row[10]
+            }
+
+            result.append(r)
+
+        return result
+
+
+
+
 
 if __name__ == '__main__':
     
     storage = Storage_sql()
 
+
+    copy_from_azure = False
+
+    if copy_from_azure:
+        storage.delete_all_tables()
+        storage.create_tables()
+
+        storage_az = storage_az_table.Storage_az_table()
+        users = storage_az.get_all_users()
+
+        for row in users:
+            storage.update_user(
+                row['user_id'],
+                name=row['name'],
+                email=row['email'],
+                last_accessed="0", 
+                remote_ip=(row['remote_ip'] if 'remote_ip' in row.keys() else ""),
+                user_agent=(row['user_agent'] if 'user_agent' in row.keys() else ""),
+                user_language=(row['user_language'] if 'user_language' in row.keys() else ""))
+
+        results = storage_az.get_all_responses()
+        for row in results:
+            if 'attempt' not in row.keys():
+                row['attempt'] = 0
+            storage.record_response(row)
+
+
+
+
     wipe_all = False
-    #wipe_all = True
 
     add_test_data = False
-    #add_test_data = True
-    
+
+
+
     if wipe_all:
         storage.delete_all_tables()
         storage.create_tables()
@@ -249,24 +388,46 @@ if __name__ == '__main__':
         storage.update_user(user0, name="User0", email="Email0", remote_ip="100.200.300.400", user_agent="agent0", user_language="", last_accessed=epoch_ms)
         storage.update_user(user1, name="User1", email="Email1", remote_ip="200.300.400.500", user_agent="agent1", user_language="", last_accessed=epoch_ms)
     
-        response = {"user_id" : user0, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        response = {"user_id" : user0, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "attempt": 0, "questions": "abc"}
         storage.record_response(response)
 
-        response = {"user_id" : user0, "question_id": "q1", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        response = {"user_id" : user0, "question_id": "q1", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "attempt": 0, "questions": "abc"}
         storage.record_response(response)
 
-        response = {"user_id" : user1, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        response = {"user_id" : user1, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "attempt": 0, "questions": "abc"}
         storage.record_response(response)
 
-        response = {"user_id" : user1, "question_id": "q1", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        response = {"user_id" : user1, "question_id": "q1", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "attempt": 0, "questions": "abc"}
         storage.record_response(response)
 
 
-    storage.print_all_users()
 
-    storage.print_all_responses()
 
-    #storage.print_all_responses("local:Korisnik1")
+    # Change this True to see different outputs
+    print_all_data = False
+    print_question_stats = False
+    print_user_stats = False
 
-    
+
+    if print_all_data:
+        storage.print_all_users()
+        storage.print_all_responses()
+        #storage.print_all_responses("local:Korisnik1")
+
+
+    if print_question_stats:
+        pp = pprint.PrettyPrinter(indent=2)
+        pp.pprint(stats.Stats.render_question_stats())
+
+
+
+    if print_user_stats:
+        pg = page.Page()
+        pp = pprint.PrettyPrinter(indent=2)
+        pp.pprint(stats.Stats.render_user_stats(pg, "Petar"))
+
+
+
+
+
 
