@@ -22,25 +22,252 @@ class Design_default(object):
     @staticmethod
     def render_main_page(page):
 
-        Design_default.render_menu(page)
+        Design_default._add_header(page)
 
         if isinstance(page.page_params.menu_state, dict) and \
             "summary" in page.page_params.menu_state.keys() and \
                 page.page_params.menu_state["summary"]:
             # Last page
+            Design_default.render_menu(page)
             Design_default.render_summary_page(page)
+        elif not page.page_params.user_id or not PageUserID.toStr(page.page_params.user_id):
+            # No user selected, first select user
+            Design_default.render_select_user_page(page)
         elif not page.page_params.year:
-            # No year selected, first select year
+            # No year selected, select it
+            Design_default.render_menu(page)
             Design_default.render_select_year_page(page)
         elif not page.page_params.theme:
             # No theme selected, select it
+            Design_default.render_menu(page)
             Design_default.render_select_theme_page(page)
         elif not page.page_params.subtheme:
             # No theme selected, select it
+            Design_default.render_menu(page)
             Design_default.render_select_subtheme_page(page)
         elif isinstance(page.page_params.menu_state, dict) and \
             "intro" in page.page_params.menu_state.keys() and page.page_params.menu_state["intro"]:
+            Design_default.render_menu(page)
             Design_default.render_select_get_started_page(page)
+
+
+
+
+    @staticmethod
+    def _add_header(page):
+        page.add_script_lines("""
+            <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />
+            <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+            <script>
+                function invert_colors(button_id, text_id, color_b, color_t) {
+                var button = document.getElementById(button_id);
+                var text = document.getElementById(text_id);
+                button.style.background=color_b;
+                text.style.color=color_t;
+                }
+            </script>
+        """)
+
+
+
+
+    @staticmethod
+    def _add_button(page, obj, id_button, id_content, color, back_color, height, width, \
+                    margin_right, margin_left, margin_bottom, margin_top, link="", content=""):
+        button = """
+                    <{} id="{}" class="" 
+                        style="display: inline-block;
+                                border-radius: 10px;
+                                border: 0.1px solid #000000;
+                                padding: 0px;
+                                background: {};
+                                color: {};
+                                width: {}px;
+                                height: {}px;
+                                margin-right: {}px;
+                                margin-left: {}px;
+                                margin-bottom: {}px;
+                                margin-top: {}px;
+                                box-shadow: 0px 5px 5px #dddddd;"
+                                onmouseover="invert_colors('{}', '{}', '{}', '{}');" 
+                                onmouseout="invert_colors('{}', '{}', '{}', '{}');" 
+                        {}>
+                            {}
+                    </{}>
+                """.format(obj, id_button, back_color, back_color, width, height,
+                        margin_right, margin_left, margin_bottom, margin_top, 
+                        id_button, id_content, color, back_color, 
+                        id_button, id_content, back_color, color, 
+                        link, content, obj)
+        return button
+
+
+
+    # Temporary until we add Google auth
+    @staticmethod    
+    def get_tmp_login_header(page):
+        login_str = ""
+
+        login_return = page.page_params.all_state
+        login_return["js"] = False
+        login_return = encode_dict(login_return)
+
+
+        test_users = ["User1", "User2"]
+        test_users.sort()
+
+    
+        login_str = "<select id='sel_user_id' name='sel_user_id' " + \
+                    "onchange='window.location.replace(\"" + page.page_params.root + "?op=login_test&" + "login_return=" + \
+                    login_return + "&user_id=local:\" + this.value)'>\n"
+
+
+        if page.page_params.user_id is None or not PageUserID.toStr(page.page_params.user_id):
+            login_str = login_str + "<option value='UNKNOWN' SELECTED></option>\n"
+
+        for sel_user in test_users:
+            selected = ""
+
+            if page.page_params.user_id is not None and PageUserID.toStr(page.page_params.user_id) == "local:"+sel_user:
+                selected = "SELECTED"
+
+            login_str = login_str + "<option value='{}' {}>{}</option>\n".format(sel_user, selected, sel_user)
+
+        login_str = login_str + "</select>\n"
+
+
+        return login_str
+
+
+
+
+    @staticmethod
+    def render_select_user_page(page):
+        page.page_params.delete_history()
+
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
+        if content:
+            page.add_lines("""
+            <style>
+            body {
+                height: 100%;
+                background-image: url(""" + page.get_file_url("images/background.svg") + """);
+                background-color: white;
+                background-size:100% 100%;
+                -o-background-size: 100% 100%;
+                -webkit-background-size: 100% 100%;
+                background-size:cover;
+            }
+            </style>
+            """)
+
+            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; margin-top:36px;\">")
+            page.add_lines("<img src='" + page.get_file_url("images/home_page_img.svg") + "' width='360'>")
+            page.add_lines("</div>\n")
+
+            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; "
+                "margin-top:36px; font-family: 'Bubblegum Sans'; font-weight: 400; font-size: 55px; color: #029194\">\n")
+            page.add_lines("TATA MATA\n")
+            page.add_lines("</div>\n")
+
+            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; "
+                "margin-top:0px; font-family: 'Lato'; font-size: 18px; color: #dc3d39\">\n")
+            page.add_lines("Vezbaonica matematike <br> za osnovne skole\n")
+            page.add_lines("</div>\n")
+
+            width = 236
+            height = 40
+            font_size = 15 
+            margin = 10 
+            margin_top = 83
+            back_color = "#f9f9f9"
+
+            page.add_lines("<div style=\"display:table; margin:0 auto\">\n")
+
+
+            # Google
+
+            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
+
+            color = "#ff6956"
+            id_button = "button_user_google"
+            id_text = "text_user_google"
+
+
+
+            # Temporary login
+
+            msg = "ULOGUJ SE KAO " + Design_default.get_tmp_login_header(page)
+
+
+            link = "href=\"{}\"".format(page.page_params.create_url(
+                                user_id="UNKNOWN", \
+                                year = "", \
+                                theme = "", \
+                                subtheme = "", \
+                                period = "", \
+                                difficulty = "", \
+                                js = False))
+
+            text = """
+                        <div id="{}", class="" 
+                            style="display: inline-block;
+                                margin-top: 10px;
+                                font-family: 'Lato'; 
+                                font-size: {}px; 
+                                color: {}"> {} </div>
+                """.format(id_text, font_size, color, msg)
+
+
+            button = Design_default._add_button(page, "div", id_button, id_text, color, \
+                back_color, height, width, margin, margin, margin, margin_top, link, text)
+            page.add_lines(button)
+
+            page.add_lines("</div>\n")
+
+
+
+
+            # Gost
+
+            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
+
+            margin_top = 16
+            color = "#f3b051"
+            id_button = "button_user_guest"
+            id_text = "text_user_guest"
+            msg = "ULOGUJ SE KAO GOST"
+
+            link = "href=\"{}\"".format(page.page_params.create_url(
+                                user_id="UNKNOWN", \
+                                year = "", \
+                                theme = "", \
+                                subtheme = "", \
+                                period = "", \
+                                difficulty = "", \
+                                js = False))
+
+            text = """
+                        <div id="{}", class="" 
+                            style="display: inline-block;
+                                margin-top: 10px;
+                                font-family: 'Lato'; 
+                                font-size: {}px; 
+                                color: {}"> {} </div>
+                """.format(id_text, font_size, color, msg)
+
+
+            button = Design_default._add_button(page, "A", id_button, id_text, color, \
+                back_color, height, width, margin, margin, margin, margin_top, link, text)
+            page.add_lines(button)
+
+            page.add_lines("</div>\n")
+
+
+
+
+            page.add_lines("</div>\n")
+
 
 
 
@@ -51,16 +278,6 @@ class Design_default(object):
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
         if content:
 
-            page.add_lines("""
-            <script>
-                function invert_colors(index, cb, ct) {
-                var button = document.getElementById("button_"+index);
-                var text = document.getElementById("text_"+index);
-                button.style.background=cb;
-                text.style.color=ct;
-                }
-            </script>
-            """)
 
             page.add_lines("""
             <style>
@@ -125,7 +342,7 @@ class Design_default(object):
                 color = color_list[i % len(color_list)]
                 razred = ynumbers[i]
                 if i < len(years):
-                    obj = "a"
+                    obj = "A"
                     link = "href=\"{}\"".format(page.page_params.create_url(year = years[i], \
                                                     theme = "", \
                                                     subtheme = "", \
@@ -138,35 +355,51 @@ class Design_default(object):
                     obj = "div"
                     link = ""
 
-                button = """
-                    <{} id="button_{}" class="" 
-                        style="display: inline-block;
-                                border-radius: 10px;
-                                border: 0.1px solid #000000;
-                                padding: 0px;
-                                background: {};
-                                color: {};
-                                width: {}px;
-                                height: {}px;
-                                margin-right: {}px;
-                                margin-left: {}px;
-                                margin-bottom: {}px;
-                                margin-top: {}px;
-                                box-shadow: 0px 5px 5px #dddddd;"
-                                onmouseover="invert_colors('{}', '{}', '{}');" 
-                                onmouseout="invert_colors('{}', '{}', '{}');" 
-                        {}>
+
+                text = """
                         <div id="text_{}", class="" 
                             style="display: inline-block;
+                                margin-top: 11px;
                                 font-family: 'Bubblegum Sans'; 
                                 font-size: {}px; 
                                 color: {}"> {} </div>
-                    </{}>""".format(obj, i, back_color, back_color, height, width, 
-                        margin, margin, margin, margin, 
-                        i, color, back_color, 
-                        i, back_color, color, 
-                        link,
-                        i, font_size, color, razred, obj)
+                """.format(i, font_size, color, razred)
+
+                # button = """
+                #     <{} id="button_{}" class="" 
+                #         style="display: inline-block;
+                #                 border-radius: 10px;
+                #                 border: 0.1px solid #000000;
+                #                 padding: 0px;
+                #                 background: {};
+                #                 color: {};
+                #                 width: {}px;
+                #                 height: {}px;
+                #                 margin-right: {}px;
+                #                 margin-left: {}px;
+                #                 margin-bottom: {}px;
+                #                 margin-top: {}px;
+                #                 box-shadow: 0px 5px 5px #dddddd;"
+                #                 onmouseover="invert_colors('{}', '{}', '{}');" 
+                #                 onmouseout="invert_colors('{}', '{}', '{}');" 
+                #         {}>
+                #         <div id="text_{}", class="" 
+                #             style="display: inline-block;
+                #                 font-family: 'Bubblegum Sans'; 
+                #                 font-size: {}px; 
+                #                 color: {}"> {} </div>
+                #     </{}>""".format(obj, i, back_color, back_color, height, width, 
+                #         margin, margin, margin, margin, 
+                #         i, color, back_color, 
+                #         i, back_color, color, 
+                #         link,
+                #         i, font_size, color, razred, obj)
+
+                id_button = "button_" + str(i)
+                id_text = "text_" + str(i)
+                button = Design_default._add_button(page, obj, id_button, id_text, color, back_color, \
+                    height, width, margin, margin, margin, margin, link, text)
+
 
                 page.add_lines(button)
 
@@ -398,6 +631,8 @@ class Design_default(object):
                     
 
 
+
+
     # Inspired by https://www.w3schools.com/w3css/w3css_sidebar.asp
 
     @staticmethod
@@ -421,8 +656,6 @@ class Design_default(object):
 
         page.add_script_lines("""
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />
-                <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
 
                 <style>
                 .sh-font{font-family: 'Bubblegum Sans'; font-size: 18px; color: #029194}
@@ -503,28 +736,34 @@ class Design_default(object):
                 </div>
         """)
 
-        if not page.page_params.user_id is None and PageUserID.toStr(page.page_params.user_id):
+        if not page.page_params.user_id is None and \
+                PageUserID.toStr(page.page_params.user_id) and \
+                not PageUserID.toStr(page.page_params.user_id) == "UNKNOWN":
             #print("\n\nAAAAA:{}\n\n".format(PageUserID.toStr(page.page_params.user_id)))
-            page.add_lines("<a class=\"sh-font\" href=\"" + \
+            page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
                 page.page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False) + \
                 "\" class=\"sh-bar-item sh-button\"> Rezultati </a>\n")
 
 
-        page.add_lines("""
-                <button class="sh-button sh-block sh-left-align sh-font" onclick="myAccFunc('accUser')">
-                    """ + page.get_messages()["user"] + """ <i class="fa fa-caret-down"></i>
-                </button>
-                <div id='accUser' class="sh-hide sh-white sh-card">
-        """)
+        # page.add_lines("""
+        #         <button class="sh-button sh-block sh-left-align sh-font" onclick="myAccFunc('accUser')">
+        #             """ + page.get_messages()["user"] + """ <i class="fa fa-caret-down"></i>
+        #         </button>
+        #         <div id='accUser' class="sh-hide sh-white sh-card">
+        # """)
+
+        # page.add_lines(Design_default.get_login_header(page))
+
+        # page.add_lines("""
+        #         </div>
+        #     </div>
+        # """)
 
 
-        page.add_lines(Design_default.get_login_header(page))
-
-
-        page.add_lines("""
-                </div>
-            </div>
-        """)
+        page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
+            page.page_params.create_url(user_id="", js = False) + \
+            "\"> Izloguj se </a>\n")
+        page.add_lines("</div>")
 
 
         if show_language_menu:
@@ -617,28 +856,28 @@ class Design_default(object):
 
 
 
-    @staticmethod    
-    def get_login_header(page):
-        login_str = ""
+    # @staticmethod    
+    # def get_login_header(page):
+    #     login_str = ""
 
 
-        login_return = page.page_params.all_state
-        login_return["js"] = False
-        login_return = encode_dict(login_return)
+    #     login_return = page.page_params.all_state
+    #     login_return["js"] = False
+    #     login_return = encode_dict(login_return)
 
 
-        test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Jovana", "Zomebody"]
-        test_users.sort()
+    #     test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Jovana", "Zomebody"]
+    #     test_users.sort()
 
-        login_str = ""
-        for username in test_users:
-            link = page.page_params.root + "?op=login_test&" + "login_return=" + \
-                        login_return + "&user_id={}".format(username) 
-            str_indent = "<div class='space'></div>"
-            login_str = login_str + "<a href='" + link + "' class='sh-font sh-bar-item sh-button'> " + str_indent + username + "</a>\n"
+    #     login_str = ""
+    #     for username in test_users:
+    #         link = page.page_params.root + "?op=login_test&" + "login_return=" + \
+    #                     login_return + "&user_id={}".format(username) 
+    #         str_indent = "<div class='space'></div>"
+    #         login_str = login_str + "<a href='" + link + "' class='sh-font sh-bar-item sh-button'> " + str_indent + username + "</a>\n"
 
 
-        return login_str
+    #     return login_str
 
 
 
