@@ -8,20 +8,26 @@ from server.types import PageUserID
 from server.question import Question
 from server.qlist import Qlist
 from server.test import Test
-from server.stats import Stats
+
+import server.context as context
+
+import logging
 
 
 class Design(object):
 
     @staticmethod
     def main(page):
+        logging.info("Processing request: %s", page.page_params.op)
+
         # If login, update user and replace op with the original op
         if page.page_params.op == PageOperation.LOGIN:
-            new_op = page.login()
-            page.page_params.op = new_op
+            new_url = page.login()
+            context.c.headers.redirect(new_url)
 
+            return "ABC"
 
-        if page.page_params.op == PageOperation.VIEW:
+        elif page.page_params.op == PageOperation.VIEW:
             if not page.page_params.q_id:
                 page.page_params.q_id = page.get_default_question()
             q = Question(page)

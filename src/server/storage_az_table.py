@@ -1,4 +1,6 @@
 from azure.cosmosdb.table.tableservice import TableService
+from azure.common import AzureMissingResourceHttpError
+
 import os
 import time
 import re
@@ -18,32 +20,24 @@ class Storage_az_table():
         self.default_partition_key = "USER"
         self.users_table_name = 'users'
         self.responses_table_name = 'responses'
+        self.sessions_table_name = 'sessions'
 
-        try:
-            self.table_service.create_table(self.users_table_name)
-        except Exception:
-            logging.exception('Error creating table, ' + self.users_table_name + 'check if it already exists')
+        tables = [self.users_table_name, self.responses_table_name, self.sessions_table_name]
 
-        try:
-            self.table_service.create_table(self.responses_table_name)
-        except Exception:
-            logging.exception('Error creating table, ' + self.responses_table_name + 'check if it already exists')
+        for table in tables:
+            self.table_service.create_table(table)
             
 
-            
-    def get_user_data(self, user_id):
-        logging.debug("*** get_user_data")
+    def get_user(self, user_id):
         partition_key = self.default_partition_key
 
         try:
             entity = self.table_service.get_entity(self.users_table_name, partition_key, user_id)
-        except Exception:
-            logging.exception('Error querying table ' + self.user_table_name + ': {}/{}'.format(partition_key, user_id))
+        except AzureMissingResourceHttpError:
             return None
 
         entity["user_id"] = user_id
         return entity
-        
         
 
     def update_user(self, user_id, name=None, email=None,
@@ -56,18 +50,12 @@ class Storage_az_table():
         properties['user_id'] = user_id
         properties['user_language'] = user_language
         
-        if name is not None:
-            properties["name"] = name
-        if email is not None:
-            properties["email"] = email
-        if remote_ip is not None:
-            properties["remote_ip"] = remote_ip
-        if user_agent is not None:
-            properties["user_agent"] = user_agent
-        if user_language is not None:
-            properties["user_language"] = user_language
-        if last_accessed is not None:
-            properties["last_accessed"] = last_accessed
+        properties["name"] = name
+        properties["email"] = email
+        properties["remote_ip"] = remote_ip
+        properties["user_agent"] = user_agent
+        properties["user_language"] = user_language
+        properties["last_accessed"] = last_accessed
 
         logging.debug("azure table update_user %s: %s", str(name), str(properties))
 
@@ -75,14 +63,11 @@ class Storage_az_table():
             self.table_service.insert_or_merge_entity(self.users_table_name, properties)
         except Exception:
             logging.exception('Error adding to table ' + self.users_table_name + ' record: {}'.format(properties))
-
-        
         
 
     def insert_user_id(self, user_id):
         self.update_user(user_id)
         return user_id
-
             
 
     def record_response(self, response):
@@ -99,6 +84,37 @@ class Storage_az_table():
         except Exception as err:
             logging.exception('Error adding response: ' + str(err))
 
+
+    def update_session(self, session_id, **data):
+        properties = {
+            'PartitionKey': session_id,
+            'RowKey': "",
+            'user_id': None,
+            'data': None
+        }
+
+        properties.update(data)
+
+        try:
+            self.table_service.insert_or_merge_entity(self.sessions_table_name, properties)
+        except Exception:
+            logging.exception('Error adding to table ' + self.sessions_table_name + ' record: {}'.format(properties))
+
+
+    def insert_session(self, session_id):
+        self.update_session(session_id)
+
+
+    def get_session(self, session_id):
+        try:
+            entity = self.table_service.get_entity(self.sessions_table_name, session_id, "")
+        except AzureMissingResourceHttpError:
+            return None
+
+        return {
+            "user_id": entity["user_id"],
+            "data": entity["data"]
+        }
 
 
     # END - Common methods to implement storage interface

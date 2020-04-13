@@ -5,7 +5,7 @@ import logging
 
 
 def get_storage():
-    logging.debug("KEYS: " + str(os.environ))
+    # logging.debug("KEYS: " + str(os.environ))
     if 'SHKOLA_AZ_TABLE_CONN_STR' in os.environ.keys():
         logging.info("Using table storage, conn str: " + os.environ['SHKOLA_AZ_TABLE_CONN_STR'])
         return Storage_az_table()
