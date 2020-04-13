@@ -22,7 +22,6 @@ class Design_default(object):
     @staticmethod
     def render_main_page(page):
 
-        Design_default._add_header(page)
 
         if isinstance(page.page_params.menu_state, dict) and \
             "summary" in page.page_params.menu_state.keys() and \
@@ -54,7 +53,7 @@ class Design_default(object):
 
 
     @staticmethod
-    def _add_header(page):
+    def add_header(page):
         page.add_script_lines("""
             <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />
             <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
@@ -66,6 +65,25 @@ class Design_default(object):
                 text.style.color=color_t;
                 }
             </script>
+        """)
+
+
+
+
+    @staticmethod
+    def add_background(page):
+        page.add_lines("""
+            <style>
+            body {
+                height: 100%;
+                background-image: url(""" + page.get_file_url("images/background.svg") + """);
+                background-color: white;
+                background-size:100% 100%;
+                -o-background-size: 100% 100%;
+                -webkit-background-size: 100% 100%;
+                background-size:cover;
+            }
+            </style>
         """)
 
 
@@ -147,19 +165,6 @@ class Design_default(object):
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
         if content:
-            page.add_lines("""
-            <style>
-            body {
-                height: 100%;
-                background-image: url(""" + page.get_file_url("images/background.svg") + """);
-                background-color: white;
-                background-size:100% 100%;
-                -o-background-size: 100% 100%;
-                -webkit-background-size: 100% 100%;
-                background-size:cover;
-            }
-            </style>
-            """)
 
             page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; margin-top:36px;\">")
             page.add_lines("<img src='" + page.get_file_url("images/home_page_img.svg") + "' width='360'>")
@@ -761,7 +766,7 @@ class Design_default(object):
 
 
         page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
-            page.page_params.create_url(user_id="", js = False) + \
+            page.page_params.create_url(op = PageOperation.toStr(PageOperation.MENU), user_id="", js = False) + \
             "\"> Izloguj se </a>\n")
         page.add_lines("</div>")
 

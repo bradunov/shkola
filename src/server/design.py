@@ -14,6 +14,7 @@ class Design(object):
 
     @staticmethod
     def main(page):
+        Design.add_header(page)
 
         # Select default
         if page.page_params.op == PageOperation.DEFAULT:
@@ -72,13 +73,16 @@ class Design(object):
                 Design.add_buttons(page, next_question_url)
                 return page.render()
             else:
+                Design_default.add_background(page)
                 return Design_default.render_question_page(page)
 
         elif page.page_params.op == PageOperation.MENU:
+            Design_default.add_background(page)
             Design_default.render_main_page(page)
             return page.render()
 
         elif page.page_params.op == PageOperation.STATS:
+            Design.add_background(page)
             if not page.page_params.user_id is None and PageUserID.toStr(page.page_params.user_id):
                 # TBD: old notation
                 u_id = PageUserID.toStr(page.page_params.user_id)
@@ -96,6 +100,20 @@ class Design(object):
         else:
             return "ERROR - operation not known"
 
+
+
+
+    @staticmethod
+    def add_header(page):
+        if not page.page_params.root == "edit":
+            Design_default.add_header(page)
+
+
+
+    @staticmethod
+    def add_background(page):
+        if not page.page_params.root == "edit":
+            Design_default.add_background(page)
 
 
 
