@@ -3,7 +3,7 @@ from server.design_default import Design_default
 
 from server.types import PageDesign
 from server.types import PageOperation
-from server.types import PageUserID
+#from server.types import PageUserID
 
 from server.question import Question
 from server.qlist import Qlist
@@ -77,16 +77,17 @@ class Design(object):
             Design_default.render_main_page(page)
             return page.render()
 
-        elif page.page_params.op == PageOperation.STATS:
-            if not page.page_params.user_id is None and PageUserID.toStr(page.page_params.user_id):
-                # TBD: old notation
-                u_id = PageUserID.toStr(page.page_params.user_id)
-                if len(u_id) >= len("local:") and u_id[:len("local:")] == "local:":
-                    u_id = u_id[len("local:"):]
-                Design_dev.render_user_stats(page, u_id)
-            else:
-                Design_dev.render_page_stats(page)
-            return page.render()
+        # Comment out for now - to be adapted to the new user management
+        # elif page.page_params.op == PageOperation.STATS:
+        #     if not page.page_params.user_id is None and PageUserID.toStr(page.page_params.user_id):
+        #         # TBD: old notation
+        #         u_id = PageUserID.toStr(page.page_params.user_id)
+        #         if len(u_id) >= len("local:") and u_id[:len("local:")] == "local:":
+        #             u_id = u_id[len("local:"):]
+        #         Design_dev.render_user_stats(page, u_id)
+        #     else:
+        #         Design_dev.render_page_stats(page)
+        #     return page.render()
 
         elif page.page_params.op == PageOperation.REGISTER:
             page.register(page.page_params.all_state)
