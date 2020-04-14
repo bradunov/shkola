@@ -1,4 +1,4 @@
-Napiši  rimskim brojevima date brojeve: 
+Napiši  rimskim ciframa date brojeve: 
 
 @repeat(5)@
 

@@ -77,7 +77,7 @@
     },
     {
       "name" : "numbers/q00025", "random": "1", "period": "zima", 
-      "subtheme": "sabiranje i oduzimanje do 20", "difficulty": "2"
+      "subtheme": "sabiranje i oduzimanje do 20": "2"
     },
     {
       "name" : "numbers/q00026", "random": "1", "period": "zima", 
@@ -89,7 +89,7 @@
     },
     {
       "name" : "numbers/q00028", "random": "1", "period": "proleće", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "1"
+      "subtheme": "sabiranje i oduzimanje do 100": "1"
     },
     {
       "name" : "numbers/q00029", "random": "1", "period": "leto", 
