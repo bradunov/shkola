@@ -1,4 +1,4 @@
-
+                                   
 addition_table = function()
   columns = 8
   min_range = 2
@@ -6,8 +6,8 @@ addition_table = function()
 
   q = {}
   for i=0,columns-1 do
-    factor1 = 2 + math.random(8)
-    factor2 = 4 + math.random(6)
+    factor1 = math.random(10)
+    factor2 = math.random(10)
     q[i] = {}
     q[i][1] = factor1 * factor2
     q[i][2] = factor2
