@@ -86,7 +86,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     # For now we default to UK on Azure, for our test
     if "language" not in args.keys():
-        args["language"] = "uk"
+        args["language"] = "rs"
 
     headers = Headers()
     request = Request(req)
