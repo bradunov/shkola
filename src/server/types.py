@@ -172,7 +172,6 @@ class PageParameters(object):
     period = ""
     difficulty = ""
     language = PageLanguage.RS
-    user_id = None
     user_param = UserParameters()
 
     # Arbitrary user state (sent as encoded dictionary)
@@ -399,13 +398,11 @@ class PageParameters(object):
         menu_state = self._dict_to_url(menu_state, self.menu_state, js)
 
         if js:
-            url = ("{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} " +
-                   "+ \"&year=\" + {} + \"&theme=\" + {} "
-                   "+ \"&subtheme=\" + {} + \"&period=\" + {} + \"&difficulty=\" + {} " +
-                   "+ \"&menu_state=\" + {} + \"&language=\" + {} + \"&design=\" + {} " + 
-                   "+ \"&correct=\" + {} + \"&incorrect=\" + {} ".format(
-                root, op, q_id, l_id, year, theme, subtheme, period, difficulty, 
-                menu_state, language, design, correct, incorrect)
+            url = f"{root} + \"?op=\" + {op} + \"&q_id=\" + {q_id} + \"&l_id=\" + {l_id} " \
+                   f"+ \"&year=\" + {year} + \"&theme=\" + {theme} " \
+                   f"+ \"&subtheme=\" + {subtheme} + \"&period=\" + {period} + \"&difficulty=\" + {difficulty} " \
+                   f"+ \"&menu_state=\" + {menu_state} + \"&language=\" + {language} + \"&design=\" + {design} " \
+                   f"+ \"&correct=\" + {correct} + \"&incorrect=\" + {incorrect}"
         else:
             url = ("{}?op={}&q_id={}&l_id={}&year={}&theme={}&subtheme={}&period={}&difficulty={}" + 
                   "&menu_state={}&language={}&design={}&correct={}&incorrect={}").format(

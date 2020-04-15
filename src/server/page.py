@@ -294,6 +294,13 @@ class Page(object):
 
 
         self.clear()
+
+        if headers is None or req is None:
+            # Cherrypy - ignore cookies
+            self.page_params.parse(args)
+            return Design.main(self)
+
+
         headers.set_no_store()
 
         with context.new_context(req, headers):

@@ -74,11 +74,14 @@ class Design_dev(object):
 
 
 
-        # No need to select user in stats mode
-        if not page.page_params.op == PageOperation.STATS:
-            log_header = Design_dev.get_login_header(page)
-        else:
-            log_header = ""
+        log_header = ""
+
+        # Temporarily removed
+        # # No need to select user in stats mode
+        # if not page.page_params.op == PageOperation.STATS:
+        #     log_header = Design_dev.get_login_header(page)
+        # else:
+        #     log_header = ""
 
 
         # Not sure why I have to put explicit height here, otherwise it is zero!
@@ -192,7 +195,8 @@ class Design_dev(object):
             select = select + "</select>\n"
 
         
-        log_header = Design_dev.get_login_header(page)
+        # Temporarily removed
+        #log_header = Design_dev.get_login_header(page)
 
         # Not sure why I have to put explicit height here, otherwise it is zero!
         page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")
@@ -310,29 +314,29 @@ class Design_dev(object):
     def get_login_header(page):
         login_str = ""
 
-        login_return = page.page_params.all_state
-        login_return["js"] = False
-        login_return = encode_dict(login_return)
+        # login_return = page.page_params.all_state
+        # login_return["js"] = False
+        # login_return = encode_dict(login_return)
 
 
-        user = context.c.user
+        # user = context.c.user
 
-        login_str = "<select id='sel_user_id' name='sel_user_id' " + \
-                    "onchange='window.location.replace(\"" + page.page_params.root + "?op=login_test&" + "login_return=" + \
-                    login_return + "&user_id=local:\" + this.value)'>\n"
+        # login_str = "<select id='sel_user_id' name='sel_user_id' " + \
+        #             "onchange='window.location.replace(\"" + page.page_params.root + "?op=login_test&" + "login_return=" + \
+        #             login_return + "&user_id=local:\" + this.value)'>\n"
 
-        if user is None:
-            login_str = login_str + "<option value='NONE' SELECTED></option>\n"
+        # if user is None:
+        #     login_str = login_str + "<option value='NONE' SELECTED></option>\n"
 
-        for sel_user in sorted(TEST_USERS):
-            selected = ""
+        # for sel_user in sorted(TEST_USERS):
+        #     selected = ""
 
-            if user is not None and user.domain_user_id == sel_user:
-                selected = "SELECTED"
+        #     if user is not None and user.domain_user_id == sel_user:
+        #         selected = "SELECTED"
 
-            login_str = login_str + "<option value='{}' {}>{}</option>\n".format(sel_user, selected, sel_user)
+        #     login_str = login_str + "<option value='{}' {}>{}</option>\n".format(sel_user, selected, sel_user)
 
-        login_str = login_str + "</select>\n"
+        # login_str = login_str + "</select>\n"
 
 
         return login_str

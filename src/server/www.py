@@ -32,7 +32,7 @@ class editor(object):
         args["root"] = "main"
         args["design"] = "default"
         args["user_agent"] = self.get_user_agent()
-        return self.page.main(args)
+        return self.page.main(None, None, args)
 
     
 
@@ -41,7 +41,7 @@ class editor(object):
         args["root"] = "edit"
         args["design"] = "dev"
         args["user_agent"] = self.get_user_agent()
-        return self.page.main(args)
+        return self.page.main(None, None, args)
 
     
     
@@ -50,7 +50,7 @@ class editor(object):
         args["root"] = "edit"
         args["design"] = "dev"
         args["user_agent"] = self.get_user_agent()
-        return self.page.main(args)
+        return self.page.main(None, None, args)
 
 
         
@@ -60,7 +60,7 @@ class editor(object):
         args["root"] = "main"
         args["op"] = "view"
         args["user_agent"] = self.get_user_agent()
-        return self.page.main(args)
+        return self.page.main(None, None, args)
 
 
     
@@ -70,7 +70,7 @@ class editor(object):
         args["root"] = "main"
         args["op"] = "view"
         args["user_agent"] = self.get_user_agent()
-        return self.page.main(args)
+        return self.page.main(None, None, args)
 
     
 

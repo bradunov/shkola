@@ -7,9 +7,12 @@ import sys
 sys.path.append("..")
 
 
-import storage_az_table
-import stats
-import page
+if __name__ == '__main__':
+    # Added to test stats as a standalone
+    import storage_az_table
+    import stats
+    import page
+
 
 import pprint
 

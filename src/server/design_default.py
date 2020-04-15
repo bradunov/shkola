@@ -8,14 +8,11 @@ from server.types import ResponseOperation
 from server.types import PageParameters
 
 from server.test import Test
-<<<<<<< HEAD
 from server.stats import Stats
 
 
-=======
 from server.user_db import TEST_USERS
 import server.context as context
->>>>>>> master
 
 class Design_default(object):
   
@@ -26,6 +23,7 @@ class Design_default(object):
     @staticmethod
     def render_main_page(page):
 
+        user = context.c.user
 
         if isinstance(page.page_params.menu_state, dict) and \
             "summary" in page.page_params.menu_state.keys() and \
@@ -33,7 +31,7 @@ class Design_default(object):
             # Last page
             Design_default.render_menu(page)
             Design_default.render_summary_page(page)
-        elif not page.page_params.user_id or not PageUserID.toStr(page.page_params.user_id):
+        elif not user or not user.domain_user_id:
             # No user selected, first select user
             Design_default.render_select_user_page(page)
         elif not page.page_params.year:
@@ -143,14 +141,14 @@ class Design_default(object):
                     "onchange='window.location.replace(\"" + page.page_params.root + "?op=login_test&" + "login_return=" + \
                     login_return + "&user_id=local:\" + this.value)'>\n"
 
-
-        if page.page_params.user_id is None or not PageUserID.toStr(page.page_params.user_id):
+        user = context.c.user
+        if not user or not user.domain_user_id:
             login_str = login_str + "<option value='UNKNOWN' SELECTED></option>\n"
 
         for sel_user in test_users:
             selected = ""
 
-            if page.page_params.user_id is not None and PageUserID.toStr(page.page_params.user_id) == "local:"+sel_user:
+            if user and user.domain_user_id == "local:"+sel_user:
                 selected = "SELECTED"
 
             login_str = login_str + "<option value='{}' {}>{}</option>\n".format(sel_user, selected, sel_user)
@@ -206,11 +204,12 @@ class Design_default(object):
 
             # Temporary login
 
-            msg = "ULOGUJ SE KAO " + Design_default.get_tmp_login_header(page)
+            # Temporarily disabled
+            #msg = "ULOGUJ SE KAO " + Design_default.get_tmp_login_header(page)
+            msg = "ULOGUJ SE KAO "
 
 
             link = "href=\"{}\"".format(page.page_params.create_url(
-                                user_id="UNKNOWN", \
                                 year = "", \
                                 theme = "", \
                                 subtheme = "", \
@@ -248,7 +247,6 @@ class Design_default(object):
             msg = "ULOGUJ SE KAO GOST"
 
             link = "href=\"{}\"".format(page.page_params.create_url(
-                                user_id="UNKNOWN", \
                                 year = "", \
                                 theme = "", \
                                 subtheme = "", \
@@ -759,10 +757,9 @@ class Design_default(object):
                 </div>
         """)
 
-        if not page.page_params.user_id is None and \
-                PageUserID.toStr(page.page_params.user_id) and \
-                not PageUserID.toStr(page.page_params.user_id) == "UNKNOWN":
-            #print("\n\nAAAAA:{}\n\n".format(PageUserID.toStr(page.page_params.user_id)))
+        user = context.c.user
+
+        if user and user.domain_user_id and not user.domain_user_id == "UNKNOWN":
             page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
                 page.page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False) + \
                 "\" class=\"sh-bar-item sh-button\"> Rezultati </a>\n")
@@ -784,7 +781,7 @@ class Design_default(object):
 
 
         page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
-            page.page_params.create_url(op = PageOperation.toStr(PageOperation.MENU), user_id="", js = False) + \
+            page.page_params.create_url(op = PageOperation.toStr(PageOperation.MENU), js = False) + \
             "\"> Izloguj se </a>\n")
         page.add_lines("</div>")
 

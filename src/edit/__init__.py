@@ -15,6 +15,8 @@ sys.path.append(os.environ['AzureWebJobsScriptRoot'])
 
 from server.helpers import extract_dict_from_post 
 from server.page import Page
+from server.headers import Headers
+from server.request import Request
 
 #DEBUG
 #from pprint import pprint
@@ -74,7 +76,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     #           'x-arr-log-id': 'd69d498a-19fe-4673-9809-d2aa180c87c5', 'x-forwarded-proto': 'https', 'max-forwards': '10'}
 
 
-
     if req.method == "POST":
         args = extract_dict_from_post(req.get_body())
     else:
@@ -83,6 +84,20 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     args["root"] = "edit"
 
-    return func.HttpResponse(PAGE.main(args), mimetype="text/html")
 
+    # For now we default to UK on Azure, for our test
+    if "language" not in args.keys():
+        args["language"] = "rs"
+
+    headers = Headers()
+    request = Request(req)
+
+    page_body = PAGE.main(request, headers, args)
+
+    return func.HttpResponse(
+        page_body,
+        status_code = headers.status_code(),
+        headers = headers.get_headers(),
+        mimetype = "text/html"
+    )
 
