@@ -3,11 +3,15 @@ from server.design_default import Design_default
 
 from server.types import PageDesign
 from server.types import PageOperation
-from server.types import PageUserID
+#from server.types import PageUserID
 
 from server.question import Question
 from server.qlist import Qlist
 from server.test import Test
+
+import server.context as context
+
+import logging
 
 
 class Design(object):
@@ -23,13 +27,16 @@ class Design(object):
             else:
                 page.page_params.op = PageOperation.MENU
 
+        logging.info("Processing request: %s", page.page_params.op)
+
         # If login, update user and replace op with the original op
         if page.page_params.op == PageOperation.LOGIN:
-            new_op = page.login()
-            page.page_params.op = new_op
+            new_url = page.login()
+            context.c.headers.redirect(new_url)
 
+            return "ABC"
 
-        if page.page_params.op == PageOperation.VIEW:
+        elif page.page_params.op == PageOperation.VIEW:
             if not page.page_params.q_id:
                 page.page_params.q_id = page.get_default_question()
             q = Question(page)
@@ -83,9 +90,12 @@ class Design(object):
 
         elif page.page_params.op == PageOperation.STATS:
             Design.add_background(page)
-            if not page.page_params.user_id is None and PageUserID.toStr(page.page_params.user_id):
+
+            user = context.c.user
+
+            if user and user.domain_user_id:
                 # TBD: old notation
-                u_id = PageUserID.toStr(page.page_params.user_id)
+                u_id = user.domain_user_id
                 if len(u_id) >= len("local:") and u_id[:len("local:")] == "local:":
                     u_id = u_id[len("local:"):]
                 Design.render_user_stats(page, u_id)

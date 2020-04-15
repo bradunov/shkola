@@ -2,10 +2,11 @@ from server.helpers import encode_dict
 from server.helpers import encap_str
 
 from server.types import PageOperation
-from server.types import PageUserID
 from server.types import ResponseOperation
 from server.types import PageLanguage
 from server.stats import Stats
+from server.user_db import TEST_USERS
+import server.context as context
 
 
 class Design_dev(object):
@@ -314,22 +315,19 @@ class Design_dev(object):
         login_return = encode_dict(login_return)
 
 
-        test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Jovana", "Zomebody"]
-        test_users.sort()
+        user = context.c.user
 
-    
         login_str = "<select id='sel_user_id' name='sel_user_id' " + \
                     "onchange='window.location.replace(\"" + page.page_params.root + "?op=login_test&" + "login_return=" + \
                     login_return + "&user_id=local:\" + this.value)'>\n"
 
-
-        if page.page_params.user_id is None or not PageUserID.toStr(page.page_params.user_id):
+        if user is None:
             login_str = login_str + "<option value='NONE' SELECTED></option>\n"
 
-        for sel_user in test_users:
+        for sel_user in sorted(TEST_USERS):
             selected = ""
 
-            if page.page_params.user_id is not None and PageUserID.toStr(page.page_params.user_id) == "local:"+sel_user:
+            if user is not None and user.domain_user_id == sel_user:
                 selected = "SELECTED"
 
             login_str = login_str + "<option value='{}' {}>{}</option>\n".format(sel_user, selected, sel_user)

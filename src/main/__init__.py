@@ -15,6 +15,8 @@ sys.path.append(os.environ['AzureWebJobsScriptRoot'])
 
 from server.helpers import extract_dict_from_post
 from server.page import Page
+from server.headers import Headers
+from server.request import Request
 
 #DEBUG
 #from pprint import pprint
@@ -49,6 +51,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         PAGE = Page(use_azure_blob=use_azure_blob, preload=preload)
 
 
+    logging.debug("URL: " + str(req.url))
     if False:
         logging.debug("METHOD: " + str(req.method))
         logging.debug("URL: " + str(req.url))
@@ -86,14 +89,15 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     if "language" not in args.keys():
         args["language"] = "uk"
 
-    return func.HttpResponse(PAGE.main(args), mimetype="text/html")
+    headers = Headers()
+    request = Request(req)
 
+    page_body = PAGE.main(request, headers, args)
 
-
-
-
-
-
-
-
+    return func.HttpResponse(
+        page_body,
+        status_code = headers.status_code(),
+        headers = headers.get_headers(),
+        mimetype = "text/html"
+    )
 

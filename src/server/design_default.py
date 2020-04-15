@@ -2,16 +2,20 @@ from copy import copy, deepcopy
 
 from server.helpers import encode_dict, encap_str
 
-from server.types import PageUserID
 from server.types import PageLanguage
 from server.types import PageOperation
 from server.types import ResponseOperation
 from server.types import PageParameters
 
 from server.test import Test
+<<<<<<< HEAD
 from server.stats import Stats
 
 
+=======
+from server.user_db import TEST_USERS
+import server.context as context
+>>>>>>> master
 
 class Design_default(object):
   
@@ -649,15 +653,22 @@ class Design_default(object):
 
         page.add_lines("\n\n<!-- MOBILE MENU START -->\n")
 
-        # Temporary, for debugging:
-        # debug_str = ""
-        # if page.page_params.user_id is not None and PageUserID.toStr(page.page_params.user_id):
-        #     if len(PageUserID.toStr(page.page_params.user_id)) >= len("local:") and PageUserID.toStr(page.page_params.user_id)[:len("local:")] == "local:":
-        #         debug_str = debug_str + "Hi {} ".format(PageUserID.toStr(page.page_params.user_id)[len("local:"):])
-        #     else:
-        #         debug_str = debug_str + "Hi {} ".format(PageUserID.toStr(page.page_params.user_id))
-        # if page.page_params.q_id is not None and page.page_params.q_id:
-        #     debug_str = debug_str + "(Q: {})".format(page.page_params.q_id)
+
+        if True:
+            # Temporary, for debugging:
+            debug_str = ""
+
+            user = context.c.user
+
+            if user is not None:
+                debug_str = debug_str + "Hi {} ({})".format(
+                    user.domain_user_id, context.c.session.get('page_counter', 0)
+                )
+
+            if page.page_params.q_id is not None and page.page_params.q_id:
+                debug_str = debug_str + "(Q: {})".format(page.page_params.q_id)
+
+
 
         page.add_script_lines("""
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -736,6 +747,13 @@ class Design_default(object):
         new_page_params.op = PageOperation.MENU
         new_page_params.language = page.page_params.language
         Design_default.render_menu_drop(page, new_page_params, 1)
+
+        # Design_default.render_menu_drop(page, PageLanguage.toStr(page.page_params.language), 
+        #     page.page_params.root + "?op={}&language={}&menu={}".format(
+        #     PageOperation.toStr(page.page_params.op), PageLanguage.toStr(page.page_params.language), 
+        #     "mobile"), 1)
+
+
 
         page.add_lines("""
                 </div>
@@ -865,22 +883,16 @@ class Design_default(object):
     # def get_login_header(page):
     #     login_str = ""
 
-
     #     login_return = page.page_params.all_state
     #     login_return["js"] = False
     #     login_return = encode_dict(login_return)
 
-
-    #     test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Jovana", "Zomebody"]
-    #     test_users.sort()
-
     #     login_str = ""
-    #     for username in test_users:
+    #     for username in sorted(TEST_USERS):
     #         link = page.page_params.root + "?op=login_test&" + "login_return=" + \
-    #                     login_return + "&user_id={}".format(username) 
+    #                     login_return + "&user_id={}".format(username)
     #         str_indent = "<div class='space'></div>"
-    #         login_str = login_str + "<a href='" + link + "' class='sh-font sh-bar-item sh-button'> " + str_indent + username + "</a>\n"
-
+    #         login_str = login_str + "<a href='" + link + "' class='w3-bar-item w3-button'> " + str_indent + username + "</a>\n"
 
     #     return login_str
 
