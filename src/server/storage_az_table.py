@@ -111,6 +111,10 @@ class Storage_az_table():
         except AzureMissingResourceHttpError:
             return None
 
+        # Azurite simulator returns an empty entity instead of exception, so check here
+        if "user_id" not in entity.keys():
+            return None
+
         return {
             "user_id": entity["user_id"],
             "data": entity["data"]
@@ -297,16 +301,24 @@ if __name__ == '__main__':
     #     storage.record_response(response)
 
 
-    #storage.print_all_users()
 
-    #storage.print_all_responses()
+    print_all_data = True
+    if print_all_data:
+        storage.print_all_users()
+        storage.print_all_responses()
 
 
-    #storage.get_question_stats("fractions/q00022")
-    #print(storage.get_question_stats("fractions/q00022", "2020-03-01T00:00:00.000Z"))
+    print_question_stats = False
 
-    print(storage.get_user_stats("Petar"))
-    #print(storage.get_question_stats("fractions/q00022", "2020-03-01T00:00:00.000Z"))
+    if print_question_stats:
+        #storage.get_question_stats("fractions/q00022")
+        print(storage.get_question_stats("fractions/q00022", "2020-03-01T00:00:00.000Z"))
+
+
+    print_user_stats = False
+    if print_user_stats:
+        print(storage.get_user_stats("Petar"))
+        #print(storage.get_question_stats("fractions/q00022", "2020-03-01T00:00:00.000Z"))
 
 
     #storage.print_all_responses("local:Korisnik1")
