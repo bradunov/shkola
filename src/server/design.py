@@ -83,7 +83,9 @@ class Design(object):
                 Design_default.add_background(page)
                 return Design_default.render_question_page(page)
 
-        elif page.page_params.op == PageOperation.MENU:
+        elif page.page_params.op == PageOperation.MENU or \
+                page.page_params.op == PageOperation.INTRO or \
+                page.page_params.op == PageOperation.SUMMARY:
             Design_default.add_background(page)
             Design_default.render_main_page(page)
             return page.render()
@@ -104,11 +106,8 @@ class Design(object):
                     Design_dev.render_page_stats(page)
             return page.render()
 
-        elif page.page_params.op == PageOperation.REGISTER:
-            page.register(page.page_params.all_state)
-
         else:
-            return "ERROR - operation not known"
+            return "ERROR - operation {} not known".format(PageOperation.toStr(page.page_params.op))
 
 
 

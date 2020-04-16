@@ -278,19 +278,17 @@ class Page(object):
         if False:
             logging.info("New request: op={} <design={}, mobile={}> - "
                         "q_id={}, l_id={}, language={}, "
-                        "correct={}, incorrect={}, init_code={}, iter_code={}, text={}, "
-                        "remote_ip={}, user_agent={}, user_language={}, menu_state={}.".format(
+                        "init_code={}, iter_code={}, text={}, "
+                        "remote_ip={}, user_agent={}, user_language={}.".format(
                             PageOperation.toStr(self.page_params.op), 
                             PageDesign.toStr(self.page_params.design),
                             self.page_params.mobile, 
                             self.page_params.q_id, self.page_params.l_id, 
                             PageLanguage.toStr(self.page_params.language), 
-                            self.page_params.correct, self.page_params.incorrect, 
                             self.page_params.init_code, self.page_params.iter_code, self.page_params.text,
                             self.page_params.user_param.remote_ip, 
                             self.page_params.user_param.user_agent, 
-                            self.page_params.user_param.user_laguage,
-                            self.page_params.menu_state))
+                            self.page_params.user_param.user_laguage))
 
 
         self.clear()
@@ -301,7 +299,9 @@ class Page(object):
             return Design.main(self)
 
 
+        # No caching
         headers.set_no_store()
+
 
         with context.new_context(req, headers):
             with self.sessiondb.init_session(req, headers) as session:
@@ -317,7 +317,11 @@ class Page(object):
 
                 else:
                     self.page_params.parse(args)
+                    self.page_params.set_url(req.get_url())
                     return Design.main(self)
+
+
+
 
 
 
@@ -329,7 +333,7 @@ class Page(object):
 
         user_id = context.c.user.user_id if context.c.user else "UNKNOWN"
 
-        if "q_id" in args.keys() and "now" in args.keys() and user_id is not None:
+        if "q_id" in args.keys() and "now" in args.keys():
             if "l_id" not in args.keys() or not args["l_id"] or args["l_id"] is None:
                 l_id = ""
             else:
@@ -344,7 +348,14 @@ class Page(object):
                         correct = correct + 1
                     else:
                         incorrect = incorrect + 1
+
                         
+            hist = context.c.session.get("history")
+            hist[-1]["correct"] = correct
+            hist[-1]["incorrect"] = incorrect
+            context.c.session.set("history", hist)
+
+
             response = {"user_id" : user_id,
                         "question_id": args["q_id"],
                         "list_id": l_id,

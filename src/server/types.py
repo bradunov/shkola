@@ -4,6 +4,8 @@ from server.helpers import decode_dict
 from server.helpers import is_user_on_mobile
 from server.helpers import encap_str
 
+import server.context as context
+
 import logging
 
 
@@ -72,6 +74,10 @@ class PageOperation(Enum):
     DEFAULT = 8
     # Stats
     STATS = 9
+    # Intro
+    INTRO = 10
+    # Summary
+    SUMMARY = 11
 
     @classmethod
     def toStr(cls, enum) -> str:
@@ -95,6 +101,10 @@ class PageOperation(Enum):
             return "default"
         elif enum == PageOperation.STATS:
             return "stats"
+        elif enum == PageOperation.INTRO:
+            return "intro"
+        elif enum == PageOperation.SUMMARY:
+            return "summary"
 
     @classmethod
     def fromStr(cls, name:str, with_exception : bool = False):
@@ -116,6 +126,10 @@ class PageOperation(Enum):
             return PageOperation.DEFAULT
         elif name.lower() == "stats":
             return PageOperation.STATS
+        elif name.lower() == "intro":
+            return PageOperation.INTRO
+        elif name.lower() == "summary":
+            return PageOperation.SUMMARY
         else:
             if with_exception:
                 raise PageParameterParsingError()
@@ -173,14 +187,8 @@ class PageParameters(object):
     difficulty = ""
     language = PageLanguage.RS
     user_param = UserParameters()
+    back = False                                       # we went back from the last question
 
-    # Arbitrary user state (sent as encoded dictionary)
-    menu_state = {}
-
-    # Results from the last question asked
-    # (not encoded to be filled in by JS)
-    correct = ""
-    incorrect = ""
 
     # Parameters for edit mode
     init_code = ""
@@ -197,6 +205,10 @@ class PageParameters(object):
     # Raise exception on any error - useful for testing
     # Set raise_exception=1 in URL to trigger exceptions
     with_exception = False
+
+
+    # Current URL in the full form
+    url = None
 
 
     # The entire state as arrived in the request 
@@ -225,13 +237,16 @@ class PageParameters(object):
             self.parse(args)
 
 
+    def set_url(self, url):
+        self.url = url
+        
+
+    def get_url(self):
+        return self.url
+        
+
     def delete_history(self):
-        self.correct = 0
-        self.incorrect = 0
-        if "summary" in self.menu_state.keys():
-            del self.menu_state["summary"]
-        if "history" in self.menu_state.keys():
-            del self.menu_state["history"]
+        context.c.session.set("history", [])
 
 
     def parse(self, in_args : dict):
@@ -261,6 +276,9 @@ class PageParameters(object):
 
         if "design" in args.keys():
             self.design = PageDesign.fromStr(args["design"])
+
+        if "back" in args.keys():
+            self.design = (args["back"].lower() == "true")
 
         if "mobile" in args.keys():
             self.mobile = args["mobile"]
@@ -295,15 +313,6 @@ class PageParameters(object):
         if ("difficulty" in args.keys()) and (not args["difficulty"] is None) and args["difficulty"]:
             self.difficulty = args["difficulty"]
 
-        if ("menu_state" in args.keys()) and (not args["menu_state"] is None) and args["menu_state"]:
-            self.menu_state = decode_dict(args["menu_state"])
-
-        if "correct" in args.keys():
-            self.correct = args["correct"]
-
-        if "incorrect" in args.keys():
-            self.incorrect = args["incorrect"]
-
         if "init_code" in args.keys():
             self.init_code = args["init_code"]
 
@@ -326,23 +335,6 @@ class PageParameters(object):
         if "user_language" in args.keys():
             self.user_param.user_language = args["user_language"]
 
-
-        # Update internal state
-        try:
-            if not isinstance(self.menu_state,dict):
-                self.menu_state = {}
-            if not "history" in self.menu_state.keys() or not isinstance(self.menu_state["history"], list):
-                self.menu_state["history"] = []
-            if "last_question" in self.menu_state.keys():
-                self.menu_state["history"].append(
-                    {"question": self.menu_state["last_question"], 
-                    "correct": int(self.correct), 
-                    "incorrect": int(self.incorrect)})
-            self.menu_state["last_question"] = self.q_id
-        except Exception as e:
-            # if any problem with state just report
-            logging.info("Problem with menu_state: {}".format(e))
-            pass
 
 
     def add_code(self, init_code : str = "", iter_code : str = "", text : str = ""):
@@ -372,8 +364,7 @@ class PageParameters(object):
     # as they can be JS variables
     def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, 
                    theme=None, subtheme=None, period=None, difficulty=None,
-                   menu_state=None, language=None, design=None, 
-                   correct=None, incorrect=None, js=False):
+                   language=None, design=None, back=False, js=False):
         if root is None:
             root = self.root
             root = encap_str(root) if js else root
@@ -393,20 +384,17 @@ class PageParameters(object):
         subtheme = self._str_to_url(subtheme, self.subtheme, js)
         period = self._str_to_url(period, self.period, js)
         difficulty = self._str_to_url(difficulty, self.difficulty, js)
-        correct = self._str_to_url(correct, self.correct, js)
-        incorrect = self._str_to_url(incorrect, self.incorrect, js)
-        menu_state = self._dict_to_url(menu_state, self.menu_state, js)
 
         if js:
             url = f"{root} + \"?op=\" + {op} + \"&q_id=\" + {q_id} + \"&l_id=\" + {l_id} " \
-                   f"+ \"&year=\" + {year} + \"&theme=\" + {theme} " \
-                   f"+ \"&subtheme=\" + {subtheme} + \"&period=\" + {period} + \"&difficulty=\" + {difficulty} " \
-                   f"+ \"&menu_state=\" + {menu_state} + \"&language=\" + {language} + \"&design=\" + {design} " \
-                   f"+ \"&correct=\" + {correct} + \"&incorrect=\" + {incorrect}"
+                  f"+ \"&year=\" + {year} + \"&theme=\" + {theme} " \
+                  f"+ \"&subtheme=\" + {subtheme} + \"&period=\" + {period} + \"&difficulty=\" + {difficulty} " \
+                  f"+ \"&language=\" + {language} + \"&design=\" + {design} " + \
+                      (" + \"&back=true\"" if back else "")
         else:
-            url = ("{}?op={}&q_id={}&l_id={}&year={}&theme={}&subtheme={}&period={}&difficulty={}" + 
-                  "&menu_state={}&language={}&design={}&correct={}&incorrect={}").format(
-                root, op, q_id, l_id, year, theme, subtheme, period, difficulty, 
-                menu_state, language, design, correct, incorrect)
+            url = f"{root}?op={op}&q_id={q_id}&l_id={l_id}&year={year}" \
+                  f"&theme={theme}&subtheme={subtheme}&period={period}" \
+                  f"&difficulty={difficulty}&language={language}&design={design}" + \
+                      ("&back=true" if back else "")
 
         return url

@@ -28,6 +28,10 @@ class Request:
         return h[header] if header in h else None
 
 
+    def get_url(self):
+        return self._azure_request.url
+
+
     def get_cookie(self, cookie):
         if cookie in self._cookies:
             return self._cookies[cookie].value

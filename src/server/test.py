@@ -1,7 +1,9 @@
 import random
 from server.question import Question
 from server.types import PageOperation
+import server.context as context
 
+import logging
 
 class Test(object):
     page = None
@@ -16,10 +18,6 @@ class Test(object):
 
         if self.page.page_params.q_id is None or not self.page.page_params.q_id:
             self.page.page_params.q_id = self.choose_next_question()
-            try:
-                self.page.page_params.menu_state["last_question"] = self.page.page_params.q_id
-            except:
-                pass
 
 
 
@@ -31,8 +29,7 @@ class Test(object):
 
         potential_questions = []
         potential_questions_w_repeat = []
-        asked_questions = list(map(lambda hist: hist["question"], self.page.page_params.menu_state["history"]))
-        asked_questions.append(self.page.page_params.menu_state["last_question"])
+        asked_questions = list(map(lambda hist: hist["q_id"], context.c.session.get("history")))
 
         # Find the list of all question in the subtopic (potential_questions_w_repeat), 
         # and also those among them that haven't been already asked in this session (potential_questions)
@@ -56,7 +53,7 @@ class Test(object):
             index = random.randrange(total)
             next_question = potential_questions_w_repeat[index]
 
-        # print("\n\nNEXT Q: {} {} {}/{} {}\n\n".format(
+        # logging.info("\n\nNEXT Q: {} {} {}/{} {}\n\n".format(
         #     potential_questions_w_repeat, potential_questions, 
         #     index, total, next_question))
  
@@ -70,7 +67,6 @@ class Test(object):
         next_question_url = self.page.page_params.create_url(\
             op = PageOperation.toStr(PageOperation.TEST), \
             q_id = next_question, \
-            correct="\" + q_correct + \"", incorrect="\" + q_incorrect + \"", \
             js = False)
 
         
