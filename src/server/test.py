@@ -16,13 +16,13 @@ class Test(object):
         self.page = page
         self.load_list()
 
-        if self.page.page_params.q_id is None or not self.page.page_params.q_id:
-            self.page.page_params.q_id = self.choose_next_question()
+        if self.page.page_params.get_param("q_id") is None or not self.page.page_params.get_param("q_id"):
+            self.page.page_params.set_param("q_id", self.choose_next_question())
 
 
 
     def load_list(self):
-        self.list = self.page.repository.get_list(self.page.page_params.l_id)
+        self.list = self.page.repository.get_list(self.page.page_params.get_param("l_id"))
 
     
     def choose_next_question(self, previous_question_name=None):
@@ -34,9 +34,9 @@ class Test(object):
         # Find the list of all question in the subtopic (potential_questions_w_repeat), 
         # and also those among them that haven't been already asked in this session (potential_questions)
         for q in self.list["questions"]:
-            if self.page.page_params.subtheme and (self.page.page_params.subtheme == "*" or q["subtheme"] == self.page.page_params.subtheme) and \
-               self.page.page_params.period and (self.page.page_params.period == "*" or q["period"] == self.page.page_params.period) and \
-               self.page.page_params.difficulty and (self.page.page_params.difficulty == "*" or q["difficulty"] == self.page.page_params.difficulty):
+            if self.page.page_params.get_param("subtheme") and (self.page.page_params.get_param("subtheme") == "*" or q["subtheme"] == self.page.page_params.get_param("subtheme")) and \
+               self.page.page_params.get_param("period") and (self.page.page_params.get_param("period") == "*" or q["period"] == self.page.page_params.get_param("period")) and \
+               self.page.page_params.get_param("difficulty") and (self.page.page_params.get_param("difficulty") == "*" or q["difficulty"] == self.page.page_params.get_param("difficulty")):
                 potential_questions_w_repeat.append(q["name"])
                 if not q["name"] in asked_questions:
                     potential_questions.append(q["name"])
@@ -63,7 +63,7 @@ class Test(object):
         
     def render_next_questions(self):
        
-        next_question = self.choose_next_question(self.page.page_params.q_id)
+        next_question = self.choose_next_question(self.page.page_params.get_param("q_id"))
         next_question_url = self.page.page_params.create_url(\
             op = PageOperation.toStr(PageOperation.TEST), \
             q_id = next_question, \

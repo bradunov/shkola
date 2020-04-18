@@ -76,31 +76,31 @@ class Question(object):
         if not init_code is None:
             self.init_code = init_code
         else:
-            self.init_code = page.page_params.init_code
+            self.init_code = page.page_params.get_param("init_code")
 
         if not iter_code is None:
             self.iter_code = iter_code
         else:
-            self.iter_code = page.page_params.iter_code
+            self.iter_code = page.page_params.get_param("iter_code")
 
         if not text is None:
             self.text = text
         else:
-            self.text = page.page_params.text
+            self.text = page.page_params.get_param("text")
 
-        self.lib = Library(self.lua, page, self.questions_rel_path + "/" + self.page.page_params.q_id)
+        self.lib = Library(self.lua, page, self.questions_rel_path + "/" + self.page.page_params.get_param("q_id"))
         logging.debug("Rendering question %s, list_id=%s, language=%s", 
-            self.questions_rel_path + "/" + self.page.page_params.q_id, 
-            self.page.page_params.l_id, PageLanguage.toStr(self.page.page_params.language))
+            self.questions_rel_path + "/" + self.page.page_params.get_param("q_id"), 
+            self.page.page_params.get_param("l_id"), PageLanguage.toStr(self.page.page_params.get_param("language")))
         self.questions_root_path = self.page.rel_path + "/" + self.questions_rel_path
 
 
     def set_from_file(self):
         self.init_code = ""
         self.iter_code = ""
-        self.text = "\n\n<h3>ERROR: no code exists for question {} for language {}!</h3>".format(self.page.page_params.q_id, PageLanguage.toStr(self.page.page_params.language))
+        self.text = "\n\n<h3>ERROR: no code exists for question {} for language {}!</h3>".format(self.page.page_params.get_param("q_id"), PageLanguage.toStr(self.page.page_params.get_param("language")))
         
-        q = self.repository.get_question(self.page.page_params.q_id)
+        q = self.repository.get_question(self.page.page_params.get_param("q_id"))
         if q is None:
             return
 
@@ -111,7 +111,7 @@ class Question(object):
         if "iter.lua" in q.keys():
             self.iter_code = q["iter.lua"]
 
-        text_key = "text." + PageLanguage.toStr(self.page.page_params.language)
+        text_key = "text." + PageLanguage.toStr(self.page.page_params.get_param("language"))
         if text_key in q.keys():
             self.text = q[text_key]
             
@@ -373,8 +373,8 @@ class Question(object):
            end
            function include(name)
               local root_path = '""" + self.questions_root_path + """';
-              local question_path = '""" + self.page.page_params.q_id + """';
-              local language = '""" + PageLanguage.toStr(self.page.page_params.language) + """';
+              local question_path = '""" + self.page.page_params.get_param("q_id") + """';
+              local language = '""" + PageLanguage.toStr(self.page.page_params.get_param("language")) + """';
 
               require_if_exists(root_path.."/"..question_path.."/"..name.."."..language..".lua");
               require_if_exists(root_path.."/global/"..name.."."..language..".lua");
@@ -399,8 +399,8 @@ class Question(object):
                     strings[ind][len(strings[ind])-1] == ")"):
                     inc_file = strings[ind][len("include("):len(strings[ind])-1]
 
-                    q = self.repository.get_question(self.page.page_params.q_id)
-                    inc_name = inc_file + "." + PageLanguage.toStr(self.page.page_params.language) + ".lua"
+                    q = self.repository.get_question(self.page.page_params.get_param("q_id"))
+                    inc_name = inc_file + "." + PageLanguage.toStr(self.page.page_params.get_param("language")) + ".lua"
                     include_code = ""
                     if q is not None and inc_name in q.keys():
                         include_code = q[inc_name]

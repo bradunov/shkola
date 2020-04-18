@@ -19,7 +19,7 @@ class Qlist(object):
         
 
     def load_list(self):
-        self.list = self.page.repository.get_list(self.page.page_params.l_id)
+        self.list = self.page.repository.get_list(self.page.page_params.get_param("l_id"))
 
         
     def render_all_questions(self):
@@ -52,7 +52,7 @@ class Qlist(object):
                     title = title + "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
                     title = title + str(key) + "=<em>" + str(value) + "</em> "
 
-            self.page.page_params.q_id = q_id
+            self.page.page_params.set_param("q_id", q_id)
             q = Question(self.page)
             q.set_from_file_with_exception()
 

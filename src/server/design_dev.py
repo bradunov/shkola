@@ -14,7 +14,7 @@ class Design_dev(object):
 
     @staticmethod
     def render_page(page):
-        if page.page_params.op == PageOperation.EDIT:
+        if page.page_params.get_param("op") == PageOperation.EDIT:
             Design_dev.render_page_edit(page)
         else:
             Design_dev.render_simple_page(page)
@@ -22,7 +22,7 @@ class Design_dev(object):
 
     @staticmethod
     def render_menu(page):
-        if page.page_params.mobile:
+        if page.page_params.get_param("mobile"):
             Design_dev.render_menu_simple(page)
         else:
             Design_dev.render_menu_full(page)
@@ -32,21 +32,21 @@ class Design_dev(object):
     def render_menu_full(page):
         page.add_lines("\n\n<!-- FULL MENU START -->\n")
         # Edit or view question
-        if page.page_params.op == PageOperation.EDIT or page.page_params.op == PageOperation.VIEW or page.page_params.op == PageOperation.GENERATE:
-            if page.page_params.op == PageOperation.GENERATE:
+        if page.page_params.get_param("op") == PageOperation.EDIT or page.page_params.get_param("op") == PageOperation.VIEW or page.page_params.get_param("op") == PageOperation.GENERATE:
+            if page.page_params.get_param("op") == PageOperation.GENERATE:
                 page_name = PageOperation.toStr(PageOperation.EDIT)
             else:
-                page_name = PageOperation.toStr(page.page_params.op)
+                page_name = PageOperation.toStr(page.page_params.get_param("op"))
             select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
                                 page.page_params.create_url( \
                                     op = encap_str(page_name), \
                                     q_id = "this.value", \
                                     language = "sel_lang.value", \
                                     js = True) + ")'>\n"
-            qs = page.get_all_questions(PageLanguage.toStr(page.page_params.language))
+            qs = page.get_all_questions(PageLanguage.toStr(page.page_params.get_param("language")))
         
             for q in qs:
-                if q == page.page_params.q_id:
+                if q == page.page_params.get_param("q_id"):
                     selected = "SELECTED"
                 else:
                     selected = ""
@@ -54,7 +54,7 @@ class Design_dev(object):
             select = select + "</select>\n"
 
         # View list
-        elif page.page_params.op == PageOperation.LIST or page.page_params.op == PageOperation.TEST:
+        elif page.page_params.get_param("op") == PageOperation.LIST or page.page_params.get_param("op") == PageOperation.TEST:
             select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
                                 page.page_params.create_url(\
                                     l_id = "this.value", \
@@ -63,7 +63,7 @@ class Design_dev(object):
             ls = page.get_all_lists()
         
             for l in ls:
-                if l == page.page_params.l_id:
+                if l == page.page_params.get_param("l_id"):
                     selected = "SELECTED"
                 else:
                     selected = ""
@@ -78,7 +78,7 @@ class Design_dev(object):
 
         # Temporarily removed
         # # No need to select user in stats mode
-        # if not page.page_params.op == PageOperation.STATS:
+        # if not page.page_params.get_param("op") == PageOperation.STATS:
         #     log_header = Design_dev.get_login_header(page)
         # else:
         #     log_header = ""
@@ -104,12 +104,12 @@ class Design_dev(object):
         if ("languages" in page.repository.get_config()):
             lang_select="Jezik: <select id='sel_lang' name='sel_lang' onchange='window.location.replace("
 
-            if page.page_params.op == PageOperation.EDIT or page.page_params.op == PageOperation.VIEW:
+            if page.page_params.get_param("op") == PageOperation.EDIT or page.page_params.get_param("op") == PageOperation.VIEW:
                 lang_select = lang_select + page.page_params.create_url(q_id = "sel_q_id.value", \
                                                             language = "this.value", \
                                                             js = True) + ")'>\n"
             # View list
-            elif page.page_params.op == PageOperation.LIST or page.page_params.op == PageOperation.TEST:
+            elif page.page_params.get_param("op") == PageOperation.LIST or page.page_params.get_param("op") == PageOperation.TEST:
                 lang_select = lang_select + page.page_params.create_url(l_id = "sel_l_id.value", \
                                                             language = "this.value",
                                                             js = True) + ")'>\n"
@@ -120,7 +120,7 @@ class Design_dev(object):
                                                             js = True) + ")'>\n"
             
             for l in page.repository.get_config()["languages"]:
-                if l == PageLanguage.toStr(page.page_params.language):
+                if l == PageLanguage.toStr(page.page_params.get_param("language")):
                     selected = "SELECTED"
                 else:
                     selected = ""
@@ -142,7 +142,7 @@ class Design_dev(object):
             ]
 
         for o in options:
-            if o == PageOperation.toStr(page.page_params.op):
+            if o == PageOperation.toStr(page.page_params.get_param("op")):
                 selected = "SELECTED"
             else:
                 selected = ""
@@ -162,16 +162,16 @@ class Design_dev(object):
     def render_menu_simple(page):
         page.add_lines("\n\n<!-- SIMPLE MENU START -->\n")
         # Edit or view question
-        if page.page_params.op == PageOperation.EDIT or page.page_params.op == PageOperation.VIEW:
+        if page.page_params.get_param("op") == PageOperation.EDIT or page.page_params.get_param("op") == PageOperation.VIEW:
             select="<select id='sel_q_id' name='sel_q_id' onchange='window.location.replace(" + \
                                 page.page_params.create_url(q_id = "this.value", \
                                                 language = "sel_lang.value", \
                                                 js = True) + ")'>\n"
 
-            qs = page.get_all_questions(PageLanguage.toStr(page.page_params.language))
+            qs = page.get_all_questions(PageLanguage.toStr(page.page_params.get_param("language")))
         
             for q in qs:
-                if q == page.page_params.q_id:
+                if q == page.page_params.get_param("q_id"):
                     selected = "SELECTED"
                 else:
                     selected = ""
@@ -179,7 +179,7 @@ class Design_dev(object):
             select = select + "</select>\n"
 
         # View list
-        elif page.page_params.op == PageOperation.LIST or page.page_params.op == PageOperation.TEST:
+        elif page.page_params.get_param("op") == PageOperation.LIST or page.page_params.get_param("op") == PageOperation.TEST:
             select="<select id='sel_l_id' name='sel_l_id' onchange='window.location.replace(" + \
                                 page.page_params.create_url(l_id = "this.value", \
                                                 language = "sel_lang.value", \
@@ -187,7 +187,7 @@ class Design_dev(object):
             ls = page.get_all_lists()
         
             for l in ls:
-                if l == page.page_params.l_id:
+                if l == page.page_params.get_param("l_id"):
                     selected = "SELECTED"
                 else:
                     selected = ""
@@ -206,19 +206,19 @@ class Design_dev(object):
         if ("languages" in page.repository.get_config()):
             lang_select="<select id='sel_lang' name='sel_lang' onchange='window.location.replace("
 
-            if page.page_params.op == PageOperation.EDIT or page.page_params.op == PageOperation.VIEW:
+            if page.page_params.get_param("op") == PageOperation.EDIT or page.page_params.get_param("op") == PageOperation.VIEW:
                 #lang_select = lang_select + "?q_id=\" + sel_q_id.value + \"&"
                 lang_select = lang_select + page.page_params.create_url(q_id = "sel_q_id.value", \
                                                             language = "this.value", \
                                                             js = True) + ")'>\n"
             # View list
-            elif page.page_params.op == PageOperation.LIST or page.page_params.op == PageOperation.TEST:
+            elif page.page_params.get_param("op") == PageOperation.LIST or page.page_params.get_param("op") == PageOperation.TEST:
                 lang_select = lang_select + page.page_params.create_url(l_id = "sel_l_id.value", \
                                                             language = "this.value",
                                                             js = True) + ")'>\n"
             
             for l in page.repository.get_config()["languages"]:
-                if l == PageLanguage.toStr(page.page_params.language):
+                if l == PageLanguage.toStr(page.page_params.get_param("language")):
                     selected = "SELECTED"
                 else:
                     selected = ""
@@ -244,26 +244,26 @@ class Design_dev(object):
         page.add_lines("""
         <div>
           <span style='float:left;display:inline;""" + style + """'>
-            <form method="post" action='""" + page.page_params.root + """'>
+            <form method="post" action='""" + page.page_params.get_param("root") + """'>
               <input type="hidden" id="op" name="op" value="generate">
-              <input type="hidden" id="q_id" name="q_id" value='""" + page.page_params.q_id + """'>
-              <input type="hidden" id="language" name="language" value='""" + PageLanguage.toStr(page.page_params.language) + """'>
+              <input type="hidden" id="q_id" name="q_id" value='""" + page.page_params.get_param("q_id") + """'>
+              <input type="hidden" id="language" name="language" value='""" + PageLanguage.toStr(page.page_params.get_param("language")) + """'>
               <div style='""" + style + """background-color:#fafaf0;'>
                   <h3>Init code:</h3>
                   <textarea name="init_code" rows="10" cols="80">
-                      """ + page.page_params.init_code + """
+                      """ + page.page_params.get_param("init_code") + """
                   </textarea>
               </div>
               <div style='""" + style + """background-color:#faf0fa;'>
                   <h3>Iter code:</h3>
                   <textarea name="iter_code" rows="10" cols="80">
-                      """ + page.page_params.iter_code + """
+                      """ + page.page_params.get_param("iter_code") + """
                   </textarea>
               </div>
               <div style='""" + style + """background-color:#f0fafa;'>
                   <h3>Question text:</h3>
                   <textarea name="text" rows="10" cols="80">
-                      """ + page.page_params.text + """
+                      """ + page.page_params.get_param("text") + """
                   </textarea>
               </div>
               <div style='""" + style + """background-color:#f0faf0;'>
@@ -295,7 +295,7 @@ class Design_dev(object):
 
     @staticmethod
     def render_simple_page(page):
-        if page.page_params.mobile:
+        if page.page_params.get_param("mobile"):
             Design_dev.render_menu_simple(page)
         else:
             Design_dev.render_menu_full(page)
@@ -322,7 +322,7 @@ class Design_dev(object):
         # user = context.c.user
 
         # login_str = "<select id='sel_user_id' name='sel_user_id' " + \
-        #             "onchange='window.location.replace(\"" + page.page_params.root + "?op=login_test&" + "login_return=" + \
+        #             "onchange='window.location.replace(\"" + page.page_params.get_param("root") + "?op=login_test&" + "login_return=" + \
         #             login_return + "&user_id=local:\" + this.value)'>\n"
 
         # if user is None:
@@ -357,7 +357,7 @@ class Design_dev(object):
             page.on_click(\
                 operation=ResponseOperation.SUBMIT, \
                 url_next=url_next, \
-                record=True), page.get_messages()["check"])
+                record=False), page.get_messages()["check"])
         page.add_lines(OKline)
 
         if url_next is not None:
@@ -366,7 +366,7 @@ class Design_dev(object):
                 page.on_click(\
                     operation=ResponseOperation.SKIP, \
                     url_next=url_next, \
-                    record=True), page.get_messages()["skip"])
+                    record=False), page.get_messages()["skip"])
             page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
             page.add_lines(NEXTline)
             

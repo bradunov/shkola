@@ -118,9 +118,9 @@ class Page(object):
             # Only send results to server if next_url specified (i.e. we are in the test mode)
             ret_str = 'cond = checkAll("{}", "{}", "{}", "{}");'.format(
                 ResponseOperation.toStr(operation),
-                self.page_params.root,
-                self.page_params.q_id,
-                self.page_params.l_id
+                self.page_params.get_param("root"),
+                self.page_params.get_param("q_id"),
+                self.page_params.get_param("l_id")
             )
         else:
             ret_str = "cond = checkAll();"
@@ -172,7 +172,7 @@ class Page(object):
 
     def get_messages(self, language=None):
         if language is None:
-            language = PageLanguage.toStr(self.page_params.language)
+            language = PageLanguage.toStr(self.page_params.get_param("language"))
         if language in self.messages.keys():
             return self.messages[language]
         return self.messages["uk"]
@@ -181,10 +181,10 @@ class Page(object):
         return "item?url={}".format(file)
 
     def get_default_question(self):
-        return self.get_all_questions(PageLanguage.toStr(self.page_params.language))[0]
+        return self.get_all_questions(PageLanguage.toStr(self.page_params.get_param("language")))[0]
 
     def get_default_list(self):
-        return self.get_all_lists(PageLanguage.toStr(self.page_params.language))[0]
+        return self.get_all_lists(PageLanguage.toStr(self.page_params.get_param("language")))[0]
 
 
 
@@ -275,21 +275,6 @@ class Page(object):
 
         
     def main(self, req, headers, args):
-        if False:
-            logging.info("New request: op={} <design={}, mobile={}> - "
-                        "q_id={}, l_id={}, language={}, "
-                        "init_code={}, iter_code={}, text={}, "
-                        "remote_ip={}, user_agent={}, user_language={}.".format(
-                            PageOperation.toStr(self.page_params.op), 
-                            PageDesign.toStr(self.page_params.design),
-                            self.page_params.mobile, 
-                            self.page_params.q_id, self.page_params.l_id, 
-                            PageLanguage.toStr(self.page_params.language), 
-                            self.page_params.init_code, self.page_params.iter_code, self.page_params.text,
-                            self.page_params.user_param.remote_ip, 
-                            self.page_params.user_param.user_agent, 
-                            self.page_params.user_param.user_laguage))
-
 
         self.clear()
 
@@ -311,6 +296,9 @@ class Page(object):
                 # Page counter (for testing)
                 session.set('page_counter', session.get('page_counter', 0) + 1)
 
+                logging.debug("\n\nSESSION STATE: {} - \n{}\n\n".format(
+                    session.user_id(), json.dumps(session.data(), indent=2)))
+
                 # Special ops to register results
                 if "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.REGISTER):
                     return self.register(args)
@@ -318,6 +306,25 @@ class Page(object):
                 else:
                     self.page_params.parse(args)
                     self.page_params.set_url(req.get_url())
+
+                    if True:
+                        logging.info("New request: op={} <design={}, mobile={}> - "
+                                    "q_id={}, l_id={}, language={}, "
+                                    "init_code={}, iter_code={}, text={}, "
+                                    "remote_ip={}, user_agent={}, user_language={}.".format(
+                                        PageOperation.toStr(self.page_params.get_param("op")), 
+                                        PageDesign.toStr(self.page_params.get_param("design")),
+                                        self.page_params.get_param("mobile"), 
+                                        self.page_params.get_param("q_id"), self.page_params.get_param("l_id"), 
+                                        PageLanguage.toStr(self.page_params.get_param("language")), 
+                                        self.page_params.get_param("init_code"), 
+                                        self.page_params.get_param("iter_code"), 
+                                        self.page_params.get_param("text"),
+                                        self.page_params.get_param("user_param").remote_ip, 
+                                        self.page_params.get_param("user_param").user_agent, 
+                                        self.page_params.get_param("user_param").user_laguage))
+
+
                     return Design.main(self)
 
 
@@ -327,59 +334,68 @@ class Page(object):
 
     # args is in format returned by urllib.parse.parse_qs
     def register(self, args):
-        correct = 0
-        incorrect = 0
-        questions = ""
 
-        user_id = context.c.user.user_id if context.c.user else "UNKNOWN"
+        if args["response_type"] == ResponseOperation.toStr(ResponseOperation.SUBMIT) or \
+           args["response_type"] == ResponseOperation.toStr(ResponseOperation.SKIP):
 
-        if "q_id" in args.keys() and "now" in args.keys():
-            if "l_id" not in args.keys() or not args["l_id"] or args["l_id"] is None:
-                l_id = ""
-            else:
-                l_id = args["l_id"]
-                
+            # Record answer to the database
 
-            for key, v in args.items():
-                value = v
-                if key[0:5] == "q_res":
-                    questions = questions + key + "=" + value + ","
-                    if value == "true":
-                        correct = correct + 1
-                    else:
-                        incorrect = incorrect + 1
+            correct = 0
+            incorrect = 0
+            questions = ""
 
-                        
-            hist = context.c.session.get("history")
-            hist[-1]["correct"] = correct
-            hist[-1]["incorrect"] = incorrect
-            context.c.session.set("history", hist)
+            user_id = context.c.user.user_id if context.c.user else "UNKNOWN"
 
+            if "q_id" in args.keys() and "now" in args.keys():
+                if "l_id" not in args.keys() or not args["l_id"] or args["l_id"] is None:
+                    l_id = ""
+                else:
+                    l_id = args["l_id"]
+                    
 
-            response = {"user_id" : user_id,
-                        "question_id": args["q_id"],
-                        "list_id": l_id,
-                        "response_type": args["response_type"],
-                        "attempt": args["attempt"],
-                        "time": args["start"],
-                        "duration": int(args["now"]) - int(args["start"]),
-                        "correct": correct,
-                        "incorrect": incorrect,
-                        "questions": questions}
-
-            logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, response_type=%s, " +
-                        "attempt=%s, start=%s, duration=%s, correct=%s, incorrect=%s, questions=\"%s\"", 
-                        str(user_id), str(args["q_id"]), 
-                        str(l_id), str(args["response_type"]), str(args["attempt"]),
-                        str(args["start"]), str(int(args["now"]) - int(args["start"])),
-                        str(correct), str(incorrect), str(questions))
-
-            try:
-                self.storage.record_response(response)
-            except Exception as err:
-                logging.error("Error submitting record response: {}".format(str(err)))
+                for key, v in args.items():
+                    value = v
+                    if key[0:5] == "q_res":
+                        questions = questions + key + "=" + value + ","
+                        if value == "true":
+                            correct = correct + 1
+                        else:
+                            incorrect = incorrect + 1
 
 
+                hist = context.c.session.get("history")
+                hist[-1]["correct"] = correct
+                hist[-1]["incorrect"] = incorrect
+                context.c.session.set("history", hist)
+
+
+                response = {"user_id" : user_id,
+                            "question_id": args["q_id"],
+                            "list_id": l_id,
+                            "response_type": args["response_type"],
+                            "attempt": args["attempt"],
+                            "time": args["start"],
+                            "duration": int(args["now"]) - int(args["start"]),
+                            "correct": correct,
+                            "incorrect": incorrect,
+                            "questions": questions}
+
+                logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, response_type=%s, " +
+                            "attempt=%s, start=%s, duration=%s, correct=%s, incorrect=%s, questions=\"%s\"", 
+                            str(user_id), str(args["q_id"]), 
+                            str(l_id), str(args["response_type"]), str(args["attempt"]),
+                            str(args["start"]), str(int(args["now"]) - int(args["start"])),
+                            str(correct), str(incorrect), str(questions))
+
+                try:
+                    self.storage.record_response(response)
+                except Exception as err:
+                    logging.error("Error submitting record response: {}".format(str(err)))
+
+
+        elif args["response_type"] == ResponseOperation.toStr(ResponseOperation.LOGOUT):
+            context.c.session.clear()
+            context.c.headers.redirect("{}".format(self.page_params.get_param("root")))
 
 
     

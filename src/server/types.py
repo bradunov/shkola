@@ -16,14 +16,22 @@ class PageParameterParsingError(Exception):
 # Register response in the table
 @unique
 class ResponseOperation(Enum):
-    SUBMIT = 0
-    SKIP = 1
+    NONE = 0
+    SUBMIT = 1
+    SKIP = 2
+    LOGOUT = 3
     @classmethod
     def toStr(cls, enum ) -> str:
-        if enum == ResponseOperation.SUBMIT:
+        if enum == ResponseOperation.NONE:
+            return "NONE"
+        elif enum == ResponseOperation.SUBMIT:
             return "SUBMIT"
         elif enum == ResponseOperation.SKIP:
             return "SKIP"
+        elif enum == ResponseOperation.LOGOUT:
+            return "LOGOUT"
+        else:
+            return "NONE"
             
 
 
@@ -176,44 +184,40 @@ class PageParameters(object):
 
 
     # General parameters
-    root = ""                                         # main URL handle (http://<web_site>/<root>)
-    op = PageOperation.TEST
-    q_id = ""
-    l_id = ""
-    year = ""
-    theme = ""
-    subtheme = ""
-    period = ""
-    difficulty = ""
-    language = PageLanguage.RS
-    user_param = UserParameters()
-    back = False                                       # we went back from the last question
+    _params = {
+        "root" : "",                                         # main URL handle (http://<web_site>/<root>)
+        "op" : PageOperation.TEST,
+        "q_id" : "",
+        "l_id" : "",
+        "year" : "",
+        "theme" : "",
+        "subtheme" : "",
+        "period" : "",
+        "difficulty" : "",
+        "language" : PageLanguage.RS,
+        "user_param" : UserParameters(),
+        "back" : False,                                       # we went back from the last question
 
+        # Parameters for edit mode
+        "init_code" : "",
+        "iter_code" : "",
+        "text" : "",
 
-    # Parameters for edit mode
-    init_code = ""
-    iter_code = ""
-    text = ""
+        # Design style
+        "design" : PageDesign.DEV,
 
+        # Is user on a mobile device
+        "mobile" : True,
 
-    # Design style
-    design = PageDesign.DEV
-
-    # Is user on a mobile device
-    mobile = True
+        # Current URL in the full form
+        "url" : None
+    }
 
     # Raise exception on any error - useful for testing
     # Set raise_exception=1 in URL to trigger exceptions
     with_exception = False
 
 
-    # Current URL in the full form
-    url = None
-
-
-    # The entire state as arrived in the request 
-    # (with encoded state decoded and added to the dict)
-    all_state = {}
 
 
 
@@ -249,6 +253,13 @@ class PageParameters(object):
         context.c.session.set("history", [])
 
 
+    def get_param(self, key):
+        return self._params[key]
+
+    def set_param(self, key, val):
+        self._params[key] = val
+
+
     def parse(self, in_args : dict):
 
         # First check if there are any parameters packet encoded in "state" variable
@@ -258,89 +269,88 @@ class PageParameters(object):
         else:
             args = in_args
 
-
-        self.all_state = args
-
         if "raise_exception" in args.keys() and args["raise_exception"] == 1:
             self.with_exception = True
 
+
+
         if "root" in args.keys():
-            self.root = args["root"]
+            self._params["root"] = args["root"]
         else:
-            self.root = ""
+            self._params["root"] = ""
 
         if "op" in args.keys():
-            self.op = PageOperation.fromStr(args["op"], self.with_exception)
+            self._params["op"] = PageOperation.fromStr(args["op"], self.with_exception)
         else:
-            self.op = PageOperation.DEFAULT
+            self._params["op"] = PageOperation.DEFAULT
 
         if "design" in args.keys():
-            self.design = PageDesign.fromStr(args["design"])
+            self._params["design"] = PageDesign.fromStr(args["design"])
 
         if "back" in args.keys():
-            self.design = (args["back"].lower() == "true")
+            self._params["design"] = (args["back"].lower() == "true")
 
         if "mobile" in args.keys():
-            self.mobile = args["mobile"]
+            self._params["mobile"] = args["mobile"]
         else:
-            self.mobile = True
+            self._params["mobile"] = True
 
         if "language" in args.keys():
-            self.language = PageLanguage.fromStr(args["language"], self.with_exception)
+            self._params["language"] = PageLanguage.fromStr(args["language"], self.with_exception)
 
         if ("q_id" in args.keys()) and (not args["q_id"] is None) and args["q_id"]:
-            self.q_id = args["q_id"]
+            self._params["q_id"] = args["q_id"]
         else:
-            self.q_id = ""
+            self._params["q_id"] = ""
 
         if ("l_id" in args.keys()) and (not args["l_id"] is None) and args["l_id"]:
-            self.l_id = args["l_id"]
+            self._params["l_id"] = args["l_id"]
         else:
-            self.l_id = ""
+            self._params["l_id"] = ""
 
         if ("year" in args.keys()) and (not args["year"] is None) and args["year"]:
-            self.year = args["year"]
+            self._params["year"] = args["year"]
 
         if ("theme" in args.keys()) and (not args["theme"] is None) and args["theme"]:
-            self.theme = args["theme"]
+            self._params["theme"] = args["theme"]
 
         if ("subtheme" in args.keys()) and (not args["subtheme"] is None) and args["subtheme"]:
-            self.subtheme = args["subtheme"]
+            self._params["subtheme"] = args["subtheme"]
 
         if ("period" in args.keys()) and (not args["period"] is None) and args["period"]:
-            self.period = args["period"]
+            self._params["period"] = args["period"]
 
         if ("difficulty" in args.keys()) and (not args["difficulty"] is None) and args["difficulty"]:
-            self.difficulty = args["difficulty"]
+            self._params["difficulty"] = args["difficulty"]
 
         if "init_code" in args.keys():
-            self.init_code = args["init_code"]
+            self._params["init_code"] = args["init_code"]
 
         if "iter_code" in args.keys():
-            self.iter_code = args["iter_code"]
+            self._params["iter_code"] = args["iter_code"]
 
         if "text" in args.keys():
-            self.text = args["text"]
+            self._params["text"] = args["text"]
 
 
         if "remote_ip" in args.keys():
-            self.user_param.remote_ip = args["remote_ip"]
+            self._params["user_param"].remote_ip = args["remote_ip"]
 
         if "user_agent" in args.keys():
-            self.user_param.user_agent = args["user_agent"]
-            self.mobile = is_user_on_mobile(self.user_param.user_agent)
+            self._params["user_param"].user_agent = args["user_agent"]
+            self._params["mobile"] = is_user_on_mobile(self._params["user_param"].user_agent)
         else:
-            self.mobile = False
+            self._params["mobile"] = False
 
         if "user_language" in args.keys():
-            self.user_param.user_language = args["user_language"]
+            self._params["user_param"].user_language = args["user_language"]
 
 
 
     def add_code(self, init_code : str = "", iter_code : str = "", text : str = ""):
-        self.init_code = init_code
-        self.iter_code = iter_code
-        self.text = text
+        self._params["init_code"] = init_code
+        self._params["iter_code"] = iter_code
+        self._params["text"] = text
 
 
     def _str_to_url(self, s, default, js):
@@ -366,24 +376,24 @@ class PageParameters(object):
                    theme=None, subtheme=None, period=None, difficulty=None,
                    language=None, design=None, back=False, js=False):
         if root is None:
-            root = self.root
+            root = self._params["root"]
             root = encap_str(root) if js else root
         if op is None:
-            op = PageOperation.toStr(self.op)
+            op = PageOperation.toStr(self._params["op"])
             op = encap_str(op) if js else op
-        q_id = self._str_to_url(q_id, self.q_id, js)
-        l_id = self._str_to_url(l_id, self.l_id, js)
+        q_id = self._str_to_url(q_id, self._params["q_id"], js)
+        l_id = self._str_to_url(l_id, self._params["l_id"], js)
         if language is None:
-            language = PageLanguage.toStr(self.language)
+            language = PageLanguage.toStr(self._params["language"])
             language = encap_str(language) if js else language
         if design is None:
-            design = PageDesign.toStr(self.design)
+            design = PageDesign.toStr(self._params["design"])
             design = encap_str(design) if js else design
-        year = self._str_to_url(year, self.year, js)
-        theme = self._str_to_url(theme, self.theme, js)
-        subtheme = self._str_to_url(subtheme, self.subtheme, js)
-        period = self._str_to_url(period, self.period, js)
-        difficulty = self._str_to_url(difficulty, self.difficulty, js)
+        year = self._str_to_url(year, self._params["year"], js)
+        theme = self._str_to_url(theme, self._params["theme"], js)
+        subtheme = self._str_to_url(subtheme, self._params["subtheme"], js)
+        period = self._str_to_url(period, self._params["period"], js)
+        difficulty = self._str_to_url(difficulty, self._params["difficulty"], js)
 
         if js:
             url = f"{root} + \"?op=\" + {op} + \"&q_id=\" + {q_id} + \"&l_id=\" + {l_id} " \

@@ -25,26 +25,26 @@ class Design_default(object):
 
         user = context.c.user
 
-        if page.page_params.op == PageOperation.SUMMARY:
+        if page.page_params.get_param("op") == PageOperation.SUMMARY:
             # Last page
             Design_default.render_menu(page)
             Design_default.render_summary_page(page)
-        elif page.page_params.op == PageOperation.INTRO:
+        elif page.page_params.get_param("op") == PageOperation.INTRO:
             # Intro
             Design_default.render_menu(page)
             Design_default.render_select_get_started_page(page)
         elif not user or not user.domain_user_id:
             # No user selected, first select user
             Design_default.render_select_user_page(page)
-        elif not page.page_params.year:
+        elif not page.page_params.get_param("year"):
             # No year selected, select it
             Design_default.render_menu(page)
             Design_default.render_select_year_page(page)
-        elif not page.page_params.theme:
+        elif not page.page_params.get_param("theme"):
             # No theme selected, select it
             Design_default.render_menu(page)
             Design_default.render_select_theme_page(page)
-        elif not page.page_params.subtheme:
+        elif not page.page_params.get_param("subtheme"):
             # No theme selected, select it
             Design_default.render_menu(page)
             Design_default.render_select_subtheme_page(page)
@@ -136,7 +136,7 @@ class Design_default(object):
 
     
         login_str = "<select id='sel_user_id' name='sel_user_id' " + \
-                    "onchange='window.location.replace(\"" + page.page_params.root + "?op=login_test&" + "login_return=" + \
+                    "onchange='window.location.replace(\"" + page.page_params.get_param("root") + "?op=login_test&" + "login_return=" + \
                     login_return + "&user_id=local:\" + this.value)'>\n"
 
         user = context.c.user
@@ -163,7 +163,7 @@ class Design_default(object):
     def render_select_user_page(page):
         page.page_params.delete_history()
 
-        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
         if content:
 
             page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; margin-top:36px;\">")
@@ -280,7 +280,7 @@ class Design_default(object):
     def render_select_year_page(page):
         page.page_params.delete_history()
 
-        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
         if content:
 
 
@@ -447,14 +447,14 @@ class Design_default(object):
     def render_select_theme_page(page):
         page.page_params.delete_history()
 
-        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
-        if content and page.page_params.year in content.keys():
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
+        if content and page.page_params.get_param("year") in content.keys():
             
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines("<h3> {} razred - izaberi oblast</h3>\n".format(page.page_params.year.title()))
+            page.add_lines("<h3> {} razred - izaberi oblast</h3>\n".format(page.page_params.get_param("year").title()))
             page.add_lines("</div>\n")
 
-            for theme in sorted(content[page.page_params.year].keys()):
+            for theme in sorted(content[page.page_params.get_param("year")].keys()):
                 page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
                 page.add_lines("<a href='" + \
                         page.page_params.create_url(
@@ -479,25 +479,25 @@ class Design_default(object):
     def render_select_subtheme_page(page):
         page.page_params.delete_history()
 
-        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
-        if content and page.page_params.year in content.keys() and \
-                       page.page_params.theme in content[page.page_params.year].keys():
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
+        if content and page.page_params.get_param("year") in content.keys() and \
+                       page.page_params.get_param("theme") in content[page.page_params.get_param("year")].keys():
             
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             page.add_lines("<h3> {} razred, {} - izaberi temu</h3>\n".format(\
-                page.page_params.year.title(), page.page_params.theme.title() ))
+                page.page_params.get_param("year").title(), page.page_params.get_param("theme").title() ))
             page.add_lines("</div>\n")
 
-            for subclass in sorted(content[page.page_params.year][page.page_params.theme].keys()):
+            for subclass in sorted(content[page.page_params.get_param("year")][page.page_params.get_param("theme")].keys()):
                 if not subclass == "name":
                     page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
                     page.add_lines("<a href='" + \
                             page.page_params.create_url(
                                 op = PageOperation.toStr(PageOperation.INTRO), 
-                                subtheme = content[page.page_params.year][page.page_params.theme][subclass]["subtheme"], 
-                                period = content[page.page_params.year][page.page_params.theme][subclass]["period"], 
-                                difficulty = content[page.page_params.year][page.page_params.theme][subclass]["difficulty"], 
-                                l_id = content[page.page_params.year][page.page_params.theme]["name"], js = False) + \
+                                subtheme = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["subtheme"], 
+                                period = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["period"], 
+                                difficulty = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["difficulty"], 
+                                l_id = content[page.page_params.get_param("year")][page.page_params.get_param("theme")]["name"], js = False) + \
                             "'> " + subclass.title() + "</a>\n")
                     page.add_lines("</div>\n")
 
@@ -509,7 +509,7 @@ class Design_default(object):
                         subtheme = "*", 
                         period = "*", 
                         difficulty = "*", 
-                        l_id = content[page.page_params.year][page.page_params.theme]["name"], js = False) + \
+                        l_id = content[page.page_params.get_param("year")][page.page_params.get_param("theme")]["name"], js = False) + \
                     "'> Supermix </a>\n")
             page.add_lines("</div>\n")
 
@@ -527,9 +527,9 @@ class Design_default(object):
 
         page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
         page.add_lines("<h3> {} razred, {}, {}|{}|{} - Pocetak </h3>\n".format(\
-            page.page_params.year.title(), page.page_params.theme.title(), \
-            page.page_params.subtheme.title(), page.page_params.period.title(), \
-            page.page_params.difficulty.title() ))
+            page.page_params.get_param("year").title(), page.page_params.get_param("theme").title(), \
+            page.page_params.get_param("subtheme").title(), page.page_params.get_param("period").title(), \
+            page.page_params.get_param("difficulty").title() ))
         page.add_lines("<br>Neke zadatke ces resiti lakse ako spremis papir i olovku.\n")
         page.add_lines("<br>Kad uradis 10 zadataka bez greske, napravi pauzu.\n")
         page.add_lines("<br>Da predjes na sledeci zadatak ili da se vratis na prethodni, koristi trotinet.\n")
@@ -579,7 +579,7 @@ class Design_default(object):
 
         page.add_lines("<a href='" + \
                 page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU), \
-                                            year=page.page_params.year, \
+                                            year=page.page_params.get_param("year"), \
                                             theme = "", \
                                             subtheme = "", \
                                             difficulty = "", \
@@ -603,14 +603,14 @@ class Design_default(object):
         if context.c.session.get("history"):
             current_q_number = len(context.c.session.get("history"))
 
-        if page.page_params.back:
+        if page.page_params.get_param("back"):
             context.c.session.list_delete("history", -1)
         elif not context.c.session.get("history") or len(context.c.session.get("history")) == 0 or \
             not context.c.session.get("history")[-1]["url"] == page.page_params.get_url():
             # Not a simple page refresh, update history
             context.c.session.list_append("history", {
                 "url" : page.page_params.get_url(),
-                "q_id" : page.page_params.q_id,
+                "q_id" : page.page_params.get_param("q_id"),
                 "correct" : 0, 
                 "incorrect" : 0
             })
@@ -631,7 +631,7 @@ class Design_default(object):
         next_question_url = test.render_next_questions()
 
         Design_default.add_buttons(page, next_question_url, prev_url)
-        if page.page_params.root == "main":
+        if page.page_params.get_param("root") == "main":
             correct = 0
             incorrect = 0
 
@@ -673,8 +673,8 @@ class Design_default(object):
                     user.domain_user_id, context.c.session.get('page_counter', 0)
                 )
 
-            if page.page_params.q_id is not None and page.page_params.q_id:
-                debug_str = debug_str + "(Q: {})".format(page.page_params.q_id)
+            if page.page_params.get_param("q_id") is not None and page.page_params.get_param("q_id"):
+                debug_str = debug_str + "(Q: {})".format(page.page_params.get_param("q_id"))
 
 
 
@@ -751,14 +751,14 @@ class Design_default(object):
 
 
         new_page_params = PageParameters()
-        new_page_params.root = page.page_params.root 
+        new_page_params.root = page.page_params.get_param("root") 
         new_page_params.op = PageOperation.MENU
-        new_page_params.language = page.page_params.language
+        new_page_params.language = page.page_params.get_param("language")
         Design_default.render_menu_drop(page, new_page_params, 1)
 
-        # Design_default.render_menu_drop(page, PageLanguage.toStr(page.page_params.language), 
-        #     page.page_params.root + "?op={}&language={}&menu={}".format(
-        #     PageOperation.toStr(page.page_params.op), PageLanguage.toStr(page.page_params.language), 
+        # Design_default.render_menu_drop(page, PageLanguage.toStr(page.page_params.get_param("language")), 
+        #     page.page_params.get_param("root") + "?op={}&language={}&menu={}".format(
+        #     PageOperation.toStr(page.page_params.get_param("op")), PageLanguage.toStr(page.page_params.get_param("language")), 
         #     "mobile"), 1)
 
 
@@ -851,7 +851,7 @@ class Design_default(object):
 
     @staticmethod
     def render_menu_drop(page, new_page_params : PageParameters, indent=0):
-        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
 
         str_indent1 = ""
         for i in range(0, indent):
@@ -896,7 +896,7 @@ class Design_default(object):
 
     #     login_str = ""
     #     for username in sorted(TEST_USERS):
-    #         link = page.page_params.root + "?op=login_test&" + "login_return=" + \
+    #         link = page.page_params.get_param("root") + "?op=login_test&" + "login_return=" + \
     #                     login_return + "&user_id={}".format(username)
     #         str_indent = "<div class='space'></div>"
     #         login_str = login_str + "<a href='" + link + "' class='w3-bar-item w3-button'> " + str_indent + username + "</a>\n"
@@ -924,7 +924,7 @@ class Design_default(object):
 
         if q_number == total_questions:
             home_url = page.page_params.create_url( op=encap_str(PageOperation.toStr(PageOperation.SUMMARY)),
-                                                    year=encap_str(page.page_params.year), 
+                                                    year=encap_str(page.page_params.get_param("year")), 
                                                     q_id=encap_str(""), 
                                                     l_id=encap_str(""), 
                                                     theme=encap_str(""), 

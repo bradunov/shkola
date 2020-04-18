@@ -59,6 +59,12 @@ class Session:
         return self._data
 
 
+    def clear(self):
+        self._user_id == None
+        self._data = {}
+        self._has_updates = True
+
+
     def has_updates(self):
         return self._has_updates
 
