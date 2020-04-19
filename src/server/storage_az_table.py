@@ -95,6 +95,13 @@ class Storage_az_table():
 
         properties.update(data)
 
+        if properties["user_id"] is None:
+            # Tables will not logout (overwrite user_id with "") 
+            # if user_id is None, so we have to set it to " " 
+            # Also, Azurite doesn't update the existing record if "" is here
+            # so we have to convert it to None
+            properties["user_id"] = "None"
+
         try:
             self.table_service.insert_or_merge_entity(self.sessions_table_name, properties)
         except Exception:
@@ -116,7 +123,8 @@ class Storage_az_table():
             return None
 
         return {
-            "user_id": entity["user_id"],
+            # Convert "None" to None, see above
+            "user_id": entity["user_id"] if (not entity["user_id"] == "None") else None,
             "data": entity["data"]
         }
 
@@ -207,7 +215,7 @@ class Storage_az_table():
 
         print("           USER ID                    NAME                      EMAIL                 LAST ACCESSED          REMOTE IP                      USER AGENT             USER LANGUAGE")
         for row in entries:
-            print("{:^30} {:^20} {:^30} {:^20} {:^20} {:^40}".format(
+            print("{:^30} {:^20} {:^30} {:^20} {:^20} {:^40} {:^40}".format(
                 row['user_id'],
                 row['name'],
                 row['email'],

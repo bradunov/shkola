@@ -21,7 +21,7 @@ import logging
 
 
 class Page(object):
-    page_params = PageParameters()
+    page_params = None
 
     question = None
     storage = None
@@ -54,6 +54,7 @@ class Page(object):
             logging.exception("Please define SHKOLA_REL_PATH")
             exit(1)
 
+        self.page_params = PageParameters()
         self.repository = Repository(self.rel_path, use_azure_blob, preload)
         self.storage = server.storage.get_storage()
         self.title = title
@@ -288,30 +289,44 @@ class Page(object):
         headers.set_no_store()
 
 
+
+        logging.debug("\n\nMAIN ARGS: {}\n\n".format(args))        
+
         with context.new_context(req, headers):
             with self.sessiondb.init_session(req, headers) as session:
                 context.c.session = session
                 context.c.user = self.userdb.get_user(session.user_id())
 
+                # Debug
+                session.print()
+
                 # Page counter (for testing)
                 session.set('page_counter', session.get('page_counter', 0) + 1)
-
-                logging.debug("\n\nSESSION STATE: {} - \n{}\n\n".format(
-                    session.user_id(), json.dumps(session.data(), indent=2)))
 
                 # Special ops to register results
                 if "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.REGISTER):
                     return self.register(args)
 
                 else:
-                    self.page_params.parse(args)
                     self.page_params.set_url(req.get_url())
+                    if args["root"] == "edit":
+                        # Old style parameter passing in GET URL
+                        self.page_params.parse(in_args=args, update_only=False)
+                    else:
+                        # Parameters stored in a session,
+                        # only updates passed in URL
+                        self.page_params.print_params()
+                        self.page_params.load_params()
+                        self.page_params.print_params()
+                        self.page_params.parse(in_args=args, update_only=True)
+                        self.page_params.print_params()
+
 
                     if True:
-                        logging.info("New request: op={} <design={}, mobile={}> - "
+                        logging.info("\n\n === New request: op={} <design={}, mobile={}> - "
                                     "q_id={}, l_id={}, language={}, "
                                     "init_code={}, iter_code={}, text={}, "
-                                    "remote_ip={}, user_agent={}, user_language={}.".format(
+                                    "remote_ip={}, user_agent={}, user_language={}.\n\n".format(
                                         PageOperation.toStr(self.page_params.get_param("op")), 
                                         PageDesign.toStr(self.page_params.get_param("design")),
                                         self.page_params.get_param("mobile"), 
@@ -320,9 +335,9 @@ class Page(object):
                                         self.page_params.get_param("init_code"), 
                                         self.page_params.get_param("iter_code"), 
                                         self.page_params.get_param("text"),
-                                        self.page_params.get_param("user_param").remote_ip, 
-                                        self.page_params.get_param("user_param").user_agent, 
-                                        self.page_params.get_param("user_param").user_laguage))
+                                        self.page_params.get_param("user_param")["remote_ip"], 
+                                        self.page_params.get_param("user_param")["user_agent"], 
+                                        self.page_params.get_param("user_param")["user_laguage"]))
 
 
                     return Design.main(self)
@@ -391,11 +406,11 @@ class Page(object):
                     self.storage.record_response(response)
                 except Exception as err:
                     logging.error("Error submitting record response: {}".format(str(err)))
+            else:
+                logging.error("Register operation with incomplete parameters: {}".format(args))
 
-
-        elif args["response_type"] == ResponseOperation.toStr(ResponseOperation.LOGOUT):
-            context.c.session.clear()
-            context.c.headers.redirect("{}".format(self.page_params.get_param("root")))
+        else:
+            logging.error("Unknown register operation: {}".format(args["response_type"]))
 
 
     
@@ -410,7 +425,9 @@ class Page(object):
 
 
     def login(self) -> PageOperation:
-        user_id = context.c.request.param_get("user_id")
+        # Only test uset at the moment
+        #user_id = context.c.request.param_get("user_id")
+        user_id = None
 
         domain = 'local'
         email = None
@@ -436,11 +453,14 @@ class Page(object):
                                            user_agent = user_agent,
                                            user_language = user_language)
 
-        orig_op = self.page_params.all_state.get("orig_op")
-        op = PageOperation.fromStr(orig_op) if orig_op else None
-        url = "/main"
-        if op:
-            url += f"?op={op}"
+        # orig_op = self.page_params.all_state.get("orig_op")
+        # op = PageOperation.fromStr(orig_op) if orig_op else None
+        # url = "/main"
+        # if op:
+        #     url += f"?op={op}"
+
+        url = self.page_params.get_param("root") + \
+            "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
 
         return url
 

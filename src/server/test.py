@@ -16,8 +16,8 @@ class Test(object):
         self.page = page
         self.load_list()
 
-        if self.page.page_params.get_param("q_id") is None or not self.page.page_params.get_param("q_id"):
-            self.page.page_params.set_param("q_id", self.choose_next_question())
+        #if self.page.page_params.get_param("q_id") is None or not self.page.page_params.get_param("q_id"):
+        #    self.page.page_params.set_param("q_id", self.choose_next_question())
 
 
 
@@ -25,11 +25,14 @@ class Test(object):
         self.list = self.page.repository.get_list(self.page.page_params.get_param("l_id"))
 
     
-    def choose_next_question(self, previous_question_name=None):
-
+    def choose_next_question(self):
+            
         potential_questions = []
         potential_questions_w_repeat = []
-        asked_questions = list(map(lambda hist: hist["q_id"], context.c.session.get("history")))
+        if context.c.session.get("history") is None:
+            asked_questions = []
+        else:
+            asked_questions = list(map(lambda hist: hist["q_id"], context.c.session.get("history")))
 
         # Find the list of all question in the subtopic (potential_questions_w_repeat), 
         # and also those among them that haven't been already asked in this session (potential_questions)
@@ -61,9 +64,9 @@ class Test(object):
         
 
         
-    def render_next_questions(self):
-       
-        next_question = self.choose_next_question(self.page.page_params.get_param("q_id"))
+    def render_next_questions(self, next_question=None):  
+        if not next_question:
+            next_question = self.choose_next_question()
         next_question_url = self.page.page_params.create_url(\
             op = PageOperation.toStr(PageOperation.TEST), \
             q_id = next_question, \

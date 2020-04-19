@@ -2,5 +2,7 @@
     "editor.tabSize": 2,
     "Lua.diagnostics.disable": [
         "lowercase-global"
-    ]
+    ],
+    "python.pythonPath": "/usr/bin/python3.6",
+    "python.linting.pylintArgs" : ["--disable", "F0401", "--disable", "W", "--disable", "C"]
 }

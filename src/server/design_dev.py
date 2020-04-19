@@ -133,11 +133,14 @@ class Design_dev(object):
                                             page.page_params.create_url(op = "sel_op.value", \
                                                             js = True) + ")'>\n"
 
+
+        # We stop supporting TEST operation in dev menu - not needed
+        # PageOperation.toStr(PageOperation.TEST),
+
         options = [
             PageOperation.toStr(PageOperation.EDIT),
             PageOperation.toStr(PageOperation.VIEW),
             PageOperation.toStr(PageOperation.LIST),
-            PageOperation.toStr(PageOperation.TEST),
             PageOperation.toStr(PageOperation.STATS)
             ]
 
@@ -197,6 +200,7 @@ class Design_dev(object):
         
         # Temporarily removed
         #log_header = Design_dev.get_login_header(page)
+        log_header = ""
 
         # Not sure why I have to put explicit height here, otherwise it is zero!
         page.add_lines("<div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>\n")

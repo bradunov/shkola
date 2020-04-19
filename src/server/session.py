@@ -1,3 +1,4 @@
+import json
 import uuid
 import logging
 from contextlib import contextmanager
@@ -25,6 +26,8 @@ class Session:
 
     # For lists
     def list_append(self, key, value):
+        if key not in self._data.keys():
+            self._data[key] = []
         logging.info(f"\n\n\n list_append {key} {value} {self._data[key]} \n\n\n")
         if not key in self._data.keys(): 
             self._data[key] = []
@@ -33,7 +36,8 @@ class Session:
 
     def list_delete(self, key, index):
         logging.info(f"\n\n\n list_delete {key} {index} {self._data[key]} \n\n\n")
-        self._data[key][index]
+        del self._data[key][index]
+        logging.info(f"\n\n\n list_deleted {key} {index} {self._data[key]} \n\n\n")
         self._has_updates = True
 
 
@@ -60,13 +64,17 @@ class Session:
 
 
     def clear(self):
-        self._user_id == None
+        self._user_id = None
         self._data = {}
         self._has_updates = True
 
-
     def has_updates(self):
         return self._has_updates
+
+    def print(self):
+        logging.debug("\n\nSession: {} - {} - {}\n\n".format(
+            self._session_id, self._user_id, json.dumps(self._data, indent=2)
+        ))
 
 
 class SessionDB:
@@ -108,6 +116,9 @@ class SessionDB:
             session_data['data'],
         )
 
+        logging.debug("\n\nLoading session state: ID={}, USER={}, DATA={}\n\n".format(
+            session.session_id(), session.user_id(), session.data()))
+
         if session.user_id():
             logging.info("Session: user id associated: %s", session.user_id())
 
@@ -116,6 +127,8 @@ class SessionDB:
 
         finally:
             if session.has_updates():
+                logging.debug("\n\nStoring session state: ID={}, USER={}, DATA={}".format(
+                    session.session_id(), session.user_id(), session.data()))
                 self._storage.update_session(
                     session.session_id(),
                     user_id = session.user_id(),

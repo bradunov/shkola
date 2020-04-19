@@ -51,7 +51,8 @@ class Question(object):
 
     page = None
 
-    list_id = None
+    q_id = None
+    language = None
 
     questions_rel_path = "questions"
     questions_root_path = None
@@ -68,10 +69,20 @@ class Question(object):
     """
 
     
-    def __init__(self, page, init_code=None, iter_code=None, text=None):
+    def __init__(self, page, q_id=None, language=None, init_code=None, iter_code=None, text=None):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.page = page
         self.repository = page.repository
+
+        if q_id:
+            self.q_id = q_id
+        else:
+            self.q_id = page.page_params.get_param("q_id")
+
+        if language:
+            self.language = language
+        else:
+            self.language = page.page_params.get_param("language")
 
         if not init_code is None:
             self.init_code = init_code
@@ -88,19 +99,25 @@ class Question(object):
         else:
             self.text = page.page_params.get_param("text")
 
-        self.lib = Library(self.lua, page, self.questions_rel_path + "/" + self.page.page_params.get_param("q_id"))
-        logging.debug("Rendering question %s, list_id=%s, language=%s", 
-            self.questions_rel_path + "/" + self.page.page_params.get_param("q_id"), 
-            self.page.page_params.get_param("l_id"), PageLanguage.toStr(self.page.page_params.get_param("language")))
+        self.lib = Library(self.lua, page, self.questions_rel_path + "/" + self.q_id)
+        logging.debug("Rendering question %s, language=%s", 
+            self.questions_rel_path + "/" + self.q_id, 
+            PageLanguage.toStr(self.language))
         self.questions_root_path = self.page.rel_path + "/" + self.questions_rel_path
 
 
     def set_from_file(self):
         self.init_code = ""
         self.iter_code = ""
-        self.text = "\n\n<h3>ERROR: no code exists for question {} for language {}!</h3>".format(self.page.page_params.get_param("q_id"), PageLanguage.toStr(self.page.page_params.get_param("language")))
+        self.text = "\n\n<h3>ERROR: no code exists for question {} for language {}!</h3>".format(
+            self.q_id, PageLanguage.toStr(self.language)
+        )
         
-        q = self.repository.get_question(self.page.page_params.get_param("q_id"))
+        self.page.add_lines("\n<!-- Rendering question {} for language {} -->\n\n".format(
+            self.q_id, PageLanguage.toStr(self.language)
+        ))
+
+        q = self.repository.get_question(self.q_id)
         if q is None:
             return
 
@@ -111,7 +128,7 @@ class Question(object):
         if "iter.lua" in q.keys():
             self.iter_code = q["iter.lua"]
 
-        text_key = "text." + PageLanguage.toStr(self.page.page_params.get_param("language"))
+        text_key = "text." + PageLanguage.toStr(self.language)
         if text_key in q.keys():
             self.text = q[text_key]
             
@@ -373,8 +390,8 @@ class Question(object):
            end
            function include(name)
               local root_path = '""" + self.questions_root_path + """';
-              local question_path = '""" + self.page.page_params.get_param("q_id") + """';
-              local language = '""" + PageLanguage.toStr(self.page.page_params.get_param("language")) + """';
+              local question_path = '""" + self.q_id + """';
+              local language = '""" + PageLanguage.toStr(self.language) + """';
 
               require_if_exists(root_path.."/"..question_path.."/"..name.."."..language..".lua");
               require_if_exists(root_path.."/global/"..name.."."..language..".lua");
@@ -399,8 +416,8 @@ class Question(object):
                     strings[ind][len(strings[ind])-1] == ")"):
                     inc_file = strings[ind][len("include("):len(strings[ind])-1]
 
-                    q = self.repository.get_question(self.page.page_params.get_param("q_id"))
-                    inc_name = inc_file + "." + PageLanguage.toStr(self.page.page_params.get_param("language")) + ".lua"
+                    q = self.repository.get_question(self.q_id)
+                    inc_name = inc_file + "." + PageLanguage.toStr(self.language) + ".lua"
                     include_code = ""
                     if q is not None and inc_name in q.keys():
                         include_code = q[inc_name]
@@ -446,7 +463,7 @@ class Question(object):
             for i in range(0, len(strings)):
                 logging.debug("string[{}]: {}".format(i, strings[i]))
 
-            logging.debug("\n\n********************\nCODE: ", code)
+            logging.debug("\n\n********************\nCODE: {}".format(code))
 
         
         lua_fun = self.lua.eval(code)

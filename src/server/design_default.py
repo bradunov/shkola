@@ -1,5 +1,3 @@
-from copy import copy, deepcopy
-
 from server.helpers import encode_dict, encap_str
 
 from server.types import PageLanguage
@@ -8,6 +6,7 @@ from server.types import ResponseOperation
 from server.types import PageParameters
 
 from server.test import Test
+from server.question import Question
 from server.stats import Stats
 
 
@@ -27,27 +26,40 @@ class Design_default(object):
 
         if page.page_params.get_param("op") == PageOperation.SUMMARY:
             # Last page
+            logging.debug("PageOperation.SUMMARY")
             Design_default.render_menu(page)
             Design_default.render_summary_page(page)
         elif page.page_params.get_param("op") == PageOperation.INTRO:
             # Intro
+            logging.debug("PageOperation.INTRO")
             Design_default.render_menu(page)
             Design_default.render_select_get_started_page(page)
-        elif not user or not user.domain_user_id:
+        elif page.page_params.get_param("op") == PageOperation.MENU_USER:
             # No user selected, first select user
+            logging.debug("PageOperation.MENU - select user")
             Design_default.render_select_user_page(page)
-        elif not page.page_params.get_param("year"):
+        elif page.page_params.get_param("op") == PageOperation.MENU_YEAR:
             # No year selected, select it
+            logging.debug("PageOperation.MENU - year")
             Design_default.render_menu(page)
             Design_default.render_select_year_page(page)
-        elif not page.page_params.get_param("theme"):
+        elif page.page_params.get_param("op") == PageOperation.MENU_THEME:
             # No theme selected, select it
+            logging.debug("PageOperation.MENU - theme")
             Design_default.render_menu(page)
             Design_default.render_select_theme_page(page)
-        elif not page.page_params.get_param("subtheme"):
-            # No theme selected, select it
+        elif page.page_params.get_param("op") == PageOperation.MENU_SUBTHEME:
+            # No subtheme selected, select it
+            logging.debug("PageOperation.MENU - subtheme")
             Design_default.render_menu(page)
             Design_default.render_select_subtheme_page(page)
+        else:
+            # Something mesed up the state - clean up the state and go to the intro
+            logging.info("PageOperation.MENU - wrong parameters - select year")
+            page.page_params.delete_params()
+            page.page_params.set_param("op", PageOperation.MENU_YEAR)
+            Design_default.render_menu(page)
+            Design_default.render_select_year_page(page)
 
 
 
@@ -161,7 +173,14 @@ class Design_default(object):
 
     @staticmethod
     def render_select_user_page(page):
+        # This is effectively a logout, so clear the entire history
+        context.c.session.clear()
         page.page_params.delete_history()
+        page.page_params.set_param("year", "")
+        page.page_params.set_param("theme", "")
+        page.page_params.set_param("subtheme", "")
+        page.page_params.set_param("q_id", "")
+        page.page_params.set_param("l_id", "")
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
         if content:
@@ -245,11 +264,7 @@ class Design_default(object):
             msg = "ULOGUJ SE KAO GOST"
 
             link = "href=\"{}\"".format(page.page_params.create_url(
-                                year = "", \
-                                theme = "", \
-                                subtheme = "", \
-                                period = "", \
-                                difficulty = "", \
+                                op = PageOperation.toStr(PageOperation.LOGIN), 
                                 js = False))
 
             text = """
@@ -279,11 +294,14 @@ class Design_default(object):
     @staticmethod
     def render_select_year_page(page):
         page.page_params.delete_history()
+        page.page_params.set_param("year", "")
+        page.page_params.set_param("theme", "")
+        page.page_params.set_param("subtheme", "")
+        page.page_params.set_param("q_id", "")
+        page.page_params.set_param("l_id", "")
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
         if content:
-
-
             page.add_lines("""
             <style>
             body {
@@ -348,12 +366,14 @@ class Design_default(object):
                 razred = ynumbers[i]
                 if i < len(years):
                     obj = "A"
-                    link = "href=\"{}\"".format(page.page_params.create_url(year = years[i], \
-                                                    theme = "", \
-                                                    subtheme = "", \
-                                                    period = "", \
-                                                    difficulty = "", \
-                                                    js = False))
+                    link = "href=\"{}\"".format(page.page_params.create_url(
+                        op = PageOperation.toStr(PageOperation.MENU_THEME),                         
+                        year = years[i], \
+                        theme = "", \
+                        subtheme = "", \
+                        period = "", \
+                        difficulty = "", \
+                        js = False))
                 else:
                     back_color = "#f9f9f9"
                     color = "#999999"
@@ -446,6 +466,10 @@ class Design_default(object):
     @staticmethod
     def render_select_theme_page(page):
         page.page_params.delete_history()
+        page.page_params.set_param("theme", "")
+        page.page_params.set_param("subtheme", "")
+        page.page_params.set_param("q_id", "")
+        page.page_params.set_param("l_id", "")
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
         if content and page.page_params.get_param("year") in content.keys():
@@ -458,6 +482,7 @@ class Design_default(object):
                 page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
                 page.add_lines("<a href='" + \
                         page.page_params.create_url(
+                            op = PageOperation.toStr(PageOperation.MENU_SUBTHEME), 
                             theme = theme, \
                             subtheme = "", \
                             period = "", \
@@ -468,7 +493,9 @@ class Design_default(object):
 
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             page.add_lines("<a href='" + \
-                    page.page_params.create_url(year = "", js = False) + \
+                    page.page_params.create_url(
+                        op = PageOperation.toStr(PageOperation.MENU_YEAR),                         
+                        year = "", js = False) + \
                     "'> Nazad na izbor razreda</a>\n")
             page.add_lines("</div>\n")
 
@@ -478,6 +505,9 @@ class Design_default(object):
     @staticmethod
     def render_select_subtheme_page(page):
         page.page_params.delete_history()
+        page.page_params.set_param("subtheme", "")
+        page.page_params.set_param("q_id", "")
+        page.page_params.set_param("l_id", "")
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
         if content and page.page_params.get_param("year") in content.keys() and \
@@ -515,7 +545,9 @@ class Design_default(object):
 
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             page.add_lines("<a href='" + \
-                    page.page_params.create_url(theme = "", js = False) + \
+                    page.page_params.create_url(
+                        op = PageOperation.toStr(PageOperation.MENU_THEME), 
+                        theme = "", js = False) + \
                     "'> Nazad na izbor oblasti</a>\n")
             page.add_lines("</div>\n")
 
@@ -524,6 +556,8 @@ class Design_default(object):
     @staticmethod
     def render_select_get_started_page(page):
         page.page_params.delete_history()
+        page.page_params.set_param("q_id", "")
+        page.page_params.set_param("l_id", "")
 
         page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
         page.add_lines("<h3> {} razred, {}, {}|{}|{} - Pocetak </h3>\n".format(\
@@ -547,7 +581,7 @@ class Design_default(object):
         page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
         page.add_lines("<a href='" + \
                 page.page_params.create_url(\
-                    op = PageOperation.toStr(PageOperation.MENU), 
+                    op = PageOperation.toStr(PageOperation.MENU_SUBTHEME), 
                     subtheme = "", 
                     period = "", 
                     difficulty = "", 
@@ -576,9 +610,11 @@ class Design_default(object):
         page.add_lines("</div>\n")
 
         page.page_params.delete_history()
+        page.page_params.set_param("q_id", "")
+        page.page_params.set_param("l_id", "")
 
         page.add_lines("<a href='" + \
-                page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU), \
+                page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_SUBTHEME), \
                                             year=page.page_params.get_param("year"), \
                                             theme = "", \
                                             subtheme = "", \
@@ -594,43 +630,46 @@ class Design_default(object):
     @staticmethod
     def render_question_page(page):
 
-        # First render test which may select the next question
-        # otherwise the history will not be correct
         Design_default.render_menu(page)
+
+        next_question = None
         test = Test(page)
 
-        current_q_number = 0
-        if context.c.session.get("history"):
-            current_q_number = len(context.c.session.get("history"))
 
-        if page.page_params.get_param("back"):
-            context.c.session.list_delete("history", -1)
-        elif not context.c.session.get("history") or len(context.c.session.get("history")) == 0 or \
-            not context.c.session.get("history")[-1]["url"] == page.page_params.get_url():
-            # Not a simple page refresh, update history
+        if page.page_params.get_param("op") == PageOperation.TEST_PREV:
+            if len(context.c.session.get("history")) <= 1:
+                logging.warning("We shouldn't have offered a back link when there is no history.")
+                next_question = context.c.session.get("history")[-1]["q_id"]
+            else:
+                context.c.session.list_delete("history", -1)
+                next_question = context.c.session.get("history")[-1]["q_id"]
+        else: 
+            # At the moment every new PageOperation.TEST is a new question
+            # A user can hit refresh, but this will get her/him to the next question
+            # This may be avoided if POST is used instead of GET where there will be a warning
+
+            # elif not context.c.session.get("history") or len(context.c.session.get("history")) == 0 or \
+            #     not context.c.session.get("history")[-1]["url"] == page.page_params.get_url():
+            #     # Not a simple page refresh, update history
+
+            next_question = test.choose_next_question()
             context.c.session.list_append("history", {
                 "url" : page.page_params.get_url(),
-                "q_id" : page.page_params.get_param("q_id"),
+                "q_id" : next_question,
                 "correct" : 0, 
                 "incorrect" : 0
             })
 
-        if current_q_number > 1 and context.c.session.get("history") and \
-                                len(context.c.session.get("history")) >= 2:
+        context.c.session.print()
 
-            prev_url = page.page_params.create_url(\
-                        q_id = context.c.session.get("history")[-2]["q_id"], \
-                        back = True, 
-                        js = False)
-        else:
-            prev_url = page.page_params.create_url(\
-                        op = PageOperation.toStr(PageOperation.INTRO), 
-                        q_id = "", 
-                        js = False)
+        page.page_params.set_param("q_id", next_question)
+        q = Question(page=page, q_id=next_question)
+        q.set_from_file_with_exception()
+        q.eval_with_exception()
 
-        next_question_url = test.render_next_questions()
 
-        Design_default.add_buttons(page, next_question_url, prev_url)
+
+        Design_default.add_buttons(page)
         if page.page_params.get_param("root") == "main":
             correct = 0
             incorrect = 0
@@ -640,6 +679,7 @@ class Design_default(object):
                     correct = correct + int(r["correct"])
                     incorrect = incorrect + int(r["incorrect"])
 
+            current_q_number = len(context.c.session.get("history"))
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             page.add_lines(f"Pitanje {current_q_number} od 3\n")
             page.add_lines(f"Do sada: {correct} / {incorrect}")
@@ -752,7 +792,7 @@ class Design_default(object):
 
         new_page_params = PageParameters()
         new_page_params.root = page.page_params.get_param("root") 
-        new_page_params.op = PageOperation.MENU
+        new_page_params.op = PageOperation.MENU_YEAR
         new_page_params.language = page.page_params.get_param("language")
         Design_default.render_menu_drop(page, new_page_params, 1)
 
@@ -770,8 +810,9 @@ class Design_default(object):
         user = context.c.user
 
         if user and user.domain_user_id and not user.domain_user_id == "UNKNOWN":
+            new_params = PageParameters()
             page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
-                page.page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False) + \
+                new_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False) + \
                 "\" class=\"sh-bar-item sh-button\"> Rezultati </a>\n")
 
 
@@ -790,10 +831,11 @@ class Design_default(object):
         # """)
 
 
-        page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
-            page.page_params.create_url(op = PageOperation.toStr(PageOperation.MENU), js = False) + \
-            "\"> Izloguj se </a>\n")
-        page.add_lines("</div>")
+            new_params = PageParameters()
+            page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
+                new_params.create_url(op = PageOperation.toStr(PageOperation.MENU_USER), js = False) + \
+                "\"> Izloguj se </a>\n")
+            page.add_lines("</div>")
 
 
         if show_language_menu:
@@ -803,8 +845,9 @@ class Design_default(object):
                             <div class="sh-sidebar sh-bar-block sh-border-left" style="width:200px;right:0;display:none"  id="shLang">
                             """
                 for lang in page.get_language_list():
+                    new_params = PageParameters()
                     lang_select = lang_select + "<a class=\"sh-font\" href='" + \
-                            page.page_params.create_url(language = lang, js = False) + \
+                            new_params.create_url(language = lang, js = False) + \
                             "' class='sh-bar-item sh-button'>" + page.get_messages(lang)["name"] + "</a>"
                 
                 lang_select = lang_select + """
@@ -859,10 +902,11 @@ class Design_default(object):
         str_indent2 = str_indent1 + "<div class='space'></div>"
 
         for level in sorted(content.keys()):
-            new_page_params.year = level
-            new_page_params.theme = ""
             page.add_lines(\
-                "<a class=\"sh-font\" href=\"" + new_page_params.create_url(js = False) + \
+                "<a class=\"sh-font\" href=\"" + new_page_params.create_url( \
+                        op = PageOperation.toStr(PageOperation.MENU_THEME), \
+                        year = level, 
+                        js = False) + \
                     "\" style='padding: 8px 0px 8px 16px ; text-decoration:none'> " + \
                     str_indent1 + level.title() + "</a>" + \
                 """
@@ -873,8 +917,11 @@ class Design_default(object):
                 """)
 
             for theme in sorted(content[level].keys()):
-                new_page_params.theme = theme
-                page.add_lines("<a href=\"" + new_page_params.create_url(js = False) + \
+                page.add_lines("<a href=\"" + new_page_params.create_url(\
+                        op = PageOperation.toStr(PageOperation.MENU_SUBTHEME), \
+                        year = level, \
+                        theme = theme, \
+                        js = False) + \
                     "\" class=\"sh-bar-item sh-button sh-font\"> " + str_indent2 + theme.title() + "</a>\n")
 
             page.add_lines("</div>")
@@ -910,7 +957,7 @@ class Design_default(object):
 
 
     @staticmethod    
-    def add_buttons(page, url_next=None, url_prev=None):
+    def add_buttons(page, url_prev=None):
         page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
         page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
         page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
@@ -922,20 +969,32 @@ class Design_default(object):
         else:
             q_number = 0
 
-        if q_number == total_questions:
-            home_url = page.page_params.create_url( op=encap_str(PageOperation.toStr(PageOperation.SUMMARY)),
-                                                    year=encap_str(page.page_params.get_param("year")), 
-                                                    q_id=encap_str(""), 
-                                                    l_id=encap_str(""), 
-                                                    theme=encap_str(""), 
-                                                    js=True)
+
+        if q_number >= 2:
+            url_prev = page.page_params.create_url(\
+                        op = PageOperation.toStr(PageOperation.TEST_PREV), 
+                        js = False)
+        else:
+            url_prev = page.page_params.create_url(\
+                        op = PageOperation.toStr(PageOperation.INTRO), 
+                        js = False)
 
 
-        if url_prev is not None:
-            page.add_lines("\n\n<!-- PREV BUTTON -->\n")
-            page.add_lines("\n<input type='button' style='font-size: 14px;' "\
-                "onclick='window.location.replace(\"{}\")' value='{}' />\n".format(url_prev, "Nazad"))
-            page.add_lines("\n<!-- END PREV BUTTON -->\n\n")
+        if q_number >= total_questions:
+            url_next = page.page_params.create_url( 
+                op=encap_str(PageOperation.toStr(PageOperation.SUMMARY)),
+                js=True)
+        else:
+            url_next = page.page_params.create_url( 
+                op=encap_str(PageOperation.toStr(PageOperation.TEST)),
+                js=True)
+
+
+        page.add_lines("\n\n<!-- PREV BUTTON -->\n")
+        page.add_lines("\n<input type='button' style='font-size: 14px;' "\
+            "onclick='window.location.replace(\"{}\")' value='{}' />\n".format(url_prev, "Nazad"))
+        page.add_lines("\n<!-- END PREV BUTTON -->\n\n")
+
 
         page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")        
         page.add_lines("\n<!-- CLEAR BUTTON -->\n")
@@ -955,37 +1014,24 @@ class Design_default(object):
 
         page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")        
         page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
-        if q_number == total_questions:
-            page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-                page.on_click(\
-                    operation=ResponseOperation.SUBMIT, \
-                    url_next=home_url, quoted=False, \
-                    record=True), page.get_messages()["check"]))
-        else:
-            page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-                page.on_click(\
-                    operation=ResponseOperation.SUBMIT, \
-                    url_next=url_next, \
-                    record=True), page.get_messages()["check"]))
+        page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
+            page.on_click(\
+                operation=ResponseOperation.SUBMIT, \
+                url_next=url_next, \
+                quoted=False, \
+                record=True), page.get_messages()["check"]))
         page.add_lines("\n<!-- END CHECK BUTTON -->\n")
 
 
-        if url_next is not None:
-            page.add_lines("\n\n<!-- NEXT BUTTON -->\n")
-            page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-            if q_number == total_questions:
-                page.add_lines("\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
-                    page.on_click(\
-                        operation=ResponseOperation.SKIP, \
-                        url_next=home_url, quoted=False, \
-                        record=True), page.get_messages()["skip"]))
-            else:
-                page.add_lines("\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
-                    page.on_click(\
-                        operation=ResponseOperation.SKIP, \
-                        url_next=url_next, \
-                        record=True), page.get_messages()["skip"]))
-            page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
+        page.add_lines("\n\n<!-- NEXT BUTTON -->\n")
+        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        page.add_lines("\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
+            page.on_click(\
+                operation=ResponseOperation.SKIP, \
+                url_next=url_next, \
+                quoted=False, \
+                record=True), page.get_messages()["skip"]))
+        page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
             
 
 

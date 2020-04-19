@@ -24,8 +24,10 @@ class Design(object):
         if page.page_params.get_param("op") == PageOperation.DEFAULT:
             if page.page_params.get_param("root") == "edit":
                 page.page_params.set_param("op", PageOperation.VIEW)
-            else:
-                page.page_params.set_param("op", PageOperation.MENU)
+            #else:
+            # Do not set, use whatever is in the state
+            # Otherwise use the menu (that shows on any page) to go wherever.
+
 
         logging.info("Processing request: %s", page.page_params.get_param("op"))
 
@@ -37,6 +39,7 @@ class Design(object):
             return "ABC"
 
         elif page.page_params.get_param("op") == PageOperation.VIEW:
+            logging.debug("PageOperation.VIEW")
             if not page.page_params.get_param("q_id"):
                 page.page_params.set_param("q_id", page.get_default_question())
             q = Question(page)
@@ -46,6 +49,7 @@ class Design(object):
             return page.render()
             
         elif page.page_params.get_param("op") == PageOperation.EDIT:
+            logging.debug("PageOperation.EDIT")
             if not page.page_params.get_param("q_id"):
                 page.page_params.set_param("q_id", page.get_default_question())
             q = Question(page)
@@ -56,6 +60,7 @@ class Design(object):
             return page.render()
             
         elif page.page_params.get_param("op") == PageOperation.GENERATE:
+            logging.debug("PageOperation.GENERATE")
             # Use init_code, iter_code, text from the page's parameter 
             # (as submitted by user) and go to edit mode
             page.page_params.set_param("op", PageOperation.EDIT)
@@ -65,6 +70,7 @@ class Design(object):
             return page.render()
 
         elif page.page_params.get_param("op") == PageOperation.LIST:
+            logging.debug("PageOperation.LIST")
             if not page.page_params.get_param("l_id"):
                 page.page_params.set_param("l_id", page.get_default_list())
             Design.render_menu(page)
@@ -72,7 +78,9 @@ class Design(object):
             ql.render_all_questions()
             return page.render()
 
-        elif page.page_params.get_param("op") == PageOperation.TEST:
+        elif page.page_params.get_param("op") == PageOperation.TEST or \
+             page.page_params.get_param("op") == PageOperation.TEST_PREV:
+            logging.debug("PageOperation.TEST - {}".format(page.page_params.get_param("root")))
             if page.page_params.get_param("root") == "edit":
                 Design.render_menu(page)
                 test = Test(page)
@@ -83,7 +91,10 @@ class Design(object):
                 Design_default.add_background(page)
                 return Design_default.render_question_page(page)
 
-        elif page.page_params.get_param("op") == PageOperation.MENU or \
+        elif page.page_params.get_param("op") == PageOperation.MENU_USER or \
+                page.page_params.get_param("op") == PageOperation.MENU_YEAR or \
+                page.page_params.get_param("op") == PageOperation.MENU_THEME or \
+                page.page_params.get_param("op") == PageOperation.MENU_SUBTHEME or \
                 page.page_params.get_param("op") == PageOperation.INTRO or \
                 page.page_params.get_param("op") == PageOperation.SUMMARY:
             Design_default.add_background(page)
@@ -107,9 +118,17 @@ class Design(object):
             return page.render()
 
         else:
-            return "ERROR - operation {} not known".format(PageOperation.toStr(page.page_params.get_param("op")))
+            Design.error_page(page)
+            return page.render()
 
 
+
+    @staticmethod
+    def error_page(page):
+        # TBD: Custom error page
+        # Always show men here so user can get out
+        Design.render_menu(page)
+        page.add_lines("ERROR - operation {} not known".format(PageOperation.toStr(page.page_params.get_param("op"))))
 
 
     @staticmethod

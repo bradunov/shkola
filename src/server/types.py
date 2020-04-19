@@ -1,3 +1,6 @@
+import copy
+import json
+
 from enum import Enum, unique
 from server.helpers import encode_dict
 from server.helpers import decode_dict
@@ -12,14 +15,12 @@ import logging
 class PageParameterParsingError(Exception):
     pass
 
-
 # Register response in the table
 @unique
 class ResponseOperation(Enum):
     NONE = 0
     SUBMIT = 1
     SKIP = 2
-    LOGOUT = 3
     @classmethod
     def toStr(cls, enum ) -> str:
         if enum == ResponseOperation.NONE:
@@ -28,8 +29,6 @@ class ResponseOperation(Enum):
             return "SUBMIT"
         elif enum == ResponseOperation.SKIP:
             return "SKIP"
-        elif enum == ResponseOperation.LOGOUT:
-            return "LOGOUT"
         else:
             return "NONE"
             
@@ -76,16 +75,24 @@ class PageOperation(Enum):
     REGISTER = 5
     # Submit login request
     LOGIN = 6
-    # Full-screen menu
-    MENU = 7
+    # Menu - select user
+    MENU_USER = 7
+    # Menu - select year
+    MENU_YEAR = 8
+    # Menu - select theme
+    MENU_THEME = 9
+    # Menu - select subtheme
+    MENU_SUBTHEME = 10
     # Set this when not specified, so each menu can decide
-    DEFAULT = 8
+    DEFAULT = 11
     # Stats
-    STATS = 9
+    STATS = 12
     # Intro
-    INTRO = 10
+    INTRO = 13
     # Summary
-    SUMMARY = 11
+    SUMMARY = 14
+    # Previous question in test
+    TEST_PREV = 15
 
     @classmethod
     def toStr(cls, enum) -> str:
@@ -103,8 +110,14 @@ class PageOperation(Enum):
             return "register"
         elif enum == PageOperation.LOGIN:
             return "login"
-        elif enum == PageOperation.MENU:
-            return "menu"
+        elif enum == PageOperation.MENU_USER:
+            return "menu_user"
+        elif enum == PageOperation.MENU_YEAR:
+            return "menu_year"
+        elif enum == PageOperation.MENU_THEME:
+            return "menu_theme"
+        elif enum == PageOperation.MENU_SUBTHEME:
+            return "menu_subtheme"
         elif enum == PageOperation.DEFAULT:
             return "default"
         elif enum == PageOperation.STATS:
@@ -113,6 +126,8 @@ class PageOperation(Enum):
             return "intro"
         elif enum == PageOperation.SUMMARY:
             return "summary"
+        elif enum == PageOperation.TEST_PREV:
+            return "test_prev"
 
     @classmethod
     def fromStr(cls, name:str, with_exception : bool = False):
@@ -126,10 +141,16 @@ class PageOperation(Enum):
             return PageOperation.LIST
         elif name.lower() == "generate":
             return PageOperation.GENERATE
-        elif name.lower() == "login_test":
+        elif name.lower() == "login":
             return PageOperation.LOGIN
-        elif name.lower() == "menu":
-            return PageOperation.MENU
+        elif name.lower() == "menu_user":
+            return PageOperation.MENU_USER
+        elif name.lower() == "menu_year":
+            return PageOperation.MENU_YEAR
+        elif name.lower() == "menu_theme":
+            return PageOperation.MENU_THEME
+        elif name.lower() == "menu_subtheme":
+            return PageOperation.MENU_SUBTHEME
         elif name.lower() == "default":
             return PageOperation.DEFAULT
         elif name.lower() == "stats":
@@ -138,6 +159,8 @@ class PageOperation(Enum):
             return PageOperation.INTRO
         elif name.lower() == "summary":
             return PageOperation.SUMMARY
+        elif name.lower() == "test_prev":
+            return PageOperation.TEST_PREV
         else:
             if with_exception:
                 raise PageParameterParsingError()
@@ -175,18 +198,12 @@ class PageLanguage(Enum):
 
 
 class PageParameters(object):
-    # Parameters learned about the user from HTTP request
-    class UserParameters(object):
-        def __init__(self, remote_ip=None, user_agent=None, user_laguage=None):
-            self.remote_ip = remote_ip if remote_ip else ""
-            self.user_agent = user_agent if user_agent else ""
-            self.user_laguage = user_laguage if user_laguage else ""
 
 
     # General parameters
-    _params = {
+    _default_params = {
         "root" : "",                                         # main URL handle (http://<web_site>/<root>)
-        "op" : PageOperation.TEST,
+        "op" : PageOperation.DEFAULT,
         "q_id" : "",
         "l_id" : "",
         "year" : "",
@@ -195,8 +212,11 @@ class PageParameters(object):
         "period" : "",
         "difficulty" : "",
         "language" : PageLanguage.RS,
-        "user_param" : UserParameters(),
-        "back" : False,                                       # we went back from the last question
+        "user_param" : {
+            "remote_ip" : "",
+            "user_agent" : "",
+            "user_laguage" : ""
+        },
 
         # Parameters for edit mode
         "init_code" : "",
@@ -212,6 +232,9 @@ class PageParameters(object):
         # Current URL in the full form
         "url" : None
     }
+
+    _params = _default_params
+
 
     # Raise exception on any error - useful for testing
     # Set raise_exception=1 in URL to trigger exceptions
@@ -237,6 +260,7 @@ class PageParameters(object):
 
 
     def __init__(self, args : dict = None):
+        self._params = self._default_params
         if not args is None:
             self.parse(args)
 
@@ -254,104 +278,49 @@ class PageParameters(object):
 
 
     def get_param(self, key):
+        if key not in self._params:
+            return None
         return self._params[key]
 
     def set_param(self, key, val):
         self._params[key] = val
 
+    def delete_params(self):
+        self._params = self._default_params
+        self.save_params()
 
-    def parse(self, in_args : dict):
+    def copy_to_serializible_state(self):
+        new_dict = copy.deepcopy(self._params)
+        if "op" in self._params.keys():
+            new_dict["op"] = PageOperation.toStr(self._params["op"])
+        if "language" in self._params.keys():
+            new_dict["language"] = PageLanguage.toStr(self._params["language"])
+        if "design" in self._params.keys():
+            new_dict["design"] = PageDesign.toStr(self._params["design"])
+        return new_dict
 
-        # First check if there are any parameters packet encoded in "state" variable
-        if "state" in in_args.keys():
-            # Decode "state" and add to other parameters
-            args = {**in_args, **PageParameters.decode_params(in_args, self.with_exception)}
+    def load_from_serializible_state(self, params):
+        if params is None:
+            self._params = self._default_params
         else:
-            args = in_args
+            self._params = copy.deepcopy(params)
+            if "op" in params.keys():
+                self._params["op"] = PageOperation.fromStr(params["op"])
+            if "language" in params.keys():
+                self._params["language"] = PageLanguage.fromStr(params["language"])
+            if "design" in params.keys():
+                self._params["design"] = PageDesign.fromStr(params["design"])
 
-        if "raise_exception" in args.keys() and args["raise_exception"] == 1:
-            self.with_exception = True
+    def save_params(self):
+        context.c.session.set("params", self.copy_to_serializible_state())
+        logging.debug("\n\n Saving parameters: {}\n\n".format(context.c.session.get("params")))
+        
+    def load_params(self):
+        self.load_from_serializible_state(context.c.session.get("params"))
+        logging.debug("\n\n Loading parameters: {}\n\n".format(context.c.session.get("params")))
 
-
-
-        if "root" in args.keys():
-            self._params["root"] = args["root"]
-        else:
-            self._params["root"] = ""
-
-        if "op" in args.keys():
-            self._params["op"] = PageOperation.fromStr(args["op"], self.with_exception)
-        else:
-            self._params["op"] = PageOperation.DEFAULT
-
-        if "design" in args.keys():
-            self._params["design"] = PageDesign.fromStr(args["design"])
-
-        if "back" in args.keys():
-            self._params["design"] = (args["back"].lower() == "true")
-
-        if "mobile" in args.keys():
-            self._params["mobile"] = args["mobile"]
-        else:
-            self._params["mobile"] = True
-
-        if "language" in args.keys():
-            self._params["language"] = PageLanguage.fromStr(args["language"], self.with_exception)
-
-        if ("q_id" in args.keys()) and (not args["q_id"] is None) and args["q_id"]:
-            self._params["q_id"] = args["q_id"]
-        else:
-            self._params["q_id"] = ""
-
-        if ("l_id" in args.keys()) and (not args["l_id"] is None) and args["l_id"]:
-            self._params["l_id"] = args["l_id"]
-        else:
-            self._params["l_id"] = ""
-
-        if ("year" in args.keys()) and (not args["year"] is None) and args["year"]:
-            self._params["year"] = args["year"]
-
-        if ("theme" in args.keys()) and (not args["theme"] is None) and args["theme"]:
-            self._params["theme"] = args["theme"]
-
-        if ("subtheme" in args.keys()) and (not args["subtheme"] is None) and args["subtheme"]:
-            self._params["subtheme"] = args["subtheme"]
-
-        if ("period" in args.keys()) and (not args["period"] is None) and args["period"]:
-            self._params["period"] = args["period"]
-
-        if ("difficulty" in args.keys()) and (not args["difficulty"] is None) and args["difficulty"]:
-            self._params["difficulty"] = args["difficulty"]
-
-        if "init_code" in args.keys():
-            self._params["init_code"] = args["init_code"]
-
-        if "iter_code" in args.keys():
-            self._params["iter_code"] = args["iter_code"]
-
-        if "text" in args.keys():
-            self._params["text"] = args["text"]
-
-
-        if "remote_ip" in args.keys():
-            self._params["user_param"].remote_ip = args["remote_ip"]
-
-        if "user_agent" in args.keys():
-            self._params["user_param"].user_agent = args["user_agent"]
-            self._params["mobile"] = is_user_on_mobile(self._params["user_param"].user_agent)
-        else:
-            self._params["mobile"] = False
-
-        if "user_language" in args.keys():
-            self._params["user_param"].user_language = args["user_language"]
-
-
-
-    def add_code(self, init_code : str = "", iter_code : str = "", text : str = ""):
-        self._params["init_code"] = init_code
-        self._params["iter_code"] = iter_code
-        self._params["text"] = text
-
+    def print_params(self):
+        logging.debug("\n\n Printing parameters: {}\n\n".format(json.dumps(self.copy_to_serializible_state(), indent=2)))
 
     def _str_to_url(self, s, default, js):
         if s is None:
@@ -370,11 +339,147 @@ class PageParameters(object):
         return s
 
 
+
+
+
+    def parse(self, in_args : dict, update_only=True):
+
+        updated = False
+
+        # First check if there are any parameters packet encoded in "state" variable
+        if "state" in in_args.keys():
+            # Decode "state" and add to other parameters
+            args = {**in_args, **PageParameters.decode_params(in_args, self.with_exception)}
+        else:
+            args = in_args
+
+        if "raise_exception" in args.keys() and args["raise_exception"] == 1:
+            self.with_exception = True
+
+
+
+        if self._params == None:
+            self._params = self._default_params
+
+
+        if "root" in args.keys():
+            self._params["root"] = args["root"]
+            updated = True
+        else:
+            if not update_only:
+                self._params["root"] = ""
+
+        if "op" in args.keys():
+            self._params["op"] = PageOperation.fromStr(args["op"], self.with_exception)
+            updated = True
+        # Else do not set, use whatever is in the state
+        # Otherwise use the menu (that shows on any page) to go wherever.
+        # else:
+        #     self._params["op"] = PageOperation.DEFAULT
+        #     updated = True
+
+        if "design" in args.keys():
+            self._params["design"] = PageDesign.fromStr(args["design"])
+            updated = True
+
+        if "mobile" in args.keys():
+            self._params["mobile"] = args["mobile"]
+            updated = True
+        else:
+            if not update_only:
+                self._params["mobile"] = True
+
+        if "language" in args.keys():
+            self._params["language"] = PageLanguage.fromStr(args["language"], self.with_exception)
+            updated = True
+
+        if ("q_id" in args.keys()) and (not args["q_id"] is None) and args["q_id"]:
+            self._params["q_id"] = args["q_id"]
+            updated = True
+        else:
+            if not update_only:
+                self._params["q_id"] = ""
+
+        if ("l_id" in args.keys()) and (not args["l_id"] is None) and args["l_id"]:
+            self._params["l_id"] = args["l_id"]
+            updated = True
+        else:
+            if not update_only:
+                self._params["l_id"] = ""
+
+        if ("year" in args.keys()) and (not args["year"] is None) and args["year"]:
+            self._params["year"] = args["year"]
+            updated = True
+
+        if ("theme" in args.keys()) and (not args["theme"] is None) and args["theme"]:
+            self._params["theme"] = args["theme"]
+            updated = True
+
+        if ("subtheme" in args.keys()) and (not args["subtheme"] is None) and args["subtheme"]:
+            self._params["subtheme"] = args["subtheme"]
+            updated = True
+
+        if ("period" in args.keys()) and (not args["period"] is None) and args["period"]:
+            self._params["period"] = args["period"]
+            updated = True
+
+        if ("difficulty" in args.keys()) and (not args["difficulty"] is None) and args["difficulty"]:
+            self._params["difficulty"] = args["difficulty"]
+            updated = True
+
+        if "init_code" in args.keys():
+            self._params["init_code"] = args["init_code"]
+            updated = True
+
+        if "iter_code" in args.keys():
+            self._params["iter_code"] = args["iter_code"]
+            updated = True
+
+        if "text" in args.keys():
+            self._params["text"] = args["text"]
+            updated = True
+
+
+        if "remote_ip" in args.keys():
+            self._params["user_param"]["remote_ip"] = args["remote_ip"]
+            updated = True
+        else:
+            if not update_only:
+                self._params["user_param"]["remote_ip"] = ""
+
+        if "user_agent" in args.keys():
+            self._params["user_param"]["user_agent"] = args["user_agent"]
+            self._params["mobile"] = is_user_on_mobile(self._params["user_param"]["user_agent"])
+            updated = True
+        else:
+            if not update_only:
+                self._params["mobile"] = False
+
+        if "user_language" in args.keys():
+            self._params["user_param"]["user_language"] = args["user_language"]
+            updated = True
+        else:
+            if not update_only:
+                self._params["user_param"]["user_language"] = ""
+
+        if updated:
+            self.save_params()
+
+
+
+    def add_code(self, init_code : str = "", iter_code : str = "", text : str = ""):
+        self._params["init_code"] = init_code
+        self._params["iter_code"] = iter_code
+        self._params["text"] = text
+
+
+
+
     # These parameters have to be strings (even op, language, design, user_id)
     # as they can be JS variables
     def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, 
                    theme=None, subtheme=None, period=None, difficulty=None,
-                   language=None, design=None, back=False, js=False):
+                   language=None, design=None, js=False):
         if root is None:
             root = self._params["root"]
             root = encap_str(root) if js else root
@@ -399,12 +504,10 @@ class PageParameters(object):
             url = f"{root} + \"?op=\" + {op} + \"&q_id=\" + {q_id} + \"&l_id=\" + {l_id} " \
                   f"+ \"&year=\" + {year} + \"&theme=\" + {theme} " \
                   f"+ \"&subtheme=\" + {subtheme} + \"&period=\" + {period} + \"&difficulty=\" + {difficulty} " \
-                  f"+ \"&language=\" + {language} + \"&design=\" + {design} " + \
-                      (" + \"&back=true\"" if back else "")
+                  f"+ \"&language=\" + {language} + \"&design=\" + {design} "
         else:
             url = f"{root}?op={op}&q_id={q_id}&l_id={l_id}&year={year}" \
                   f"&theme={theme}&subtheme={subtheme}&period={period}" \
-                  f"&difficulty={difficulty}&language={language}&design={design}" + \
-                      ("&back=true" if back else "")
+                  f"&difficulty={difficulty}&language={language}&design={design}"
 
         return url
