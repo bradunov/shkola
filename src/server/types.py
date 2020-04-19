@@ -508,13 +508,17 @@ class PageParameters(object):
         difficulty = self._str_to_url(difficulty, self._params["difficulty"], js)
 
         if js:
-            url = f"{root} + \"?op=\" + {op} + \"&q_id=\" + {q_id} + \"&l_id=\" + {l_id} " \
-                  f"+ \"&year=\" + {year} + \"&theme=\" + {theme} " \
-                  f"+ \"&subtheme=\" + {subtheme} + \"&period=\" + {period} + \"&difficulty=\" + {difficulty} " \
-                  f"+ \"&language=\" + {language} + \"&design=\" + {design} "
+            url = ("{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} " \
+                  "+ \"&year=\" + {} + \"&theme=\" + {} " \
+                  "+ \"&subtheme=\" + {} + \"&period=\" + {} + \"&difficulty=\" + {} " \
+                  "+ \"&language=\" + {} + \"&design=\" + {} ").format(
+                      root, op, q_id, l_id, year, theme, subtheme, period, difficulty, language, design
+                  )
         else:
-            url = f"{root}?op={op}&q_id={q_id}&l_id={l_id}&year={year}" \
-                  f"&theme={theme}&subtheme={subtheme}&period={period}" \
-                  f"&difficulty={difficulty}&language={language}&design={design}"
+            url = ("{}?op={}&q_id={}&l_id={}&year={}" \
+                  "&theme={}&subtheme={}&period={}" \
+                  "&difficulty={}&language={}&design={}").format(
+                      root, op, q_id, l_id, year, theme, subtheme, period, difficulty, language, design
+                  )
 
         return url

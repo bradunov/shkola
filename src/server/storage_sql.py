@@ -74,14 +74,14 @@ class Storage_sql:
 
 
     def _update_data(self, table_name, row_id_name, row_id, data):
-        query = f"UPDATE {table_name} SET "
+        query = "UPDATE {} SET ".format(table_name)
 
         vals = list(data.values())[:]
 
         query_list = ["{} = ?".format(f) for f in data.keys()]
         query += ", ".join(query_list)
 
-        query = query + f" WHERE {row_id_name} == ?"
+        query = query + " WHERE {} == ?".format(row_id_name)
         logging.info("QUERY: %s", query)
         vals.append(row_id)
 
