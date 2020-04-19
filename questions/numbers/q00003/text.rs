@@ -1,6 +1,6 @@
 Izračunaj: 
 
-@repeat(6)@
+@repeat(5)@
 @center@ @umanjenik@ @hspace@ - @hspace@  @umanjilac@  @hspace@ = @hspace@ @lib.check_number(rezultat)@
 @/repeat@
 

@@ -1,4 +1,4 @@
-Oboj strelicu koja pokazuje desno
+Oboj strelicu koja pokazuje @direction[ind]@
 
 @center@ @mycanvas()@
 

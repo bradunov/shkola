@@ -29,25 +29,31 @@ style5 =
         ["line_width"] = "3"};
 
 mycanvas = function(no)
-  lib.start_canvas(400, 300, "center")
+  lib.start_canvas(400, 250, "center")
+  
   lib.add_straight_path(40, 60, {{0, 150}}, style1, true, false)
   lib.add_text(40, 220, "1")
+  
   lib.add_straight_path(100, 50, {{70, 0}, {10, -10}, {10, 10}, {100, 0}}, style2, true, false) 
   lib.add_text(200, 65, "2") 
-  lib.add_ellipse(180, 240, 50, 30, style3, true, false)
-  lib.add_circle(220, 200, 20, style3, true, false)
-  lib.add_text(130, 265, "4")
+  
+  lib.add_ellipse(200, 200, 50, 30, style3, true, false)
+  lib.add_text(155, 225, "4")
+  
   lib.add_triangle(100, 130, 40, 60, style4, true, false)
-lib.add_text(100, 170, "3")
+  lib.add_text(100, 170, "3")
+  
   lib.add_curved_path(300, 90, {{50, 0, 20, 50}, {-50, 0, -10, 50}, {40, 20, 20, 50}}, style5, true, false)
   lib.add_text(320, 230, "5")
+  
   lib.end_canvas()
 end
 
-ime = {"prava", "otvorena izlomljena", "zatvorena izlomljena", "zatvorena kriva","otvorena kriva"}
+type = {"prava", "otvorena izlomljena", "zatvorena izlomljena", "zatvorena kriva","otvorena kriva"}
 index = math.random(5)
-izbor = ime[index]
+choice = type[index]
 
+    
                   
                 
                 

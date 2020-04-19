@@ -1,4 +1,5 @@
-Oboj automobile koji se nalaze ispred plavog automobila
+Oboj automobil koji vozi @position[ind]@ plavog automobila
  
 @center@ @mycanvas()@
+
 

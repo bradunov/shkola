@@ -3,12 +3,38 @@ style = {["off_color"] = "fff",
         ["line_color"] = "000",
         ["line_width"] = "2"};
 
-mycanvas = function(no)
-  lib.start_canvas(320, 200, "center", "result[0] == 0 && result[1] == 0 && result[2] == 1")
+direction = {"levo", "gore", "desno", "dole"}
+
+ind = math.random(4)
+
+
+mycanvas = function()
+
+  results = ""
+  
+  for i = 1,4 do 
+      index = i - 1
+      if (index > 0) then
+          results = results .. "&& "
+      end
+      results = results .. "result[" .. tostring(index) .. "] == "	  
+      if ( i == ind ) then
+          results = results .. "1 "
+	  else
+          results = results .. "0 " 
+      end		  
+  end
+
+  lib.start_canvas(320, 250, "center", results)
  
-  lib.add_straight_path (50, 150, {{60, 0}, {0, 20}, {-60,0}, {0, 10}, {-30, -20}, {30, -20}, {0, 10}}, style, false, true) 
-  lib.add_straight_path (150, 50, {{0, 60}, {20, 0}, {0, -60}, {10, 0}, {-20, -30}, {-20, 30}, {10, 0}}, style, false, true)  
-  lib.add_straight_path (270, 170, {{-60, 0}, {0, -20}, {60,0}, {0, -10}, {30, 20}, {-30, 20}, {0, -10}}, style, false, true)
+  lib.add_straight_path (80, 120, {{50, 0}, {0, 20}, {-50,0}, {0, 10}, {-30, -20}, {30, -20}, {0, 10}}, style, false, true) 
+  
+  lib.add_straight_path (150, 50, {{0, 50}, {20, 0}, {0, -50}, {10, 0}, {-20, -30}, {-20, 30}, {10, 0}}, style, false, true)
+  
+  lib.add_straight_path (240, 140, {{-50, 0}, {0, -20}, {50,0}, {0, -10}, {30, 20}, {-30, 20}, {0, -10}}, style, false, true)
+
+  lib.add_straight_path (150, 210, {{0, -50}, {20, 0}, {0, 50}, {10, 0}, {-20, 30}, {-20, -30}, {10, 0}}, style, false, true)  
   
   lib.end_canvas()
 end
+

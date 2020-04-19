@@ -1,35 +1,33 @@
-addition_table = function()
+ addition_table = function()
   columns = 6
-  min_range = 2
-  max_range = 10
+
+  factor = math.random(4);
+  devide = math.random(4);
 
   q = {}
   for i=0,columns-1 do
-    factor1 = math.random(10) - 1
-    factor2 = 4 + math.random(6)
     q[i] = {}
-    q[i][1] = factor1
-    q[i][2] = factor2
-    q[i][3] = factor1 * factor2
+	term = math.random(6)
+    q[i][1] = devide * term
+    q[i][2] = q[i][1] * factor
+    q[i][3] = factor * term
     q[i][4] = math.random(3)
-	if (factor1 == 0 and q[i][4] == 2) then 
-	    q[i][4] = 1
-	end	
   end
 
   style = {}
   style["text-align"] = "center"
-  style["width"] = "40px"
+  style["width"] = "70px"
+
   text = lib.start_table()
   text = text .. lib.start_row()
   text = text .. lib.add_cell("A", style)
-  text = text .. lib.add_cell("B", style)
-  text = text .. lib.add_cell("A · B", style)
+  text = text .. lib.add_cell("B = A · " .. tostring(factor) , style)
+  text = text .. lib.add_cell("C = B : " .. tostring(devide) , style)
   text = text .. lib.end_row()
   for c=0,columns-1 do
     text = text .. lib.start_row()
     for r=1,3 do
-      if q[c][4] == r then
+      if q[c][4] ~= r then
         text = text .. lib.add_cell(lib.check_number(q[c][r]), style)
       else
         text = text .. lib.add_cell(tostring(q[c][r]), style)
@@ -42,3 +40,10 @@ addition_table = function()
   return text
 end
 
+    
+      
+      
+    
+   
+    
+    

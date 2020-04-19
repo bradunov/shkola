@@ -9,7 +9,7 @@ imez = zensko_ime_nom[rz];
 imem = musko_ime_nom[rm] 
 imeg = musko_ime_gen[rm]
 
-godm = math.random(7) + 5;
+godm = math.random(7) + 4;
 factor = math.random(godm - 2);
 godz = godm - factor;
 ukupno = godm + godz
@@ -19,4 +19,3 @@ if (factor < 5) then
 else	
     razlika = array_padez[2]
 end
-     

@@ -8,8 +8,42 @@ different_style = {["off_color"] = "0cf",
         ["line_color"] = "00f",
         ["line_width"] = "2"};
 
-mycanvas = function(no)
-lib.start_canvas(500, 100, "center", "result[0] == 1 && result[1] == 1 && result[2] == 0 && result[3] == 0 && result[4] == 0")
+position = {"ispred", "iza"}
+
+ind = math.random(2)
+
+
+mycanvas = function()
+
+ results = ""
+  
+  for i = 1,5 do 
+      index = i - 1
+      if (index > 0) then
+          results = results .. "&& "
+      end
+      results = results .. "result[" .. tostring(index) .. "] == "	  
+      if (i == 2) then
+	      if ( ind == 1 ) then
+             results = results .. "1 "
+	      else
+             results = results .. "0 " 
+          end
+      else		  
+	      if (i == 3) then 	  			  
+	          if (ind == 2) then
+		          results = results .. "1 "
+		      else	  
+                  results = results .. "0 " 
+		      end
+		   else
+              results = results .. "0 " 	
+           end			  
+      end		  
+  end		  
+
+
+lib.start_canvas(500, 100, "center", results)
 
   lib.add_rectangle(20, 50, 60, 20, style, false, true)
   lib.add_circle(30, 75, 5, style, false, false)
@@ -49,4 +83,5 @@ lib.start_canvas(500, 100, "center", "result[0] == 1 && result[1] == 1 && result
 
   lib.end_canvas()
 end
- 
+
+                  

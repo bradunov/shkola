@@ -1,4 +1,3 @@
-Oboj automobile koji se nalaze iza plavog automobila
+Oboj @choice[ind]@ figuru:
  
 @center@ @mycanvas()@
-

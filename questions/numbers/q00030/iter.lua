@@ -1,5 +1,5 @@
-umanjilac = math.random(7) + 2;
-umanjenik = 10 + math.random(umanjilac - 1);
-rezultat = umanjenik - umanjilac;   
-                       
+umanjilac = math.random(9) + 4;
+rezultat = 3 + math.random(17 - umanjilac);
+umanjenik = rezultat + umanjilac;
 
+9

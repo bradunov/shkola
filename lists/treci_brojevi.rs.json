@@ -153,23 +153,23 @@
     },
    {
       "name" : "numbers/q00084", "random": "1", "period": "jesen", 
-      "subtheme": "problem", "difficulty": "1"
+      "subtheme": "tekstuelni zadatak", "difficulty": "1"
     },
    {
       "name" : "numbers/q00085", "random": "1", "period": "jesen", 
-      "subtheme": "problem", "difficulty": "1"
+      "subtheme": "tekstuelni zadatak", "difficulty": "1"
     },	
    {
       "name" : "numbers/q00086", "random": "1", "period": "zima", 
-      "subtheme": "problem", "difficulty": "2"
+      "subtheme": "tekstuelni zadatak", "difficulty": "2"
     },
    {
       "name" : "numbers/q00087", "random": "1", "period": "jesen", 
-      "subtheme": "problem", "difficulty": "1"
+      "subtheme": "tekstuelni zadatak", "difficulty": "1"
     },	
    {
       "name" : "numbers/q00088", "random": "1", "period": "jesen", 
-      "subtheme": "problem", "difficulty": "3"
+      "subtheme": "tekstuelni zadatak", "difficulty": "3"
     },	
     {
       "name" : "fractions/q00056", "random": "1", "period": "jesen", 
@@ -225,7 +225,7 @@
     },
    {
       "name" : "numbers/q00103", "random": "1", "period": "jesen", 
-      "subtheme": "problem", "difficulty": "2"
+      "subtheme": "tekstuelni zadatak", "difficulty": "2"
     },
    {
       "name" : "numbers/q00104", "random": "1", "period": "jesen", 
@@ -246,7 +246,7 @@
    {
       "name" : "numbers/q00108", "random": "1", "period": "jesen", 
       "subtheme": "tekstuelni zadatak", "difficulty": "2"
-    }	
+    }
   ]
  }
  

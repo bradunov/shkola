@@ -1,18 +1,21 @@
-                                   
+
 addition_table = function()
-  columns = 8
+  columns = 6
   min_range = 2
   max_range = 10
 
   q = {}
   for i=0,columns-1 do
-    factor1 = math.random(10)
+    factor1 = math.random(11) - 1
     factor2 = math.random(10)
     q[i] = {}
     q[i][1] = factor1 * factor2
     q[i][2] = factor2
     q[i][3] = factor1 
     q[i][4] = math.random(3)
+    if (factor1 == 0 and q[i][4] == 2) then 
+        q[i][4] = 1
+    end	
   end
 
   style = {}

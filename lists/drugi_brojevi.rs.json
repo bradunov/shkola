@@ -9,7 +9,7 @@
     },
     {
       "name" : "numbers/q00012", "random": "1", "period": "jesen", 
-      "subtheme": "brojevi do 100", "difficulty": "1"
+      "subtheme": "brojevi", "difficulty": "1"
     },
     {
       "name" : "numbers/q00020", "random": "1", "period": "jesen", 
@@ -25,35 +25,35 @@
     },
     {
       "name" : "numbers/q00023", "random": "0", "period": "proleće", 
-      "subtheme": "brojevi do 100", "difficulty": "3"
+      "subtheme": "brojevi", "difficulty": "3"
     },
     {
       "name" : "numbers/q00033", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "1"
+      "subtheme": "računske operacije", "difficulty": "1"
     },
     {
       "name" : "numbers/q00034", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "1"
+      "subtheme": "računske operacije", "difficulty": "1"
     },
     {
       "name" : "numbers/q00035", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "1"
+      "subtheme": "računske operacije", "difficulty": "1"
     },
     {
       "name" : "numbers/q00036", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "1"
+      "subtheme": "računske operacije", "difficulty": "1"
     },
     {
       "name" : "numbers/q00037", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "1"
+      "subtheme": "računske operacije", "difficulty": "1"
     },
     {
       "name" : "numbers/q00038", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "1"
+      "subtheme": "računske operacije", "difficulty": "1"
     },
     {
       "name" : "numbers/q00039", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "2"
+      "subtheme": "računske operacije", "difficulty": "2"
     },
     {
       "name" : "numbers/q00040", "random": "1", "period": "jesen", 
@@ -61,19 +61,19 @@
     },
     {
       "name" : "numbers/q00041", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "2"
+      "subtheme": "računske operacije", "difficulty": "2"
     },
     {
       "name" : "numbers/q00042", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "2"
+      "subtheme": "računske operacije", "difficulty": "2"
     },
     {
       "name" : "numbers/q00043", "random": "1", "period": "zima", 
-      "subtheme": "množenje i deljenje do 100", "difficulty": "2"
+      "subtheme": "računske operacije", "difficulty": "2"
     },
     {
       "name" : "numbers/q00044", "random": "1", "period": "zima", 
-      "subtheme": "množenje i deljenje do 100", "difficulty": "2"
+      "subtheme": "računske operacije", "difficulty": "2"
     },
     {
       "name" : "numbers/q00045", "random": "1", "period": "zima", 
@@ -85,47 +85,51 @@
     },
     {
       "name" : "numbers/q00050", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "2"
+      "subtheme": "računske operacije", "difficulty": "2"
     },
     {
-      "name" : "numbers/q00096", "random": "1", "period": "Zima", 
+      "name" : "numbers/q00096", "random": "1", "period": "prolece", 
       "subtheme": "tekstuelni zadatak", "difficulty": "3"
     },
     {
       "name" : "numbers/q00097", "random": "1", "period": "Zima", 
       "subtheme": "tekstuelni zadatak", "difficulty": "3"
-    },	
-    {
-      "name" : "numbers/q000156", "random": "1", "period": "jesen", 
-      "subtheme": "rimski brojevi do 100", "difficulty": "1"
     },
+    {
+      "name" : "numbers/q00122", "random": "1", "period": "proleće", 
+      "subtheme": "brojevi do 100", "difficulty": "2"
+    },	
     {
       "name" : "numbers/q000140", "random": "1", "period": "jesen", 
       "subtheme": "rimski brojevi do 100", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000145", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "3"
-    },
+      "name" : "numbers/q000157", "random": "1", "period": "jesen", 
+      "subtheme": "rimski brojevi do 100", "difficulty": "1"
+    },	
     {
-      "name" : "numbers/q000146", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "3"
-    },
-    {
-      "name" : "numbers/q000158", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "2"
+      "name" : "numbers/q000158", "random": "1", "period": "proleće", 
+      "subtheme": "računske operacije", "difficulty": "2"
     },
     {
       "name" : "numbers/q000159", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "2"
+      "subtheme": "računske operacije", "difficulty": "2"
     },
     {
-      "name" : "numbers/q000160", "random": "1", "period": "jesen", 
-      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "2"
+      "name" : "numbers/q000160", "random": "1", "period": "zima", 
+      "subtheme": "računske operacije", "difficulty": "2"
     },
     {
-      "name" : "numbers/q000161", "random": "1", "period": "jesen", 
-      "subtheme": "mnozenje i delenje do 100", "difficulty": "3"
+      "name" : "numbers/q000161", "random": "1", "period": "zima", 
+      "subtheme": "računske operacije", "difficulty": "3"
+    },
+    {
+      "name" : "numbers/q00163", "random": "1", "period": "zima", 
+      "subtheme": "računske operacije", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q000164", "random": "1", "period": "zima", 
+      "subtheme": "računske operacije", "difficulty": "3"
     }	
   ]
  }

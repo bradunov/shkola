@@ -1,6 +1,7 @@
-Oboj kvadrate na slici
+Oboj @figure[ind]@ na slici.
 
 @center@ @mycanvas()@
+
 
 
 

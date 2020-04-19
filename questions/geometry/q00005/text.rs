@@ -1,3 +1,3 @@
-Oboj višu figuru:
+Oboj @choice[ind]@ figuru:
  
 @center@ @mycanvas()@

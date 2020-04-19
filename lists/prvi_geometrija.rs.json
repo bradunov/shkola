@@ -5,63 +5,83 @@
   "questions":  [
     {
       "name" : "geometry/q00001", "random": "1", "period": "Jesen", 
-      "subtheme": "položaj, veličina i oblik", "difficulty": "1"
+      "subtheme": "Položaj, veličina i oblik", "topic": "Prostorne relacije", "difficulty": "1"
     }, 
     {
-      "name" : "geometry/q00002", "random": "0", "period": "Jesen", 
-      "subtheme": "prostorne relacijepoložaj, veličina i oblik", "difficulty": "1"
+      "name" : "geometry/q00002", "random": "1", "period": "Jesen", 
+      "subtheme": "Položaj, veličina i oblik", "topic": "Prostorne relacije", "difficulty": "1"
     }, 
     {
-      "name" : "geometry/q00003", "random": "0", "period": "Jesen", 
-      "subtheme": "položaj, veličina i oblik", "difficulty": "1"
+      "name" : "geometry/q00003", "random": "1", "period": "Jesen", 
+      "subtheme": "Položaj, veličina i oblik", "topic": "Veličina predmeta i bića", "difficulty": "1"
     }, 
     {
-      "name" : "geometry/q00004", "random": "0", "period": "Jesen", 
-      "subtheme": "geometrijske figure i tela", "difficulty": "1"
+      "name" : "geometry/q00004", "random": "1", "period": "Jesen", 
+      "subtheme": "Položaj, veličina i oblik", "topic": "Geometrijske figure", "difficulty": "1"
     }, 
     {
-      "name" : "geometry/q00005", "random": "0", "period": "Jesen", 
-      "subtheme": "položaj, veličina i oblik", "difficulty": "1"
+      "name" : "geometry/q00005", "random": "1", "period": "Jesen", 
+      "subtheme": "Položaj, veličina i oblik", "topic": "Veličina predmeta i bića", "difficulty": "1"
     }, 
     {
-      "name" : "geometry/q00006", "random": "0", "period": "Jesen", 
-      "subtheme": "položaj, veličina i oblik", "difficulty": "1"
+      "name" : "geometry/q00006", "random": "1", "period": "Jesen", 
+      "subtheme": "Položaj, veličina i oblik", "topic": "Prostorne relacije", "difficulty": "1"
     }, 
     {
       "name" : "geometry/q00007", "random": "0", "period": "Jesen", 
-      "subtheme": "položaj, veličina i oblik", "difficulty": "1"
+      "subtheme": "Položaj, veličina i oblik", "topic": "Prostorne relacije", "difficulty": "1"
     }, 
     {
       "name" : "geometry/q00008", "random": "0", "period": "Jesen", 
-      "subtheme": "geometrijske figure i tela", "difficulty": "1"
+      "subtheme": "Položaj, veličina i oblik", "topic": "Prostorne relacije", "difficulty": "2"
     }, 
     {
-      "name" : "geometry/q00009", "random": "0", "period": "zima", 
-      "subtheme": "linije", "difficulty": "1"
+      "name" : "geometry/q00009", "random": "1", "period": "zima", 
+      "subtheme": "Linije", "topic": "Prava, kriva, izlomljena, otvorena, zatvorena", "difficulty": "1"
     }, 
     {
       "name" : "geometry/q00010", "random": "1", "period": "zima", 
-      "subtheme": "linije", "difficulty": "1"
+      "subtheme": "Linije", "topic": "Prava i kriva linija", "difficulty": "2"
     }, 
     {
-      "name" : "geometry/q00011", "random": "0", "period": "zima", 
-      "subtheme": "linije", "difficulty": "1"
+      "name" : "geometry/q00011", "random": "1", "period": "zima", 
+      "subtheme": "Linije", "topic": "Izlomljena i kriva otvorena linija", "difficulty": "1"
     }, 
     {
       "name" : "geometry/q00012", "random": "1", "period": "Jesen", 
-      "subtheme": "geometrijske figure i tela", "difficulty": "1"
+      "subtheme": "Položaj, veličina i oblik",  "topic": "Geometrijske figure", "difficulty": "1"
     }, 
     {
-      "name" : "geometry/q00013", "random": "0", "period": "Jesen", 
-      "subtheme": "geometrijske figure i tela", "difficulty": "1"
+      "name" : "geometry/q00013", "random": "1", "period": "Jesen", 
+      "subtheme": "Položaj, veličina i oblik",  "topic": "Geometrijske figure i tela", "difficulty": "2"
     }, 
     {
       "name" : "geometry/q00014", "random": "1", "period": "Jesen", 
-      "subtheme": "položaj, veličina i oblik", "difficulty": "1"
+      "subtheme": "Položaj, veličina i oblik", "topic": "Prostorne relacije", "difficulty": "1"
     }, 
     {
-      "name" : "geometry/q00015", "random": "0", "period": "Jesen", 
-      "subtheme": "položaj, veličina i oblik", "difficulty": "1"
+      "name" : "geometry/q00015", "random": "1", "period": "Jesen", 
+      "subtheme": "Položaj, veličina i oblik", "topic": "Prostorne relacije", "difficulty": "2"
+    },
+    {
+      "name" : "geometry/q00043", "random": "0", "period": "Jesen", 
+      "subtheme": "Položaj, veličina i oblik",  "topic": "Geometrijska tela", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00044", "random": "0", "period": "Jesen", 
+      "subtheme": "Položaj, veličina i oblik",  "topic": "Geometrijske figure", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00045", "random": "1", "period": "Jesen", 
+      "subtheme": "Položaj, veličina i oblik",  "topic": "Geometrijske figure, spoljasnja/unutrasnja oblast", "difficulty": "2"
+    },
+    {
+      "name" : "geometry/q00046", "random": "1", "period": "Jesen", 
+      "subtheme": "Položaj, veličina i oblik",  "topic": "Geometrijske figure, spoljasnja/unutrasnja oblast", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00047", "random": "1", "period": "Zima", 
+      "subtheme": "Linije",  "topic": "Tačka i linija; duž", "difficulty": "1"
     }
   ]
  }

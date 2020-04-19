@@ -4,20 +4,20 @@
   "language" : "rs",
   "questions":  [
     {
-      "name" : "geometry/q00039", "random": "1", "period": "zima", 
+      "name" : "geometry/q00039", "random": "1", "period": "jesen", 
       "subtheme": "merenje i mere", "difficulty": "2"
     },
     {
-      "name" : "geometry/q00040", "random": "1", "period": "zima", 
-      "subtheme": "merenje i mere", "difficulty": "2"
+      "name" : "geometry/q00040", "random": "1", "period": "jesen", 
+      "subtheme": "merenje i mere", "difficulty": "1"
     },
     {
-      "name" : "geometry/q00041", "random": "1", "period": "zima", 
-      "subtheme": "merenje i mere", "difficulty": "2"
+      "name" : "geometry/q00041", "random": "1", "period": "jesen", 
+      "subtheme": "merenje i mere", "difficulty": "1"
     },
     {
       "name" : "geometry/q00042", "random": "1", "period": "zima", 
-      "subtheme": "merenje i mere", "difficulty": "2"
+      "subtheme": "merenje i mere", "difficulty": "3"
     }	
   ]
  }

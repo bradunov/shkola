@@ -62,7 +62,15 @@
     {
       "name" : "numbers/q00130", "random": "1", "period": "Jesen", 
       "subtheme": "zapis broja", "difficulty": "1"
-    }	
+    },
+    {
+      "name" : "numbers/q000145", "random": "1", "period": "jesen", 
+      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q000146", "random": "1", "period": "jesen", 
+      "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "2"
+    }
   ]
  }
  

@@ -9,5 +9,3 @@ Koliko godina ima @imez@? @hspace@ @lib.check_number(godz)@
 Koliko godina imaju zajedno? @hspace@ @lib.check_number(ukupno)@ 
             
    
-
-                                 
