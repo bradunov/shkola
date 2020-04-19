@@ -341,8 +341,14 @@ class PageParameters(object):
 
 
 
+    # legacy = True for pre-session design (used in EDIT mode)
 
-    def parse(self, in_args : dict, update_only=True):
+    def parse(self, in_args : dict, legacy=False):
+
+        if legacy:
+            update_only=False
+        else:
+            update_only=True
 
         updated = False
 
@@ -462,8 +468,9 @@ class PageParameters(object):
             if not update_only:
                 self._params["user_param"]["user_language"] = ""
 
-        if updated:
-            self.save_params()
+        if not legacy:
+            if updated:
+                self.save_params()
 
 
 

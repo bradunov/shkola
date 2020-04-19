@@ -8,8 +8,71 @@ from server.stats import Stats
 from server.user_db import TEST_USERS
 import server.context as context
 
+import server.question as question
+import server.qlist as qlist
+
+import logging
 
 class Design_dev(object):
+
+
+
+    @staticmethod
+    def render_main_page(page):
+
+        # Select default
+        if not page.page_params.get_param("op") == PageOperation.EDIT and \
+           not page.page_params.get_param("op") == PageOperation.GENERATE and \
+           not page.page_params.get_param("op") == PageOperation.LIST and \
+           not page.page_params.get_param("op") == PageOperation.VIEW:
+            page.page_params.set_param("op", PageOperation.VIEW)
+
+
+        if page.page_params.get_param("op") == PageOperation.EDIT:
+            logging.debug("PageOperation.EDIT")
+            if not page.page_params.get_param("q_id"):
+                page.page_params.set_param("q_id", page.get_default_question())
+            q = question.Question(page)
+            q.set_from_file_with_exception()
+            page.add_question(q)
+            page.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
+            Design_dev.render_page(page)
+            return page.render()
+            
+        elif page.page_params.get_param("op") == PageOperation.GENERATE:
+            logging.debug("PageOperation.GENERATE")
+            # Use init_code, iter_code, text from the page's parameter 
+            # (as submitted by user) and go to edit mode
+            page.page_params.set_param("op", PageOperation.EDIT)
+            q = question.Question(page)
+            page.add_question(q)
+            Design_dev.render_page(page)
+            return page.render()
+
+        elif page.page_params.get_param("op") == PageOperation.LIST:
+            logging.debug("PageOperation.LIST")
+            if not page.page_params.get_param("l_id"):
+                page.page_params.set_param("l_id", page.get_default_list())
+            Design_dev.render_menu(page)
+            ql = qlist.Qlist(page)
+            ql.render_all_questions()
+            return page.render()
+
+        elif page.page_params.get_param("op") == PageOperation.STATS:
+            Design_dev.render_page_stats(page)
+            return page.render()
+
+        else:
+        #elif page.page_params.get_param("op") == PageOperation.VIEW:
+            logging.debug("PageOperation.VIEW")
+            if not page.page_params.get_param("q_id"):
+                page.page_params.set_param("q_id", page.get_default_question())
+            q = question.Question(page)
+            q.set_from_file_with_exception()
+            page.add_question(q)
+            Design_dev.render_page(page)
+            return page.render()
+
 
 
     @staticmethod

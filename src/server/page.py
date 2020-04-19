@@ -281,7 +281,7 @@ class Page(object):
 
         if headers is None or req is None:
             # Cherrypy - ignore cookies
-            self.page_params.parse(args)
+            self.page_params.parse(args, legacy=True)
             return Design.main(self)
 
 
@@ -291,6 +291,13 @@ class Page(object):
 
 
         logging.debug("\n\nMAIN ARGS: {}\n\n".format(args))        
+
+        if args["root"] == "edit":
+            # Old style EDIT page with parameter passing in GET URL
+            self.page_params.parse(in_args=args, legacy=True)
+            self.page_params.print_params()
+            return Design.main(self)
+
 
         with context.new_context(req, headers):
             with self.sessiondb.init_session(req, headers) as session:
@@ -309,17 +316,12 @@ class Page(object):
 
                 else:
                     self.page_params.set_url(req.get_url())
-                    if args["root"] == "edit":
-                        # Old style parameter passing in GET URL
-                        self.page_params.parse(in_args=args, update_only=False)
-                    else:
-                        # Parameters stored in a session,
-                        # only updates passed in URL
-                        self.page_params.print_params()
-                        self.page_params.load_params()
-                        self.page_params.print_params()
-                        self.page_params.parse(in_args=args, update_only=True)
-                        self.page_params.print_params()
+
+                    # Parameters stored in a session,
+                    # only updates passed in URL
+                    self.page_params.load_params()
+                    self.page_params.parse(in_args=args)
+                    self.page_params.print_params()
 
 
                     if True:

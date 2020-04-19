@@ -18,41 +18,93 @@ import logging
 
 
 class Design_default(object):
+    total_questions = 3
 
     @staticmethod
     def render_main_page(page):
 
         user = context.c.user
 
-        if page.page_params.get_param("op") == PageOperation.SUMMARY:
+        # If login, update user and replace op with the original op
+        if page.page_params.get_param("op") == PageOperation.LOGIN:
+            new_url = page.login()
+            context.c.headers.redirect(new_url)
+            return "ABC"
+
+        # If we happen to get to too many questions (e.g. reloading or returning to a test from elsewhere)
+        # here we check that we didn't reach the end counter, and if we did, redirect to summary
+        if (page.page_params.get_param("op") == PageOperation.TEST or \
+             page.page_params.get_param("op") == PageOperation.TEST_PREV) and \
+             context.c.session.get("history") and len(context.c.session.get("history")) >= Design_default.total_questions:
+            page.page_params.set_param("op", PageOperation.SUMMARY)
+
+
+        Design_default.add_header(page)
+        Design_default.add_background(page)
+
+        if page.page_params.get_param("op") == PageOperation.TEST or \
+             page.page_params.get_param("op") == PageOperation.TEST_PREV:
+            # Tests
+            logging.debug("PageOperation.TEST - {}".format(page.page_params.get_param("root")))
+            Design_default.render_menu(page)
+            return Design_default.render_question_page(page)
+
+        elif page.page_params.get_param("op") == PageOperation.SUMMARY:
             # Last page
             logging.debug("PageOperation.SUMMARY")
             Design_default.render_menu(page)
             Design_default.render_summary_page(page)
+            return page.render()
+
         elif page.page_params.get_param("op") == PageOperation.INTRO:
             # Intro
             logging.debug("PageOperation.INTRO")
             Design_default.render_menu(page)
             Design_default.render_select_get_started_page(page)
+            return page.render()
+
         elif page.page_params.get_param("op") == PageOperation.MENU_USER:
             # No user selected, first select user
             logging.debug("PageOperation.MENU - select user")
             Design_default.render_select_user_page(page)
+            return page.render()
+
         elif page.page_params.get_param("op") == PageOperation.MENU_YEAR:
             # No year selected, select it
             logging.debug("PageOperation.MENU - year")
             Design_default.render_menu(page)
             Design_default.render_select_year_page(page)
+            return page.render()
+
         elif page.page_params.get_param("op") == PageOperation.MENU_THEME:
             # No theme selected, select it
             logging.debug("PageOperation.MENU - theme")
             Design_default.render_menu(page)
             Design_default.render_select_theme_page(page)
+            return page.render()
+
         elif page.page_params.get_param("op") == PageOperation.MENU_SUBTHEME:
             # No subtheme selected, select it
             logging.debug("PageOperation.MENU - subtheme")
             Design_default.render_menu(page)
             Design_default.render_select_subtheme_page(page)
+            return page.render()
+
+        elif page.page_params.get_param("op") == PageOperation.STATS:
+            Design_default.render_menu(page)
+            if user and user.domain_user_id:
+                # TBD: old notation
+                u_id = user.domain_user_id
+                if len(u_id) >= len("local:") and u_id[:len("local:")] == "local:":
+                    u_id = u_id[len("local:"):]
+                Design_default.render_user_stats(page, u_id)
+            else:
+                logging.info("PageOperation.STATS - no user - select user")
+                page.page_params.delete_params()
+                page.page_params.set_param("op", PageOperation.MENU_USER)
+                Design_default.render_select_year_page(page)
+            return page.render()
+
         else:
             # Something mesed up the state - clean up the state and go to the intro
             logging.info("PageOperation.MENU - wrong parameters - select year")
@@ -60,6 +112,7 @@ class Design_default(object):
             page.page_params.set_param("op", PageOperation.MENU_YEAR)
             Design_default.render_menu(page)
             Design_default.render_select_year_page(page)
+            return page.render()
 
 
 
@@ -630,8 +683,6 @@ class Design_default(object):
     @staticmethod
     def render_question_page(page):
 
-        Design_default.render_menu(page)
-
         next_question = None
         test = Test(page)
 
@@ -791,9 +842,9 @@ class Design_default(object):
 
 
         new_page_params = PageParameters()
-        new_page_params.root = page.page_params.get_param("root") 
-        new_page_params.op = PageOperation.MENU_YEAR
-        new_page_params.language = page.page_params.get_param("language")
+        new_page_params.set_param("root", page.page_params.get_param("root"))
+        new_page_params.set_param("op", PageOperation.MENU_YEAR)
+        new_page_params.set_param("language", page.page_params.get_param("language"))
         Design_default.render_menu_drop(page, new_page_params, 1)
 
         # Design_default.render_menu_drop(page, PageLanguage.toStr(page.page_params.get_param("language")), 
@@ -811,6 +862,7 @@ class Design_default(object):
 
         if user and user.domain_user_id and not user.domain_user_id == "UNKNOWN":
             new_params = PageParameters()
+            new_page_params.set_param("root", page.page_params.get_param("root"))
             page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
                 new_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False) + \
                 "\" class=\"sh-bar-item sh-button\"> Rezultati </a>\n")
@@ -832,6 +884,7 @@ class Design_default(object):
 
 
             new_params = PageParameters()
+            new_page_params.set_param("root", page.page_params.get_param("root"))
             page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
                 new_params.create_url(op = PageOperation.toStr(PageOperation.MENU_USER), js = False) + \
                 "\"> Izloguj se </a>\n")
@@ -846,6 +899,7 @@ class Design_default(object):
                             """
                 for lang in page.get_language_list():
                     new_params = PageParameters()
+                    new_page_params.set_param("root", page.page_params.get_param("root"))
                     lang_select = lang_select + "<a class=\"sh-font\" href='" + \
                             new_params.create_url(language = lang, js = False) + \
                             "' class='sh-bar-item sh-button'>" + page.get_messages(lang)["name"] + "</a>"
@@ -895,6 +949,9 @@ class Design_default(object):
     @staticmethod
     def render_menu_drop(page, new_page_params : PageParameters, indent=0):
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
+
+        logging.debug("\n\nAAAAA:\n\n")
+        new_page_params.print_params()
 
         str_indent1 = ""
         for i in range(0, indent):
@@ -962,7 +1019,6 @@ class Design_default(object):
         page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
         page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
 
-        total_questions = 3
 
         if context.c.session.get("history"):
             q_number = len(context.c.session.get("history"))
@@ -980,7 +1036,7 @@ class Design_default(object):
                         js = False)
 
 
-        if q_number >= total_questions:
+        if q_number >= Design_default.total_questions:
             url_next = page.page_params.create_url( 
                 op=encap_str(PageOperation.toStr(PageOperation.SUMMARY)),
                 js=True)
@@ -1096,7 +1152,6 @@ class Design_default(object):
 
     @staticmethod
     def render_user_stats(page, u_id):
-        Design_default.render_menu(page)
         stats = Stats.render_user_stats(page, u_id)
 
         hspace = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"

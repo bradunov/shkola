@@ -1,6 +1,6 @@
 from server.question import Question
-from server.design_dev import Design_dev
 
+from server.types import ResponseOperation
 
 # This is not (yet?) design agnostic
 
@@ -63,7 +63,47 @@ class Qlist(object):
 
             self.page.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
             q.eval_with_exception()
-            Design_dev.add_buttons(self.page)
+            self.add_buttons(self.page)
             self.page.add_lines("</div>")
 
             
+
+    # This is copied brom Design_dev as the import for some reason doesn't work:
+    # import server.design_dev as design_dev
+    def add_buttons(self, page, url_next=None):
+        page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
+        page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
+        page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
+
+        OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
+        OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
+            page.on_click(\
+                operation=ResponseOperation.SUBMIT, \
+                url_next=url_next, \
+                record=False), page.get_messages()["check"])
+        page.add_lines(OKline)
+
+        if url_next is not None:
+            NEXTline = ""
+            NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
+                page.on_click(\
+                    operation=ResponseOperation.SKIP, \
+                    url_next=url_next, \
+                    record=False), page.get_messages()["skip"])
+            page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+            page.add_lines(NEXTline)
+            
+        page.add_lines("\n<!-- END CHECK NEXT BUTTONS -->\n")
+
+
+
+        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        
+        page.add_lines("\n<!-- CLEAR BUTTON -->\n")
+        page.add_lines("\n<input type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
+            page.get_messages()["clear"]))
+        page.add_lines("\n<!-- END CLEAR BUTTON -->\n")
+
+        page.add_lines("\n</div>\n")
+        page.add_lines("</div>\n")
+        page.add_lines("\n\n<!-- QUESTIONS END -->\n\n")
