@@ -3,7 +3,7 @@
   "proxies": {
       "myHomeProxy": {
           "matchCondition": {
-              "methods": [ "GET" ],
+              "methods": [ "GET", "POST" ],
               "route": "/"
           },
           "backendUri": "https://tatamata.azurewebsites.net/main"
