@@ -54,8 +54,8 @@ class UserDB(object):
             user_id = user_id,
             domain = domain,
             domain_user_id = domain_user_id,
-            email = d['email'],
-            name = d['name']
+            email = d['email'] if 'email' in d.keys() else "",
+            name = d['name'] if 'name' in d.keys() else ""
         )
 
 
