@@ -883,12 +883,12 @@ class Design_default(object):
         # """)
 
 
-            new_params = PageParameters()
-            new_page_params.set_param("root", page.page_params.get_param("root"))
-            page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
-                new_params.create_url(op = PageOperation.toStr(PageOperation.MENU_USER), js = False) + \
-                "\"> Izloguj se </a>\n")
-            page.add_lines("</div>")
+        new_params = PageParameters()
+        new_page_params.set_param("root", page.page_params.get_param("root"))
+        page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
+            new_params.create_url(op = PageOperation.toStr(PageOperation.MENU_USER), js = False) + \
+            "\"> Izloguj se </a>\n")
+        page.add_lines("</div>")
 
 
         if show_language_menu:
