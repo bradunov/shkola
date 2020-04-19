@@ -20,7 +20,6 @@ class Session:
 
     def set(self, key, value):
         self._data[key] = value
-        logging.info(f"\n\n\n set {key} {value} {self._data[key]} \n\n\n")
         self._has_updates = True
 
 
@@ -28,16 +27,13 @@ class Session:
     def list_append(self, key, value):
         if key not in self._data.keys():
             self._data[key] = []
-        logging.info(f"\n\n\n list_append {key} {value} {self._data[key]} \n\n\n")
         if not key in self._data.keys(): 
             self._data[key] = []
         self._data[key].append(value)
         self._has_updates = True
 
     def list_delete(self, key, index):
-        logging.info(f"\n\n\n list_delete {key} {index} {self._data[key]} \n\n\n")
         del self._data[key][index]
-        logging.info(f"\n\n\n list_deleted {key} {index} {self._data[key]} \n\n\n")
         self._has_updates = True
 
 

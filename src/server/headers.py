@@ -40,7 +40,7 @@ class Headers:
 
         if cookies:
             n, v = cookies[0]
-            headers['Set-Cookie'] = f"{n}={v.coded_value}"
+            headers['Set-Cookie'] = "{}={}".format(n, v.coded_value)
 
         if self._no_store:
             headers['Cache-Control'] = 'no-store'

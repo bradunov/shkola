@@ -455,11 +455,6 @@ class Page(object):
                                            user_agent = user_agent,
                                            user_language = user_language)
 
-        # orig_op = self.page_params.all_state.get("orig_op")
-        # op = PageOperation.fromStr(orig_op) if orig_op else None
-        # url = "/main"
-        # if op:
-        #     url += f"?op={op}"
 
         url = self.page_params.get_param("root") + \
             "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))

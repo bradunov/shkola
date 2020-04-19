@@ -732,8 +732,8 @@ class Design_default(object):
 
             current_q_number = len(context.c.session.get("history"))
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines(f"Pitanje {current_q_number} od 3\n")
-            page.add_lines(f"Do sada: {correct} / {incorrect}")
+            page.add_lines("Pitanje {} od 3\n".format(current_q_number))
+            page.add_lines("Do sada: {} / {}".format(correct, incorrect))
             page.add_lines("</div>\n")
         return page.render()
                     
