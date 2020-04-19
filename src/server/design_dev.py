@@ -24,6 +24,7 @@ class Design_dev(object):
         if not page.page_params.get_param("op") == PageOperation.EDIT and \
            not page.page_params.get_param("op") == PageOperation.GENERATE and \
            not page.page_params.get_param("op") == PageOperation.LIST and \
+           not page.page_params.get_param("op") == PageOperation.STATS and \
            not page.page_params.get_param("op") == PageOperation.VIEW:
             page.page_params.set_param("op", PageOperation.VIEW)
 
