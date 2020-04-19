@@ -1,6 +1,6 @@
 from server.question import Question
-
 from server.types import ResponseOperation
+import logging
 
 # This is not (yet?) design agnostic
 
@@ -62,7 +62,12 @@ class Qlist(object):
             self.page.add_lines("</div>\n")
 
             self.page.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
-            q.eval_with_exception()
+            try:
+                q.eval_with_exception()
+            except:
+                self.page.add_lines("Problem with the question!\n")
+                logging.error("\n\nERROR: problem with question {}!\n\n".format(q_id))
+                pass
             self.add_buttons(self.page)
             self.page.add_lines("</div>")
 

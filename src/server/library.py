@@ -125,7 +125,7 @@ class Library(object):
         aoptions = list(options.values())
 
         if vertical:
-            line = line + "<table>"
+            line = line + "<table>\n"
         else:
             line = line + hspace
         
@@ -134,17 +134,18 @@ class Library(object):
                 line = line + "<tr><td><input type='radio' id='{}_{}' name='{}'/></td> <td style=\"text-align:left\">{}</td></tr>".format(n_answer, cnt, n_answer, opt)
             else:
                 line = line + "<input type='radio' id='{}_{}' name='{}'/> {}".format(n_answer, cnt, n_answer, opt) + hspace
-            clear_str = clear_str + "document.getElementById('{}_{}').checked=false;".format(n_answer, cnt)
+            clear_str = clear_str + "document.getElementById('{}_{}').checked=false;\n".format(n_answer, cnt)
             cnt = cnt + 1
 
         if vertical:
-            line = line + "</table>"
+            line = line + "</table>\n"
 
-        line = line + "</div>"
+        line = line + "</div>\n"
         
         self.condition_check_script(n_answer, "is_ok = (document.getElementById('{}_{}').checked);".format(n_answer, correct))
         
-        self.checks.append("{}_cond()".format(n_answer))
+        cond_f = "{}_cond()".format(n_answer)
+        self.checks.append(cond_f)
         self.clears.append(clear_str)
         
         return line
@@ -968,7 +969,7 @@ class Library(object):
         function clearAll(){
         """ 
         for c in self.clears:
-            script_clear = script_clear + c         
+            script_clear = script_clear + c + "\n"        
 
         script_clear = script_clear + """
         }
