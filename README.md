@@ -46,7 +46,11 @@ Every time you commit and push an image to Docker hub, it will get updated in th
 More details [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=portal%2Cbash&pivots=programming-language-python#enable-continuous-deployment-to-azure).
 
 
+To connect Azure function to the table, first go to the storage account `<storage_name>` that hosts the table and get a connection string (starting with DefaultEndpointsProtocol). Then go to the Azure function portal page, select Cofiguration from Configuration features tab and add new Application setting with name `SHKOLA_AZ_TABLE_CONN_STR` and value being the table connection string. 
+
 For different pricing options check this [link](https://azure.microsoft.com/en-gb/pricing/details/app-service/windows/).
+
+To buy a custom domain for your web site, check this [link](https://docs.microsoft.com/en-us/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain). To add SSL certificate, check [this](https://docs.microsoft.com/en-us/azure/app-service/configure-ssl-certificate#create-a-free-certificate-preview) and [this](https://docs.microsoft.com/en-us/azure/app-service/configure-ssl-bindings) links.
 
 
 
@@ -70,12 +74,20 @@ It is also possible to run Shkola on Linux and Windows (and possibly other OSs) 
 To change the logging level, change `logging.Logger.root.level = logging.DEBUG` to something else in `__init__.py`, 
 and also change `"logging"` key in host.json. For Azure, TBD.
 
+To see the logs on Azure, go to the function page on the portal, select Application Insight, and then Logs. 
+To see requests, search for `requests` in the log query. To see logs, search for `traces`. One useful query to see logs is
+```
+union traces| union exceptions| where timestamp > ago(1d) | order by timestamp desc | project timestamp, message = iff(message != '', message, iff(innermostMessage != '', innermostMessage, customDimensions.['prop__{OriginalFormat}'])), logLevel = customDimensions.['LogLevel']
+```
+
+
+
 
 ### Various notes
 
 The code is stored in `/home/site/wwwroot/` inside the container. To access it, use `docker exec -it shkola bash`.
 
-
+Root access is defined through `proxies.json` file, which redirects to `main` function.
 
 
 
