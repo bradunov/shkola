@@ -39,7 +39,7 @@ az functionapp create --name <function_name> --storage-account <storage_name> --
 
 To register continuous integration and get your function deployed every time it is pushed to a Docker hub, first obtain a web hook:
 ```
-az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name testshkoladocker --resource-group testdoc
+az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name <function_name> --resource-group <resource_group_name>
 ```
 Then log on to Docker hub and copy paste the link obtained above into the webhook tab. 
 Every time you commit and push an image to Docker hub, it will get updated in the function.
