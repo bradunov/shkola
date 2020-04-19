@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json.schemastore.org/proxies",
+  "proxies": {
+      "myHomeProxy": {
+          "matchCondition": {
+              "methods": [ "GET" ],
+              "route": "/"
+          },
+          "backendUri": "https://tatamata.azurewebsites.net/main"
+      }
+  }
+}
