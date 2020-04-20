@@ -116,8 +116,10 @@ class Library(object):
         n_answer = 'check_radio_answer_{}'.format(qid)
         hspace = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
         line = "<div id={}> ".format(n_answer)
-        clear_str = ""
+        clear_str = "{"
 
+        is_ok = "is_ok = (document.getElementById('{}_{}').checked);".format(n_answer, correct)
+        clear_str = "{" + is_ok + "if(!is_ok){"
 
         cnt = 0
 
@@ -142,10 +144,13 @@ class Library(object):
 
         line = line + "</div>\n"
         
-        self.condition_check_script(n_answer, "is_ok = (document.getElementById('{}_{}').checked);".format(n_answer, correct))
+        self.condition_check_script(n_answer, is_ok)
         
-        cond_f = "{}_cond()".format(n_answer)
-        self.checks.append(cond_f)
+        self.checks.append("{}_cond()".format(n_answer))
+        
+        
+        clear_str = clear_str + "clearAllWBorder('{}');".format(n_answer)
+        clear_str = clear_str + "} }"
         self.clears.append(clear_str)
         
         return line
@@ -191,7 +196,11 @@ class Library(object):
         line = "<input {}".format(modified_style) + "type='text' id='{}'/>".format(n_answer)
 
         self.checks.append("{}_cond()".format(n_answer))
-        self.clears.append("document.getElementById('{}').value = '';clearAllWBorder('{}');".format(n_answer, n_answer))
+
+        clear_value = "{ " + str_condition + " if (!is_ok) {"
+        clear_value = clear_value + "document.getElementById('{}').value = '';clearAllWBorder('{}');".format(n_answer, n_answer)
+        clear_value = clear_value + "} }"
+        self.clears.append(clear_value)
         
         #self.page.add_lines( line )
         return line
@@ -235,6 +244,7 @@ class Library(object):
         n_answer_table = "check_fraction_answer_table_{}".format(qid)
 
         str_condition = condition
+        clear_str = ""
 
         # We use '' in JS strings so make sure there is no ' character in the condition
         if isinstance(str_condition, str):
@@ -247,7 +257,7 @@ class Library(object):
         else:
             str_condition = str_condition.replace("numerator", v_answer_numerator)
             input_numerator = "<input " + self.input_style + "type='text' size='1' id='" + n_answer_numerator + "' />"
-            self.clears.append("document.getElementById('{}').value = '';".format(n_answer_numerator))
+            clear_str = clear_str + "document.getElementById('{}').value = '';".format(n_answer_numerator)
             
         if known is not None and "denominator" in known.keys():
             str_condition = str_condition.replace("denominator", known["denominator"])
@@ -255,7 +265,7 @@ class Library(object):
         else:
             str_condition = str_condition.replace("denominator", v_answer_denominator)
             input_denominator = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_denominator + "' />"
-            self.clears.append("document.getElementById('{}').value = '';".format(n_answer_denominator))
+            clear_str = clear_str + "document.getElementById('{}').value = '';".format(n_answer_denominator)
             
         input_whole = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_whole + "' />"
         input_frac = "\n<table style='display:inline-table;vertical-align:middle' id='{}'>\n<tbody>\n<tr>\n".format(n_answer_table)
@@ -266,14 +276,19 @@ class Library(object):
             else:
                 str_condition = str_condition.replace("whole", v_answer_whole)
                 input_frac = input_frac + "<td rowspan=\"2\">" + input_whole + "</td>\n"
-                self.clears.append("document.getElementById('{}').value = '';".format(n_answer_whole))
+                clear_str = clear_str + "document.getElementById('{}').value = '';".format(n_answer_whole)
 
         input_frac = input_frac + "<td style=\"border-bottom:solid 1px;text-align:center\">" + input_numerator + "</td>\n"
         input_frac = input_frac + "</tr>\n<tr>\n<td style=\"text-align:center\">" + input_denominator + "</td>\n</tr>\n</tbody>\n</table>\n"
 
         self.condition_check_script(n_answer_table, str_condition)
         self.checks.append("{}_cond()".format(n_answer_table))
-        self.clears.append("clearAllNoBorder('{}');".format(n_answer_table))
+
+        clear_str = "{ " + str_condition + "; if (!is_ok) {" + clear_str
+        clear_str = clear_str + "clearAllNoBorder('{}');".format(n_answer_table)
+        clear_str = clear_str + "} }"
+
+        self.clears.append(clear_str)
 
         #self.page.add_lines( input_frac )
         return input_frac
@@ -419,13 +434,15 @@ class Library(object):
 
         code_clear = """
         function sel_obj_""" + oid + """_clear() {
-     	  for (let i=0; i<""" + str(n) + """; i++) {
-            if (check_""" + oid + """[i]) {
-              state_""" + oid + """[i] = false;
-     	      sel_obj_""" + oid + """[i].attr({fill: off_color_""" + oid + """[i], stroke: off_line_color_""" + oid + """[i]});
+          if (!already_checked_obj_ok_""" + oid + """) {
+            for (let i=0; i<""" + str(n) + """; i++) {
+                if (check_""" + oid + """[i]) {
+                state_""" + oid + """[i] = false;
+                sel_obj_""" + oid + """[i].attr({fill: off_color_""" + oid + """[i], stroke: off_line_color_""" + oid + """[i]});
+                }
             }
+            clearAllNoBorder('sel_canvas_""" + oid + """');
           }
-          clearAllNoBorder('sel_canvas_""" + oid + """');
         }
         """
         self.clears.append("sel_obj_{}_clear();".format(oid))
@@ -436,6 +453,7 @@ class Library(object):
             modified_check = check.replace("sum(result)", "(result.reduce((a, b) => a + b, 0))")
         
             code_check = """
+        already_checked_obj_ok_""" + oid + """ = false;
         function sel_obj_""" + oid + """_check() {
           var result = [];
           var ind = 0;
@@ -451,9 +469,11 @@ class Library(object):
           }
           if (""" + modified_check + """) {
             setOK('sel_canvas_""" + oid + """');
+            already_checked_obj_ok_""" + oid + """ = true;
             return true;
           } else {
             setError('sel_canvas_""" + oid + """');
+            already_checked_obj_ok_""" + oid + """ = false;
             return false;
           }
         }
