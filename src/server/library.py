@@ -91,15 +91,18 @@ class Library(object):
             extra_condition_str = ""
         script = """
         <script type = "text/javascript">
+        already_checked_obj_ok_""" + item_name + """ = false;
         function """ + item_name + """_cond() {
           var ok;
           """ + str_condition + """
           """ + extra_condition_str + """
           if (is_ok) {
             setOK('""" + item_name + """');
+            already_checked_obj_ok_""" + item_name + """ = true;
             return true;
           } else {
             setError('""" + item_name + """');
+            already_checked_obj_ok_""" + item_name + """ = false;
             return false;
           }
         }
@@ -119,7 +122,7 @@ class Library(object):
         clear_str = "{"
 
         is_ok = "is_ok = (document.getElementById('{}_{}').checked);".format(n_answer, correct)
-        clear_str = "{" + is_ok + "if(!is_ok){"
+        clear_str = "if (!already_checked_obj_ok_" + n_answer + "){"
 
         cnt = 0
 
@@ -150,7 +153,7 @@ class Library(object):
         
         
         clear_str = clear_str + "clearAllWBorder('{}');".format(n_answer)
-        clear_str = clear_str + "} }"
+        clear_str = clear_str + "}\n"
         self.clears.append(clear_str)
         
         return line
@@ -197,9 +200,9 @@ class Library(object):
 
         self.checks.append("{}_cond()".format(n_answer))
 
-        clear_value = "{ " + str_condition + " if (!is_ok) {"
+        clear_value = "if (!already_checked_obj_ok_" + n_answer + "){"
         clear_value = clear_value + "document.getElementById('{}').value = '';clearAllWBorder('{}');".format(n_answer, n_answer)
-        clear_value = clear_value + "} }"
+        clear_value = clear_value + "}\n"
         self.clears.append(clear_value)
         
         #self.page.add_lines( line )
@@ -284,9 +287,9 @@ class Library(object):
         self.condition_check_script(n_answer_table, str_condition)
         self.checks.append("{}_cond()".format(n_answer_table))
 
-        clear_str = "{ " + str_condition + "; if (!is_ok) {" + clear_str
+        clear_str = "if (!already_checked_obj_ok_" + n_answer_table + "){" + clear_str
         clear_str = clear_str + "clearAllNoBorder('{}');".format(n_answer_table)
-        clear_str = clear_str + "} }"
+        clear_str = clear_str + "}\n"
 
         self.clears.append(clear_str)
 
