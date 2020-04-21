@@ -424,7 +424,7 @@ if __name__ == '__main__':
     # Change this True to see different outputs
     print_all_data = False
     print_question_stats = False
-    print_user_stats = False
+    print_user_stats = True
 
 
     if print_all_data:
@@ -442,7 +442,7 @@ if __name__ == '__main__':
     if print_user_stats:
         pg = page.Page()
         pp = pprint.PrettyPrinter(indent=2)
-        pp.pprint(stats.Stats.render_user_stats(pg, "Petar"))
+        pp.pprint(stats.Stats.render_user_stats(pg, "UNKNOWN"))
 
 
 

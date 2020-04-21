@@ -40,6 +40,7 @@ class Library(object):
     page = None
     checks = []
     clears = []
+    hints = []
     table_row = 0
     lua = None
     lib_id = None
@@ -60,6 +61,7 @@ class Library(object):
         self.page = page
         self.checks = []
         self.clears = []
+        self.hints = []
         self.object_id = 0
         self.lua = lua
         self.math = LibMath(lua)
@@ -74,6 +76,7 @@ class Library(object):
     def clear(self):
         self.checks = []
         self.clears = []
+        self.hints = []
         
 
     def modify_input_style(self, width):
@@ -456,34 +459,58 @@ class Library(object):
             modified_check = check.replace("sum(result)", "(result.reduce((a, b) => a + b, 0))")
         
             code_check = """
-        already_checked_obj_ok_""" + oid + """ = false;
-        function sel_obj_""" + oid + """_check() {
-          var result = [];
-          var ind = 0;
-     	  for (let i=0; i<""" + str(n) + """; i++) {
-            if (check_""" + oid + """[i]) {
-              if (state_""" + oid + """[i]) {
-    	        result[ind] = 1;
-              } else {
-  	        result[ind] = 0;
-              }
-              ind++;
-            }
-          }
-          if (""" + modified_check + """) {
-            setOK('sel_canvas_""" + oid + """');
-            already_checked_obj_ok_""" + oid + """ = true;
-            return true;
-          } else {
-            setError('sel_canvas_""" + oid + """');
-            already_checked_obj_ok_""" + oid + """ = false;
-            return false;
-          }
-        }
-        """
+                already_checked_obj_ok_""" + oid + """ = false;
+                function sel_obj_""" + oid + """_check() {
+                    var result = [];
+                    var ind = 0;
+                    for (let i=0; i<""" + str(n) + """; i++) {
+                        if (check_""" + oid + """[i]) {
+                            if (state_""" + oid + """[i]) {
+                                result[ind] = 1;
+                            } else {
+                                result[ind] = 0;
+                            }
+                            ind++;
+                        }
+                    }
+                    if (""" + modified_check + """) {
+                        setOK('sel_canvas_""" + oid + """');
+                        already_checked_obj_ok_""" + oid + """ = true;
+                        return true;
+                    } else {
+                        setError('sel_canvas_""" + oid + """');
+                        already_checked_obj_ok_""" + oid + """ = false;
+                        return false;
+                    }
+                }
+            """
             self.checks.append("sel_obj_{}_check();".format(oid))
             code = code + code_check
-        
+
+
+            # TBD: Not working yet as we have to pass the hint array from questions
+
+            code_hint = """
+                function sel_obj_""" + oid + """_hint() {
+                    var ind = 0;
+                    for (let i=0; i<""" + str(n) + """; i++) {
+                        if (check_""" + oid + """[i]) {
+                            if (hint_""" + oid + """[ind]) {
+                                sel_obj_""" + oid + """[i].attr({fill: on_color_""" + oid + """[i], stroke: on_line_color_""" + oid + """[i]});
+                            } else {
+                                sel_obj_""" + oid + """[i].attr({fill: off_color_""" + oid + """[i], stroke: off_line_color_""" + oid + """[i]});
+                            }
+                            ind++;
+                        }
+                    }
+                }
+            """
+            self.checks.append("sel_obj_{}_hint();".format(oid))
+            code = code + code_hint
+
+
+
+
         return code
 
 
@@ -1003,6 +1030,28 @@ class Library(object):
         self.page.add_script_lines("\n<!-- END CLEAR ALL -->\n")
 
         self.clears = []
+
+
+
+
+
+    def add_hint_button_code(self):
+        script_hint = """
+        <script>
+        function addHintAll(){
+        """ 
+        for c in self.hints:
+            script_hint = script_hint + c + "\n"        
+
+        script_hint = script_hint + """
+        }
+        </script>
+        """
+        self.page.add_script_lines("\n<!-- HINT ALL -->\n")
+        self.page.add_script_lines(script_hint)
+        self.page.add_script_lines("\n<!-- END HINT ALL -->\n")
+
+        self.hints = []
 
 
 
