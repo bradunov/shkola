@@ -152,6 +152,7 @@ class Library(object):
         
         self.checks.append("{}_cond()".format(n_answer))
         
+        self.solutions.append("document.getElementById('{}_{}').checked = true;\n".format(n_answer, correct))
         
         clear_str = clear_str + "clearAllWBorder('{}');".format(n_answer)
         clear_str = clear_str + "}\n"
@@ -571,7 +572,7 @@ class Library(object):
                 solutions = check_code.replace("==", "=")
                 solutions = solutions.replace("&&", ";")
                 solutions = solutions.replace("result", "solution")
-                solutions = solutions + ";"
+                solutions = solutions + ";  "
 
         
         # Pass align style to surrounding div
