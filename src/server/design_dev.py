@@ -441,13 +441,21 @@ class Design_dev(object):
         page.add_lines("\n<!-- END CHECK NEXT BUTTONS -->\n")
 
 
-
         page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         
         page.add_lines("\n<!-- CLEAR BUTTON -->\n")
         page.add_lines("\n<input type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
             page.get_messages()["clear"]))
         page.add_lines("\n<!-- END CLEAR BUTTON -->\n")
+
+
+        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        
+        page.add_lines("\n<!-- SOLUTION BUTTON -->\n")
+        page.add_lines("\n<input type='button' style='font-size: 14px;' onclick=\"addSolutionAll()\" value='{}' />\n".format(
+            "Resenje"))
+        page.add_lines("\n<!-- END SOLUTION BUTTON -->\n")
+
 
         page.add_lines("\n</div>\n")
         page.add_lines("</div>\n")

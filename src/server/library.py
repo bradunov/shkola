@@ -40,7 +40,7 @@ class Library(object):
     page = None
     checks = []
     clears = []
-    hints = []
+    solutions = []
     table_row = 0
     lua = None
     lib_id = None
@@ -59,16 +59,14 @@ class Library(object):
     
     def __init__(self, lua, page, question_url):
         self.page = page
-        self.checks = []
-        self.clears = []
-        self.hints = []
         self.object_id = 0
         self.lua = lua
         self.math = LibMath(lua)
         # If we have more questions on the same page make sure all use pseudo-random thus unique IDs
         self.lib_id = str(int(random.random() * 1000000000))
         self.question_url = question_url
-    
+        self.clear()
+
     def get_object_id(self):
         self.object_id = self.object_id+1
         return self.lib_id + "_" + str(self.object_id)
@@ -76,7 +74,7 @@ class Library(object):
     def clear(self):
         self.checks = []
         self.clears = []
-        self.hints = []
+        self.solutions = []
         
 
     def modify_input_style(self, width):
@@ -488,25 +486,26 @@ class Library(object):
             code = code + code_check
 
 
-            # TBD: Not working yet as we have to pass the hint array from questions
-
-            code_hint = """
-                function sel_obj_""" + oid + """_hint() {
+            code_solutions = """
+                function sel_obj_""" + oid + """_solution() {
+                    alread_shown_solutions = true;
                     var ind = 0;
                     for (let i=0; i<""" + str(n) + """; i++) {
                         if (check_""" + oid + """[i]) {
-                            if (hint_""" + oid + """[ind]) {
+                            if (solution[ind] == 1) {
                                 sel_obj_""" + oid + """[i].attr({fill: on_color_""" + oid + """[i], stroke: on_line_color_""" + oid + """[i]});
+                                state_""" + oid + """[i] = true;
                             } else {
                                 sel_obj_""" + oid + """[i].attr({fill: off_color_""" + oid + """[i], stroke: off_line_color_""" + oid + """[i]});
+                                state_""" + oid + """[i] = false;
                             }
                             ind++;
                         }
                     }
                 }
             """
-            self.checks.append("sel_obj_{}_hint();".format(oid))
-            code = code + code_hint
+            self.solutions.append("sel_obj_{}_solution();".format(oid))
+            code = code + code_solutions
 
 
 
@@ -539,7 +538,23 @@ class Library(object):
 
     ### General drawing
 
-    def start_canvas(self, width, height, align=None, check_code=None):
+    # - check_code is a JS expression that evaluates to true if the response is correct 
+    #              or false if not. The input parameter is result[i] array where index i
+    #              maps to the i-th selectable object on the canvas in the order they are created.
+    #              Our JS code sets result[i] to 1 if i-th object is selected and 0 if not, and 
+    #              evaluate check_code with these values.  
+    #              A simple example is: check_code = "result[0] == 1 && result[1] == 0"
+    #              See questions/geometry/q00045 for a more elaborate example.
+    # - solutions is a JS expression that sets an array solution[i] to a valid solution to the question.
+    #              It maps to selectable objects on canvas, in the same way as results above. 
+    #              If object i is selected when solution[i] == 1 and deselected when solution[i] == 0.
+    #              this implies a correct solution and should satisfy check_code. 
+    #              A simple example maching above is: solutions = "solution[0] = 1; solution[1] = 0;"
+    #              If solutions == None we try to infer it from check_code by 
+    #              replacing "&&" -> ";"" and "==" -> "=" 
+    #              But this is not always possible, e.g. in check_code = "sum(results) == 5"
+    #              so a valide solutions string has to be entered manually
+    def start_canvas(self, width, height, align=None, check_code=None, solutions=None):
         if self.canvas_id is not None:
             self.page.add_lines("Canvas should not have been started...")
             return
@@ -548,6 +563,15 @@ class Library(object):
         self.canvas_align = align
         self.canvas_check_code = check_code
         self.canvas_items = []
+
+        if solutions is None:
+            if check_code is None:
+                solutions = ""
+            else: 
+                solutions = check_code.replace("==", "=")
+                solutions = solutions.replace("&&", ";")
+                solutions = solutions.replace("result", "solution")
+                solutions = solutions + ";"
 
         
         # Pass align style to surrounding div
@@ -568,17 +592,20 @@ class Library(object):
             
         script = script + """
         <script type = "text/javascript">
-	var paper_""" + self.canvas_id +\
-            """ = Raphael("sel_canvas_""" + self.canvas_id + """", """ + \
-            str(width) + ", " + str(height) + """);
-        var on_color_""" + self.canvas_id + """ = [];
-        var off_color_""" + self.canvas_id + """ = [];
-        var on_line_color_""" + self.canvas_id + """ = [];
-        var off_line_color_""" + self.canvas_id + """ = [];
-        var check_""" + self.canvas_id + """ = [];
-        var state_""" + self.canvas_id + """ = [];
-	var sel_obj_""" + self.canvas_id + """ = [];
+            var paper_""" + self.canvas_id +\
+                """ = Raphael("sel_canvas_""" + self.canvas_id + """", """ + \
+                str(width) + ", " + str(height) + """);
+            var on_color_""" + self.canvas_id + """ = [];
+            var off_color_""" + self.canvas_id + """ = [];
+            var on_line_color_""" + self.canvas_id + """ = [];
+            var off_line_color_""" + self.canvas_id + """ = [];
+            var check_""" + self.canvas_id + """ = [];
+            var state_""" + self.canvas_id + """ = [];
+            var sel_obj_""" + self.canvas_id + """ = [];
+            alread_shown_solutions = false;
+            var solution = [];
         """
+        script = script + solutions + "\n"
 
         self.page.add_lines(script)
 
@@ -1035,23 +1062,24 @@ class Library(object):
 
 
 
-    def add_hint_button_code(self):
-        script_hint = """
+    def add_solution_button_code(self):
+        script_solutions = """
         <script>
-        function addHintAll(){
+        function addSolutionAll(){
+            alread_shown_solutions = true;
         """ 
-        for c in self.hints:
-            script_hint = script_hint + c + "\n"        
+        for c in self.solutions:
+            script_solutions = script_solutions + c + "\n"        
 
-        script_hint = script_hint + """
+        script_solutions = script_solutions + """
         }
         </script>
         """
         self.page.add_script_lines("\n<!-- HINT ALL -->\n")
-        self.page.add_script_lines(script_hint)
+        self.page.add_script_lines(script_solutions)
         self.page.add_script_lines("\n<!-- END HINT ALL -->\n")
 
-        self.hints = []
+        self.solutions = []
 
 
 
