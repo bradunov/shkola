@@ -42,6 +42,7 @@ mycanvas = function()
               results = results .. "0 "
           end       
       end
+      results = results .. "&& result[4] == 0 && result[5] == 0 && result[6] == 0 && result[7] == 0 && result[8] == 0"	  
   else
       results = "result[0] == 0 && result[1] == 0 && result[2] == 0 && result[3] == 0 "
       for i = 4,7 do  
@@ -81,4 +82,4 @@ mycanvas = function()
 
   lib.end_canvas()
 end
-                        
+                             

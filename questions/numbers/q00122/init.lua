@@ -2,7 +2,14 @@ style =
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
         ["line_color"] = "000",
-        ["line_width"] = "2"};
+        ["line_width"] = "1"};
+
+diff_style = 
+	{["off_color"] = "c90",
+        ["opacity"] = "0.5",
+        ["on_color"] = "c90",
+        ["line_color"] = "000",
+        ["line_width"] = "1"};
 
 check_style = 
 	{["off_color"] = "fff",
@@ -10,7 +17,7 @@ check_style =
         ["line_color"] = "fff",
         ["line_width"] = "1"};
 
-text_style = {["font_size"] = "14"}
+text_style = {["font_size"] = "16"}
 
 
 term = {} 
@@ -20,11 +27,11 @@ vert = {}
 q = {}
 
 
-term[1] = 9 + math.random(17);
-term[2] = term[1] + math.random(17);
-term[3] = term[2] + math.random(17);
-term[4] = term[3] + math.random(17);
-term[5] = term[4] + math.random(17);
+term[1] = 15;
+term[2] = term[1] + math.random(20);
+term[3] = term[2] + math.random(20);
+term[4] = term[3] + math.random(20);
+term[5] = term[4] + math.random(20);
 
 factor = {2, 5, 10}
 
@@ -59,16 +66,17 @@ mycanvas = function()
   end
   
 
-  lib.start_canvas(250, 350, "center", results)
+  lib.start_canvas(250, 280, "center", results)
 
-  w = 50
+  w = 40
   ow = 30
 
   for i = 1,5 do
     answ = tostring(math.floor(vert[i]))
     lib.add_line(ow, ow+i*w, 4*w, 0, style, false, false)
-    lib.add_text(ow+20, ow+i*w+29,  answ, text_style, false, false)
+    lib.add_text(ow+20, ow+i*w+20,  answ, text_style, false, false)
   end
+  lib.add_line(ow, ow, 4*w, 0, style, false, false)
   lib.add_line(ow, ow+6*w, 4*w, 0, style, false, false)
 
   for i = 1,3 do
@@ -76,7 +84,11 @@ mycanvas = function()
     lib.add_line(ow+i*w, ow, 0, 6*w, style, false, false)
     lib.add_text(ow+i*w+20, ow+20, answ, text_style, false, false)
   end
+  lib.add_line(ow, ow, 0, 6*w, style, false, false)
   lib.add_line(ow+4*w, ow, 0, 6*w, style, false, false)  
+
+  lib.add_rectangle(ow, ow, ow+10, ow+10, diff_style, true, false)
+
 
   ind = 0
   example_set = false
@@ -86,9 +98,9 @@ mycanvas = function()
       y = j*w + ow + 5
       if (q[ind] == 0 and not example_set) then
         example_set = true
-        lib.add_rectangle(y, x, ow+5, ow+5, check_style, true, true)
+        lib.add_rectangle(y, x, ow, ow, check_style, true, true)
       else
-        lib.add_rectangle(y, x, ow+5, ow+5, check_style, false, true)
+        lib.add_rectangle(y, x, ow, ow, check_style, false, true)
       end
       ind = ind + 1
     end

@@ -2,7 +2,7 @@ style =
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
         ["line_color"] = "000",
-        ["line_width"] = "1"};
+        ["line_width"] = "0.5"};
 
 yelow_style = {["off_color"] = "ff0",
                ["on_color"] = "ff0",
