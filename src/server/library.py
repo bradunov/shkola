@@ -40,6 +40,7 @@ class Library(object):
     page = None
     checks = []
     clears = []
+    hints = []
     table_row = 0
     lua = None
     lib_id = None
@@ -60,6 +61,7 @@ class Library(object):
         self.page = page
         self.checks = []
         self.clears = []
+        self.hints = []
         self.object_id = 0
         self.lua = lua
         self.math = LibMath(lua)
@@ -74,6 +76,7 @@ class Library(object):
     def clear(self):
         self.checks = []
         self.clears = []
+        self.hints = []
         
 
     def modify_input_style(self, width):
@@ -91,15 +94,18 @@ class Library(object):
             extra_condition_str = ""
         script = """
         <script type = "text/javascript">
+        already_checked_obj_ok_""" + item_name + """ = false;
         function """ + item_name + """_cond() {
           var ok;
           """ + str_condition + """
           """ + extra_condition_str + """
           if (is_ok) {
             setOK('""" + item_name + """');
+            already_checked_obj_ok_""" + item_name + """ = true;
             return true;
           } else {
             setError('""" + item_name + """');
+            already_checked_obj_ok_""" + item_name + """ = false;
             return false;
           }
         }
@@ -119,7 +125,7 @@ class Library(object):
         clear_str = "{"
 
         is_ok = "is_ok = (document.getElementById('{}_{}').checked);".format(n_answer, correct)
-        clear_str = "{" + is_ok + "if(!is_ok){"
+        clear_str = "if (!already_checked_obj_ok_" + n_answer + "){"
 
         cnt = 0
 
@@ -150,7 +156,7 @@ class Library(object):
         
         
         clear_str = clear_str + "clearAllWBorder('{}');".format(n_answer)
-        clear_str = clear_str + "} }"
+        clear_str = clear_str + "}\n"
         self.clears.append(clear_str)
         
         return line
@@ -197,9 +203,9 @@ class Library(object):
 
         self.checks.append("{}_cond()".format(n_answer))
 
-        clear_value = "{ " + str_condition + " if (!is_ok) {"
+        clear_value = "if (!already_checked_obj_ok_" + n_answer + "){"
         clear_value = clear_value + "document.getElementById('{}').value = '';clearAllWBorder('{}');".format(n_answer, n_answer)
-        clear_value = clear_value + "} }"
+        clear_value = clear_value + "}\n"
         self.clears.append(clear_value)
         
         #self.page.add_lines( line )
@@ -284,9 +290,9 @@ class Library(object):
         self.condition_check_script(n_answer_table, str_condition)
         self.checks.append("{}_cond()".format(n_answer_table))
 
-        clear_str = "{ " + str_condition + "; if (!is_ok) {" + clear_str
+        clear_str = "if (!already_checked_obj_ok_" + n_answer_table + "){" + clear_str
         clear_str = clear_str + "clearAllNoBorder('{}');".format(n_answer_table)
-        clear_str = clear_str + "} }"
+        clear_str = clear_str + "}\n"
 
         self.clears.append(clear_str)
 
@@ -453,34 +459,58 @@ class Library(object):
             modified_check = check.replace("sum(result)", "(result.reduce((a, b) => a + b, 0))")
         
             code_check = """
-        already_checked_obj_ok_""" + oid + """ = false;
-        function sel_obj_""" + oid + """_check() {
-          var result = [];
-          var ind = 0;
-     	  for (let i=0; i<""" + str(n) + """; i++) {
-            if (check_""" + oid + """[i]) {
-              if (state_""" + oid + """[i]) {
-    	        result[ind] = 1;
-              } else {
-  	        result[ind] = 0;
-              }
-              ind++;
-            }
-          }
-          if (""" + modified_check + """) {
-            setOK('sel_canvas_""" + oid + """');
-            already_checked_obj_ok_""" + oid + """ = true;
-            return true;
-          } else {
-            setError('sel_canvas_""" + oid + """');
-            already_checked_obj_ok_""" + oid + """ = false;
-            return false;
-          }
-        }
-        """
+                already_checked_obj_ok_""" + oid + """ = false;
+                function sel_obj_""" + oid + """_check() {
+                    var result = [];
+                    var ind = 0;
+                    for (let i=0; i<""" + str(n) + """; i++) {
+                        if (check_""" + oid + """[i]) {
+                            if (state_""" + oid + """[i]) {
+                                result[ind] = 1;
+                            } else {
+                                result[ind] = 0;
+                            }
+                            ind++;
+                        }
+                    }
+                    if (""" + modified_check + """) {
+                        setOK('sel_canvas_""" + oid + """');
+                        already_checked_obj_ok_""" + oid + """ = true;
+                        return true;
+                    } else {
+                        setError('sel_canvas_""" + oid + """');
+                        already_checked_obj_ok_""" + oid + """ = false;
+                        return false;
+                    }
+                }
+            """
             self.checks.append("sel_obj_{}_check();".format(oid))
             code = code + code_check
-        
+
+
+            # TBD: Not working yet as we have to pass the hint array from questions
+
+            code_hint = """
+                function sel_obj_""" + oid + """_hint() {
+                    var ind = 0;
+                    for (let i=0; i<""" + str(n) + """; i++) {
+                        if (check_""" + oid + """[i]) {
+                            if (hint_""" + oid + """[ind]) {
+                                sel_obj_""" + oid + """[i].attr({fill: on_color_""" + oid + """[i], stroke: on_line_color_""" + oid + """[i]});
+                            } else {
+                                sel_obj_""" + oid + """[i].attr({fill: off_color_""" + oid + """[i], stroke: off_line_color_""" + oid + """[i]});
+                            }
+                            ind++;
+                        }
+                    }
+                }
+            """
+            self.checks.append("sel_obj_{}_hint();".format(oid))
+            code = code + code_hint
+
+
+
+
         return code
 
 
@@ -1000,6 +1030,28 @@ class Library(object):
         self.page.add_script_lines("\n<!-- END CLEAR ALL -->\n")
 
         self.clears = []
+
+
+
+
+
+    def add_hint_button_code(self):
+        script_hint = """
+        <script>
+        function addHintAll(){
+        """ 
+        for c in self.hints:
+            script_hint = script_hint + c + "\n"        
+
+        script_hint = script_hint + """
+        }
+        </script>
+        """
+        self.page.add_script_lines("\n<!-- HINT ALL -->\n")
+        self.page.add_script_lines(script_hint)
+        self.page.add_script_lines("\n<!-- END HINT ALL -->\n")
+
+        self.hints = []
 
 
 
