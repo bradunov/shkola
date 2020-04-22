@@ -2,7 +2,7 @@ import math
 import numpy
 import random
 import lupa
-#import logging
+import logging
 #from server.helpers import *
 
 
@@ -168,7 +168,7 @@ class Library(object):
     # - answer > <correct_answer>, or any boolean with answer in it, or
     # - <correct_answer>, in which case the boolean condition is answer == <correct_answer>
     # width: width of the input box in characters
-    def _check_value(self, condition, width=None, number=False):
+    def _check_value(self, condition, width=None, number=False, solution=None):
         qid = self.get_object_id()
 
         # We use '' in JS strings so make sure there is no ' character in the condition
@@ -177,18 +177,27 @@ class Library(object):
 
         n_answer = 'check_number_answer_{}'.format(qid)
         v_answer = "document.getElementById(\'" + n_answer + "\').value"
+        s_answer = v_answer
         if number:
             extra_condition = v_answer + ".length > 0"
             v_answer = "Number(" + v_answer + ")"
         else:
             extra_condition = None
+
+        str_solution = ""
         if "answer" not in str(condition):
             if number:
                 str_condition = "is_ok = (" + v_answer + " == \'" + str(condition) + "\');"
+                str_solution = s_answer + " = \'" + str(condition) + "\';"
             else:
                 str_condition = "is_ok = (" + v_answer + ".toLowerCase() == \'" + str(condition) + "\'.toLowerCase());"
+                str_solution = s_answer + " = \'" + str(condition) + "\'.toLowerCase();"
         else:
             str_condition = "is_ok = (" + condition.replace("answer", v_answer) + ");"
+            if solution is None:
+                logging.error("Free form condition in question {} but no solution given.".format(self.question_url))
+            else:
+                str_solution = solution.replace("answer", s_answer) + ";"
 
 
         self.condition_check_script(n_answer, str_condition, extra_condition)
@@ -207,14 +216,16 @@ class Library(object):
         clear_value = clear_value + "}\n"
         self.clears.append(clear_value)
         
+        self.solutions.append(str_solution)
+
         #self.page.add_lines( line )
         return line
 
-    def check_number(self, condition, width=None):
-        return self._check_value(condition, width, True)
+    def check_number(self, condition, width=None, solution=None):
+        return self._check_value(condition, width, True, solution)
 
-    def check_string(self, condition, width=None):
-        return self._check_value(condition, width, False)
+    def check_string(self, condition, width=None, solution=None):
+        return self._check_value(condition, width, False, solution)
 
 
     
@@ -226,30 +237,38 @@ class Library(object):
         if whole is not None:
             str_condition = str_condition + " && whole == \'" + str(whole) + "\'"
         str_condition = str_condition + ")"
-        return self.check_fraction_condition(str_condition, whole is not None, known)
+        solution = "numerator=" + str(numerator) + "; denominator = " + str(denominator) + ";"
+        if whole is not None:
+            solution = solution + "whole=" + str(whole) + ";"
+        return self.check_fraction_condition(str_condition, whole is not None, known, solution)
     
 
 
     
     # Input fraction as whole + numerator / denominator and verifies whether the answer matches
     # - <condition> is a JavaScript condition with variables <numerator>, <denominator> and <whole> in it
-    def check_fraction_condition(self, condition, whole = False, known = None):
+    def check_fraction_condition(self, condition, whole=False, known=None, solution=None):
         qid = self.get_object_id()
         n_answer_numerator = 'check_fraction_answer_numerator_{}'.format(qid)
         n_answer_denominator = 'check_fraction_answer_denominator_{}'.format(qid)
         n_answer_whole = 'check_fraction_answer_whole_{}'.format(qid)
         v_answer_numerator = "Number(document.getElementById(\'" + n_answer_numerator + "\').value)"
+        s_answer_numerator = "document.getElementById(\'" + n_answer_numerator + "\').value"
 
         #Default denominator is 0, not 1
         v_answer_denominator = "Number(document.getElementById(\'" + n_answer_denominator + "\').value)"
         v_answer_denominator = "(((" + v_answer_denominator + ") == 0)?1:(" + v_answer_denominator + "))"
+        s_answer_denominator = "document.getElementById(\'" + n_answer_denominator + "\').value"
         
         v_answer_whole = "Number(document.getElementById(\'" + n_answer_whole + "\').value)"
+        s_answer_whole = "document.getElementById(\'" + n_answer_whole + "\').value"
 
         n_answer_table = "check_fraction_answer_table_{}".format(qid)
 
         str_condition = condition
         clear_str = ""
+
+
 
         # We use '' in JS strings so make sure there is no ' character in the condition
         if isinstance(str_condition, str):
@@ -263,6 +282,9 @@ class Library(object):
             str_condition = str_condition.replace("numerator", v_answer_numerator)
             input_numerator = "<input " + self.input_style + "type='text' size='1' id='" + n_answer_numerator + "' />"
             clear_str = clear_str + "document.getElementById('{}').value = '';".format(n_answer_numerator)
+            if solution is None or not "numerator" in solution:
+                logging.error("Free form fractional condition in question {} but no solution given.".format(self.question_url))
+
             
         if known is not None and "denominator" in known.keys():
             str_condition = str_condition.replace("denominator", known["denominator"])
@@ -271,7 +293,10 @@ class Library(object):
             str_condition = str_condition.replace("denominator", v_answer_denominator)
             input_denominator = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_denominator + "' />"
             clear_str = clear_str + "document.getElementById('{}').value = '';".format(n_answer_denominator)
-            
+            if solution is None or not "denominator" in solution:
+                logging.error("Free form fractional condition in question {} but no solution given.".format(self.question_url))
+
+
         input_whole = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_whole + "' />"
         input_frac = "\n<table style='display:inline-table;vertical-align:middle' id='{}'>\n<tbody>\n<tr>\n".format(n_answer_table)
         if whole:
@@ -282,6 +307,9 @@ class Library(object):
                 str_condition = str_condition.replace("whole", v_answer_whole)
                 input_frac = input_frac + "<td rowspan=\"2\">" + input_whole + "</td>\n"
                 clear_str = clear_str + "document.getElementById('{}').value = '';".format(n_answer_whole)
+                if solution is None or not "whole" in solution:
+                    logging.error("Free form fractional condition in question {} but no solution given.".format(self.question_url))
+
 
         input_frac = input_frac + "<td style=\"border-bottom:solid 1px;text-align:center\">" + input_numerator + "</td>\n"
         input_frac = input_frac + "</tr>\n<tr>\n<td style=\"text-align:center\">" + input_denominator + "</td>\n</tr>\n</tbody>\n</table>\n"
@@ -294,6 +322,14 @@ class Library(object):
         clear_str = clear_str + "}\n"
 
         self.clears.append(clear_str)
+
+        solution_str = ""
+        if solution is not None:
+            solution_str = solution.replace("numerator", s_answer_numerator)
+            solution_str = solution_str.replace("denominator", s_answer_denominator)
+            solution_str = solution_str.replace("whole", s_answer_whole)
+
+        self.solutions.append(solution_str)
 
         #self.page.add_lines( input_frac )
         return input_frac
@@ -309,7 +345,10 @@ class Library(object):
             str_condition = str_condition + " && whole == \'" + str(whole) + "\'"
             known["whole"] = str(whole) 
         str_condition = str_condition + ")"
-        return self.check_fraction_condition(str_condition, whole is not None, known)
+        solution = "numerator=" + str(numerator) + ";"
+        if whole is not None:
+            solution = solution + "whole=" + str(whole) + ";"
+        return self.check_fraction_condition(str_condition, whole is not None, known, solution)
 
 
     # Input denominator of a fraction and display numerator (and whole if given) as given
@@ -320,7 +359,10 @@ class Library(object):
             str_condition = str_condition + " && whole == \'" + str(whole) + "\'"
             known["whole"] = str(whole) 
         str_condition = str_condition + ")"
-        return self.check_fraction_condition(str_condition, whole is not None, known)
+        solution = "denominator = " + str(denominator) + ";"
+        if whole is not None:
+            solution = solution + "whole=" + str(whole) + ";"
+        return self.check_fraction_condition(str_condition, whole is not None, known, solution)
 
 
     
