@@ -7,8 +7,9 @@ a) Koliko jabuka je @ime@ prodala? @hspacept(5)@ @lib.check_number(brojp)@kg
 
 @vspace@
 
-b) Koji deo jabuka nije prodala? @hspacept(5)@ @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(vrednost)..");")@ 
-
+b) Koji deo jabuka nije prodala? \
+@hspacept(5)@ \
+@lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(vrednost)..");", nil, nil, solution)@ 
 
 
                  

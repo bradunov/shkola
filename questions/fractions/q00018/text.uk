@@ -7,6 +7,6 @@ a) How many apples did @name@ sell? @lib.check_number(brojp)@
 
 @vspace@
 
-b) What part of the apples did she not sell? @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(vrednost)..");")@ 
+b) What part of the apples did she not sell? @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(vrednost)..");", nil, nil, solution)@ 
 
 

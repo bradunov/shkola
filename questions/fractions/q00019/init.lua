@@ -9,7 +9,8 @@ array_enum = {}
 array_denom = {}
 array_value = {}
 array_boja = {}
-
+solution = {}
+is_ok = {}
 
 for i=1, 3 do
     factor = math.random(3);
@@ -21,7 +22,11 @@ for i=1, 3 do
     array_enum[i] = brojilac;
     array_denom[i] = imenilac;
     array_value[i] = brojilac / imenilac;
+    is_ok[i] = "is_ok = math.eq(numerator/denominator, "..tostring(array_value[i])..");"
+    solution[i] = "numerator="..tostring(brojilac)..";denominator="..tostring(imenilac)..";"
 end
 
 
 indices = lib.math.argsort(array_value);
+
+

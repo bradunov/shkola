@@ -14,7 +14,8 @@ fraction_table = function()
       style["width"] = "40px"
       if (c == 0) then
         condition = "is_ok = (numerator * "..tostring(r+1).." == denominator);"
-        text = text .. lib.add_cell(lib.check_fraction_condition(condition), style)
+        solution = "numerator=1;denominator="..tostring(r+1)..";"
+        text = text .. lib.add_cell(lib.check_fraction_condition(condition, nil, nil, solution), style)
       else
         style["border"] = "1px solid #ddd"
         style["background-color"] = "#ffffff"

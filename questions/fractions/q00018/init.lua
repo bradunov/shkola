@@ -12,5 +12,6 @@ brojp= broj1 + broj2;
 brojo = rezultat-brojp
 
 vrednost = brojo / rezultat
-
-
+simp_brojo = brojo / lib.math.gcd(brojo, rezultat)
+simp_rezultat = rezultat / lib.math.gcd(brojo, rezultat)
+solution = "numerator="..tostring(simp_brojo)..";denominator="..tostring(simp_rezultat)..";"

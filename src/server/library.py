@@ -15,7 +15,10 @@ class LibMath(object):
         return abs(x-y) < precision
 
     def gcd(self, x, y):
-        return math.gcd(x, y)
+        return math.gcd(int(x), int(y))
+
+    def round(self, x):
+        return round(float(x))
 
     # Returns indices in array sorted according to values in array
     def argsort(self, array):
@@ -496,6 +499,7 @@ class Library(object):
         code = code_clear
         
         if check is not None:
+
             # Special hack: JS doesn't have a sum function so we hard code it:
             modified_check = check.replace("sum(result)", "(result.reduce((a, b) => a + b, 0))")
         
@@ -535,7 +539,7 @@ class Library(object):
                     var ind = 0;
                     for (let i=0; i<""" + str(n) + """; i++) {
                         if (check_""" + oid + """[i]) {
-                            if (solution[ind] == 1) {
+                            if (solution_""" + oid + """[ind] == 1) {
                                 sel_obj_""" + oid + """[i].attr({fill: on_color_""" + oid + """[i], stroke: on_line_color_""" + oid + """[i]});
                                 state_""" + oid + """[i] = true;
                             } else {
@@ -611,12 +615,16 @@ class Library(object):
             if check_code is None:
                 solutions = ""
             else: 
-                solutions = check_code.replace("==", "=")
+                solutions = check_code
+                solutions = solutions.replace("==", "=")
                 solutions = solutions.replace("&&", ";")
-                solutions = solutions.replace("result", "solution")
+                solutions = solutions.replace("result", "solution_" + self.canvas_id)
                 solutions = solutions + ";  "
+        else:
+            solutions = solutions.replace("solution", "solution_" + self.canvas_id)
 
-        
+
+
         # Pass align style to surrounding div
         inline = False
         if align is not None:
@@ -646,7 +654,7 @@ class Library(object):
             var state_""" + self.canvas_id + """ = [];
             var sel_obj_""" + self.canvas_id + """ = [];
             alread_shown_solutions = false;
-            var solution = [];
+            var solution_""" + self.canvas_id + """ = [];
         """
         script = script + solutions + "\n"
 
@@ -966,7 +974,7 @@ class Library(object):
     #   - ratio: spacing_between_object / object_radius
     #   - select: true (default) if the user is expected to enter input by selecting elements)
     #             false if it is used only for visualisation
-    def select_objects(self, x, y, otype, check_code, style = {}):
+    def select_objects(self, x, y, otype, check_code, style = {}, solutions=None):
         width = 300
         height = 300
         ratio = 0.3
@@ -1000,7 +1008,7 @@ class Library(object):
         else:
             text_align = None
             
-        self.start_canvas(width, height, text_align, check_code)
+        self.start_canvas(width, height, text_align, check_code, solutions)
 
 
         if otype == "table":

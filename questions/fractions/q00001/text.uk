@@ -33,6 +33,6 @@ Write it as a fractions @lib.check_fraction_simple(1, 4)@.
 
 @lib.check_number('answer == 2')@ quarters are coloured.
 
-Write it as a fractions @lib.check_fraction_condition("is_ok = (numerator/denominator == 0.5)")@.
+Write it as a fractions @lib.check_fraction_condition("is_ok = (numerator/denominator == 0.5)", nil, nil, "numerator=2;denominator=4;")@
 
 
