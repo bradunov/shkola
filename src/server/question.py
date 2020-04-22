@@ -69,7 +69,7 @@ class Question(object):
     """
 
     
-    def __init__(self, page, q_id=None, language=None, init_code=None, iter_code=None, text=None):
+    def __init__(self, page, q_id=None, language=None, init_code=None, iter_code=None, text=None, test_mode=False):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.page = page
         self.repository = page.repository
@@ -99,10 +99,12 @@ class Question(object):
         else:
             self.text = page.page_params.get_param("text")
 
+        self.test_mode = test_mode
+
         self.lib = Library(self.lua, page, self.questions_rel_path + "/" + self.q_id)
-        logging.debug("Rendering question %s, language=%s", 
+        logging.debug("Rendering question %s, language=%s, test_mode=%s", 
             self.questions_rel_path + "/" + self.q_id, 
-            PageLanguage.toStr(self.language))
+            PageLanguage.toStr(self.language), str(self.test_mode))
         self.questions_root_path = self.page.rel_path + "/" + self.questions_rel_path
 
 
@@ -315,9 +317,30 @@ class Question(object):
         indices = [{"start" : -1, "type" : "text"}]
         cend = -1
 
-        
+
         self.page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
         self.page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
+
+
+        if self.test_mode:
+            self.page.add_lines(
+                """
+                <div style='display:none;font-size: 72px;color:  red;' id='error_sign'></div>
+                <div style='display:none;font-size: 24px;color:  red;' id='error_msg'></div>
+                <script>
+                window.onerror = function (msg, url, lineNo, columnNo, error) {
+                    document.getElementById('error_sign').textContent = 'ERROR:';
+                    document.getElementById('error_sign').style.display = 'inline';
+                    document.getElementById('error_msg').textContent = 
+                        'msg: ' + msg + ', url: ' + url + ', lineNo: ' + lineNo + 
+                        ', columnNo: ' + columnNo + ', error: ' + error;
+                    document.getElementById('error_msg').style.display = 'inline';
+                    return false;
+                }
+                </script>
+                """
+            )
+
 
         btext = self.make_pretty(self.text)
 

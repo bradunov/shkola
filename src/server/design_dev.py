@@ -33,7 +33,7 @@ class Design_dev(object):
             logging.debug("PageOperation.EDIT")
             if not page.page_params.get_param("q_id"):
                 page.page_params.set_param("q_id", page.get_default_question())
-            q = question.Question(page)
+            q = question.Question(page, test_mode=True)
             q.set_from_file_with_exception()
             page.add_question(q)
             page.add_code(q.get_init_code(), q.get_iter_code(), q.get_text())
@@ -45,7 +45,7 @@ class Design_dev(object):
             # Use init_code, iter_code, text from the page's parameter 
             # (as submitted by user) and go to edit mode
             page.page_params.set_param("op", PageOperation.EDIT)
-            q = question.Question(page)
+            q = question.Question(page, test_mode=True)
             page.add_question(q)
             Design_dev.render_page(page)
             return page.render()
@@ -68,7 +68,7 @@ class Design_dev(object):
             logging.debug("PageOperation.VIEW")
             if not page.page_params.get_param("q_id"):
                 page.page_params.set_param("q_id", page.get_default_question())
-            q = question.Question(page)
+            q = question.Question(page, test_mode=True)
             q.set_from_file_with_exception()
             page.add_question(q)
             Design_dev.render_page(page)
