@@ -68,46 +68,43 @@ class Qlist(object):
                 self.page.add_lines("Problem with the question!\n")
                 logging.error("\n\nERROR: problem with question {}!\n\n".format(q_id))
                 pass
-            self.add_buttons(self.page)
+            self.add_buttons(self.page, q)
             self.page.add_lines("</div>")
 
             
-
-    # This is copied brom Design_dev as the import for some reason doesn't work:
-    # import server.design_dev as design_dev
-    def add_buttons(self, page, url_next=None):
+    # Different buttons for q_list with different check per each question
+    def add_buttons(self, page, question):
+        lib_id = question.lib.lib_id
+        
         page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
         page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
         page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
 
-        OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
-        OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-            page.on_click(\
-                operation=ResponseOperation.SUBMIT, \
-                url_next=url_next, \
-                record=False), page.get_messages()["check"])
-        page.add_lines(OKline)
-
-        if url_next is not None:
-            NEXTline = ""
-            NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
-                page.on_click(\
-                    operation=ResponseOperation.SKIP, \
-                    url_next=url_next, \
-                    record=False), page.get_messages()["skip"])
-            page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-            page.add_lines(NEXTline)
-            
-        page.add_lines("\n<!-- END CHECK NEXT BUTTONS -->\n")
+        OKline = "\n\n<!-- CHECK BUTTON -->\n"
+        OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='checkAll_{}()' value='{}'/>\n".format(
+            lib_id, page.get_messages()["check"])
+        page.add_lines(OKline)            
+        page.add_lines("\n<!-- END CHECK BUTTONS -->\n")
 
 
 
         page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         
         page.add_lines("\n<!-- CLEAR BUTTON -->\n")
-        page.add_lines("\n<input type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
-            page.get_messages()["clear"]))
+        page.add_lines("\n<input type='button' style='font-size: 14px;' onclick=\"clearAll_{}()\" value='{}' />\n".format(
+            lib_id, page.get_messages()["clear"]))
         page.add_lines("\n<!-- END CLEAR BUTTON -->\n")
+
+
+
+        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        
+        page.add_lines("\n<!-- SOLUTION BUTTON -->\n")
+        page.add_lines("\n<input type='button' style='font-size: 14px;' onclick=\"addSolutionAll_{}()\" value='{}' />\n".format(
+            lib_id, "Resenje"))
+        page.add_lines("\n<!-- END SOLUTION BUTTON -->\n")
+
+
 
         page.add_lines("\n</div>\n")
         page.add_lines("</div>\n")

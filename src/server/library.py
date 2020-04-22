@@ -1056,7 +1056,7 @@ class Library(object):
 
         // operation == SUBMIT | SKIP
         // post_url == URL to which to post the results
-        function checkAll(operation, post_url, q_id, l_id) {
+        function checkAll_""" + str(self.lib_id) + """(operation, post_url, q_id, l_id) {
             q_correct=0; q_incorrect=0;
         """ + assign + "\n" \
             + cond + "\n" + """
@@ -1069,6 +1069,10 @@ class Library(object):
         check_script = check_script + """
           }
           return cond;
+        }
+
+        function checkAll(operation, post_url, q_id, l_id) {
+            checkAll_""" + str(self.lib_id) + """(operation, post_url, q_id, l_id);
         }
         </script>
         """
@@ -1086,12 +1090,15 @@ class Library(object):
     def add_clear_button_code(self):
         script_clear = """
         <script>
-        function clearAll(){
+        function clearAll_""" + str(self.lib_id) + """(){
         """ 
         for c in self.clears:
             script_clear = script_clear + c + "\n"        
 
         script_clear = script_clear + """
+        }
+        function clearAll(){
+            clearAll_""" + str(self.lib_id) + """();
         }
         </script>
         """
@@ -1108,13 +1115,16 @@ class Library(object):
     def add_solution_button_code(self):
         script_solutions = """
         <script>
-        function addSolutionAll(){
+        function addSolutionAll_""" + str(self.lib_id) + """(){
             alread_shown_solutions = true;
         """ 
         for c in self.solutions:
             script_solutions = script_solutions + c + "\n"        
 
         script_solutions = script_solutions + """
+        }
+        function addSolutionAll(){
+            addSolutionAll_""" + str(self.lib_id) + """();
         }
         </script>
         """
