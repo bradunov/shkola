@@ -17,7 +17,7 @@
     },
     {
       "name" : "numbers/q00004", "random": "1", "period": "Jesen",  "subtheme": "Brojevi do 10", 
-      "topic": "Upoređivanje brojeva", "difficulty": "1"
+      "topic": "Poređenje brojeva", "difficulty": "1"
     },
     {
       "name" : "numbers/q00005", "random": "0", "period": "Jesen", "subtheme": "Brojevi do 10", 
@@ -29,7 +29,7 @@
     },
     {
       "name" : "numbers/q00007", "random": "1", "period": "Jesen", "subtheme": "Brojevi do 10", 
-      "topic": "Upoređivanje brojeva", "difficulty": "1"
+      "topic": "Poređenje brojeva", "difficulty": "1"
     },
     {
       "name" : "numbers/q00008", "random": "1", "period": "Zima", "subtheme": "Brojevi do 20", 
@@ -37,7 +37,7 @@
     },
     {
       "name" : "numbers/q00010", "random": "1", "period": "Jesen", "subtheme": "Brojevi do 10", 
-      "topic": "Prebrojavanje i upoređivanje", "difficulty": "1"
+      "topic": "Prebrojavanje i poređenje", "difficulty": "1"
     },
     {
       "name" : "numbers/q00011", "random": "1", "period": "Zima", "subtheme": "Brojevi do 20",
@@ -57,20 +57,20 @@
     },
     {
       "name" : "numbers/q00016", "random": "1", "period": "Proleće", "subtheme": "Brojevi do 100", 
-      "topic": "Parni i neparni brojevi","difficulty": "1"
+      "topic": "Parni i neparni brojevi","difficulty": "2"
     },
     {
       "name" : "numbers/q00017", "random": "1", "period": "Proleće", "subtheme": "Brojevi do 100", 
-      "topic":"Sabiranje desetica i jedinica, i upoređivanje", "difficulty": "1"
+      "topic":"Sabiranje desetica i jedinica, i poređenje", "difficulty": "1"
     },
     {
-      "name" : "numbers/q00018", "random": "1", "period": "Zima", "subtheme": "Brojevi do 20", 
+      "name" : "numbers/q00018", "random": "1", "period": "Proleće", "subtheme": "Brojevi do 20", 
       "topic": "Tekstualni zadatak", "difficulty": "2"
     },
     {
       "name" : "numbers/q00019", "random": "1", "period": "Zima", "subtheme": "Brojevi do 20", 
       "topic": "Tekstualni zadatak", "difficulty": "2"
-    },
+    },	
     {
       "name" : "numbers/q00024", "random": "1", "period": "Proleće", "subtheme": "Brojevi do 100", 
       "topic": "Prebrojavanje elemenata", "difficulty": "2"
@@ -109,15 +109,11 @@
     },
     {
       "name" : "numbers/q00046", "random": "1", "period": "Proleće", "subtheme": "Brojevi do 100", 
-      "topic": "Upoređivanje brojeva", "difficulty": "1"
+      "topic": "Poređenje brojeva", "difficulty": "1"
     },
     {
       "name" : "numbers/q00121", "random": "1", "period": "Proleće", "subtheme": "Brojevi do 100", 
       "topic": "Brojanje unapred i unazad sa preskokom", "difficulty": "1"
-    },
-    {
-      "name" : "numbers/q000156", "random": "1", "period": "Proleće", "subtheme": "brojevi do 100", 
-      "topic": "Upoređivanje brojeva","difficulty": "1"
     }	
   ]
  }
