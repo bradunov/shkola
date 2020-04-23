@@ -12,8 +12,10 @@ brojp= broj1 + broj2;
 brojo = rezultat-brojp
 
 vrednost = brojo / rezultat
+g = lib.math.gcd(brojo, rezultat)
 
-
+is_ok = "is_ok = math.eq(numerator/denominator, "..tostring(vrednost)..");"
+sln = "numerator="..tostring(brojo/g)..";denominator="..tostring(rezultat/g)..";"
 
 
 

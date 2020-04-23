@@ -7,7 +7,7 @@ a) Koliko kajsija je @ime@ prodala? @hspacept(5)@ @lib.check_number(brojp)@kg
 
 @vspace@
 
-b) Koji deo kajsija nije prodala? @hspacept(5)@ @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(vrednost)..");")@ 
+b) Koji deo kajsija nije prodala? @hspacept(5)@ @lib.check_fraction_condition(is_ok, nil, nil, sln)@ 
 
 
 

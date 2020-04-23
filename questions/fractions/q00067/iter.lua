@@ -30,5 +30,10 @@ value = broj/imen
 condition = "is_ok = math.eq(whole + numerator/denominator, "..tostring(value)..");"
    
 
+swhole = math.floor(value)
+snum = lib.math.round((value - swhole) * imen)
+g = lib.math.gcd(snum, imen)
+
+sln = "numerator="..tostring(snum/g)..";denominator="..tostring(imen/g)..";whole="..tostring(swhole)..";"
 
 

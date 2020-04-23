@@ -6,7 +6,7 @@ Izračunaj zbir.
 
 @center@ @hspacept(90)@ @lib.check_fraction_simple(part1,imenilac)@ @hspacept(3)@   @lib.check_fraction_simple(part2, imenilac)@ 
 @center@ = @hspacept(3)@ @lib.check_number(1)@ @hspacept(3)@ + @hspacept(3)@ @lib.check_fraction_simple(part2, imenilac)@ 
-@center@ = @lib.check_fraction_condition(condition, true)@ 
+@center@ = @lib.check_fraction_condition(condition, true, {}, sln)@ 
 
         
 

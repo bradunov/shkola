@@ -6,10 +6,10 @@ Order the fractions
 from the smallest to the largest:
 
 @center@ 
-@lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[1]])..");", false)@ \(\leq\) \
-   @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[2]])..");", false)@ \(\leq\) \
-   @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[3]])..");", false)@ \(\leq\) \
-   @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[4]])..");", false)@ 
+   @lib.check_fraction_condition(is_ok[indices[1]], false, {}, solution[indices[1]])@ \(\leq\) \
+   @lib.check_fraction_condition(is_ok[indices[2]], false, {}, solution[indices[2]])@ \(\leq\) \
+   @lib.check_fraction_condition(is_ok[indices[3]], false, {}, solution[indices[3]])@ \(\leq\) \
+   @lib.check_fraction_condition(is_ok[indices[4]], false, {}, solution[indices[4]])@ 
 
 
                   

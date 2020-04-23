@@ -14,6 +14,9 @@ ostalo = strane - dan1 - dan2
 provera =  ostalo/strane 
 
                     
-       
-                    
-                  
+is_ok = "is_ok = math.eq(numerator/denominator, "..tostring(provera)..");"
+            
+
+g = lib.math.gcd(ostalo, strane)
+sln = "numerator="..tostring(ostalo/g)..";denominator="..tostring(strane/g)..";"
+

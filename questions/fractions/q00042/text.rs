@@ -6,10 +6,10 @@ Razlomke
 poređaj od najvećeg do najmanjeg:
 
 @center@ 
-@lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[4]])..");", false)@ \(\geq\) \
-   @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[3]])..");", false)@ \(\geq\) \
-   @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[2]])..");", false)@ \(\geq\) \
-   @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(array_value[indices[1]])..");", false)@                  
+   @lib.check_fraction_condition(is_ok[indices[4]], false, {}, solution[indices[4]])@ \(\geq\) \
+   @lib.check_fraction_condition(is_ok[indices[3]], false, {}, solution[indices[3]])@ \(\geq\) \
+   @lib.check_fraction_condition(is_ok[indices[2]], false, {}, solution[indices[2]])@ \(\geq\) \
+   @lib.check_fraction_condition(is_ok[indices[1]], false, {}, solution[indices[1]])@                  
                   
   
                   

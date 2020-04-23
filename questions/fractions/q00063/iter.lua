@@ -11,8 +11,14 @@ value = diff/imenilac
 
 condition = "is_ok = math.eq(whole + numerator/denominator, "..tostring(value)..");"
 
+swhole = math.floor(value)
+snum = lib.math.round((value - swhole) * imenilac)
+g = lib.math.gcd(snum, imenilac)
+
+sln = "numerator="..tostring(snum/g)..";denominator="..tostring(imenilac/g)..";whole="..tostring(swhole)..";"
+
 if (diff >= imenilac) then   
-    answ = " = " .. lib.check_fraction_condition(condition, true)
+    answ = " = " .. lib.check_fraction_condition(condition, true, nil, sln)
 end	
 
 

@@ -15,6 +15,12 @@ brojilac = put
 putkm = put/imenilac
 
 condition = "is_ok = math.eq(whole + numerator/denominator, "..tostring(putkm)..");"       
+
+swhole = math.floor(putkm)
+snum = lib.math.round((putkm - swhole) * imenilac)
+g = lib.math.gcd(snum, imenilac)
+
+sln = "numerator="..tostring(snum/g)..";denominator="..tostring(imenilac/g)..";whole="..tostring(swhole)..";"
       
                   
        
