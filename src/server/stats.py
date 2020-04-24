@@ -130,7 +130,7 @@ class Stats(object):
 
             level = page.repository.lists[l_id]["level"]
             theme = page.repository.lists[l_id]["theme"]
-            subtheme = q_info["subtheme"]
+            subthemes = q_info["subtheme"]
             #period = q_info["period"]
             difficulty = q_info["difficulty"]
 
@@ -152,11 +152,12 @@ class Stats(object):
                     "difficulty" : {}
                 }
 
-            if not subtheme in stats["level"][level]["theme"][theme]["subtheme"].keys():
-                stats["level"][level]["theme"][theme]["subtheme"][subtheme] = {
-                    "all" : {"q_correct" : 0, "q_total" : 0, "sq_correct" : 0, "sq_total" : 0}, 
-                    "difficulty" : {}
-                }
+            for subtheme in subthemes: 
+                if not subtheme in stats["level"][level]["theme"][theme]["subtheme"].keys():
+                    stats["level"][level]["theme"][theme]["subtheme"][subtheme] = {
+                        "all" : {"q_correct" : 0, "q_total" : 0, "sq_correct" : 0, "sq_total" : 0}, 
+                        "difficulty" : {}
+                    }
 
             if not difficulty in stats["difficulty"].keys():
                 stats["difficulty"][difficulty] = {
@@ -173,10 +174,11 @@ class Stats(object):
                     "q_correct" : 0, "q_total" : 0, "sq_correct" : 0, "sq_total" : 0
                 }
 
-            if not difficulty in stats["level"][level]["theme"][theme]["subtheme"][subtheme]["difficulty"].keys():
-                stats["level"][level]["theme"][theme]["subtheme"][subtheme]["difficulty"][difficulty] = {
-                    "q_correct" : 0, "q_total" : 0, "sq_correct" : 0, "sq_total" : 0
-                }
+            for subtheme in subthemes: 
+                if not difficulty in stats["level"][level]["theme"][theme]["subtheme"][subtheme]["difficulty"].keys():
+                    stats["level"][level]["theme"][theme]["subtheme"][subtheme]["difficulty"][difficulty] = {
+                        "q_correct" : 0, "q_total" : 0, "sq_correct" : 0, "sq_total" : 0
+                    }
 
             Stats._update_stats(stats["all"], correct, total)
             Stats._update_stats(stats["difficulty"][difficulty], correct, total)
@@ -184,8 +186,9 @@ class Stats(object):
             Stats._update_stats(stats["level"][level]["difficulty"][difficulty], correct, total)
             Stats._update_stats(stats["level"][level]["theme"][theme]["all"], correct, total)
             Stats._update_stats(stats["level"][level]["theme"][theme]["difficulty"][difficulty], correct, total)
-            Stats._update_stats(stats["level"][level]["theme"][theme]["subtheme"][subtheme]["all"], correct, total)
-            Stats._update_stats(stats["level"][level]["theme"][theme]["subtheme"][subtheme]["difficulty"][difficulty], correct, total)
+            for subtheme in subthemes: 
+                Stats._update_stats(stats["level"][level]["theme"][theme]["subtheme"][subtheme]["all"], correct, total)
+                Stats._update_stats(stats["level"][level]["theme"][theme]["subtheme"][subtheme]["difficulty"][difficulty], correct, total)
 
 
         # print("AAAAAAAAAAAAAAAAA\n")
