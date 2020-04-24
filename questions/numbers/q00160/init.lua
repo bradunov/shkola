@@ -17,7 +17,7 @@ if(ind == 1) then
    sign2 = oper[1]
    value = temp - term2
 else
-   factor = math.floor(numb)(term1/10) - math.random(2) 
+   factor = math.floor(term1/10) - math.random(2) 
    temp = factor * 10
    term3 = term1 - temp
    term2 = 11 + math.random(89 - temp)
