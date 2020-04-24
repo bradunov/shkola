@@ -12,20 +12,24 @@ array_name2[3] = ones2[numb3];
 value = numb1*100 + numb2*10 + numb3 - 1;
 reply = "answer == '" .. array_name[1] .. " " .. array_name[2] .. " " .. array_name[3] .. "' "  ..
         "|| answer == '" .. array_name2[1] .. " " .. array_name2[2] .. " " .. array_name2[3] .. "'" ;
+solution = "answer = '" .. array_name[1] .. " " .. array_name[2] .. " " .. array_name[3] .. "'; "
 
 if (numb2 == 1) then
    reply = "answer == '" .. array_name[1] .. " " .. array_name[3] .. "' " ..
            "|| answer == '" .. array_name2[1] .. " " .. array_name2[3] .. "'";
+   solution = "answer = '" .. array_name[1] .. " " .. array_name[3] .. "'; "
    value = numb1*100 + numb3 - 1;   
 end
 
 if (numb3 == 1) then
    reply = "answer == '" .. array_name[1] .. " " .. array_name[2] .. "' " ..
            "|| answer == '" .. array_name2[1] .. " " .. array_name2[2] .. "'";
+   solution = "answer = '" .. array_name[1] .. " " .. array_name[2] .. "';"
 end   
 
 if (numb2*numb3 == 1) then
    reply = "answer == '" .. array_name[1] .. "' || answer == '" .. array_name2[1] .. "'";
+   solution = "answer = '" .. array_name[1] .. "' || answer == '" .. array_name2[1] .. "';"
 end   
 
 
