@@ -59,7 +59,7 @@ class azure_blob():
             
     def upload_path(self, local_path):
         for (dirpath, dirnames, filenames) in os.walk(local_path):
-            print(dirpath, filenames)
+            #print(dirpath, filenames)
             for f in filenames:
                 if filenames[len(dirpath)-1] != '~':
                     if dirpath[len(dirpath)-1] != '/':
