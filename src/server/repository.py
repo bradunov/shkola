@@ -282,7 +282,7 @@ class Repository(object):
                     (parent, key) = self.add_path(root, file)
                     parent[key] = self.azure_blob.download_file(file)
         # DEBUG
-        #pprint(root)
+        #print(json.dumps(root, indent=4))
 
         
 

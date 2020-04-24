@@ -1,5 +1,7 @@
+height = 90
+
 style = {["width"] = 90,
-        ["height"] = 90,
+        ["height"] = height,
         ["ratio"] = 0.4,
         ["text-align"] = "inline",
 	["color"] = "aaf"};

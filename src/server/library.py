@@ -974,6 +974,9 @@ class Library(object):
     #   - ratio: spacing_between_object / object_radius
     #   - select: true (default) if the user is expected to enter input by selecting elements)
     #             false if it is used only for visualisation
+    # - solutions: JScript code to set <solution> string (e.g. "solution[0] = 1;")
+    #   <solutions> is an array of size x*y which has 0 if object not checked or 1 if checked.
+    # 
     def select_objects(self, x, y, otype, check_code, style = {}, solutions=None):
         width = 300
         height = 300

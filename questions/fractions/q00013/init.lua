@@ -6,3 +6,13 @@ style = {["width"] = 100,
         ["ratio"] = 0.4,
 	["color"] = "aaf"};
 
+
+solution = ""
+for i = 0, 11 do
+  if i < 6 then
+    solution = solution.."solution["..tostring(i).."]=1;"
+  else
+    solution = solution.."solution["..tostring(i).."]=0;"
+  end
+end
+

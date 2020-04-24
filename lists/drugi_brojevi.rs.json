@@ -125,7 +125,7 @@
     },
     {
       "name" : "numbers/q00161", "random": "1", "period": "Proleće", "subtheme": "Brojevni izrazi", 
-	  "topic": "Redosled računskih operacija", "difficulty":  "difficulty": "3"
+	    "topic": "Redosled računskih operacija", "difficulty": "3"
     },
     {
       "name" : "numbers/q00163", "random": "1", "period": "Zima", "subtheme": "Množenje i deljenje do 100",

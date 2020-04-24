@@ -2,6 +2,9 @@ from server.question import Question
 from server.types import ResponseOperation
 import logging
 
+
+import json
+
 # This is not (yet?) design agnostic
 
 class Qlist(object):
@@ -42,6 +45,8 @@ class Qlist(object):
         self.page.add_lines("{}\n".format(title))
         self.page.add_lines("</div>\n\n")
 
+        # DEBUG
+        print(json.dumps(self.list, indent=2))
 
         for i in self.list["questions"]:
             q_id = i["name"]
