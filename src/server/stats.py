@@ -89,8 +89,8 @@ class Stats(object):
         return {
             "total" : stats["q_total"],
             "subtotal" : stats["sq_total"],
-            "questions" : stats["q_correct"] / stats["q_total"],
-            "subquestions" : stats["sq_correct"] / stats["sq_total"]
+            "questions" : stats["q_correct"] / stats["q_total"] if stats["q_total"] > 0 else 0,
+            "subquestions" : stats["sq_correct"] / stats["sq_total"] if stats["sq_total"] > 0 else 0
         }
 
 
@@ -101,7 +101,6 @@ class Stats(object):
         if not from_date:
             from_date = "2020-03-15T00:00:00.000Z"
         results = storage.get_user_stats(u_id=u_id, from_date=from_date)
-
 
         # Classify in categories
         stats = { 
@@ -131,6 +130,11 @@ class Stats(object):
             level = page.repository.lists[l_id]["level"]
             theme = page.repository.lists[l_id]["theme"]
             subthemes = q_info["subtheme"]
+
+            # subthemes can be an array or a singleton, so always convert to an array
+            if type(subthemes) == str:
+                subthemes = [subthemes]
+
             #period = q_info["period"]
             difficulty = q_info["difficulty"]
 

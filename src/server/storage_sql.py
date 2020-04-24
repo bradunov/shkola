@@ -442,7 +442,8 @@ if __name__ == '__main__':
     if print_user_stats:
         pg = page.Page()
         pp = pprint.PrettyPrinter(indent=2)
-        pp.pprint(stats.Stats.render_user_stats(pg, "UNKNOWN"))
+        pp.pprint(stats.Stats.render_user_stats(pg, "Petar"))
+        #pp.pprint(stats.Stats.render_user_stats(pg, "UNKNOWN"))
 
 
 
