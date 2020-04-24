@@ -7,10 +7,13 @@ import logging
 
 
 class LibMath(object):
-    lua = None
-    def __init__(self, lua):
-        self.lua = lua
-        
+    _rnd_id = 0
+    def __init__(self, question):
+        self.lua = question.lua
+        self.page = question.page
+        self.lib_id = question.q_unique_id
+        self.page.add_script_lines("<script> rnd_val_"+ str(self.lib_id) + " = {};</script>")
+
     def eq(self, x, y, precision = 0.00001):
         return abs(x-y) < precision
 
@@ -33,9 +36,24 @@ class LibMath(object):
         # Have to convert to Python array explicitly
         parray = list(array.values())
         random.shuffle(parray)
+        self.page.add_script_lines("<script> rnd_val_{}['rnd_arr_{}'] = {};</script>".format(
+            self.lib_id, self._rnd_id, parray))
+        self._rnd_id = self._rnd_id + 1
         return self.lua.table_from(parray)
 
-    
+    def random(self, m=None, n=None):
+        if n is None and m is None:
+            rnd = random.random()
+        elif m is not None and n is None:
+            rnd = random.randint(1, m)
+        elif m is not None and n is not None:
+            rnd = random.randint(m, n)
+        else:
+            rnd = random.randint(1, n)
+        self.page.add_script_lines("<script> rnd_val_{}['rnd_{}'] = {};</script>".format(
+            self.lib_id, self._rnd_id, rnd))
+        self._rnd_id = self._rnd_id + 1
+        return rnd
     
 
 class Library(object):
@@ -60,14 +78,14 @@ class Library(object):
     canvas_items = []
 
     
-    def __init__(self, lua, page, question_url):
-        self.page = page
+    def __init__(self, question):
+        self.page = question.page
         self.object_id = 0
-        self.lua = lua
-        self.math = LibMath(lua)
         # If we have more questions on the same page make sure all use pseudo-random thus unique IDs
-        self.lib_id = str(int(random.random() * 1000000000))
-        self.question_url = question_url
+        self.lib_id = question.q_unique_id
+        self.lua = question.lua
+        self.math = LibMath(question)
+        self.question_url = question.question_url()
         self.clear()
 
     def get_object_id(self):

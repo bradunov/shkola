@@ -1,6 +1,7 @@
 import sys
 import traceback
 from lupa import LuaRuntime
+import random
 import re
 from server.types import PageLanguage
 from server.library import Library
@@ -74,6 +75,9 @@ class Question(object):
         self.page = page
         self.repository = page.repository
 
+        # If we have more questions on the same page make sure all use pseudo-random thus unique IDs
+        self.q_unique_id = str(int(random.random() * 1000000000))
+
         if q_id:
             self.q_id = q_id
         else:
@@ -101,11 +105,14 @@ class Question(object):
 
         self.test_mode = test_mode
 
-        self.lib = Library(self.lua, page, self.questions_rel_path + "/" + self.q_id)
+        self.lib = Library(self)
         logging.debug("Rendering question %s, language=%s, test_mode=%s", 
-            self.questions_rel_path + "/" + self.q_id, 
-            PageLanguage.toStr(self.language), str(self.test_mode))
+            self.question_url(), PageLanguage.toStr(self.language), str(self.test_mode))
         self.questions_root_path = self.page.rel_path + "/" + self.questions_rel_path
+
+
+    def question_url(self):
+        return self.questions_rel_path + "/" + self.q_id
 
 
     def set_from_file(self):
@@ -479,6 +486,11 @@ class Question(object):
         code = code + self.main_script_end
 
         code = code.replace("\\", "\\\\")
+
+        # Replace math.random with lib.math.random so we can log all random values
+        code = code.replace("math.random(", "lib.math.random(")
+
+
 
         # DEBUG
         if False:
