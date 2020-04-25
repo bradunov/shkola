@@ -15,9 +15,15 @@ class LibMath(object):
         self.page.add_script_lines("""
             <script> 
                 rnd_val_"""+ str(self.lib_id) + """ = {};
-                function sendFeedbackToServer_"""+ str(self.lib_id) + """(root) {
+                function sendFeedbackToServer_"""+ str(self.lib_id) + """(root, type, q_id, l_id, comment) {
                     var xhr = new XMLHttpRequest();
                     var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['l_id'] = l_id;
+                    feedback['comment'] = comment;
+                    feedback['rand_val'] = rnd_val_"""+ str(self.lib_id) + """;
                     xhr.open('POST', url);
                     xhr.onreadystatechange = function() {
                         console.log("Received");
@@ -25,8 +31,8 @@ class LibMath(object):
                         if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
                     };
                     xhr.setRequestHeader('Content-Type', 'application/json');
-                    console.log("Sending report to " + url + ": " + JSON.stringify(rnd_val_"""+ str(self.lib_id) + """));
-                    xhr.send(JSON.stringify(rnd_val_"""+ str(self.lib_id) + """));
+                    console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
                     attempt = attempt + 1;
                 }
             </script>
@@ -1194,8 +1200,8 @@ class Library(object):
     def add_error_report_button_code(self):
         script_error_report = """
         <script>
-        function sendFeedbackToServer(root){
-            sendFeedbackToServer_"""+ str(self.lib_id) + """(root);
+        function sendFeedbackToServer(root, type, q_id, l_id, comment){
+            sendFeedbackToServer_"""+ str(self.lib_id) + """(root, type, q_id, l_id, comment);
         }
         </script>
         """

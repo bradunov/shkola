@@ -125,6 +125,18 @@ class Storage_sql:
         self.db.commit()
 
 
+    def record_feedback(self, response):
+        logging.debug("Record feedback %s", str(response))
+
+        cursor = self.db.cursor()
+        cursor.execute(''' INSERT INTO responses(user_id, question_id, list_id, type, comment, random_vals)
+                  VALUES(user_id, question_id, list_id, type, comment, random_vals)''', \
+                       response)
+        self.db.commit()
+        
+
+
+
     # END - Common methods to implement storage interface
     ##################################################################
 

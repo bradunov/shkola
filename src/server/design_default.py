@@ -1103,8 +1103,11 @@ class Design_default(object):
         
         page.add_lines("\n<!-- ERROR REPORT BUTTON -->\n")
         page.add_lines("\n<input type='button' style='font-size: 14px;' " \
-            "onclick=\"sendFeedbackToServer('{}')\" value='{}' />\n".format(
-            page.page_params.get_param("root"), "Prijavi gresku"))
+            "onclick=\"sendFeedbackToServer('{}', 'test', '{}', '{}', 'comment')\" value='{}' />\n".format(
+            page.page_params.get_param("root"), 
+            page.page_params.get_param("q_id"),
+            page.page_params.get_param("l_id"),
+            "Prijavi gresku"))
         page.add_lines("\n<!-- ERROR REPORT BUTTON -->\n")
 
 

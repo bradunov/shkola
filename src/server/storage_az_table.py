@@ -21,8 +21,10 @@ class Storage_az_table():
         self.users_table_name = 'users'
         self.responses_table_name = 'responses'
         self.sessions_table_name = 'sessions'
+        self.feedbacks_table_name = 'feedbacks'
 
-        tables = [self.users_table_name, self.responses_table_name, self.sessions_table_name]
+        tables = [self.users_table_name, self.responses_table_name, 
+                  self.sessions_table_name, self.feedbacks_table_name]
 
         for table in tables:
             self.table_service.create_table(table)
@@ -75,12 +77,28 @@ class Storage_az_table():
         response['RowKey'] = response['question_id'] + "|" + str(response['time']) + "|" + str(response['duration'])
         # Remove special characters not allowed in Azure RowKey
         response['RowKey'] = re.sub("[\ /?#]", "", response['RowKey'])
-
         
-        #logging.debug("*** record response:", response)
+        #logging.debug("*** record response: {}".format(response))
 
         try:
             self.table_service.insert_entity(self.responses_table_name, response)
+        except Exception as err:
+            logging.exception('Error adding response: ' + str(err))
+
+
+    def record_feedback(self, response):
+        fb_time = int(time.time() * 1000)
+
+        response['PartitionKey'] = response['question_id']
+        response['RowKey'] = response['type'] + "|" + response['list_id'] + "|" + str(fb_time)
+        # Remove special characters not allowed in Azure RowKey
+        response['RowKey'] = re.sub("[\ /?#]", "", response['RowKey'])
+
+        
+        logging.debug("*** record feedback: {}".format(response))
+
+        try:
+            self.table_service.insert_entity(self.feedbacks_table_name, response)
         except Exception as err:
             logging.exception('Error adding response: ' + str(err))
 
@@ -148,16 +166,16 @@ class Storage_az_table():
 
 
     
-    def delete_all_tables(self):
-        try:
-            self.table_service.delete_table(self.users_table_name)
-        except Exception as err:
-            logging.exception('Error deleting table, ' + self.users_table_name + ': ' + str(err))
+    # def delete_all_tables(self):
+    #     try:
+    #         self.table_service.delete_table(self.users_table_name)
+    #     except Exception as err:
+    #         logging.exception('Error deleting table, ' + self.users_table_name + ': ' + str(err))
 
-        try:
-            self.table_service.delete_table(self.responses_table_name)
-        except Exception as err:
-            logging.exception('Error deleting table, ' + self.responses_table_name + ':' + str(err))
+    #     try:
+    #         self.table_service.delete_table(self.responses_table_name)
+    #     except Exception as err:
+    #         logging.exception('Error deleting table, ' + self.responses_table_name + ':' + str(err))
         
 
 

@@ -380,7 +380,11 @@ class Page(object):
             incorrect = 0
             questions = ""
 
-            user_id = context.c.user.user_id if context.c.user else "UNKNOWN"
+            try:
+                user_id = context.c.user.user_id if context.c.user else "UNKNOWN"
+            except:
+                user_id = "UNKNOWN"
+                pass
 
             if "q_id" in args.keys() and "now" in args.keys():
                 if "l_id" not in args.keys() or not args["l_id"] or args["l_id"] is None:
@@ -389,14 +393,22 @@ class Page(object):
                     l_id = args["l_id"]
                     
 
-                for key, v in args.items():
-                    value = v
-                    if key[0:5] == "q_res":
-                        questions = questions + key + "=" + value + ","
-                        if value == "true":
+                # for key, v in args.items():
+                #     value = v
+                #     if key[0:5] == "q_res":
+                #         questions = questions + key + "=" + value + ","
+                #         if value == "true":
+                #             correct = correct + 1
+                #         else:
+                #             incorrect = incorrect + 1
+
+                if 'detailed' in args.keys():
+                    for k, v in args['detailed'].items():
+                        if v == "true":
                             correct = correct + 1
                         else:
                             incorrect = incorrect + 1
+                questions = str(args['detailed'])
 
 
                 hist = context.c.session.get("history")
@@ -442,11 +454,43 @@ class Page(object):
 
     # args is in format returned by urllib.parse.parse_qs
     def feedback(self, args):
-        # Only a stub for now
-        #user_id = context.c.user.user_id if context.c.user else "UNKNOWN"
-        logging.error("Feedback: {}".format(args))
+
+        # Record feedback to the database
+        try:
+            user_id = context.c.user.user_id if context.c.user else "UNKNOWN"
+        except:
+            user_id = "UNKNOWN"
+            pass
+
+        if "q_id" in args.keys():
+            if "l_id" not in args.keys() or not args["l_id"] or args["l_id"] is None:
+                l_id = ""
+            else:
+                l_id = args["l_id"]
+                
+
+            random_vals = str(args['rand_val'])
+
+            response = {"user_id" : user_id,
+                        "question_id": args["q_id"],
+                        "list_id": l_id,
+                        "type": args["type"],
+                        "comment": args["comment"],
+                        "random_vals": random_vals}
+
+            logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, type=%s, comment=%s, random_vals=%s", 
+                        str(user_id), str(args["q_id"]), 
+                        str(l_id), str(args["type"]), str(args["comment"]), random_vals)
+
+            try:
+                self.storage.record_feedback(response)
+            except Exception as err:
+                logging.error("Error submitting record response: {}".format(str(err)))
+        else:
+            logging.error("Register operation with incomplete parameters: {}".format(args))
 
         return "ABC"
+
 
 
 
