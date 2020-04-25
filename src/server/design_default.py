@@ -1010,6 +1010,36 @@ class Design_default(object):
 
 
 
+    @staticmethod
+    def add_popup(page, name, inner_html, extra_style=""):
+        page.add_lines("\n\n<!-- POPUP {} START -->\n\n".format(name))
+
+        page.add_lines("<span id='popup_" + name + "' style='visibility: hidden;"
+            "position: fixed; z-index: 1; bottom: 50%;" 
+            "left: 50%; transform: translate(-50%, -50%);")
+        page.add_lines(extra_style)
+        page.add_lines("'>")
+
+        page.add_lines(inner_html)
+
+        page.add_lines("</span>")        
+
+        page.add_lines("""
+            <script>
+                // When the user clicks on div, open the popup
+                function popup_toggle_""" + name + """() {
+                    var popup = document.getElementById("popup_"""+ name + """");
+                    if (popup.style.visibility == "hidden") { 
+                        popup.style.visibility = "visible";
+                    } else {
+                        popup.style.visibility = "hidden";
+                    }
+                }
+            </script>
+            """
+        )
+
+        page.add_lines("\n\n<!-- POPUP {} END -->\n\n".format(name))
 
 
 
@@ -1090,6 +1120,8 @@ class Design_default(object):
         page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
             
 
+
+
         page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         
         page.add_lines("\n<!-- SOLUTION BUTTON -->\n")
@@ -1099,16 +1131,27 @@ class Design_default(object):
 
 
 
+
         page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         
-        page.add_lines("\n<!-- ERROR REPORT BUTTON -->\n")
-        page.add_lines("\n<input type='button' style='font-size: 14px;' " \
-            "onclick=\"sendFeedbackToServer('{}', 'test', '{}', '{}', 'comment')\" value='{}' />\n".format(
+        page.add_lines("\n<!-- FEEDBACK BUTTON -->\n")
+
+        inner_html = "\n<input type='button' style='font-size: 14px;' " \
+            "onclick=\"sendFeedbackToServer('{}', 'test', '{}', '{}', 'comment'); popup_toggle_feedback_report();\" value='{}' />\n".format(
             page.page_params.get_param("root"), 
             page.page_params.get_param("q_id"),
             page.page_params.get_param("l_id"),
-            "Prijavi gresku"))
-        page.add_lines("\n<!-- ERROR REPORT BUTTON -->\n")
+            "Posalji prijavu")
+
+        extra_style = "width: 160px; background-color: #555; color: #fff; text-align: center; border-radius: 6px; padding: 8px 0;"
+
+        Design_default.add_popup(page, "feedback_report", inner_html, extra_style)
+
+        page.add_lines("\n<input type='button' style='font-size: 14px;' onclick=\"popup_toggle_feedback_report()\" value='{}' />\n".format(
+            "Prijavi problem"))
+
+        page.add_lines("\n<!-- END FEEDBACK BUTTON -->\n")
+
 
 
 
