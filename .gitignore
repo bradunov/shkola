@@ -1,4 +1,6 @@
 *~
 **/__pycache__/*
-src/server/shkola.sql
+src/server/*.sql
+tmp
+exports.sh
 
