@@ -2,7 +2,7 @@ import os
 import json
 import logging
 
-from server.azure_blob import azure_blob
+from server.azure_blob import Azure_blob
 
 
 
@@ -30,7 +30,7 @@ class Repository(object):
         
 
         if (use_azure_blob):
-            self.azure_blob = azure_blob("/home/bozidar/shkola")
+            self.azure_blob = Azure_blob("/home/bozidar/shkola")
             print("Using Azure Blob storage for questions")
 
         self.preload = preload

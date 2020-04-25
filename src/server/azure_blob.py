@@ -5,7 +5,7 @@ from azure.storage.blob import BlobServiceClient
 
 
 
-class azure_blob():
+class Azure_blob():
     connect_str = os.getenv('SHKOLA_AZ_BLOB_CONN_STR')
     container_name = "questions"
     blob_service_client = None
@@ -39,7 +39,7 @@ class azure_blob():
 
 
     def delete_all_files(self, path):
-        list_files = azure_blob.list_files(path)
+        list_files = self.list_files(path)
         self.container_client.delete_blobs(*list_files)
 
         
@@ -66,7 +66,7 @@ class azure_blob():
                         local_file_name = dirpath + '/' + f
                     else:
                         local_file_name = dirpath + f
-                    azure_blob.upload_file(local_file_name)
+                    self.upload_file(local_file_name)
 
                     
     def download_file(self, file_name):
@@ -80,7 +80,7 @@ class azure_blob():
 
 if __name__ == '__main__':
 
-    azure_blob = azure_blob("/home/bozidar/shkola")
+    azure_blob = Azure_blob("/home/bozidar/shkola")
 
 
     #Upload all new files

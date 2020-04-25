@@ -114,28 +114,6 @@ class Page(object):
     def add_on_loaded_script_lines(self, code):
         self.on_loaded_script = self.on_loaded_script + code
         
-    def on_click(self, operation:ResponseOperation=None, url_next=None, record=False, quoted=True):
-        if record:
-            # Only send results to server if next_url specified (i.e. we are in the test mode)
-            ret_str = 'cond = checkAll("{}", "{}", "{}", "{}");'.format(
-                ResponseOperation.toStr(operation),
-                self.page_params.get_param("root"),
-                self.page_params.get_param("q_id"),
-                self.page_params.get_param("l_id")
-            )
-        else:
-            ret_str = "cond = checkAll();"
-
-        if url_next is not None:
-            if operation == ResponseOperation.SUBMIT:
-                ret_str = ret_str + "if (cond) "
-            if quoted:
-                ret_str = ret_str + " {window.location.replace(\"" + url_next + "\");}"
-            else:
-                ret_str = ret_str + " {window.location.replace(" + url_next + ");}"
-
-        return ret_str
-
     def render(self):
         ret = ""
         ret = ret + self.header()

@@ -1079,8 +1079,11 @@ class Library(object):
         report = report + "report['l_id'] = l_id;\n"
         report = report + "report['detailed'] = {};\n"
         for c in self.checks:
-            assign = assign + "c" + str(cid) + " = " + c + ";" + \
-                "if (c" + str(cid) + ") {q_correct++;} else {q_incorrect++;}\n"
+            assign = assign + "c" + str(cid) + " = " + c + ";\n" + \
+                "if (operation == 'SUBMIT') {\n" \
+                "c" + str(cid) + " = " + c + ";\n" \
+                "if (c" + str(cid) + ") {q_correct++;} else {q_incorrect++;}\n" \
+                "} else {c" + str(cid) + " = false; q_incorrect++;}\n"
             cond = cond + "c" + str(cid) + " && "
             report = report + "report['detailed']['q_res" + str(cid) + "'] = c" + str(cid) + ".toString();\n"
             cid = cid + 1
@@ -1130,8 +1133,10 @@ class Library(object):
           return cond;
         }
 
+        var checked_all = false;
         function checkAll(operation, root, q_id, l_id) {
-            checkAll_""" + str(self.lib_id) + """(operation, root, q_id, l_id);
+            checked_all = true;
+            return checkAll_""" + str(self.lib_id) + """(operation, root, q_id, l_id);
         }
         </script>
         """

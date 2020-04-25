@@ -422,7 +422,7 @@ class Design_dev(object):
 
         OKline = "\n\n<!-- CHECK NEXT BUTTON -->\n"
         OKline = OKline + "<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-            page.on_click(\
+            Design_dev.on_click(page, \
                 operation=ResponseOperation.SUBMIT, \
                 url_next=url_next, \
                 record=False), page.get_messages()["check"])
@@ -431,7 +431,7 @@ class Design_dev(object):
         if url_next is not None:
             NEXTline = ""
             NEXTline = "\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
-                page.on_click(\
+                Design_dev.on_click(page, \
                     operation=ResponseOperation.SKIP, \
                     url_next=url_next, \
                     record=False), page.get_messages()["skip"])
@@ -578,6 +578,29 @@ class Design_dev(object):
         Design_dev._render_user_one_cat_rec(page, stats, "Svi", 0)
         page.add_lines("</table><br>")
 
+
+    @staticmethod
+    def on_click(page, operation:ResponseOperation=None, url_next=None, record=False, quoted=True):
+        if record:
+            # Only send results to server if next_url specified (i.e. we are in the test mode)
+            ret_str = 'cond = checkAll("{}", "{}", "{}", "{}");'.format(
+                ResponseOperation.toStr(operation),
+                page.page_params.get_param("root"),
+                page.page_params.get_param("q_id"),
+                page.page_params.get_param("l_id")
+            )
+        else:
+            ret_str = "cond = checkAll();"
+
+        if url_next is not None:
+            if operation == ResponseOperation.SUBMIT:
+                ret_str = ret_str + "if (cond) "
+            if quoted:
+                ret_str = ret_str + " {window.location.replace(\"" + url_next + "\");}"
+            else:
+                ret_str = ret_str + " {window.location.replace(" + url_next + ");}"
+
+        return ret_str
 
 
 
