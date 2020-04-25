@@ -279,8 +279,16 @@ class Page(object):
 
         self.clear()
 
+        logging.debug("\n\nMAIN ARGS: {}\n\n".format(args))        
+
         if headers is None or req is None:
             # Cherrypy - ignore cookies
+
+            # Special ops to register a user reported error
+            # DEBUG: This is only for testing and may not implement the full feedback functionality
+            if "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.FEEDBACK):
+                return self.feedback(args)
+
             self.page_params.parse(args, legacy=True)
             return Design.main(self)
 
@@ -289,11 +297,18 @@ class Page(object):
         headers.set_no_store()
 
 
-
-        logging.debug("\n\nMAIN ARGS: {}\n\n".format(args))        
-
         if args["root"] == "edit":
             # Old style EDIT page with parameter passing in GET URL
+
+            # DEBUG: these two special ops are for testing and are not fully functional in edit mode
+            # Special ops to register results
+            if "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.REGISTER):
+                return self.register(args)
+
+            # Special ops to register a user reported error
+            elif "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.FEEDBACK):
+                return self.feedback(args)
+
             self.page_params.parse(in_args=args, legacy=True)
             self.page_params.print_params()
             return Design.main(self)
@@ -313,6 +328,10 @@ class Page(object):
                 # Special ops to register results
                 if "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.REGISTER):
                     return self.register(args)
+
+                # Special ops to register a user reported error
+                elif "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.FEEDBACK):
+                    return self.feedback(args)
 
                 else:
                     self.page_params.set_url(req.get_url())
@@ -414,8 +433,22 @@ class Page(object):
         else:
             logging.error("Unknown register operation: {}".format(args["response_type"]))
 
+        return "ABC"
 
-    
+
+
+
+
+
+    # args is in format returned by urllib.parse.parse_qs
+    def feedback(self, args):
+        # Only a stub for now
+        #user_id = context.c.user.user_id if context.c.user else "UNKNOWN"
+        logging.error("Feedback: {}".format(args))
+
+        return "ABC"
+
+
 
 # Just redirect with an empty user
 

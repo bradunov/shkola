@@ -508,6 +508,7 @@ class Question(object):
             self.lib.add_check_button_code()
             self.lib.add_clear_button_code()
             self.lib.add_solution_button_code()
+            self.lib.add_error_report_button_code()
             
         self.page.add_lines("</div>\n")
         self.page.add_lines("\n\n<!-- QUESTIONS END -->\n\n")

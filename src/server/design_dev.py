@@ -457,6 +457,15 @@ class Design_dev(object):
         page.add_lines("\n<!-- END SOLUTION BUTTON -->\n")
 
 
+        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        
+        page.add_lines("\n<!-- ERROR REPORT BUTTON -->\n")
+        page.add_lines("\n<input type='button' style='font-size: 14px;' " \
+            "onclick=\"sendFeedbackToServer('{}')\" value='{}' />\n".format(
+            page.page_params.get_param("root"), "Prijavi gresku"))
+        page.add_lines("\n<!-- ERROR REPORT BUTTON -->\n")
+
+
         page.add_lines("\n</div>\n")
         page.add_lines("</div>\n")
         page.add_lines("\n\n<!-- QUESTIONS END -->\n\n")

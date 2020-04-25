@@ -2,6 +2,7 @@ import logging
 
 import os
 import sys
+import json
 
 # This is the web root dir that has to be defined in Dockerfile 
 sys.path.append(os.environ['AzureWebJobsScriptRoot']) 
@@ -77,7 +78,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 
     if req.method == "POST":
-        args = extract_dict_from_post(req.get_body())
+        # Merge body and request parameters
+        args = json.loads(req.get_body().decode())
+        args.update(dict(req.params))
     else:
         # req.method == "GET":
         args = dict(req.params)

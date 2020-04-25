@@ -12,7 +12,25 @@ class LibMath(object):
         self.lua = question.lua
         self.page = question.page
         self.lib_id = question.q_unique_id
-        self.page.add_script_lines("<script> rnd_val_"+ str(self.lib_id) + " = {};</script>")
+        self.page.add_script_lines("""
+            <script> 
+                rnd_val_"""+ str(self.lib_id) + """ = {};
+                function sendFeedbackToServer_"""+ str(self.lib_id) + """(root) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        console.log("Received");
+                        console.log(xhr);
+                        if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    console.log("Sending report to " + url + ": " + JSON.stringify(rnd_val_"""+ str(self.lib_id) + """));
+                    xhr.send(JSON.stringify(rnd_val_"""+ str(self.lib_id) + """));
+                    attempt = attempt + 1;
+                }
+            </script>
+        """)
 
     def eq(self, x, y, precision = 0.00001):
         return abs(x-y) < precision
@@ -1049,18 +1067,21 @@ class Library(object):
         cid = 0
         cond = "cond = "
         assign = ""
-        report = "'q_id=' + q_id + '&l_id=' + l_id + '&' + "
+
+        report = "var report = {};\n"
+        report = report + "report['q_id'] = q_id;\n"
+        report = report + "report['l_id'] = l_id;\n"
+        report = report + "report['detailed'] = {};\n"
         for c in self.checks:
             assign = assign + "c" + str(cid) + " = " + c + ";" + \
                 "if (c" + str(cid) + ") {q_correct++;} else {q_incorrect++;}\n"
             cond = cond + "c" + str(cid) + " && "
-            report = report + "\"q_res" + str(cid) + "=\" + c" + str(cid) + ".toString() + \"&\" + " 
+            report = report + "report['detailed']['q_res" + str(cid) + "'] = c" + str(cid) + ".toString();\n"
             cid = cid + 1
         cond = cond + "true;"
-        report = "report = " + report + \
-                "\"start=\" + question_start_time.toString() + " + \
-                "\"&now=\" + Math.floor(Date.now()/1000).toString() + " + \
-                "\"&attempt=\" + attempt.toString();\n"
+        report = report + "report['start'] = question_start_time.toString();\n"
+        report = report + "report['now'] = Math.floor(Date.now()/1000).toString();\n"
+        report = report + "report['attempt'] = attempt.toString();\n"
 
 
         check_script = """
@@ -1069,23 +1090,26 @@ class Library(object):
         attempt = 0;
         q_correct = 0;
         q_incorrect = 0;
-        function sendResultsToServer(report, type, post_url) {
+        function sendResultsToServer(report, type, root) {
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/' + post_url);
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
             xhr.onreadystatechange = function() {
                 console.log("Received");
                 console.log(xhr);
                 if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
             };
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            console.log("Sending report " + report + '&op=register&response_type=' + type);
-            xhr.send(report + '&op=register&response_type=' + type);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
             attempt = attempt + 1;
         }
 
         // operation == SUBMIT | SKIP
-        // post_url == URL to which to post the results
-        function checkAll_""" + str(self.lib_id) + """(operation, post_url, q_id, l_id) {
+        // root == URL root to which to post the results
+        function checkAll_""" + str(self.lib_id) + """(operation, root, q_id, l_id) {
             q_correct=0; q_incorrect=0;
         """ + assign + "\n" \
             + cond + "\n" + """
@@ -1093,15 +1117,15 @@ class Library(object):
               """
 
         check_script = check_script + report
-        check_script = check_script + "sendResultsToServer(report, operation, post_url);"
+        check_script = check_script + "sendResultsToServer(report, operation, root);"
 
         check_script = check_script + """
           }
           return cond;
         }
 
-        function checkAll(operation, post_url, q_id, l_id) {
-            checkAll_""" + str(self.lib_id) + """(operation, post_url, q_id, l_id);
+        function checkAll(operation, root, q_id, l_id) {
+            checkAll_""" + str(self.lib_id) + """(operation, root, q_id, l_id);
         }
         </script>
         """
@@ -1163,6 +1187,21 @@ class Library(object):
 
         self.solutions = []
 
+
+
+
+
+    def add_error_report_button_code(self):
+        script_error_report = """
+        <script>
+        function sendFeedbackToServer(root){
+            sendFeedbackToServer_"""+ str(self.lib_id) + """(root);
+        }
+        </script>
+        """
+        self.page.add_script_lines("\n<!-- HINT ALL -->\n")
+        self.page.add_script_lines(script_error_report)
+        self.page.add_script_lines("\n<!-- END HINT ALL -->\n")
 
 
 

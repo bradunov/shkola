@@ -93,6 +93,8 @@ class PageOperation(Enum):
     SUMMARY = 14
     # Previous question in test
     TEST_PREV = 15
+    # Report an issue in question
+    FEEDBACK = 16
 
     @classmethod
     def toStr(cls, enum) -> str:
@@ -128,6 +130,8 @@ class PageOperation(Enum):
             return "summary"
         elif enum == PageOperation.TEST_PREV:
             return "test_prev"
+        elif enum == PageOperation.FEEDBACK:
+            return "feedback"
 
     @classmethod
     def fromStr(cls, name:str, with_exception : bool = False):
@@ -161,6 +165,8 @@ class PageOperation(Enum):
             return PageOperation.SUMMARY
         elif name.lower() == "test_prev":
             return PageOperation.TEST_PREV
+        elif name.lower() == "feedback":
+            return PageOperation.FEEDBACK
         else:
             if with_exception:
                 raise PageParameterParsingError()
