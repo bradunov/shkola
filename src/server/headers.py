@@ -6,12 +6,21 @@ class Headers:
         self._cookies = http.cookies.SimpleCookie()
         self._no_store = False
         self._status_code = 200
+        self._content_type = 'text/html'
 
 
     def set_cookie(self, name, value, attrs=dict()):
         self._cookies[name] = value
         for k, v in attrs.items():
             self._cookies[name][k] = v
+
+
+    def set_content_type(self, ctype):
+        self._content_type = ctype
+
+
+    def content_type(self):
+        return self._content_type
 
 
     def status_code(self):

@@ -62,119 +62,46 @@ class PageDesign(Enum):
 @unique
 class PageOperation(Enum):
     # Testing - the default view for users
-    TEST = 0
+    TEST = "test"
     # View one question (DEV mode)
-    VIEW = 1
+    VIEW = "view"
     # Editor view of one question (DEV mode)
-    EDIT = 2
+    EDIT = "edit"
     # View all questions in a list (DEV mode)
-    LIST = 3
+    LIST = "list"
     # Generate modified question in editor mode (DEV mode)
-    GENERATE = 4
+    GENERATE = "generate"
     # Register new a result in the table
-    REGISTER = 5
+    REGISTER = "register"
     # Submit login request
-    LOGIN = 6
+    LOGIN = "login"
+    # Submit google login request
+    LOGIN_GOOGLE = "login_google"
     # Menu - select user
-    MENU_USER = 7
+    MENU_USER = "menu_user"
     # Menu - select year
-    MENU_YEAR = 8
+    MENU_YEAR = "menu_year"
     # Menu - select theme
-    MENU_THEME = 9
+    MENU_THEME = "menu_theme"
     # Menu - select subtheme
-    MENU_SUBTHEME = 10
+    MENU_SUBTHEME = "menu_subtheme"
     # Set this when not specified, so each menu can decide
-    DEFAULT = 11
+    DEFAULT = "default"
     # Stats
-    STATS = 12
+    STATS = "stats"
     # Intro
-    INTRO = 13
+    INTRO = "into"
     # Summary
-    SUMMARY = 14
+    SUMMARY = "summary"
     # Previous question in test
-    TEST_PREV = 15
+    TEST_PREV = "test_prev"
     # Report an issue in question
-    FEEDBACK = 16
+    FEEDBACK = "feedback"
 
+    # TODO: remove this method
     @classmethod
     def toStr(cls, enum) -> str:
-        if enum == PageOperation.VIEW:
-            return "view"
-        elif enum == PageOperation.EDIT:
-            return "edit"
-        elif enum == PageOperation.TEST:
-            return "test"
-        elif enum == PageOperation.LIST:
-            return "list"
-        elif enum == PageOperation.GENERATE:
-            return "generate"
-        elif enum == PageOperation.REGISTER:
-            return "register"
-        elif enum == PageOperation.LOGIN:
-            return "login"
-        elif enum == PageOperation.MENU_USER:
-            return "menu_user"
-        elif enum == PageOperation.MENU_YEAR:
-            return "menu_year"
-        elif enum == PageOperation.MENU_THEME:
-            return "menu_theme"
-        elif enum == PageOperation.MENU_SUBTHEME:
-            return "menu_subtheme"
-        elif enum == PageOperation.DEFAULT:
-            return "default"
-        elif enum == PageOperation.STATS:
-            return "stats"
-        elif enum == PageOperation.INTRO:
-            return "intro"
-        elif enum == PageOperation.SUMMARY:
-            return "summary"
-        elif enum == PageOperation.TEST_PREV:
-            return "test_prev"
-        elif enum == PageOperation.FEEDBACK:
-            return "feedback"
-
-    @classmethod
-    def fromStr(cls, name:str, with_exception : bool = False):
-        if name.lower() == "view":
-            return PageOperation.VIEW
-        elif name.lower() == "edit":
-            return PageOperation.EDIT
-        elif name.lower() == "test":
-            return PageOperation.TEST
-        elif name.lower() == "list":
-            return PageOperation.LIST
-        elif name.lower() == "generate":
-            return PageOperation.GENERATE
-        elif name.lower() == "login":
-            return PageOperation.LOGIN
-        elif name.lower() == "menu_user":
-            return PageOperation.MENU_USER
-        elif name.lower() == "menu_year":
-            return PageOperation.MENU_YEAR
-        elif name.lower() == "menu_theme":
-            return PageOperation.MENU_THEME
-        elif name.lower() == "menu_subtheme":
-            return PageOperation.MENU_SUBTHEME
-        elif name.lower() == "default":
-            return PageOperation.DEFAULT
-        elif name.lower() == "stats":
-            return PageOperation.STATS
-        elif name.lower() == "intro":
-            return PageOperation.INTRO
-        elif name.lower() == "summary":
-            return PageOperation.SUMMARY
-        elif name.lower() == "test_prev":
-            return PageOperation.TEST_PREV
-        elif name.lower() == "feedback":
-            return PageOperation.FEEDBACK
-        else:
-            if with_exception:
-                raise PageParameterParsingError()
-            else:
-                return PageOperation.DEFAULT
-
-
-
+        return enum.value
 
 
 @unique
@@ -218,11 +145,6 @@ class PageParameters(object):
         "period" : "",
         "difficulty" : "",
         "language" : PageLanguage.RS,
-        "user_param" : {
-            "remote_ip" : "",
-            "user_agent" : "",
-            "user_laguage" : ""
-        },
 
         # Parameters for edit mode
         "init_code" : "",
@@ -262,8 +184,8 @@ class PageParameters(object):
                 raise PageParameterParsingError()
             else:
                 return {}
-        return decode_dict(args["state"])
 
+        return decode_dict(args["state"])
 
     def __init__(self, args : dict = None):
         self._params = self._default_params
@@ -312,7 +234,11 @@ class PageParameters(object):
         else:
             self._params = copy.deepcopy(params)
             if "op" in params.keys():
-                self._params["op"] = PageOperation.fromStr(params["op"])
+                try:
+                    self._params["op"] = PageOperation(params["op"])
+                except ValueError:
+                    self._params["op"] = PageOperation.DEFAULT
+
             if "language" in params.keys():
                 self._params["language"] = PageLanguage.fromStr(params["language"])
             if "design" in params.keys():
@@ -320,11 +246,11 @@ class PageParameters(object):
 
     def save_params(self):
         context.c.session.set("params", self.copy_to_serializible_state())
-        logging.debug("\n\n Saving parameters: {}\n\n".format(context.c.session.get("params")))
+        # logging.debug("\n\n Saving parameters: {}\n\n".format(context.c.session.get("params")))
         
     def load_params(self):
         self.load_from_serializible_state(context.c.session.get("params"))
-        logging.debug("\n\n Loading parameters: {}\n\n".format(context.c.session.get("params")))
+        # logging.debug("\n\n Loading parameters: {}\n\n".format(context.c.session.get("params")))
 
     def print_params(self):
         logging.debug("\n\n Printing parameters: {}\n\n".format(json.dumps(self.copy_to_serializible_state(), indent=2)))
@@ -352,11 +278,7 @@ class PageParameters(object):
 
     def parse(self, in_args : dict, legacy=False):
 
-        if legacy:
-            update_only=False
-        else:
-            update_only=True
-
+        update_only = not legacy
         updated = False
 
         # First check if there are any parameters packet encoded in "state" variable
@@ -383,8 +305,14 @@ class PageParameters(object):
                 self._params["root"] = ""
 
         if "op" in args.keys():
-            self._params["op"] = PageOperation.fromStr(args["op"], self.with_exception)
             updated = True
+            try:
+                self._params["op"] = PageOperation(args["op"])
+            except ValueError:
+                if self.with_exception:
+                    raise PageParameterParsingError()
+
+                self._params["op"] = PageOperation.DEFAULT
         # Else do not set, use whatever is in the state
         # Otherwise use the menu (that shows on any page) to go wherever.
         # else:
@@ -452,28 +380,12 @@ class PageParameters(object):
             self._params["text"] = args["text"]
             updated = True
 
-
-        if "remote_ip" in args.keys():
-            self._params["user_param"]["remote_ip"] = args["remote_ip"]
-            updated = True
-        else:
-            if not update_only:
-                self._params["user_param"]["remote_ip"] = ""
-
         if "user_agent" in args.keys():
-            self._params["user_param"]["user_agent"] = args["user_agent"]
-            self._params["mobile"] = is_user_on_mobile(self._params["user_param"]["user_agent"])
+            self._params["mobile"] = is_user_on_mobile(args["user_agent"])
             updated = True
         else:
             if not update_only:
                 self._params["mobile"] = False
-
-        if "user_language" in args.keys():
-            self._params["user_param"]["user_language"] = args["user_language"]
-            updated = True
-        else:
-            if not update_only:
-                self._params["user_param"]["user_language"] = ""
 
         if not legacy:
             if updated:

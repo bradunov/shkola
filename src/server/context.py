@@ -10,15 +10,18 @@ class Context(threading.local):
 
         threading.local.__setattr__(self, k, v)
 
+    def clear(self):
+        for k in Context.ATTRS:
+            setattr(self, k, None)
 
-c = None
+
+c = Context()
 
 
 @contextmanager
 def new_context(request, headers):
     global c
 
-    c = Context()
     c.request = request
     c.headers = headers
     c.session = None
@@ -28,5 +31,5 @@ def new_context(request, headers):
         yield c
 
     finally:
-        c = None
+        c.clear()
 

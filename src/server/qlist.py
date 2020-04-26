@@ -1,9 +1,6 @@
 from server.question import Question
-from server.types import ResponseOperation
+# from server.types import ResponseOperation
 import logging
-
-
-import json
 
 # This is not (yet?) design agnostic
 

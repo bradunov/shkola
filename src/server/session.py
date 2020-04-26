@@ -112,7 +112,7 @@ class SessionDB:
             session_data['data'],
         )
 
-        logging.debug("\n\nLoading session state: ID={}, USER={}, DATA={}\n\n".format(
+        logging.debug("Loading session state: ID={}, USER={}, DATA={}\n\n".format(
             session.session_id(), session.user_id(), session.data()))
 
         if session.user_id():

@@ -11,13 +11,11 @@ import server.context as context
 
 import server.storage
 from server.repository import Repository
-from server.user_db import UserDB
+from server.user_db import UserDB, GOOGLE_CLIENT_ID
 from server.design import Design
 from server.session import SessionDB
 
 import logging
-
-
 
 
 class Page(object):
@@ -178,7 +176,7 @@ class Page(object):
         head = head + "  <head>\n"
         head = head + "    <title>{}</title>\n".format(self.title)
         head = head + "    <meta name='viewport' content='width=device-width, initial-scale=1'>\n"
-        head = head + '    <meta name="google-signin-client_id" content="221670444651-i7ock63nksbnqeag7l3s2u0nf6jdb2bk.apps.googleusercontent.com">'
+        head = head + f'    <meta name="google-signin-client_id" content="{GOOGLE_CLIENT_ID}">'
         head = head + """
              <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
              <script type="text/javascript" async
@@ -254,7 +252,6 @@ class Page(object):
 
         
     def main(self, req, headers, args):
-
         self.clear()
 
         logging.debug("\n\nMAIN ARGS: {}\n\n".format(args))        
@@ -270,10 +267,8 @@ class Page(object):
             self.page_params.parse(args, legacy=True)
             return Design.main(self)
 
-
         # No caching
         headers.set_no_store()
-
 
         if args["root"] == "edit":
             # Old style EDIT page with parameter passing in GET URL
@@ -288,7 +283,7 @@ class Page(object):
                 return self.feedback(args)
 
             self.page_params.parse(in_args=args, legacy=True)
-            self.page_params.print_params()
+            # self.page_params.print_params()
             return Design.main(self)
 
 
@@ -298,7 +293,8 @@ class Page(object):
                 context.c.user = self.userdb.get_user(session.user_id())
 
                 # Debug
-                session.print()
+                if True:
+                    session.print()
 
                 # Page counter (for testing)
                 session.set('page_counter', session.get('page_counter', 0) + 1)
@@ -318,14 +314,13 @@ class Page(object):
                     # only updates passed in URL
                     self.page_params.load_params()
                     self.page_params.parse(in_args=args)
-                    self.page_params.print_params()
 
-
-                    if True:
+                    logging.debug(f"=== New /main request, op = {self.page_params.get_param('op')}")
+                    if False:
+                        self.page_params.print_params()
                         logging.info("\n\n === New request: op={} <design={}, mobile={}> - "
                                     "q_id={}, l_id={}, language={}, "
-                                    "init_code={}, iter_code={}, text={}, "
-                                    "remote_ip={}, user_agent={}, user_language={}.\n\n".format(
+                                    "init_code={}, iter_code={}, text={}.\n\n".format(
                                         PageOperation.toStr(self.page_params.get_param("op")), 
                                         PageDesign.toStr(self.page_params.get_param("design")),
                                         self.page_params.get_param("mobile"), 
@@ -334,16 +329,10 @@ class Page(object):
                                         self.page_params.get_param("init_code"), 
                                         self.page_params.get_param("iter_code"), 
                                         self.page_params.get_param("text"),
-                                        self.page_params.get_param("user_param")["remote_ip"], 
-                                        self.page_params.get_param("user_param")["user_agent"], 
-                                        self.page_params.get_param("user_param")["user_laguage"]))
+                                    ))
 
 
                     return Design.main(self)
-
-
-
-
 
 
     # args is in format returned by urllib.parse.parse_qs
@@ -495,37 +484,48 @@ class Page(object):
 #                         login_return["lang"], login_return["menu"])
 
 
+    def login_google(self):
+        id_token = None
+        ok = False
 
+        logging.info("*** login google called")
 
-    def login(self) -> PageOperation:
-        # Only test uset at the moment
-        #user_id = context.c.request.param_get("user_id")
-        user_id = None
+        if not context.c.user:
+            pdict = context.c.request.get_post_data()
 
-        domain = 'local'
-        email = None
-        remote_ip = None
-        user_agent = None
-        user_language = "en"
-
-        if user_id is None:
-            user_id = 'test'
-            name = 'test'
+            id_token = pdict.get('id_token', None)
+            if id_token:
+                ok = self.userdb.login_google(id_token)
+            else:
+                logging.info("login_google(): no id_token")
 
         else:
-            name = user_id
+            logging.info("login_google(): User allready logged in")
 
-        logging.info("REMOTE IP: %s", remote_ip)
-        logging.info("USER AGENT: %s", user_agent)
-        logging.debug("Login test user %s, %s, %s, %s", domain, user_id, remote_ip, user_agent)
+        url = self.page_params.get_param("root") + \
+            "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
 
-        self.userdb.session_login_and_update_user(domain, user_id,
-                                           name = name,
-                                           email = email,
-                                           remote_ip = remote_ip,
-                                           user_agent = user_agent,
-                                           user_language = user_language)
+        return url, ok
 
+
+    def login(self) -> str:
+        if not context.c.user:
+            user_id = context.c.request.param_get("user_id")
+
+            email = None
+            user_language = "en"
+
+            if not user_id:
+                user_id = 'test'
+                name = 'test'
+
+            else:
+                name = user_id
+
+            logging.debug("Login test user %s", user_id)
+            self.userdb.login_test(user_id, name, email, user_language)
+        else:
+            logging.info("login(): User allready logged in")
 
         url = self.page_params.get_param("root") + \
             "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
