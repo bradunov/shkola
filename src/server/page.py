@@ -316,7 +316,7 @@ class Page(object):
                     self.page_params.load_params()
                     self.page_params.parse(in_args=args)
 
-                    logging.debug("=== New /main request, op = {}").format(self.page_params.get_param('op'))
+                    logging.debug("=== New /main request, op = {}".format(self.page_params.get_param('op')))
                     if False:
                         self.page_params.print_params()
                         logging.info("\n\n === New request: op={} <design={}, mobile={}> - "
@@ -489,15 +489,20 @@ class Page(object):
 
             id_token = pdict.get('id_token', None)
             if id_token:
-                ok = self.userdb.login_google(id_token)
+                ok, s = self.userdb.login_google(id_token)
             else:
                 logging.info("login_google(): no id_token")
 
         else:
+            ok = True
             logging.info("login_google(): User already logged in")
 
         url = self.page_params.get_param("root") + \
             "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
+
+        if not ok:
+            # If error, pass error message as url (to be printed for debug)
+            url = s
 
         return url, ok
 

@@ -252,6 +252,8 @@ class PageParameters(object):
         
     def load_params(self):
         self.load_from_serializible_state(context.c.session.get("params"))
+        # Do not load op from state. See https://github.com/bradunov/shkola/issues/23
+        del self._params["op"]
         # logging.debug("\n\n Loading parameters: {}\n\n".format(context.c.session.get("params")))
 
     def print_params(self):

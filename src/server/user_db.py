@@ -84,7 +84,7 @@ class UserDB(object):
         return True
 
 
-    def login_google(self, id_token) -> bool:
+    def login_google(self, id_token) -> (bool, str):
         try:
             idinfo = google.oauth2.id_token.verify_oauth2_token(
                 id_token,
@@ -109,7 +109,7 @@ class UserDB(object):
             # "Failed google authentication: Token used too early, 1587897345 < 1587939823"
             # Not sure why so I'll just ignore for now for testing
             #return False
-            return False
+            return False, str(ex)
 
         self.session_login_and_update_user(
             'google', auth_user_id,
@@ -118,6 +118,6 @@ class UserDB(object):
             user_language = language
         )
 
-        return True
+        return True, ""
 
 

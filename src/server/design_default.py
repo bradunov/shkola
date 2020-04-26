@@ -37,10 +37,8 @@ class Design_default(object):
             logging.debug("\n\n\n GGGGGG1\n\n\n")
             new_url, ok = page.login_google()
             logging.debug("\n\n\n GGGGGG2 {} {} \n\n\n".format(new_url, ok))
-            #context.c.headers.redirect(new_url)
-            #return ""
             context.c.headers.set_content_type('text/plain')
-            return "OK:{}".format(new_url) if ok else "ERROR:"
+            return "OK:{}".format(new_url) if ok else "ERROR:{}".format(new_url)
 
         logging.debug("\n\n\n UUUUUUUU {}\n\n\n".format(context.c.user))
 
@@ -248,6 +246,8 @@ class Design_default(object):
         page.page_params.set_param("subtheme", "")
         page.page_params.set_param("q_id", "")
         page.page_params.set_param("l_id", "")
+        context.c.session.clear()
+        context.c.user = None
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
         if content:
@@ -310,7 +310,7 @@ class Design_default(object):
                         if (r[0] == 'OK') {
                             window.location.assign(r[1]);
                         } else {
-                            document.getElementById('gauth_status').innerText = "Login error!";
+                            document.getElementById('gauth_status').innerText = "Login error: " + r[1];
                         }
                         };
                         xhr.send('id_token=' + id_token);
