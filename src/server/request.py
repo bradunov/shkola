@@ -1,3 +1,5 @@
+from server.helpers import extract_dict_from_post
+
 import http.cookies
 import logging
 
@@ -11,6 +13,8 @@ class Request:
         logging.info("REQ ROUTE: %s", azure_request.route_params)
 
         self._parse_cookies()
+
+        self._post = None
 
 
     def _parse_cookies(self):
@@ -41,5 +45,31 @@ class Request:
 
     def param_get(self, name, default = None):
         return self._azure_request.params.get(name, default)
+
+
+    def get_post_data(self) -> dict:
+        assert(self.method() == 'POST')
+
+        if not self._post:
+            self._post = extract_dict_from_post(self._azure_request.get_body())
+
+        return self._post
+
+
+    def get_query_data(self) -> dict:
+        return dict(self._azure_request.params)
+
+
+    def header_remote_addr(self):
+        return self.get_header('x-client-ip')
+
+
+    def header_user_agent(self):
+        return self.get_header('user-agent')
+
+
+    def method(self) -> str:
+        return self._azure_request.method
+
 
 

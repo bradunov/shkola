@@ -1,18 +1,6 @@
 import server.design_dev as design_dev
 import server.design_default as design_default
 
-from server.types import PageDesign
-from server.types import PageOperation
-#from server.types import PageUserID
-
-from server.question import Question
-from server.qlist import Qlist
-from server.test import Test
-
-import server.context as context
-
-import logging
-
 
 class Design(object):
 

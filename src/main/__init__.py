@@ -76,23 +76,24 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     #           'x-client-ip': '82.69.90.27', 'content-length': '0', 'connection': 'close', 'accept-encoding': 'gzip, deflate, br', 'client-ip': '82.69.90.27:51166', 'sec-fetch-user': '?1', 
     #           'x-arr-log-id': 'd69d498a-19fe-4673-9809-d2aa180c87c5', 'x-forwarded-proto': 'https', 'max-forwards': '10'}
 
-
-    if req.method == "POST":
-        # Merge body and request parameters
-        args = json.loads(req.get_body().decode())
-        args.update(dict(req.params))
-    else:
-        # req.method == "GET":
-        args = dict(req.params)
-
-    args["root"] = "main"
-
-    # For now we default to UK on Azure, for our test
-    if "language" not in args.keys():
-        args["language"] = "rs"
-
     headers = Headers()
     request = Request(req)
+
+    args = dict()
+    if req.method == "POST":
+        # Merge body and request parameters
+        # TODO: We cannot assume POST will only send json.
+        # We should check content type of the POST request.
+        try:
+            args = json.loads(req.get_body().decode())
+        except json.JSONDecodeError:
+            pass
+
+    args.update(request.get_query_data())
+
+    args["root"] = "main"
+    if "language" not in args.keys():
+        args["language"] = "rs"
 
     page_body = PAGE.main(request, headers, args)
 
@@ -100,6 +101,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         page_body,
         status_code = headers.status_code(),
         headers = headers.get_headers(),
-        mimetype = "text/html"
+        mimetype = headers.content_type()
     )
 

@@ -1,7 +1,7 @@
 import server.context as context
 
-#import google.oauth2.id_token
-#import google.auth.transport.requests
+import google.oauth2.id_token
+import google.auth.transport.requests
 
 import time
 import logging
@@ -23,7 +23,14 @@ class UserDB(object):
         logging.debug("User DB initialized")
         
 
-    def session_login_and_update_user(self, domain, user_id, name, email, remote_ip, user_agent, user_language):
+    def session_login_and_update_user(self, domain, user_id, name, email, user_language):
+        assert(user_id)
+        assert(domain in DOMAINS)
+        assert(name)
+
+        remote_ip = context.c.request.header_remote_addr()
+        user_agent = context.c.request.header_user_agent()
+
         full_user_id = self.make_user_id(domain, user_id)
         now = int(time.time())
 
@@ -63,6 +70,45 @@ class UserDB(object):
         return "{}:{}".format(domain, user_id)
 
 
-        
+    def login_test(self, user_id, name, email, language) -> bool:
+        self.userdb.session_login_and_update_user(
+            'local', user_id,
+            name = name,
+            email = email,
+            user_language = language
+        )
+
+        return True
+
+
+    def login_google(self, id_token) -> bool:
+        try:
+            idinfo = google.oauth2.id_token.verify_oauth2_token(
+                id_token,
+                google.auth.transport.requests.Request(),
+                GOOGLE_CLIENT_ID
+            )
+            if idinfo['iss'] not in ['accounts.google.com', 'https://accounts.google.com']:
+                raise ValueError('Wrong issuer: {}'.format(idinfo['iss']))
+
+            auth_user_id = idinfo['sub']
+            logging.info("Google validation success: {}".format(idinfo))
+
+            name = idinfo['name']
+            email = idinfo['email']
+            language = idinfo['locale']
+
+        except ValueError as ex:
+            logging.info("Failed google authentication: {}".format(ex))
+            return False
+
+        self.session_login_and_update_user(
+            'google', auth_user_id,
+            name=name,
+            email=email,
+            user_language = language
+        )
+
+        return True
 
 

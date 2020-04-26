@@ -3,7 +3,7 @@ from server.question import Question
 from server.types import PageOperation
 import server.context as context
 
-import logging
+# import logging
 
 class Test(object):
     page = None

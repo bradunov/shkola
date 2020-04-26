@@ -1,4 +1,4 @@
-from server.helpers import encode_dict, encap_str
+from server.helpers import encap_str
 
 from server.types import PageLanguage
 from server.types import PageOperation
@@ -10,11 +10,11 @@ from server.question import Question
 from server.stats import Stats
 
 
-from server.user_db import TEST_USERS
 import server.context as context
 
 import logging
 
+USE_GOOGLE_AUTH = True
 
 
 class Design_default(object):
@@ -29,7 +29,12 @@ class Design_default(object):
         if page.page_params.get_param("op") == PageOperation.LOGIN:
             new_url = page.login()
             context.c.headers.redirect(new_url)
-            return "ABC"
+            return ""
+
+        if page.page_params.get_param("op") == PageOperation.LOGIN_GOOGLE:
+            new_url, ok = page.login_google()
+            context.c.headers.set_content_type('text/plain')
+            return f"OK:{new_url}" if ok else "ERROR:"
 
         # If we happen to get to too many questions (e.g. reloading or returning to a test from elsewhere)
         # here we check that we didn't reach the end counter, and if we did, redirect to summary
@@ -132,7 +137,33 @@ class Design_default(object):
             </script>
         """)
 
+        if USE_GOOGLE_AUTH:
+            url = f"/main?op={PageOperation['LOGIN_GOOGLE'].value}"
+            page.add_script_lines("""
+                <script>
+                function onSignIn(googleUser) {
+                    console.log('Google sign in');
+                    var profile = googleUser.getBasicProfile();
+                    var id_token = googleUser.getAuthResponse().id_token;
+                    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                    console.log('Name: ' + profile.getName());
+                    console.log('Image URL: ' + profile.getImageUrl());
+                    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', '""" + url + """');
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.onload = function() {
+                      console.log('Sign in response: ' + xhr.responseText);
+                      var r = xhr.responseText.split(':')
+                      if (r[0] == 'OK') {
+                          window.location.assign(r[1]);
+                      }
+                    };
+                    xhr.send('id_token=' + id_token);
+                }
+                </script>
+            """)
 
 
     @staticmethod
@@ -191,18 +222,17 @@ class Design_default(object):
     def get_tmp_login_header(page):
         login_str = ""
 
-        login_return = page.page_params.all_state
-        login_return["js"] = False
-        login_return = encode_dict(login_return)
-
+        # login_return = page.page_params.all_state
+        # login_return["js"] = False
+        # login_return = encode_dict(login_return)
+        login_return = "/main"
 
         test_users = ["Petar", "User2"]
         test_users.sort()
 
-    
         login_str = "<select id='sel_user_id' name='sel_user_id' " + \
-                    "onchange='window.location.replace(\"" + page.page_params.get_param("root") + "?op=login_test&" + "login_return=" + \
-                    login_return + "&user_id=local:\" + this.value)'>\n"
+                    "onchange='window.location.replace(\"" + page.page_params.get_param("root") + "?op=login&" + "login_return=" + \
+                    login_return + "&user_id=\" + this.value)'>\n"
 
         user = context.c.user
         if not user or not user.domain_user_id:
@@ -218,16 +248,12 @@ class Design_default(object):
 
         login_str = login_str + "</select>\n"
 
-
         return login_str
-
-
 
 
     @staticmethod
     def render_select_user_page(page):
-        # This is effectively a logout, so clear the entire history
-        context.c.session.clear()
+
         page.page_params.delete_history()
         page.page_params.set_param("year", "")
         page.page_params.set_param("theme", "")
@@ -261,7 +287,6 @@ class Design_default(object):
 
             page.add_lines("<div style=\"display:table; margin:0 auto\">\n")
 
-
             # Google
 
             page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
@@ -270,41 +295,40 @@ class Design_default(object):
             id_button = "button_user_google"
             id_text = "text_user_google"
 
+            if USE_GOOGLE_AUTH:
+                google_login_button = '<div class="g-signin2" style="margin-bottom:0px" data-onsuccess="onSignIn"></div>\n'
+                page.add_lines(google_login_button)
+
+            else:
+                # Temporary login
+
+                # Temporarily disabled
+                msg = "ULOGUJ SE KAO " + Design_default.get_tmp_login_header(page)
+                # msg = "ULOGUJ SE KAO "
+
+                link = "href=\"{}\"".format(page.page_params.create_url(
+                                    year = "",
+                                    theme = "",
+                                    subtheme = "",
+                                    period = "",
+                                    difficulty = "",
+                                    js = False))
+
+                text = """
+                            <div id="{}", class=""
+                                style="display: inline-block;
+                                    margin-top: 10px;
+                                    font-family: 'Lato';
+                                    font-size: {}px;
+                                    color: {}"> {} </div>
+                    """.format(id_text, font_size, color, msg)
 
 
-            # Temporary login
+                button = Design_default._add_button(page, "div", id_button, id_text, color, \
+                    back_color, height, width, margin, margin, margin, margin_top, link, text)
+                page.add_lines(button)
 
-            # Temporarily disabled
-            #msg = "ULOGUJ SE KAO " + Design_default.get_tmp_login_header(page)
-            msg = "ULOGUJ SE KAO "
-
-
-            link = "href=\"{}\"".format(page.page_params.create_url(
-                                year = "", \
-                                theme = "", \
-                                subtheme = "", \
-                                period = "", \
-                                difficulty = "", \
-                                js = False))
-
-            text = """
-                        <div id="{}", class="" 
-                            style="display: inline-block;
-                                margin-top: 10px;
-                                font-family: 'Lato'; 
-                                font-size: {}px; 
-                                color: {}"> {} </div>
-                """.format(id_text, font_size, color, msg)
-
-
-            button = Design_default._add_button(page, "div", id_button, id_text, color, \
-                back_color, height, width, margin, margin, margin, margin_top, link, text)
-            page.add_lines(button)
-
-            page.add_lines("</div>\n")
-
-
-
+                page.add_lines("</div>\n")
 
             # Gost
 
@@ -711,7 +735,7 @@ class Design_default(object):
                 "incorrect" : 0
             })
 
-        context.c.session.print()
+        # context.c.session.print()
 
         page.page_params.set_param("q_id", next_question)
         q = Question(page=page, q_id=next_question)
@@ -885,9 +909,13 @@ class Design_default(object):
 
         new_params = PageParameters()
         new_page_params.set_param("root", page.page_params.get_param("root"))
-        page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
-            new_params.create_url(op = PageOperation.toStr(PageOperation.MENU_USER), js = False) + \
-            "\"> Izloguj se </a>\n")
+        if not context.c.user:
+            page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
+                new_params.create_url(op = PageOperation.toStr(PageOperation.MENU_USER), js = False) + \
+                "\"> Uloguj se </a>\n")
+        else:
+            page.add_lines("User: " + context.c.user.name)
+
         page.add_lines("</div>")
 
 
@@ -950,8 +978,7 @@ class Design_default(object):
     def render_menu_drop(page, new_page_params : PageParameters, indent=0):
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
 
-        logging.debug("\n\nAAAAA:\n\n")
-        new_page_params.print_params()
+        # new_page_params.print_params()
 
         str_indent1 = ""
         for i in range(0, indent):
@@ -1044,7 +1071,7 @@ class Design_default(object):
 
 
     @staticmethod    
-    def add_buttons(page, url_prev=None):
+    def add_buttons(page):
         page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
         page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
         page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
@@ -1056,15 +1083,15 @@ class Design_default(object):
             q_number = 0
 
 
-        if q_number >= 2:
-            url_prev = page.page_params.create_url(\
-                        op = PageOperation.toStr(PageOperation.TEST_PREV), 
-                        js = False)
-        else:
-            url_prev = page.page_params.create_url(\
-                        op = PageOperation.toStr(PageOperation.INTRO), 
-                        js = False)
-
+        # if q_number >= 2:
+        #     url_prev = page.page_params.create_url(\
+        #                 op = PageOperation.toStr(PageOperation.TEST_PREV), 
+        #                 js = False)
+        # else:
+        #     url_prev = page.page_params.create_url(\
+        #                 op = PageOperation.toStr(PageOperation.INTRO), 
+        #                 js = False)
+        #
 
         if q_number >= Design_default.total_questions:
             url_next = page.page_params.create_url( 
