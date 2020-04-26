@@ -1,3 +1,5 @@
+import time
+
 from server.helpers import encode_dict, encap_str
 
 from server.types import PageLanguage
@@ -703,6 +705,10 @@ class Design_default(object):
             #     not context.c.session.get("history")[-1]["url"] == page.page_params.get_url():
             #     # Not a simple page refresh, update history
 
+            if not context.c.session.get("history") or len(context.c.session.get("history")) == 0:
+                # Starting a new test, record the start time in epoch seconds
+                context.c.session.set("test_id", int(time.time()*1000))
+
             next_question = test.choose_next_question()
             context.c.session.list_append("history", {
                 "url" : page.page_params.get_url(),
@@ -714,7 +720,9 @@ class Design_default(object):
         context.c.session.print()
 
         page.page_params.set_param("q_id", next_question)
-        q = Question(page=page, q_id=next_question)
+        test_id = context.c.session.get("test_id")
+        test_order = len(context.c.session.get("history"))
+        q = Question(page=page, q_id=next_question, test_id=test_id, test_order=test_order)
         q.set_from_file_with_exception()
         q.eval_with_exception()
 

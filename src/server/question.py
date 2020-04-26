@@ -70,7 +70,9 @@ class Question(object):
     """
 
     
-    def __init__(self, page, q_id=None, language=None, init_code=None, iter_code=None, text=None, test_mode=False):
+    def __init__(self, page, q_id=None, language=None, test_id=None, test_order=None, 
+                 init_code=None, iter_code=None, text=None, test_mode=False):
+                 
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.page = page
         self.repository = page.repository
@@ -87,6 +89,9 @@ class Question(object):
             self.language = language
         else:
             self.language = page.page_params.get_param("language")
+
+        self.test_id = test_id if test_id else 0
+        self.test_order = test_order if test_order else 0
 
         if not init_code is None:
             self.init_code = init_code
@@ -328,6 +333,8 @@ class Question(object):
         self.page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
         self.page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
 
+        self.page.add_lines("<script>var test_id = {}; var test_order = {};</script>\n".format(
+            self.test_id, self.test_order))
 
         if self.test_mode:
             self.page.add_lines(

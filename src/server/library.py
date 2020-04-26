@@ -14,7 +14,8 @@ class LibMath(object):
         self.lib_id = question.q_unique_id
         self.page.add_script_lines("""
             <script> 
-                rnd_val_"""+ str(self.lib_id) + """ = {};
+                var alread_shown_solutions = false;
+                var rnd_val_"""+ str(self.lib_id) + """ = {};
                 function sendFeedbackToServer_"""+ str(self.lib_id) + """(root, type, q_id, l_id, comment) {
                     var xhr = new XMLHttpRequest();
                     var url = '/' + root + '?op=feedback'
@@ -22,7 +23,11 @@ class LibMath(object):
                     feedback['type'] = type;
                     feedback['q_id'] = q_id;
                     feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
                     feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
                     feedback['rand_val'] = rnd_val_"""+ str(self.lib_id) + """;
                     xhr.open('POST', url);
                     xhr.onreadystatechange = function() {
@@ -695,7 +700,6 @@ class Library(object):
             var check_""" + self.canvas_id + """ = [];
             var state_""" + self.canvas_id + """ = [];
             var sel_obj_""" + self.canvas_id + """ = [];
-            alread_shown_solutions = false;
             var solution_""" + self.canvas_id + """ = [];
         """
         script = script + solutions + "\n"
@@ -1074,10 +1078,18 @@ class Library(object):
         cond = "cond = "
         assign = ""
 
-        report = "var report = {};\n"
-        report = report + "report['q_id'] = q_id;\n"
-        report = report + "report['l_id'] = l_id;\n"
-        report = report + "report['detailed'] = {};\n"
+        report = """
+            var report = {};
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+        """
         for c in self.checks:
             assign = assign + "c" + str(cid) + " = " + c + ";\n" + \
                 "if (operation == 'SUBMIT') {\n" \
@@ -1088,9 +1100,6 @@ class Library(object):
             report = report + "report['detailed']['q_res" + str(cid) + "'] = c" + str(cid) + ".toString();\n"
             cid = cid + 1
         cond = cond + "true;"
-        report = report + "report['start'] = question_start_time.toString();\n"
-        report = report + "report['now'] = Math.floor(Date.now()/1000).toString();\n"
-        report = report + "report['attempt'] = attempt.toString();\n"
 
 
         check_script = """

@@ -349,6 +349,16 @@ class Page(object):
     # args is in format returned by urllib.parse.parse_qs
     def register(self, args):
 
+        # TBD: we record UNKNOWN for testing only. 
+        # In deployment we should ignore registering requests from UNKNOWN
+        # (and not even send them from the page)
+        try:
+            user_id = context.c.user.user_id if context.c.user else "UNKNOWN"
+        except:
+            user_id = "UNKNOWN"
+            pass
+
+
         if args["response_type"] == ResponseOperation.toStr(ResponseOperation.SUBMIT) or \
            args["response_type"] == ResponseOperation.toStr(ResponseOperation.SKIP):
 
@@ -358,11 +368,6 @@ class Page(object):
             incorrect = 0
             questions = ""
 
-            try:
-                user_id = context.c.user.user_id if context.c.user else "UNKNOWN"
-            except:
-                user_id = "UNKNOWN"
-                pass
 
             if "q_id" in args.keys() and "now" in args.keys():
                 if "l_id" not in args.keys() or not args["l_id"] or args["l_id"] is None:
@@ -388,18 +393,26 @@ class Page(object):
                             incorrect = incorrect + 1
                 questions = str(args['detailed'])
 
+                logging.debug("\n\nGGGGGGGGGGGGGGGG {} {}\n\n".format(type(args["shown_solutions"]), args["shown_solutions"]))
+                shown_solution = False
+                if "shown_solutions" in args.keys() and type(args["shown_solutions"]) == bool:
+                    shown_solution = args["shown_solutions"]
 
                 hist = context.c.session.get("history")
-                hist[-1]["correct"] = correct
-                hist[-1]["incorrect"] = incorrect
+                if (hist[-1]["correct"] == 0 or correct > hist[-1]["correct"]) and not shown_solution:
+                    hist[-1]["correct"] = correct
+                    hist[-1]["incorrect"] = incorrect
                 context.c.session.set("history", hist)
 
 
                 response = {"user_id" : user_id,
                             "question_id": args["q_id"],
                             "list_id": l_id,
+                            "test_id": args["test_id"],
+                            "test_order": args["test_order"],
                             "response_type": args["response_type"],
                             "attempt": args["attempt"],
+                            "shown_solutions": args["shown_solutions"],
                             "time": args["start"],
                             "duration": int(args["now"]) - int(args["start"]),
                             "correct": correct,
@@ -452,8 +465,11 @@ class Page(object):
             response = {"user_id" : user_id,
                         "question_id": args["q_id"],
                         "list_id": l_id,
+                        "test_id": args["test_id"],
+                        "test_order": args["test_order"],
                         "type": args["type"],
                         "comment": args["comment"],
+                        "shown_solutions": args["shown_solutions"],
                         "random_vals": random_vals}
 
             logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, type=%s, comment=%s, random_vals=%s", 

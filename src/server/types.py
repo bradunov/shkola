@@ -281,6 +281,7 @@ class PageParameters(object):
 
     def delete_history(self):
         context.c.session.set("history", [])
+        context.c.session.set("test_id", 0)
 
 
     def get_param(self, key):
