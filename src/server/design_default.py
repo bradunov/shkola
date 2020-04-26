@@ -1024,7 +1024,7 @@ class Design_default(object):
 
         page.add_lines("<span id='popup_" + name + "' style='visibility: hidden;"
             "position: fixed; z-index: 1; bottom: 50%;" 
-            "left: 50%; transform: translate(-50%, -50%);")
+            "left: 50%; transform: translate(-50%, 0%);")
         page.add_lines(extra_style)
         page.add_lines("'>")
 
@@ -1176,6 +1176,10 @@ class Design_default(object):
             page.page_params.get_param("l_id"),
             "document.getElementById('fb_komentar').value",
             "Posalji prijavu")
+        # Add gap:
+        inner_html = inner_html + "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+        inner_html = inner_html + "\n<input align='center' type='button' style='font-size: 14px;' " \
+            "onclick=\"popup_toggle_feedback_report();\" value='{}' />\n".format("Odustani")
 
         extra_style = "width: 300px; background-color: #555; color: #fff; text-align: center; border-radius: 6px; padding: 8px;"
 
