@@ -1,3 +1,4 @@
+import os
 import server.context as context
 
 import google.oauth2.id_token
@@ -7,7 +8,9 @@ import time
 import logging
 from collections import namedtuple
 
-GOOGLE_CLIENT_ID = "221670444651-i7ock63nksbnqeag7l3s2u0nf6jdb2bk.apps.googleusercontent.com"
+GOOGLE_CLIENT_ID = os.environ['GOOGLE_CLIENT_ID'] if 'GOOGLE_CLIENT_ID' in os.environ.keys() else ""
+GOOGLE_SITE_VERIFICATION = os.environ['GOOGLE_SITE_VERIFICATION'] if 'GOOGLE_SITE_VERIFICATION' in os.environ.keys() else ""
+
 
 DOMAINS = ["local", "google"]
 
@@ -100,6 +103,12 @@ class UserDB(object):
 
         except ValueError as ex:
             logging.info("Failed google authentication: {}".format(ex))
+
+            # DEBUGDEBUG!!!: 
+            # I currently get authentication error from Google:
+            # "Failed google authentication: Token used too early, 1587897345 < 1587939823"
+            # Not sure why so I'll just ignore for now for testing
+            #return False
             return False
 
         self.session_login_and_update_user(

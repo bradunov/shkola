@@ -73,10 +73,12 @@ class PageOperation(Enum):
     GENERATE = "generate"
     # Register new a result in the table
     REGISTER = "register"
-    # Submit login request
-    LOGIN = "login"
+    # Submit test login request
+    LOGIN_TEST = "login_test"
     # Submit google login request
     LOGIN_GOOGLE = "login_google"
+    # Submit anonymous login request
+    LOGIN_ANON = "login_anon"
     # Menu - select user
     MENU_USER = "menu_user"
     # Menu - select year

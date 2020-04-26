@@ -11,7 +11,7 @@ import server.context as context
 
 import server.storage
 from server.repository import Repository
-from server.user_db import UserDB, GOOGLE_CLIENT_ID
+from server.user_db import UserDB, GOOGLE_CLIENT_ID, GOOGLE_SITE_VERIFICATION
 from server.design import Design
 from server.session import SessionDB
 
@@ -37,7 +37,7 @@ class Page(object):
 
     # use_azure_blob = True: use blob for question storage rather than the local disk
     # preload = True: fetch all questions in memory at start time (may be slow for a blob)
-    def __init__(self, title="Shkola", rel_path=None, use_azure_blob=False, preload=True):
+    def __init__(self, title="tatamata.org", rel_path=None, use_azure_blob=False, preload=True):
         if not rel_path is None:
             self.rel_path = rel_path
         else:
@@ -176,7 +176,8 @@ class Page(object):
         head = head + "  <head>\n"
         head = head + "    <title>{}</title>\n".format(self.title)
         head = head + "    <meta name='viewport' content='width=device-width, initial-scale=1'>\n"
-        head = head + f'    <meta name="google-signin-client_id" content="{GOOGLE_CLIENT_ID}">'
+        head = head + '    <meta name="google-signin-client_id" content="{}">\n'.format(GOOGLE_CLIENT_ID)
+        head = head + '    <meta name="google-site-verification" content="{}" />\n'.format(GOOGLE_SITE_VERIFICATION)
         head = head + """
              <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
              <script type="text/javascript" async
@@ -382,7 +383,6 @@ class Page(object):
                             incorrect = incorrect + 1
                 questions = str(args['detailed'])
 
-                logging.debug("\n\nGGGGGGGGGGGGGGGG {} {}\n\n".format(type(args["shown_solutions"]), args["shown_solutions"]))
                 shown_solution = False
                 if "shown_solutions" in args.keys() and type(args["shown_solutions"]) == bool:
                     shown_solution = args["shown_solutions"]
@@ -477,12 +477,6 @@ class Page(object):
 
 
 
-# Just redirect with an empty user
-
-#    def logout(self, login_return=None):
-#        return self.main(login_return["page_name"], login_return["q_id"], login_return["l_id"], 
-#                         login_return["lang"], login_return["menu"])
-
 
     def login_google(self):
         id_token = None
@@ -500,7 +494,7 @@ class Page(object):
                 logging.info("login_google(): no id_token")
 
         else:
-            logging.info("login_google(): User allready logged in")
+            logging.info("login_google(): User already logged in")
 
         url = self.page_params.get_param("root") + \
             "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
@@ -508,27 +502,48 @@ class Page(object):
         return url, ok
 
 
-    def login(self) -> str:
+
+
+    # Debug function, not used
+    # def login_test(self) -> str:
+    #     if not context.c.user:
+    #         user_id = context.c.request.param_get("user_id")
+
+    #         email = None
+    #         user_language = "rs"
+
+    #         if not user_id:
+    #             user_id = 'UNKNOWN'
+    #             name = 'UNKNOWN'
+    #         else:
+    #             name = user_id
+
+    #         logging.debug("Login test user %s", user_id)
+    #         self.userdb.login_test(user_id, name, email, user_language)
+    #     else:
+    #         logging.info("login(): User already logged in")
+
+    #     url = self.page_params.get_param("root") + \
+    #         "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
+
+    #     return url
+
+
+
+
+    def login_anon(self) -> str:
         if not context.c.user:
-            user_id = context.c.request.param_get("user_id")
-
+            user_id = 'UNKNOWN'
+            name = 'UNKNOWN'
             email = None
-            user_language = "en"
+            user_language = "rs"
 
-            if not user_id:
-                user_id = 'test'
-                name = 'test'
-
-            else:
-                name = user_id
-
-            logging.debug("Login test user %s", user_id)
+            logging.debug("Login anonymous user UNKNOWN")
             self.userdb.login_test(user_id, name, email, user_language)
         else:
-            logging.info("login(): User allready logged in")
+            logging.info("login(): User already logged in")
 
         url = self.page_params.get_param("root") + \
             "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
 
         return url
-

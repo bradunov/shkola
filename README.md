@@ -90,4 +90,7 @@ The code is stored in `/home/site/wwwroot/` inside the container. To access it, 
 Root access is defined through `proxies.json` file, which redirects to `main` function.
 
 
+Useful google related links:
+- Site verification: https://support.google.com/webmasters/answer/9008080?ref_topic=7440006
+- OAuth2 config: https://support.google.com/webmasters/answer/9008080?ref_topic=7440006
 

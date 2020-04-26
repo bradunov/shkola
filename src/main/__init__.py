@@ -52,7 +52,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         PAGE = Page(use_azure_blob=use_azure_blob, preload=preload)
 
 
-    if False:
+    if True:
         logging.debug("METHOD: " + str(req.method))
         logging.debug("URL: " + str(req.url))
         logging.debug("HEADERS: " + str(dict(req.headers)))

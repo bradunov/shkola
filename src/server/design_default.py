@@ -11,6 +11,7 @@ from server.test import Test
 from server.question import Question
 from server.stats import Stats
 
+from server.user_db import GOOGLE_CLIENT_ID
 
 import server.context as context
 
@@ -25,18 +26,29 @@ class Design_default(object):
     @staticmethod
     def render_main_page(page):
 
-        user = context.c.user
 
         # If login, update user and replace op with the original op
-        if page.page_params.get_param("op") == PageOperation.LOGIN:
-            new_url = page.login()
+        if page.page_params.get_param("op") == PageOperation.LOGIN_ANON:
+            new_url = page.login_anon()
             context.c.headers.redirect(new_url)
             return ""
 
         if page.page_params.get_param("op") == PageOperation.LOGIN_GOOGLE:
+            logging.debug("\n\n\n GGGGGG1\n\n\n")
             new_url, ok = page.login_google()
+            logging.debug("\n\n\n GGGGGG2 {} {} \n\n\n".format(new_url, ok))
+            #context.c.headers.redirect(new_url)
+            #return ""
             context.c.headers.set_content_type('text/plain')
             return f"OK:{new_url}" if ok else "ERROR:"
+
+        logging.debug("\n\n\n UUUUUUUU {}\n\n\n".format(context.c.user))
+
+        if not context.c.user:
+            # First login, if not already done
+            page.page_params.set_param("op", PageOperation.MENU_USER)
+
+        user = context.c.user
 
         # If we happen to get to too many questions (e.g. reloading or returning to a test from elsewhere)
         # here we check that we didn't reach the end counter, and if we did, redirect to summary
@@ -139,33 +151,6 @@ class Design_default(object):
             </script>
         """)
 
-        if USE_GOOGLE_AUTH:
-            url = f"/main?op={PageOperation['LOGIN_GOOGLE'].value}"
-            page.add_script_lines("""
-                <script>
-                function onSignIn(googleUser) {
-                    console.log('Google sign in');
-                    var profile = googleUser.getBasicProfile();
-                    var id_token = googleUser.getAuthResponse().id_token;
-                    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-                    console.log('Name: ' + profile.getName());
-                    console.log('Image URL: ' + profile.getImageUrl());
-                    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('POST', '""" + url + """');
-                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                    xhr.onload = function() {
-                      console.log('Sign in response: ' + xhr.responseText);
-                      var r = xhr.responseText.split(':')
-                      if (r[0] == 'OK') {
-                          window.location.assign(r[1]);
-                      }
-                    };
-                    xhr.send('id_token=' + id_token);
-                }
-                </script>
-            """)
 
 
     @staticmethod
@@ -233,7 +218,8 @@ class Design_default(object):
         test_users.sort()
 
         login_str = "<select id='sel_user_id' name='sel_user_id' " + \
-                    "onchange='window.location.replace(\"" + page.page_params.get_param("root") + "?op=login&" + "login_return=" + \
+                    "onchange='window.location.replace(\"" + page.page_params.get_param("root") + \
+                    "?op=" + PageOperation.LOGIN_TEST + "&" + "login_return=" + \
                     login_return + "&user_id=\" + this.value)'>\n"
 
         user = context.c.user
@@ -298,8 +284,98 @@ class Design_default(object):
             id_text = "text_user_google"
 
             if USE_GOOGLE_AUTH:
-                google_login_button = '<div class="g-signin2" style="margin-bottom:0px" data-onsuccess="onSignIn"></div>\n'
-                page.add_lines(google_login_button)
+                #google_login_button = '<div class="g-signin2" style="margin-bottom:0px" data-onsuccess="onSignIn"></div>\n'
+                #page.add_lines(google_login_button)
+
+                # Google login
+
+                g_url = f"/main?op={PageOperation['LOGIN_GOOGLE'].value}"
+                page.add_script_lines("""
+                    <script>
+                    function onSignIn(googleUser) {
+                        console.log('Google sign in');
+                        var profile = googleUser.getBasicProfile();
+                        var id_token = googleUser.getAuthResponse().id_token;
+                        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                        console.log('Name: ' + profile.getName());
+                        console.log('Image URL: ' + profile.getImageUrl());
+                        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('POST', '""" + g_url + """');
+                        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                        xhr.onload = function() {
+                        console.log('Sign in response: ' + xhr.responseText);
+                        var r = xhr.responseText.split(':')
+                        if (r[0] == 'OK') {
+                            window.location.assign(r[1]);
+                        } else {
+                            document.getElementById('gauth_status').innerText = "Login error!";
+                        }
+                        };
+                        xhr.send('id_token=' + id_token);
+                    }
+                    </script>
+                """)
+
+
+                # Taken from https://developers.google.com/identity/sign-in/web/build-button
+                page.add_script_lines("""
+                    <script src="https://apis.google.com/js/api:client.js"></script>
+                    <script>
+                    var googleUser = {};
+                    var startGoogleAuth = function() {
+                        gapi.load('auth2', function(){
+                        // Retrieve the singleton for the GoogleAuth library and set up the client.
+                        auth2 = gapi.auth2.init({
+                            client_id: '""" + GOOGLE_CLIENT_ID + """',
+                            cookiepolicy: 'single_host_origin',
+                            // Request scopes in addition to 'profile' and 'email'
+                            //scope: 'additional_scope'
+                        });
+                        attachSignin(document.getElementById('""" + id_button + """'));
+                        });
+                    };
+
+                    function attachSignin(element) {
+                        console.log(element.id);
+                        auth2.attachClickHandler(element, {}, onSignIn,
+                            function(error) {
+                            alert(JSON.stringify(error, undefined, 2));
+                            });
+                    }
+                    </script>
+                """)
+
+                msg = "ULOGUJ SE KAO GOOGLE"
+
+                # link = "href=\"{}\"".format(page.page_params.create_url(
+                #                     year = "",
+                #                     theme = "",
+                #                     subtheme = "",
+                #                     period = "",
+                #                     difficulty = "",
+                #                     js = False))
+                link = ""
+
+                text = """
+                            <div id="{}", class=""
+                                style="display: inline-block;
+                                    margin-top: 10px;
+                                    font-family: 'Lato';
+                                    font-size: {}px;
+                                    color: {}"> {} </div>
+                    """.format(id_text, font_size, color, msg)
+
+
+                button = Design_default._add_button(page, "div", id_button, id_text, color, \
+                    back_color, height, width, margin, margin, margin, margin_top, link, text)
+                page.add_lines(button)
+
+                page.add_lines("</div>\n")
+
+                page.add_lines("<div id='gauth_status'></div>\n")
+                page.add_lines("<script>startGoogleAuth();</script>\n")
 
             else:
                 # Temporary login
@@ -343,7 +419,7 @@ class Design_default(object):
             msg = "ULOGUJ SE KAO GOST"
 
             link = "href=\"{}\"".format(page.page_params.create_url(
-                                op = PageOperation.toStr(PageOperation.LOGIN), 
+                                op = PageOperation.toStr(PageOperation.LOGIN_ANON), 
                                 js = False))
 
             text = """
@@ -922,7 +998,9 @@ class Design_default(object):
                 new_params.create_url(op = PageOperation.toStr(PageOperation.MENU_USER), js = False) + \
                 "\"> Uloguj se </a>\n")
         else:
-            page.add_lines("User: " + context.c.user.name)
+            page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
+                        new_params.create_url(op = PageOperation.toStr(PageOperation.MENU_USER), js = False) + \
+                        "\"> Izloguj se (" + context.c.user.name + ")</a>\n")
 
         page.add_lines("</div>")
 
