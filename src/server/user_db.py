@@ -71,7 +71,7 @@ class UserDB(object):
 
 
     def login_test(self, user_id, name, email, language) -> bool:
-        self.userdb.session_login_and_update_user(
+        self.session_login_and_update_user(
             'local', user_id,
             name = name,
             email = email,
