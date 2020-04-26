@@ -40,7 +40,7 @@ class Design_default(object):
             #context.c.headers.redirect(new_url)
             #return ""
             context.c.headers.set_content_type('text/plain')
-            return f"OK:{new_url}" if ok else "ERROR:"
+            return "OK:{}".format(new_url) if ok else "ERROR:"
 
         logging.debug("\n\n\n UUUUUUUU {}\n\n\n".format(context.c.user))
 
@@ -289,7 +289,7 @@ class Design_default(object):
 
                 # Google login
 
-                g_url = f"/main?op={PageOperation['LOGIN_GOOGLE'].value}"
+                g_url = "/main?op={}".format(PageOperation['LOGIN_GOOGLE'].value)
                 page.add_script_lines("""
                     <script>
                     function onSignIn(googleUser) {

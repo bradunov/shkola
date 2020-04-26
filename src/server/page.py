@@ -316,7 +316,7 @@ class Page(object):
                     self.page_params.load_params()
                     self.page_params.parse(in_args=args)
 
-                    logging.debug(f"=== New /main request, op = {self.page_params.get_param('op')}")
+                    logging.debug("=== New /main request, op = {}").format(self.page_params.get_param('op'))
                     if False:
                         self.page_params.print_params()
                         logging.info("\n\n === New request: op={} <design={}, mobile={}> - "
