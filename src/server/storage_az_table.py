@@ -75,8 +75,10 @@ class Storage_az_table():
     def record_response(self, response):
         response['PartitionKey'] = response['user_id']
         response['RowKey'] = response['question_id'] + "|" + str(response['time']) + "|" + str(response['duration'])
-        # Remove special characters not allowed in Azure RowKey
-        response['RowKey'] = re.sub("[\ /?#]", "", response['RowKey'])
+
+        # Remove special characters not allowed in Azure PartitionKey and RowKey
+        response['PartitionKey'] = re.sub("[\ /?#]", "_", response['PartitionKey'])
+        response['RowKey'] = re.sub("[\ /?#]", "_", response['RowKey'])
         
         #logging.debug("*** record response: {}".format(response))
 
@@ -91,8 +93,10 @@ class Storage_az_table():
 
         response['PartitionKey'] = response['question_id']
         response['RowKey'] = response['type'] + "|" + response['list_id'] + "|" + str(fb_time)
-        # Remove special characters not allowed in Azure RowKey
-        response['RowKey'] = re.sub("[\ /?#]", "", response['RowKey'])
+
+        # Remove special characters not allowed in Azure PartitionKey and RowKey
+        response['PartitionKey'] = re.sub("[\ /?#]", "_", response['PartitionKey'])
+        response['RowKey'] = re.sub("[\ /?#]", "_", response['RowKey'])
 
         
         logging.debug("*** record feedback: {}".format(response))
