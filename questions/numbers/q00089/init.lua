@@ -28,15 +28,15 @@ else
 end	 
     
             
-answ[1] = tostring(term) .. " " .. sign[1] .. " " .. tostring(add)
+answ[1] = tostring(math.floor(term)) .. " " .. sign[1] .. " " .. tostring(math.floor(add))
 
-answ[2] = tostring(term) .. " " .. sign[1] .. " (" .. tostring(term) .. " " .. sign[1] .. " " .. tostring(add) .. ")"
+answ[2] = tostring(math.floor(term)) .. " " .. sign[1] .. " (" .. tostring(math.floor(term)) .. " " .. sign[1] .. " " .. tostring(math.floor(add)) .. ")"
 	               
-answ[3] = tostring(term) .. " " .. sign[1] .. " (" .. tostring(term) .. " " .. sign[2] .. " " .. tostring(add) .. ")"  
+answ[3] = tostring(math.floor(term)) .. " " .. sign[1] .. " (" .. tostring(math.floor(term)) .. " " .. sign[2] .. " " .. tostring(math.floor(add)) .. ")"  
                 
-answ[4] = tostring(term) .. " " .. sign[2] .. " (" .. tostring(term) .. " " .. sign[2] .. " " .. tostring(add) .. ")"                   
+answ[4] = tostring(math.floor(term)) .. " " .. sign[2] .. " (" .. tostring(math.floor(term)) .. " " .. sign[2] .. " " .. tostring(math.floor(add)) .. ")"                   
                   
-answ[5] = tostring(term) .. " " .. sign[2] .. " " .. tostring(add)                  
+answ[5] = tostring(math.floor(term)) .. " " .. sign[2] .. " " .. tostring(math.floor(add))                  
                               
      
             

@@ -114,6 +114,10 @@
     {
       "name" : "geometry/q00072", "random": "1", "period": "Zima", "subtheme": "Merenje i mere", 
 	  "topic": "Tekstualni zadatak", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00073", "random": "1", "period": "Zima", "subtheme": "Merenje i mere", 
+	  "topic": "Tekstualni zadatak", "difficulty": "1"
     }	
   ]
  }
