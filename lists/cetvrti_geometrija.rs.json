@@ -4,18 +4,6 @@
   "language" : "rs",
   "questions":  [
     {
-      "name" : "geometry/q00020", "random": "0", "period": "zima", 
-      "subtheme": "povrsina", "difficulty": "1"
-    },
-    {
-      "name" : "geometry/q00021", "random": "0", "period": "zima", 
-      "subtheme": "povrsina", "difficulty": "1"
-    },
-    {
-      "name" : "geometry/q00022", "random": "0", "period": "zima", 
-      "subtheme": "povrsina", "difficulty": "1"
-    },
-    {
       "name" : "geometry/q00023", "random": "1", "period": "zima", 
       "subtheme": "mere za povrsinu", "difficulty": "1"
     },

@@ -70,6 +70,10 @@
     {
       "name" : "numbers/q00019", "random": "1", "period": "Zima", "subtheme": "Brojevi do 20", 
       "topic": "Tekstualni zadatak", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00020", "random": "1", "period": "Proleće", "subtheme": "Dinar, novčanice do 100 dinara", 
+      "topic": "Izražavanje sume novca preko tazličitih apoena", "difficulty": "2"
     },	
     {
       "name" : "numbers/q00024", "random": "1", "period": "Proleće", "subtheme": "Brojevi do 100", 

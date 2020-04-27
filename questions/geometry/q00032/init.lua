@@ -7,6 +7,7 @@ green_style = {["off_color"] = "6f6",
 text_style = {["font_size"] = "14"}
 
 term = {}
+out = {}
 answ = {}
 
 
@@ -15,10 +16,19 @@ edge_b = 11 + math.random (9)
 surface = edge_a * edge_b
 
 term[1] = surface
-term[3] = (edge_a + edge_b) * 2
-term[2] = term[1] + term[3] - math.random(term[3]-5);
-term[4] = term[3] + 10 + math.random(term[1] - term[3]);
+term[3] = (edge_a + edge_b) * 10
+temp = math.floor(term[3]/2)
+term[2] = term[1] + math.random(temp);
+temp = math.floor(term[1]/2)
+term[4] = term[3] + math.random(temp);
 
+out = lib.math.argsort(term)
+
+for i = 2,4 do
+    if (term[out[i]] == term[out[i-1]]) then
+	    term[out[i]] = term[out[i]] + 1 
+	end	 
+end	
 
 answ = lib.math.random_shuffle(term)
 
@@ -43,7 +53,8 @@ mycanvas = function()
   lib.add_text(210, 60, dimb, text_style)
 
   lib.end_canvas()
-end
+end              
+          
                       
            
                          

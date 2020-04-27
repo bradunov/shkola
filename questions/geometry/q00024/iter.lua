@@ -26,7 +26,7 @@ end
 answ = ""
 for i = 1,4 do
     if (numb[i] ~= 0) then    
-        answ = answ .. " " .. tostring(numb[i]) .. measure[i]
+        answ = answ .. " " .. tostring(math.floor(numb[i])) .. measure[i]
     end
 end	
                          

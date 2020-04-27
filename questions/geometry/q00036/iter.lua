@@ -13,11 +13,11 @@ factor = min + math.random(5);
 if (ITEM == 1) then
     circ = side * 4
 	surface = side * side
-    answ = "Obim kvadrata je " .. tostring(circ) .. measure[ind] ..". Kolika je njegova površina?"
+    answ = "Obim kvadrata je " .. tostring(math.floor(circ)) .. measure[ind] ..". Kolika je njegova površina?"
 else
     circ = side * (factor + 1) * 2
 	surface = side^2 * factor
-    answ = "Obim pravougaonika je " .. tostring(circ) .. measure[ind] ..". Jedna njegova stranica je " .. tostring(factor) .. " puta kraća od druge. Kolika je površina pravougaonika?"
+    answ = "Obim pravougaonika je " .. tostring(math.floor(circ)) .. measure[ind] ..". Jedna njegova stranica je " .. tostring(math.floor(factor)) .. " puta kraća od druge. Kolika je površina pravougaonika?"
 end            
      
              	

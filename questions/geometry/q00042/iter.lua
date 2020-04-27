@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                                                                                                                                                                measure = {"m","dm","cm"}
+measure = {"m","dm","cm"}
 numb = {0, 0, 0}
 
 indr = 1 + math.random(2)
@@ -29,7 +29,7 @@ end
 answ = ""
 for i = 1,3 do
     if (numb[i] ~= 0) then    
-        answ = answ .. " " .. tostring(numb[i]) .. measure[i]
+        answ = answ .. " " .. tostring(math.floor(numb[i])) .. measure[i]
     end
 end	                              
                           

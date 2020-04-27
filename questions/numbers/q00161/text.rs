@@ -1,20 +1,7 @@
 Izračunaj: 
 
-@repeat(4)@
+@repeat(5)@
 
-@center@ @answ@ @hspacept(5)@ @lib.check_number(result)@ 
+@center@ @answ@  @lib.check_number(result,20)@ 
 
-@vspace@
-
-@/repeat@ 
-                  
-
-
-            
-                   
-
-           
-                
-
-                 
-                  
+@/repeat@

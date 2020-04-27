@@ -16,14 +16,14 @@ end
 
 if (ITEM == 1) then
    result = side[1] + side[2] + side[3]
-   answ = "trougla, ako su njegove stranice " .. tostring(side[1]) .. "cm, " .. tostring(side[2]) .. "cm i " .. tostring(side[3]) .. "cm."
+   answ = "trougla, ako su njegove stranice " .. tostring(math.floor(side[1])) .. "cm, " .. tostring(math.floor(side[2])) .. "cm i " .. tostring(math.floor(side[3])) .. "cm."
 else
    if (ITEM == 2) then
        result = side[2] * 4
-       answ = "kvadrata, ako je njegova stranica " .. tostring(side[2]) .. "cm."
+       answ = "kvadrata, ako je njegova stranica " .. tostring(math.floor(side[2])) .. "cm."
    else
        result = (side[1] + side[3]) * 2
-       answ = "pravougaonika, ako su njegove stranice " .. tostring(side[1]) .. "cm i " .. tostring(side[3]) .. "cm."
+       answ = "pravougaonika, ako su njegove stranice " .. tostring(math.floor(side[1])) .. "cm i " .. tostring(math.floor(side[3])) .. "cm."
    end
 end            
       	

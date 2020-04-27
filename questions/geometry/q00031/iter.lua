@@ -26,13 +26,13 @@ else
 end	
 
 
-answ = tostring(numb[1]) .. measure[ind]
+answ = tostring(math.floor(numb[1])) .. measure[ind]
 
 if (numb[2] ~= 0) then    
-    answ = answ .. " " .. tostring(numb[2]) .. measure[ind+1] 
+    answ = answ .. " " .. tostring(math.floor(numb[2])) .. measure[ind+1] 
 end
 	
-answ = answ .. "  " .. sign[operat] .. "  " .. lib.check_number(value) .. measure[ind+1] .. "  =  " .. tostring(numb[3]) 
+answ = answ .. "  " .. sign[operat] .. "  " .. lib.check_number(value) .. measure[ind+1] .. "  =  " .. tostring(math.floor(numb[3])) 
 
 if (operat == 1) then
     answ = answ .. measure[ind]

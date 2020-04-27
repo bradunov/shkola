@@ -1,3 +1,4 @@
+
 include("names")
 
 rz = math.random(#zensko_ime_nom);
@@ -25,8 +26,8 @@ minute = total - hour * 60
 
 answ = tostring(lib.check_number(total,30)) .. " minuta"
 if (hour == 1) then
-    answ = answ .. " = " .. tostring(lib.check_number(hour,20)) .. " sat " .. tostring(lib.check_number(minute,30)) .. " minuta."
+    answ = answ .. " = " .. lib.check_number(hour,20) .. " sat " .. lib.check_number(minute,30) .. " minuta."
 else	
-    answ = answ .. " = " .. tostring(lib.check_number(hour,20)) .. " sata " .. tostring(lib.check_number(minute,30)) .. " minuta."
+    answ = answ .. " = " .. lib.check_number(hour,20) .. " sata " .. lib.check_number(minute,30) .. " minuta."
 end	
 	
