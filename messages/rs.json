@@ -1,11 +1,15 @@
 {
   "key": "rs",
-  "name": "Srpski",
-  "language": "Jezik",
-  "check": "Proveri",
-  "clear": "Obriši",
-  "skip": "Preskoči",
-  "close": "Zatvori",
-  "questions": "Zadaci",
-  "user": "Korisnik"
+  "language": "Srpski",
+  "country": "Srbija",
+  "image": "flags/rs.png",
+  "messages" : {
+    "language": "Jezik",
+    "check": "Proveri",
+    "clear": "Obriši",
+    "skip": "Preskoči",
+    "close": "Zatvori",
+    "questions": "Zadaci",
+    "user": "Korisnik"
+  }
 }

@@ -163,33 +163,34 @@ class Design_dev(object):
                         console.log("Posted reload");
                     }) ();' value='Reload'/>  
                 """
-        
-        if ("languages" in page.repository.get_config()):
-            lang_select="Jezik: <select id='sel_lang' name='sel_lang' onchange='window.location.replace("
 
-            if page.page_params.get_param("op") == PageOperation.EDIT or page.page_params.get_param("op") == PageOperation.VIEW:
-                lang_select = lang_select + page.page_params.create_url(q_id = "sel_q_id.value", \
-                                                            language = "this.value", \
-                                                            js = True) + ")'>\n"
-            # View list
-            elif page.page_params.get_param("op") == PageOperation.LIST or page.page_params.get_param("op") == PageOperation.TEST:
-                lang_select = lang_select + page.page_params.create_url(l_id = "sel_l_id.value", \
-                                                            language = "this.value",
-                                                            js = True) + ")'>\n"
-            # Generate? 
+        
+        lang_select="Jezik: <select id='sel_lang' name='sel_lang' onchange='window.location.replace("
+
+        if page.page_params.get_param("op") == PageOperation.EDIT or page.page_params.get_param("op") == PageOperation.VIEW:
+            lang_select = lang_select + page.page_params.create_url(q_id = "sel_q_id.value", \
+                                                        language = "this.value", \
+                                                        js = True) + ")'>\n"
+        # View list
+        elif page.page_params.get_param("op") == PageOperation.LIST or page.page_params.get_param("op") == PageOperation.TEST:
+            lang_select = lang_select + page.page_params.create_url(l_id = "sel_l_id.value", \
+                                                        language = "this.value",
+                                                        js = True) + ")'>\n"
+        # Generate? 
+        else:
+            lang_select = lang_select + page.page_params.create_url(q_id = "sel_q_id.value", \
+                                                        language = "this.value", \
+                                                        js = True) + ")'>\n"
+        
+        for l in page.get_language_list():
+            if l == PageLanguage.toStr(page.page_params.get_param("language")):
+                selected = "SELECTED"
             else:
-                lang_select = lang_select + page.page_params.create_url(q_id = "sel_q_id.value", \
-                                                            language = "this.value", \
-                                                            js = True) + ")'>\n"
-            
-            for l in page.repository.get_config()["languages"]:
-                if l == PageLanguage.toStr(page.page_params.get_param("language")):
-                    selected = "SELECTED"
-                else:
-                    selected = ""
-                lang_select = lang_select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
-            lang_select = lang_select + "</select>\n"
-            lright = lright + lang_select
+                selected = ""
+            lang_select = lang_select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
+        lang_select = lang_select + "</select>\n"
+        lright = lright + lang_select
+
 
 
         op_select = "Operacija: <select id='sel_op' name='sel_op' onchange='window.location.replace(" + \
@@ -270,28 +271,29 @@ class Design_dev(object):
         page.add_lines("<span style='display:block;float:left;'>\n" + select + log_header + "\n</span>\n")
         lright = "<span style='display:block;float:right;'>\n"
 
-        if ("languages" in page.repository.get_config()):
-            lang_select="<select id='sel_lang' name='sel_lang' onchange='window.location.replace("
 
-            if page.page_params.get_param("op") == PageOperation.EDIT or page.page_params.get_param("op") == PageOperation.VIEW:
-                #lang_select = lang_select + "?q_id=\" + sel_q_id.value + \"&"
-                lang_select = lang_select + page.page_params.create_url(q_id = "sel_q_id.value", \
-                                                            language = "this.value", \
-                                                            js = True) + ")'>\n"
-            # View list
-            elif page.page_params.get_param("op") == PageOperation.LIST or page.page_params.get_param("op") == PageOperation.TEST:
-                lang_select = lang_select + page.page_params.create_url(l_id = "sel_l_id.value", \
-                                                            language = "this.value",
-                                                            js = True) + ")'>\n"
-            
-            for l in page.repository.get_config()["languages"]:
-                if l == PageLanguage.toStr(page.page_params.get_param("language")):
-                    selected = "SELECTED"
-                else:
-                    selected = ""
-                lang_select = lang_select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
-            lang_select = lang_select + "</select>\n"
-            lright = lright + lang_select
+        lang_select="<select id='sel_lang' name='sel_lang' onchange='window.location.replace("
+
+        if page.page_params.get_param("op") == PageOperation.EDIT or page.page_params.get_param("op") == PageOperation.VIEW:
+            #lang_select = lang_select + "?q_id=\" + sel_q_id.value + \"&"
+            lang_select = lang_select + page.page_params.create_url(q_id = "sel_q_id.value", \
+                                                        language = "this.value", \
+                                                        js = True) + ")'>\n"
+        # View list
+        elif page.page_params.get_param("op") == PageOperation.LIST or page.page_params.get_param("op") == PageOperation.TEST:
+            lang_select = lang_select + page.page_params.create_url(l_id = "sel_l_id.value", \
+                                                        language = "this.value",
+                                                        js = True) + ")'>\n"
+
+        for l in page.get_language_list():        
+            if l == PageLanguage.toStr(page.page_params.get_param("language")):
+                selected = "SELECTED"
+            else:
+                selected = ""
+            lang_select = lang_select + "<option value='{}' {}> {} </option>\n".format(l, selected, l)
+        lang_select = lang_select + "</select>\n"
+        lright = lright + lang_select
+
 
         
         page.add_lines(lright)

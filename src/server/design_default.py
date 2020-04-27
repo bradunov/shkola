@@ -176,6 +176,7 @@ class Design_default(object):
         button = """
                     <{} id="{}" class="" 
                         style="display: inline-block;
+                                cursor: pointer;
                                 border-radius: 10px;
                                 border: 0.1px solid #000000;
                                 padding: 0px;
@@ -361,6 +362,7 @@ class Design_default(object):
                 text = """
                             <div id="{}", class=""
                                 style="display: inline-block;
+                                    cursor: pointer;
                                     margin-top: 10px;
                                     font-family: 'Lato';
                                     font-size: {}px;
@@ -855,25 +857,27 @@ class Design_default(object):
     def render_menu(page):
 
         # For now remove the language menu
-        show_language_menu = False
+        show_language_menu = True
 
 
         page.add_lines("\n\n<!-- MOBILE MENU START -->\n")
 
 
-        if True:
-            # Temporary, for debugging:
-            debug_str = ""
+        str_lang = ""
 
-            user = context.c.user
+        if show_language_menu:
+            try:
+                str_lang = "<button class=\"sh-button sh-dark-grey sh-large sh-font\" style=\"padding: 8px 8px\" onclick=\"shl_toggle()\">" + \
+                    "<input type=\"image\" height=\"22px\" alt=\"" + \
+                        page.get_language_details(page.get_messages()["language"])["country"] + \
+                        "\" src=\"" + \
+                        page.get_file_url("images/" + 
+                        page.get_language_details(page.get_messages()["language"])["image"]) + "\" /></button>" 
+            except:
+                logging.error("config.json file has a formatting error.")
+                str_lang = ""
+                show_language_menu = False
 
-            if user is not None:
-                debug_str = debug_str + "Hi {} ({})".format(
-                    user.domain_user_id, context.c.session.get('page_counter', 0)
-                )
-
-            if page.page_params.get_param("q_id") is not None and page.page_params.get_param("q_id"):
-                debug_str = debug_str + "(Q: {})".format(page.page_params.get_param("q_id"))
 
 
 
@@ -933,11 +937,8 @@ class Design_default(object):
 
             <div>
                 <div class="sh-button" style="font-family: 'Bubblegum Sans'; font-size: 24px; color: #029194"> TATA MATA </div> 
-                <span style='display:block;float:right;'> """ + \
-                (("<button class=\"sh-button sh-dark-grey sh-large sh-font\" onclick=\"shl_toggle()\">" + \
-                    page.get_messages()["language"] + "</button>") if show_language_menu else "") \
-                + """
-                <button class="sh-button" style="font-size: 20px; font-weight: 900; color: #029194" onclick="shm_toggle()">☰</button>
+                <span style='display:block;float:right;'> """ + str_lang + """
+                <button class="sh-button" style="padding: 8px 8px; font-size: 20px; font-weight: 900; color: #029194" onclick="shm_toggle()">☰</button>
                 </span>
             </div>
 
@@ -1006,23 +1007,22 @@ class Design_default(object):
 
 
         if show_language_menu:
-            if ("languages" in page.repository.get_config()):
-                
-                lang_select = """
-                            <div class="sh-sidebar sh-bar-block sh-border-left" style="width:200px;right:0;display:none"  id="shLang">
-                            """
-                for lang in page.get_language_list():
-                    new_params = PageParameters()
-                    new_page_params.set_param("root", page.page_params.get_param("root"))
-                    lang_select = lang_select + "<a class=\"sh-font\" href='" + \
-                            new_params.create_url(language = lang, js = False) + \
-                            "' class='sh-bar-item sh-button'>" + page.get_messages(lang)["name"] + "</a>"
-                
-                lang_select = lang_select + """
-                            </div>
-                            """
-                page.add_lines(lang_select)
-
+            lang_select = """
+                        <div class="sh-sidebar sh-bar-block sh-border-left" style="width:200px;right:0;display:none"  id="shLang">
+                        """
+            for lang in page.get_language_list():
+                lang_select = lang_select + "<input style=\"padding: 8px 0px;\" height=\"22px\" type=\"image\" src=\"" + \
+                        page.get_file_url("images/" + \
+                        page.get_language_details(lang)["image"]) + "\" />"
+                lang_select = lang_select + "<a class=\"sh-font\" href='" + \
+                        page.page_params.create_url( \
+                            op = PageOperation.toStr(PageOperation.MENU_YEAR), language = lang, js = False) + \
+                        "' class='sh-bar-item sh-button'>" + page.get_language_details(lang)["country"] + "</a><br>"
+            
+            lang_select = lang_select + """
+                        </div>
+                        """
+            page.add_lines(lang_select)
 
 
 

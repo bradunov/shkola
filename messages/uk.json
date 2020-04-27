@@ -1,11 +1,15 @@
 {
   "key": "uk",
-  "name": "English",
-  "language": "Lang",
-  "check": "Check",
-  "clear": "Clear",
-  "skip": "Skip",
-  "close": "Close",
-  "questions": "Questions",
-  "user": "User"
+  "language": "English",
+  "country": "UK",
+  "image": "flags/uk.webp",
+  "messages" : {
+    "language": "Lang",
+    "check": "Check",
+    "clear": "Clear",
+    "skip": "Skip",
+    "close": "Close",
+    "questions": "Questions",
+    "user": "User"
+  }
 }

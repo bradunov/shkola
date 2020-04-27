@@ -151,8 +151,15 @@ class Page(object):
         if language is None:
             language = PageLanguage.toStr(self.page_params.get_param("language"))
         if language in self.messages.keys():
+            return self.messages[language]["messages"]
+        return self.messages["rs"]["messages"]
+
+    def get_language_details(self, language=None):
+        if language is None:
+            language = PageLanguage.toStr(self.page_params.get_param("language"))
+        if language in self.messages.keys():
             return self.messages[language]
-        return self.messages["uk"]
+        return self.messages["rs"]
 
     def get_file_url(self, file):
         return "item?url={}".format(file)

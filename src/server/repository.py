@@ -42,10 +42,10 @@ class Repository(object):
     ##############################
     # Disk API
 
-    def get_config_disk(self):
-        root = "../../" + self.questions_path
-        d = json.load(open(root + "/config.json", 'r'))
-        return d
+    # def get_config_disk(self):
+    #     root = "../../" + self.questions_path
+    #     d = json.load(open(root + "/config.json", 'r'))
+    #     return d
 
     def get_all_questions_disk(self, language):
         root = "../../" + self.questions_path
@@ -115,10 +115,10 @@ class Repository(object):
     ##############################
     # Blob API
 
-    def get_config_blob(self):
-        file = self.questions_path + "/config.json"
-        d = json.loads(self.azure_blob.download_file(file))
-        return d
+    # def get_config_blob(self):
+    #     file = self.questions_path + "/config.json"
+    #     d = json.loads(self.azure_blob.download_file(file))
+    #     return d
 
     def get_all_questions_blob(self, language):
         root = self.questions_path
@@ -360,17 +360,17 @@ class Repository(object):
         #logging.debug("self.content: {}".format(json.dumps(self.content, indent=2)))
 
         
-    def get_config(self):
-        if self.preload:
-            if "config" in self.questions.keys():
-                return self.questions["config"]
-            else:
-                return {}
-        else:
-            if self.azure_blob is None:
-                return self.get_config_disk()
-            else:
-                return self.get_config_blob()
+    # def get_config(self):
+    #     if self.preload:
+    #         if "config" in self.questions.keys():
+    #             return self.questions["config"]
+    #         else:
+    #             return {}
+    #     else:
+    #         if self.azure_blob is None:
+    #             return self.get_config_disk()
+    #         else:
+    #             return self.get_config_blob()
 
 
     def get_question(self, q_id):
@@ -392,12 +392,15 @@ class Repository(object):
             while all_keys:
                 l = all_keys.pop()
                 p = paths.pop()
-                for k in l.keys():
-                    if (k[0] == "q" and ("text."+language) in l[k].keys()):
-                        q_ids.append(p + "/" + k)
-                    if (k != "config" and k != "global" and k[0] != "q"):
-                        all_keys.append(l[k])
-                        paths.append(((p + "/") if p else "") + k)
+                try:
+                    for k in l.keys():
+                        if (k[0] == "q" and ("text."+language) in l[k].keys()):
+                            q_ids.append(p + "/" + k)
+                        if (k != "config" and k != "global" and k[0] != "q"):
+                            all_keys.append(l[k])
+                            paths.append(((p + "/") if p else "") + k)
+                except:
+                    logging.error("Error processing a question in path {}".format(p))
             return q_ids
         else:
             if self.azure_blob is None:
