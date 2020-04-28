@@ -49,7 +49,7 @@ class LibMath(object):
     def gcd(self, x, y):
         return math.gcd(int(x), int(y))
 
-    def round(self, x):
+    def _round(self, x):
         return round(float(x))
 
     # Returns indices in array sorted according to values in array

@@ -436,6 +436,26 @@ class Question(object):
            end
         """
         
+        # It seems that Lupa doesn't know about integer type that was new in Lua 5.3
+        # Everything Lupa returns is treated as a float, causing bad printout format
+        # We use these Lua wrapper functions to convert to int within Lua
+        # Note that this is a dangerous trick as search and replace calls! 
+        code = code + """
+            function sh_random(m, n)
+              rnd = lib.math.random
+              r = rnd(m,n)
+              if m~=nil or n~=nil then
+                return math.tointeger(r)
+              end
+              return r
+            end
+
+            function sh_round(n)
+              return math.tointeger(lib.math._round(n))
+            end
+        """
+
+
         code = code + self.init_code + "\n"
 
         ind = 0
@@ -495,7 +515,9 @@ class Question(object):
         code = code.replace("\\", "\\\\")
 
         # Replace math.random with lib.math.random so we can log all random values
-        code = code.replace("math.random(", "lib.math.random(")
+        code = code.replace("math.random(", "sh_random(")
+        # Replace round with a local wrapper to force it to become int (Lupa doesn't know about int types)
+        code = code.replace("lib.math.round(", "sh_round(")
 
 
 
