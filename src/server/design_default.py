@@ -867,8 +867,8 @@ class Design_default(object):
 
         if show_language_menu:
             try:
-                str_lang = "<button class=\"sh-button sh-dark-grey sh-large sh-font\" style=\"padding: 8px 8px\" onclick=\"shl_toggle()\">" + \
-                    "<input type=\"image\" height=\"22px\" alt=\"" + \
+                str_lang = "<button class=\"sh-button sh-dark-grey sh-large sh-font\" style=\"padding: 9px 9px\" onclick=\"shl_toggle()\">" + \
+                    "<input type=\"image\" height=\"20px\" alt=\"" + \
                         page.get_language_details(page.get_messages()["language"])["country"] + \
                         "\" src=\"" + \
                         page.get_file_url("images/" + 
@@ -1011,13 +1011,15 @@ class Design_default(object):
                         <div class="sh-sidebar sh-bar-block sh-border-left" style="width:200px;right:0;display:none"  id="shLang">
                         """
             for lang in page.get_language_list():
-                lang_select = lang_select + "<input style=\"padding: 8px 0px;\" height=\"22px\" type=\"image\" src=\"" + \
+                lang_select = lang_select + "<div align='left' style='display:content;'>\n"
+                lang_select = lang_select + "<input style=\"display: inline-block;padding: 8px 0px;\" height=\"20px\" type=\"image\" src=\"" + \
                         page.get_file_url("images/" + \
-                        page.get_language_details(lang)["image"]) + "\" />"
-                lang_select = lang_select + "<a class=\"sh-font\" href='" + \
+                        page.get_language_details(lang)["image"]) + "\" />\n"
+                lang_select = lang_select + "<a class=\"sh-font\" style=\"display: inline-block;padding: 8px 0px;\" href='" + \
                         page.page_params.create_url( \
                             op = PageOperation.toStr(PageOperation.MENU_YEAR), language = lang, js = False) + \
-                        "' class='sh-bar-item sh-button'>" + page.get_language_details(lang)["country"] + "</a><br>"
+                        "' class='sh-bar-item sh-button'>" + page.get_language_details(lang)["country"] + "</a><br>\n"
+                lang_select = lang_select + "</div>\n"
             
             lang_select = lang_select + """
                         </div>
