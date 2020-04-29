@@ -863,23 +863,6 @@ class Design_default(object):
         page.add_lines("\n\n<!-- MOBILE MENU START -->\n")
 
 
-        str_lang = ""
-
-        if show_language_menu:
-            try:
-                str_lang = "<button class=\"sh-button sh-dark-grey sh-large sh-font\" style=\"padding: 9px 9px\" onclick=\"shl_toggle()\">" + \
-                    "<input type=\"image\" height=\"20px\" alt=\"" + \
-                        page.get_language_details(page.get_messages()["language"])["country"] + \
-                        "\" src=\"" + \
-                        page.get_file_url("images/" + 
-                        page.get_language_details(page.get_messages()["language"])["image"]) + "\" /></button>" 
-            except:
-                logging.error("config.json file has a formatting error.")
-                str_lang = ""
-                show_language_menu = False
-
-
-
 
         page.add_script_lines("""
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -934,11 +917,34 @@ class Design_default(object):
                 }
             }
             </script>
+        """)
 
+
+        str_lang = ""
+
+        if show_language_menu:
+            try:
+                str_lang = "<button class=\"sh-button sh-dark-grey sh-large sh-font\" " + \
+                    "style=\"padding: 0px; display: table-cell; vertical-align: middle; text-align: center; height: 20px; \" " +\
+                    "onclick=\"shl_toggle()\">" + \
+                    "<input type=\"image\" style=\"padding: 0px\" width=\"36px\" height=\"20px\" alt=\"" + \
+                        page.get_language_details()["country"] + \
+                        "\" src=\"" + \
+                        page.get_file_url("images/" + 
+                        page.get_language_details()["image"]) + "\" /></button>" 
+            except:
+                logging.error("config.json file has a formatting error.")
+                str_lang = ""
+                show_language_menu = False
+
+
+
+        page.add_script_lines("""
             <div>
                 <div class="sh-button" style="font-family: 'Bubblegum Sans'; font-size: 24px; color: #029194"> TATA MATA </div> 
-                <span style='display:block;float:right;'> """ + str_lang + """
-                <button class="sh-button" style="padding: 8px 8px; font-size: 20px; font-weight: 900; color: #029194" onclick="shm_toggle()">☰</button>
+                <span width="70px" style='display:table;float:right;'> 
+                    """ + str_lang + """
+                    <button class="sh-button" style="display: table-cell; vertical-align: middle; text-align: center;padding: 8px 8px; font-size: 20px; font-weight: 900; color: #029194" onclick="shm_toggle()">☰</button>
                 </span>
             </div>
 
@@ -1011,14 +1017,21 @@ class Design_default(object):
                         <div class="sh-sidebar sh-bar-block sh-border-left" style="width:200px;right:0;display:none"  id="shLang">
                         """
             for lang in page.get_language_list():
-                lang_select = lang_select + "<div align='left' style='display:content;'>\n"
-                lang_select = lang_select + "<input style=\"display: inline-block;padding: 8px 0px;\" height=\"20px\" type=\"image\" src=\"" + \
-                        page.get_file_url("images/" + \
-                        page.get_language_details(lang)["image"]) + "\" />\n"
-                lang_select = lang_select + "<a class=\"sh-font\" style=\"display: inline-block;padding: 8px 0px;\" href='" + \
+                lang_select = lang_select + "<div align='left' style='display:table; padding: 8px 8px;'>\n"
+                # lang_select = lang_select + "<input style=\"display: inline-block;padding: 8px 0px;\" height=\"20px\" type=\"image\" src=\"" + \
+                #         page.get_file_url("images/" + \
+                #         page.get_language_details(lang)["image"]) + "\" />\n"
+                lang_select = lang_select + "<a class=\"sh-font\" style=\"display: table-cell; vertical-align: middle; text-align: center;\" href='" + \
                         page.page_params.create_url( \
                             op = PageOperation.toStr(PageOperation.MENU_YEAR), language = lang, js = False) + \
-                        "' class='sh-bar-item sh-button'>" + page.get_language_details(lang)["country"] + "</a><br>\n"
+                        "' class='sh-bar-item sh-button'>" + \
+                        "<img style=\"display: inline-block;padding: 0px;\" height=\"20px\" width=\"36px\" src=\"" + \
+                            page.get_file_url("images/" + \
+                            page.get_language_details(lang)["image"]) + "\"></a>  &nbsp \n"
+                lang_select = lang_select + "<a class=\"sh-font\" style=\"display: table-cell; vertical-align: middle; text-align: center;\" href='" + \
+                        page.page_params.create_url( \
+                            op = PageOperation.toStr(PageOperation.MENU_YEAR), language = lang, js = False) + \
+                        "' class='sh-bar-item sh-button'>" + page.get_language_details(lang)["country"] + "</a>\n"
                 lang_select = lang_select + "</div>\n"
             
             lang_select = lang_select + """
