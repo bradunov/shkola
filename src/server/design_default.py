@@ -502,7 +502,8 @@ class Design_default(object):
             # new_line = [4, 3, 1, 0]
 
 
-            years = ["prvi", "drugi", "treci", "cetvrti", "peti"]
+            #years = ["prvi", "drugi", "treci", "cetvrti", "peti"]
+            years = ["1", "2", "3", "4", "5"]
             ynumbers = [1, 2, 3, 4, 5, 6, 7, 8]
             scale = 1
             new_line = [1, 3, 5, 7, 9]
