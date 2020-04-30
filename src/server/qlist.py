@@ -1,4 +1,5 @@
 from server.question import Question
+from server.types import PageOperation
 # from server.types import ResponseOperation
 import logging
 
@@ -60,7 +61,12 @@ class Qlist(object):
 
             self.page.add_lines("\n<!-- QUESTION HEADER -->\n")
             self.page.add_lines("<div style='display:block;width=100%;background-color:#80f0f0'>\n")
-            self.page.add_lines("Question: <em>{}</em>{}\n".format(q_id, title))
+            self.page.add_lines("Question: <a href='{}'><em>{}</em></a>{}\n".format(\
+                self.page.page_params.create_url( \
+                                    op = PageOperation.toStr(PageOperation.VIEW), \
+                                    q_id = q_id, \
+                                    js = False), \
+                q_id, title))
             self.page.add_lines("</div>\n")
 
             self.page.add_lines("<div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>")
