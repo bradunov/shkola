@@ -6,6 +6,7 @@ import re
 from server.types import PageLanguage
 from server.library import Library
 import logging
+from server.helpers import Transliterate
 
 
 class Paragraph(object):
@@ -199,6 +200,10 @@ class Question(object):
         if (b[0] == "\n"):
             b = b[1:]
 
+
+        # This seems to work fine for the text. However, it does not 
+        # transliterate string variables. We need to instrument the questions.
+        # b = Transliterate.transliterate(b, Transliterate.rs)
 
             
         # Skip prettyfication between special tags that embbed HTML, such as start_table and end_table
@@ -530,6 +535,7 @@ class Question(object):
             logging.debug("\n\n********************\nCODE: {}".format(code))
 
         
+
         lua_fun = self.lua.eval(code)
         lua_fun(self.page, self.lib, strings)
                         
