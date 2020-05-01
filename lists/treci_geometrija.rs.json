@@ -1,5 +1,5 @@
 { "name" : "Treci razred geometrija",
-  "level": "3", 
+  "level": "Treci", 
   "theme" : "Geometrija", 
   "language" : "rs",
   "questions":  [
@@ -53,7 +53,7 @@
     },
     {
       "name" : "geometry/q00057", "random": "1", "period": "Zima", "subtheme": "Merenje vremena", 
-	  "topic": "Decenija, vek, godina": "2"
+	  "topic": "Decenija, vek, godina", "difficulty": "2"
     },
     {
       "name" : "geometry/q00058", "random": "1", "period": "Zima", "subtheme": "Merenje i mere", 

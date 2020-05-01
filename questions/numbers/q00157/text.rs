@@ -1,4 +1,4 @@
-Napiši ciframa rimske brojeve: 
+Napiši arapskim ciframa rimske brojeve:
 
 @repeat(4)@
 

@@ -1,5 +1,5 @@
 { "name" : "Prvi razred",
-  "level": "1", 
+  "level": "prvi", 
   "theme" : "Ana", 
   "language" : "rs",
   "questions":  [

@@ -1,15 +1,15 @@
 { "name" : "Treci razred brojevi",
-  "level": "3", 
+  "level": "Treci", 
   "theme" : "Brojevi", 
   "language" : "rs",
   "questions":  [
     {
-      "name" : "numbers/q00047", "random": "1", "period": "Jesen", "subtheme": "Brojevi do 1000" 
-	  "topic": "Poređenje brojeva", "difficulty": "1"
+      "name" : "numbers/q00047", "random": "1", "period": "Jesen", "subtheme": "Brojevi do 1000", 
+	    "topic": "Poređenje brojeva", "difficulty": "1"
     },	
     {
-      "name" : "numbers/q00048", "random": "1", "period": "Jesen", "subtheme": "Brojevi do 1000" 
-	  "topic": "Poređenje brojeva, sabiranje i oduzimanje", "difficulty": "2"
+      "name" : "numbers/q00048", "random": "1", "period": "Jesen", "subtheme": "Brojevi do 1000",
+  	  "topic": "Poređenje brojeva, sabiranje i oduzimanje", "difficulty": "2"
     },
     {
       "name" : "numbers/q00051", "random": "1", "period": "Jesen", "subtheme": "Sabiranje i oduzimanje do 1000",
@@ -100,7 +100,7 @@
 	  "topic": "Par/nepar, najveći/najmanji", "difficulty": "1"
     },
     {
-      "name" : "numbers/q00073", "random": "1", "period": "subtheme": "Brojevi do 1000",
+      "name" : "numbers/q00073", "random": "1", "period": "Jesen", "subtheme": "Brojevi do 1000",
       "topic": "Par/nepar, najveći/najmanji", "difficulty": "1"
     },
     {
@@ -133,7 +133,7 @@
     },
    {
       "name" : "numbers/q00081", "random": "1", "period": "Zima", "subtheme": "Sabiranje i oduzimanje do 1000",
-      "topic": "Tabela - sabiranje i oduzimanje" "difficulty": "2"
+      "topic": "Tabela - sabiranje i oduzimanje", "difficulty": "2"
     },
    {
       "name" : "numbers/q00082", "random": "1", "period": "Zima", "subtheme": "Sabiranje i oduzimanje do 1000",
@@ -152,7 +152,7 @@
       "topic": "Tekstualni zadatak",	"difficulty": "2"
     },	
    {
-      "name" : "numbers/q00086", "random": "1", "period": "subtheme": "Sabiranje i oduzimanje do 1000",
+      "name" : "numbers/q00086", "random": "1", "period": "Zima", "subtheme": "Sabiranje i oduzimanje do 1000",
       "topic": "Tekstualni zadatak", "difficulty": "2"
     },
    {

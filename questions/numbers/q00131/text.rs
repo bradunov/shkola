@@ -1,9 +1,9 @@
 
-Zaokrugli dati broj na naznačenu dekadnu jedinicu, kao što je započeto.   
-@center@  @demo@ @hspacept(60)@ @value@ @hspacept(40)@ @result@ 
+Zaokrugli dati broj na najbližu naznačenu dekadnu jedinicu, kao u primeru:   
+dekadna jedinica:  @demo@,  @hspacept(10)@ dati broj: @value@, @hspacept(10)@ zaokrugljeni broj: @result@ 
 
 @vspace@
 @repeat(4)@ 
-@center@ @decade@ @hspacept(60)@ @number1@ @hspacept(15)@ @lib.check_number(number2,60)@
+@center@ @decade@ @hspacept(50)@ @number1@ @hspacept(30)@ @lib.check_number(number2,60)@
 @/repeat@
   

@@ -1,7 +1,7 @@
 
 cifre = {}
 
-ind = math.random(3)
+ind = 3
 demo = 10^ind   
 value = 1111 + math.random(8888) 
 
@@ -12,6 +12,5 @@ if ( ostatak >= 0.5) then
     result = (ceo + 1) * demo
 else		
     result = ceo * demo
-end         
-            
+end                
                 
