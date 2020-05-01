@@ -64,13 +64,25 @@
       "subtheme": "zapis broja", "difficulty": "1"
     },
     {
-      "name" : "numbers/q000145", "random": "1", "period": "jesen", 
+      "name" : "numbers/q00145", "random": "1", "period": "jesen", 
       "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "2"
     },
     {
-      "name" : "numbers/q000146", "random": "1", "period": "jesen", 
+      "name" : "numbers/q00146", "random": "1", "period": "jesen", 
       "subtheme": "sabiranje i oduzimanje do 100", "difficulty": "2"
-    }
+    },
+    {
+      "name" : "numbers/q00153", "random": "1", "period": "jesen", 
+      "subtheme": "Sabiranje i oduzimanje", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00154", "random": "1", "period": "jesen", 
+      "subtheme": "Sabiranje i oduzimanje", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00155", "random": "1", "period": "jesen", 
+      "subtheme": "Tekstualni zadatak", "difficulty": "2"
+    }	
   ]
  }
  

@@ -33,7 +33,7 @@
     },	
     {
       "name" : "geometry/q00052", "random": "1", "period": "Zima", "subtheme": "Merenje vremena", 
-	  "topic": "Tekstualni zadatak", "difficulty": "2"
+	  "topic": "Tekstualni zadatak - vreme", "difficulty": "2"
     },
     {
       "name" : "geometry/q00053", "random": "1", "period": "Zima", "subtheme": "Merenje vremena", 
@@ -113,11 +113,23 @@
     },
     {
       "name" : "geometry/q00072", "random": "1", "period": "Zima", "subtheme": "Merenje i mere", 
-	  "topic": "Tekstualni zadatak", "difficulty": "1"
+	  "topic": "Tekstualni zadatak - masa", "difficulty": "1"
     },
     {
       "name" : "geometry/q00073", "random": "1", "period": "Zima", "subtheme": "Merenje i mere", 
-	  "topic": "Tekstualni zadatak", "difficulty": "1"
+	  "topic": "Tekstualni zadatak - zapremina tečnosti", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00074", "random": "1", "period": "Zima", "subtheme": "Merenje i mere", 
+	  "topic": "Tekstualni zadatak - vreme", "difficulty": "1"
+    },
+    {
+      "name" : "geometry/q00075", "random": "1", "period": "Zima", "subtheme": "Merenje i mere", 
+	  "topic": "Tekstualni zadatak - zapremina tečnosti", "difficulty": "2"
+    },
+    {
+      "name" : "geometry/q00076", "random": "1", "period": "Zima", "subtheme": "Merenje i mere", 
+	  "topic": "Tekstualni zadatak - vreme", "difficulty": "2"
     }	
   ]
  }

@@ -4,10 +4,6 @@
   "language" : "rs",
   "questions":  [
     {
-      "name" : "fractions/q00001", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "1"
-    },
-    {
       "name" : "fractions/q00008", "random": "1", "period": "leto", 
       "subtheme": "Razlomci", "difficulty": "2"
     },

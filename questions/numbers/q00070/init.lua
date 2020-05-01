@@ -1,11 +1,12 @@
+
 addition_table = function()
-  columns = 8
-  min_range = 201
-  max_range = 999
+  columns = 6
+  min_range = 41
+  max_range = 199
 
   q = {}
   for i=0,columns-1 do
-    number = min_range + math.random(max_range - min_range)
+    number = (min_range + math.random(max_range - min_range)) * 5
     q[i] = {}
     q[i][1] = number - 1;
     q[i][2] = number;
@@ -37,6 +38,7 @@ addition_table = function()
 
   return text
 end
+
 
                         
             

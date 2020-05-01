@@ -8,7 +8,7 @@
 	  "topic": "Tekstualni zadatak", "difficulty": "3"
     },
     {
-      "name" : "numbers/q00012", "random": "1", "period": "Proleće", "subtheme": "Nizovi", 
+      "name" : "numbers/q00012", "random": "1", "period": "Proleće", "subtheme": "Niz brojeva", 
 	  "topic": "Uočavanje pravila i određivanje sledećeg člana", "difficulty": "1"
     },
     {
@@ -121,7 +121,7 @@
     },
     {
       "name" : "numbers/q00161", "random": "1", "period": "Proleće", "subtheme": "Brojevni izrazi", 
-	    "topic": "Redosled računskih operacija", "difficulty": "3"
+	   "topic": "Redosled računskih operacija", "difficulty": "3"
     },
     {
       "name" : "numbers/q00163", "random": "1", "period": "Zima", "subtheme": "Množenje i deljenje do 100",
@@ -138,6 +138,10 @@
     {
       "name" : "numbers/q00166", "random": "1", "period": "Proleće", "subtheme": "Računske operacije do 100",
       "topic": "Deljenje zbira", "difficulty": "2"
+    },
+   {
+      "name" : "numbers/q00169", "random": "0", "period": "Jesen", "subtheme": "Brojevi do 100", 
+      "topic": "Brojevna prava", "difficulty": "1"
     }	
   ]
  }

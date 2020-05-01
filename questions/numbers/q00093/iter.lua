@@ -17,29 +17,30 @@ if (ind == 1) then
     term2 = factor1 
     term3 = prod2
     term4 = factor2
-	sign[1] = "&middot;"
+	sign[1] = "·"
 	sign[2] = ":"
 	result = prod1 + factor4
 	if (prod1 >= factor4) then
 	    result = prod1 - factor4
 		sign[3] = "-"
 	end	
+	out1 = prod1
+	out2 = factor4
 else 
     term1 = prod1
 	term2 = factor1
 	term3 = factor4
 	term4 = factor2
 	sign[1] = ":"
-	sign[2] = "&middot;"
+	sign[2] = "·"
 	result = factor3 + prod2  
 	if (prod2 <= factor3) then
-	    result = factor3 - prod4
+	    result = factor3 - prod2
 		sign[3] = "-"
 	end	
+	out1 = factor3
+	out2 = prod2
 end	  	
             
-answ = tostring(term1) .. " " .. sign[1] .. " " .. tostring(term2) .. " " .. sign[3] .. " " .. tostring(term3) .. sign[2] .. " " .. tostring(term4) .." = "
+answ = tostring(term1) .. " " .. sign[1] .. " " .. tostring(term2) .. " " .. sign[3] .. " " .. tostring(term3) .. sign[2] .. " " .. tostring(term4) .." = " ..lib.check_number(out1,30) .. " " .. sign[3] .. " " .. lib.check_number(out2,30) .. " = "
   
-		  
-			  
-		  
