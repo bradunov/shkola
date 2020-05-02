@@ -1,5 +1,6 @@
 import os
 import json
+import jinja2
 
 from server.types import PageParameters
 from server.types import ResponseOperation
@@ -60,7 +61,17 @@ class Page(object):
         self.sessiondb = SessionDB(self.storage)
         self.load_languages()
 
-        
+        logging.debug("\n\nPWD: {} {}\n\n".format(os.getcwd(), self.rel_path))
+
+        file_loader = jinja2.FileSystemLoader(self.rel_path + "/templates")
+        self.templates = jinja2.Environment(loader=file_loader)
+        self.template_params = {
+            'title' : 'Shkola',
+            'google_signin_client_id' : GOOGLE_CLIENT_ID,
+            'google_site_verification' : GOOGLE_SITE_VERIFICATION
+        }
+
+
         
     def clear(self):
         self.page_params = PageParameters()
@@ -113,14 +124,16 @@ class Page(object):
         self.on_loaded_script = self.on_loaded_script + code
         
     def render(self):
-        ret = ""
-        ret = ret + self.header()
+        template = self.templates.get_template(self.template_params["template_name"])
+        ret = template.render(template_params=self.template_params)
+
+        #ret = ret + self.header()
         ret = ret + self.scripts()
         for l in self.lines:
             #ret = ret + u''.join(l).encode('utf-8')
             ret = ret + str(l)
             
-        ret = ret + "\n" + self.footer()
+        #ret = ret + "\n" + self.footer()
         return ret
 
 
@@ -177,61 +190,61 @@ class Page(object):
     #################################################
     # Standard page elements
 
-    def header(self):
-        head = "<!DOCTYPE html>"
-        head = head + "<html>\n"
-        head = head + "  <head>\n"
-        head = head + "    <title>{}</title>\n".format(self.title)
-        head = head + "    <meta name='viewport' content='width=device-width, initial-scale=1'>\n"
-        head = head + '    <meta name="google-signin-client_id" content="{}">\n'.format(GOOGLE_CLIENT_ID)
-        head = head + '    <meta name="google-site-verification" content="{}" />\n'.format(GOOGLE_SITE_VERIFICATION)
-        head = head + """
-             <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
-             <script type="text/javascript" async
-               src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
-             </script>
-             <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
-             <script src="https://apis.google.com/js/platform.js" async defer></script>
-             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-             <script src='""" + self.get_file_url("js/raphaeljs-infobox.js") + """'></script>
-             <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+    # def header(self):
+    #     head = "<!DOCTYPE html>"
+    #     head = head + "<html>\n"
+    #     head = head + "  <head>\n"
+    #     head = head + "    <title>{}</title>\n".format(self.title)
+    #     head = head + "    <meta name='viewport' content='width=device-width, initial-scale=1'>\n"
+    #     head = head + '    <meta name="google-signin-client_id" content="{}">\n'.format(GOOGLE_CLIENT_ID)
+    #     head = head + '    <meta name="google-site-verification" content="{}" />\n'.format(GOOGLE_SITE_VERIFICATION)
+    #     head = head + """
+    #          <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+    #          <script type="text/javascript" async
+    #            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+    #          </script>
+    #          <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
+    #          <script src="https://apis.google.com/js/platform.js" async defer></script>
+    #          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    #          <script src='""" + self.get_file_url("js/raphaeljs-infobox.js") + """'></script>
+    #          <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
 
-             <style type="text/css">
-                div.space {
-                    display:inline-block;
-                    padding-left:6px;
-                    padding-right:6px;
-                }
-            </style>
-        """
+    #          <style type="text/css">
+    #             div.space {
+    #                 display:inline-block;
+    #                 padding-left:6px;
+    #                 padding-right:6px;
+    #             }
+    #         </style>
+    #     """
             
 
-        if self.on_loaded_script:
-            head = head + """
-              <script type="text/javascript">
-                function page_init() {
-                  """ + self.on_loaded_script + """
-                }
-                window.onload = page_init;
-              </script>
-            """
+    #     if self.on_loaded_script:
+    #         head = head + """
+    #           <script type="text/javascript">
+    #             function page_init() {
+    #               """ + self.on_loaded_script + """
+    #             }
+    #             window.onload = page_init;
+    #           </script>
+    #         """
 
-        # Add our small standard library
-        head = head + """
-              <script type="text/javascript">
-              math = {}
-              math.eq = function(x, y, precision) { if (typeof(precision)==='undefined') precision = 0.00001; return Math.abs(x-y) < precision; }
-              </script>
-        """
+    #     # Add our small standard library
+    #     head = head + """
+    #           <script type="text/javascript">
+    #           math = {}
+    #           math.eq = function(x, y, precision) { if (typeof(precision)==='undefined') precision = 0.00001; return Math.abs(x-y) < precision; }
+    #           </script>
+    #     """
 
-        head = head + "  </head>\n"
-        head = head + "  <body>\n"
+    #     head = head + "  </head>\n"
+    #     head = head + "  <body>\n"
 
-        return head
+    #     return head
     
 
-    def footer(self):
-        return "</body>\n</html>\n"
+    # def footer(self):
+    #     return "</body>\n</html>\n"
         
 
     def scripts(self):

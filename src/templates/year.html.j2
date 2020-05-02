@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% import 'elements.html.j2' as elements %}
+    {{ elements.init_elements() }}
+
+    {{ elements.head(template_params) }}
+
+
+  </head>
+
+  <body>
+
+
+
+    <!-- MOBILE MENU START -->
+    {% import 'menu.html.j2' as menu %}
+    {{ menu.include() }}
+    {{ menu.head() }}
+    {{ menu.dropdowns() }}
+    <!-- MENU END -->
+
+
+    <div class="" align="center" style="display:content; margin-top:12px; font-family: 'Lato'; font-weight: 400; font-size: 20px; color: #636661">
+      Nije teško savladati
+    </div>
+    <div class="" align="center" style="display:content; margin-top:-12px; font-family: 'Lato'; font-weight: 400; font-size: 40px; color: #636661">
+      matematiku!
+    </div>
+    <div class="" align="center" style="display:content; margin-top:12px; margin-bottom:34px; font-family: 'Lato'; font-weight: 400; font-size: 20px; color: #636661">
+      Odaberi razred.
+    </div>
+    <div style="display:table; margin:0 auto">
+      <div class="" align="center" style="display:content; border:0px; padding:0px; margin:0px">
+
+        {% for b in template_params['button']['choices'] %}
+          {{ elements.large_button_start(b['obj_type'], 
+                                   "button_{}".format(loop.index), "text_{}".format(loop.index), 
+                                   b['front_color'], b['back_color'], 
+                                   template_params['button']['width'], template_params['button']['height'],
+                                   template_params['button']['margin'], template_params['button']['margin'], 
+                                   template_params['button']['margin'], template_params['button']['margin'], 
+                                   b['link']) }}
+                              
+            <div id="{{ "text_{}".format(loop.index) }}", class="" 
+                style="display: inline-block;
+                    margin-top: 11px;
+                    font-family: 'Bubblegum Sans'; 
+                    font-size: {{ template_params['button']['font_size'] }}  ; 
+                    color: {{ b['front_color'] }}"> {{ b['title'] }}
+            </div>                
+
+          {{ elements.large_button_end(b['obj_type']) }}
+        {% endfor %}
+
+      </div>
+      <div class="" align="center" style="display:content; border:0px; padding:0px; margin:0px">
+      </div>
+    </div>
+
+  </body>
+</html>

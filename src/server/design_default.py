@@ -1,4 +1,5 @@
 import time
+import jinja2
 
 from server.helpers import encode_dict, encap_str
 
@@ -456,6 +457,63 @@ class Design_default(object):
         page.page_params.set_param("subtheme", "")
         page.page_params.set_param("q_id", "")
         page.page_params.set_param("l_id", "")
+
+
+        page.template_params["template_name"] = "year.html.j2"
+
+        color_list = ["#ff6956", "#489cba", "#f7b500", "#6ab288"]
+
+        years = ["1", "2", "3", "4", "5"]
+        ynumbers = [1, 2, 3, 4, 5, 6, 7, 8]
+        scale = 1
+        new_line = [1, 3, 5, 7, 9]
+
+        width = int(137 * scale)
+        height = int(140 * scale)
+        font_size = int(111 * scale)
+        margin = int(10 * scale)
+
+        page.template_params['button'] = {
+            'width' : '{}px'.format(width),
+            'height' : '{}px'.format(height),
+            'font_size' : '{}px'.format(font_size),
+            'margin' : '{}px'.format(margin),
+            'choices' : []
+        }
+
+
+        for i in range(0, len(ynumbers)):
+            
+            razred = ynumbers[i]
+
+            if i < len(years):
+                page.template_params['button']['choices'].append({
+                    'obj_type' : 'A',
+                    'title' : razred,
+                    'front_color' : color_list[i % len(color_list)],
+                    'back_color' : '#f9f9f9',
+                    'link' : "href=\"{}\"".format(page.page_params.create_url(
+                        op = PageOperation.toStr(PageOperation.MENU_THEME),                         
+                        year = years[i], \
+                        theme = "", \
+                        subtheme = "", \
+                        period = "", \
+                        difficulty = "", \
+                        js = False))
+                })
+            else:
+                page.template_params['button']['choices'].append({
+                    'obj_type' : 'div',
+                    'title' : razred,
+                    'front_color' : "#999999",
+                    'back_color' : '#f9f9f9',
+                    'link' : ""
+                })
+
+
+
+
+        return
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
         if content:
