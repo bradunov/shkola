@@ -1,5 +1,6 @@
 import time
 import jinja2
+import json
 
 from server.helpers import encode_dict, encap_str
 
@@ -35,13 +36,9 @@ class Design_default(object):
             return ""
 
         if page.page_params.get_param("op") == PageOperation.LOGIN_GOOGLE:
-            logging.debug("\n\n\n GGGGGG1\n\n\n")
             new_url, ok = page.login_google()
-            logging.debug("\n\n\n GGGGGG2 {} {} \n\n\n".format(new_url, ok))
             context.c.headers.set_content_type('text/plain')
             return "OK:{}".format(new_url) if ok else "ERROR:{}".format(new_url)
-
-        logging.debug("\n\n\n UUUUUUUU {}\n\n\n".format(context.c.user))
 
         if not context.c.user:
             # First login, if not already done
@@ -57,8 +54,8 @@ class Design_default(object):
             page.page_params.set_param("op", PageOperation.SUMMARY)
 
 
-        Design_default.add_header(page)
-        Design_default.add_background(page)
+        #Design_default.add_header(page)
+        #Design_default.add_background(page)
 
         if page.page_params.get_param("op") == PageOperation.TEST or \
              page.page_params.get_param("op") == PageOperation.TEST_PREV:
@@ -90,7 +87,6 @@ class Design_default(object):
         elif page.page_params.get_param("op") == PageOperation.MENU_YEAR:
             # No year selected, select it
             logging.debug("PageOperation.MENU - year")
-            Design_default.render_menu(page)
             Design_default.render_select_year_page(page)
             return page.render()
 
@@ -109,16 +105,18 @@ class Design_default(object):
             return page.render()
 
         elif page.page_params.get_param("op") == PageOperation.STATS:
-            Design_default.render_menu(page)
             if user and user.domain_user_id:
                 # TBD: old notation
                 u_id = user.domain_user_id
                 if len(u_id) >= len("local:") and u_id[:len("local:")] == "local:":
                     u_id = u_id[len("local:"):]
+                Design_default.render_menu(page)
                 Design_default.render_user_stats(page, u_id)
             else:
                 logging.info("PageOperation.STATS - no user - select user")
+                root = page.page_params.get_param("root")
                 page.page_params.delete_params()
+                page.page_params.set_param("root", root)
                 page.page_params.set_param("op", PageOperation.MENU_USER)
                 Design_default.render_select_year_page(page)
             return page.render()
@@ -126,47 +124,48 @@ class Design_default(object):
         else:
             # Something mesed up the state - clean up the state and go to the intro
             logging.info("PageOperation.MENU - wrong parameters - select year")
+            root = page.page_params.get_param("root")
             page.page_params.delete_params()
+            page.page_params.set_param("root", root)
             page.page_params.set_param("op", PageOperation.MENU_YEAR)
-            Design_default.render_menu(page)
             Design_default.render_select_year_page(page)
             return page.render()
 
 
 
 
-    @staticmethod
-    def add_header(page):
-        page.add_script_lines("""
-            <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />
-            <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
-            <script>
-                function invert_colors(button_id, text_id, color_b, color_t) {
-                var button = document.getElementById(button_id);
-                var text = document.getElementById(text_id);
-                button.style.background=color_b;
-                text.style.color=color_t;
-                }
-            </script>
-        """)
+    # @staticmethod
+    # def add_header(page):
+    #     page.add_script_lines("""
+    #         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />
+    #         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+    #         <script>
+    #             function invert_colors(button_id, text_id, color_b, color_t) {
+    #             var button = document.getElementById(button_id);
+    #             var text = document.getElementById(text_id);
+    #             button.style.background=color_b;
+    #             text.style.color=color_t;
+    #             }
+    #         </script>
+    #     """)
 
 
 
-    @staticmethod
-    def add_background(page):
-        page.add_lines("""
-            <style>
-            body {
-                height: 100%;
-                background-image: url(""" + page.get_file_url("images/background.svg") + """);
-                background-color: white;
-                background-size:100% 100%;
-                -o-background-size: 100% 100%;
-                -webkit-background-size: 100% 100%;
-                background-size:cover;
-            }
-            </style>
-        """)
+    # @staticmethod
+    # def add_background(page):
+    #     page.add_lines("""
+    #         <style>
+    #         body {
+    #             height: 100%;
+    #             background-image: url(""" + page.get_file_url("images/background.svg") + """);
+    #             background-color: white;
+    #             background-size:100% 100%;
+    #             -o-background-size: 100% 100%;
+    #             -webkit-background-size: 100% 100%;
+    #             background-size:cover;
+    #         }
+    #         </style>
+    #     """)
 
 
 
@@ -449,6 +448,9 @@ class Design_default(object):
 
 
 
+
+
+
     @staticmethod
     def render_select_year_page(page):
         page.page_params.delete_history()
@@ -482,8 +484,62 @@ class Design_default(object):
         }
 
 
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
+        page.template_params['menu'] = []
+
+        logging.debug("\n\n\nDEBUG {}\n\n\n".format(page.page_params.get_param("root")))
+
+        page.page_params.print_params()
+
+        new_page_params = PageParameters()
+        new_page_params.set_param("root", page.page_params.get_param("root"))
+        new_page_params.set_param("op", PageOperation.MENU_YEAR)
+        new_page_params.set_param("language", page.page_params.get_param("language"))
+
+        menu_id = 0
+
+        zadaci = {
+            "name" : "Zadaci",
+            "submenu" : {
+                "id" : "zadaci_{}".format(menu_id),
+                "options" : []
+            }
+        }
+        menu_id = menu_id + 1
+
+        for level in sorted(content.keys()):
+            options = []
+
+            for theme in sorted(content[level].keys()):
+                options.append({
+                    "name" : theme.title(),
+                    "link" : new_page_params.create_url(\
+                        op = PageOperation.toStr(PageOperation.MENU_SUBTHEME), \
+                        year = level, \
+                        theme = theme, \
+                        js = False)
+                })
+
+            zadaci['submenu']['options'].append({
+                "name" : level.title(),
+                "link" : new_page_params.create_url( \
+                        op = PageOperation.toStr(PageOperation.MENU_THEME), \
+                        year = level, 
+                        js = False),
+                "submenu" : {
+                    "id" : "zadaci_{}".format(menu_id),
+                    "options" : options
+                }
+            })
+            menu_id = menu_id + 1
+
+        page.template_params['menu'].append(zadaci)
+ 
+
+
+
         for i in range(0, len(ynumbers)):
-            
+
             razred = ynumbers[i]
 
             if i < len(years):
@@ -512,169 +568,11 @@ class Design_default(object):
 
 
 
+        logging.info("\n\n\nTEMPLATE: {}\n\n\n".format(json.dumps(page.template_params, indent=2)))
 
         return
 
-        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
-        if content:
-            page.add_lines("""
-            <style>
-            body {
-                height: 100%;
-                background-image: url(""" + page.get_file_url("images/background.svg") + """);
-                background-color: white;
-                background-size:100% 100%;
-                -o-background-size: 100% 100%;
-                -webkit-background-size: 100% 100%;
-                background-size:cover;
-            }
-            </style>
-            """)
 
-
-            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; "
-                "margin-top:12px; font-family: 'Lato'; font-weight: 400; font-size: 20px; color: #636661\">\n")
-            page.add_lines("  Nije teško savladati\n")
-            page.add_lines("</div>\n")
-
-            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; "
-                "margin-top:-12px; font-family: 'Lato'; font-weight: 400; font-size: 40px; color: #636661\">\n")
-            page.add_lines("  matematiku!\n")
-            page.add_lines("</div>\n")
-
-            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; "
-                "margin-top:12px; margin-bottom:34px; font-family: 'Lato'; font-weight: 400; font-size: 20px; color: #636661\">\n")
-            page.add_lines("  Odaberi razred.")
-            page.add_lines("</div>\n")
-
-
-            page.add_lines("<div style=\"display:table; margin:0 auto\">\n")
-            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
-
-            color_list = ["#ff6956", "#489cba", "#f7b500", "#6ab288"]
-
-            # Skolice
-            # years = ["peti", "cetvrti", "drugi", "treci", "prvi"]
-            # ynumbers = [5, 4, 2, 3, 1]
-            # scale = 0.6
-            # new_line = [4, 3, 1, 0]
-
-
-            #years = ["prvi", "drugi", "treci", "cetvrti", "peti"]
-            years = ["1", "2", "3", "4", "5"]
-            ynumbers = [1, 2, 3, 4, 5, 6, 7, 8]
-            scale = 1
-            new_line = [1, 3, 5, 7, 9]
-
-
-
-            width = int(137 * scale)
-            height = int(140 * scale)
-            font_size = int(111 * scale)
-            margin = int(10 * scale)
-
-            for i in range(0, len(ynumbers)):
-
-                # One button
-
-                back_color = "#f9f9f9"
-                color = color_list[i % len(color_list)]
-                razred = ynumbers[i]
-                if i < len(years):
-                    obj = "A"
-                    link = "href=\"{}\"".format(page.page_params.create_url(
-                        op = PageOperation.toStr(PageOperation.MENU_THEME),                         
-                        year = years[i], \
-                        theme = "", \
-                        subtheme = "", \
-                        period = "", \
-                        difficulty = "", \
-                        js = False))
-                else:
-                    back_color = "#f9f9f9"
-                    color = "#999999"
-                    obj = "div"
-                    link = ""
-
-
-                text = """
-                        <div id="text_{}", class="" 
-                            style="display: inline-block;
-                                margin-top: 11px;
-                                font-family: 'Bubblegum Sans'; 
-                                font-size: {}px; 
-                                color: {}"> {} </div>
-                """.format(i, font_size, color, razred)
-
-                # button = """
-                #     <{} id="button_{}" class="" 
-                #         style="display: inline-block;
-                #                 border-radius: 10px;
-                #                 border: 0.1px solid #000000;
-                #                 padding: 0px;
-                #                 background: {};
-                #                 color: {};
-                #                 width: {}px;
-                #                 height: {}px;
-                #                 margin-right: {}px;
-                #                 margin-left: {}px;
-                #                 margin-bottom: {}px;
-                #                 margin-top: {}px;
-                #                 box-shadow: 0px 5px 5px #dddddd;"
-                #                 onmouseover="invert_colors('{}', '{}', '{}');" 
-                #                 onmouseout="invert_colors('{}', '{}', '{}');" 
-                #         {}>
-                #         <div id="text_{}", class="" 
-                #             style="display: inline-block;
-                #                 font-family: 'Bubblegum Sans'; 
-                #                 font-size: {}px; 
-                #                 color: {}"> {} </div>
-                #     </{}>""".format(obj, i, back_color, back_color, height, width, 
-                #         margin, margin, margin, margin, 
-                #         i, color, back_color, 
-                #         i, back_color, color, 
-                #         link,
-                #         i, font_size, color, razred, obj)
-
-                id_button = "button_" + str(i)
-                id_text = "text_" + str(i)
-                button = Design_default._add_button(page, obj, id_button, id_text, color, back_color, \
-                    height, width, margin, margin, margin, margin, link, text)
-
-
-                page.add_lines(button)
-
-                if i in new_line:
-                    page.add_lines("</div>\n")
-                    page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
-
-
-
-            page.add_lines("</div>\n")
-            page.add_lines("</div>\n")
-
-
-
-
-
-
-            page.add_lines("")
-
-            # page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            # page.add_lines("<h3>Izaberi razred</h3>\n")
-            # page.add_lines("</div>\n")
-
-            # for year in sorted(content.keys()):
-            #     page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            #     page.add_lines("<a href='" + \
-            #             page.page_params.create_url(year = year, \
-            #                                         theme = "", \
-            #                                         subtheme = "", \
-            #                                         period = "", \
-            #                                         difficulty = "", \
-            #                                         js = False) + \
-            #             "'> " + year.title() + "</a>\n")
-            #     page.add_lines("</div>\n")
 
 
 

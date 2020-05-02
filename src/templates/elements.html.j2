@@ -15,7 +15,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src='""" + self.get_file_url("js/raphaeljs-infobox.js") + """'></script>
+    
+    <!-- DEBUG REMOVE
+    <script src='item?url=js/raphaeljs-infobox.js'></script>
+    -->
+    
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
 
     <style type="text/css">
@@ -31,8 +35,23 @@
       math.eq = function(x, y, precision) { if (typeof(precision)==='undefined') precision = 0.00001; return Math.abs(x-y) < precision; }
     </script>
 
+    <script type = "text/javascript">
+      function setError(id) {
+        document.getElementById(id).style.border = "3px solid red";
+      }
+      function setOK(id) {
+        document.getElementById(id).style.border = "3px solid green";
+      }
+      function clearAllWBorder(id) {
+        document.getElementById(id).style.border = "1px solid #ccc";
+      }
+      function clearAllNoBorder(id) {
+        document.getElementById(id).style.border = "0px solid white";
+      }
+    </script>  
+
     <style>
-    body {
+      body {
         height: 100%;
         background-image: url(item?url=images/background.svg);
         background-color: white;
@@ -40,7 +59,7 @@
         -o-background-size: 100% 100%;
         -webkit-background-size: 100% 100%;
         background-size:cover;
-    }
+      }
     </style>
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />

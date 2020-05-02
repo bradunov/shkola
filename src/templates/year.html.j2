@@ -18,7 +18,7 @@
     {% import 'menu.html.j2' as menu %}
     {{ menu.include() }}
     {{ menu.head() }}
-    {{ menu.dropdowns() }}
+    {{ menu.dropdowns(template_params) }}
     <!-- MENU END -->
 
 
@@ -52,6 +52,11 @@
             </div>                
 
           {{ elements.large_button_end(b['obj_type']) }}
+
+          {% if loop.index % 2 == 0 %}
+            </div>
+            <div class="" align="center" style="display:content; border:0px; padding:0px; margin:0px">
+          {% endif %}
         {% endfor %}
 
       </div>

@@ -66,8 +66,65 @@
 {% endmacro %}
 
 
-{% macro dropdowns() %}
+{% macro one_dropdown(submenu, level=0) %}
+  {% if 'link' in submenu.keys() and 'submenu' in submenu.keys() %}
+    <a class="sh-font" href="{{ submenu['link'] }}" style="padding: 8px 0px 8px 16px ; text-decoration:none"> 
+      {% for i in range(0, level) %}
+        <div class="space"></div> 
+      {% endfor %}
+      {{ submenu['name'] }}
+    </a>
+    <button class="sh-button-arrow sh-left-align sh-font" onclick="myAccFunc('{{ submenu['submenu']['id'] }}')">
+      <i class="fa fa-caret-down"></i>
+    </button>
+  {% elif 'link' in submenu.keys() %}
+    <a class="sh-bar-item sh-button sh-font" href="{{ submenu['link'] }}"> 
+      {% for i in range(0, level) %}
+        <div class="space"></div> 
+      {% endfor %}
+      {{ submenu['name'] }}
+    </a> 
+  {% elif 'submenu' in submenu.keys() %}
+      <button class="sh-button sh-block sh-left-align sh-font" onclick="myAccFunc('{{ submenu['submenu']['id'] }}')">
+        {% for i in range(0, level) %}
+          <div class="space"></div> 
+        {% endfor %}
+        {{ submenu['name'] }} 
+        <i class="fa fa-caret-down"></i>
+      </button>
+  {% else %}
+    {% for i in range(0, level) %}
+      <div class="space"></div> 
+    {% endfor %}
+    <div class="sh-font sh-bar-item sh-button"> 
+      {{ submenu['name'] }} 
+    </div> 
+  {% endif %}
+
+  {% if 'submenu' in submenu.keys() %}
+    <div id="{{ submenu['submenu']['id'] }}" class="sh-hide sh-white sh-card">
+      {% for sub in submenu['submenu']['options'] %}
+        {{ one_dropdown(sub, level+1) }}
+      {% endfor %}
+    </div>
+    {% if 'link' in submenu.keys() %}
+      <br>
+    {% endif %}
+  {% endif %}
+  
+{% endmacro %}
+
+
+
+
+{% macro dropdowns(template_params) %}
+
     <div class="sh-sidebar sh-bar-block sh-border-left" style="width:200px;right:0;display:none" id="shMenu">
+      {% for subm in template_params['menu'] %}
+        {{ one_dropdown(subm) }}
+      {% endfor %}
+
+    {#
       <button class="sh-button sh-block sh-left-align sh-font" onclick="myAccFunc('accLevel')">
           Zadaci <i class="fa fa-caret-down"></i>
       </button>
@@ -122,10 +179,11 @@
 
       <a class="sh-button sh-block sh-left-align sh-font" href="https://www.tatamata.org/main?op=stats&amp;q_id=&amp;l_id=&amp;year=&amp;theme=&amp;subtheme=&amp;period=&amp;difficulty=&amp;language=rs&amp;design=dev"> Rezultati </a>
       <a class="sh-button sh-block sh-left-align sh-font" href="https://www.tatamata.org/main?op=menu_user&amp;q_id=&amp;l_id=&amp;year=&amp;theme=&amp;subtheme=&amp;period=&amp;difficulty=&amp;language=rs&amp;design=dev"> Izloguj se (Bozidar Radunovic)</a>
+      #}
     </div>
 
 
-
+    {#
     <div class="sh-sidebar sh-bar-block sh-border-left" style="width:200px;right:0;display:none" id="shLang">
       <div align="left" style="display:table; padding: 8px 8px;">
         <a class="sh-font" style="display: table-cell; vertical-align: middle; text-align: center;" href="https://www.tatamata.org/main?op=menu_year&amp;q_id=&amp;l_id=drugi_geometrija.rs&amp;year=prvi&amp;theme=geometrija&amp;subtheme=*&amp;period=*&amp;difficulty=*&amp;language=uk&amp;design=dev"><img style="display: inline-block;padding: 0px;" height="20px" width="36px" src="./Shkola_files/item(2)"></a>  &nbsp; 
@@ -135,5 +193,6 @@
         <a class="sh-font" style="display: table-cell; vertical-align: middle; text-align: center;" href="https://www.tatamata.org/main?op=menu_year&amp;q_id=&amp;l_id=drugi_geometrija.rs&amp;year=prvi&amp;theme=geometrija&amp;subtheme=*&amp;period=*&amp;difficulty=*&amp;language=rs&amp;design=dev"><img style="display: inline-block;padding: 0px;" height="20px" width="36px" src="./Shkola_files/item(1)"></a>  &nbsp; 
         <a class="sh-font" style="display: table-cell; vertical-align: middle; text-align: center;" href="https://www.tatamata.org/main?op=menu_year&amp;q_id=&amp;l_id=drugi_geometrija.rs&amp;year=prvi&amp;theme=geometrija&amp;subtheme=*&amp;period=*&amp;difficulty=*&amp;language=rs&amp;design=dev">Srbija</a>
       </div>
-    </div>                       
+    </div>
+    #}                       
 {% endmacro %}

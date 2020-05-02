@@ -248,22 +248,7 @@ class Page(object):
         
 
     def scripts(self):
-        ret = """
-        <script type = "text/javascript">
-        function setError(id) {
-          document.getElementById(id).style.border = "3px solid red";
-        }
-        function setOK(id) {
-          document.getElementById(id).style.border = "3px solid green";
-        }
-        function clearAllWBorder(id) {
-          document.getElementById(id).style.border = "1px solid #ccc";
-        }
-        function clearAllNoBorder(id) {
-          document.getElementById(id).style.border = "0px solid white";
-        }
-        </script>  
-        """    
+        ret = ""    
         for l in self.script_lines:
             ret = ret + l + "\n"
         return ret
