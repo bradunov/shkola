@@ -166,6 +166,18 @@
           document.getElementById("next_skuter_2").style.opacity = "0.4";
         }
       }
+
+      let timer = setInterval(function() {
+        let toggle = function(obj) {
+          if (obj.style.opacity == 1) obj.style.opacity = 0.4;
+          else obj.style.opacity = 1;
+        }
+        if (next_state) {
+          toggle(document.getElementById("next_skuter_1"));          
+          toggle(document.getElementById("next_skuter_2"));          
+        }
+      }, 500); // change colors every 500ms
+
     </script>
 
     <div style="display:table; margin:0 auto">
@@ -174,14 +186,14 @@
         <div class="sh-std-button" style="display: table; width: 291px; height: 40px; margin: 38px 0 0 0; 
                     background-color: white; ">
           <div id="next_text" style="display: table-cell; vertical-align: middle; text-align: right; width: 145px;
-                      font-family: 'Lato'; font-size: 18px; color: #148f91; opacity=0.4;">
+                      font-family: 'Lato'; font-size: 18px; color: #148f91; opacity:0.4;">
               NASTAVI 
           </div>
           <div style="display: table-cell; vertical-align: middle; text-align: left; width: 145px">
               <img id="next_skuter_1" src="item?url=images/skuter.svg" style="width: 32px; height: 22px; 
-                                      margin-left:32px; margin-right:9px; object-fit: contain; opacity=0.4;">
+                                      margin-left:32px; margin-right:9px; object-fit: contain; opacity:0.4;">
               <img id="next_skuter_2" src="item?url=images/skuter.svg" style="width: 32px; height: 22px; 
-                                      margin-left:9px; object-fit: contain; opacity=0.4;">
+                                      margin-left:9px; object-fit: contain; opacity:0.4;">
           </div>
         </div>
       </div>
