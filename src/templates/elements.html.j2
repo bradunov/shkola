@@ -3,6 +3,7 @@
 
 {% macro head(template_params) %}
     <title> {{ template_params['title'] }} </title>
+    {{ template_params['GOOGLE_CLIENT_ID'] }}
     <meta name="google-signin-client_id" content="{{ template_params['google_signin_client_id'] }}" />
     <meta name="google-site-verification" content="{{ template_params['google_site_verification'] }}" />
 
@@ -19,7 +20,7 @@
     <!-- DEBUG REMOVE
     <script src='item?url=js/raphaeljs-infobox.js'></script>
     -->
-    
+
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
 
     <style type="text/css">
@@ -27,6 +28,14 @@
           display:inline-block;
           padding-left:6px;
           padding-right:6px;
+      }
+
+      .sh-std-button {
+        border-radius: 10px;
+        border: 0.1px solid #000000;
+        padding: 0px;
+        box-shadow: 0px 5px 5px #dddddd;"
+        cursor: pointer;
       }
     </style>
 
@@ -50,22 +59,27 @@
       }
     </script>  
 
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+
+{% endmacro %}
+
+
+
+{% macro standard_background() %}
     <style>
       body {
         height: 100%;
-        background-image: url(item?url=images/background.svg);
+        background-image: url(item?url=images/background.jpg);
         background-color: white;
         background-size:100% 100%;
         -o-background-size: 100% 100%;
         -webkit-background-size: 100% 100%;
         background-size:cover;
+        margin: 0;
+        padding: 0;
       }
     </style>
-
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
-
-
 {% endmacro %}
 
 
@@ -78,35 +92,99 @@
         button.style.background=color_b;
         text.style.color=color_t;
       }
+
+      el_but_state = {};
+      function select_button(button_id, border_on, border_off, callback, only_one=true) {
+        var button = document.getElementById(button_id);
+        if (!(button_id in el_but_state)) el_but_state[button_id] = false;
+        if (el_but_state[button_id]) {
+          button.style.border = border_off;
+          el_but_state[button_id] = false;
+          callback(false, button_id);
+        } else {
+          if (only_one) {
+            var ks = Object.keys(el_but_state);
+            for (var i=0; i<ks.length; i++) {
+              b = ks[i];
+              document.getElementById(b).style.border = border_off;
+              el_but_state[b] = false;
+            }
+          }
+          button.style.border = border_on;
+          el_but_state[button_id] = true;
+          callback(true, button_id);
+        }
+      }
     </script>
 {% endmacro %}
 
 
-{% macro large_button_start(obj_type, id_button, id_content, front_color, back_color, height, width, 
-                    margin_right, margin_left, margin_bottom, margin_top, link="") %}
 
-          <{{obj_type}} id="{{id_button}}" class="" 
-              style="display: inline-block;
-                      cursor: pointer;
-                      border-radius: 10px;
-                      border: 0.1px solid #000000;
-                      padding: 0px;
-                      background: {{back_color}};
-                      color: {{front_color}};
-                      width: {{width}};
-                      height: {{height}};
-                      margin-right: {{margin_right}};
-                      margin-left: {{margin_left}};
-                      margin-bottom: {{margin_bottom}};
-                      margin-top: {{margin_top}};
-                      box-shadow: 0px 5px 5px #dddddd;"
-                      onmouseover="invert_colors('{{id_button}}', '{{id_content}}', '{{front_color}}', '{{back_color}}');" 
-                      onmouseout="invert_colors('{{id_button}}', '{{id_content}}', '{{back_color}}', '{{front_color}}');" 
-              {{link}}>
+
+{% macro footer(level) %}
+  <div style="display: table; width: 100%; height: 52px; margin: 60px 0 0 0; 
+              background-color: white; box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);">
+    <div style="display: table-cell; vertical-align: middle; text-align: center;">
+      {% if level == 0 %}
+        <img src="item?url=images/footer_razred_on.svg" style="width: 38px; height: 38px; object-fit: contain;">
+      {% else %}
+        <img src="item?url=images/footer_razred_off.svg" style="width: 38px; height: 38px; object-fit: contain;">
+      {% endif %}
+    </div>
+    <div style="display: table-cell; vertical-align: middle; text-align: center; ">
+      {% if level == 1 %}
+        <img src="item?url=images/footer_tema_on.svg" style="width: 38px; height: 38px; object-fit: contain;">
+      {% else %}
+        <img src="item?url=images/footer_tema_off.svg" style="width: 38px; height: 38px; object-fit: contain;">
+      {% endif %}
+    </div>
+    <div style="display: table-cell; vertical-align: middle; text-align: center;">
+      {% if level == 2 %}
+        <img src="item?url=images/footer_uspeh_on.svg" style="width: 38px; height: 38px; object-fit: contain;">
+      {% else %}
+        <img src="item?url=images/footer_uspeh_off.svg" style="width: 38px; height: 38px; object-fit: contain;">
+      {% endif %}
+    </div>
+  </div>
 {% endmacro %}
 
 
 
-{% macro large_button_end(obj_type) %}
-          </{{obj_type}}>
-{% endmacro%}
+
+{% macro next() %}
+    <script>
+      var next_state = false; 
+      function next_callback(state, button) {
+        next_state = state;
+        if (state) {
+          document.getElementById("next_text").style.opacity = "1";
+          document.getElementById("next_skuter_1").style.opacity = "0.4";
+          document.getElementById("next_skuter_2").style.opacity = "1";
+        } else {
+          document.getElementById("next_text").style.opacity = "0.4";
+          document.getElementById("next_skuter_1").style.opacity = "0.4";
+          document.getElementById("next_skuter_2").style.opacity = "0.4";
+        }
+      }
+    </script>
+
+    <div style="display:table; margin:0 auto">
+      <div class="" align="center" style="display:content; border:0px; padding:0px; margin:0px">
+
+        <div class="sh-std-button" style="display: table; width: 291px; height: 40px; margin: 38px 0 0 0; 
+                    background-color: white; ">
+          <div id="next_text" style="display: table-cell; vertical-align: middle; text-align: right; width: 145px;
+                      font-family: 'Lato'; font-size: 18px; color: #148f91; opacity=0.4;">
+              NASTAVI 
+          </div>
+          <div style="display: table-cell; vertical-align: middle; text-align: left; width: 145px">
+              <img id="next_skuter_1" src="item?url=images/skuter.svg" style="width: 32px; height: 22px; 
+                                      margin-left:32px; margin-right:9px; object-fit: contain; opacity=0.4;">
+              <img id="next_skuter_2" src="item?url=images/skuter.svg" style="width: 32px; height: 22px; 
+                                      margin-left:9px; object-fit: contain; opacity=0.4;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endmacro %}

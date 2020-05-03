@@ -36,6 +36,14 @@ class Page(object):
     title = ""                      # Web site title in the HTML header
 
 
+    _default_template_params = {
+        'title' : 'Shkola',
+        'google_signin_client_id' : GOOGLE_CLIENT_ID,
+        'google_site_verification' : GOOGLE_SITE_VERIFICATION
+    }
+
+
+
     # use_azure_blob = True: use blob for question storage rather than the local disk
     # preload = True: fetch all questions in memory at start time (may be slow for a blob)
     def __init__(self, title="tatamata.org", rel_path=None, use_azure_blob=False, preload=True):
@@ -65,11 +73,7 @@ class Page(object):
 
         file_loader = jinja2.FileSystemLoader(self.rel_path + "/templates")
         self.templates = jinja2.Environment(loader=file_loader)
-        self.template_params = {
-            'title' : 'Shkola',
-            'google_signin_client_id' : GOOGLE_CLIENT_ID,
-            'google_site_verification' : GOOGLE_SITE_VERIFICATION
-        }
+        self.template_params = self._default_template_params
 
 
         
@@ -78,9 +82,13 @@ class Page(object):
         self.question = None
         self.lines = []
         self.script_lines = []
+        self.clear_template_params()
 
 
-        
+    def clear_template_params(self):
+        self.template_params = self._default_template_params
+
+
     def add_code(self, init_code = "", iter_code = "", text = ""):
         self.page_params.add_code(init_code, iter_code, text)
             

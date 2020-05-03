@@ -134,362 +134,16 @@ class Design_default(object):
 
 
 
-    # @staticmethod
-    # def add_header(page):
-    #     page.add_script_lines("""
-    #         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />
-    #         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
-    #         <script>
-    #             function invert_colors(button_id, text_id, color_b, color_t) {
-    #             var button = document.getElementById(button_id);
-    #             var text = document.getElementById(text_id);
-    #             button.style.background=color_b;
-    #             text.style.color=color_t;
-    #             }
-    #         </script>
-    #     """)
-
-
-
-    # @staticmethod
-    # def add_background(page):
-    #     page.add_lines("""
-    #         <style>
-    #         body {
-    #             height: 100%;
-    #             background-image: url(""" + page.get_file_url("images/background.svg") + """);
-    #             background-color: white;
-    #             background-size:100% 100%;
-    #             -o-background-size: 100% 100%;
-    #             -webkit-background-size: 100% 100%;
-    #             background-size:cover;
-    #         }
-    #         </style>
-    #     """)
 
 
 
 
     @staticmethod
-    def _add_button(page, obj, id_button, id_content, color, back_color, height, width, \
-                    margin_right, margin_left, margin_bottom, margin_top, link="", content=""):
-        button = """
-                    <{} id="{}" class="" 
-                        style="display: inline-block;
-                                cursor: pointer;
-                                border-radius: 10px;
-                                border: 0.1px solid #000000;
-                                padding: 0px;
-                                background: {};
-                                color: {};
-                                width: {}px;
-                                height: {}px;
-                                margin-right: {}px;
-                                margin-left: {}px;
-                                margin-bottom: {}px;
-                                margin-top: {}px;
-                                box-shadow: 0px 5px 5px #dddddd;"
-                                onmouseover="invert_colors('{}', '{}', '{}', '{}');" 
-                                onmouseout="invert_colors('{}', '{}', '{}', '{}');" 
-                        {}>
-                            {}
-                    </{}>
-                """.format(obj, id_button, back_color, back_color, width, height,
-                        margin_right, margin_left, margin_bottom, margin_top, 
-                        id_button, id_content, color, back_color, 
-                        id_button, id_content, back_color, color, 
-                        link, content, obj)
-        return button
-
-
-
-    # Temporary until we add Google auth
-    @staticmethod    
-    def get_tmp_login_header(page):
-        login_str = ""
-
-        # login_return = page.page_params.all_state
-        # login_return["js"] = False
-        # login_return = encode_dict(login_return)
-        login_return = "/main"
-
-        test_users = ["Petar", "User2"]
-        test_users.sort()
-
-        login_str = "<select id='sel_user_id' name='sel_user_id' " + \
-                    "onchange='window.location.replace(\"" + page.page_params.get_param("root") + \
-                    "?op=" + PageOperation.LOGIN_TEST + "&" + "login_return=" + \
-                    login_return + "&user_id=\" + this.value)'>\n"
-
-        user = context.c.user
-        if not user or not user.domain_user_id:
-            login_str = login_str + "<option value='UNKNOWN' SELECTED></option>\n"
-
-        for sel_user in test_users:
-            selected = ""
-
-            if user and user.domain_user_id == "local:"+sel_user:
-                selected = "SELECTED"
-
-            login_str = login_str + "<option value='{}' {}>{}</option>\n".format(sel_user, selected, sel_user)
-
-        login_str = login_str + "</select>\n"
-
-        return login_str
-
-
-    @staticmethod
-    def render_select_user_page(page):
-
-        page.page_params.delete_history()
-        page.page_params.set_param("year", "")
-        page.page_params.set_param("theme", "")
-        page.page_params.set_param("subtheme", "")
-        page.page_params.set_param("q_id", "")
-        page.page_params.set_param("l_id", "")
-        context.c.session.clear()
-        context.c.user = None
-
-        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
-        if content:
-
-            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; margin-top:36px;\">")
-            page.add_lines("<img src='" + page.get_file_url("images/home_page_img.svg") + "' width='360'>")
-            page.add_lines("</div>\n")
-
-            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; "
-                "margin-top:36px; font-family: 'Bubblegum Sans'; font-weight: 400; font-size: 55px; color: #029194\">\n")
-            page.add_lines("TATA MATA\n")
-            page.add_lines("</div>\n")
-
-            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; "
-                "margin-top:0px; font-family: 'Lato'; font-size: 18px; color: #dc3d39\">\n")
-            page.add_lines("Vezbaonica matematike <br> za osnovne skole\n")
-            page.add_lines("</div>\n")
-
-            width = 236
-            height = 40
-            font_size = 15 
-            margin = 10 
-            margin_top = 83
-            back_color = "#f9f9f9"
-
-            page.add_lines("<div style=\"display:table; margin:0 auto\">\n")
-
-            # Google
-
-            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
-
-            color = "#ff6956"
-            id_button = "button_user_google"
-            id_text = "text_user_google"
-
-            if USE_GOOGLE_AUTH:
-                #google_login_button = '<div class="g-signin2" style="margin-bottom:0px" data-onsuccess="onSignIn"></div>\n'
-                #page.add_lines(google_login_button)
-
-                # Google login
-
-                g_url = "/main?op={}".format(PageOperation['LOGIN_GOOGLE'].value)
-                page.add_script_lines("""
-                    <script>
-                    function onSignIn(googleUser) {
-                        console.log('Google sign in');
-                        var profile = googleUser.getBasicProfile();
-                        var id_token = googleUser.getAuthResponse().id_token;
-                        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-                        console.log('Name: ' + profile.getName());
-                        console.log('Image URL: ' + profile.getImageUrl());
-                        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
-                        var xhr = new XMLHttpRequest();
-                        xhr.open('POST', '""" + g_url + """');
-                        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                        xhr.onload = function() {
-                        console.log('Sign in response: ' + xhr.responseText);
-                        var r = xhr.responseText.split(':')
-                        if (r[0] == 'OK') {
-                            window.location.assign(r[1]);
-                        } else {
-                            document.getElementById('gauth_status').innerText = "Login error: " + r[1];
-                        }
-                        };
-                        xhr.send('id_token=' + id_token);
-                    }
-                    </script>
-                """)
-
-
-                # Taken from https://developers.google.com/identity/sign-in/web/build-button
-                page.add_script_lines("""
-                    <script src="https://apis.google.com/js/api:client.js"></script>
-                    <script>
-                    var googleUser = {};
-                    var startGoogleAuth = function() {
-                        gapi.load('auth2', function(){
-                        // Retrieve the singleton for the GoogleAuth library and set up the client.
-                        auth2 = gapi.auth2.init({
-                            client_id: '""" + GOOGLE_CLIENT_ID + """',
-                            cookiepolicy: 'single_host_origin',
-                            // Request scopes in addition to 'profile' and 'email'
-                            //scope: 'additional_scope'
-                        });
-                        attachSignin(document.getElementById('""" + id_button + """'));
-                        });
-                    };
-
-                    function attachSignin(element) {
-                        console.log(element.id);
-                        auth2.attachClickHandler(element, {}, onSignIn,
-                            function(error) {
-                            alert(JSON.stringify(error, undefined, 2));
-                            });
-                    }
-                    </script>
-                """)
-
-                msg = "ULOGUJ SE KAO GOOGLE"
-
-                # link = "href=\"{}\"".format(page.page_params.create_url(
-                #                     year = "",
-                #                     theme = "",
-                #                     subtheme = "",
-                #                     period = "",
-                #                     difficulty = "",
-                #                     js = False))
-                link = ""
-
-                text = """
-                            <div id="{}", class=""
-                                style="display: inline-block;
-                                    cursor: pointer;
-                                    margin-top: 10px;
-                                    font-family: 'Lato';
-                                    font-size: {}px;
-                                    color: {}"> {} </div>
-                    """.format(id_text, font_size, color, msg)
-
-
-                button = Design_default._add_button(page, "div", id_button, id_text, color, \
-                    back_color, height, width, margin, margin, margin, margin_top, link, text)
-                page.add_lines(button)
-
-                page.add_lines("</div>\n")
-
-                page.add_lines("<div id='gauth_status'></div>\n")
-                page.add_lines("<script>startGoogleAuth();</script>\n")
-
-            else:
-                # Temporary login
-
-                # Temporarily disabled
-                msg = "ULOGUJ SE KAO " + Design_default.get_tmp_login_header(page)
-                # msg = "ULOGUJ SE KAO "
-
-                link = "href=\"{}\"".format(page.page_params.create_url(
-                                    year = "",
-                                    theme = "",
-                                    subtheme = "",
-                                    period = "",
-                                    difficulty = "",
-                                    js = False))
-
-                text = """
-                            <div id="{}", class=""
-                                style="display: inline-block;
-                                    margin-top: 10px;
-                                    font-family: 'Lato';
-                                    font-size: {}px;
-                                    color: {}"> {} </div>
-                    """.format(id_text, font_size, color, msg)
-
-
-                button = Design_default._add_button(page, "div", id_button, id_text, color, \
-                    back_color, height, width, margin, margin, margin, margin_top, link, text)
-                page.add_lines(button)
-
-                page.add_lines("</div>\n")
-
-            # Gost
-
-            page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
-
-            margin_top = 16
-            color = "#f3b051"
-            id_button = "button_user_guest"
-            id_text = "text_user_guest"
-            msg = "ULOGUJ SE KAO GOST"
-
-            link = "href=\"{}\"".format(page.page_params.create_url(
-                                op = PageOperation.toStr(PageOperation.LOGIN_ANON), 
-                                js = False))
-
-            text = """
-                        <div id="{}", class="" 
-                            style="display: inline-block;
-                                margin-top: 10px;
-                                font-family: 'Lato'; 
-                                font-size: {}px; 
-                                color: {}"> {} </div>
-                """.format(id_text, font_size, color, msg)
-
-
-            button = Design_default._add_button(page, "A", id_button, id_text, color, \
-                back_color, height, width, margin, margin, margin, margin_top, link, text)
-            page.add_lines(button)
-
-            page.add_lines("</div>\n")
-
-
-
-
-            page.add_lines("</div>\n")
-
-
-
-
-
-
-
-    @staticmethod
-    def render_select_year_page(page):
-        page.page_params.delete_history()
-        page.page_params.set_param("year", "")
-        page.page_params.set_param("theme", "")
-        page.page_params.set_param("subtheme", "")
-        page.page_params.set_param("q_id", "")
-        page.page_params.set_param("l_id", "")
-
-
-        page.template_params["template_name"] = "year.html.j2"
-
-        color_list = ["#ff6956", "#489cba", "#f7b500", "#6ab288"]
-
-        years = ["1", "2", "3", "4", "5"]
-        ynumbers = [1, 2, 3, 4, 5, 6, 7, 8]
-        scale = 1
-        new_line = [1, 3, 5, 7, 9]
-
-        width = int(137 * scale)
-        height = int(140 * scale)
-        font_size = int(111 * scale)
-        margin = int(10 * scale)
-
-        page.template_params['button'] = {
-            'width' : '{}px'.format(width),
-            'height' : '{}px'.format(height),
-            'font_size' : '{}px'.format(font_size),
-            'margin' : '{}px'.format(margin),
-            'choices' : []
-        }
-
-
+    def add_menu(page):
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
         page.template_params['menu'] = []
 
-        logging.debug("\n\n\nDEBUG {}\n\n\n".format(page.page_params.get_param("root")))
-
-        page.page_params.print_params()
+        #page.page_params.print_params()
 
         new_page_params = PageParameters()
         new_page_params.set_param("root", page.page_params.get_param("root"))
@@ -498,7 +152,7 @@ class Design_default(object):
 
         menu_id = 0
 
-        zadaci = {
+        lists = {
             "name" : "Zadaci",
             "submenu" : {
                 "id" : "zadaci_{}".format(menu_id),
@@ -520,7 +174,7 @@ class Design_default(object):
                         js = False)
                 })
 
-            zadaci['submenu']['options'].append({
+            lists['submenu']['options'].append({
                 "name" : level.title(),
                 "link" : new_page_params.create_url( \
                         op = PageOperation.toStr(PageOperation.MENU_THEME), \
@@ -533,8 +187,83 @@ class Design_default(object):
             })
             menu_id = menu_id + 1
 
-        page.template_params['menu'].append(zadaci)
- 
+        page.template_params['menu'].append(lists)
+
+        page.template_params['menu'].append({
+            "name" : "Rezultati",
+            "link" : new_page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False)
+        })
+
+        page.template_params['menu'].append({
+            "name" : "Izloguj se (" + context.c.user.name + ")",
+            "link" : new_page_params.create_url(op = PageOperation.toStr(PageOperation.MENU_USER), js = False)
+        })
+
+
+
+
+
+
+    @staticmethod
+    def render_select_user_page(page):
+
+        page.page_params.delete_history()
+        page.page_params.set_param("year", "")
+        page.page_params.set_param("theme", "")
+        page.page_params.set_param("subtheme", "")
+        page.page_params.set_param("q_id", "")
+        page.page_params.set_param("l_id", "")
+        context.c.session.clear()
+        context.c.user = None
+
+        page.template_params["template_name"] = "user.html.j2"
+
+        page.template_params["google_link"] = "/main?op={}".format(PageOperation['LOGIN_GOOGLE'].value)
+
+        page.template_params["guest_link"] = page.page_params.create_url(
+                                      op = PageOperation.toStr(PageOperation.LOGIN_ANON), 
+                                      js = False)
+
+
+
+
+
+
+
+    @staticmethod
+    def render_select_year_page(page):
+        page.page_params.delete_history()
+        page.page_params.set_param("year", "")
+        page.page_params.set_param("theme", "")
+        page.page_params.set_param("subtheme", "")
+        page.page_params.set_param("q_id", "")
+        page.page_params.set_param("l_id", "")
+
+        page.template_params["template_name"] = "year.html.j2"
+
+        color_list = ["#ff6956", "#489cba", "#f7b500", "#6ab288"]
+
+        years = ["1", "2", "3", "4", "5"]
+        #ynumbers = [1, 2, 3, 4, 5, 6, 7, 8]
+        ynumbers = [1, 2, 3, 4, 5]
+        scale = 1
+
+        width = int(137 * scale)
+        height = int(140 * scale)
+        font_size = int(111 * scale)
+        margin = int(10 * scale)
+
+        page.template_params['button'] = {
+            'width' : '{}px'.format(width),
+            'height' : '{}px'.format(height),
+            'font_size' : '{}px'.format(font_size),
+            'margin' : '{}px'.format(margin),
+            'choices' : []
+        }
+
+
+        # Create dictionary entries that define menu
+        Design_default.add_menu(page)
 
 
 
@@ -548,14 +277,14 @@ class Design_default(object):
                     'title' : razred,
                     'front_color' : color_list[i % len(color_list)],
                     'back_color' : '#f9f9f9',
-                    'link' : "href=\"{}\"".format(page.page_params.create_url(
+                    'link' : page.page_params.create_url(
                         op = PageOperation.toStr(PageOperation.MENU_THEME),                         
                         year = years[i], \
                         theme = "", \
                         subtheme = "", \
                         period = "", \
                         difficulty = "", \
-                        js = False))
+                        js = False)
                 })
             else:
                 page.template_params['button']['choices'].append({
@@ -568,9 +297,6 @@ class Design_default(object):
 
 
 
-        logging.info("\n\n\nTEMPLATE: {}\n\n\n".format(json.dumps(page.template_params, indent=2)))
-
-        return
 
 
 

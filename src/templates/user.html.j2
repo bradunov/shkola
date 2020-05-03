@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% import 'elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+    {{ elements.init_elements() }}
+    {{ elements.standard_background() }}
+
+  </head>
+
+  <body>
+
+    <div align="center" style="display:content; margin-top:36px;">
+      <img src='item?url=images/home_page_img.svg' width='360'>
+    </div>
+    <div align="center" style="display:content; margin-top:36px; font-family: 'Bubblegum Sans'; font-weight: 400; font-size: 55px; color: #029194">
+    TATA MATA
+    </div>
+    <div align="center" style="display:content; margin-top:0px; font-family: 'Lato'; font-size: 18px; color: #dc3d39">
+      Vežbaonica matematike <br>
+      za osnovnu školu
+    </div>
+
+
+    <script>
+      function onSignIn(googleUser) {
+          console.log('Google sign in');
+          var profile = googleUser.getBasicProfile();
+          var id_token = googleUser.getAuthResponse().id_token;
+          console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+          console.log('Name: ' + profile.getName());
+          console.log('Image URL: ' + profile.getImageUrl());
+          console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+          var xhr = new XMLHttpRequest();
+          xhr.open('POST', '{{ template_params["google_link"] }}');
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          xhr.onload = function() {
+          console.log('Sign in response: ' + xhr.responseText);
+          var r = xhr.responseText.split(':')
+          if (r[0] == 'OK') {
+              window.location.assign(r[1]);
+          } else {
+              document.getElementById('gauth_status').innerText = "Login error: " + r[1];
+          }
+          };
+          xhr.send('id_token=' + id_token);
+      }
+    </script>
+
+
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script>
+      var googleUser = {};
+      var startGoogleAuth = function() {
+          gapi.load('auth2', function(){
+          // Retrieve the singleton for the GoogleAuth library and set up the client.
+          auth2 = gapi.auth2.init({
+              client_id: '{{ template_params['google_signin_client_id'] }}',
+              cookiepolicy: 'single_host_origin',
+              // Request scopes in addition to 'profile' and 'email'
+              //scope: 'additional_scope'
+          });
+          attachSignin(document.getElementById('button_user_google'));
+          });
+      };
+
+      function attachSignin(element) {
+          console.log(element.id);
+          auth2.attachClickHandler(element, {}, onSignIn,
+              function(error) {
+              alert(JSON.stringify(error, undefined, 2));
+              });
+      }
+    </script>
+
+
+
+    <div style="display:table; margin:0 auto">
+      <div align="center" style="display:content; border:0px; padding:0px; margin:0px">
+        <div id="button_user_google" class="sh-std-button" 
+            style="display: inline-block;
+                    background: #f9f9f9;
+                    width: 256px;
+                    height: 40px;
+                    margin: 83px 10px 10px 10px;">
+
+          <div id="text_user_google", class=""
+                                style="display: inline-block;
+                                    cursor: pointer;
+                                    margin: 23px 11px 26px 11px;
+                                    font-family: 'Lato';
+                                    font-size: 18px;
+                                    color: #6ab288"> 
+                      ULOGUJ SE KAO PREKO 
+                      <img src="item?url=images/google.png" alt="Google" height="20px" width="20px">
+          </div>
+        </div>
+        <div id='gauth_status'></div>
+        <script>startGoogleAuth();</script>
+      <div>
+
+      <div align="center" style="display:content; border:0px; padding:0px; margin:0px">
+          <a id="text_user_guest", style="display: inline-block;
+                cursor: pointer;
+                margin-top: 15px;
+                font-family: 'Lato';
+                font-size: 10px;
+                color: #b0b6b6"
+                href=" {{ template_params['guest_link'] }} "> ULOGUJ SE KAO GOST </a>
+      </div>
+    </div>
+
+  </body>
+</html>

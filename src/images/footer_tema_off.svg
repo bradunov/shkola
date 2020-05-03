@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__tema" width="38" height="43" viewBox="0 0 38 43">
+    <defs>
+        <style>
+            .prefix__cls-1,.prefix__cls-3{fill:#b0b6b6}.prefix__cls-3{font-size:18px;font-family:Chalkboard}
+        </style>
+    </defs>
+    <path id="prefix__Shape" d="M25.822 0H12.178A2.18 2.18 0 0 0 10 2.178v13.644A2.18 2.18 0 0 0 12.178 18h13.644A2.18 2.18 0 0 0 28 15.822V2.178A2.18 2.18 0 0 0 25.822 0zm.978 15.822a.98.98 0 0 1-.979.979H12.178a.98.98 0 0 1-.979-.979V2.178a.98.98 0 0 1 .979-.979h13.644a.98.98 0 0 1 .979.979z" class="prefix__cls-1" transform="translate(-10 4)"/>
+    <path id="prefix__Shape-2" d="M15.822 20H2.178A2.18 2.18 0 0 0 0 22.178v13.644A2.18 2.18 0 0 0 2.178 38h13.644A2.18 2.18 0 0 0 18 35.823V22.177A2.181 2.181 0 0 0 15.822 20zm.978 15.823a.98.98 0 0 1-.979.979H2.178a.98.98 0 0 1-.979-.979V22.178a.98.98 0 0 1 .979-.979h13.644a.98.98 0 0 1 .979.979z" class="prefix__cls-1" data-name="Shape" transform="translate(20 -16)"/>
+    <path id="prefix__Shape-3" d="M35.822 20H22.178A2.181 2.181 0 0 0 20 22.178v13.644A2.181 2.181 0 0 0 22.178 38h13.644A2.18 2.18 0 0 0 38 35.823V22.178A2.18 2.18 0 0 0 35.822 20zm.978 15.823a.98.98 0 0 1-.979.979H22.178a.98.98 0 0 1-.979-.979V22.178a.98.98 0 0 1 .979-.979h13.644a.98.98 0 0 1 .979.979z" class="prefix__cls-1" data-name="Shape" transform="translate(0 4)"/>
+    <text id="prefix___1" data-name="1" transform="translate(4.155 19)" style="font-family:BubblegumSans-Regular,Bubblegum Sans;font-size:18px;fill:#b0b6b6">
+        <tspan x="0" y="0">+</tspan>
+    </text>
+    <text id="prefix___3" class="prefix__cls-3" data-name="3" transform="translate(4.017 38)">
+        <tspan x="0" y="0">x</tspan>
+    </text>
+    <text id="prefix___3-2" class="prefix__cls-3" data-name="3" transform="translate(26.017 38)">
+        <tspan x="0" y="0">&gt;</tspan>
+    </text>
+    <text id="prefix___2" class="prefix__cls-3" data-name="2" transform="translate(24.517 18)">
+        <tspan x="0" y="0">-</tspan>
+    </text>
+    <path id="prefix__Shape-4" d="M15.822 20H2.178A2.18 2.18 0 0 0 0 22.178v13.644A2.18 2.18 0 0 0 2.178 38h13.644A2.18 2.18 0 0 0 18 35.823V22.177A2.181 2.181 0 0 0 15.822 20zm.978 15.823a.98.98 0 0 1-.979.979H2.178a.98.98 0 0 1-.979-.979V22.178a.98.98 0 0 1 .979-.979h13.644a.98.98 0 0 1 .979.979z" class="prefix__cls-1" data-name="Shape" transform="translate(0 4)"/>
+</svg>
