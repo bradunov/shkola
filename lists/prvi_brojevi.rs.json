@@ -1,5 +1,6 @@
 { "name" : "Prvi razred brojevi",
   "level": "Prvi", 
+  "level_short": "1", 
   "theme" : "Brojevi", 
   "language" : "rs",
   "questions":  [

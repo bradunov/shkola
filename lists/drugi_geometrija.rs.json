@@ -1,5 +1,6 @@
 { "name" : "Drugi razred geometrija",
   "level": "Drugi", 
+  "level_short": "2", 
   "theme" : "Geometrija", 
   "language" : "rs",
   "questions":  [
