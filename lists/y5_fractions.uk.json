@@ -1,5 +1,6 @@
 { "name" : "Y5 fractions",
-  "level": "Y5", 
+  "level": "five", 
+  "level_short": "5", 
   "theme" : "Fractions", 
   "language" : "uk",
   "questions":  [

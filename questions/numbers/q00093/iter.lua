@@ -42,5 +42,5 @@ else
 	out2 = prod2
 end	  	
             
-answ = tostring(term1) .. " " .. sign[1] .. " " .. tostring(term2) .. " " .. sign[3] .. " " .. tostring(term3) .. sign[2] .. " " .. tostring(term4) .." = " ..lib.check_number(out1,30) .. " " .. sign[3] .. " " .. lib.check_number(out2,30) .. " = "
+answ = tostring(term1) .. " " .. sign[1] .. " " .. tostring(term2) .. " " .. sign[3] .. " " .. tostring(term3) .. " " .. sign[2] .. " " .. tostring(term4) .." = " ..lib.check_number(out1,30) .. " " .. sign[3] .. " " .. lib.check_number(out2,30) .. " = "
   

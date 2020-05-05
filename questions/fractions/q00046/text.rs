@@ -1,14 +1,9 @@
-@ime@ je nabrala  @rezultat@kg kajsija. Pre podne je prodala \(\frac{1}{@imenilac1@}\), a posle podne \(\frac{1}{@imenilac2@}\) kajsija. 
 
-@vspace@
-@vspace@
-
-a) Koliko kajsija je @ime@ prodala? @hspacept(5)@ @lib.check_number(brojp)@kg   
+@ime@ je nabrala  @rezultat@kg kajsija. Prvog dana prodala je \(\frac{1}{@imenilac1@}\), a drugog dana \(\frac{1}{@imenilac2@}\) kajsija. 
 
 @vspace@
 
-b) Koji deo kajsija nije prodala? @hspacept(5)@ @lib.check_fraction_condition(is_ok, nil, nil, sln)@ 
-
+Koliko kajsija je @ime@ prodala? @hspacept(5)@ @lib.check_number(brojp,30)@kg   
 
 
 

@@ -1,5 +1,6 @@
 { "name" : "Drugi razred jednacine i nejednacine",
   "level": "Drugi", 
+  "level_short": "2", 
   "theme" : "Jednačine", 
   "language" : "rs",
   "questions":  [
