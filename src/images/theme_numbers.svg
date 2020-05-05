@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <defs>
+        <clipPath id="prefix__clip-path">
+            <circle id="prefix__Ellipse_4" cx="16" cy="16" r="16" data-name="Ellipse 4" style="fill:#fff;stroke:#707070;stroke-linejoin:round"/>
+        </clipPath>
+    </defs>
+    <g id="prefix__Mask_Group_1" data-name="Mask Group 1">
+        <g id="prefix__Symbols" transform="translate(.39 .171)" style="opacity:.603">
+            <g id="prefix__icon-_-brojanje" data-name="icon-/-brojanje">
+                <g id="prefix__big-icon-brojanje">
+                    <text id="prefix___1" data-name="1" transform="translate(4.537 24.805)" style="font-size:20px;font-family:BubblegumSans-Regular,Bubblegum Sans;fill:#f7b500">
+                        <tspan x="0" y="0">1</tspan>
+                    </text>
+                    <text id="prefix___2" data-name="2" transform="translate(10.078 17)" style="fill:#ff6956;font-size:20px;font-family:BubblegumSans-Regular,Bubblegum Sans">
+                        <tspan x="0" y="0">2</tspan>
+                    </text>
+                    <text id="prefix___3" data-name="3" transform="translate(16.946 24.805)" style="fill:#6ab288;font-size:20px;font-family:BubblegumSans-Regular,Bubblegum Sans">
+                        <tspan x="0" y="0">3</tspan>
+                    </text>
+                    <circle id="prefix__Oval" cx="15.61" cy="15.61" r="15.61" transform="translate(0 .22)" style="fill:none;stroke:#029194;stroke-width:.78px"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

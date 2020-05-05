@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="27" viewBox="0 0 38 27">
+    <defs>
+        <filter id="prefix__Rectangle_97" width="38" height="21" x="0" y="5.638" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur result="blur" stdDeviation="3"/>
+            <feFlood flood-opacity=".122"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g id="prefix__arrow_down" data-name="arrow down" transform="translate(4)">
+        <g id="prefix__arrow_down-2" data-name="arrow down" transform="translate(-4 -.002)">
+            <rect id="prefix__Rectangle_97-2" width="20" height="3" data-name="Rectangle 97" rx="1.5" transform="translate(9 11.64)" style="fill:#148f91"/>
+        </g>
+        <path id="prefix__Rectangle_98" d="M0 0H30V27H0z" data-name="Rectangle 98" style="fill:none"/>
+    </g>
+</svg>

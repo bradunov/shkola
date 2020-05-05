@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33">
+    <g id="prefix__icon_poredjenje" data-name="icon / poredjenje" transform="translate(.5 .5)" style="opacity:.596">
+        <g id="prefix__icon-_-poredjenje" data-name="icon-/-poredjenje">
+            <g id="prefix__Group_41" data-name="Group 41">
+                <g id="prefix__big-icon-brojanje" style="opacity:.603">
+                    <circle id="prefix__Oval" cx="16" cy="16" r="16" style="fill:none;stroke:#029194"/>
+                </g>
+                <g id="prefix__Icon" transform="translate(5.572 5.087)">
+                    <path id="prefix__Icon-Path" d="M10.564 8.491L4.25 5.547 10.565 2.6a.925.925 0 0 0 .447-1.229l-.39-.837A.925.925 0 0 0 9.393.087L.534 4.217A.925.925 0 0 0 0 5.056v.99a.925.925 0 0 0 .534.838l8.854 4.129a.927.927 0 0 0 1.233-.449l.392-.841a.927.927 0 0 0-.449-1.233z" style="fill:#6ab288"/>
+                    <path id="prefix__Icon-Path-Copy" d="M10.564 2.609L4.25 5.553 10.565 8.5a.925.925 0 0 1 .447 1.229l-.391.838a.925.925 0 0 1-1.229.447L.534 6.882A.925.925 0 0 1 0 6.044v-.99a.925.925 0 0 1 .534-.838L9.388.087a.927.927 0 0 1 1.233.449l.392.841a.927.927 0 0 1-.449 1.233z" transform="rotate(180 11.1 11.838)" style="fill:#489cba"/>
+                </g>
+                <g id="prefix__Icon-2" data-name="Icon" transform="translate(5.258 16.478)">
+                    <path id="prefix__Icon-Shape" d="M9.448 5.353H.727A.74.74 0 0 0 0 6.1v.752a.74.74 0 0 0 .727.752h8.721a.74.74 0 0 0 .727-.752V6.1a.74.74 0 0 0-.727-.747zm0-4.509H.727A.74.74 0 0 0 0 1.6v.752a.74.74 0 0 0 .727.748h8.721a.74.74 0 0 0 .727-.752V1.6a.74.74 0 0 0-.727-.756z" transform="translate(0 -.844)" style="fill:#ff6956"/>
+                </g>
+                <g id="prefix__Icon-3" data-name="Icon" transform="translate(18.029 7.768)">
+                    <path id="prefix__Icon-Path-2" d="M9.448 4.885a.74.74 0 0 0 .727-.752v-.751a.74.74 0 0 0-.727-.752h-.542l1.178-1.569a.384.384 0 0 0-.067-.527L9.439.078a.356.356 0 0 0-.51.07L7.065 2.63H.727A.74.74 0 0 0 0 3.382v.752a.74.74 0 0 0 .727.752h4.646L3.68 7.14H.727A.74.74 0 0 0 0 7.891v.752a.74.74 0 0 0 .727.752h1.26L.809 10.964a.385.385 0 0 0 .067.527l.577.457a.355.355 0 0 0 .509-.07l1.865-2.483h5.621a.74.74 0 0 0 .727-.752v-.752a.74.74 0 0 0-.727-.752H5.52l1.693-2.254z" data-name="Icon-Path" style="fill:#f7b500"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
