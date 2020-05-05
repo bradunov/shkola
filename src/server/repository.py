@@ -302,12 +302,13 @@ class Repository(object):
                 continue
             language = list_dict["language"].lower()
             level = list_dict["level"].lower()
+            level_short = list_dict["level_short"].lower()
             theme = list_dict["theme"].lower()
             questions = list_dict["questions"]
             if language not in self.content.keys():
                 self.content[language] = {}
             if level not in self.content[language].keys():
-                self.content[language][level] = {}
+                self.content[language][level] = {"level_short" : level_short}
             if theme not in self.content[language][level].keys():
                 self.content[language][level][theme] = {"name" : list_name}
             

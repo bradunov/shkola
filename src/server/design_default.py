@@ -165,14 +165,15 @@ class Design_default(object):
             options = []
 
             for theme in sorted(content[level].keys()):
-                options.append({
-                    "name" : theme.title(),
-                    "link" : new_page_params.create_url(\
-                        op = PageOperation.toStr(PageOperation.MENU_SUBTHEME), \
-                        year = level, \
-                        theme = theme, \
-                        js = False)
-                })
+                if not theme == "level_short":
+                    options.append({
+                        "name" : theme.title(),
+                        "link" : new_page_params.create_url(\
+                            op = PageOperation.toStr(PageOperation.MENU_SUBTHEME), \
+                            year = level, \
+                            theme = theme, \
+                            js = False)
+                    })
 
             lists['submenu']['options'].append({
                 "name" : level.title(),
@@ -241,49 +242,60 @@ class Design_default(object):
 
         page.template_params["template_name"] = "year.html.j2"
 
-        color_list = ["#ff6956", "#489cba", "#f7b500", "#6ab288"]
-
-        years = ["1", "2", "3", "4", "5"]
-        #ynumbers = [1, 2, 3, 4, 5, 6, 7, 8]
-        ynumbers = [1, 2, 3, 4, 5]
-        scale = 1
-
-        width = int(137 * scale)
-        height = int(140 * scale)
-        font_size = int(111 * scale)
-        margin = int(10 * scale)
-
-        page.template_params['button'] = {
-            'width' : '{}px'.format(width),
-            'height' : '{}px'.format(height),
-            'font_size' : '{}px'.format(font_size),
-            'choices' : []
-        }
 
 
-        # Create dictionary entries that define menu
-        Design_default.add_menu(page)
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
+        logging.debug("\n\n\nCONTENT: {}\n\n\n".format(json.dumps(content, indent=4)))
+
+        if content :
+
+            color_list = ["#ff6956", "#489cba", "#f7b500", "#6ab288"]
+
+            #years = ["1", "2", "3", "4", "5"]
+            #ynumbers = [1, 2, 3, 4, 5, 6, 7, 8]
+            #ynumbers = [1, 2, 3, 4, 5]
+            scale = 1
+
+            width = int(137 * scale)
+            height = int(140 * scale)
+            font_size = int(111 * scale)
+            margin = int(10 * scale)
+
+            page.template_params['button'] = {
+                'width' : '{}px'.format(width),
+                'height' : '{}px'.format(height),
+                'font_size' : '{}px'.format(font_size),
+                'choices' : []
+            }
 
 
+            # Create dictionary entries that define menu
+            Design_default.add_menu(page)
 
-        for i in range(0, len(ynumbers)):
+            i = 0
+            for year in content.keys():
+                ynumber = content[year]["level_short"]
 
-            razred = ynumbers[i]
+                logging.debug("\n\n\nDD: {} {}\n\n".format(year, ynumber))
 
-            page.template_params['button']['choices'].append({
-                'title' : razred,
-                'front_color' : color_list[i % len(color_list)],
-                'back_color' : '#f9f9f9',
-                'link' : page.page_params.create_url(
-                    op = PageOperation.toStr(PageOperation.MENU_THEME),                         
-                    year = years[i], \
-                    theme = "", \
-                    subtheme = "", \
-                    period = "", \
-                    difficulty = "", \
-                    js = False)
-            })
+                page.template_params['button']['choices'].append({
+                    'title' : ynumber,
+                    'front_color' : color_list[i % len(color_list)],
+                    'back_color' : '#f9f9f9',
+                    'link' : page.page_params.create_url(
+                        op = PageOperation.toStr(PageOperation.MENU_THEME),                         
+                        year = year, \
+                        theme = "", \
+                        subtheme = "", \
+                        period = "", \
+                        difficulty = "", \
+                        js = False)
+                })
+                i = i+1
 
+        else:
+            page.template_params["template_name"] = "error.html.j2"
+            page.template_params["error_msg"] = "No content"
 
 
 
@@ -305,8 +317,6 @@ class Design_default(object):
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
 
-        logging.debug("\n\n\nContent: {}\n\n\n".format(json.dumps(content, indent=2)))
-
         if content and page.page_params.get_param("year") in content.keys():
             
             page.template_params["template_name"] = "theme.html.j2"
@@ -320,70 +330,52 @@ class Design_default(object):
 
             for theme in sorted(content[page.page_params.get_param("year")].keys()):
 
-                subtheme_list = []
+                if not theme == "level_short": 
+                    subtheme_list = []
 
-                all_subthemes = set()
+                    all_subthemes = set()
 
-                for subclass in sorted(content[page.page_params.get_param("year")][theme].keys()):
-                    if not subclass == "name":
-                        subtheme = content[page.page_params.get_param("year")][theme][subclass]["subtheme"]
-                        if subtheme not in all_subthemes:
-                            subtheme_list.append({
-                                'title' : subtheme.title(),
-                                'link' : page.page_params.create_url(
-                                        op = PageOperation.toStr(PageOperation.INTRO), 
-                                        subtheme = subtheme, 
-                                        period = "*", 
-                                        difficulty = "*", 
-                                        l_id = content[page.page_params.get_param("year")][theme]["name"], js = True)
-                            })
-                            all_subthemes.add(subtheme)
+                    for subclass in sorted(content[page.page_params.get_param("year")][theme].keys()):
+                        if not subclass == "name":
+                            subtheme = content[page.page_params.get_param("year")][theme][subclass]["subtheme"]
+                            if subtheme not in all_subthemes:
+                                subtheme_list.append({
+                                    'title' : subtheme.title(),
+                                    'link' : page.page_params.create_url(
+                                            op = PageOperation.toStr(PageOperation.INTRO), 
+                                            subtheme = subtheme, 
+                                            period = "*", 
+                                            difficulty = "*", 
+                                            l_id = content[page.page_params.get_param("year")][theme]["name"], js = True)
+                                })
+                                all_subthemes.add(subtheme)
 
-                        # page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-                        # page.add_lines("<a href='" + \
-                        #         page.page_params.create_url(
-                        #             op = PageOperation.toStr(PageOperation.INTRO), 
-                        #             subtheme = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["subtheme"], 
-                        #             period = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["period"], 
-                        #             difficulty = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["difficulty"], 
-                        #             l_id = content[page.page_params.get_param("year")][page.page_params.get_param("theme")]["name"], js = False) + \
-                        #         "'> " + subclass.title() + "</a>\n")
-                        # page.add_lines("</div>\n")
-
-
-                page.template_params['themes'].append({
-                    'title' : theme.title().upper(),
-                    'link' : page.page_params.create_url(
-                            op = PageOperation.toStr(PageOperation.TEST), 
-                            theme = theme.title(), \
-                            subtheme = "*", \
-                            period = "*", \
-                            difficulty = "*", \
-                            js = True),
-                    'subthemes' : subtheme_list
-                })
+                            # page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+                            # page.add_lines("<a href='" + \
+                            #         page.page_params.create_url(
+                            #             op = PageOperation.toStr(PageOperation.INTRO), 
+                            #             subtheme = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["subtheme"], 
+                            #             period = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["period"], 
+                            #             difficulty = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["difficulty"], 
+                            #             l_id = content[page.page_params.get_param("year")][page.page_params.get_param("theme")]["name"], js = False) + \
+                            #         "'> " + subclass.title() + "</a>\n")
+                            # page.add_lines("</div>\n")
 
 
+                    page.template_params['themes'].append({
+                        'title' : theme.title().upper(),
+                        'link' : page.page_params.create_url(
+                                op = PageOperation.toStr(PageOperation.TEST), 
+                                theme = theme.title(), \
+                                subtheme = "*", \
+                                period = "*", \
+                                difficulty = "*", \
+                                js = True),
+                        'subthemes' : subtheme_list
+                    })
 
-                # page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-                # page.add_lines("<a href='" + \
-                #         page.page_params.create_url(
-                #             op = PageOperation.toStr(PageOperation.MENU_SUBTHEME), 
-                #             theme = theme, \
-                #             subtheme = "", \
-                #             period = "", \
-                #             difficulty = "", \
-                #             js = False) + \
-                #         "'> " + theme.title() + "</a>\n")
-                # page.add_lines("</div>\n")
 
-            # page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            # page.add_lines("<a href='" + \
-            #         page.page_params.create_url(
-            #             op = PageOperation.toStr(PageOperation.MENU_YEAR),                         
-            #             year = "", js = False) + \
-            #         "'> Nazad na izbor razreda</a>\n")
-            # page.add_lines("</div>\n")
+
         else:
             page.template_params["template_name"] = "error.html.j2"
             if not page.page_params.get_param("year") in content.keys():
