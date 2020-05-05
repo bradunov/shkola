@@ -151,6 +151,9 @@ class Design_default(object):
 
         lists = {
             "name" : "Zadaci",
+            "link" : new_page_params.create_url(\
+                    op = PageOperation.toStr(PageOperation.MENU_YEAR), \
+                    js = False),
             "submenu" : {
                 "id" : "zadaci_{}".format(menu_id),
                 "options" : []
@@ -301,6 +304,9 @@ class Design_default(object):
 
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
+
+        logging.debug("\n\n\nContent: {}\n\n\n".format(json.dumps(content, indent=2)))
+
         if content and page.page_params.get_param("year") in content.keys():
             
             page.template_params["template_name"] = "theme.html.j2"
@@ -316,17 +322,22 @@ class Design_default(object):
 
                 subtheme_list = []
 
+                all_subthemes = set()
+
                 for subclass in sorted(content[page.page_params.get_param("year")][theme].keys()):
                     if not subclass == "name":
-                        subtheme_list.append({
-                            'title' : subclass.title(),
-                            'link' : page.page_params.create_url(
-                                    op = PageOperation.toStr(PageOperation.INTRO), 
-                                    subtheme = content[page.page_params.get_param("year")][theme][subclass]["subtheme"], 
-                                    period = content[page.page_params.get_param("year")][theme][subclass]["period"], 
-                                    difficulty = content[page.page_params.get_param("year")][theme][subclass]["difficulty"], 
-                                    l_id = content[page.page_params.get_param("year")][theme]["name"], js = True)
-                        })
+                        subtheme = content[page.page_params.get_param("year")][theme][subclass]["subtheme"]
+                        if subtheme not in all_subthemes:
+                            subtheme_list.append({
+                                'title' : subtheme.title(),
+                                'link' : page.page_params.create_url(
+                                        op = PageOperation.toStr(PageOperation.INTRO), 
+                                        subtheme = subtheme, 
+                                        period = "*", 
+                                        difficulty = "*", 
+                                        l_id = content[page.page_params.get_param("year")][theme]["name"], js = True)
+                            })
+                            all_subthemes.add(subtheme)
 
                         # page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
                         # page.add_lines("<a href='" + \
@@ -341,7 +352,7 @@ class Design_default(object):
 
 
                 page.template_params['themes'].append({
-                    'title' : 'BROJEVI',
+                    'title' : theme.title().upper(),
                     'link' : page.page_params.create_url(
                             op = PageOperation.toStr(PageOperation.TEST), 
                             theme = theme.title(), \
@@ -373,6 +384,12 @@ class Design_default(object):
             #             year = "", js = False) + \
             #         "'> Nazad na izbor razreda</a>\n")
             # page.add_lines("</div>\n")
+        else:
+            page.template_params["template_name"] = "error.html.j2"
+            if not page.page_params.get_param("year") in content.keys():
+                page.template_params["error_msg"] = "No year {} in content".format(page.page_params.get_param("year"))
+            else:
+                page.template_params["error_msg"] = "No content"
 
 
 

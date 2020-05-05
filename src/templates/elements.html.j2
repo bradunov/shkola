@@ -95,23 +95,23 @@
       }
 
       el_but_state = {};
-      function el_select_button(button_id, select, callback, only_one=true) {
+      function el_select_button(button_id, select_f, callback, only_one=true) {
         var button = document.getElementById(button_id);
         if (!(button_id in el_but_state)) el_but_state[button_id] = false;
         if (el_but_state[button_id]) {
-          select(button_id, false);
+          select_f(button_id, false);
           el_but_state[button_id] = false;
           callback(false, button_id);
         } else {
           if (only_one) {
             var ks = Object.keys(el_but_state);
             for (var i=0; i<ks.length; i++) {
-              b = ks[i];
-              select(b, false);
-              el_but_state[b] = false;
+              var _b = ks[i];
+              select_f(_b, false);
+              el_but_state[_b] = false;
             }
           }
-          select(button_id, true);
+          select_f(button_id, true);
           el_but_state[button_id] = true;
           callback(true, button_id);
         }
