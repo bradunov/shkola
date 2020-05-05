@@ -1,6 +1,6 @@
 { "name" : "Prvi razred geometrija",
   "level": "Prvi", 
-  "level_short": "5", 
+  "level_short": "1", 
   "theme" : "Geometrija", 
   "language" : "rs",
   "questions":  [
