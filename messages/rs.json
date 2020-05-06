@@ -10,6 +10,8 @@
     "skip": "Preskoči",
     "close": "Zatvori",
     "questions": "Zadaci",
-    "user": "Korisnik"
+    "user": "Korisnik",
+    "class": "razred",
+    "tasks":"zadataka"
   }
 }

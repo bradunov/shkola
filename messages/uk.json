@@ -10,6 +10,8 @@
     "skip": "Skip",
     "close": "Close",
     "questions": "Questions",
-    "user": "User"
+    "user": "User",
+    "class": "class",
+    "tasks":"tasks"
   }
 }
