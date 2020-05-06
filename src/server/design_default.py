@@ -1,135 +1,62 @@
-import time
+from copy import copy, deepcopy
 
 from server.helpers import encode_dict, encap_str
 
+from server.types import PageUserID
 from server.types import PageLanguage
 from server.types import PageOperation
 from server.types import ResponseOperation
 from server.types import PageParameters
 
 from server.test import Test
-from server.question import Question
 from server.stats import Stats
 
-from server.user_db import GOOGLE_CLIENT_ID
+from server.stat_charts import prepare_user_stats_chart
 
-import server.context as context
+#import stat_charts
 
-import logging
+import os
 
-USE_GOOGLE_AUTH = True
+#import sys
+#sys.path.append("..")
+
 
 
 class Design_default(object):
-    total_questions = 3
+  
+
+
+
 
     @staticmethod
     def render_main_page(page):
 
 
-        # If login, update user and replace op with the original op
-        if page.page_params.get_param("op") == PageOperation.LOGIN_ANON:
-            new_url = page.login_anon()
-            context.c.headers.redirect(new_url)
-            return ""
-
-        if page.page_params.get_param("op") == PageOperation.LOGIN_GOOGLE:
-            logging.debug("\n\n\n GGGGGG1\n\n\n")
-            new_url, ok = page.login_google()
-            logging.debug("\n\n\n GGGGGG2 {} {} \n\n\n".format(new_url, ok))
-            context.c.headers.set_content_type('text/plain')
-            return "OK:{}".format(new_url) if ok else "ERROR:{}".format(new_url)
-
-        logging.debug("\n\n\n UUUUUUUU {}\n\n\n".format(context.c.user))
-
-        if not context.c.user:
-            # First login, if not already done
-            page.page_params.set_param("op", PageOperation.MENU_USER)
-
-        user = context.c.user
-
-        # If we happen to get to too many questions (e.g. reloading or returning to a test from elsewhere)
-        # here we check that we didn't reach the end counter, and if we did, redirect to summary
-        if (page.page_params.get_param("op") == PageOperation.TEST or \
-             page.page_params.get_param("op") == PageOperation.TEST_PREV) and \
-             context.c.session.get("history") and len(context.c.session.get("history")) >= Design_default.total_questions:
-            page.page_params.set_param("op", PageOperation.SUMMARY)
-
-
-        Design_default.add_header(page)
-        Design_default.add_background(page)
-
-        if page.page_params.get_param("op") == PageOperation.TEST or \
-             page.page_params.get_param("op") == PageOperation.TEST_PREV:
-            # Tests
-            logging.debug("PageOperation.TEST - {}".format(page.page_params.get_param("root")))
-            Design_default.render_menu(page)
-            return Design_default.render_question_page(page)
-
-        elif page.page_params.get_param("op") == PageOperation.SUMMARY:
+        if isinstance(page.page_params.menu_state, dict) and \
+            "summary" in page.page_params.menu_state.keys() and \
+                page.page_params.menu_state["summary"]:
             # Last page
-            logging.debug("PageOperation.SUMMARY")
             Design_default.render_menu(page)
             Design_default.render_summary_page(page)
-            return page.render()
-
-        elif page.page_params.get_param("op") == PageOperation.INTRO:
-            # Intro
-            logging.debug("PageOperation.INTRO")
-            Design_default.render_menu(page)
-            Design_default.render_select_get_started_page(page)
-            return page.render()
-
-        elif page.page_params.get_param("op") == PageOperation.MENU_USER:
+        elif not page.page_params.user_id or not PageUserID.toStr(page.page_params.user_id):
             # No user selected, first select user
-            logging.debug("PageOperation.MENU - select user")
             Design_default.render_select_user_page(page)
-            return page.render()
-
-        elif page.page_params.get_param("op") == PageOperation.MENU_YEAR:
+        elif not page.page_params.year:
             # No year selected, select it
-            logging.debug("PageOperation.MENU - year")
             Design_default.render_menu(page)
             Design_default.render_select_year_page(page)
-            return page.render()
-
-        elif page.page_params.get_param("op") == PageOperation.MENU_THEME:
+        elif not page.page_params.theme:
             # No theme selected, select it
-            logging.debug("PageOperation.MENU - theme")
             Design_default.render_menu(page)
             Design_default.render_select_theme_page(page)
-            return page.render()
-
-        elif page.page_params.get_param("op") == PageOperation.MENU_SUBTHEME:
-            # No subtheme selected, select it
-            logging.debug("PageOperation.MENU - subtheme")
+        elif not page.page_params.subtheme:
+            # No theme selected, select it
             Design_default.render_menu(page)
             Design_default.render_select_subtheme_page(page)
-            return page.render()
-
-        elif page.page_params.get_param("op") == PageOperation.STATS:
+        elif isinstance(page.page_params.menu_state, dict) and \
+            "intro" in page.page_params.menu_state.keys() and page.page_params.menu_state["intro"]:
             Design_default.render_menu(page)
-            if user and user.domain_user_id:
-                # TBD: old notation
-                u_id = user.domain_user_id
-                if len(u_id) >= len("local:") and u_id[:len("local:")] == "local:":
-                    u_id = u_id[len("local:"):]
-                Design_default.render_user_stats(page, u_id)
-            else:
-                logging.info("PageOperation.STATS - no user - select user")
-                page.page_params.delete_params()
-                page.page_params.set_param("op", PageOperation.MENU_USER)
-                Design_default.render_select_year_page(page)
-            return page.render()
-
-        else:
-            # Something mesed up the state - clean up the state and go to the intro
-            logging.info("PageOperation.MENU - wrong parameters - select year")
-            page.page_params.delete_params()
-            page.page_params.set_param("op", PageOperation.MENU_YEAR)
-            Design_default.render_menu(page)
-            Design_default.render_select_year_page(page)
-            return page.render()
+            Design_default.render_select_get_started_page(page)
 
 
 
@@ -148,6 +75,7 @@ class Design_default(object):
                 }
             </script>
         """)
+
 
 
 
@@ -176,7 +104,6 @@ class Design_default(object):
         button = """
                     <{} id="{}" class="" 
                         style="display: inline-block;
-                                cursor: pointer;
                                 border-radius: 10px;
                                 border: 0.1px solid #000000;
                                 padding: 0px;
@@ -208,49 +135,44 @@ class Design_default(object):
     def get_tmp_login_header(page):
         login_str = ""
 
-        # login_return = page.page_params.all_state
-        # login_return["js"] = False
-        # login_return = encode_dict(login_return)
-        login_return = "/main"
+        login_return = page.page_params.all_state
+        login_return["js"] = False
+        login_return = encode_dict(login_return)
+
 
         test_users = ["Petar", "User2"]
         test_users.sort()
 
+    
         login_str = "<select id='sel_user_id' name='sel_user_id' " + \
-                    "onchange='window.location.replace(\"" + page.page_params.get_param("root") + \
-                    "?op=" + PageOperation.LOGIN_TEST + "&" + "login_return=" + \
-                    login_return + "&user_id=\" + this.value)'>\n"
+                    "onchange='window.location.replace(\"" + page.page_params.root + "?op=login_test&" + "login_return=" + \
+                    login_return + "&user_id=local:\" + this.value)'>\n"
 
-        user = context.c.user
-        if not user or not user.domain_user_id:
+
+        if page.page_params.user_id is None or not PageUserID.toStr(page.page_params.user_id):
             login_str = login_str + "<option value='UNKNOWN' SELECTED></option>\n"
 
         for sel_user in test_users:
             selected = ""
 
-            if user and user.domain_user_id == "local:"+sel_user:
+            if page.page_params.user_id is not None and PageUserID.toStr(page.page_params.user_id) == "local:"+sel_user:
                 selected = "SELECTED"
 
             login_str = login_str + "<option value='{}' {}>{}</option>\n".format(sel_user, selected, sel_user)
 
         login_str = login_str + "</select>\n"
 
+
         return login_str
+
+
 
 
     @staticmethod
     def render_select_user_page(page):
-
         page.page_params.delete_history()
-        page.page_params.set_param("year", "")
-        page.page_params.set_param("theme", "")
-        page.page_params.set_param("subtheme", "")
-        page.page_params.set_param("q_id", "")
-        page.page_params.set_param("l_id", "")
-        context.c.session.clear()
-        context.c.user = None
 
-        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
         if content:
 
             page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; margin-top:36px;\">")
@@ -276,6 +198,7 @@ class Design_default(object):
 
             page.add_lines("<div style=\"display:table; margin:0 auto\">\n")
 
+
             # Google
 
             page.add_lines("<div class=\"\" align=\"center\" style=\"display:content; border:0px; padding:0px; margin:0px\">\n")  
@@ -284,131 +207,40 @@ class Design_default(object):
             id_button = "button_user_google"
             id_text = "text_user_google"
 
-            if USE_GOOGLE_AUTH:
-                #google_login_button = '<div class="g-signin2" style="margin-bottom:0px" data-onsuccess="onSignIn"></div>\n'
-                #page.add_lines(google_login_button)
-
-                # Google login
-
-                g_url = "/main?op={}".format(PageOperation['LOGIN_GOOGLE'].value)
-                page.add_script_lines("""
-                    <script>
-                    function onSignIn(googleUser) {
-                        console.log('Google sign in');
-                        var profile = googleUser.getBasicProfile();
-                        var id_token = googleUser.getAuthResponse().id_token;
-                        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-                        console.log('Name: ' + profile.getName());
-                        console.log('Image URL: ' + profile.getImageUrl());
-                        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
-                        var xhr = new XMLHttpRequest();
-                        xhr.open('POST', '""" + g_url + """');
-                        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                        xhr.onload = function() {
-                        console.log('Sign in response: ' + xhr.responseText);
-                        var r = xhr.responseText.split(':')
-                        if (r[0] == 'OK') {
-                            window.location.assign(r[1]);
-                        } else {
-                            document.getElementById('gauth_status').innerText = "Login error: " + r[1];
-                        }
-                        };
-                        xhr.send('id_token=' + id_token);
-                    }
-                    </script>
-                """)
 
 
-                # Taken from https://developers.google.com/identity/sign-in/web/build-button
-                page.add_script_lines("""
-                    <script src="https://apis.google.com/js/api:client.js"></script>
-                    <script>
-                    var googleUser = {};
-                    var startGoogleAuth = function() {
-                        gapi.load('auth2', function(){
-                        // Retrieve the singleton for the GoogleAuth library and set up the client.
-                        auth2 = gapi.auth2.init({
-                            client_id: '""" + GOOGLE_CLIENT_ID + """',
-                            cookiepolicy: 'single_host_origin',
-                            // Request scopes in addition to 'profile' and 'email'
-                            //scope: 'additional_scope'
-                        });
-                        attachSignin(document.getElementById('""" + id_button + """'));
-                        });
-                    };
+            # Temporary login
 
-                    function attachSignin(element) {
-                        console.log(element.id);
-                        auth2.attachClickHandler(element, {}, onSignIn,
-                            function(error) {
-                            alert(JSON.stringify(error, undefined, 2));
-                            });
-                    }
-                    </script>
-                """)
-
-                msg = "ULOGUJ SE KAO GOOGLE"
-
-                # link = "href=\"{}\"".format(page.page_params.create_url(
-                #                     year = "",
-                #                     theme = "",
-                #                     subtheme = "",
-                #                     period = "",
-                #                     difficulty = "",
-                #                     js = False))
-                link = ""
-
-                text = """
-                            <div id="{}", class=""
-                                style="display: inline-block;
-                                    cursor: pointer;
-                                    margin-top: 10px;
-                                    font-family: 'Lato';
-                                    font-size: {}px;
-                                    color: {}"> {} </div>
-                    """.format(id_text, font_size, color, msg)
+            msg = "ULOGUJ SE KAO " + Design_default.get_tmp_login_header(page)
 
 
-                button = Design_default._add_button(page, "div", id_button, id_text, color, \
-                    back_color, height, width, margin, margin, margin, margin_top, link, text)
-                page.add_lines(button)
+            link = "href=\"{}\"".format(page.page_params.create_url(
+                                user_id="UNKNOWN", \
+                                year = "", \
+                                theme = "", \
+                                subtheme = "", \
+                                period = "", \
+                                difficulty = "", \
+                                js = False))
 
-                page.add_lines("</div>\n")
-
-                page.add_lines("<div id='gauth_status'></div>\n")
-                page.add_lines("<script>startGoogleAuth();</script>\n")
-
-            else:
-                # Temporary login
-
-                # Temporarily disabled
-                msg = "ULOGUJ SE KAO " + Design_default.get_tmp_login_header(page)
-                # msg = "ULOGUJ SE KAO "
-
-                link = "href=\"{}\"".format(page.page_params.create_url(
-                                    year = "",
-                                    theme = "",
-                                    subtheme = "",
-                                    period = "",
-                                    difficulty = "",
-                                    js = False))
-
-                text = """
-                            <div id="{}", class=""
-                                style="display: inline-block;
-                                    margin-top: 10px;
-                                    font-family: 'Lato';
-                                    font-size: {}px;
-                                    color: {}"> {} </div>
-                    """.format(id_text, font_size, color, msg)
+            text = """
+                        <div id="{}", class="" 
+                            style="display: inline-block;
+                                margin-top: 10px;
+                                font-family: 'Lato'; 
+                                font-size: {}px; 
+                                color: {}"> {} </div>
+                """.format(id_text, font_size, color, msg)
 
 
-                button = Design_default._add_button(page, "div", id_button, id_text, color, \
-                    back_color, height, width, margin, margin, margin, margin_top, link, text)
-                page.add_lines(button)
+            button = Design_default._add_button(page, "div", id_button, id_text, color, \
+                back_color, height, width, margin, margin, margin, margin_top, link, text)
+            page.add_lines(button)
 
-                page.add_lines("</div>\n")
+            page.add_lines("</div>\n")
+
+
+
 
             # Gost
 
@@ -421,7 +253,12 @@ class Design_default(object):
             msg = "ULOGUJ SE KAO GOST"
 
             link = "href=\"{}\"".format(page.page_params.create_url(
-                                op = PageOperation.toStr(PageOperation.LOGIN_ANON), 
+                                user_id="UNKNOWN", \
+                                year = "", \
+                                theme = "", \
+                                subtheme = "", \
+                                period = "", \
+                                difficulty = "", \
                                 js = False))
 
             text = """
@@ -451,14 +288,11 @@ class Design_default(object):
     @staticmethod
     def render_select_year_page(page):
         page.page_params.delete_history()
-        page.page_params.set_param("year", "")
-        page.page_params.set_param("theme", "")
-        page.page_params.set_param("subtheme", "")
-        page.page_params.set_param("q_id", "")
-        page.page_params.set_param("l_id", "")
 
-        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
         if content:
+
+
             page.add_lines("""
             <style>
             body {
@@ -502,8 +336,7 @@ class Design_default(object):
             # new_line = [4, 3, 1, 0]
 
 
-            #years = ["prvi", "drugi", "treci", "cetvrti", "peti"]
-            years = ["1", "2", "3", "4", "5"]
+            years = ["prvi", "drugi", "treci", "cetvrti", "peti"]
             ynumbers = [1, 2, 3, 4, 5, 6, 7, 8]
             scale = 1
             new_line = [1, 3, 5, 7, 9]
@@ -524,14 +357,12 @@ class Design_default(object):
                 razred = ynumbers[i]
                 if i < len(years):
                     obj = "A"
-                    link = "href=\"{}\"".format(page.page_params.create_url(
-                        op = PageOperation.toStr(PageOperation.MENU_THEME),                         
-                        year = years[i], \
-                        theme = "", \
-                        subtheme = "", \
-                        period = "", \
-                        difficulty = "", \
-                        js = False))
+                    link = "href=\"{}\"".format(page.page_params.create_url(year = years[i], \
+                                                    theme = "", \
+                                                    subtheme = "", \
+                                                    period = "", \
+                                                    difficulty = "", \
+                                                    js = False))
                 else:
                     back_color = "#f9f9f9"
                     color = "#999999"
@@ -624,23 +455,18 @@ class Design_default(object):
     @staticmethod
     def render_select_theme_page(page):
         page.page_params.delete_history()
-        page.page_params.set_param("theme", "")
-        page.page_params.set_param("subtheme", "")
-        page.page_params.set_param("q_id", "")
-        page.page_params.set_param("l_id", "")
 
-        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
-        if content and page.page_params.get_param("year") in content.keys():
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
+        if content and page.page_params.year in content.keys():
             
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines("<h3> {} razred - izaberi oblast</h3>\n".format(page.page_params.get_param("year").title()))
+            page.add_lines("<h3> {} razred - izaberi oblast</h3>\n".format(page.page_params.year.title()))
             page.add_lines("</div>\n")
 
-            for theme in sorted(content[page.page_params.get_param("year")].keys()):
+            for theme in sorted(content[page.page_params.year].keys()):
                 page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
                 page.add_lines("<a href='" + \
                         page.page_params.create_url(
-                            op = PageOperation.toStr(PageOperation.MENU_SUBTHEME), 
                             theme = theme, \
                             subtheme = "", \
                             period = "", \
@@ -651,9 +477,7 @@ class Design_default(object):
 
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             page.add_lines("<a href='" + \
-                    page.page_params.create_url(
-                        op = PageOperation.toStr(PageOperation.MENU_YEAR),                         
-                        year = "", js = False) + \
+                    page.page_params.create_url(year = "", js = False) + \
                     "'> Nazad na izbor razreda</a>\n")
             page.add_lines("</div>\n")
 
@@ -663,29 +487,26 @@ class Design_default(object):
     @staticmethod
     def render_select_subtheme_page(page):
         page.page_params.delete_history()
-        page.page_params.set_param("subtheme", "")
-        page.page_params.set_param("q_id", "")
-        page.page_params.set_param("l_id", "")
 
-        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
-        if content and page.page_params.get_param("year") in content.keys() and \
-                       page.page_params.get_param("theme") in content[page.page_params.get_param("year")].keys():
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
+        if content and page.page_params.year in content.keys() and \
+                       page.page_params.theme in content[page.page_params.year].keys():
             
             page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             page.add_lines("<h3> {} razred, {} - izaberi temu</h3>\n".format(\
-                page.page_params.get_param("year").title(), page.page_params.get_param("theme").title() ))
+                page.page_params.year.title(), page.page_params.theme.title() ))
             page.add_lines("</div>\n")
 
-            for subclass in sorted(content[page.page_params.get_param("year")][page.page_params.get_param("theme")].keys()):
+            for subclass in sorted(content[page.page_params.year][page.page_params.theme].keys()):
                 if not subclass == "name":
                     page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
                     page.add_lines("<a href='" + \
                             page.page_params.create_url(
-                                op = PageOperation.toStr(PageOperation.INTRO), 
-                                subtheme = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["subtheme"], 
-                                period = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["period"], 
-                                difficulty = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["difficulty"], 
-                                l_id = content[page.page_params.get_param("year")][page.page_params.get_param("theme")]["name"], js = False) + \
+                                subtheme = content[page.page_params.year][page.page_params.theme][subclass]["subtheme"], 
+                                period = content[page.page_params.year][page.page_params.theme][subclass]["period"], 
+                                difficulty = content[page.page_params.year][page.page_params.theme][subclass]["difficulty"], 
+                                menu_state = {"intro": True}, 
+                                l_id = content[page.page_params.year][page.page_params.theme]["name"], js = False) + \
                             "'> " + subclass.title() + "</a>\n")
                     page.add_lines("</div>\n")
 
@@ -693,19 +514,17 @@ class Design_default(object):
             page.add_lines("<br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             page.add_lines("<a href='" + \
                     page.page_params.create_url(
-                        op = PageOperation.toStr(PageOperation.INTRO), 
                         subtheme = "*", 
                         period = "*", 
                         difficulty = "*", 
-                        l_id = content[page.page_params.get_param("year")][page.page_params.get_param("theme")]["name"], js = False) + \
+                        menu_state = {"intro": True}, 
+                        l_id = content[page.page_params.year][page.page_params.theme]["name"], js = False) + \
                     "'> Supermix </a>\n")
             page.add_lines("</div>\n")
 
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             page.add_lines("<a href='" + \
-                    page.page_params.create_url(
-                        op = PageOperation.toStr(PageOperation.MENU_THEME), 
-                        theme = "", js = False) + \
+                    page.page_params.create_url(theme = "", js = False) + \
                     "'> Nazad na izbor oblasti</a>\n")
             page.add_lines("</div>\n")
 
@@ -714,14 +533,12 @@ class Design_default(object):
     @staticmethod
     def render_select_get_started_page(page):
         page.page_params.delete_history()
-        page.page_params.set_param("q_id", "")
-        page.page_params.set_param("l_id", "")
 
         page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
         page.add_lines("<h3> {} razred, {}, {}|{}|{} - Pocetak </h3>\n".format(\
-            page.page_params.get_param("year").title(), page.page_params.get_param("theme").title(), \
-            page.page_params.get_param("subtheme").title(), page.page_params.get_param("period").title(), \
-            page.page_params.get_param("difficulty").title() ))
+            page.page_params.year.title(), page.page_params.theme.title(), \
+            page.page_params.subtheme.title(), page.page_params.period.title(), \
+            page.page_params.difficulty.title() ))
         page.add_lines("<br>Neke zadatke ces resiti lakse ako spremis papir i olovku.\n")
         page.add_lines("<br>Kad uradis 10 zadataka bez greske, napravi pauzu.\n")
         page.add_lines("<br>Da predjes na sledeci zadatak ili da se vratis na prethodni, koristi trotinet.\n")
@@ -732,6 +549,7 @@ class Design_default(object):
                 page.page_params.create_url(\
                     op = PageOperation.toStr(PageOperation.TEST), 
                     q_id = "", 
+                    menu_state = {"q_number": 1}, 
                     js = False) + \
                 "'> Pocni</a>\n")
         page.add_lines("</div>\n")
@@ -739,10 +557,10 @@ class Design_default(object):
         page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
         page.add_lines("<a href='" + \
                 page.page_params.create_url(\
-                    op = PageOperation.toStr(PageOperation.MENU_SUBTHEME), 
                     subtheme = "", 
                     period = "", 
                     difficulty = "", 
+                    menu_state = {}, 
                     l_id = "", js = False) + \
                 "'> Nazad na izbor podteme</a>\n")
         page.add_lines("</div>\n")
@@ -755,10 +573,10 @@ class Design_default(object):
         correct = 0
         incorrect = 0
         try:
-            if context.c.session.get("history"):
+            if "history" in page.page_params.menu_state.keys():
                 page.add_lines("Tvoj rezultat po pitanjima:<br><br>\n")
-                for r in context.c.session.get("history"):
-                    page.add_lines("{}: tacno {}, netacno {} <br>\n".format(r["q_id"], r["correct"], r["incorrect"]))
+                for r in page.page_params.menu_state["history"]:
+                    page.add_lines("{}: tacno {}, netacno {} <br>\n".format(r["question"], r["correct"], r["incorrect"]))
                     correct = correct + int(r["correct"])
                     incorrect = incorrect + int(r["incorrect"])
                 page.add_lines("<br> Ukupno tacno {}/{} ({} %):<br><br>\n", 
@@ -768,12 +586,9 @@ class Design_default(object):
         page.add_lines("</div>\n")
 
         page.page_params.delete_history()
-        page.page_params.set_param("q_id", "")
-        page.page_params.set_param("l_id", "")
 
         page.add_lines("<a href='" + \
-                page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_SUBTHEME), \
-                                            year=page.page_params.get_param("year"), \
+                page.page_params.create_url(year=page.page_params.year, \
                                             theme = "", \
                                             subtheme = "", \
                                             difficulty = "", \
@@ -787,64 +602,44 @@ class Design_default(object):
 
     @staticmethod
     def render_question_page(page):
-
-        next_question = None
+        Design_default.render_menu(page)
         test = Test(page)
 
 
-        if page.page_params.get_param("op") == PageOperation.TEST_PREV:
-            if len(context.c.session.get("history")) <= 1:
-                logging.warning("We shouldn't have offered a back link when there is no history.")
-                next_question = context.c.session.get("history")[-1]["q_id"]
+        if isinstance(page.page_params.menu_state, dict) and "q_number" in page.page_params.menu_state.keys():
+            current_number = page.page_params.menu_state["q_number"]
+            if current_number > 1 and "history" in page.page_params.menu_state.keys () and \
+                                                   len(page.page_params.menu_state["history"]) >= 1:
+
+                # Go back to the previous page and reset history:
+                # Remove the last item in history, decrease the page counter
+                # and delete "last_question" key 
+                # The last one is a "hack", otherwise this question will be added to the history
+                new_menu_state = deepcopy(page.page_params.menu_state)
+                del new_menu_state["history"][-1]
+                new_menu_state["q_number"] = new_menu_state["q_number"] - 1
+                del new_menu_state["last_question"]
+
+                prev_url = page.page_params.create_url(\
+                            q_id = page.page_params.menu_state["history"][-1]["question"], \
+                            menu_state = new_menu_state,
+                            js = False)
             else:
-                context.c.session.list_delete("history", -1)
-                next_question = context.c.session.get("history")[-1]["q_id"]
-        else: 
-            # At the moment every new PageOperation.TEST is a new question
-            # A user can hit refresh, but this will get her/him to the next question
-            # This may be avoided if POST is used instead of GET where there will be a warning
+                prev_url = page.page_params.create_url(\
+                            op = PageOperation.toStr(PageOperation.MENU), 
+                            q_id = "", 
+                            menu_state = {"intro": True}, 
+                            js = False)
 
-            # elif not context.c.session.get("history") or len(context.c.session.get("history")) == 0 or \
-            #     not context.c.session.get("history")[-1]["url"] == page.page_params.get_url():
-            #     # Not a simple page refresh, update history
+            page.page_params.menu_state["q_number"] = page.page_params.menu_state["q_number"] + 1
 
-            if not context.c.session.get("history") or len(context.c.session.get("history")) == 0:
-                # Starting a new test, record the start time in epoch seconds
-                context.c.session.set("test_id", int(time.time()*1000))
+        next_question_url = test.render_next_questions()
 
-            next_question = test.choose_next_question()
-            context.c.session.list_append("history", {
-                "url" : page.page_params.get_url(),
-                "q_id" : next_question,
-                "correct" : 0, 
-                "incorrect" : 0
-            })
-
-        # context.c.session.print()
-
-        page.page_params.set_param("q_id", next_question)
-        test_id = context.c.session.get("test_id")
-        test_order = len(context.c.session.get("history"))
-        q = Question(page=page, q_id=next_question, test_id=test_id, test_order=test_order)
-        q.set_from_file_with_exception()
-        q.eval_with_exception()
-
-
-
-        Design_default.add_buttons(page)
-        if page.page_params.get_param("root") == "main":
-            correct = 0
-            incorrect = 0
-
-            if context.c.session.get("history"):
-                for r in context.c.session.get("history"):
-                    correct = correct + int(r["correct"])
-                    incorrect = incorrect + int(r["incorrect"])
-
-            current_q_number = len(context.c.session.get("history"))
+        Design_default.add_buttons(page, next_question_url, prev_url)
+        if page.page_params.root == "main":
             page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            page.add_lines("Pitanje {} od 3\n".format(current_q_number))
-            page.add_lines("Do sada: {} / {}".format(correct, incorrect))
+            page.add_lines("Pitanje {} od 3\n".format(current_number))
+            page.add_lines("Prethodno: {} / {}".format(page.page_params.correct, page.page_params.incorrect))
             page.add_lines("</div>\n")
         return page.render()
                     
@@ -858,12 +653,20 @@ class Design_default(object):
     def render_menu(page):
 
         # For now remove the language menu
-        show_language_menu = True
+        show_language_menu = False
 
 
         page.add_lines("\n\n<!-- MOBILE MENU START -->\n")
 
-
+        # Temporary, for debugging:
+        # debug_str = ""
+        # if page.page_params.user_id is not None and PageUserID.toStr(page.page_params.user_id):
+        #     if len(PageUserID.toStr(page.page_params.user_id)) >= len("local:") and PageUserID.toStr(page.page_params.user_id)[:len("local:")] == "local:":
+        #         debug_str = debug_str + "Hi {} ".format(PageUserID.toStr(page.page_params.user_id)[len("local:"):])
+        #     else:
+        #         debug_str = debug_str + "Hi {} ".format(PageUserID.toStr(page.page_params.user_id))
+        # if page.page_params.q_id is not None and page.page_params.q_id:
+        #     debug_str = debug_str + "(Q: {})".format(page.page_params.q_id)
 
         page.add_script_lines("""
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -918,34 +721,14 @@ class Design_default(object):
                 }
             }
             </script>
-        """)
 
-
-        str_lang = ""
-
-        if show_language_menu:
-            try:
-                str_lang = "<button class=\"sh-button sh-dark-grey sh-large sh-font\" " + \
-                    "style=\"padding: 0px; display: table-cell; vertical-align: middle; text-align: center; height: 20px; \" " +\
-                    "onclick=\"shl_toggle()\">" + \
-                    "<input type=\"image\" style=\"padding: 0px\" width=\"36px\" height=\"20px\" alt=\"" + \
-                        page.get_language_details()["country"] + \
-                        "\" src=\"" + \
-                        page.get_file_url("images/" + 
-                        page.get_language_details()["image"]) + "\" /></button>" 
-            except:
-                logging.error("config.json file has a formatting error.")
-                str_lang = ""
-                show_language_menu = False
-
-
-
-        page.add_script_lines("""
             <div>
                 <div class="sh-button" style="font-family: 'Bubblegum Sans'; font-size: 24px; color: #029194"> TATA MATA </div> 
-                <span width="70px" style='display:table;float:right;'> 
-                    """ + str_lang + """
-                    <button class="sh-button" style="display: table-cell; vertical-align: middle; text-align: center;padding: 8px 8px; font-size: 20px; font-weight: 900; color: #029194" onclick="shm_toggle()">☰</button>
+                <span style='display:block;float:right;'> """ + \
+                (("<button class=\"sh-button sh-dark-grey sh-large sh-font\" onclick=\"shl_toggle()\">" + \
+                    page.get_messages()["language"] + "</button>") if show_language_menu else "") \
+                + """
+                <button class="sh-button" style="font-size: 20px; font-weight: 900; color: #029194" onclick="shm_toggle()">☰</button>
                 </span>
             </div>
 
@@ -958,29 +741,21 @@ class Design_default(object):
 
 
         new_page_params = PageParameters()
-        new_page_params.set_param("root", page.page_params.get_param("root"))
-        new_page_params.set_param("op", PageOperation.MENU_YEAR)
-        new_page_params.set_param("language", page.page_params.get_param("language"))
+        new_page_params.root = page.page_params.root 
+        new_page_params.op = PageOperation.MENU
+        new_page_params.language = page.page_params.language
         Design_default.render_menu_drop(page, new_page_params, 1)
-
-        # Design_default.render_menu_drop(page, PageLanguage.toStr(page.page_params.get_param("language")), 
-        #     page.page_params.get_param("root") + "?op={}&language={}&menu={}".format(
-        #     PageOperation.toStr(page.page_params.get_param("op")), PageLanguage.toStr(page.page_params.get_param("language")), 
-        #     "mobile"), 1)
-
-
 
         page.add_lines("""
                 </div>
         """)
 
-        user = context.c.user
-
-        if user and user.domain_user_id and not user.domain_user_id == "UNKNOWN":
-            new_params = PageParameters()
-            new_page_params.set_param("root", page.page_params.get_param("root"))
+        if not page.page_params.user_id is None and \
+                PageUserID.toStr(page.page_params.user_id) and \
+                not PageUserID.toStr(page.page_params.user_id) == "UNKNOWN":
+            #print("\n\nAAAAA:{}\n\n".format(PageUserID.toStr(page.page_params.user_id)))
             page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
-                new_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False) + \
+                page.page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False) + \
                 "\" class=\"sh-bar-item sh-button\"> Rezultati </a>\n")
 
 
@@ -999,46 +774,28 @@ class Design_default(object):
         # """)
 
 
-        new_params = PageParameters()
-        new_page_params.set_param("root", page.page_params.get_param("root"))
-        if not context.c.user:
-            page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
-                new_params.create_url(op = PageOperation.toStr(PageOperation.MENU_USER), js = False) + \
-                "\"> Uloguj se </a>\n")
-        else:
-            page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
-                        new_params.create_url(op = PageOperation.toStr(PageOperation.MENU_USER), js = False) + \
-                        "\"> Izloguj se (" + context.c.user.name + ")</a>\n")
-
+        page.add_lines("<a class=\"sh-button sh-block sh-left-align sh-font\" href=\"" + \
+            page.page_params.create_url(op = PageOperation.toStr(PageOperation.MENU), user_id="", js = False) + \
+            "\"> Izloguj se </a>\n")
         page.add_lines("</div>")
 
 
         if show_language_menu:
-            lang_select = """
-                        <div class="sh-sidebar sh-bar-block sh-border-left" style="width:200px;right:0;display:none"  id="shLang">
-                        """
-            for lang in page.get_language_list():
-                lang_select = lang_select + "<div align='left' style='display:table; padding: 8px 8px;'>\n"
-                # lang_select = lang_select + "<input style=\"display: inline-block;padding: 8px 0px;\" height=\"20px\" type=\"image\" src=\"" + \
-                #         page.get_file_url("images/" + \
-                #         page.get_language_details(lang)["image"]) + "\" />\n"
-                lang_select = lang_select + "<a class=\"sh-font\" style=\"display: table-cell; vertical-align: middle; text-align: center;\" href='" + \
-                        page.page_params.create_url( \
-                            op = PageOperation.toStr(PageOperation.MENU_YEAR), language = lang, js = False) + \
-                        "' class='sh-bar-item sh-button'>" + \
-                        "<img style=\"display: inline-block;padding: 0px;\" height=\"20px\" width=\"36px\" src=\"" + \
-                            page.get_file_url("images/" + \
-                            page.get_language_details(lang)["image"]) + "\"></a>  &nbsp \n"
-                lang_select = lang_select + "<a class=\"sh-font\" style=\"display: table-cell; vertical-align: middle; text-align: center;\" href='" + \
-                        page.page_params.create_url( \
-                            op = PageOperation.toStr(PageOperation.MENU_YEAR), language = lang, js = False) + \
-                        "' class='sh-bar-item sh-button'>" + page.get_language_details(lang)["country"] + "</a>\n"
-                lang_select = lang_select + "</div>\n"
-            
-            lang_select = lang_select + """
-                        </div>
-                        """
-            page.add_lines(lang_select)
+            if ("languages" in page.repository.get_config()):
+                
+                lang_select = """
+                            <div class="sh-sidebar sh-bar-block sh-border-left" style="width:200px;right:0;display:none"  id="shLang">
+                            """
+                for lang in page.get_language_list():
+                    lang_select = lang_select + "<a class=\"sh-font\" href='" + \
+                            page.page_params.create_url(language = lang, js = False) + \
+                            "' class='sh-bar-item sh-button'>" + page.get_messages(lang)["name"] + "</a>"
+                
+                lang_select = lang_select + """
+                            </div>
+                            """
+                page.add_lines(lang_select)
+
 
 
 
@@ -1078,9 +835,7 @@ class Design_default(object):
 
     @staticmethod
     def render_menu_drop(page, new_page_params : PageParameters, indent=0):
-        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
-
-        # new_page_params.print_params()
+        content = page.repository.get_content(PageLanguage.toStr(page.page_params.language))
 
         str_indent1 = ""
         for i in range(0, indent):
@@ -1088,11 +843,10 @@ class Design_default(object):
         str_indent2 = str_indent1 + "<div class='space'></div>"
 
         for level in sorted(content.keys()):
+            new_page_params.year = level
+            new_page_params.theme = ""
             page.add_lines(\
-                "<a class=\"sh-font\" href=\"" + new_page_params.create_url( \
-                        op = PageOperation.toStr(PageOperation.MENU_THEME), \
-                        year = level, 
-                        js = False) + \
+                "<a class=\"sh-font\" href=\"" + new_page_params.create_url(js = False) + \
                     "\" style='padding: 8px 0px 8px 16px ; text-decoration:none'> " + \
                     str_indent1 + level.title() + "</a>" + \
                 """
@@ -1103,11 +857,8 @@ class Design_default(object):
                 """)
 
             for theme in sorted(content[level].keys()):
-                page.add_lines("<a href=\"" + new_page_params.create_url(\
-                        op = PageOperation.toStr(PageOperation.MENU_SUBTHEME), \
-                        year = level, \
-                        theme = theme, \
-                        js = False) + \
+                new_page_params.theme = theme
+                page.add_lines("<a href=\"" + new_page_params.create_url(js = False) + \
                     "\" class=\"sh-bar-item sh-button sh-font\"> " + str_indent2 + theme.title() + "</a>\n")
 
             page.add_lines("</div>")
@@ -1123,100 +874,66 @@ class Design_default(object):
     # def get_login_header(page):
     #     login_str = ""
 
+
     #     login_return = page.page_params.all_state
     #     login_return["js"] = False
     #     login_return = encode_dict(login_return)
 
+
+    #     test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Jovana", "Zomebody"]
+    #     test_users.sort()
+
     #     login_str = ""
-    #     for username in sorted(TEST_USERS):
-    #         link = page.page_params.get_param("root") + "?op=login_test&" + "login_return=" + \
-    #                     login_return + "&user_id={}".format(username)
+    #     for username in test_users:
+    #         link = page.page_params.root + "?op=login_test&" + "login_return=" + \
+    #                     login_return + "&user_id={}".format(username) 
     #         str_indent = "<div class='space'></div>"
-    #         login_str = login_str + "<a href='" + link + "' class='w3-bar-item w3-button'> " + str_indent + username + "</a>\n"
+    #         login_str = login_str + "<a href='" + link + "' class='sh-font sh-bar-item sh-button'> " + str_indent + username + "</a>\n"
+
 
     #     return login_str
 
 
 
 
-    @staticmethod
-    def add_popup(page, name, inner_html, extra_style=""):
-        page.add_lines("\n\n<!-- POPUP {} START -->\n\n".format(name))
-
-        page.add_lines("<span id='popup_" + name + "' style='visibility: hidden;"
-            "position: fixed; z-index: 1; bottom: 50%;" 
-            "left: 50%; transform: translate(-50%, 0%);")
-        page.add_lines(extra_style)
-        page.add_lines("'>")
-
-        page.add_lines(inner_html)
-
-        page.add_lines("</span>")        
-
-        page.add_lines("""
-            <script>
-                // When the user clicks on div, open the popup
-                function popup_toggle_""" + name + """() {
-                    var popup = document.getElementById("popup_"""+ name + """");
-                    if (popup.style.visibility == "hidden") { 
-                        popup.style.visibility = "visible";
-                    } else {
-                        popup.style.visibility = "hidden";
-                    }
-                }
-            </script>
-            """
-        )
-
-        page.add_lines("\n\n<!-- POPUP {} END -->\n\n".format(name))
 
 
 
     @staticmethod    
-    def add_buttons(page):
+    def add_buttons(page, url_next=None, url_prev=None):
         page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
         page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
         page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
 
+        total_questions = 3
 
-        if context.c.session.get("history"):
-            q_number = len(context.c.session.get("history"))
+        if isinstance(page.page_params.menu_state, dict) and "q_number" in page.page_params.menu_state.keys():
+            q_number = page.page_params.menu_state["q_number"]
         else:
             q_number = 0
 
-
-        # if q_number >= 2:
-        #     url_prev = page.page_params.create_url(\
-        #                 op = PageOperation.toStr(PageOperation.TEST_PREV), 
-        #                 js = False)
-        # else:
-        #     url_prev = page.page_params.create_url(\
-        #                 op = PageOperation.toStr(PageOperation.INTRO), 
-        #                 js = False)
-        #
-
-        if q_number >= Design_default.total_questions:
-            url_next = page.page_params.create_url( 
-                op=encap_str(PageOperation.toStr(PageOperation.SUMMARY)),
-                js=True)
-        else:
-            url_next = page.page_params.create_url( 
-                op=encap_str(PageOperation.toStr(PageOperation.TEST)),
-                js=True)
+        if q_number == total_questions + 1:
+            new_params = copy(page.page_params.menu_state)
+            new_params["summary"] = True
+            home_url = page.page_params.create_url( op=encap_str(PageOperation.toStr(PageOperation.MENU)),
+                                                    year=encap_str(page.page_params.year), 
+                                                    q_id=encap_str(""), 
+                                                    l_id=encap_str(""), 
+                                                    theme=encap_str(""), 
+                                                    menu_state=new_params,
+                                                    correct="q_correct", incorrect="q_incorrect", \
+                                                    js=True)
 
 
-        # Not needed in the current design
-
-        # page.add_lines("\n\n<!-- PREV BUTTON -->\n")
-        # page.add_lines("\n<input id='but_prev' type='button' style='font-size: 14px;' "\
-        #     "onclick='window.location.replace(\"{}\")' value='{}' />\n".format(url_prev, "Nazad"))
-        # page.add_lines("\n<!-- END PREV BUTTON -->\n\n")
-
-
+        if url_prev is not None:
+            page.add_lines("\n\n<!-- PREV BUTTON -->\n")
+            page.add_lines("\n<input type='button' style='font-size: 14px;' "\
+                "onclick='window.location.replace(\"{}\")' value='{}' />\n".format(url_prev, "Nazad"))
+            page.add_lines("\n<!-- END PREV BUTTON -->\n\n")
 
         page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")        
         page.add_lines("\n<!-- CLEAR BUTTON -->\n")
-        page.add_lines("\n<input id='but_clear' type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
+        page.add_lines("\n<input type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
             page.get_messages()["clear"]))
         page.add_lines("\n<!-- END CLEAR BUTTON -->\n")
 
@@ -1224,7 +941,7 @@ class Design_default(object):
         # page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         # page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
         # page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-        #     Design_default.on_click(page, \
+        #     page.on_click(\
         #         operation=ResponseOperation.SUBMIT, \
         #         record=True), page.get_messages()["check"]))
         # page.add_lines("\n<!-- END CHECK BUTTONS -->\n")
@@ -1232,86 +949,38 @@ class Design_default(object):
 
         page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")        
         page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
-        page.add_lines("<input id='but_check' type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-            Design_default.on_click(page, \
-                operation=ResponseOperation.SUBMIT, \
-                url_next=url_next, \
-                quoted=False, \
-                record=True), page.get_messages()["check"]))
+        if q_number == total_questions + 1:
+            page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
+                page.on_click(\
+                    operation=ResponseOperation.SUBMIT, \
+                    url_next=home_url, quoted=False, \
+                    record=True), page.get_messages()["check"]))
+        else:
+            page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
+                page.on_click(\
+                    operation=ResponseOperation.SUBMIT, \
+                    url_next=url_next, \
+                    record=True), page.get_messages()["check"]))
         page.add_lines("\n<!-- END CHECK BUTTON -->\n")
 
 
-        page.add_lines("\n\n<!-- NEXT BUTTON -->\n")
-        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-        page.add_lines("\n<input id='but_next' type='button' style='display:none; font-size: 14px;' onclick='{}' value='{}' />\n".format(
-            Design_default.on_click(page, \
-                operation=ResponseOperation.SKIP, \
-                url_next=url_next, \
-                quoted=False, \
-                record=True), page.get_messages()["skip"]))
-        page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
+        if url_next is not None:
+            page.add_lines("\n\n<!-- NEXT BUTTON -->\n")
+            page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+            if q_number == total_questions + 1:
+                page.add_lines("\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
+                    page.on_click(\
+                        operation=ResponseOperation.SKIP, \
+                        url_next=home_url, quoted=False, \
+                        record=True), page.get_messages()["skip"]))
+            else:
+                page.add_lines("\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
+                    page.on_click(\
+                        operation=ResponseOperation.SKIP, \
+                        url_next=url_next, \
+                        record=True), page.get_messages()["skip"]))
+            page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
             
-
-
-
-        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-        
-        page.add_lines("\n<!-- SOLUTION BUTTON -->\n")
-        page.add_lines("\n<input id='but_help' type='button' style='display:none; font-size: 14px;' " \
-            "onclick=\"clearAll();addSolutionAll();"
-            "document.getElementById('but_check').style.display='none';"
-            "document.getElementById('but_help').style.display='none';"
-            "document.getElementById('but_clear').style.display='none';"
-            "document.getElementById('but_next').value='Dalje';"
-            "\" value='{}' />\n".format(
-            "Resenje"))
-        page.add_lines("\n<!-- END SOLUTION BUTTON -->\n")
-
-
-
-
-        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-        
-        page.add_lines("\n<!-- FEEDBACK BUTTON -->\n")
-
-        inner_html = "<h3> Unesite detalje komentara</h3>\n"
-        #inner_html = inner_html + "<form action='javascript:void(0);'>\n"
-        inner_html = inner_html + "Mislite da zadatak: <br>"
-        inner_html = inner_html + "<input type='radio' id='fb_problem'> Ima problem <br>"
-        inner_html = inner_html + "<input type='radio' id='fb_unclear'> Nije jasan <br>"
-        inner_html = inner_html + "<input type='radio' id='fb_difficult'> Pretezak <br>"
-        inner_html = inner_html + "<input type='radio' id='fb_easy'> Prelak <br>"
-        inner_html = inner_html + "<input type='radio' id='fb_other'> Drugo <br> "
-        inner_html = inner_html + "<br> Dodatni komentar: <br><input type='text' id='fb_komentar'> <br> <br>"
-        inner_html = inner_html + "\n<input align='center' type='button' style='font-size: 14px;' " \
-            "onclick=\"sendFeedbackToServer('{}', {}, '{}', '{}', {}); " \
-                "popup_toggle_feedback_report(); " \
-                "document.getElementById('but_fb').style.display='none';" \
-                "\" value='{}' />\n".format(
-            page.page_params.get_param("root"), 
-            "document.getElementById('fb_problem').checked?'problem':(" \
-                "document.getElementById('fb_unclear').checked?'unclear':(" \
-                "document.getElementById('fb_difficult').checked?'unclear':(" \
-                "document.getElementById('fb_easy').checked?'unclear':'other')))",
-            page.page_params.get_param("q_id"),
-            page.page_params.get_param("l_id"),
-            "document.getElementById('fb_komentar').value",
-            "Posalji prijavu")
-        # Add gap:
-        inner_html = inner_html + "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
-        inner_html = inner_html + "\n<input align='center' type='button' style='font-size: 14px;' " \
-            "onclick=\"popup_toggle_feedback_report();\" value='{}' />\n".format("Odustani")
-
-        extra_style = "width: 300px; background-color: #555; color: #fff; text-align: center; border-radius: 6px; padding: 8px;"
-
-        Design_default.add_popup(page, "feedback_report", inner_html, extra_style)
-
-        page.add_lines("\n<input id='but_fb' type='button' style='font-size: 14px;' onclick=\"popup_toggle_feedback_report()\" value='{}' />\n".format(
-            "Prijavi problem"))
-
-        page.add_lines("\n<!-- END FEEDBACK BUTTON -->\n")
-
-
 
 
         page.add_lines("\n</div>\n")
@@ -1371,53 +1040,11 @@ class Design_default(object):
                     Design_default._render_user_one_cat_rec(page, cat[kt][k], k, indent+1)
 
 
-
-
     @staticmethod
     def render_user_stats(page, u_id):
-        stats = Stats.render_user_stats(page, u_id)
+        Design_default.render_menu(page)
+        prepare_user_stats_chart(page, 'Petar')
 
-        hspace = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
-        page.add_lines("<table style='border: none; border-collapse: collapse;'>")
-        page.add_lines("<tr><td style='text-align:left'>{}Oblast{}</td> ".format(hspace, hspace) + \
-                "<td style='text-align:left'>{}Tema{}</td> ".format(hspace, hspace) + \
-                "<td style='text-align:center'>{}Svi zadaci{}</td> ".format(hspace, hspace) + \
-                "<td style='text-align:center'>{}1 zvezda{}</td> ".format(hspace, hspace) + \
-                "<td style='text-align:center'>{}2 zvezde{}</td> ".format(hspace, hspace) + \
-                "<td style='text-align:center'>{}3 zvezde{}</td> ".format(hspace, hspace) + \
-                "</tr>\n")
-        Design_default._render_user_one_cat_rec(page, stats, "Svi", 0)
-        page.add_lines("</table><br>")
-
-
-
-
-    @staticmethod
-    def on_click(page, operation:ResponseOperation=None, url_next=None, record=False, quoted=True):
-        if record:
-            # Only send results to server if next_url specified (i.e. we are in the test mode)
-            ret_str = 'cond = checkAll("{}", "{}", "{}", "{}");'.format(
-                ResponseOperation.toStr(operation),
-                page.page_params.get_param("root"),
-                page.page_params.get_param("q_id"),
-                page.page_params.get_param("l_id")
-            )
-        else:
-            ret_str = "cond = checkAll();"
-
-        if url_next is not None:
-            if operation == ResponseOperation.SUBMIT:
-                ret_str = ret_str + "if (cond) "
-            if quoted:
-                ret_str = ret_str + " {window.location.replace(\"" + url_next + "\");}"
-            else:
-                ret_str = ret_str + " {window.location.replace(" + url_next + ");}"
-            if operation == ResponseOperation.SUBMIT:
-                ret_str = ret_str + \
-                    "else {document.getElementById(\"but_help\").style.display=\"inline-block\"; " \
-                    "document.getElementById(\"but_next\").style.display=\"inline-block\"; }"
-
-        return ret_str
 
 
 
