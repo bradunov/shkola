@@ -200,3 +200,37 @@
     </div>
 
 {% endmacro %}
+
+
+
+
+
+
+
+{% macro start_popup(name, extra_style) %}
+<script>
+    // When the user clicks on div, open the popup
+    function popup_toggle_{{name}}() {
+        var popup = document.getElementById("popup_{{name}}");
+        if (popup.style.visibility == "hidden") { 
+            popup.style.visibility = "visible";
+        } else {
+            popup.style.visibility = "hidden";
+        }
+    }
+</script>
+
+<!-- POPUP START -->
+
+<span id='popup_{{name}}' style='visibility: hidden;
+    position: fixed; z-index: 1; bottom: 50%;
+    left: 50%; transform: translate(-50%, 0%);
+    {{extra_style}}'>
+
+{% endmacro %}
+
+
+{% macro end_popup() %}
+</span>        
+<!-- POPUP END -->
+{% endmacro %}

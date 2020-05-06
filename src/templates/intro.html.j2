@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% import 'elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+    {{ elements.init_elements() }}
+    {{ elements.standard_background() }}
+
+  </head>
+
+  <body>
+
+    <!-- MOBILE MENU START -->
+    {% import 'menu.html.j2' as menu %}
+    {{ menu.include() }}
+    {{ menu.head() }}
+    {{ menu.dropdowns(template_params) }}
+    <!-- MENU END -->
+
+
+
+    <div style='width: auto ;margin-left: auto ;margin-right: auto ;'>
+    <h3> {{template_params["year"]}} razred, {{template_params["theme"]}}, 
+         {{template_params["subtheme"]}}|{{template_params["period"]}}|{{template_params["difficulty"]}} - Pocetak </h3>
+    <br>Neke zadatke ces resiti lakse ako spremis papir i olovku.
+    <br>Kad uradis 10 zadataka bez greske, napravi pauzu.
+    <br>Da predjes na sledeci zadatak ili da se vratis na prethodni, koristi trotinet.
+    </div>
+
+    <br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>
+    <a href='{{template_params["next"]}}'> Pocni</a>
+    </div>
+
+    <br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>
+    <a href='{{template_params["back"]}}'> Nazad na izbor podteme</a>
+    </div>
+
+
+  </body>
+</html>

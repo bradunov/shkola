@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% import 'elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+    {{ elements.init_elements() }}
+    {{ elements.standard_background() }}
+
+  </head>
+
+  <body>
+
+    <!-- MOBILE MENU START -->
+    {% import 'menu.html.j2' as menu %}
+    {{ menu.include() }}
+    {{ menu.head() }}
+    {{ menu.dropdowns(template_params) }}
+    <!-- MENU END -->
+
+
+
+    <div style='width: auto ;margin-left: auto ;margin-right: auto ;'>
+      <h3>Bravo!</h3><br>
+
+      {% for r in template_params["results"] %}
+        {{r[q_id]}}: tacno {{r[correct]}}, netacno {{r[incorrect]}} <br>
+      {% endfor %}
+
+      <br> Ukupno tacno {{template_params["correct"]}}/
+                {{template_params["correct"] + template_params["incorrect"]}} <br><br>
+
+
+      {# Division by zero:                 #}
+      {# ({{template_params["correct"]/(template_params["correct"] + template_params["incorrect"])}}):<br><br>  #}
+  
+    </div>
+
+    <a href='{{template_params["next"]}}'> Nazad na izbor teme </a>
+
+  </body>
+</html>

@@ -125,24 +125,34 @@ class Page(object):
         if lines is not None:
             self.lines.append(lines.format(*params) if params else lines)
 
-    def get_lines(self):
-        return self.lines
+    # def get_lines(self):
+    #     return self.lines
         
-    def add_on_loaded_script_lines(self, code):
-        self.on_loaded_script = self.on_loaded_script + code
+    # def add_on_loaded_script_lines(self, code):
+    #     self.on_loaded_script = self.on_loaded_script + code
         
     def render(self):
         template = self.templates.get_template(self.template_params["template_name"])
-        ret = template.render(template_params=self.template_params)
 
-        #ret = ret + self.header()
-        ret = ret + self.scripts()
+        # Add question as a form parameter
+        self.template_params["question"] = ""
+
+        for l in self.script_lines:
+            self.template_params["question"] = self.template_params["question"] + l + "\n"
+
         for l in self.lines:
-            #ret = ret + u''.join(l).encode('utf-8')
-            ret = ret + str(l)
+            self.template_params["question"] = self.template_params["question"] + str(l)
+
+        return template.render(template_params=self.template_params)
+
+        # #ret = ret + self.header()
+        # ret = ret + self.scripts()
+        # for l in self.lines:
+        #     #ret = ret + u''.join(l).encode('utf-8')
+        #     ret = ret + str(l)
             
-        #ret = ret + "\n" + self.footer()
-        return ret
+        # #ret = ret + "\n" + self.footer()
+        # return ret
 
 
 
@@ -254,12 +264,6 @@ class Page(object):
     # def footer(self):
     #     return "</body>\n</html>\n"
         
-
-    def scripts(self):
-        ret = ""    
-        for l in self.script_lines:
-            ret = ret + l + "\n"
-        return ret
     
 
 
