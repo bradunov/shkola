@@ -1,5 +1,6 @@
 import server.storage
 import logging
+import json
 # import pprint
 
 
@@ -10,8 +11,26 @@ class Stats(object):
     # and produces an array of 0s and 1s:
     # [0, 0, 1, 0]
     @staticmethod
-    def _parse_questions(q):
+    def _parse_questions_old(q):
         return list(map(lambda x : (1 if x.split("=")[1] == "true" else 0), q.split(",")[:-1]))
+
+
+    # Takes the list of detailed results in format:
+    # "{'q_res0': 'false', 'q_res1': 'false', 'q_res2': 'false', 'q_res3': 'false'}"
+    # and produces an array of 0s and 1s:
+    # [0, 0, 1, 0]
+    @staticmethod
+    def _parse_questions(q):
+        try:
+            q = q.replace("\'", "\"")
+            js = json.loads(q)
+            res = []
+            for k in sorted(js.keys()):
+                res.append(1 if js[k] == 'true' else 0)
+        except:
+            # TBD: this is the old format used in the SQL sample for testing - remove when done
+            res = Stats._parse_questions_old(q)
+        return res
 
 
     @staticmethod
@@ -31,6 +50,7 @@ class Stats(object):
             
             #subq = list(map(lambda x : (1 if x.split("=")[1] == "true" else 0), r["questions"].split(",")[:-1]))
             subq = Stats._parse_questions(r["questions"])
+
 
             if not folder in stats.keys():
                 stats[folder] = {}
@@ -137,6 +157,8 @@ class Stats(object):
 
             #period = q_info["period"]
             difficulty = q_info["difficulty"]
+
+            logging.debug("\n\n\nAAAA {}\n\n\n".format(r["questions"]))
 
             parsed_q = Stats._parse_questions(r["questions"])
             correct = sum(parsed_q) 

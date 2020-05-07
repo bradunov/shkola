@@ -8,7 +8,10 @@ sys.path.append("..")
 import pybase64
 import json
 
-import stats
+try:
+    import server.stats as stats
+except:
+    import stats
 
 try:
     import server.page as page

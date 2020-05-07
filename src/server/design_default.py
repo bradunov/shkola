@@ -152,7 +152,7 @@ class Design_default(object):
         menu_id = 0
 
         lists = {
-            "name" : "Zadaci",
+            "name" : "Razred",
             "link" : new_page_params.create_url(\
                     op = PageOperation.toStr(PageOperation.MENU_YEAR), \
                     js = False),
@@ -574,7 +574,7 @@ class Design_default(object):
                         js = False)
         else:
             url_prev = page.page_params.create_url(\
-                        op = PageOperation.toStr(PageOperation.INTRO), 
+                        op = PageOperation.toStr(PageOperation.MENU_THEME), 
                         js = False)
         
 
@@ -1241,4 +1241,6 @@ class Design_default(object):
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
 
-        prepare_user_stats_chart(page, 'Petar')
+        #prepare_user_stats_chart(page, 'Petar')
+        prepare_user_stats_chart(page, u_id)
+
