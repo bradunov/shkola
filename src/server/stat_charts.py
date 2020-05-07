@@ -9,7 +9,12 @@ import pybase64
 import json
 
 import stats
-import page
+
+try:
+    import server.page as page
+except:
+    import page 
+
 
 def render_stats_data(pg, u_ID):
     #pg = page.Page()
