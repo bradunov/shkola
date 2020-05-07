@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% import 'elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+    {{ elements.init_elements() }}
+    {{ elements.standard_background() }}
+
+  </head>
+
+  <body>
+
+    <!-- MOBILE MENU START -->
+    {% import 'menu.html.j2' as menu %}
+    {{ menu.include() }}
+    {{ menu.head() }}
+    {{ menu.dropdowns(template_params) }}
+    <!-- MENU END -->
+
+
+
+
+    <!-- prepare columns for the stars -->
+    <style> * .column{float:left; width:50%} .row:after{content: ""; display:table; clear:both} </style>
+
+    {% for level_key, level_val in template_params["user_stats"].items() %}
+      {% for theme_key, theme_val in level_val['theme'].items() %}
+
+        <div class="row" style="width:360px">
+          <div class="column" align="left" style="display:content; font-family:'Lato'; font-weight:550; font-size: 18px; margin-top:4px;">
+            <div style="margin-left:20px">
+              <span style = "color:red" > 
+                {{ level_key }} 
+              </span> 
+              <span style = "color:gray">
+                {{template_params["class_gen_str"]}}  
+              </span> <br>
+
+            {{theme_key}}
+          </div>
+        </div>
+
+        <div class="column" align="right" style="display:content; margin-top:4px;">  
+          <div style="margin-right:25px; align="right"; font-size:18px">
+            <table  border-collapse=collapse cellpadding=0 cellspacing=0> 
+              <tr>
+                <td><span style = "color:yellow" > &#9733 </span></td>
+              </tr>
+              <tr>
+                <td><span style = "color:green" > &#9733 &#9733 </span></td>
+              </tr>
+              <tr>
+                <td><span style = "color:blue" > &#9733 &#9733 &#9733 </span></td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+
+        <div>
+          <img src=data:image/png;base64,{{ template_params["base64_str"][theme_key] }} 
+               alt="File Missing"> 
+        </div>
+
+      {% endfor %}
+    {% endfor %}
+
+    <a href='{{template_params["next"]}}'> Nazad na izbor teme </a>
+
+  </body>
+</html>

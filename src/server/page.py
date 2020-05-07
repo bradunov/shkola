@@ -46,7 +46,7 @@ class Page(object):
 
     # use_azure_blob = True: use blob for question storage rather than the local disk
     # preload = True: fetch all questions in memory at start time (may be slow for a blob)
-    def __init__(self, title="tatamata.org", rel_path=None, use_azure_blob=False, preload=True):
+    def __init__(self, title="tatamata.org", rel_path=None, template_path=None, use_azure_blob=False, preload=True):
         if not rel_path is None:
             self.rel_path = rel_path
         else:
@@ -61,6 +61,11 @@ class Page(object):
             logging.exception("Please define SHKOLA_REL_PATH")
             exit(1)
 
+        if template_path is None:
+            self.template_path = self.rel_path
+        else:
+            self.template_path = template_path
+
         self.page_params = PageParameters()
         self.repository = Repository(self.rel_path, use_azure_blob, preload)
         self.storage = server.storage.get_storage()
@@ -69,9 +74,9 @@ class Page(object):
         self.sessiondb = SessionDB(self.storage)
         self.load_languages()
 
-        logging.debug("\n\nPWD: {} {}\n\n".format(os.getcwd(), self.rel_path))
+        logging.debug("\n\nPWD: {} {}\n\n".format(os.getcwd(), self.template_path))
 
-        file_loader = jinja2.FileSystemLoader(self.rel_path + "/templates")
+        file_loader = jinja2.FileSystemLoader(self.template_path + "/templates")
         self.templates = jinja2.Environment(loader=file_loader)
         self.template_params = self._default_template_params
 

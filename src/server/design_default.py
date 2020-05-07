@@ -5,24 +5,30 @@ import collections
 
 from server.helpers import encode_dict, encap_str
 
-from server.types import PageUserID
 from server.types import PageLanguage
 from server.types import PageOperation
 from server.types import ResponseOperation
 from server.types import PageParameters
 
 from server.test import Test
+from server.question import Question
 from server.stats import Stats
 
+from server.user_db import GOOGLE_CLIENT_ID
 from server.stat_charts import prepare_user_stats_chart
 
-#import stat_charts
+import server.context as context
 
-import os
+import logging
 
-#import sys
-#sys.path.append("..")
+USE_GOOGLE_AUTH = True
 
+
+class Design_default(object):
+    total_questions = 3
+
+    @staticmethod
+    def render_main_page(page):
 
 
         # If login, update user and replace op with the original op
@@ -40,6 +46,7 @@ import os
             # First login, if not already done
             page.page_params.set_param("op", PageOperation.MENU_USER)
 
+        user = context.c.user
 
         # TBD: re-enable later
         if False:
@@ -61,9 +68,7 @@ import os
             Design_default.render_question_page(page)
             return page.render()
 
-        if isinstance(page.page_params.menu_state, dict) and \
-            "summary" in page.page_params.menu_state.keys() and \
-                page.page_params.menu_state["summary"]:
+        elif page.page_params.get_param("op") == PageOperation.SUMMARY:
             # Last page
             logging.debug("PageOperation.SUMMARY")
             Design_default.render_summary_page(page)
@@ -77,12 +82,17 @@ import os
 
         elif page.page_params.get_param("op") == PageOperation.MENU_USER:
             # No user selected, first select user
+            logging.debug("PageOperation.MENU - select user")
             Design_default.render_select_user_page(page)
-        elif not page.page_params.year:
+            return page.render()
+
+        elif page.page_params.get_param("op") == PageOperation.MENU_YEAR:
             # No year selected, select it
             logging.debug("PageOperation.MENU - year")
             Design_default.render_select_year_page(page)
-        elif not page.page_params.theme:
+            return page.render()
+
+        elif page.page_params.get_param("op") == PageOperation.MENU_THEME:
             # No theme selected, select it
             logging.debug("PageOperation.MENU - theme")
             Design_default.render_select_theme_page(page)
@@ -119,7 +129,6 @@ import os
             page.page_params.set_param("op", PageOperation.MENU_YEAR)
             Design_default.render_select_year_page(page)
             return page.render()
-
 
 
 
@@ -198,10 +207,9 @@ import os
 
 
 
-
-
     @staticmethod
     def render_select_user_page(page):
+
         page.page_params.delete_history()
         page.page_params.set_param("year", "")
         page.page_params.set_param("theme", "")
@@ -228,6 +236,11 @@ import os
     @staticmethod
     def render_select_year_page(page):
         page.page_params.delete_history()
+        page.page_params.set_param("year", "")
+        page.page_params.set_param("theme", "")
+        page.page_params.set_param("subtheme", "")
+        page.page_params.set_param("q_id", "")
+        page.page_params.set_param("l_id", "")
 
         page.template_params["template_name"] = "year.html.j2"
 
@@ -297,6 +310,10 @@ import os
     @staticmethod
     def render_select_theme_page(page):
         page.page_params.delete_history()
+        page.page_params.set_param("theme", "")
+        page.page_params.set_param("subtheme", "")
+        page.page_params.set_param("q_id", "")
+        page.page_params.set_param("l_id", "")
 
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
@@ -428,6 +445,8 @@ import os
     @staticmethod
     def render_select_get_started_page(page):
         page.page_params.delete_history()
+        page.page_params.set_param("q_id", "")
+        page.page_params.set_param("l_id", "")
 
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
@@ -490,7 +509,8 @@ import os
 
     @staticmethod
     def render_question_page(page):
-        Design_default.render_menu(page)
+
+        next_question = None
         test = Test(page)
 
         # Create dictionary entries that define menu
@@ -500,24 +520,10 @@ import os
 
 
 
-        if isinstance(page.page_params.menu_state, dict) and "q_number" in page.page_params.menu_state.keys():
-            current_number = page.page_params.menu_state["q_number"]
-            if current_number > 1 and "history" in page.page_params.menu_state.keys () and \
-                                                   len(page.page_params.menu_state["history"]) >= 1:
-
-                # Go back to the previous page and reset history:
-                # Remove the last item in history, decrease the page counter
-                # and delete "last_question" key 
-                # The last one is a "hack", otherwise this question will be added to the history
-                new_menu_state = deepcopy(page.page_params.menu_state)
-                del new_menu_state["history"][-1]
-                new_menu_state["q_number"] = new_menu_state["q_number"] - 1
-                del new_menu_state["last_question"]
-
-                prev_url = page.page_params.create_url(\
-                            q_id = page.page_params.menu_state["history"][-1]["question"], \
-                            menu_state = new_menu_state,
-                            js = False)
+        if page.page_params.get_param("op") == PageOperation.TEST_PREV:
+            if len(context.c.session.get("history")) <= 1:
+                logging.warning("We shouldn't have offered a back link when there is no history.")
+                next_question = context.c.session.get("history")[-1]["q_id"]
             else:
                 context.c.session.list_delete("history", -1)
                 next_question = context.c.session.get("history")[-1]["q_id"]
@@ -592,6 +598,7 @@ import os
 
 
 
+
         page.template_params["q_number"] = str(q_number)
         page.template_params["correct"] = correct
         page.template_params["incorrect"] = incorrect
@@ -621,8 +628,6 @@ import os
 
 
 
-    #     test_users = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Jovana", "Zomebody"]
-    #     test_users.sort()
 
         # Design_default.add_buttons(page)
 
@@ -639,7 +644,6 @@ import os
         # page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
 
 
-        total_questions = 3
 
 
 
@@ -656,7 +660,7 @@ import os
 
         page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")        
         page.add_lines("\n<!-- CLEAR BUTTON -->\n")
-        page.add_lines("\n<input type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
+        page.add_lines("\n<input id='but_clear' type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
             page.get_messages()["clear"]))
         page.add_lines("\n<!-- END CLEAR BUTTON -->\n")
 
@@ -664,7 +668,7 @@ import os
         # page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         # page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
         # page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-        #     page.on_click(\
+        #     Design_default.on_click(page, \
         #         operation=ResponseOperation.SUBMIT, \
         #         record=True), page.get_messages()["check"]))
         # page.add_lines("\n<!-- END CHECK BUTTONS -->\n")
@@ -672,38 +676,86 @@ import os
 
         page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")        
         page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
-        if q_number == total_questions + 1:
-            page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-                page.on_click(\
-                    operation=ResponseOperation.SUBMIT, \
-                    url_next=home_url, quoted=False, \
-                    record=True), page.get_messages()["check"]))
-        else:
-            page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-                page.on_click(\
-                    operation=ResponseOperation.SUBMIT, \
-                    url_next=url_next, \
-                    record=True), page.get_messages()["check"]))
+        page.add_lines("<input id='but_check' type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
+            Design_default.on_click(page, \
+                operation=ResponseOperation.SUBMIT, \
+                url_next=url_next, \
+                quoted=False, \
+                record=True), page.get_messages()["check"]))
         page.add_lines("\n<!-- END CHECK BUTTON -->\n")
 
 
-        if url_next is not None:
-            page.add_lines("\n\n<!-- NEXT BUTTON -->\n")
-            page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-            if q_number == total_questions + 1:
-                page.add_lines("\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
-                    page.on_click(\
-                        operation=ResponseOperation.SKIP, \
-                        url_next=home_url, quoted=False, \
-                        record=True), page.get_messages()["skip"]))
-            else:
-                page.add_lines("\n<input type='button' style='font-size: 14px;' onclick='{}' value='{}' />\n".format(
-                    page.on_click(\
-                        operation=ResponseOperation.SKIP, \
-                        url_next=url_next, \
-                        record=True), page.get_messages()["skip"]))
-            page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
+        page.add_lines("\n\n<!-- NEXT BUTTON -->\n")
+        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        page.add_lines("\n<input id='but_next' type='button' style='display:none; font-size: 14px;' onclick='{}' value='{}' />\n".format(
+            Design_default.on_click(page, \
+                operation=ResponseOperation.SKIP, \
+                url_next=url_next, \
+                quoted=False, \
+                record=True), page.get_messages()["skip"]))
+        page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
             
+
+
+
+        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        
+        page.add_lines("\n<!-- SOLUTION BUTTON -->\n")
+        page.add_lines("\n<input id='but_help' type='button' style='display:none; font-size: 14px;' " \
+            "onclick=\"clearAll();addSolutionAll();"
+            "document.getElementById('but_check').style.display='none';"
+            "document.getElementById('but_help').style.display='none';"
+            "document.getElementById('but_clear').style.display='none';"
+            "document.getElementById('but_next').value='Dalje';"
+            "\" value='{}' />\n".format(
+            "Resenje"))
+        page.add_lines("\n<!-- END SOLUTION BUTTON -->\n")
+
+
+
+
+        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        
+        page.add_lines("\n<!-- FEEDBACK BUTTON -->\n")
+
+        inner_html = "<h3> Unesite detalje komentara</h3>\n"
+        #inner_html = inner_html + "<form action='javascript:void(0);'>\n"
+        inner_html = inner_html + "Mislite da zadatak: <br>"
+        inner_html = inner_html + "<input type='radio' id='fb_problem'> Ima problem <br>"
+        inner_html = inner_html + "<input type='radio' id='fb_unclear'> Nije jasan <br>"
+        inner_html = inner_html + "<input type='radio' id='fb_difficult'> Pretezak <br>"
+        inner_html = inner_html + "<input type='radio' id='fb_easy'> Prelak <br>"
+        inner_html = inner_html + "<input type='radio' id='fb_other'> Drugo <br> "
+        inner_html = inner_html + "<br> Dodatni komentar: <br><input type='text' id='fb_komentar'> <br> <br>"
+        inner_html = inner_html + "\n<input align='center' type='button' style='font-size: 14px;' " \
+            "onclick=\"sendFeedbackToServer('{}', {}, '{}', '{}', {}); " \
+                "popup_toggle_feedback_report(); " \
+                "document.getElementById('but_fb').style.display='none';" \
+                "\" value='{}' />\n".format(
+            page.page_params.get_param("root"), 
+            "document.getElementById('fb_problem').checked?'problem':(" \
+                "document.getElementById('fb_unclear').checked?'unclear':(" \
+                "document.getElementById('fb_difficult').checked?'unclear':(" \
+                "document.getElementById('fb_easy').checked?'unclear':'other')))",
+            page.page_params.get_param("q_id"),
+            page.page_params.get_param("l_id"),
+            "document.getElementById('fb_komentar').value",
+            "Posalji prijavu")
+        # Add gap:
+        inner_html = inner_html + "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+        inner_html = inner_html + "\n<input align='center' type='button' style='font-size: 14px;' " \
+            "onclick=\"popup_toggle_feedback_report();\" value='{}' />\n".format("Odustani")
+
+        extra_style = "width: 300px; background-color: #555; color: #fff; text-align: center; border-radius: 6px; padding: 8px;"
+
+        Design_default.add_popup(page, "feedback_report", inner_html, extra_style)
+
+        page.add_lines("\n<input id='but_fb' type='button' style='font-size: 14px;' onclick=\"popup_toggle_feedback_report()\" value='{}' />\n".format(
+            "Prijavi problem"))
+
+        page.add_lines("\n<!-- END FEEDBACK BUTTON -->\n")
+
+
 
 
         page.add_lines("\n</div>\n")
@@ -1150,11 +1202,43 @@ import os
                     Design_default._render_user_one_cat_rec(page, cat[kt][k], k, indent+1)
 
 
+
+
+
+
+    @staticmethod
+    def on_click(page, operation:ResponseOperation=None, url_next=None, record=False, quoted=True):
+        if record:
+            # Only send results to server if next_url specified (i.e. we are in the test mode)
+            ret_str = 'cond = checkAll("{}", "{}", "{}", "{}");'.format(
+                ResponseOperation.toStr(operation),
+                page.page_params.get_param("root"),
+                page.page_params.get_param("q_id"),
+                page.page_params.get_param("l_id")
+            )
+        else:
+            ret_str = "cond = checkAll();"
+
+        if url_next is not None:
+            if operation == ResponseOperation.SUBMIT:
+                ret_str = ret_str + "if (cond) "
+            if quoted:
+                ret_str = ret_str + " {window.location.replace(\"" + url_next + "\");}"
+            else:
+                ret_str = ret_str + " {window.location.replace(" + url_next + ");}"
+            if operation == ResponseOperation.SUBMIT:
+                ret_str = ret_str + \
+                    "else {document.getElementById(\"but_help\").style.display=\"inline-block\"; " \
+                    "document.getElementById(\"but_next\").style.display=\"inline-block\"; }"
+
+        return ret_str
+
+
+
     @staticmethod
     def render_user_stats(page, u_id):
-        Design_default.render_menu(page)
+
+        # Create dictionary entries that define menu
+        Design_default.add_menu(page)
+
         prepare_user_stats_chart(page, 'Petar')
-
-
-
-

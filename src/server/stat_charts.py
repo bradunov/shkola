@@ -23,7 +23,9 @@ def render_stats_data(pg, u_ID):
             for subtheme_key, subtheme_val in theme_val['subtheme'].items():
                 user_stats['level'][level_key]['theme'][theme_key]['subtheme'][subtheme_key] = {'difficulty': {}}
                 for difficulty_key, difficulty_val in subtheme_val['difficulty'].items():
-                     user_stats['level'][level_key]['theme'][theme_key]['subtheme'][subtheme_key]['difficulty'][difficulty_key]={'correct':difficulty_val['correct'], 'total':difficulty_val['total']}
+                     user_stats['level'][level_key]['theme'][theme_key]['subtheme'][subtheme_key]['difficulty'][difficulty_key] = {
+                         'correct':difficulty_val['questions'], 'total':difficulty_val['total']}
+#                         'correct':difficulty_val['correct'], 'total':difficulty_val['total']}
     return user_stats
 
 def draw_chart(chart_data, pg):
@@ -133,7 +135,30 @@ def draw_chart(chart_data, pg):
     os.remove('tmp_chart.png')
     return base64_code
 
+
+
+
 def prepare_user_stats_chart(pg, u_ID):
+
+    user_stats=render_stats_data(pg, u_ID)
+
+    pg.template_params["template_name"] = "stats.html.j2"
+    pg.template_params["user_stats"] = user_stats['level']
+
+    #pg.template_params["class_gen_str"] = pg.get_messages()['messages']['class']
+    pg.template_params["class_gen_str"] = 'Razred'
+
+    pg.template_params["base64_str"] = {}
+
+    ####################### THIS WORKS - CHART ONLY ##################################
+    for level_key, level_val in user_stats['level'].items():
+        for theme_key, theme_val in level_val['theme'].items():
+            base64_str=draw_chart(theme_val['subtheme'], pg) #create chart and save base64 string
+            base64_str=base64_str.decode("utf-8") #convert from byte to string
+            pg.template_params["base64_str"][theme_key] = base64_str
+
+    return
+
 
     star = '&#9733'  # star_symbol
     clr = []
@@ -208,5 +233,8 @@ def prepare_user_stats_chart(pg, u_ID):
 
 if __name__ == '__main__':
 
-    pg = page.Page()
+    pg = page.Page(template_path="..")
+    #pg = page.Page()
     prepare_user_stats_chart(pg, 'Petar')
+    print(pg.render())
+
