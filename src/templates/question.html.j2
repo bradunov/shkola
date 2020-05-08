@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% import 'elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+    {{ elements.init_elements() }}
+    {{ elements.standard_background() }}
+
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- MOBILE MENU START -->
+    {% import 'menu.html.j2' as menu %}
+    {{ menu.include() }}
+    {{ menu.start_head() }}
+
+      <div style="display:inline-block; text-align:left; width: 131px; height: 36px; margin-left: 37px; margin-top: 8px">
+        <div style="display:inline-block; color: #dc3d39; font-family: 'Lato'; font-size: 14px;">
+          {{template_params["year"]}}
+        </div>
+        <div style="display:inline-block;color: #489cba; font-family: 'Lato'; font-size: 14px;">
+          {{template_params["theme"]}} / {{template_params["subtheme"]}}
+        </div>
+      </div>
+
+    {{ menu.end_head() }}
+    {{ menu.dropdowns(template_params) }}
+    <!-- MENU END -->
+
+
+    <script>
+      var solved = false;
+      var showed_sol = false;
+      var showed_wrong = false;
+      function question_onnext() {
+        if (solved || showed_sol) {
+          location.href = "{{template_params["next"]}}";
+        }
+        var check = checkAll("SUBMIT", "{{template_params["root"]}}", 
+                            "{{template_params["q_id"]}}", "{{template_params["l_id"]}}"); 
+        if (check) {
+          solved = true;
+          var monster = document.getElementById("monster");
+          monster.style.visibility = "visible";
+        } else {
+          if (!showed_wrong) {
+            document.getElementById("wrong_answer").style.visibility = "visible";
+            showed_wrong = true;
+          } else {
+            if (document.getElementById("wr_again").checked) {
+              document.getElementById("wrong_answer").style.visibility = "hidden";
+              showed_wrong = false;
+              // Add if you want to delete all wrong answers
+              clearAll();
+            } else if (document.getElementById("wr_solution").checked) {
+              document.getElementById("wrong_answer").style.visibility = "hidden";
+              showed_wrong = false;
+              clearAll();
+              addSolutionAll();
+              showed_sol = true;
+            } else if (document.getElementById("wr_skip").checked) {
+                location.href = "{{template_params["next"]}}";
+            } else if (document.getElementById("wr_report").checked) {
+              document.getElementById("wrong_answer").style.visibility = "hidden";
+              showed_wrong = false;
+            }
+          }
+        }
+      }
+    </script>
+
+
+    <div style="height: calc(100% - 90px); width:100%; overflow-y: auto; overflow-x: hidden; ">
+
+      <div style="display:inline-block; width: 100%; text-align: center; margin-top: 30px; ">
+        {{ elements.stats("bar", template_params["bar"]["star1"], template_params["bar"]["star2"], 
+                                template_params["bar"]["star3"], template_params["bar"]["missed"]) }} 
+      </div>
+
+      <div style="display:inline-block; width: 100%; text-align: center; margin-top: 12px; background: white">
+        <div style="display:inline-block; width: 100%; text-align: right; ">
+          <div style="display:inline-block; margin-right: 35px; ">
+            {{elements.start(1)}}
+          </div>
+        </div>
+        <div style="display:inline-block; width: 100%; text-align: center; margin-top: 11px; ">
+
+          {{template_params["question"]}}
+
+        </div>
+        <div style="display:inline-block; width: 100%; text-align: center; margin-top: 14px; ">
+          <div style="display:inline-block; width: 49%; text-align: left; ">
+            <!-- PREV BUTTON -->
+            <div id='but_prev' style="display:inline-block;cursor: pointer; width:66px; height:21px; margin-left: 35px;"
+                onclick='location.href = "{{template_params["back"]}}"'>
+                {{elements.back()}}
+            </div>
+            <!-- END PREV BUTTON --> 
+          </div>
+          <div style="display:inline-block; width: 49%; text-align: right;">
+            <!-- NEXT BUTTON -->
+            <div id='but_prev' style="display:inline-block;cursor: pointer; width:75px; height:19px; margin-right: 35px;"
+                onclick='location.href = "{{template_params["next"]}}"'>
+                {{elements.skip()}}
+            </div>
+            <!-- END NEXT BUTTON -->
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    {{ elements.next("question_onnext()") }}
+
+    <script>
+      // Immediately enable next
+      next_callback(true, "");
+    </script>
+
+
+
+
+    <!-- FEEDBACK BUTTON -->
+    {{elements.start_popup("feedback_report", "width: 300px; background-color: #555; color: #fff; text-align: center; border-radius: 6px; padding: 8px;")}}
+
+      <h3> Unesite detalje komentara</h3>
+      Mislite da zadatak: <br>
+      <input type='radio' id='fb_problem'> Ima problem <br>
+      <input type='radio' id='fb_unclear'> Nije jasan <br>
+      <input type='radio' id='fb_difficult'> Pretezak <br>
+      <input type='radio' id='fb_easy'> Prelak <br>
+      <input type='radio' id='fb_other'> Drugo <br> 
+      <br> Dodatni komentar: <br><input type='text' id='fb_komentar'> <br> <br>
+      <input align='center' type='button' style='font-size: 14px;'  
+              onclick="sendFeedbackToServer('{{template_params['root']}}', 
+                  document.getElementById('fb_problem').checked?'problem':(
+                    document.getElementById('fb_unclear').checked?'unclear':(
+                    document.getElementById('fb_difficult').checked?'unclear':(
+                    document.getElementById('fb_easy').checked?'unclear':'other'))), 
+                  '{{template_params['q_id']}}', '{{template_params['l_id']}}', 
+                  document.getElementById('fb_komentar').value); 
+              popup_toggle_feedback_report(); 
+              document.getElementById('but_fb').style.display='none';
+              " value='Posalji prijavu' />
+
+      <div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+      <input align='center' type='button' style='font-size: 14px;' 
+          onclick="popup_toggle_feedback_report();" value='Odustani' />
+
+    {{elements.end_popup()}}
+
+
+    {# {{elements.cup(10, 30)}} 
+    {{elements.cup(40, 80)}} 
+    {{elements.cup(70, 20)}}  #}
+
+    {{elements.bravo()}}
+
+
+    <!-- WRONG POPUP -->
+    <div id='wrong_answer' style='visibility: hidden; position: fixed; z-index: 1; top: 127px; left: 0%; 
+         width: 100%; text-align: center; background: white'>
+      <div style='display:inline-block; width: 240px; text-align: center; 
+                  margin-top: 17px; font-family: "Lato"; font-size: 18px;'>
+        Eh, zadatak nije skroz tačan.
+      </div>
+      <div style='display:inline-block; width: 240px; text-align: left;   
+                  margin-top: 22px; font-family: "Lato"; font-size: 18px;'>
+        <input type='radio' id='wr_again' name="wr_input" style='text-align: left; margin-right: 19px;'> Hoću još jednu šansu! 
+      </div>
+      <div style='display:inline-block; width: 240px; text-align: left;  
+                  margin-top: 15px; font-family: "Lato"; font-size: 18px;'>
+        <input type='radio' id='wr_solution' name="wr_input" style='text-align: left; margin-right: 19px;'> Daj da vidim rešenje! 
+      </div>
+      <div style='display:inline-block; width: 240px; text-align: left;  
+                  margin-top: 15px; font-family: "Lato"; font-size: 18px;'>
+        <input type='radio' id='wr_skip' name="wr_input" style='text-align: left; margin-right: 19px;'> Ja bih da preskočim. 
+      </div>
+      <div style='display:inline-block; width: 240px; text-align: left;  
+                  margin-top: 15px; font-family: "Lato"; font-size: 18px;'>
+        <input type='radio' id='wr_report' name="wr_input" style='text-align: left; margin-right: 19px;'> Ovaj zadatak ima grešku. 
+      </div>
+
+      <!-- Sad monster -->
+      <div style='display:inline-block; width: 100%; text-align: center; margin-top: 38px;'>
+        <svg xmlns="http://www.w3.org/2000/svg" id="prefix__noun_Monster_3288518" width="100.042" height="127.92" viewBox="0 0 100.042 127.92">
+          <path id="prefix__Path_186" d="M109.972 21.469H87.639C82.463 13.37 73.788 8.04 64 8.04s-18.463 5.33-23.639 13.429H18.028A4.2 4.2 0 0 0 14 25.8l8.8 88.083c.548 5.486 8.627 5.538 8.062 0q-4.185-41.87-8.369-83.757h14.03a32.614 32.614 0 0 0-1.193 8.67v27.026l4.983 7.632 1.048-1.9q6.289 27.879 12.61 55.757H40.683c-5.192 0-5.208 8.653 0 8.653H59.1a4.194 4.194 0 0 0 4-4.4 4.965 4.965 0 0 0-.113-1.073L49.2 69.56l1.258-2.267 3.4 6.161 3.37-6.126 3.37 6.126L64 67.293l3.4 6.161 3.37-6.126 3.37 6.126 3.4-6.161 1.26 2.267q-6.893 30.474-13.787 60.932a4.965 4.965 0 0 0-.113 1.073 4.194 4.194 0 0 0 4 4.4h18.417c5.192 0 5.208-8.653 0-8.653H74.03q6.313-27.879 12.61-55.757l1.048 1.9 4.983-7.632V38.791a32.614 32.614 0 0 0-1.193-8.67h14.029l-8.369 83.757c-.564 5.538 7.514 5.486 8.062 0l8.8-88.083a4.211 4.211 0 0 0-4.028-4.326zM64 43.5c-7.03 0-12.739-6.126-12.739-13.688 0-7.545 5.708-13.671 12.739-13.671s12.739 6.124 12.739 13.669c0 7.562-5.709 13.69-12.739 13.69z" 
+              style="fill:#f3b051" data-name="Path 186" transform="translate(-13.979 -8.04)"/>
+          <path id="prefix__Path_187" d="M45 16.55a4.075 4.075 0 1 0 4.08 4.07A4.076 4.076 0 0 0 45 16.55zm-1.2 3.78a.915.915 0 1 1 .91-.91.915.915 0 0 1-.91.91z" 
+              style="fill:#f3b051" data-name="Path 187" transform="translate(5.021 -8.04)"/>
+        </svg>
+      </div>
+    </div>
+    <!-- END WRONG POPUP -->
+
+  </body>
+</html>

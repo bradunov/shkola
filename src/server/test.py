@@ -40,11 +40,22 @@ class Test(object):
             if self.page.page_params.get_param("subtheme") and (self.page.page_params.get_param("subtheme") == "*" or q["subtheme"] == self.page.page_params.get_param("subtheme")) and \
                self.page.page_params.get_param("period") and (self.page.page_params.get_param("period") == "*" or q["period"] == self.page.page_params.get_param("period")) and \
                self.page.page_params.get_param("difficulty") and (self.page.page_params.get_param("difficulty") == "*" or q["difficulty"] == self.page.page_params.get_param("difficulty")):
-                potential_questions_w_repeat.append(q["name"])
+                next_q = {
+                    "q_id" : q["name"],
+                    "subtheme" : q["subtheme"],
+                    "period" : q["period"], 
+                    "difficulty" : q["difficulty"]
+                }
+                potential_questions_w_repeat.append(next_q)
                 if not q["name"] in asked_questions:
-                    potential_questions.append(q["name"])
+                    potential_questions.append(next_q)
 
-        next_question = ""
+        next_question = {
+            "q_id" : "",
+            "subtheme" : "",
+            "period" : "", 
+            "difficulty" : ""
+        }
         if potential_questions:
             # Give a random, previously unasked question, if such remains
             total = len(potential_questions)
@@ -64,20 +75,20 @@ class Test(object):
         
 
         
-    def render_next_questions(self, next_question=None):  
-        if not next_question:
-            next_question = self.choose_next_question()
-        next_question_url = self.page.page_params.create_url(\
-            op = PageOperation.toStr(PageOperation.TEST), \
-            q_id = next_question, \
-            js = False)
+    # def render_next_questions(self, next_question=None):  
+    #     if not next_question:
+    #         next_question = self.choose_next_question()
+    #     next_question_url = self.page.page_params.create_url(\
+    #         op = PageOperation.toStr(PageOperation.TEST), \
+    #         q_id = next_question, \
+    #         js = False)
 
         
-        q = Question(self.page)
-        q.set_from_file_with_exception()
-        q.eval_with_exception()
+    #     q = Question(self.page)
+    #     q.set_from_file_with_exception()
+    #     q.eval_with_exception()
 
-        return next_question_url
+    #     return next_question_url
 
 
 

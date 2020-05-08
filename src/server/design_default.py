@@ -326,6 +326,9 @@ class Design_default(object):
             page.template_params["template_name"] = "theme.html.j2"
 
             page.template_params['year'] = page.page_params.get_param("year").upper()
+            page.template_params['url_year'] = page.page_params.create_url(
+                                            op = PageOperation.toStr(PageOperation.MENU_YEAR), js = False)
+
             page.template_params['themes'] = []
 
 
@@ -516,7 +519,7 @@ class Design_default(object):
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
 
-        page.template_params["template_name"] = "test.html.j2"
+        page.template_params["template_name"] = "question.html.j2"
 
 
 
@@ -541,12 +544,13 @@ class Design_default(object):
                 context.c.session.set("test_id", int(time.time()*1000))
 
             next_question = test.choose_next_question()
-            context.c.session.list_append("history", {
+            hist = {
                 "url" : page.page_params.get_url(),
-                "q_id" : next_question,
                 "correct" : 0, 
                 "incorrect" : 0
-            })
+            }
+            hist.update(next_question)
+            context.c.session.list_append("history", hist)
 
         # context.c.session.print()
 
@@ -554,10 +558,10 @@ class Design_default(object):
         # Create question - it will be added to page.lines and 
         # passes as page.template_params["question"] to the jinja2 form
 
-        page.page_params.set_param("q_id", next_question)
+        page.page_params.set_param("q_id", next_question["q_id"])
         test_id = context.c.session.get("test_id")
         test_order = len(context.c.session.get("history"))
-        q = Question(page=page, q_id=next_question, test_id=test_id, test_order=test_order)
+        q = Question(page=page, q_id=next_question["q_id"], test_id=test_id, test_order=test_order)
         q.set_from_file_with_exception()
         q.eval_with_exception()
 
@@ -580,47 +584,48 @@ class Design_default(object):
 
         if q_number >= Design_default.total_questions:
             url_next = page.page_params.create_url( 
-                op=encap_str(PageOperation.toStr(PageOperation.SUMMARY)),
-                js=True)
+                op=PageOperation.toStr(PageOperation.SUMMARY),
+                js=False)
         else:
             url_next = page.page_params.create_url( 
-                op=encap_str(PageOperation.toStr(PageOperation.TEST)),
-                js=True)
+                op=PageOperation.toStr(PageOperation.TEST),
+                js=False)
 
 
         correct = 0
         incorrect = 0
-
+        difficulty = "0"
+        page.template_params["bar"] = {"star1": 0, "star2": 0, "star3": 0, "missed": 0}
         if context.c.session.get("history"):
             for r in context.c.session.get("history"):
-                correct = correct + int(r["correct"])
-                incorrect = incorrect + int(r["incorrect"])
-
-
+                if "difficulty" in r.keys():
+                    difficulty = r["difficulty"]
+                    if r["difficulty"] == "1":
+                        page.template_params["bar"]["star1"] = page.template_params["bar"]["star1"] + r["correct"]
+                        page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+                    elif r["difficulty"] == "2":
+                        page.template_params["bar"]["star2"] = page.template_params["bar"]["star2"] + r["correct"]
+                        page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+                    elif r["difficulty"] == "3":
+                        page.template_params["bar"]["star3"] = page.template_params["bar"]["star3"] + r["correct"]
+                        page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
 
 
         page.template_params["q_number"] = str(q_number)
-        page.template_params["correct"] = correct
-        page.template_params["incorrect"] = incorrect
 
         page.template_params["root"] = page.page_params.get_param("root")
         page.template_params["q_id"] = page.page_params.get_param("q_id")
         page.template_params["l_id"] = page.page_params.get_param("l_id")
 
-        page.template_params["links"] = {}
-        page.template_params["links"]["check"] = Design_default.on_click(page, \
-            operation=ResponseOperation.SUBMIT, \
-            url_next=url_next, \
-            quoted=False, \
-            record=True)
+        page.template_params["year"] = page.page_params.get_param("year")
+        page.template_params["theme"] = page.page_params.get_param("theme")
+        page.template_params["subtheme"] = page.page_params.get_param("subtheme")
+        page.template_params["difficulty"] = difficulty
 
-        page.template_params["links"]["skip"] = Design_default.on_click(page, \
-            operation=ResponseOperation.SKIP, \
-            url_next=url_next, \
-            quoted=False, \
-            record=True)
+        page.template_params["next"] = url_next
+        page.template_params["back"] = url_prev
 
-        page.template_params["links"]["back"] = url_prev
+
 
 
         return

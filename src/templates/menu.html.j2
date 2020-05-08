@@ -55,14 +55,28 @@
 {% endmacro %}
 
 
-{% macro head() %}
-    <div style="height: 50px; background-color: white; box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.12);">
+{% macro start_head() %}
+  <div style="height: 50px; background-color: white; box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.12);">
+{% endmacro %}
+
+
+{% macro end_head() %}
+    <span width="70px" style='display:table;float:right;'> 
+      <button class="sh-menu-button sh-menu-dark-grey sh-menu-large sh-menu-font" style="padding: 0px; display: table-cell; vertical-align: middle; text-align: center; height: 20px; " onclick="shl_toggle()"><input type="image" style="padding: 0px" width="36px" height="20px" alt="Srbija" src="item?url=images/flags/rs.png"></button>
+      <button class="sh-menu-button" style="display: table-cell; vertical-align: middle; text-align: center;padding: 8px 8px; font-size: 20px; font-weight: 900; color: #029194" onclick="shm_toggle()">☰</button>
+    </span>
+  </div>
+{% endmacro %}
+
+
+{% macro head(text=None) %}
+  {{ start_head() }}
+    {% if text == None %}
       <div class="sh-menu-button" style="font-family: 'Bubblegum Sans'; font-size: 24px; color: #029194"> TATA MATA </div> 
-      <span width="70px" style='display:table;float:right;'> 
-        <button class="sh-menu-button sh-menu-dark-grey sh-menu-large sh-menu-font" style="padding: 0px; display: table-cell; vertical-align: middle; text-align: center; height: 20px; " onclick="shl_toggle()"><input type="image" style="padding: 0px" width="36px" height="20px" alt="Srbija" src="item?url=images/flags/rs.png"></button>
-        <button class="sh-menu-button" style="display: table-cell; vertical-align: middle; text-align: center;padding: 8px 8px; font-size: 20px; font-weight: 900; color: #029194" onclick="shm_toggle()">☰</button>
-      </span>
-    </div>
+    {% else %}
+      {{text}}
+    {% endif %}
+  {{ end_head() }}
 {% endmacro %}
 
 
