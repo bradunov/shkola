@@ -354,7 +354,8 @@ class Design_default(object):
                                             subtheme = subtheme, 
                                             period = "*", 
                                             difficulty = "*", 
-                                            l_id = content[page.page_params.get_param("year")][theme]["name"], js = False)
+                                            l_id = content[page.page_params.get_param("year")][theme]["name"], 
+                                            js = False)
                                 })
                                 all_subthemes.add(subtheme)
 
@@ -378,6 +379,7 @@ class Design_default(object):
                                 subtheme = "*", \
                                 period = "*", \
                                 difficulty = "*", \
+                                l_id = content[page.page_params.get_param("year")][theme]["name"], \
                                 js = False),
                         'subthemes' : subtheme_list
                     })
@@ -449,7 +451,6 @@ class Design_default(object):
     def render_select_get_started_page(page):
         page.page_params.delete_history()
         page.page_params.set_param("q_id", "")
-        page.page_params.set_param("l_id", "")
 
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
@@ -610,6 +611,7 @@ class Design_default(object):
                         page.template_params["bar"]["star3"] = page.template_params["bar"]["star3"] + r["correct"]
                         page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
 
+        logging.debug("\n\n\n AAAAAAAAAAAAAAAAA: {} {}\n\n\n".format(difficulty, page.page_params.get_param("q_id")))
 
         page.template_params["q_number"] = str(q_number)
 
@@ -620,7 +622,7 @@ class Design_default(object):
         page.template_params["year"] = page.page_params.get_param("year")
         page.template_params["theme"] = page.page_params.get_param("theme")
         page.template_params["subtheme"] = page.page_params.get_param("subtheme")
-        page.template_params["difficulty"] = difficulty
+        page.template_params["difficulty"] = int(difficulty)
 
         page.template_params["next"] = url_next
         page.template_params["back"] = url_prev

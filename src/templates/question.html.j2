@@ -41,16 +41,52 @@
       var solved = false;
       var showed_sol = false;
       var showed_wrong = false;
+
+      function toggle_feedback(visible) {
+          var feedback_form = document.getElementById("feedback");
+          var sad_mosnter = document.getElementById("sad_monster");
+          if (visible) {
+            feedback_form.style.display = "inline-block";
+            sad_mosnter.style.display = "none";
+          } else {
+            feedback_form.style.display = "none";
+            sad_mosnter.style.display = "inline-block";
+          }
+      }
+
       function question_onnext() {
+        if (document.getElementById("wr_report").checked) {
+          sendFeedbackToServer('{{template_params['root']}}', 
+              document.getElementById('fb_problem').checked?'problem':(
+                document.getElementById('fb_unclear').checked?'unclear':(
+                document.getElementById('fb_difficult').checked?'unclear':(
+                document.getElementById('fb_easy').checked?'unclear':'other'))), 
+              '{{template_params['q_id']}}', '{{template_params['l_id']}}', 
+              document.getElementById('fb_komentar').value); 
+
+          toggle_feedback(false);
+          document.getElementById('wr_report').checked = false;
+          document.getElementById('wr_report_option').style.display='none';
+          return;
+        }
         if (solved || showed_sol) {
           location.href = "{{template_params["next"]}}";
         }
-        var check = checkAll("SUBMIT", "{{template_params["root"]}}", 
-                            "{{template_params["q_id"]}}", "{{template_params["l_id"]}}"); 
+        var check = false;
+        if (document.getElementById("wrong_answer").style.visibility == "hidden") {
+          // No need to (re-)check if the wrong answer form is open as the answers didn't change   
+          check = checkAll("SUBMIT", "{{template_params["root"]}}", 
+                              "{{template_params["q_id"]}}", "{{template_params["l_id"]}}"); 
+        }
         if (check) {
           solved = true;
           var monster = document.getElementById("monster");
           monster.style.visibility = "visible";
+          document.getElementById("cup1").style.visibility = "visible";
+          document.getElementById("cup2").style.visibility = "visible";
+          document.getElementById("cup3").style.visibility = "visible";
+          document.getElementById("cup4").style.visibility = "visible";
+          document.getElementById("cup5").style.visibility = "visible";
         } else {
           if (!showed_wrong) {
             document.getElementById("wrong_answer").style.visibility = "visible";
@@ -69,9 +105,6 @@
               showed_sol = true;
             } else if (document.getElementById("wr_skip").checked) {
                 location.href = "{{template_params["next"]}}";
-            } else if (document.getElementById("wr_report").checked) {
-              document.getElementById("wrong_answer").style.visibility = "hidden";
-              showed_wrong = false;
             }
           }
         }
@@ -87,12 +120,13 @@
       </div>
 
       <div style="display:inline-block; width: 100%; text-align: center; margin-top: 12px; background: white">
-        <div style="display:inline-block; width: 100%; text-align: right; ">
+        <div style="display:inline-block; width: 100%; text-align: right; margin-top: 10px; ">
           <div style="display:inline-block; margin-right: 35px; ">
-            {{elements.start(1)}}
+            {{elements.stars(template_params["difficulty"])}}
           </div>
         </div>
-        <div style="display:inline-block; width: 100%; text-align: center; margin-top: 11px; ">
+        <div style="display:inline-block; width: 100%; text-align: center; margin: 11px 8px 8px 8px; 
+                    font-family: 'Lato'; font-size: 18px;">
 
           {{template_params["question"]}}
 
@@ -123,13 +157,17 @@
     {{ elements.next("question_onnext()") }}
 
     <script>
+      {# // DEBUG
+      function checkAll(a,b,c,d) {return false;}
+      function sendFeedbackToServer(a,b,c) {}; #}
+
       // Immediately enable next
       next_callback(true, "");
     </script>
 
 
 
-
+{# 
     <!-- FEEDBACK BUTTON -->
     {{elements.start_popup("feedback_report", "width: 300px; background-color: #555; color: #fff; text-align: center; border-radius: 6px; padding: 8px;")}}
 
@@ -156,43 +194,67 @@
       <div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
       <input align='center' type='button' style='font-size: 14px;' 
           onclick="popup_toggle_feedback_report();" value='Odustani' />
-
     {{elements.end_popup()}}
+    <!-- END FEEDBACK BUTTON -->
+ #}
 
-
-    {# {{elements.cup(10, 30)}} 
-    {{elements.cup(40, 80)}} 
-    {{elements.cup(70, 20)}}  #}
+    {{elements.cup("cup1", 10, 30)}} 
+    {{elements.cup("cup2", 40, 80)}} 
+    {{elements.cup("cup3", 70, 20)}} 
+    {{elements.cup("cup4", 50, 55)}} 
+    {{elements.cup("cup5", 60, 70)}} 
 
     {{elements.bravo()}}
 
 
     <!-- WRONG POPUP -->
     <div id='wrong_answer' style='visibility: hidden; position: fixed; z-index: 1; top: 127px; left: 0%; 
-         width: 100%; text-align: center; background: white'>
-      <div style='display:inline-block; width: 240px; text-align: center; 
+         width: 100%; text-align: center; background: white; scroll-y: auto'>
+      <div style='display:inline-block; width: 250px; text-align: center; 
                   margin-top: 17px; font-family: "Lato"; font-size: 18px;'>
         Eh, zadatak nije skroz tačan.
       </div>
-      <div style='display:inline-block; width: 240px; text-align: left;   
+      <div style='display:inline-block; width: 250px; text-align: left;   
                   margin-top: 22px; font-family: "Lato"; font-size: 18px;'>
-        <input type='radio' id='wr_again' name="wr_input" style='text-align: left; margin-right: 19px;'> Hoću još jednu šansu! 
+        <input type='radio' id='wr_again' name="wr_input" 
+               style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
+        Hoću još jednu šansu! 
       </div>
-      <div style='display:inline-block; width: 240px; text-align: left;  
+      <div style='display:inline-block; width: 250px; text-align: left;  
                   margin-top: 15px; font-family: "Lato"; font-size: 18px;'>
-        <input type='radio' id='wr_solution' name="wr_input" style='text-align: left; margin-right: 19px;'> Daj da vidim rešenje! 
+        <input type='radio' id='wr_solution' name="wr_input" 
+               style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
+        Daj da vidim rešenje! 
       </div>
-      <div style='display:inline-block; width: 240px; text-align: left;  
+      <div style='display:inline-block; width: 250px; text-align: left;  
                   margin-top: 15px; font-family: "Lato"; font-size: 18px;'>
-        <input type='radio' id='wr_skip' name="wr_input" style='text-align: left; margin-right: 19px;'> Ja bih da preskočim. 
+        <input type='radio' id='wr_skip' name="wr_input" 
+               style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
+        Ja bih da preskočim. 
       </div>
-      <div style='display:inline-block; width: 240px; text-align: left;  
+      <div id='wr_report_option' style='display:inline-block; width: 250px; text-align: left;  
                   margin-top: 15px; font-family: "Lato"; font-size: 18px;'>
-        <input type='radio' id='wr_report' name="wr_input" style='text-align: left; margin-right: 19px;'> Ovaj zadatak ima grešku. 
+        <input type='radio' id='wr_report' name="wr_input" 
+               style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(true)'> 
+        Ovaj zadatak ima problem. 
       </div>
 
+      <!-- Feedback form -->
+      <div id="feedback" style='display:none; width: 250px; text-align: left; border: 2px solid #148f91; margin-top: 26px; '>
+        <div style='display:inline-block; text-align: left; margin: 12px 12px 0 12px; font-family: "Lato"; font-size: 18px;'>
+          <input type='radio' id='fb_problem' style='text-align: left; margin-right: 19px;'> Ima grešku <br>
+          <input type='radio' id='fb_unclear' style='text-align: left; margin-right: 19px;'> Nije jasan <br>
+          <input type='radio' id='fb_difficult' style='text-align: left; margin-right: 19px;'> Pretezak <br>
+          <input type='radio' id='fb_easy' style='text-align: left; margin-right: 19px;'> Prelak <br>
+          <input type='radio' id='fb_other' style='text-align: left; margin-right: 19px;'> Drugo <br> 
+          <div style='display:inline-block; margin: 12px 0 12px 0'> Dodatni komentar: </div>
+          <input type='text' id='fb_komentar' style='width: 219px'> <br> <br>
+        </div>
+      </div>
+
+
       <!-- Sad monster -->
-      <div style='display:inline-block; width: 100%; text-align: center; margin-top: 38px;'>
+      <div id="sad_monster" style='display:inline-block; width: 100%; text-align: center; margin-top: 38px;'>
         <svg xmlns="http://www.w3.org/2000/svg" id="prefix__noun_Monster_3288518" width="100.042" height="127.92" viewBox="0 0 100.042 127.92">
           <path id="prefix__Path_186" d="M109.972 21.469H87.639C82.463 13.37 73.788 8.04 64 8.04s-18.463 5.33-23.639 13.429H18.028A4.2 4.2 0 0 0 14 25.8l8.8 88.083c.548 5.486 8.627 5.538 8.062 0q-4.185-41.87-8.369-83.757h14.03a32.614 32.614 0 0 0-1.193 8.67v27.026l4.983 7.632 1.048-1.9q6.289 27.879 12.61 55.757H40.683c-5.192 0-5.208 8.653 0 8.653H59.1a4.194 4.194 0 0 0 4-4.4 4.965 4.965 0 0 0-.113-1.073L49.2 69.56l1.258-2.267 3.4 6.161 3.37-6.126 3.37 6.126L64 67.293l3.4 6.161 3.37-6.126 3.37 6.126 3.4-6.161 1.26 2.267q-6.893 30.474-13.787 60.932a4.965 4.965 0 0 0-.113 1.073 4.194 4.194 0 0 0 4 4.4h18.417c5.192 0 5.208-8.653 0-8.653H74.03q6.313-27.879 12.61-55.757l1.048 1.9 4.983-7.632V38.791a32.614 32.614 0 0 0-1.193-8.67h14.029l-8.369 83.757c-.564 5.538 7.514 5.486 8.062 0l8.8-88.083a4.211 4.211 0 0 0-4.028-4.326zM64 43.5c-7.03 0-12.739-6.126-12.739-13.688 0-7.545 5.708-13.671 12.739-13.671s12.739 6.124 12.739 13.669c0 7.562-5.709 13.69-12.739 13.69z" 
               style="fill:#f3b051" data-name="Path 186" transform="translate(-13.979 -8.04)"/>

@@ -215,6 +215,7 @@ class PageParameters(object):
 
     def set_param(self, key, val):
         self._params[key] = val
+        self.save_params()
 
     def delete_params(self):
         self._params = self._default_params

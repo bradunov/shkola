@@ -3,7 +3,7 @@ from server.question import Question
 from server.types import PageOperation
 import server.context as context
 
-# import logging
+import logging
 
 class Test(object):
     page = None
@@ -23,6 +23,7 @@ class Test(object):
 
     def load_list(self):
         self.list = self.page.repository.get_list(self.page.page_params.get_param("l_id"))
+        logging.info("\n\nNEXT LOAD: {}\n\n".format(self.page.page_params.get_param("l_id")))
 
     
     def choose_next_question(self):
@@ -67,9 +68,9 @@ class Test(object):
             index = random.randrange(total)
             next_question = potential_questions_w_repeat[index]
 
-        # logging.info("\n\nNEXT Q: {} {} {}/{} {}\n\n".format(
-        #     potential_questions_w_repeat, potential_questions, 
-        #     index, total, next_question))
+        logging.info("\n\nNEXT Q: {} {} {}/{} {}\n\n".format(
+            potential_questions_w_repeat, potential_questions, 
+            index, total, next_question))
  
         return next_question
         
