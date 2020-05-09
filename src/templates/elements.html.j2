@@ -60,6 +60,25 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Bubblegum+Sans" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" />
 
+    <style type="text/css">
+      @font-face {
+          font-family: 'ChalkboardSE-Bold';
+          src: url('item?url=fonts/ChalkboardSE-Bold.ttf') format('truetype');
+      }
+      @font-face {
+          font-family: 'ChalkboardSE-Regular';
+          src: url('item?url=fonts/ChalkboardSE-Regular.ttf') format('truetype');
+      }
+      @font-face {
+          font-family: 'ChalkboardSE-Light';
+          src: url('item?url=fonts/ChalkboardSE-Light.ttf') format('truetype');
+      }
+      .sh_font {
+          font-family: ChalkboardSE-Regular;
+          {# font-family: Lato; #}
+      }
+    </style>
+
 {% endmacro %}
 
 
@@ -188,8 +207,8 @@
 
         <div class="sh-std-button" style="display: table; width: 291px; height: 40px; margin: 0; 
                     background-color: white; " onclick="{{onclick}}">
-          <div id="next_text" style="display: table-cell; vertical-align: middle; text-align: right; width: 145px;
-                      font-family: 'Lato'; font-size: 18px; color: #148f91; opacity:0.4;">
+          <div id="next_text sh_font" style="display: table-cell; vertical-align: middle; text-align: right; width: 145px;
+                      font-size: 18px; color: #148f91; opacity:0.4;">
               NASTAVI 
           </div>
           <div style="display: table-cell; vertical-align: middle; text-align: left; width: 145px">
@@ -291,13 +310,13 @@
             <feComposite in="SourceGraphic"/>
         </filter>
         <style>
-            .prefix__cls-2{fill:#b0b6b6}.prefix__cls-6{fill:#f7f7f7;font-size:12px;font-family:Lato-Semibold,Lato;font-weight:600}
+            .prefix__cls-2{fill:#b0b6b6}.prefix__cls-6{fill:#f7f7f7;font-size:12px;font-weight:600}
         </style>
     </defs>
     <g id="prefix__napredak_{{name}}" transform="translate(-26 -145)">
         <g id="prefix__progres_bar_{{name}}" data-name="progres bar" style="opacity:.304">
             <g transform="translate(2 14.701) translate(24 130.3)">
-                <path id="prefix__Rectangle_103-2" d="M0 0H{{r_width}}V{{r_height}}H0z" class="prefix__cls-2" 
+                <path id="prefix__Rectangle_103-2" d="M0 0H{{r_width}}V{{r_height}}H0z" class="prefix__cls-2 sh_font" 
                       data-name="Rectangle 103" transform="translate(9 6)"/>
             </g>
         </g>
@@ -308,23 +327,23 @@
         <path id="rect_2_{{name}}" d="M0 0H{{d3_w}}V{{r_height}}H0z" data-name="Rectangle 109" 
               transform="translate({{d3_x}} {{r_y_start}})" style="fill:#489cba"/>
         {% if t_w < d1_w %}
-          <text id="text_1_{{name}}" class="prefix__cls-6" data-name="d1" transform="translate({{d1_t_x}} {{t_y_start}})">
+          <text id="text_1_{{name}}" class="prefix__cls-6 sh_font" data-name="d1" transform="translate({{d1_t_x}} {{t_y_start}})">
               <tspan x="-3.48" y="0">{{d1}}</tspan>
           </text>
         {% endif %}
         {% if t_w < d2_w %}
-          <text id="text_2_{{name}}" class="prefix__cls-6" data-name="d2" transform="translate({{d2_t_x}} {{t_y_start}})">
+          <text id="text_2_{{name}}" class="prefix__cls-6 sh_font" data-name="d2" transform="translate({{d2_t_x}} {{t_y_start}})">
               <tspan x="-6.96" y="0">{{d2}}</tspan>
           </text>
         {% endif %}
         {% if t_w < d3_w %}
-          <text id="text_3_{{name}}" class="prefix__cls-6" data-name="d3" transform="translate({{d3_t_x}} {{t_y_start}})">
+          <text id="text_3_{{name}}" class="prefix__cls-6 sh_font" data-name="d3" transform="translate({{d3_t_x}} {{t_y_start}})">
               <tspan x="-3.48" y="0">{{d3}}</tspan>
           </text>
         {% endif %}
         {% if t_w < miss_w %}
           <text id="text_miss_{{name}}" data-name="missed" transform="translate({{missed_t_x}} {{t_y_start}})" 
-                style="fill:#636661;font-size:12px;font-family:Lato-Semibold,Lato;font-weight:600">
+                style="fill:#636661;font-size:12px;font-weight:600" class="sh_font">
               <tspan x="-6.96" y="0">{{missed}}</tspan>
           </text>
         {% endif %}
@@ -384,7 +403,8 @@
                 </g>
             </g>
         </g>
-        <text id="prefix__vrati_se-2" data-name="vrati se" transform="translate(50 460)" style="font-size:16px;font-family:Lato-Regular,Lato;fill:#b0b6b6">
+        <text id="prefix__vrati_se-2" data-name="vrati se" transform="translate(50 460)" 
+            class="sh_font" style="font-size:16px;fill:#b0b6b6">
             <tspan x="0" y="0">vrati se</tspan>
         </text>
     </g>
@@ -399,7 +419,8 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" width="75" height="19.929" viewBox="0 0 75 19.929">
     <g id="prefix__preskoci" transform="translate(-252 -445)">
-        <text id="prefix__preskoči" transform="translate(252 461)" style="font-size:16px;font-family:Lato-Regular,Lato;fill:#b0b6b6">
+        <text id="prefix__preskoči" transform="translate(252 461)" 
+            class="sh_font" style="font-size:16px;fill:#b0b6b6">
             <tspan x="0" y="0">preskoči</tspan>
         </text>
         <g id="prefix__noun_Arrow_1807380" transform="translate(237 515.001)">

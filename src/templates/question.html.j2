@@ -24,10 +24,10 @@
     {{ menu.start_head() }}
 
       <div style="display:inline-block; text-align:left; width: 131px; height: 36px; margin-left: 37px; margin-top: 8px">
-        <div style="display:inline-block; color: #dc3d39; font-family: 'Lato'; font-size: 14px;">
+        <div class="sh_font" style="display:inline-block; color: #dc3d39; font-size: 14px;">
           {{template_params["year"]}}
         </div>
-        <div style="display:inline-block;color: #489cba; font-family: 'Lato'; font-size: 14px;">
+        <div class="sh_font" style="display:inline-block;color: #489cba; font-size: 14px;">
           {{template_params["theme"]}} / {{template_params["subtheme"]}}
         </div>
       </div>
@@ -125,8 +125,8 @@
             {{elements.stars(template_params["difficulty"])}}
           </div>
         </div>
-        <div style="display:inline-block; width: 100%; text-align: center; margin: 11px 8px 8px 8px; 
-                    font-family: 'Lato'; font-size: 18px;">
+        <div class="sh_font" 
+             style="display:inline-block; width: 100%; text-align: center; margin: 11px 8px 8px 8px; font-size: 18px;">
 
           {{template_params["question"]}}
 
@@ -210,30 +210,30 @@
     <!-- WRONG POPUP -->
     <div id='wrong_answer' style='visibility: hidden; position: fixed; z-index: 1; top: 127px; left: 0%; 
          width: 100%; text-align: center; background: white; scroll-y: auto'>
-      <div style='display:inline-block; width: 250px; text-align: center; 
-                  margin-top: 17px; font-family: "Lato"; font-size: 18px;'>
+      <div class="sh_font" style='display:inline-block; width: 250px; text-align: center; 
+                  margin-top: 17px; font-size: 18px;'>
         Eh, zadatak nije skroz tačan.
       </div>
-      <div style='display:inline-block; width: 250px; text-align: left;   
-                  margin-top: 22px; font-family: "Lato"; font-size: 18px;'>
+      <div class="sh_font" style='display:inline-block; width: 250px; text-align: left;   
+                  margin-top: 22px; font-size: 18px;'>
         <input type='radio' id='wr_again' name="wr_input" 
                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
         Hoću još jednu šansu! 
       </div>
-      <div style='display:inline-block; width: 250px; text-align: left;  
-                  margin-top: 15px; font-family: "Lato"; font-size: 18px;'>
+      <div class="sh_font" style='display:inline-block; width: 250px; text-align: left;  
+                  margin-top: 15px; font-size: 18px;'>
         <input type='radio' id='wr_solution' name="wr_input" 
                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
         Daj da vidim rešenje! 
       </div>
-      <div style='display:inline-block; width: 250px; text-align: left;  
-                  margin-top: 15px; font-family: "Lato"; font-size: 18px;'>
+      <div class="sh_font" style='display:inline-block; width: 250px; text-align: left;  
+                  margin-top: 15px; font-size: 18px;'>
         <input type='radio' id='wr_skip' name="wr_input" 
                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
         Ja bih da preskočim. 
       </div>
-      <div id='wr_report_option' style='display:inline-block; width: 250px; text-align: left;  
-                  margin-top: 15px; font-family: "Lato"; font-size: 18px;'>
+      <div id='wr_report_option' class="sh_font" style='display:inline-block; width: 250px; text-align: left;  
+                  margin-top: 15px; font-size: 18px;'>
         <input type='radio' id='wr_report' name="wr_input" 
                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(true)'> 
         Ovaj zadatak ima problem. 
@@ -241,7 +241,7 @@
 
       <!-- Feedback form -->
       <div id="feedback" style='display:none; width: 250px; text-align: left; border: 2px solid #148f91; margin-top: 26px; '>
-        <div style='display:inline-block; text-align: left; margin: 12px 12px 0 12px; font-family: "Lato"; font-size: 18px;'>
+        <div class="sh_font" style='display:inline-block; text-align: left; margin: 12px 12px 0 12px; font-size: 18px;'>
           <input type='radio' id='fb_problem' style='text-align: left; margin-right: 19px;'> Ima grešku <br>
           <input type='radio' id='fb_unclear' style='text-align: left; margin-right: 19px;'> Nije jasan <br>
           <input type='radio' id='fb_difficult' style='text-align: left; margin-right: 19px;'> Pretezak <br>
