@@ -1,6 +1,6 @@
 import time
 
-from server.helpers import encode_dict, encap_str
+from server.helpers import encap_str
 
 from server.types import PageLanguage
 from server.types import PageOperation

@@ -1,6 +1,8 @@
 from azure.cosmosdb.table.tableservice import TableService
 from azure.common import AzureMissingResourceHttpError
 
+from .helpers import encode_dict, decode_dict
+
 import os
 import time
 import re
@@ -107,31 +109,22 @@ class Storage_az_table():
             logging.exception('Error adding response: ' + str(err))
 
 
-    def update_session(self, session_id, **data):
+    def update_session(self, session_id, data = {}):
+        assert session_id is not None
+        assert data['state_id'] is not None
+
         properties = {
             'PartitionKey': session_id,
             'RowKey': "",
-            'user_id': None,
-            'data': None
+            'data': encode_dict(data['data']),
+            'user_id': data['user_id'],
+            'state_id': data['state_id']
         }
-
-        properties.update(data)
-
-        if properties["user_id"] is None:
-            # Tables will not logout (overwrite user_id with "") 
-            # if user_id is None, so we have to set it to " " 
-            # Also, Azurite doesn't update the existing record if "" is here
-            # so we have to convert it to None
-            properties["user_id"] = "None"
 
         try:
             self.table_service.insert_or_merge_entity(self.sessions_table_name, properties)
         except Exception:
             logging.exception('Error adding to table ' + self.sessions_table_name + ' record: {}'.format(properties))
-
-
-    def insert_session(self, session_id):
-        self.update_session(session_id)
 
 
     def get_session(self, session_id):
@@ -144,10 +137,16 @@ class Storage_az_table():
         if "user_id" not in entity.keys():
             return None
 
+        # Compatibility: old records don't have state_id
+        if not "state_id" in entity:
+            entity['state_id'] = None
+
         return {
             # Convert "None" to None, see above
-            "user_id": entity["user_id"] if (not entity["user_id"] == "None") else None,
-            "data": entity["data"]
+            # "user_id": entity["user_id"] if (not entity["user_id"] == "None") else None,
+            "user_id": entity["user_id"],
+            "data": decode_dict(entity["data"]),
+            "state_id": entity["state_id"]
         }
 
 
