@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% import 'dev/elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+
+  </head>
+  <body>
+
+  {{elements.menu(template_params["menu"]["choices"], template_params["menu"]["current_choice"], template_params["menu"]["choice_action"], 
+                  template_params["menu"]["languages"], template_params["menu"]["current_language"], template_params["menu"]["language_action"], 
+                  template_params["menu"]["operations"], template_params["menu"]["current_operation"], template_params["menu"]["operation_action"])}}
+
+  <div style='width: auto ;margin-left: auto ;margin-right: auto ;'>
+    {{template_params["question"]}}
+    {{elements.buttons()}}
+  </div>
+
+
+  </body>
+</html>

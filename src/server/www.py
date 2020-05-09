@@ -18,7 +18,7 @@ class editor(object):
     page = None
 
     def __init__(self):
-        self.page = Page(use_azure_blob=False, preload=True)
+        self.page = Page(use_azure_blob=False, preload=True, template_path="..")
         
 
     def get_user_agent(self):

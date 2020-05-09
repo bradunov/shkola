@@ -1,0 +1,156 @@
+{# Web page elements #}
+
+
+{% macro head(template_params) %}
+    <title> {{ template_params['title'] }} </title>
+
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='item?url=js/raphaeljs-infobox.js'></script>
+
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+
+    <style type="text/css">
+      div.space {
+          display:inline-block;
+          padding-left:6px;
+          padding-right:6px;
+      }
+    </style>
+
+    <script type="text/javascript">
+      math = {}
+      math.eq = function(x, y, precision) { if (typeof(precision)==='undefined') precision = 0.00001; return Math.abs(x-y) < precision; }
+    </script>
+
+    <script type = "text/javascript">
+      function setError(id) {
+        document.getElementById(id).style.border = "3px solid red";
+      }
+      function setOK(id) {
+        document.getElementById(id).style.border = "3px solid green";
+      }
+      function clearAllWBorder(id) {
+        document.getElementById(id).style.border = "1px solid #ccc";
+      }
+      function clearAllNoBorder(id) {
+        document.getElementById(id).style.border = "0px solid white";
+      }
+    </script>  
+
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Bubblegum+Sans" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" />
+
+    <style type="text/css">
+      @font-face {
+          font-family: 'ChalkboardSE-Bold';
+          src: url('item?url=fonts/ChalkboardSE-Bold.ttf') format('truetype');
+      }
+      @font-face {
+          font-family: 'ChalkboardSE-Regular';
+          src: url('item?url=fonts/ChalkboardSE-Regular.ttf') format('truetype');
+      }
+      @font-face {
+          font-family: 'ChalkboardSE-Light';
+          src: url('item?url=fonts/ChalkboardSE-Light.ttf') format('truetype');
+      }
+      .sh_font {
+          font-family: ChalkboardSE-Regular;
+          {# font-family: Lato; #}
+      }
+    </style>
+
+{% endmacro %}
+
+
+
+
+
+
+
+
+
+{% macro buttons() %}
+
+  <!-- BUTTONS START -->
+  <div id='question' style='display:table; margin:0 auto;'>
+    <div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>
+
+      <!-- CHECK NEXT BUTTON -->
+      <input type='button' style='font-size: 14px;' onclick='checkAll()' value='Proveri'/>
+
+      <div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>
+      
+      <!-- CLEAR BUTTON -->
+      <input type='button' style='font-size: 14px;' onclick='clearAll()' value='Obrisi' />
+      <!-- END CLEAR BUTTON -->
+
+      <div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>
+      
+      <!-- SOLUTION BUTTON -->
+      <input type='button' style='font-size: 14px;' onclick='addSolutionAll()' value='Resenje' />
+      <!-- END SOLUTION BUTTON -->
+
+    </div>
+  </div>
+  <!-- BUTTONS END -->
+
+
+{% endmacro %}
+
+
+
+
+{% macro menu(choices, current_choice, choice_action, 
+              languages, current_language, language_action, 
+              operations, current_operation, operation_action) %}
+
+  <!-- FULL MENU START -->
+  <div style='display:block;width=100%;height:25px;background-color:#f0f0f0'>
+    <span style='display:block;float:left;'>
+      <select id='choice_id' name='choice_id' 
+                             onchange='window.location.replace({{choice_action}})'>
+        {% for c in choices %}
+          <option value='{{c}}' {{ "SELECTED" if c == current_choice else "" }}> {{c}} </option>
+        {% endfor %}
+      </select>
+    </span>
+    <span style='display:block;float:right;'>
+      <input type='button' style='font-size: 14px;' onclick='(function() {
+                              var xhr = new XMLHttpRequest();
+                              xhr.open("POST", "reload", true);
+                              xhr.send();
+                              console.log("Posted reload");
+                          }) ();' value='Reload'/>  
+
+      Jezik: 
+      <select id='sel_lang' name='sel_lang' 
+                            onchange='window.location.replace({{language_action}})'>
+        {% for l in languages %}
+          <option value='{{l}}' {{ "SELECTED" if l == current_language else ""}}> {{l}} </option>
+        {% endfor %}
+      </select>
+
+      Operacija: 
+      <select id='sel_op' name='sel_op' 
+                          onchange='window.location.replace({{operation_action}})'>
+        {% for o in operations %}
+          <option value='{{o}}' {{ "SELECTED" if o == current_operation else "" }}> {{o}} </option>
+        {% endfor %}
+      </select>
+    </span>
+  </div>
+<!-- MENU END -->
+{% endmacro %}
+
+
+
+

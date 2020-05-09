@@ -636,19 +636,19 @@ class Design_default(object):
 
 
 
-        # Design_default.add_buttons(page)
+        # # Design_default.add_buttons(page)
 
 
-        # page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-        # page.add_lines("Pitanje {} od 3\n".format(current_q_number))
-        # page.add_lines("Do sada: {} / {}".format(correct, incorrect))
-        # page.add_lines("</div>\n")
+        # # page.add_lines("<br><br><div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
+        # # page.add_lines("Pitanje {} od 3\n".format(current_q_number))
+        # # page.add_lines("Do sada: {} / {}".format(correct, incorrect))
+        # # page.add_lines("</div>\n")
                     
 
 
-        # page.add_lines("\n\n<!-- BUTTONS START -->\n\n")
-        # page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
-        # page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
+        # # page.add_lines("\n\n<!-- BUTTONS START -->\n\n")
+        # # page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
+        # # page.add_lines("\n<div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>\n")
 
 
 
@@ -656,118 +656,118 @@ class Design_default(object):
 
 
 
-        # Not needed in the current design
+        # # Not needed in the current design
 
-        # page.add_lines("\n\n<!-- PREV BUTTON -->\n")
-        # page.add_lines("\n<input id='but_prev' type='button' style='font-size: 14px;' "\
-        #     "onclick='window.location.replace(\"{}\")' value='{}' />\n".format(url_prev, "Nazad"))
-        # page.add_lines("\n<!-- END PREV BUTTON -->\n\n")
-
-
-
-        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")        
-        page.add_lines("\n<!-- CLEAR BUTTON -->\n")
-        page.add_lines("\n<input id='but_clear' type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
-            page.get_messages()["clear"]))
-        page.add_lines("\n<!-- END CLEAR BUTTON -->\n")
+        # # page.add_lines("\n\n<!-- PREV BUTTON -->\n")
+        # # page.add_lines("\n<input id='but_prev' type='button' style='font-size: 14px;' "\
+        # #     "onclick='window.location.replace(\"{}\")' value='{}' />\n".format(url_prev, "Nazad"))
+        # # page.add_lines("\n<!-- END PREV BUTTON -->\n\n")
 
 
-        # page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+
+        # page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")        
+        # page.add_lines("\n<!-- CLEAR BUTTON -->\n")
+        # page.add_lines("\n<input id='but_clear' type='button' style='font-size: 14px;' onclick=\"clearAll()\" value='{}' />\n".format(
+        #     page.get_messages()["clear"]))
+        # page.add_lines("\n<!-- END CLEAR BUTTON -->\n")
+
+
+        # # page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        # # page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
+        # # page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
+        # #     Design_default.on_click(page, \
+        # #         operation=ResponseOperation.SUBMIT, \
+        # #         record=True), page.get_messages()["check"]))
+        # # page.add_lines("\n<!-- END CHECK BUTTONS -->\n")
+
+
+        # page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")        
         # page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
-        # page.add_lines("<input type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
+        # page.add_lines("<input id='but_check' type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
         #     Design_default.on_click(page, \
         #         operation=ResponseOperation.SUBMIT, \
+        #         url_next=url_next, \
+        #         quoted=False, \
         #         record=True), page.get_messages()["check"]))
-        # page.add_lines("\n<!-- END CHECK BUTTONS -->\n")
+        # page.add_lines("\n<!-- END CHECK BUTTON -->\n")
 
 
-        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")        
-        page.add_lines("\n\n<!-- CHECK BUTTON -->\n")
-        page.add_lines("<input id='but_check' type='button' style='font-size: 14px;' onclick='{}' value='{}'/>\n".format(
-            Design_default.on_click(page, \
-                operation=ResponseOperation.SUBMIT, \
-                url_next=url_next, \
-                quoted=False, \
-                record=True), page.get_messages()["check"]))
-        page.add_lines("\n<!-- END CHECK BUTTON -->\n")
-
-
-        page.add_lines("\n\n<!-- NEXT BUTTON -->\n")
-        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
-        page.add_lines("\n<input id='but_next' type='button' style='display:none; font-size: 14px;' onclick='{}' value='{}' />\n".format(
-            Design_default.on_click(page, \
-                operation=ResponseOperation.SKIP, \
-                url_next=url_next, \
-                quoted=False, \
-                record=True), page.get_messages()["skip"]))
-        page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
+        # page.add_lines("\n\n<!-- NEXT BUTTON -->\n")
+        # page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        # page.add_lines("\n<input id='but_next' type='button' style='display:none; font-size: 14px;' onclick='{}' value='{}' />\n".format(
+        #     Design_default.on_click(page, \
+        #         operation=ResponseOperation.SKIP, \
+        #         url_next=url_next, \
+        #         quoted=False, \
+        #         record=True), page.get_messages()["skip"]))
+        # page.add_lines("\n<!-- END NEXT BUTTON -->\n\n")
             
 
 
 
-        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        # page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         
-        page.add_lines("\n<!-- SOLUTION BUTTON -->\n")
-        page.add_lines("\n<input id='but_help' type='button' style='display:none; font-size: 14px;' " \
-            "onclick=\"clearAll();addSolutionAll();"
-            "document.getElementById('but_check').style.display='none';"
-            "document.getElementById('but_help').style.display='none';"
-            "document.getElementById('but_clear').style.display='none';"
-            "document.getElementById('but_next').value='Dalje';"
-            "\" value='{}' />\n".format(
-            "Resenje"))
-        page.add_lines("\n<!-- END SOLUTION BUTTON -->\n")
+        # page.add_lines("\n<!-- SOLUTION BUTTON -->\n")
+        # page.add_lines("\n<input id='but_help' type='button' style='display:none; font-size: 14px;' " \
+        #     "onclick=\"clearAll();addSolutionAll();"
+        #     "document.getElementById('but_check').style.display='none';"
+        #     "document.getElementById('but_help').style.display='none';"
+        #     "document.getElementById('but_clear').style.display='none';"
+        #     "document.getElementById('but_next').value='Dalje';"
+        #     "\" value='{}' />\n".format(
+        #     "Resenje"))
+        # page.add_lines("\n<!-- END SOLUTION BUTTON -->\n")
 
 
 
 
-        page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
+        # page.add_lines("<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         
-        page.add_lines("\n<!-- FEEDBACK BUTTON -->\n")
+        # page.add_lines("\n<!-- FEEDBACK BUTTON -->\n")
 
-        inner_html = "<h3> Unesite detalje komentara</h3>\n"
-        #inner_html = inner_html + "<form action='javascript:void(0);'>\n"
-        inner_html = inner_html + "Mislite da zadatak: <br>"
-        inner_html = inner_html + "<input type='radio' id='fb_problem'> Ima problem <br>"
-        inner_html = inner_html + "<input type='radio' id='fb_unclear'> Nije jasan <br>"
-        inner_html = inner_html + "<input type='radio' id='fb_difficult'> Pretezak <br>"
-        inner_html = inner_html + "<input type='radio' id='fb_easy'> Prelak <br>"
-        inner_html = inner_html + "<input type='radio' id='fb_other'> Drugo <br> "
-        inner_html = inner_html + "<br> Dodatni komentar: <br><input type='text' id='fb_komentar'> <br> <br>"
-        inner_html = inner_html + "\n<input align='center' type='button' style='font-size: 14px;' " \
-            "onclick=\"sendFeedbackToServer('{}', {}, '{}', '{}', {}); " \
-                "popup_toggle_feedback_report(); " \
-                "document.getElementById('but_fb').style.display='none';" \
-                "\" value='{}' />\n".format(
-            page.page_params.get_param("root"), 
-            "document.getElementById('fb_problem').checked?'problem':(" \
-                "document.getElementById('fb_unclear').checked?'unclear':(" \
-                "document.getElementById('fb_difficult').checked?'unclear':(" \
-                "document.getElementById('fb_easy').checked?'unclear':'other')))",
-            page.page_params.get_param("q_id"),
-            page.page_params.get_param("l_id"),
-            "document.getElementById('fb_komentar').value",
-            "Posalji prijavu")
-        # Add gap:
-        inner_html = inner_html + "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
-        inner_html = inner_html + "\n<input align='center' type='button' style='font-size: 14px;' " \
-            "onclick=\"popup_toggle_feedback_report();\" value='{}' />\n".format("Odustani")
+        # inner_html = "<h3> Unesite detalje komentara</h3>\n"
+        # #inner_html = inner_html + "<form action='javascript:void(0);'>\n"
+        # inner_html = inner_html + "Mislite da zadatak: <br>"
+        # inner_html = inner_html + "<input type='radio' id='fb_problem'> Ima problem <br>"
+        # inner_html = inner_html + "<input type='radio' id='fb_unclear'> Nije jasan <br>"
+        # inner_html = inner_html + "<input type='radio' id='fb_difficult'> Pretezak <br>"
+        # inner_html = inner_html + "<input type='radio' id='fb_easy'> Prelak <br>"
+        # inner_html = inner_html + "<input type='radio' id='fb_other'> Drugo <br> "
+        # inner_html = inner_html + "<br> Dodatni komentar: <br><input type='text' id='fb_komentar'> <br> <br>"
+        # inner_html = inner_html + "\n<input align='center' type='button' style='font-size: 14px;' " \
+        #     "onclick=\"sendFeedbackToServer('{}', {}, '{}', '{}', {}); " \
+        #         "popup_toggle_feedback_report(); " \
+        #         "document.getElementById('but_fb').style.display='none';" \
+        #         "\" value='{}' />\n".format(
+        #     page.page_params.get_param("root"), 
+        #     "document.getElementById('fb_problem').checked?'problem':(" \
+        #         "document.getElementById('fb_unclear').checked?'unclear':(" \
+        #         "document.getElementById('fb_difficult').checked?'unclear':(" \
+        #         "document.getElementById('fb_easy').checked?'unclear':'other')))",
+        #     page.page_params.get_param("q_id"),
+        #     page.page_params.get_param("l_id"),
+        #     "document.getElementById('fb_komentar').value",
+        #     "Posalji prijavu")
+        # # Add gap:
+        # inner_html = inner_html + "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
+        # inner_html = inner_html + "\n<input align='center' type='button' style='font-size: 14px;' " \
+        #     "onclick=\"popup_toggle_feedback_report();\" value='{}' />\n".format("Odustani")
 
-        extra_style = "width: 300px; background-color: #555; color: #fff; text-align: center; border-radius: 6px; padding: 8px;"
+        # extra_style = "width: 300px; background-color: #555; color: #fff; text-align: center; border-radius: 6px; padding: 8px;"
 
-        Design_default.add_popup(page, "feedback_report", inner_html, extra_style)
+        # Design_default.add_popup(page, "feedback_report", inner_html, extra_style)
 
-        page.add_lines("\n<input id='but_fb' type='button' style='font-size: 14px;' onclick=\"popup_toggle_feedback_report()\" value='{}' />\n".format(
-            "Prijavi problem"))
+        # page.add_lines("\n<input id='but_fb' type='button' style='font-size: 14px;' onclick=\"popup_toggle_feedback_report()\" value='{}' />\n".format(
+        #     "Prijavi problem"))
 
-        page.add_lines("\n<!-- END FEEDBACK BUTTON -->\n")
-
-
+        # page.add_lines("\n<!-- END FEEDBACK BUTTON -->\n")
 
 
-        page.add_lines("\n</div>\n")
-        page.add_lines("</div>\n")
-        page.add_lines("\n\n<!-- BUTTONS END -->\n\n")
+
+
+        # page.add_lines("\n</div>\n")
+        # page.add_lines("</div>\n")
+        # page.add_lines("\n\n<!-- BUTTONS END -->\n\n")
 
         
 
@@ -1213,32 +1213,32 @@ class Design_default(object):
 
 
 
-    @staticmethod
-    def on_click(page, operation:ResponseOperation=None, url_next=None, record=False, quoted=True):
-        if record:
-            # Only send results to server if next_url specified (i.e. we are in the test mode)
-            ret_str = 'cond = checkAll("{}", "{}", "{}", "{}");'.format(
-                ResponseOperation.toStr(operation),
-                page.page_params.get_param("root"),
-                page.page_params.get_param("q_id"),
-                page.page_params.get_param("l_id")
-            )
-        else:
-            ret_str = "cond = checkAll();"
+    # @staticmethod
+    # def on_click(page, operation:ResponseOperation=None, url_next=None, record=False, quoted=True):
+    #     if record:
+    #         # Only send results to server if next_url specified (i.e. we are in the test mode)
+    #         ret_str = 'cond = checkAll("{}", "{}", "{}", "{}");'.format(
+    #             ResponseOperation.toStr(operation),
+    #             page.page_params.get_param("root"),
+    #             page.page_params.get_param("q_id"),
+    #             page.page_params.get_param("l_id")
+    #         )
+    #     else:
+    #         ret_str = "cond = checkAll();"
 
-        if url_next is not None:
-            if operation == ResponseOperation.SUBMIT:
-                ret_str = ret_str + "if (cond) "
-            if quoted:
-                ret_str = ret_str + " {window.location.replace(\"" + url_next + "\");}"
-            else:
-                ret_str = ret_str + " {window.location.replace(" + url_next + ");}"
-            if operation == ResponseOperation.SUBMIT:
-                ret_str = ret_str + \
-                    "else {document.getElementById(\"but_help\").style.display=\"inline-block\"; " \
-                    "document.getElementById(\"but_next\").style.display=\"inline-block\"; }"
+    #     if url_next is not None:
+    #         if operation == ResponseOperation.SUBMIT:
+    #             ret_str = ret_str + "if (cond) "
+    #         if quoted:
+    #             ret_str = ret_str + " {window.location.replace(\"" + url_next + "\");}"
+    #         else:
+    #             ret_str = ret_str + " {window.location.replace(" + url_next + ");}"
+    #         if operation == ResponseOperation.SUBMIT:
+    #             ret_str = ret_str + \
+    #                 "else {document.getElementById(\"but_help\").style.display=\"inline-block\"; " \
+    #                 "document.getElementById(\"but_next\").style.display=\"inline-block\"; }"
 
-        return ret_str
+    #     return ret_str
 
 
 

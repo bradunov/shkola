@@ -248,15 +248,24 @@ class PageParameters(object):
                 self._params["design"] = PageDesign.fromStr(params["design"])
 
     def save_params(self):
-        context.c.session.set("params", self.copy_to_serializible_state())
+        try:
+            context.c.session.set("params", self.copy_to_serializible_state())
+        except:
+            # Temporary hack for edit menus that don't have context
+            pass
         # logging.debug("\n\n Saving parameters: {}\n\n".format(context.c.session.get("params")))
         
     def load_params(self):
-        self.load_from_serializible_state(context.c.session.get("params"))
-        # Do not load op from state. See https://github.com/bradunov/shkola/issues/23
-        if "op" in self._params.keys():
-            del self._params["op"]
-        # logging.debug("\n\n Loading parameters: {}\n\n".format(context.c.session.get("params")))
+        try:
+            self.load_from_serializible_state(context.c.session.get("params"))
+            # Do not load op from state. See https://github.com/bradunov/shkola/issues/23
+            if "op" in self._params.keys():
+                del self._params["op"]
+            # logging.debug("\n\n Loading parameters: {}\n\n".format(context.c.session.get("params")))
+        except:
+            # Temporary hack for edit menus that don't have context
+            pass
+
 
     def print_params(self):
         logging.debug("\n\n Printing parameters: {}\n\n".format(json.dumps(self.copy_to_serializible_state(), indent=2)))
