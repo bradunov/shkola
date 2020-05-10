@@ -26,6 +26,8 @@ class Test(object):
         logging.info("\n\nNEXT LOAD: {}\n\n".format(self.page.page_params.get_param("l_id")))
 
     
+    # Choose the next question, preferrably without repeat, and return it
+    # Also return the number of possible remaining questions without repeat
     def choose_next_question(self):
             
         potential_questions = []
@@ -82,7 +84,10 @@ class Test(object):
             potential_questions_w_repeat, potential_questions, 
             index, total, next_question))
  
-        return next_question
+        remaining_question = len(potential_questions)
+        remaining_question = (remaining_question - 1) if remaining_question > 0 else remaining_question
+
+        return next_question, remaining_question
         
 
         

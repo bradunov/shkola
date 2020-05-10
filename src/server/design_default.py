@@ -25,7 +25,7 @@ USE_GOOGLE_AUTH = True
 
 
 class Design_default(object):
-    total_questions = 3
+    total_questions = 5
 
     @staticmethod
     def render_main_page(page):
@@ -48,14 +48,12 @@ class Design_default(object):
 
         user = context.c.user
 
-        # TBD: re-enable later
-        if False:
-            # If we happen to get to too many questions (e.g. reloading or returning to a test from elsewhere)
-            # here we check that we didn't reach the end counter, and if we did, redirect to summary
-            if (page.page_params.get_param("op") == PageOperation.TEST or \
-                page.page_params.get_param("op") == PageOperation.TEST_PREV) and \
-                context.c.session.get("history") and len(context.c.session.get("history")) >= Design_default.total_questions:
-                page.page_params.set_param("op", PageOperation.SUMMARY)
+        # If we happen to get to too many questions (e.g. reloading or returning to a test from elsewhere)
+        # here we check that we didn't reach the end counter, and if we did, redirect to summary
+        if (page.page_params.get_param("op") == PageOperation.TEST or \
+            page.page_params.get_param("op") == PageOperation.TEST_PREV) and \
+            context.c.session.get("history") and len(context.c.session.get("history")) >= Design_default.total_questions:
+            page.page_params.set_param("op", PageOperation.SUMMARY)
 
 
         #Design_default.add_header(page)
@@ -543,6 +541,10 @@ class Design_default(object):
         page.template_params["template_name"] = "question.html.j2"
 
 
+        # Max number of questions in a test
+        # We may choose to offer fewer questions if there aren't enough available
+        max_questions = 5
+        remaining_questions = max_questions
 
         if page.page_params.get_param("op") == PageOperation.TEST_PREV:
             if len(context.c.session.get("history")) <= 1:
@@ -564,7 +566,7 @@ class Design_default(object):
                 # Starting a new test, record the start time in epoch seconds
                 context.c.session.set("test_id", int(time.time()*1000))
 
-            next_question = test.choose_next_question()
+            next_question, remaining_questions = test.choose_next_question()
             hist = {
                 "url" : page.page_params.get_url(),
                 "correct" : 0, 
@@ -603,7 +605,7 @@ class Design_default(object):
                         js = False)
         
 
-        if q_number >= Design_default.total_questions:
+        if q_number >= Design_default.total_questions or remaining_questions == 0:
             url_next = page.page_params.create_url( 
                 op=PageOperation.toStr(PageOperation.SUMMARY),
                 js=False)
