@@ -71,6 +71,7 @@
         }
         if (solved || showed_sol) {
           location.href = "{{template_params["next"]}}";
+          return;
         }
         var check = false;
         if (document.getElementById("wrong_answer").style.visibility == "hidden") {
@@ -105,6 +106,7 @@
               showed_sol = true;
             } else if (document.getElementById("wr_skip").checked) {
                 location.href = "{{template_params["next"]}}";
+                return;
             }
           }
         }
@@ -213,31 +215,31 @@
       <div class="sh_font" style='display:inline-block; width: 250px; text-align: center; 
                   margin-top: 17px; font-size: 18px;'>
         Eh, zadatak nije skroz tačan.
-      </div>
+      </div><br>
       <div class="sh_font" style='display:inline-block; width: 250px; text-align: left;   
                   margin-top: 22px; font-size: 18px;'>
         <input type='radio' id='wr_again' name="wr_input" 
                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
         Hoću još jednu šansu! 
-      </div>
+      </div><br>
       <div class="sh_font" style='display:inline-block; width: 250px; text-align: left;  
                   margin-top: 15px; font-size: 18px;'>
         <input type='radio' id='wr_solution' name="wr_input" 
                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
         Daj da vidim rešenje! 
-      </div>
+      </div><br>
       <div class="sh_font" style='display:inline-block; width: 250px; text-align: left;  
                   margin-top: 15px; font-size: 18px;'>
         <input type='radio' id='wr_skip' name="wr_input" 
                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
         Ja bih da preskočim. 
-      </div>
+      </div><br>
       <div id='wr_report_option' class="sh_font" style='display:inline-block; width: 250px; text-align: left;  
                   margin-top: 15px; font-size: 18px;'>
         <input type='radio' id='wr_report' name="wr_input" 
                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(true)'> 
         Ovaj zadatak ima problem. 
-      </div>
+      </div><br>
 
       <!-- Feedback form -->
       <div id="feedback" style='display:none; width: 250px; text-align: left; border: 2px solid #148f91; margin-top: 26px; '>

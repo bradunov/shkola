@@ -35,12 +35,22 @@ class Test(object):
         else:
             asked_questions = list(map(lambda hist: hist["q_id"], context.c.session.get("history")))
 
+        logging.debug("\n\nQ {}\n\n{}\n{}\n{}\n\n".format(self.list["questions"], 
+            self.page.page_params.get_param("subtheme"), self.page.page_params.get_param("period"),
+            self.page.page_params.get_param("difficulty") ))
+
         # Find the list of all question in the subtopic (potential_questions_w_repeat), 
         # and also those among them that haven't been already asked in this session (potential_questions)
         for q in self.list["questions"]:
-            if self.page.page_params.get_param("subtheme") and (self.page.page_params.get_param("subtheme") == "*" or q["subtheme"] == self.page.page_params.get_param("subtheme")) and \
-               self.page.page_params.get_param("period") and (self.page.page_params.get_param("period") == "*" or q["period"] == self.page.page_params.get_param("period")) and \
-               self.page.page_params.get_param("difficulty") and (self.page.page_params.get_param("difficulty") == "*" or q["difficulty"] == self.page.page_params.get_param("difficulty")):
+            if self.page.page_params.get_param("subtheme") and \
+                    (self.page.page_params.get_param("subtheme") == "*" or \
+                    q["subtheme"].lower() == self.page.page_params.get_param("subtheme").lower()) and \
+               self.page.page_params.get_param("period") and \
+                    (self.page.page_params.get_param("period") == "*" or \
+                    q["period"].lower() == self.page.page_params.get_param("period").lower()) and \
+               self.page.page_params.get_param("difficulty") and \
+                    (self.page.page_params.get_param("difficulty") == "*" or \
+                    q["difficulty"].lower() == self.page.page_params.get_param("difficulty").lower()):
                 next_q = {
                     "q_id" : q["name"],
                     "subtheme" : q["subtheme"],
