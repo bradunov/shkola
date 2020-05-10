@@ -5,7 +5,6 @@ from server.types import ResponseOperation
 from server.types import PageLanguage
 from server.stats import Stats
 # from server.user_db import TEST_USERS
-# import server.context as context
 
 import server.question as question
 import server.qlist as qlist
@@ -53,9 +52,11 @@ class Design_dev(object):
             logging.debug("PageOperation.LIST")
             if not page.page_params.get_param("l_id"):
                 page.page_params.set_param("l_id", page.get_default_list())
-            Design_dev.render_menu(page)
-            ql = qlist.Qlist(page)
-            ql.render_all_questions()
+            # Design_dev.render_menu(page)
+            # ql = qlist.Qlist(page)
+            # ql.render_all_questions()
+
+            Design_dev.render_list(page)
             return page.render()
 
         elif page.page_params.get_param("op") == PageOperation.STATS:
@@ -188,15 +189,69 @@ class Design_dev(object):
 
 
 
-    # @staticmethod
-    # def render_list(page):
+    @staticmethod
+    def render_list(page):
 
-    #     page.template_params["template_name"] = "dev/view.html.j2"
+        list = page.repository.get_list(page.page_params.get_param("l_id"))
 
-    #     Design_dev.render_menu(page)
+        page.template_params["template_name"] = "dev/list.html.j2"
+
+        Design_dev.render_menu(page)
+
+
+        if "name" in list.keys():
+            page.template_params["name"] = list["name"]
+        else:
+            page.template_params["name"] = "UNKNOWN"
+
+
+        page.template_params["attributes"] = {}
+        for key, value in list.items():
+            if key != "name" and key != "questions":
+                page.template_params["attributes"][key] = value
+
+
+        page.template_params["questions"] = []
+        for i in list["questions"]:
+            q_id = i["name"]
+
+            q = {}
+            q["q_id"] = q_id
+            q["attributes"] = {}
+            for key, value in i.items():
+                if key != "name" :
+                    q["attributes"][key] = [value]
+            q["link"] = page.page_params.create_url( \
+                                    op = PageOperation.toStr(PageOperation.VIEW), \
+                                    q_id = q_id, \
+                                    js = False)
+
+            # Generate question and paste it into the list 
+            page.page_params.set_param("q_id", q_id)
+            gq = question.Question(page, test_mode=True)
+            gq.set_from_file_with_exception()
+            try:
+                gq.eval_with_exception()
+            except:
+                page.add_lines("Problem with the question!\n")
+                logging.error("\n\nERROR: problem with question {}!\n\n".format(q_id))
+                pass
+
+            q["lib_id"] = gq.lib.lib_id
+
+            q["text"] = ""
+            for l in page.script_lines:
+                q["text"] = q["text"] + l + "\n"
+            for l in page.lines:
+                q["text"] = q["text"] + str(l)
+            page.clear()
+
+            page.template_params["questions"].append(q)
+
+
+
+
         
-    #     if page.question is not None:
-    #         page.question.eval_with_exception()
                     
 
 

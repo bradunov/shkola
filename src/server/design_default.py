@@ -98,11 +98,11 @@ class Design_default(object):
             Design_default.render_select_theme_page(page)
             return page.render()
 
-        elif page.page_params.get_param("op") == PageOperation.MENU_SUBTHEME:
-            # No subtheme selected, select it
-            logging.debug("PageOperation.MENU - subtheme")
-            Design_default.render_select_subtheme_page(page)
-            return page.render()
+        # elif page.page_params.get_param("op") == PageOperation.MENU_SUBTHEME:
+        #     # No subtheme selected, select it
+        #     logging.debug("PageOperation.MENU - subtheme")
+        #     Design_default.render_select_subtheme_page(page)
+        #     return page.render()
 
         elif page.page_params.get_param("op") == PageOperation.STATS:
             if user and user.domain_user_id:
