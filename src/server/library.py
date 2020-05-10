@@ -750,6 +750,8 @@ class Library(object):
         
         if "font_size" in style.keys():
             font_attr = font_attr + ", \"font-size\": \"{}\"".format(style["font_size"])
+        else:
+            font_attr = font_attr + ", \"font-size\": \"18\""
 
         if "font_family" in style.keys():
             font_attr = font_attr + ", \"font-family\": \"{}\"".format(style["font_family"])
@@ -894,7 +896,7 @@ class Library(object):
             style["line_width"] = "1"
 
         if not "font_size" in style.keys():
-            style["font_size"] = "16"
+            style["font_size"] = "18"
 
         if not "font_family" in style.keys():
             style["font_family"] = "Arial, Helvetica, sans-serif"
