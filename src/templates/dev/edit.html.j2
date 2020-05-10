@@ -20,19 +20,19 @@
         <input type="hidden" id="q_id" name="q_id" value='{{template_params["q_id"]}}'>
         <input type="hidden" id="language" name="language" value='{{template_params["language"]}}'>
         <div style='border:6px;padding:6px;background-color:#fafaf0;'>
-            <h3>Init code:</h3>
+            <b>Init code:</b><br>
             <textarea name="init_code" rows="10" cols="80">
                 {{template_params["init_code"]}}
             </textarea>
         </div>
         <div style='border:6px;padding:6px;background-color:#faf0fa;'>
-            <h3>Iter code:</h3>
+            <b>Iter code:</b><br>
             <textarea name="iter_code" rows="10" cols="80">
                 {{template_params["iter_code"]}}
             </textarea>
         </div>
         <div style='border:6px;padding:6px;background-color:#f0fafa;'>
-            <h3>Question text:</h3>
+            <b>Question text:</b><br>
             <textarea name="text" rows="10" cols="80">
                 {{template_params["text"]}}
             </textarea>
@@ -44,11 +44,22 @@
     </span>
 
     <span style='float:left;display:inline'>
-      <div style='border-style:dotted;display:block;width=640px;align-content:center;box-sizing:border-box;background-color:white'>
-        {{template_params["question"]}}
+      <div style='display:block; width: 100%; text-align: center; '>
+        <div id="question" class="sh_mobile_frame sh_font" style='display: inline-block;'>
+          {{template_params["question"]}}
+        </div>
         {{elements.buttons()}}
       </div>
+
+
+      {# <div style='border-style:dotted;display:block;width=640px;align-content:center;box-sizing:border-box;background-color:white'>
+        {{template_params["question"]}}
+        {{elements.buttons()}}
+      </div> #}
     </span>
+      
+    {{ elements.mobile_frame("screen_frame", "question") }}
+
       
   </div>
 

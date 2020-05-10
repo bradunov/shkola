@@ -63,8 +63,14 @@
           src: url('item?url=fonts/ChalkboardSE-Light.ttf') format('truetype');
       }
       .sh_font {
+          font-size: 18px;
           font-family: ChalkboardSE-Regular;
           {# font-family: Lato; #}
+      }
+      .sh_mobile_frame {
+        text-align: center; 
+        width: 359px; 
+        margin: 0px 8px 0px 8px;
       }
     </style>
 
@@ -72,6 +78,23 @@
 
 
 
+{% macro mobile_frame(frame_id, question_id) %}
+
+  <div id='{{frame_id}}' style='position: fixed; z-index: 1; top: 0px; left: 0px; 
+        background-color: transparent; border: 1px dotted black; width: 359px; height: 540px'>
+  </div>
+
+  <script>
+    // Move on top of the next button
+    var question = document.getElementById("{{question_id}}");
+    var screen_frame = document.getElementById("{{frame_id}}");
+    var q_rect = question.getBoundingClientRect();
+    //monster.style.top = next_menu.getBoundingClientRect().y.toString() + "px";
+    screen_frame.style.top = (q_rect.y).toString() + "px";
+    screen_frame.style.left = (q_rect.x).toString() + "px";
+  </script>
+
+{% endmacro %}
 
 
 

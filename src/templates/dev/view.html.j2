@@ -12,12 +12,14 @@
                   template_params["menu"]["languages"], template_params["menu"]["current_language"], template_params["menu"]["language_action"], 
                   template_params["menu"]["operations"], template_params["menu"]["current_operation"], template_params["menu"]["operation_action"])}}
 
-  <div style='width: auto ;margin-left: auto ;margin-right: auto ;'>
-    <div class="sh_font">
+  <div style='display:block; width: 100%; text-align: center; '>
+    <div id="question" class="sh_mobile_frame sh_font" style='display: inline-block;'>
       {{template_params["question"]}}
     </div>
     {{elements.buttons()}}
   </div>
+
+  {{ elements.mobile_frame("screen_frame", "question") }}
 
 
   </body>
