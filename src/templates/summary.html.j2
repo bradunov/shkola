@@ -20,23 +20,34 @@
 
 
 
-    <div style='width: auto ;margin-left: auto ;margin-right: auto ;'>
-      <h3>Bravo!</h3><br>
 
-      {% for r in template_params["results"] %}
+    <div style='display:block; width: 100%;'>
+      <div class="sh_font" style="display:inline-block; width: 100%; text-align: center; margin: 30px 0 20px 0; font-size: 18px;">
+        Bravo! Tvoj rezultat:
+      </div>
+
+      {# {% for r in template_params["results"] %}
         {{r[q_id]}}: tacno {{r[correct]}}, netacno {{r[incorrect]}} <br>
       {% endfor %}
 
       <br> Ukupno tacno {{template_params["correct"]}}/
                 {{template_params["correct"] + template_params["incorrect"]}} <br><br>
-
+      #}
 
       {# Division by zero:                 #}
       {# ({{template_params["correct"]/(template_params["correct"] + template_params["incorrect"])}}):<br><br>  #}
   
+
+      <div style="display:inline-block; width: 100%; text-align: center; margin: 10px 0 30px 0; background: white">
+        {{ elements.stats("bar", template_params["bar"]["star1"], template_params["bar"]["star2"], 
+                                template_params["bar"]["star3"], template_params["bar"]["missed"]) }} 
+      </div>
+
     </div>
 
-    <a href='{{template_params["next"]}}'> Nazad na izbor teme </a>
+
+    {{ elements.footer(2, template_params['url_year'], template_params['url_theme']) }}
+
 
   </body>
 </html>

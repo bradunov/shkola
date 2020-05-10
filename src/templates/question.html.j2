@@ -23,10 +23,10 @@
     {{ menu.include() }}
     {{ menu.start_head() }}
 
-      <div style="display:inline-block; text-align:left; width: 131px; height: 36px; margin-left: 37px; margin-top: 8px">
+      <div style="display:inline-block; text-align:left; height: 36px; margin-left: 37px; margin-top: 8px">
         <div class="sh_font" style="display:inline-block; color: #dc3d39; font-size: 14px;">
           {{template_params["year"]}}
-        </div>
+        </div> <br>
         <div class="sh_font" style="display:inline-block;color: #489cba; font-size: 14px;">
           {{template_params["theme"]}} / {{template_params["subtheme"]}}
         </div>
@@ -135,17 +135,20 @@
         </div>
         <div style="display:inline-block; width: 100%; text-align: center; margin-top: 14px; ">
           <div style="display:inline-block; width: 49%; text-align: left; ">
-            <!-- PREV BUTTON -->
+            {# Not sure what exactly functionality to implement, so skipping. #}
+            {# <!-- PREV BUTTON -->
             <div id='but_prev' style="display:inline-block;cursor: pointer; width:66px; height:21px; margin-left: 35px;"
                 onclick='location.href = "{{template_params["back"]}}"'>
                 {{elements.back()}}
             </div>
-            <!-- END PREV BUTTON --> 
+            <!-- END PREV BUTTON -->  #}
           </div>
           <div style="display:inline-block; width: 49%; text-align: right;">
             <!-- NEXT BUTTON -->
             <div id='but_prev' style="display:inline-block;cursor: pointer; width:75px; height:19px; margin-right: 35px;"
-                onclick='location.href = "{{template_params["next"]}}"'>
+                onclick='checkAll("SKIP", "{{template_params["root"]}}", 
+                              "{{template_params["q_id"]}}", "{{template_params["l_id"]}}"); 
+                          location.href = "{{template_params["next"]}}"'>
                 {{elements.skip()}}
             </div>
             <!-- END NEXT BUTTON -->

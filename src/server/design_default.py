@@ -508,6 +508,26 @@ class Design_default(object):
         # page.add_lines("</div>\n")
 
 
+    @staticmethod
+    def _render_result_bar_and_get_last_difficulty(page):
+        difficulty = "0"
+        page.template_params["bar"] = {"star1": 0, "star2": 0, "star3": 0, "missed": 0}
+        if context.c.session.get("history"):
+            for r in context.c.session.get("history"):
+                if "difficulty" in r.keys():
+                    difficulty = r["difficulty"]
+                    if r["difficulty"] == "1":
+                        page.template_params["bar"]["star1"] = page.template_params["bar"]["star1"] + r["correct"]
+                        page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+                    elif r["difficulty"] == "2":
+                        page.template_params["bar"]["star2"] = page.template_params["bar"]["star2"] + r["correct"]
+                        page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+                    elif r["difficulty"] == "3":
+                        page.template_params["bar"]["star3"] = page.template_params["bar"]["star3"] + r["correct"]
+                        page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+
+        return difficulty
+
 
 
 
@@ -593,25 +613,8 @@ class Design_default(object):
                 js=False)
 
 
-        correct = 0
-        incorrect = 0
-        difficulty = "0"
-        page.template_params["bar"] = {"star1": 0, "star2": 0, "star3": 0, "missed": 0}
-        if context.c.session.get("history"):
-            for r in context.c.session.get("history"):
-                if "difficulty" in r.keys():
-                    difficulty = r["difficulty"]
-                    if r["difficulty"] == "1":
-                        page.template_params["bar"]["star1"] = page.template_params["bar"]["star1"] + r["correct"]
-                        page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
-                    elif r["difficulty"] == "2":
-                        page.template_params["bar"]["star2"] = page.template_params["bar"]["star2"] + r["correct"]
-                        page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
-                    elif r["difficulty"] == "3":
-                        page.template_params["bar"]["star3"] = page.template_params["bar"]["star3"] + r["correct"]
-                        page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+        difficulty = Design_default._render_result_bar_and_get_last_difficulty(page)
 
-        logging.debug("\n\n\n AAAAAAAAAAAAAAAAA: {} {}\n\n\n".format(difficulty, page.page_params.get_param("q_id")))
 
         page.template_params["q_number"] = str(q_number)
 
@@ -785,21 +788,32 @@ class Design_default(object):
 
         page.template_params["template_name"] = "summary.html.j2"
 
-        page.template_params["results"] = []
-        page.template_params["correct"] = 0
-        page.template_params["incorrect"] = 0
+        # page.template_params["results"] = []
+        # page.template_params["correct"] = 0
+        # page.template_params["incorrect"] = 0
 
-        try:
-            if context.c.session.get("history"):
-                for r in context.c.session.get("history"):
-                    # r["q_id"], r["correct"], r["incorrect"]
-                    page.template_params["results"].append(r)
-                    page.template_params["correct"] = page.template_params["correct"] + int(r["correct"])
-                    page.template_params["incorrect"] = page.template_params["incorrect"] + int(r["incorrect"])                
-        except:
-            pass
+        # try:
+        #     if context.c.session.get("history"):
+        #         for r in context.c.session.get("history"):
+        #             # r["q_id"], r["correct"], r["incorrect"]
+        #             page.template_params["results"].append(r)
+        #             page.template_params["correct"] = page.template_params["correct"] + int(r["correct"])
+        #             page.template_params["incorrect"] = page.template_params["incorrect"] + int(r["incorrect"])                
+        # except:
+        #     pass
 
-        page.template_params["next"] = page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_THEME), \
+        Design_default._render_result_bar_and_get_last_difficulty(page)
+
+
+        page.template_params["url_year"] = page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_YEAR), \
+                                        year = "", \
+                                        theme = "", \
+                                        subtheme = "", \
+                                        difficulty = "", \
+                                        period = "", \
+                                        js=False)
+
+        page.template_params["url_theme"] = page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_THEME), \
                                         year=page.page_params.get_param("year"), \
                                         theme = "", \
                                         subtheme = "", \
