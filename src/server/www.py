@@ -90,6 +90,8 @@ class editor(object):
             abs_url = srv_abs_path + "/../" + url
         elif url[:6] == "images":
             abs_url = srv_abs_path + "/../" + url
+        elif url[:5] == "fonts":
+            abs_url = srv_abs_path + "/../" + url
         elif url[:len("questions")] == "questions" or url[:len("lists")] == "lists":
             abs_url = srv_abs_path + "/../../" + url
 
