@@ -81,6 +81,11 @@
         }
         if (check) {
           solved = true;
+          
+          // Prevent accidental Next after correct solution
+          var but_next = document.getElementById("but_next");
+          but_next.style.visibility = "hidden";
+
           var monster = document.getElementById("monster");
           monster.style.visibility = "visible";
           document.getElementById("cup1").style.visibility = "visible";
@@ -145,7 +150,7 @@
           </div>
           <div style="display:inline-block; width: 49%; text-align: right;">
             <!-- NEXT BUTTON -->
-            <div id='but_prev' style="display:inline-block;cursor: pointer; width:75px; height:19px; margin-right: 35px;"
+            <div id='but_next' style="display:inline-block;cursor: pointer; width:75px; height:19px; margin-right: 35px;"
                 onclick='checkAll("SKIP", "{{template_params["root"]}}", 
                               "{{template_params["q_id"]}}", "{{template_params["l_id"]}}"); 
                           location.href = "{{template_params["next"]}}"'>
