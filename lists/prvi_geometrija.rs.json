@@ -83,7 +83,11 @@
     {
       "name" : "geometry/q00047", "random": "1", "period": "Zima", "subtheme": "Linije",  
 	  "topic": "Tačka i linija; duž", "difficulty": "1"
-    }
+    },
+    {
+      "name" : "geometry/q00077", "random": "0", "period": "Jesen", "subtheme": "Položaj, veličina i oblik", 
+	  "topic": "Prostorne relacije", "difficulty": "2"
+    }	
   ]
  }
  

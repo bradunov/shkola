@@ -1,9 +1,10 @@
-brojilac = 10 - math.random(8);
 
-imen1 = math.random(brojilac) +1;
-imen2 = math.random(7)
+brojilac = math.random(10) - 1;
 
-if (imen1 == imen2) then
+imen1 = math.random(9) +1;
+imen2 = math.random(10)
+
+if (imen1 == imen2 or brojilac == 0) then
   znak = "="
 else
   if (imen1 > imen2) then

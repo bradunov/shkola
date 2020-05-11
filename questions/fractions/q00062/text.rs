@@ -1,4 +1,5 @@
-Saberi razlomke koji imaju jednake imenioce.
+
+Izračunaj:
 
 @repeat(4)@
 @center@ \(\frac{@broj1@}{@imenilac@}\) @hspacept(3)@ + @hspacept(3)@ \(\frac{@broj2@}{@imenilac@}\) \

@@ -1,57 +1,121 @@
-{ "name" : "Treci razred jednacine i nejednacine",
-  "level": "Treci", 
-  "level_short": "3", 
-  "theme" : "Jednacine", 
-  "language" : "rs",
-  "questions":  [
-   {
-      "name" : "equations/q00001", "random": "1", "period": "proleće", 
-      "subtheme": "zbir/razlika", "difficulty": "1"
-    },
-   {
-      "name" : "equations/q00002", "random": "1", "period": "proleće", 
-      "subtheme": "zbir/razlika", "difficulty": "1"
-    },
-   {
-      "name" : "equations/q00003", "random": "1", "period": "proleće", 
-      "subtheme": "zbir", "difficulty": "2"
-    },
-   {
-      "name" : "equations/q00004", "random": "1", "period": "proleće", 
-      "subtheme": "razlika", "difficulty": "2"
-    },
-   {
-      "name" : "equations/q00005", "random": "1", "period": "proleće", 
-      "subtheme": "proizvod/kolicnik", "difficulty": "2"
-    },
-   {
-      "name" : "equations/q00006", "random": "1", "period": "proleće", 
-      "subtheme": "zbir/razlika", "difficulty": "2"
-    },
-   {
-      "name" : "equations/q00007", "random": "1", "period": "proleće", 
-      "subtheme": "proizvod/kolicnik", "difficulty": "2"
-    },
-   {
-      "name" : "equations/q00008", "random": "1", "period": "proleće", 
-      "subtheme": "proizvod/kolicnik", "difficulty": "2"
-    },
-   {
-      "name" : "equations/q00009", "random": "1", "period": "proleće", 
-      "subtheme": "sve operacije", "difficulty": "2"
-    },
-   {
-      "name" : "equations/q00010", "random": "1", "period": "proleće", 
-      "subtheme": "sve operacije", "difficulty": "3"
-    },
-   {
-      "name" : "equations/q00011", "random": "1", "period": "proleće", 
-      "subtheme": "proizvod/kolicnik", "difficulty": "2"
-    },
-   {
-      "name" : "equations/q00012", "random": "1", "period": "proleće", 
-      "subtheme": "proizvod/kolicnik", "difficulty": "2"
-    }	
-  ]
- }
- 
+{
+	"name": "Treci razred jednacine i nejednacine",
+	"level": "Treci",
+	"level_short": "3",
+	"theme": "Jednacine",
+	"language": "rs",
+	"questions": [
+		{
+			"name": "equations/q00001",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Jednačine",
+			"topic": "Zbir/razlika",
+			"difficulty": "1"
+		},
+		{
+			"name": "equations/q00002",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Jednačine",
+			"topic": "Zbir/razlika",
+			"difficulty": "1"
+		},
+		{
+			"name": "equations/q00003",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Jednačine",
+			"topic": "Zbir",
+			"difficulty": "1"
+		},
+		{
+			"name": "equations/q00004",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Jednačine",
+			"topic": "Razlika",
+			"difficulty": "1"
+		},
+		{
+			"name": "equations/q00005",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Jednačine",
+			"topic": "Proizvod/količnik",
+			"difficulty": "2"
+		},
+		{
+			"name": "equations/q00006",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Jednačine",
+			"topic": "Zbir/razlika",
+			"difficulty": "1"
+		},
+		{
+			"name": "equations/q00007",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Jednačine",
+			"topic": "Proizvod/količnik",
+			"difficulty": "1"
+		},
+		{
+			"name": "equations/q00008",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Jednačine",
+			"topic": "Proizvod/količnik",
+			"difficulty": "2"
+		},
+		{
+			"name": "equations/q00009",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Jednačine",
+			"topic": "Sve računske operacije",
+			"difficulty": "2"
+		},
+		{
+			"name": "equations/q00010",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Jednačine",
+			"topic": "Sve računske operacije",
+			"difficulty": "3"
+		},
+		{
+			"name": "equations/q00011",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Jednačine",
+			"topic": "Proizvod/kolicnik",
+			"difficulty": "2"
+		},
+		{
+			"name": "equations/q00012",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Jednačine",
+			"topic": "Proizvod/kolicnik",
+			"difficulty": "3"
+		},		
+		{
+			"name": "equations/q00020",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Nejednačine",
+			"topic": "Zbir/razlika",
+			"difficulty": "1"
+		},
+		{
+			"name": "equations/q00021",
+			"random": "1",
+			"period": "Zima",
+			"subtheme": "Nejednačine",
+			"topic": "Zbir/razlika",
+			"difficulty": "1"
+		}
+	]
+}

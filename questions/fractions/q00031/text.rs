@@ -4,3 +4,4 @@ Uporedi razlomke koji imaju jednak brojilac:
 @center@ \(\frac{@brojilac@}{@imen1@}\) @hspace@@lib.check_string(znak)@@hspace@ \(\frac{@brojilac@}{@imen2@}\)
 @/repeat@
             
+            

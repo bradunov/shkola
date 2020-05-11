@@ -1,3 +1,4 @@
+
 sign1 = " "
 operat = {"+", "-"}
 
@@ -13,6 +14,7 @@ if (ITEM == 1) then
 	if (ind == 1) then
 		value = factor2 * (factor1 + factor3)
 	    result = factor3
+		mid = factor1 + result
 	else	
 	    if (factor1 < factor3) then
 	        term = factor1
@@ -21,8 +23,10 @@ if (ITEM == 1) then
 	    end		
 	    value = factor2 * (factor1 - factor3)
 	    result = factor3
+		mid = factor1 - result
 	end	
-	answ = "( " .. tostring(factor1) .. " " .. sign2 .. " x ) " .. sign1 .. " " .. tostring(factor2) .. " = " .. tostring(value)
+	answ1 = "(" .. tostring(factor1) .. sign2 .. "x) " .. sign1 .. " " .. tostring(factor2) .. " = " .. tostring(value) .. ", " 
+	answ2 = tostring(factor1) .. sign2 .. "x = " .. lib.check_number(mid,30) .. ","
 end
 
 if (ITEM == 2) then  
@@ -31,11 +35,14 @@ if (ITEM == 2) then
 	if (ind == 1) then
 		value = factor2 * factor1 - factor3
 	    result = factor3
+		mid = value + result		
 	else		
 	    value = factor2 * factor1 + factor3
 	    result = factor3
+		mid = value - result
 	end	
-	answ = "( " .. tostring(value) .. " " .. sign2 .. " x ) " .. sign1 .. " " .. tostring(factor1) .. " = " .. tostring(factor2)
+	answ1 = "(" .. tostring(value) .. sign2 .. "x) " .. sign1 .. " " .. tostring(factor1) .. " = " .. tostring(factor2) .. ", "
+	answ2 = tostring(value) .. sign2 .. "x = " .. lib.check_number(mid,30) .. ","
 end
 
 if (ITEM == 3) then  
@@ -44,6 +51,7 @@ if (ITEM == 3) then
 	if (ind == 1) then
 		value = factor2 * (factor1 + factor3)
 	    result = factor3
+		mid = factor1 + result		
 	else	
 	    if (factor1 < factor3) then
 	        term = factor1
@@ -52,8 +60,10 @@ if (ITEM == 3) then
 	    end		
 	    value = factor2 * (factor1 - factor3)
 	    result = factor3
+		mid = factor1 - result			
 	end	
-	answ = tostring(factor2) .. " " .. sign1 .. " ( " .. tostring(factor1) .. " " .. sign2 .. " x ) = " ..  tostring(value)
+	answ1 = tostring(factor2) .. " " .. sign1 .. " (" .. tostring(factor1) .. sign2 .. "x)= " .. tostring(value) ..", "
+	answ2 = tostring(factor1) .. sign2 .. "x = " .. lib.check_number(mid,30) .. ","
 end
 
 if (ITEM == 4) then  
@@ -62,6 +72,7 @@ if (ITEM == 4) then
 	if (ind == 1) then
 		value = factor2 * (factor1 + factor3)
 	    result = factor3
+		mid = factor1 + result		
 	else
         if (factor1 == factor3) then
             factor3 = factor3 - 1
@@ -73,9 +84,9 @@ if (ITEM == 4) then
 	    end		
 	    value = factor2 * (factor1 - factor3)
 	    result = factor3
+		mid = factor1 - result		
 	end	
-	answ = tostring(value) .. " " .. sign1 .. " ( " .. tostring(factor1) .. " " .. sign2 .. " x ) = " ..  tostring(factor2)
+	answ1 = tostring(value) .. " " .. sign1 .. " (" .. tostring(factor1) .. sign2 .. "x) = " ..  tostring(factor2) ..", "
+	answ2 = tostring(factor1) .. sign2 .. "x = " .. lib.check_number(mid,30) .. ","
 end
-  
     
-     

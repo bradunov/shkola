@@ -2,7 +2,7 @@
 
 Prvog dana je prodala \(\frac{1}{@imenilac1@}\) jaja, a drugog dana \(\frac{1}{@imenilac2@}\). 
 
-Treceg dana je prodala preostalih @brojo@ jaja.
+Trećeg dana je prodala preostalih @brojo@ jaja.
 
 @vspace@
 

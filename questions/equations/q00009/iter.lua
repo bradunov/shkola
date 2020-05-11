@@ -1,3 +1,4 @@
+
 sign1 = " "
 operat = {"+", "-"}
 
@@ -13,12 +14,15 @@ if (ITEM == 1) then
 	if (ind == 1) then
 		value = factor2 * (factor1 + factor3)
 	    result = factor2
-	else	
+	else
+        if (factor1 == factor3) then
+            factor1 = factor1 - 2
+        end			
 	    if (factor1 < factor3) then
 	        term = factor1
 		    factor1 = factor3
 		    factor3 = term
-	    end		
+	    end	
 	    value = factor2 * (factor1 - factor3)
 	    result = factor2
 	end	
@@ -33,7 +37,7 @@ if (ITEM == 2) then
 	    result = value
 	else
         if (factor1 == factor3) then
-            factor3 = factor3 - 1
+            factor3 = factor3 - 2
         end
 	    if (factor1 < factor3) then
 	        term = factor1
@@ -52,12 +56,15 @@ if (ITEM == 3) then
 	if (ind == 1) then
 		value = factor2 * (factor1 + factor3)
 	    result = factor2
-	else	
+	else
+        if (factor1 == factor3) then
+            factor1 = factor1 - 2
+        end					
 	    if (factor1 < factor3) then
 	        term = factor1
 		    factor1 = factor3
 		    factor3 = term
-	    end		
+	    end	
 	    value = factor2 * (factor1 - factor3)
 	    result = factor2
 	end	
@@ -76,7 +83,6 @@ if (ITEM == 4) then
 	end	
 	answ = "( " .. tostring(value) .. " " .. sign2 .. " " .. tostring(factor3) .. " ) " .. sign1 .. " x = " .. tostring(factor2)
 end
-
 
     
      

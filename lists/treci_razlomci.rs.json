@@ -1,109 +1,209 @@
-{ "name" : "Treci razred razlomci",
-  "level": "Treci", 
-  "level_short": "3", 
-  "theme" : "Razlomci", 
-  "language" : "rs",
-  "questions":  [
-    {
-      "name" : "fractions/q00008", "random": "0", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Računanje dela", "difficulty": "2"
-    },
-    {
-      "name" : "fractions/q00012", "random": "0", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Grafičko sabiranje", "difficulty": "1"
-    },
-    {
-      "name" : "fractions/q00019", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Grafičko poređenje", "difficulty": "2"
-    },
-    {
-      "name" : "fractions/q00020", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Tekstualni zadatak", "difficulty": "3"
-    },
-    {
-      "name" : "fractions/q00022", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Brojevni izraz", "difficulty": "2"
-    },
-    {
-      "name" : "fractions/q00023", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Tekstualni zadatak", "difficulty": "3"
-    },
-    {
-      "name" : "fractions/q00024", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Mere", "difficulty": "2"
-    },
-    {
-      "name" : "fractions/q00025", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Pojam", "difficulty": "1"
-    },	
-    {
-      "name" : "fractions/q00026", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Računanje dela", "difficulty": "2"
-    },
-    {
-      "name" : "fractions/q00027", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Tekstualni zadatak", "difficulty": "3"
-    },
-    {
-      "name" : "fractions/q00028", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Mere-poređenje", "difficulty": "2"
-    },
-    {
-      "name" : "fractions/q00030", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Poređenje razlomaka sa jednakim imeniocima", "difficulty": "1"
-    },
-    {
-      "name" : "fractions/q00033", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Pojam", "difficulty": "1"
-    },	
-    {
-      "name" : "fractions/q00034", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Pojam", "difficulty": "1"
-    },
-    {
-      "name" : "fractions/q00040", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Decimalni broj", "difficulty": "2"
-    },
-    {
-      "name" : "fractions/q00045", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Pojam", "difficulty": "1"
-    },
-    {
-      "name" : "fractions/q00046", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Tekstualni zadatak", "difficulty": "3"
-    },
-    {
-      "name" : "fractions/q00052", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Tekstualni zadatak", "difficulty": "3"
-    },
-    {
-      "name" : "fractions/q00056", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Brojevni izraz", "difficulty": "2"
-    },
-    {
-      "name" : "fractions/q00057", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Brojevni izraz", "difficulty": "2"
-    },
-    {
-      "name" : "fractions/q00058", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Brojevni izraz", "difficulty": "3"
-    },
-    {
-      "name" : "fractions/q00059", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Tekstualni zadatak", "difficulty": "2"
-    },
-    {
-      "name" : "fractions/q00060", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Tekstualni zadatak", "difficulty": "2"
-    },
-    {
-      "name" : "fractions/q00061", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Tekstualni zadatak", "difficulty": "2"
-    },
-    {
-      "name" : "fractions/q00069", "random": "1", "period": "Proleće", "subtheme": "Razlomci", 
-      "topic": "Decimalni broj", "difficulty": "3"
-    }	
-  ]
- }
- 
+{
+	"name": "Treci razred razlomci",
+	"level": "Treci",
+	"level_short": "3",
+	"theme": "Razlomci",
+	"language": "rs",
+	"questions": [
+		{
+			"name": "fractions/q00008",
+			"random": "0",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Računanje dela",
+			"difficulty": "2"
+		},
+		{
+			"name": "fractions/q00012",
+			"random": "0",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Grafičko sabiranje",
+			"difficulty": "1"
+		},
+		{
+			"name": "fractions/q00019",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Grafičko poređenje",
+			"difficulty": "2"
+		},
+		{
+			"name": "fractions/q00020",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Tekstualni zadatak",
+			"difficulty": "3"
+		},
+		{
+			"name": "fractions/q00022",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Brojevni izraz",
+			"difficulty": "2"
+		},
+		{
+			"name": "fractions/q00023",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Tekstualni zadatak",
+			"difficulty": "3"
+		},
+		{
+			"name": "fractions/q00024",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Mere",
+			"difficulty": "2"
+		},
+		{
+			"name": "fractions/q00025",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Pojam",
+			"difficulty": "1"
+		},
+		{
+			"name": "fractions/q00026",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Računanje dela",
+			"difficulty": "2"
+		},
+		{
+			"name": "fractions/q00027",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Tekstualni zadatak",
+			"difficulty": "3"
+		},
+		{
+			"name": "fractions/q00028",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Mere-poređenje",
+			"difficulty": "2"
+		},
+		{
+			"name": "fractions/q00030",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Poređenje razlomaka sa jednakim imeniocima",
+			"difficulty": "1"
+		},
+		{
+			"name": "fractions/q00033",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Pojam",
+			"difficulty": "1"
+		},
+		{
+			"name": "fractions/q00034",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Pojam",
+			"difficulty": "1"
+		},
+		{
+			"name": "fractions/q00040",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Decimalni broj",
+			"difficulty": "2"
+		},
+		{
+			"name": "fractions/q00045",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Pojam",
+			"difficulty": "1"
+		},
+		{
+			"name": "fractions/q00046",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Tekstualni zadatak",
+			"difficulty": "3"
+		},
+		{
+			"name": "fractions/q00052",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Tekstualni zadatak",
+			"difficulty": "3"
+		},
+		{
+			"name": "fractions/q00056",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Brojevni izraz",
+			"difficulty": "2"
+		},
+		{
+			"name": "fractions/q00057",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Brojevni izraz",
+			"difficulty": "2"
+		},
+		{
+			"name": "fractions/q00058",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Brojevni izraz",
+			"difficulty": "3"
+		},
+		{
+			"name": "fractions/q00059",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Tekstualni zadatak",
+			"difficulty": "2"
+		},
+		{
+			"name": "fractions/q00060",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Tekstualni zadatak",
+			"difficulty": "2"
+		},
+		{
+			"name": "fractions/q00061",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Tekstualni zadatak",
+			"difficulty": "2"
+		},
+		{
+			"name": "fractions/q00069",
+			"random": "1",
+			"period": "Proleće",
+			"subtheme": "Razlomci",
+			"topic": "Decimalni broj",
+			"difficulty": "3"
+		}
+	]
+}
