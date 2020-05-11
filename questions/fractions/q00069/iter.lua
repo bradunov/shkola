@@ -14,4 +14,5 @@ result = rel[ITEM] * res_dec
                   
                   
 condition = "is_ok = (numerator/denominator == " ..tostring(res_dec) .. ")"				  
+solution = "numerator="..tostring(brojilac)..";denominator="..tostring(imenilac)..";"
 
