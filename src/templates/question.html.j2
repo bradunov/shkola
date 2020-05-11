@@ -119,21 +119,21 @@
     </script>
 
 
-    <div style="height: calc(100% - 90px); width:100%; overflow-y: auto; overflow-x: hidden; ">
+    <div style="height: calc(100% - 90px); width:100%; overflow-y: auto; overflow-x: auto; ">
 
       <div style="display:inline-block; width: 100%; text-align: center; margin-top: 30px; ">
         {{ elements.stats("bar", template_params["bar"]["star1"], template_params["bar"]["star2"], 
                                 template_params["bar"]["star3"], template_params["bar"]["missed"]) }} 
       </div>
 
-      <div style="display:inline-block; width: 100%; text-align: center; margin-top: 12px; background: white">
+      <div style="display:inline-block; width: 100%; text-align: center; margin-top: 12px; background: white; overflow-x: auto; ">
         <div style="display:inline-block; width: 100%; text-align: right; margin-top: 10px; ">
           <div style="display:inline-block; margin-right: 35px; ">
             {{elements.stars(template_params["difficulty"])}}
           </div>
         </div>
         <div class="sh_font" 
-             style="display:inline-block; width: 100%; text-align: center; margin: 11px 8px 8px 8px; font-size: 18px;">
+             style="display:inline-block; width: calc(100% - 16px); text-align: center; margin: 11px 8px 8px 8px; font-size: 18px;">
 
           {{template_params["question"]}}
 
@@ -142,7 +142,7 @@
           <div style="display:inline-block; width: 49%; text-align: left; ">
             {# Not sure what exactly functionality to implement, so skipping. #}
             {# <!-- PREV BUTTON -->
-            <div id='but_prev' style="display:inline-block;cursor: pointer; width:66px; height:21px; margin-left: 35px;"
+            <div id='but_prev' style="display:inline-block;cursor: pointer; width:66px; height:21px; margin-left: 35px; margin-bottom: 8px;"
                 onclick='location.href = "{{template_params["back"]}}"'>
                 {{elements.back()}}
             </div>
@@ -150,7 +150,7 @@
           </div>
           <div style="display:inline-block; width: 49%; text-align: right;">
             <!-- NEXT BUTTON -->
-            <div id='but_next' style="display:inline-block;cursor: pointer; width:75px; height:19px; margin-right: 35px;"
+            <div id='but_next' style="display:inline-block;cursor: pointer; width:75px; height:19px; margin-right: 35px; margin-bottom: 8px;"
                 onclick='checkAll("SKIP", "{{template_params["root"]}}", 
                               "{{template_params["q_id"]}}", "{{template_params["l_id"]}}"); 
                           location.href = "{{template_params["next"]}}"'>
