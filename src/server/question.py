@@ -6,7 +6,6 @@ import re
 from server.types import PageLanguage
 from server.library import Library
 import logging
-from server.helpers import Transliterate
 
 
 class Paragraph(object):
