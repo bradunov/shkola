@@ -464,7 +464,26 @@ class Page(object):
             user_id = "UNKNOWN"
             pass
 
-        if "q_id" in args.keys():
+        if 'type' in args.keys() and args["type"] == "GOOGLE_ERROR":
+            response = {"user_id" : user_id,
+                        "question_id": "GOOGLE_ERROR",
+                        "list_id": "",
+                        "test_id": "",
+                        "test_order": "",
+                        "type": "GOOGLE_ERROR",
+                        "comment": args['comment'] if 'comment' in args.keys() else '',
+                        "shown_solutions": "",
+                        "random_vals": ""}
+
+            logging.debug("Submitting google error feedback: user_id=%s, error=%s", str(user_id), str(args["comment"]))
+
+            try:
+                self.storage.record_feedback(response)
+            except Exception as err:
+                logging.error("Error submitting google error feedback: {}".format(str(err)))
+
+
+        elif "q_id" in args.keys():
             if "l_id" not in args.keys() or not args["l_id"] or args["l_id"] is None:
                 l_id = ""
             else:

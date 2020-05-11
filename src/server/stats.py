@@ -122,6 +122,10 @@ class Stats(object):
             from_date = "2020-03-15T00:00:00.000Z"
         results = storage.get_user_stats(u_id=u_id, from_date=from_date)
 
+
+        logging.info("\n\nAAAAAAAA: {}\n\n".format(u_id))
+
+
         # Classify in categories
         stats = { 
             "all" : { "q_correct" : 0, "q_total" : 0, "sq_correct" : 0, "sq_total" : 0 },
@@ -158,7 +162,6 @@ class Stats(object):
             #period = q_info["period"]
             difficulty = q_info["difficulty"]
 
-            logging.debug("\n\n\nAAAA {}\n\n\n".format(r["questions"]))
 
             parsed_q = Stats._parse_questions(r["questions"])
             correct = sum(parsed_q) 

@@ -97,6 +97,10 @@ class UserDB(object):
             auth_user_id = idinfo['sub']
             logging.info("Google validation success: {}".format(idinfo))
 
+            if 'email' in idinfo:
+                logging.info("Google login user: {}".format(idinfo["email"]))
+
+
             name = idinfo['name']
             email = idinfo['email']
             language = idinfo['locale']
@@ -110,6 +114,11 @@ class UserDB(object):
             # Not sure why so I'll just ignore for now for testing
             #return False
             return False, str(ex)
+
+        except Exception as ex:
+            logging.info("Google authentication unknown error: {}".format(ex))
+            return False, str(ex)
+
 
         self.session_login_and_update_user(
             'google', auth_user_id,

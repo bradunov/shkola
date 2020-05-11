@@ -103,12 +103,15 @@ class Design_default(object):
         #     return page.render()
 
         elif page.page_params.get_param("op") == PageOperation.STATS:
-            if user and user.domain_user_id:
-                # TBD: old notation
-                u_id = user.domain_user_id
+            if user and user.user_id:
+                # Full user id (e.g. google:XXXX)
+                u_id = user.user_id
+
+                # TBD: old notation for local tests - remove "local:" if present
                 if len(u_id) >= len("local:") and u_id[:len("local:")] == "local:":
                     u_id = u_id[len("local:"):]
                 Design_default.render_user_stats(page, u_id)
+
             else:
                 logging.info("PageOperation.STATS - no user - select user")
                 root = page.page_params.get_param("root")

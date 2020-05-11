@@ -286,7 +286,8 @@ class Storage_az_table():
 
     def get_user_stats(self, u_id, from_date=None):
 
-        # TBD DEBUG: temporary cleanup foer various user names we used over time
+        # TBD DEBUG: temporary cleanup for various user names we used over time
+        # Remove (PartitionKey eq 'local:{}') in future
         req = "((PartitionKey eq '{}') or (PartitionKey eq 'local:{}'))".format(u_id, u_id) 
 
         if from_date:
@@ -295,6 +296,7 @@ class Storage_az_table():
             req = req + "(Timestamp ge datetime'{}')".format(from_date)
 
         #print(req)
+        logging.info("\n\nBBBBBBBB: {}\n\n".format(req))
 
         entries = self.table_service.query_entities(self.responses_table_name, req)
 

@@ -56,6 +56,8 @@
       var startGoogleAuth = function() {
           gapi.load('auth2', function(){
           // Retrieve the singleton for the GoogleAuth library and set up the client.
+          // B: When having auth problems on tablet, do we need to set more parameters here:
+          // https://developers.google.com/identity/sign-in/web/reference#gapiauth2clientconfig
           auth2 = gapi.auth2.init({
               client_id: '{{ template_params['google_signin_client_id'] }}',
               cookiepolicy: 'single_host_origin',
@@ -70,7 +72,21 @@
           console.log(element.id);
           auth2.attachClickHandler(element, {}, onSignIn,
               function(error) {
-              alert(JSON.stringify(error, undefined, 2));
+                var xhr = new XMLHttpRequest();
+                var url = '/main?op=feedback'
+                xhr.open('POST', url);
+                xhr.onreadystatechange = function() {
+                    console.log("Received");
+                    console.log(xhr);
+                    if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                };
+                var report = {};
+                report['type'] = 'GOOGLE_ERROR';
+                report['comment'] = JSON.stringify(error, undefined, 2);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                console.log("Sending report to " + url + ": " + JSON.stringify(report));
+                xhr.send(JSON.stringify(report));
+                alert(JSON.stringify(error, undefined, 2));
               });
       }
     </script>
