@@ -181,20 +181,27 @@ class Library(object):
         aoptions = list(options.values())
 
         if vertical:
-            line = line + "<table>\n"
+            #line = line + "<table>\n"
+            line = line + "<div style='text-align: left;'>\n"
         else:
             line = line + hspace
         
         for opt in aoptions:
             if vertical:
-                line = line + "<tr><td><input type='radio' id='{}_{}' name='{}'/></td> <td style=\"text-align:left\">{}</td></tr>".format(n_answer, cnt, n_answer, opt)
+                #line = line + "<tr><label><td><input type='radio' id='{}_{}' name='{}'/></td> <td style=\"text-align:left\">{}</td></label></tr>".format(n_answer, cnt, n_answer, opt)
+                line = line + "<label><div style='display:inline-block; margin-top:6px; width:auto;'>"\
+                        "<input style='display:inline-block' type='radio' id='{}_{}' name='{}'/>" \
+                        "<div style='display:inline-block; margin-left:6px'>{}"\
+                            "</div></div></label><br>".format(
+                            n_answer, cnt, n_answer, opt.strip())
             else:
-                line = line + "<input type='radio' id='{}_{}' name='{}'/> {}".format(n_answer, cnt, n_answer, opt) + hspace
+                line = line + "<label><input type='radio' id='{}_{}' name='{}'/> {}</label>".format(n_answer, cnt, n_answer, opt) + hspace
             clear_str = clear_str + "document.getElementById('{}_{}').checked=false;\n".format(n_answer, cnt)
             cnt = cnt + 1
 
         if vertical:
-            line = line + "</table>\n"
+            # line = line + "</table>\n"
+            line = line + "</div>\n"
 
         line = line + "</div>\n"
         

@@ -228,37 +228,55 @@
       </div><br>
       <div class="sh_font" style='display:inline-block; width: 250px; text-align: left;   
                   margin-top: 22px; font-size: 18px;'>
-        <input type='radio' id='wr_again' name="wr_input" 
-               style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
-        Hoću još jednu šansu! 
+        <label>
+          <input type='radio' id='wr_again' name="wr_input" 
+                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
+          Hoću još jednu šansu! 
+        </label>
       </div><br>
       <div class="sh_font" style='display:inline-block; width: 250px; text-align: left;  
                   margin-top: 15px; font-size: 18px;'>
-        <input type='radio' id='wr_solution' name="wr_input" 
-               style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
-        Daj da vidim rešenje! 
+        <label>
+          <input type='radio' id='wr_solution' name="wr_input" 
+                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
+          Daj da vidim rešenje! 
+        </label>
       </div><br>
       <div class="sh_font" style='display:inline-block; width: 250px; text-align: left;  
                   margin-top: 15px; font-size: 18px;'>
-        <input type='radio' id='wr_skip' name="wr_input" 
-               style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
-        Ja bih da preskočim. 
+        <label>
+          <input type='radio' id='wr_skip' name="wr_input" 
+                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
+          Ja bih da preskočim. 
+        </label>
       </div><br>
       <div id='wr_report_option' class="sh_font" style='display:inline-block; width: 250px; text-align: left;  
                   margin-top: 15px; font-size: 18px;'>
-        <input type='radio' id='wr_report' name="wr_input" 
-               style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(true)'> 
-        Ovaj zadatak ima problem. 
+        <label>
+          <input type='radio' id='wr_report' name="wr_input" 
+                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(true)'> 
+          Ovaj zadatak ima problem. 
+        </label>
       </div><br>
 
       <!-- Feedback form -->
       <div id="feedback" style='display:none; width: 250px; text-align: left; border: 2px solid #148f91; margin-top: 26px; '>
         <div class="sh_font" style='display:inline-block; text-align: left; margin: 12px 12px 0 12px; font-size: 18px;'>
-          <input type='radio' id='fb_problem' style='text-align: left; margin-right: 19px;'> Ima grešku <br>
-          <input type='radio' id='fb_unclear' style='text-align: left; margin-right: 19px;'> Nije jasan <br>
-          <input type='radio' id='fb_difficult' style='text-align: left; margin-right: 19px;'> Pretezak <br>
-          <input type='radio' id='fb_easy' style='text-align: left; margin-right: 19px;'> Prelak <br>
-          <input type='radio' id='fb_other' style='text-align: left; margin-right: 19px;'> Drugo <br> 
+          <label>
+            <input type='radio' id='fb_problem' name="fb_input" style='text-align: left; margin-right: 19px;'> Ima grešku 
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_unclear' name="fb_input" style='text-align: left; margin-right: 19px;'> Nije jasan 
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_difficult' name="fb_input" style='text-align: left; margin-right: 19px;'> Pretezak 
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_easy' name="fb_input" style='text-align: left; margin-right: 19px;'> Prelak 
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_other' name="fb_input" style='text-align: left; margin-right: 19px;'> Drugo 
+          </label> <br>
           <div style='display:inline-block; margin: 12px 0 12px 0'> Dodatni komentar: </div>
           <input type='text' id='fb_komentar' style='width: 219px'> <br> <br>
         </div>
