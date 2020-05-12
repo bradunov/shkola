@@ -151,9 +151,7 @@
           <div style="display:inline-block; width: 49%; text-align: right;">
             <!-- NEXT BUTTON -->
             <div id='but_next' style="display:inline-block;cursor: pointer; width:75px; height:19px; margin-right: 35px; margin-bottom: 8px;"
-                onclick='checkAll("SKIP", "{{template_params["root"]}}", 
-                              "{{template_params["q_id"]}}", "{{template_params["l_id"]}}"); 
-                          location.href = "{{template_params["next"]}}"'>
+                onclick='popup_toggle_skip()'>
                 {{elements.skip()}}
             </div>
             <!-- END NEXT BUTTON -->
@@ -176,37 +174,22 @@
     </script>
 
 
-
-{# 
-    <!-- FEEDBACK BUTTON -->
-    {{elements.start_popup("feedback_report", "width: 300px; background-color: #555; color: #fff; text-align: center; border-radius: 6px; padding: 8px;")}}
-
-      <h3> Unesite detalje komentara</h3>
-      Mislite da zadatak: <br>
-      <input type='radio' id='fb_problem'> Ima problem <br>
-      <input type='radio' id='fb_unclear'> Nije jasan <br>
-      <input type='radio' id='fb_difficult'> Pretezak <br>
-      <input type='radio' id='fb_easy'> Prelak <br>
-      <input type='radio' id='fb_other'> Drugo <br> 
-      <br> Dodatni komentar: <br><input type='text' id='fb_komentar'> <br> <br>
-      <input align='center' type='button' style='font-size: 14px;'  
-              onclick="sendFeedbackToServer('{{template_params['root']}}', 
-                  document.getElementById('fb_problem').checked?'problem':(
-                    document.getElementById('fb_unclear').checked?'unclear':(
-                    document.getElementById('fb_difficult').checked?'unclear':(
-                    document.getElementById('fb_easy').checked?'unclear':'other'))), 
-                  '{{template_params['q_id']}}', '{{template_params['l_id']}}', 
-                  document.getElementById('fb_komentar').value); 
-              popup_toggle_feedback_report(); 
-              document.getElementById('but_fb').style.display='none';
-              " value='Posalji prijavu' />
-
-      <div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
-      <input align='center' type='button' style='font-size: 14px;' 
-          onclick="popup_toggle_feedback_report();" value='Odustani' />
+    {{elements.start_popup("skip", "width: 300px; text-align:center;")}}
+      <div class='sh-font' style='display:inline-block; margin: 12px 8px 8px 8px; font-size:18px'> 
+        Mozda da ipak pokusas? 
+      </div><br>
+      <div style='display:inline-block;padding-left:0px;padding-right:0px;padding-bottom:12px'>
+        <input type='button' class='sh-font' style='font-size: 14px;' onclick='popup_toggle_skip()' value='Hocu da pokusam'/>
+        <div style='display:inline-block;padding-left:6px;padding-right:6px'></div>
+        <input type='button' class='sh-font' style='font-size: 14px; '
+                             onclick='checkAll("SKIP", "{{template_params["root"]}}", 
+                                  "{{template_params["q_id"]}}", "{{template_params["l_id"]}}"); 
+                             location.href = "{{template_params["next"]}}"'
+            value='Ipak preskoci'/>
+      </div>
     {{elements.end_popup()}}
-    <!-- END FEEDBACK BUTTON -->
- #}
+
+
 
     {{elements.cup("cup1", 10, 30)}} 
     {{elements.cup("cup2", 40, 80)}} 
