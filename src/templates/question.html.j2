@@ -25,11 +25,20 @@
 
       <div style="display:inline-block; text-align:left; height: 36px; margin-left: 37px; margin-top: 8px">
         <div class="sh_font" style="display:inline-block; color: #dc3d39; font-size: 14px;">
-          {{template_params["year"]}}
-        </div> <br>
+          {{template_params["year"].upper()}}
+        </div> 
+        <div class="sh_font" style="display:inline-block; color: #636661; font-size: 14px;">
+          razred
+        </div> 
+        <br>
         <div class="sh_font" style="display:inline-block;color: #489cba; font-size: 14px;">
-          {{template_params["theme"]}} / {{template_params["subtheme"]}}
+          {{ elements.color_string(template_params["theme"], -4) }}
         </div>
+        {% if template_params["subtheme"].strip() != "*" %}
+        <div class="sh_font" style="display:inline-block;color: #636661; font-size: 14px;">
+          / {{template_params["subtheme"].capitalize()}}
+        </div>
+        {% endif %}
       </div>
 
     {{ menu.end_head() }}

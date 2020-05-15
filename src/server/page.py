@@ -590,6 +590,6 @@ class Page(object):
             logging.info("login(): User already logged in")
 
         url = self.page_params.get_param("root") + \
-            "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
+            "?op={}".format(PageOperation.toStr(PageOperation.CONFIRM_ANON))
 
         return url

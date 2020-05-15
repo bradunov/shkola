@@ -413,20 +413,20 @@
 
 
 
-{% macro back() %}
+{% macro back(text="vrati se", color="#b0b6b6", width=0) %}
 
-<svg xmlns="http://www.w3.org/2000/svg" width="67" height="20.929" viewBox="0 0 67 20.929">
+<svg xmlns="http://www.w3.org/2000/svg" width="{{67+width}}" height="20.929" viewBox="0 0 {{67+width}} 20.929">
     <g id="prefix__vrati_se" data-name="vrati se" transform="translate(-35 -444)">
         <g id="prefix__preskoci" transform="translate(35 445)">
             <g id="prefix__noun_Arrow_1807380" transform="translate(0 1)">
                 <g id="prefix__Group_58" data-name="Group 58">
-                    <path id="prefix__Path_242" d="M27 966.753a.922.922 0 0 1 .418-.631l11.736-8.413a2.305 2.305 0 0 1 2.3-.079.821.821 0 0 1 .122 1.485l-10.758 7.709 10.758 7.709a.821.821 0 0 1-.122 1.485 2.306 2.306 0 0 1-2.3-.079l-11.736-8.413a.861.861 0 0 1-.418-.773z" data-name="Path 242" transform="translate(-26.994 -957.361)" style="fill:#b0b6b6"/>
+                    <path id="prefix__Path_242" d="M27 966.753a.922.922 0 0 1 .418-.631l11.736-8.413a2.305 2.305 0 0 1 2.3-.079.821.821 0 0 1 .122 1.485l-10.758 7.709 10.758 7.709a.821.821 0 0 1-.122 1.485 2.306 2.306 0 0 1-2.3-.079l-11.736-8.413a.861.861 0 0 1-.418-.773z" data-name="Path 242" transform="translate(-26.994 -957.361)" style="fill:{{color}}"/>
                 </g>
             </g>
         </g>
         <text id="prefix__vrati_se-2" data-name="vrati se" transform="translate(50 460)" 
-            class="sh_font" style="font-size:16px;fill:#b0b6b6">
-            <tspan x="0" y="0">vrati se</tspan>
+            class="sh_font" style="font-size:16px;fill:{{color}}">
+            <tspan x="0" y="0">{{text}}</tspan>
         </text>
     </g>
 </svg>
@@ -436,17 +436,17 @@
 
 
 
-{% macro skip() %}
+{% macro skip(text="preskoči", color="#b0b6b6", width=0) %}
 
-<svg xmlns="http://www.w3.org/2000/svg" width="75" height="19.929" viewBox="0 0 75 19.929">
+<svg xmlns="http://www.w3.org/2000/svg" width="{{75+width}}" height="19.929" viewBox="0 0 {{75 + width}} 19.929">
     <g id="prefix__preskoci" transform="translate(-252 -445)">
         <text id="prefix__preskoči" transform="translate(252 461)" 
-            class="sh_font" style="font-size:16px;fill:#b0b6b6">
-            <tspan x="0" y="0">preskoči</tspan>
+            class="sh_font" style="font-size:16px;fill:{{color}}">
+            <tspan x="0" y="0">{{text}}</tspan>
         </text>
-        <g id="prefix__noun_Arrow_1807380" transform="translate(237 515.001)">
+        <g id="prefix__noun_Arrow_1807380" transform="translate({{237+width}} 515.001)">
             <g id="prefix__Group_58" data-name="Group 58" transform="translate(75 -69.001)">
-                <path id="prefix__Path_242" d="M41.991 966.753a.922.922 0 0 0-.418-.631l-11.736-8.412a2.305 2.305 0 0 0-2.3-.079.821.821 0 0 0-.122 1.485l10.758 7.709-10.758 7.709a.821.821 0 0 0 .122 1.485 2.306 2.306 0 0 0 2.3-.079l11.736-8.413a.861.861 0 0 0 .418-.774z" data-name="Path 242" transform="translate(-26.994 -957.361)" style="fill:#b0b6b6"/>
+                <path id="prefix__Path_242" d="M41.991 966.753a.922.922 0 0 0-.418-.631l-11.736-8.412a2.305 2.305 0 0 0-2.3-.079.821.821 0 0 0-.122 1.485l10.758 7.709-10.758 7.709a.821.821 0 0 0 .122 1.485 2.306 2.306 0 0 0 2.3-.079l11.736-8.413a.861.861 0 0 0 .418-.774z" data-name="Path 242" transform="translate(-26.994 -957.361)" style="fill:{{color}}"/>
             </g>
         </g>
     </g>
@@ -525,3 +525,15 @@
 {% endmacro %}
 
 
+
+
+
+{% macro color_string(text, spacing=-2) %}
+  {% set colors = ['#dc3d39', '#489cba', '#f3b051', '#8f53cb', '#6ab288', '#ec8e43', '#df367c', '#636661'] %}
+  {% for ind in range(0, text|length) %}
+    {% set c = text[ind] %}
+    <div style="display:inline-block; margin-right: {{spacing}}px; color:{{colors[ind % colors|length]}}"> {{c}} </div>
+  {% endfor %}
+  <div style="display:inline-block">  </div>
+
+{% endmacro %}

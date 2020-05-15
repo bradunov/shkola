@@ -79,6 +79,8 @@ class PageOperation(Enum):
     LOGIN_GOOGLE = "login_google"
     # Submit anonymous login request
     LOGIN_ANON = "login_anon"
+    # Page that asks to confirm anonymous login
+    CONFIRM_ANON = "confirm_anon"
     # Menu - select user
     MENU_USER = "menu_user"
     # Menu - select year

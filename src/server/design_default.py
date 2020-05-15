@@ -72,6 +72,12 @@ class Design_default(object):
             Design_default.render_summary_page(page)
             return page.render()
 
+        elif page.page_params.get_param("op") == PageOperation.CONFIRM_ANON:
+            # Confirm anonymous login
+            logging.debug("PageOperation.CONFIRM_ANON")
+            Design_default.render_confirm_anon_page(page)
+            return page.render()
+
         elif page.page_params.get_param("op") == PageOperation.INTRO:
             # Intro
             logging.debug("PageOperation.INTRO")
@@ -352,6 +358,7 @@ class Design_default(object):
                                     'title' : subtheme.title(),
                                     'link' : page.page_params.create_url(
                                             op = PageOperation.toStr(PageOperation.INTRO), 
+                                            theme = theme.title(), \
                                             subtheme = subtheme, 
                                             period = "*", 
                                             difficulty = "*", 
@@ -445,6 +452,17 @@ class Design_default(object):
     #                     theme = "", js = False) + \
     #                 "'> Nazad na izbor oblasti</a>\n")
     #         page.add_lines("</div>\n")
+
+    @staticmethod
+    def render_confirm_anon_page(page):
+
+        page.template_params["template_name"] = "confirm_anon.html.j2"
+
+        page.template_params["next"] = page.page_params.create_url(\
+                    op = PageOperation.toStr(PageOperation.MENU_YEAR), js = False)
+        page.template_params["back"] = page.page_params.create_url(\
+                    op = PageOperation.toStr(PageOperation.MENU_USER), js = False)
+
 
 
 

@@ -123,7 +123,6 @@ class Stats(object):
         results = storage.get_user_stats(u_id=u_id, from_date=from_date)
 
 
-        logging.info("\n\nAAAAAAAA: {}\n\n".format(u_id))
 
 
         # Classify in categories

@@ -34,7 +34,7 @@ page["root"] = "ROOT"
 page["q_id"] = "QQQQ"
 page["l_id"] = "LLLL"
 
-page["year"] = "PRVI razred"
+page["year"] = "PRVI"
 page["theme"] = "BROJEVI"
 page["subtheme"] = "Operacije"
 page["difficulty"] = 1
