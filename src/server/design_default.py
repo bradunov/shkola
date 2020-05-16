@@ -156,6 +156,60 @@ class Design_default(object):
         new_page_params.set_param("op", PageOperation.MENU_YEAR)
         new_page_params.set_param("language", page.page_params.get_param("language"))
 
+
+    #             str_lang = "<button class=\"sh-button sh-dark-grey sh-large sh-font\" " + \
+    #                 "style=\"padding: 0px; display: table-cell; vertical-align: middle; text-align: center; height: 20px; \" " +\
+    #                 "onclick=\"shl_toggle()\">" + \
+    #                 "<input type=\"image\" style=\"padding: 0px\" width=\"36px\" height=\"20px\" alt=\"" + \
+    #                     page.get_language_details()["country"] + \
+    #                     "\" src=\"" + \
+    #                     page.get_file_url("images/" + 
+    #                     page.get_language_details()["image"]) + "\" /></button>" 
+
+    #         for lang in page.get_language_list():
+    #             lang_select = lang_select + "<div align='left' style='display:table; padding: 8px 8px;'>\n"
+    #             # lang_select = lang_select + "<input style=\"display: inline-block;padding: 8px 0px;\" height=\"20px\" type=\"image\" src=\"" + \
+    #             #         page.get_file_url("images/" + \
+    #             #         page.get_language_details(lang)["image"]) + "\" />\n"
+    #             lang_select = lang_select + "<a class=\"sh-font\" style=\"display: table-cell; vertical-align: middle; text-align: center;\" href='" + \
+    #                     page.page_params.create_url( \
+    #                         op = PageOperation.toStr(PageOperation.MENU_YEAR), language = lang, js = False) + \
+    #                     "' class='sh-bar-item sh-button'>" + \
+    #                     "<img style=\"display: inline-block;padding: 0px;\" height=\"20px\" width=\"36px\" src=\"" + \
+    #                         page.get_file_url("images/" + \
+    #                         page.get_language_details(lang)["image"]) + "\"></a>  &nbsp \n"
+    #             lang_select = lang_select + "<a class=\"sh-font\" style=\"display: table-cell; vertical-align: middle; text-align: center;\" href='" + \
+    #                     page.page_params.create_url( \
+    #                         op = PageOperation.toStr(PageOperation.MENU_YEAR), language = lang, js = False) + \
+    #                     "' class='sh-bar-item sh-button'>" + page.get_language_details(lang)["country"] + "</a>\n"
+    #             lang_select = lang_select + "</div>\n"
+
+
+        sublang = []
+        for lang in page.get_language_list():
+            sublang.append({
+                "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
+                    "height=\"15px\" alt=\"" + page.get_language_details(lang)["country"] + 
+                    "\" src=\"" + page.get_file_url("images/" + 
+                                  page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
+                                  page.get_language_details(lang)["country"],
+                "link" : page.page_params.create_url( \
+                            op = PageOperation.toStr(PageOperation.MENU_YEAR), language = lang, js = False)
+            })            
+
+        lang = {
+            "name" : "Jezik: &nbsp; <input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
+                    "height=\"15px\" alt=\"" + page.get_language_details()["country"] + 
+                    "\" src=\"" + page.get_file_url("images/" + 
+                                  page.get_language_details()["image"]) + "\">",
+            "submenu" : {
+                "id" : "lang",
+                "options" : sublang
+            }
+        }
+        page.template_params['menu'].append(lang)
+
+
         menu_id = 0
 
         lists = {
