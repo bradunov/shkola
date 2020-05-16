@@ -1,9 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="37.726" height="31.68" viewBox="0 0 37.726 31.68">
     <defs>
-        <linearGradient id="prefix__linear-gradient" x1="7.329" x2="8.329" y1="16.187" y2="16.187" gradientUnits="objectBoundingBox">
-            <stop offset="0" stop-color="#148f91"/>
-            <stop offset="1" stop-color="#babdc1"/>
-        </linearGradient>
         <filter id="prefix__path5978" width="37.726" height="30.043" x="0" y="1.638" filterUnits="userSpaceOnUse">
             <feOffset dy="3"/>
             <feGaussianBlur result="blur" stdDeviation="3"/>
@@ -14,7 +10,7 @@
     </defs>
     <g id="prefix__arrow_down" data-name="arrow down" transform="translate(4)">
         <g id="prefix__arrow_down-2" data-name="arrow down" transform="translate(-4 -.002)">
-            <path id="prefix__path5978-2" d="M3.687 1041.051a1.643 1.643 0 0 0-1.232 2.782l8.2 8.724a1.643 1.643 0 0 0 2.393 0l8.2-8.724a1.643 1.643 0 1 0-2.393-2.249l-7 7.45-7-7.45a1.644 1.644 0 0 0-1.161-.533z" data-name="path5978" transform="translate(7 -1033.39)"/>
+            <path id="prefix__path5978-2" d="M3.687 1041.051a1.643 1.643 0 0 0-1.232 2.782l8.2 8.724a1.643 1.643 0 0 0 2.393 0l8.2-8.724a1.643 1.643 0 1 0-2.393-2.249l-7 7.45-7-7.45a1.644 1.644 0 0 0-1.161-.533z" data-name="path5978" transform="translate(7 -1033.39)" style="fill:#148f91"/>
         </g>
         <path id="prefix__Rectangle_98" d="M0 0H30V27H0z" data-name="Rectangle 98" style="fill:none"/>
     </g>

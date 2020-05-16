@@ -24,18 +24,18 @@
     {{ menu.start_head() }}
 
       <div style="display:inline-block; text-align:left; height: 36px; margin-left: 37px; margin-top: 8px">
-        <div class="sh_font" style="display:inline-block; color: #dc3d39; font-size: 14px;">
+        <div class="sh_chalk_font" style="display:inline-block; color: #dc3d39; font-size: 14px;">
           {{template_params["year"].upper()}}
         </div> 
-        <div class="sh_font" style="display:inline-block; color: #636661; font-size: 14px;">
+        <div class="sh_chalk_font" style="display:inline-block; color: #636661; font-size: 14px;">
           razred
         </div> 
         <br>
-        <div class="sh_font" style="display:inline-block;color: #489cba; font-size: 14px;">
+        <div class="sh_chalk_font" style="display:inline-block;color: #489cba; font-size: 14px;">
           {{ elements.color_string(template_params["theme"], -4) }}
         </div>
         {% if template_params["subtheme"].strip() != "*" %}
-        <div class="sh_font" style="display:inline-block;color: #636661; font-size: 14px;">
+        <div class="sh_chalk_font" style="display:inline-block;color: #636661; font-size: 14px;">
           / {{template_params["subtheme"].capitalize()}}
         </div>
         {% endif %}
@@ -141,7 +141,7 @@
             {{elements.stars(template_params["difficulty"])}}
           </div>
         </div>
-        <div class="sh_font" 
+        <div class="sh_chalk_font" 
              style="display:inline-block; width: calc(100% - 16px); text-align: center; margin: 11px 8px 8px 8px; font-size: 18px;">
 
           {{template_params["question"]}}
@@ -200,11 +200,12 @@
 
 
 
-    {{elements.cup("cup1", 10, 30)}} 
-    {{elements.cup("cup2", 40, 80)}} 
-    {{elements.cup("cup3", 70, 20)}} 
-    {{elements.cup("cup4", 50, 55)}} 
-    {{elements.cup("cup5", 60, 70)}} 
+    {{elements.cup("cup1", 30, 20)}} 
+    {{elements.cup("cup2", 80, 40)}} 
+    {{elements.cup("cup3", 20, 70)}} 
+    {{elements.cup("cup4", 55, 50)}} 
+    {{elements.cup("cup5", 70, 60)}} 
+
 
     {{elements.bravo()}}
 
@@ -214,11 +215,11 @@
          width: 100%; text-align: center; background: white; scroll-y: auto;
          border-radius: 10px; border: 0px solid #000000; box-shadow: 0px 5px 5px #dddddd;'>
 
-      <div class="sh_font" style='display:inline-block; width: 250px; text-align: center; 
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center; 
                   margin-top: 17px; font-size: 18px;'>
         Eh, zadatak nije skroz tačan.
       </div><br>
-      <div class="sh_font" style='display:inline-block; width: 250px; text-align: left;   
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;   
                   margin-top: 22px; font-size: 18px;'>
         <label>
           <input type='radio' id='wr_again' name="wr_input" 
@@ -226,7 +227,7 @@
           Hoću još jednu šansu! 
         </label>
       </div><br>
-      <div class="sh_font" style='display:inline-block; width: 250px; text-align: left;  
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;  
                   margin-top: 15px; font-size: 18px;'>
         <label>
           <input type='radio' id='wr_solution' name="wr_input" 
@@ -234,7 +235,7 @@
           Daj da vidim rešenje! 
         </label>
       </div><br>
-      <div class="sh_font" style='display:inline-block; width: 250px; text-align: left;  
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;  
                   margin-top: 15px; font-size: 18px;'>
         <label>
           <input type='radio' id='wr_skip' name="wr_input" 
@@ -242,7 +243,7 @@
           Ja bih da preskočim. 
         </label>
       </div><br>
-      <div id='wr_report_option' class="sh_font" style='display:inline-block; width: 250px; text-align: left;  
+      <div id='wr_report_option' class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;  
                   margin-top: 15px; font-size: 18px;'>
         <label>
           <input type='radio' id='wr_report' name="wr_input" 
@@ -253,7 +254,7 @@
 
       <!-- Feedback form -->
       <div id="feedback" style='display:none; width: 250px; text-align: left; border: 2px solid #148f91; margin-top: 26px; '>
-        <div class="sh_font" style='display:inline-block; text-align: left; margin: 12px 12px 0 12px; font-size: 18px;'>
+        <div class="sh_chalk_font" style='display:inline-block; text-align: left; margin: 12px 12px 0 12px; font-size: 18px;'>
           <label>
             <input type='radio' id='fb_problem' name="fb_input" style='text-align: left; margin-right: 19px;'> Ima grešku 
           </label> <br>
