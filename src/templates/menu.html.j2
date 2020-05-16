@@ -84,8 +84,7 @@
       {% endfor %}
       {{ submenu['name'] }}
     </a>
-    <button class="sh-menu-button-arrow sh-menu-left-align sh-menu-font" 
-            style="padding-top:0; padding-bottom:0;" onclick="myAccFunc('{{ submenu['submenu']['id'] }}')">
+    <button class="sh-menu-button-arrow sh-menu-left-align sh-menu-font" onclick="myAccFunc('{{ submenu['submenu']['id'] }}')">
       <i class="fa fa-caret-down"></i>
     </button>
   {% elif 'link' in submenu.keys() %}
