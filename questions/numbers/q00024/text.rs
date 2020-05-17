@@ -1,20 +1,21 @@
+
 Napiši redom od najmanjeg do najvećeg  sve dvocifrene brojeve u kojima se cifara @hspace8pt@ @number@ @hspace8pt@  javlja jedanput.
 
 @vspace@
 
-@center@ @lib.check_number(array_value[indices[1]])@ @hspace@ @lib.check_number(array_value[indices[2]])@ @hspace@ @lib.check_number(array_value[indices[3]])@ @hspace@ @lib.check_number(array_value[indices[4]])@ @hspace@ @lib.check_number(array_value[indices[5]])@ 
+@center@ @lib.check_number(array_value[indices[1]])@  @lib.check_number(array_value[indices[2]])@  @lib.check_number(array_value[indices[3]])@  @lib.check_number(array_value[indices[4]])@ @lib.check_number(array_value[indices[5]])@ 
 
 @vspace@
 
-@center@ @lib.check_number(array_value[indices[6]])@ @hspace@ @lib.check_number(array_value[indices[7]])@ @hspace@ @lib.check_number(array_value[indices[8]])@ @hspace@ @lib.check_number(array_value[indices[9]])@ @hspace@ @lib.check_number(array_value[indices[10]])@ 
+@center@ @lib.check_number(array_value[indices[6]])@  @lib.check_number(array_value[indices[7]])@  @lib.check_number(array_value[indices[8]])@  @lib.check_number(array_value[indices[9]])@ @lib.check_number(array_value[indices[10]])@ 
 
 @vspace@
 
-@center@ @lib.check_number(array_value[indices[11]])@ @hspace@ @lib.check_number(array_value[indices[12]])@ @hspace@ @lib.check_number(array_value[indices[13]])@ @hspace@ @lib.check_number(array_value[indices[14]])@ @hspace@ @lib.check_number(array_value[indices[15]])@
+@center@ @lib.check_number(array_value[indices[11]])@  @lib.check_number(array_value[indices[12]])@  @lib.check_number(array_value[indices[13]])@  @lib.check_number(array_value[indices[14]])@ @lib.check_number(array_value[indices[15]])@
 
 @vspace@
 
-@center@ @lib.check_number(array_value[indices[16]])@ @hspace@ @lib.check_number(array_value[indices[17]])@ 
+@center@ @lib.check_number(array_value[indices[16]])@  @lib.check_number(array_value[indices[17]])@ 
 
        
        

@@ -1,8 +1,8 @@
 Koliko ima trouglova? Upiši broj.
 
-@center@ @mycanvas(no)@
+@mycanvas(no)@
 
-@center@ @lib.check_number(total)@  
+@center@ @lib.check_number(total,20)@  
                   
                             
                   

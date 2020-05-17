@@ -1,8 +1,11 @@
-Izračunaj: 
+
+Izračunaj. 
 
 @repeat(5)@
-@center@ @sabirak1@ @hspace@ + @hspace@  @sabirak2@  @hspace@ = @hspace@ @lib.check_number(rezultat)@
+@center@ @sabirak1@ @hspacept(3)@ + @hspacept(3)@ @sabirak2@  @hspacept(3)@ = @hspacept(3)@ @lib.check_number(rezultat)@
 @/repeat@
+
+
 
 
 

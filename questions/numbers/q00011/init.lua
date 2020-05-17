@@ -1,3 +1,4 @@
+
 style = 
        {["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -45,12 +46,12 @@ mycanvas = function(no)
 
    if (grad == 1) then
       lib.add_straight_path (x+w/2+22, ow+3*w/4+15, {{4, 7}, {2, -7}}, style, false, false) 
-      lib.add_text(x+w/2+10, ow+3*w/4, sign, text_style)  
-      lib.add_text(x+w/2+20, ow+3*w/4, add, text_style)
+      lib.add_text(x+w/2+5, ow+3*w/4, sign, text_style)  
+      lib.add_text(x+w/2+15, ow+3*w/4, add, text_style)
    else 
       lib.add_straight_path (x+w/2+21, ow+3*w/4+17, {{4, -7}, {2, 7}}, style, false, false)
-      lib.add_text(x+w/2+8, 3*(2*ow+w)/4, sign, text_style)  
-      lib.add_text(x+w/2+18, 3*(2*ow+w)/4, add, text_style)     
+      lib.add_text(x+w/2+3, 3*(2*ow+w)/4, sign, text_style)  
+      lib.add_text(x+w/2+13, 3*(2*ow+w)/4, add, text_style)     
    end
 
    lib.add_input(x+w+5, y+grad*ow, 50, 50, lib.check_number(value)) 

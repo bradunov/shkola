@@ -1,8 +1,10 @@
+
 Koliko trouglova treba docrtati tako da ih bude 10? Upiši broj.
 
-@center@ @mycanvas(no)@
+ @mycanvas(no)@
 
-@center@ @lib.check_number(total)@ 
+@center@ @lib.check_number(total,20)@ 
+                  
                   
                             
                   

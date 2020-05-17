@@ -1,7 +1,8 @@
-Izračunaj: 
+
+Izračunaj.
 
 @repeat(6)@
-@center@ @umanjenik@ @hspace@ - @hspace@  @umanjilac@  @hspace@ = @hspace@ @lib.check_number(rezultat)@
+@center@ @umanjenik@ @hspacept(3)@ - @hspacept(3)@  @umanjilac@  @hspacept(3)@ = @hspacept(3)@ @lib.check_number(rezultat)@
 @/repeat@
 
 

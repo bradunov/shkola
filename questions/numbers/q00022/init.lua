@@ -1,3 +1,4 @@
+
 include("names")
 
 r = math.random(#musko_ime_nom)
@@ -9,6 +10,8 @@ pre = math.random(77) + 5;
 dobio = math.random(9) + 1;
 ostalo = pre + dobio
 
-dao = math.random(ostalo - 1);
+dao = 1 + math.random(ostalo - 1);
 ostalo = pre + dobio - dao
+
+
 

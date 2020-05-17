@@ -1,6 +1,8 @@
-Uporedi zbirove. Upiši znak @hspacept(8)@<@hspacept(4)@, @hspacept(8)@> @hspacept(8)@ili @hspacept(8)@ =@hspacept(4)@.
+
+Uporedi zbirove. Upiši znak < , > ili = .
 
 @repeat(5)@
-@center@ @ladd1@ @hspacept(8)@ + @hspacept(8)@ @ladd2@ @hspace@ @lib.check_string(sign, 20)@ @hspace@ @dadd1@ @hspacept(8)@ + @hspacept(8)@ @dadd2@ 
+@center@ @ladd1@@hspacept(3)@ +@hspacept(3)@ @ladd2@  @hspacept(3)@ @lib.check_string(sign, 20)@  @hspacept(3)@ @dadd1@ @hspacept(3)@+ @hspacept(3)@@dadd2@ 
 @/repeat@
+
 

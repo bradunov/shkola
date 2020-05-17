@@ -1,7 +1,8 @@
-Uporedi brojeve. Upiši znak @hspacept(8)@<@hspacept(4)@, @hspacept(8)@> @hspacept(8)@ili @hspacept(8)@ =@hspacept(4)@.
+
+Uporedi brojeve. Upiši znak < , > ili = .
 
 @repeat(6)@ 
-@center@ @number2@ @hspace@ @operation@  @hspace@ @number1@ @hspace@ @lib.check_string(sign, 25)@  @hspace@ @value@
+@center@ @number2@ @hspacept(3)@ @operation@  @hspacept(3)@ @number1@ @hspacept(3)@ @lib.check_string(sign, 15)@  @hspacept(3)@ @value@
 @/repeat@
   
   

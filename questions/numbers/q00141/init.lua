@@ -1,9 +1,9 @@
 
-q1 = {"Abraham Lincoln", "William Shakespeare", "Isaac Newton", "Leonardo da Vinci", "Elvis Presley", "Charlie Chaplin"}
-q2 = {1809, 1564, 1642, 1452, 1935, 1889}
-q3 = {"MDCCCIX", "MDLXIV", "MDCXLII", "MCDLII", "MCMXXXV", "MDCCCLXXXIX"}
-q4 = {56, 52, 84, 67, 42, 88}
-q5 = {"LVI", "LII", "LXXXIV", "LXVII", "XLII", "LXXXVIII"}
+q1 = {"Abraham Lincoln", "William Shakespeare", "Isaac Newton", "Leonardo da Vinci", "Marjam Mirzahani", "Charlie Chaplin"}
+q2 = {1809, 1564, 1642, 1452, 1977, 1889}
+q3 = {"MDCCCIX", "MDLXIV", "MDCXLII", "MCDLII", "MCMLXXVII", "MDCCCLXXXIX"}
+q4 = {56, 52, 84, 67, 40, 88}
+q5 = {"LVI", "LII", "LXXXIV", "LXVII", "XL", "LXXXVIII"}
 
 
 addition_table = function()
@@ -11,15 +11,15 @@ addition_table = function()
 
   style = {}
   style["text-align"] = "center"
-  style["width"] = "80px"
+  style["width"] = "40px"
 
   text = lib.start_table()
   text = text .. lib.start_row()
   text = text .. lib.add_cell("", style)
-  text = text .. lib.add_cell("birth(arab)", style)
-  text = text .. lib.add_cell("birth(roman)", style)
-  text = text .. lib.add_cell("age(arab)", style)
-  text = text .. lib.add_cell("age(roman)" , style)
+  text = text .. lib.add_cell("rođen (arab)", style)
+  text = text .. lib.add_cell("rođen (roman)", style)
+  text = text .. lib.add_cell("godine (arab)", style)
+  text = text .. lib.add_cell("godine (roman)" , style)
   text = text .. lib.end_row()
   for i = 1,6 do
       text = text .. lib.start_row()
@@ -46,4 +46,4 @@ addition_table = function()
 
   return text
 end
-       
+    

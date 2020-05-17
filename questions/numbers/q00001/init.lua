@@ -19,23 +19,22 @@ mycanvas = function(no)
   index2 = math.random(index1)
  total = index1 + index2
 
-lib.start_canvas(400, 200, "center")
+lib.start_canvas(350, 200, "center")
 
-lib.add_rectangle (30, 30, 350, 150, frame_style, true, true)
+lib.add_rectangle (5, 30, 340, 150, frame_style, true, true)
 
   for i = 1, index1 do
-      x = i*w + (w-ow)/2 - 20
+      x = (i+1/2)*w - w
       y = w + (w-ow)/2 - 20
       lib.add_triangle(x, y, ow, ow, style, false, true)
   end
   for i = 1,index2 do
-     x = i*w + (w-ow)/2 - 20
+      x = (i+1/2)*w - w
       y = 2*w + (w-ow)/2 - 20
       lib.add_triangle(x, y, ow, ow, style, false, true)
   end 
   
   lib.end_canvas()
-end                   
-                                  
+end                                                 
    
         
