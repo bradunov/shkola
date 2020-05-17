@@ -118,7 +118,8 @@ class Storage_az_table():
             'RowKey': "",
             'data': encode_dict(data['data']),
             'user_id': data['user_id'],
-            'state_id': data['state_id']
+            'state_id': data['state_id'],
+            'valid': data['valid']
         }
 
         try:
@@ -137,16 +138,20 @@ class Storage_az_table():
         if "user_id" not in entity.keys():
             return None
 
-        # Compatibility: old records don't have state_id
+        # Compatibility: old records don't have state_id, valid
         if not "state_id" in entity:
             entity['state_id'] = None
+
+        if not "valid" in entity:
+            entity["valid"] = True
 
         return {
             # Convert "None" to None, see above
             # "user_id": entity["user_id"] if (not entity["user_id"] == "None") else None,
             "user_id": entity["user_id"],
             "data": decode_dict(entity["data"]),
-            "state_id": entity["state_id"]
+            "state_id": entity["state_id"],
+            "valid": entity["valid"]
         }
 
 

@@ -555,7 +555,12 @@ class Page(object):
         return url, ok
 
 
+    def logout(self):
+        context.c.user = None
+        context.c.session.close()
 
+        url = self.page_params.get_param("root") + "?op={}".format(PageOperation.MENU_USER.value)
+        return url
 
     # Debug function, not used
     # def login_test(self) -> str:
