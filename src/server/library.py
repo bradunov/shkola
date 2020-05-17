@@ -906,7 +906,7 @@ class Library(object):
             style["font_size"] = "18"
 
         if not "font_family" in style.keys():
-            style["font_family"] = "Arial, Helvetica, sans-serif"
+            style["font_family"] = "ChalkboardSE-Regular"
             
         obj_str = "text({}, {}, \"{}\")".format(x, y, text)
         self._add_draw_object(obj_str, style, initial_state, check)
