@@ -15,6 +15,7 @@ class Session:
         self._data = data
         self._user_id = user_id
         self._state_id = state_id
+        self._valid = True
 
 
     def session_id(self):
@@ -49,6 +50,7 @@ class Session:
 
     def set_user_id(self, user_id):
         assert self._user_id == None
+
         self._user_id = user_id
         self._set_dirty()
 
@@ -69,20 +71,28 @@ class Session:
         return self._data
 
 
-    def clear(self):
-        self._user_id = None
-        self._data = {}
-
-        self._set_dirty()
-
-
     def has_updates(self):
         return self._state_id is None
 
 
+    def close(self):
+        logging.debug("Session: Closing session: %s", self.session_id())
+        self._set_invalid()
+
+
+    def _set_invalid(self):
+        self._set_dirty()
+        self._valid = False
+
+
     def _set_dirty(self):
+        assert self._valid
         logging.debug("Session: Setting session dirty: %s", self.session_id())
         self._state_id = None
+
+
+    def is_valid(self):
+        return self._valid
 
 
     def generate_state_id(self):
@@ -99,7 +109,8 @@ class Session:
         return {
             'data': self._data,
             'state_id': self._state_id,
-            'user_id': self._user_id
+            'user_id': self._user_id,
+            'valid': self._valid,
         }
 
 
@@ -128,8 +139,14 @@ class SessionDB:
 
                 if not session_data:
                     logging.info("Session: not found in storage: %s", sid)
+
             else:
                 logging.info("Session: cached session is valid")
+
+
+        if session_data and not session_data['valid']:
+            logging.info("Session: session is not valid: %s", sid)
+            session_data = None
 
         if session_data is None:
             sid = uuid.uuid4().hex
@@ -172,7 +189,7 @@ class SessionDB:
 
             assert session.state_id() is not None
 
-            if state_id != session.state_id():
+            if state_id != session.state_id:
                 logging.debug("Session: setting session cookie: %s, %s", session.session_id(), session.state_id())
                 self._set_cookie(session, headers)
 

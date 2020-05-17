@@ -1,20 +1,17 @@
 import time
-import jinja2
 import json
-import collections
 
-from server.helpers import encap_str
+# from server.helpers import encap_str
 
 from server.types import PageLanguage
 from server.types import PageOperation
-from server.types import ResponseOperation
+# from server.types import ResponseOperation
 from server.types import PageParameters
 
 from server.test import Test
 from server.question import Question
-from server.stats import Stats
+# from server.stats import Stats
 
-from server.user_db import GOOGLE_CLIENT_ID
 from server.stat_charts import prepare_user_stats_chart
 
 import server.context as context
@@ -41,6 +38,11 @@ class Design_default(object):
             new_url, ok = page.login_google()
             context.c.headers.set_content_type('text/plain')
             return "OK:{}".format(new_url) if ok else "ERROR:{}".format(new_url)
+
+        if page.page_params.get_param("op") == PageOperation.LOGOUT:
+            new_url = page.logout()
+            context.c.headers.redirect(new_url)
+            return ""
 
         if not context.c.user:
             # First login, if not already done
@@ -84,8 +86,8 @@ class Design_default(object):
             Design_default.render_select_get_started_page(page)
             return page.render()
 
-        elif page.page_params.get_param("op") == PageOperation.MENU_USER:
-            # No user selected, first select user
+        elif page.page_params.get_param("op") == PageOperation.MENU_USER and not context.c.user:
+            # If user is already logged in, we cannot do login again
             logging.debug("PageOperation.MENU - select user")
             Design_default.render_select_user_page(page)
             return page.render()
@@ -265,7 +267,7 @@ class Design_default(object):
 
         page.template_params['menu'].append({
             "name" : "Izloguj se (" + context.c.user.name + ")",
-            "link" : new_page_params.create_url(op = PageOperation.toStr(PageOperation.MENU_USER), js = False)
+            "link" : new_page_params.create_url(op = PageOperation.LOGOUT.value, js = False)
         })
 
 
@@ -282,8 +284,6 @@ class Design_default(object):
         page.page_params.set_param("subtheme", "")
         page.page_params.set_param("q_id", "")
         page.page_params.set_param("l_id", "")
-        context.c.session.clear()
-        context.c.user = None
 
         page.template_params["template_name"] = "user.html.j2"
 
@@ -329,7 +329,7 @@ class Design_default(object):
             width = int(137 * scale)
             height = int(140 * scale)
             font_size = int(111 * scale)
-            margin = int(10 * scale)
+            # margin = int(10 * scale)
 
             page.template_params['button'] = {
                 'width' : '{}px'.format(width),

@@ -81,6 +81,8 @@ class PageOperation(Enum):
     LOGIN_ANON = "login_anon"
     # Page that asks to confirm anonymous login
     CONFIRM_ANON = "confirm_anon"
+    # Logout handler
+    LOGOUT = "logout"
     # Menu - select user
     MENU_USER = "menu_user"
     # Menu - select year
