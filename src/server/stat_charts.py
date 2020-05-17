@@ -3,22 +3,8 @@
 # import matplotlib.pyplot as plt
 # import pybase64
 
-import os
-import sys
-sys.path.append("..")
-
-import json
-import logging
-
-try:
-    import server.stats as stats
-except:
-    import stats
-
-try:
-    import server.page as page
-except:
-    import page 
+from server import stats
+from server import page
 
 from server.types import PageOperation
 
@@ -56,7 +42,7 @@ def draw_chart(chart_data, pg):
         st_cor_tmp=[0, 0, 0]
         for difficulty_key, difficulty_val in subtheme_val['difficulty'].items():
             st_tmp+= difficulty_val['total']
-            curr_st=len(subtop_cor_dif)-1
+            # curr_st=len(subtop_cor_dif)-1
             st_cor_tmp[int(difficulty_key)-1] = round(difficulty_val['correct'] *  difficulty_val['total'])
         subtop_cor_dif.append(st_cor_tmp)
         subtop_total.append(st_tmp)

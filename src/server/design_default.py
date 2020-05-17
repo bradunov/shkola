@@ -1,20 +1,17 @@
 import time
-import jinja2
 import json
-import collections
 
-from server.helpers import encap_str
+# from server.helpers import encap_str
 
 from server.types import PageLanguage
 from server.types import PageOperation
-from server.types import ResponseOperation
+# from server.types import ResponseOperation
 from server.types import PageParameters
 
 from server.test import Test
 from server.question import Question
-from server.stats import Stats
+# from server.stats import Stats
 
-from server.user_db import GOOGLE_CLIENT_ID
 from server.stat_charts import prepare_user_stats_chart
 
 import server.context as context
@@ -265,7 +262,7 @@ class Design_default(object):
             width = int(137 * scale)
             height = int(140 * scale)
             font_size = int(111 * scale)
-            margin = int(10 * scale)
+            # margin = int(10 * scale)
 
             page.template_params['button'] = {
                 'width' : '{}px'.format(width),

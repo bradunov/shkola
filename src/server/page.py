@@ -1,4 +1,5 @@
 import os
+import os.path
 import json
 import jinja2
 
@@ -47,24 +48,31 @@ class Page(object):
     # use_azure_blob = True: use blob for question storage rather than the local disk
     # preload = True: fetch all questions in memory at start time (may be slow for a blob)
     def __init__(self, title="tatamata.org", rel_path=None, template_path=None, use_azure_blob=False, preload=True):
-        if not rel_path is None:
+        if rel_path:
             self.rel_path = rel_path
         else:
-            try:
-                self.rel_path = os.getenv('SHKOLA_REL_PATH')                    
-            except:
-                pass
-            if self.rel_path is None:
+            self.rel_path = os.getenv('SHKOLA_REL_PATH')                    
+
+            if not self.rel_path:
                 self.rel_path = "../.."
 
-        if not self.rel_path:
-            logging.exception("Please define SHKOLA_REL_PATH")
-            exit(1)
+        assert self.rel_path
+
+        logging.info("Paths: initial rel_path: {}".format(self.rel_path))
+
+        self.rel_path = os.path.abspath(self.rel_path)
+        logging.info("Paths: rel_path: {}".format(self.rel_path))
 
         if template_path is None:
-            self.template_path = self.rel_path
-        else:
-            self.template_path = template_path
+            template_path = os.getenv("SHKOLA_TEMPLATES")
+
+        if template_path is None:
+            template_path = os.path.join(self.rel_path, 'templates')
+
+        self.template_path = os.path.abspath(template_path)
+
+        logging.info("Paths: template_path: {}".format(self.template_path))
+        logging.info("Paths: working dir: {}".format(os.getcwd()))
 
         self.page_params = PageParameters()
         self.repository = Repository(self.rel_path, use_azure_blob, preload)
@@ -74,9 +82,7 @@ class Page(object):
         self.sessiondb = SessionDB(self.storage)
         self.load_languages()
 
-        logging.debug("\n\nPWD: {} {}\n\n".format(os.getcwd(), self.template_path))
-
-        file_loader = jinja2.FileSystemLoader(self.template_path + "/templates")
+        file_loader = jinja2.FileSystemLoader(self.template_path)
         self.templates = jinja2.Environment(loader=file_loader)
         self.template_params = self._default_template_params
 
@@ -137,6 +143,7 @@ class Page(object):
     #     self.on_loaded_script = self.on_loaded_script + code
         
     def render(self):
+        logging.debug("Render: loading template: '{}'".format(self.template_params["template_name"]))
         template = self.templates.get_template(self.template_params["template_name"])
 
         # Add question as a form parameter
