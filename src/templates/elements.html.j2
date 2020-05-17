@@ -239,45 +239,46 @@
 
 
 {% macro start_popup(name, extra_style="") %}
-<script>
-    // When the user clicks on div, open the popup
-    function popup_toggle_{{name}}() {
-        var popup = document.getElementById("popup_{{name}}");
-        var popup_background = document.getElementById("popup_background_{{name}}");
-        if (popup.style.visibility == "hidden") { 
-            popup.style.visibility = "visible";
-            popup_background.style.visibility = "visible";
-        } else {
-            popup.style.visibility = "hidden";
-            popup_background.style.visibility = "hidden";
-        }
-    }
-</script>
+  <script>
+      // When the user clicks on div, open the popup
+      function popup_toggle_{{name}}(new_state) {
+          var popup = document.getElementById("popup_{{name}}");
+          var popup_background = document.getElementById("popup_background_{{name}}");
+          if (new_state == undefined) {
+            if (popup.style.visibility == "hidden") { 
+                popup.style.visibility = "visible";
+                popup_background.style.visibility = "visible";
+                popup_background.style.opacity = "0.8";
+            } else {
+                popup.style.visibility = "hidden";
+                popup_background.style.visibility = "hidden";
+                popup_background.style.opacity = "0.8";
+            }
+          } else {
+            popup.style.visibility = new_state;
+            popup_background.style.visibility = new_state;
+            popup_background.style.opacity = "0.8";
+          }
+      }
+  </script>
 
-<!-- POPUP START -->
+  <!-- POPUP START -->
 
-<span id='popup_background_{{name}}' style='visibility: hidden;
-    position: fixed; z-index: 2; bottom: 0%;
-    left: 0%; width: 100%; height: 100%; 
-    background-color: transparent' 
-    onclick='popup_toggle_{{name}}()'>
-</span>        
+  <span id='popup_background_{{name}}' style='visibility: hidden;
+      position: fixed; z-index: 2; 
+      top: 50px; left: 0%; width: 100%; height: calc(100% - 100px); 
+      opacity=0.8; background-color: white; ' 
+      onclick='popup_toggle_{{name}}()'>
+  </span>        
 
-<div id='popup_{{name}}' style='visibility: hidden; 
-    position: fixed; z-index: 3; bottom: 50%;
-    left: 50%; transform: translate(-50%, 0%);
-    border-radius: 10px;
-    border: 0px solid #000000;
-    box-shadow: 0px 5px 5px #dddddd;
-    padding: 0px; background-color: white;
-    {{extra_style}}'>
+  <div id='popup_{{name}}' style='visibility: hidden; position: fixed; z-index: 3; {{extra_style}}'>    
 
 {% endmacro %}
 
 
 {% macro end_popup() %}
-</div>
-<!-- POPUP END -->
+  </div>
+  <!-- POPUP END -->
 {% endmacro %}
 
 

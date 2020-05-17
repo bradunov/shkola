@@ -8,6 +8,7 @@ page['google_signin_client_id'] = ""
 page['google_site_verification'] = ""
 
 
+page["debug"] = True
 
 page["q_number"] = "QN"
 page["stats"] = {
@@ -42,7 +43,9 @@ page["difficulty"] = 1
 page["next"] = "NEXT"
 page["back"] = "PREV"
 
-page["question"] = "TEXT"
+page["question"] = "TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>" \
+                   "TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>" \
+                   "TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>"
 
 
 
