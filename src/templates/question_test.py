@@ -10,6 +10,9 @@ page['google_site_verification'] = ""
 
 page["debug"] = True
 
+page["user_picture"] = "https://lh5.googleusercontent.com/-3VJ2UlD0Y3U/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnCsCk0v-JmKlQX7QXTrFI--Y_WXA/s96-c/photo.jpg"
+page["user_name"] = "Pera Peric"
+
 page["q_number"] = "QN"
 page["stats"] = {
   '1': {'correct': 1, 'incorrect': 0}, 

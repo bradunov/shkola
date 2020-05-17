@@ -14,7 +14,7 @@
     <!-- MOBILE MENU START -->
     {% import 'menu.html.j2' as menu %}
     {{ menu.include() }}
-    {{ menu.head() }}
+    {{ menu.head(template_params) }}
     {{ menu.dropdowns(template_params) }}
     <!-- MENU END -->
 

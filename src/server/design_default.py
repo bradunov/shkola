@@ -156,6 +156,11 @@ class Design_default(object):
         new_page_params.set_param("op", PageOperation.MENU_YEAR)
         new_page_params.set_param("language", page.page_params.get_param("language"))
 
+        user_picture = context.c.session.get("user_picture")
+        if not user_picture is None:
+            page.template_params["user_picture"] = user_picture
+            page.template_params["user_name"] = context.c.session.get("user_name")
+
 
     #             str_lang = "<button class=\"sh-button sh-dark-grey sh-large sh-font\" " + \
     #                 "style=\"padding: 0px; display: table-cell; vertical-align: middle; text-align: center; height: 20px; \" " +\
@@ -308,7 +313,6 @@ class Design_default(object):
 
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
-        logging.debug("\n\n\nCONTENT: {}\n\n\n".format(json.dumps(content, indent=4)))
 
         if content :
 

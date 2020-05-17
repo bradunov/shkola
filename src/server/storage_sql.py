@@ -54,13 +54,12 @@ class Storage_sql:
 
     def get_user(self, user_id):
         cursor = self.db.cursor()
-        query = "SELECT user_id, name, email, remote_ip, user_agent, last_accessed FROM users where user_id == (?)"
+        query = "SELECT user_id, name, remote_ip, user_agent, last_accessed FROM users where user_id == (?)"
         cursor.execute(query, (user_id,))
         row = cursor.fetchone()
         if row is not None:
             return {"user_id": row[0],
                     "name": row[1],
-                    "email": row[2],
                     "remote_ip":row[3],
                     "user_agent":row[4],
                     "last_accessed":row[5]}
@@ -182,7 +181,6 @@ class Storage_sql:
               CREATE TABLE IF NOT EXISTS 
                      users(user_id TEXT PRIMARY KEY, 
                            name TEXT,
-                           email TEXT,
                            remote_ip TEXT,
                            user_agent TEXT,
                            user_language TEXT,
@@ -382,7 +380,6 @@ if __name__ == '__main__':
             storage.update_user(
                 row['user_id'],
                 name=row['name'],
-                email=row['email'],
                 last_accessed="0", 
                 remote_ip=(row['remote_ip'] if 'remote_ip' in row.keys() else ""),
                 user_agent=(row['user_agent'] if 'user_agent' in row.keys() else ""),

@@ -14,9 +14,7 @@ GOOGLE_SITE_VERIFICATION = os.environ['GOOGLE_SITE_VERIFICATION'] if 'GOOGLE_SIT
 
 DOMAINS = ["local", "google"]
 
-TEST_USERS = ["Aran", "Petar", "Oren", "Thomas", "Ben", "Luke", "Leo", "Oliver", "Felix", "Darragh", "Jovana", "Zomebody"]
-
-User = namedtuple("User", "user_id domain domain_user_id email name")
+User = namedtuple("User", "user_id domain domain_user_id picture name")
 
 
 class UserDB(object):
@@ -26,7 +24,7 @@ class UserDB(object):
         logging.debug("User DB initialized")
         
 
-    def session_login_and_update_user(self, domain, user_id, name, email, user_language):
+    def session_login_and_update_user(self, domain, user_id, name, picture, user_language):
         assert(user_id)
         assert(domain in DOMAINS)
         assert(name)
@@ -39,13 +37,17 @@ class UserDB(object):
 
         logging.info(
             "User logged in: %s %s (%s, %s, %s, %s, %s)",
-            user_id, name, email, remote_ip, user_agent, user_language, now
+            user_id, name, remote_ip, user_agent, picture, user_language, now
         )
 
         context.c.session.set_user_id(full_user_id)
+        if not user_id == "UNKNOWN":
+            context.c.session.set("user_picture", picture)
+            context.c.session.set("user_name", name)
 
-        self._storage.update_user(full_user_id, name=name, email=email, 
-                remote_ip=remote_ip, user_agent=user_agent, user_language=user_language, last_accessed=now)
+        self._storage.update_user(full_user_id, name=name,  
+                remote_ip=remote_ip, user_agent=user_agent, picture=picture,  
+                user_language=user_language, last_accessed=now)
 
 
     def get_user(self, user_id):
@@ -64,7 +66,7 @@ class UserDB(object):
             user_id = user_id,
             domain = domain,
             domain_user_id = domain_user_id,
-            email = d['email'] if 'email' in d.keys() else "",
+            picture = d['picture'] if 'picture' in d.keys() else "",
             name = d['name'] if 'name' in d.keys() else ""
         )
 
@@ -73,11 +75,11 @@ class UserDB(object):
         return "{}:{}".format(domain, user_id)
 
 
-    def login_test(self, user_id, name, email, language) -> bool:
+    def login_test(self, user_id, name, picture, language) -> bool:
         self.session_login_and_update_user(
             'local', user_id,
             name = name,
-            email = email,
+            picture = picture,
             user_language = language
         )
 
@@ -97,13 +99,31 @@ class UserDB(object):
             auth_user_id = idinfo['sub']
             logging.info("Google validation success: {}".format(idinfo))
 
+            # Example my user info: 
+            # {'iss': 'accounts.google.com', 
+            # 'azp': '345432061367-f37577gsljsanetog1b0f2i2hmu3ji38.apps.googleusercontent.com', 
+            # 'aud': '345432061367-f37577gsljsanetog1b0f2i2hmu3ji38.apps.googleusercontent.com', 
+            # 'sub': '100168932003331800480', 
+            # 'email': 'bozidar.radunovic@gmail.com', 
+            # 'email_verified': True, 
+            # 'at_hash': 'dbcN3WCTS4w_hUmOCCzv0Q', 
+            # 'name': 'Bozidar Radunovic', 
+            # 'picture': 'https://lh5.googleusercontent.com/-3VJ2UlD0Y3U/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnCsCk0v-JmKlQX7QXTrFI--Y_WXA/s96-c/photo.jpg', 
+            # 'given_name': 'Bozidar', 'family_name': 'Radunovic', 
+            # 'locale': 'en', 
+            # 'iat': 1589737766, 
+            # 'exp': 1589741366, 
+            # 'jti': '1dce94a20bd47b3acb8719e36825b1f5223bc1ae'}
+
             if 'email' in idinfo:
                 logging.info("Google login user: {}".format(idinfo["email"]))
 
 
-            name = idinfo['name']
-            email = idinfo['email']
+            # Do not full name and email 
+            name = idinfo['given_name']
+            #email = idinfo['email']
             language = idinfo['locale']
+            picture = idinfo['picture']
 
         except ValueError as ex:
             logging.info("Failed google authentication: {}".format(ex))
@@ -123,7 +143,7 @@ class UserDB(object):
         self.session_login_and_update_user(
             'google', auth_user_id,
             name=name,
-            email=email,
+            picture=picture,
             user_language = language
         )
 

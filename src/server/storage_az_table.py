@@ -44,8 +44,8 @@ class Storage_az_table():
         return entity
         
 
-    def update_user(self, user_id, name=None, email=None,
-                    remote_ip=None, user_agent=None, user_language=None, last_accessed=None):
+    def update_user(self, user_id, name=None, remote_ip=None, 
+                    user_agent=None, picture=None, user_language=None, last_accessed=None):
         properties = dict()
             
         # Nothing better at the moment:
@@ -55,9 +55,9 @@ class Storage_az_table():
         properties['user_language'] = user_language
         
         properties["name"] = name
-        properties["email"] = email
         properties["remote_ip"] = remote_ip
         properties["user_agent"] = user_agent
+        properties["picture"] = picture
         properties["user_language"] = user_language
         properties["last_accessed"] = last_accessed
 
@@ -239,7 +239,6 @@ class Storage_az_table():
             print("{:^30} {:^20} {:^30} {:^20} {:^20} {:^40} {:^40}".format(
                 row['user_id'],
                 row['name'],
-                row['email'],
                 time.strftime("%d-%m-%y %H:%M:%S", time.localtime(row['last_accessed'])),
                 row['remote_ip'] if 'remote_ip' in row.keys() else "",
                 row['user_agent'] if 'user_agent' in row.keys() else "",
@@ -334,8 +333,8 @@ if __name__ == '__main__':
 
     #     user0 = storage.insert_user_id("test0")
     #     user1 = storage.insert_user_id("test1")
-    #     storage.update_user(user0, name="User0", email="Email0", remote_ip="100.200.300.400", user_agent="agent0", user_language="", last_accessed=epoch_ms)
-    #     storage.update_user(user1, name="User1", email="Email1", remote_ip="200.300.400.500", user_agent="agent1", user_language="", last_accessed=epoch_ms)
+    #     storage.update_user(user0, name="User0", remote_ip="100.200.300.400", user_agent="agent0", user_language="", last_accessed=epoch_ms)
+    #     storage.update_user(user1, name="User1", remote_ip="200.300.400.500", user_agent="agent1", user_language="", last_accessed=epoch_ms)
     
     #     response = {"user_id" : user0, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
     #     storage.record_response(response)

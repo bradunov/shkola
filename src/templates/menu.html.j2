@@ -57,22 +57,28 @@
 {% endmacro %}
 
 
-{% macro end_head() %}
-    <span width="70px" style='display:table;float:right;'> 
-      <button class="sh-menu-button" style="display: table-cell; vertical-align: middle; text-align: center;padding: 8px 8px; font-size: 20px; font-weight: 900; color: #029194" onclick="shm_toggle()">☰</button>
+{% macro end_head(template_params) %}
+    <span width="70px" style='display:block;float:right;'> 
+      {% if "user_picture" in template_params.keys(): %}
+        <img src='{{template_params["user_picture"]}}' title='{{template_params["user_name"]}}' height="28" width="28" 
+             style="display: inline-block; vertical-align: middle; padding: 8px 0 8px 0;">
+      {% endif %}
+      <button class="sh-menu-button" style="display: inline-block; vertical-align: middle; 
+                  text-align: center; padding: 8px 8px 8px 8px; font-size: 20px; font-weight: 900; color: #029194" 
+                  onclick="shm_toggle()">☰</button>
     </span>
   </div>
 {% endmacro %}
 
 
-{% macro head(text=None) %}
+{% macro head(template_params, text=None) %}
   {{ start_head() }}
     {% if text == None %}
       <div class="sh-menu-button" style="font-family: 'Bubblegum Sans'; font-size: 24px; color: #029194"> TATA MATA </div> 
     {% else %}
       {{text}}
     {% endif %}
-  {{ end_head() }}
+  {{ end_head(template_params) }}
 {% endmacro %}
 
 
