@@ -9,7 +9,7 @@
 			"name": "numbers/q00047",
 			"random": "1",
 			"period": "Jesen",
-			"subtheme": "Brojevi do 1000",
+			"subtheme": "Numbers do 1000",
 			"topic": "Poređenje brojeva",
 			"difficulty": "1"
 		},
@@ -17,7 +17,7 @@
 			"name": "numbers/q00048",
 			"random": "1",
 			"period": "Jesen",
-			"subtheme": "Brojevi do 1000",
+			"subtheme": "Numbers do 1000",
 			"topic": "Poređenje brojeva, sabiranje i oduzimanje",
 			"difficulty": "2"
 		},
@@ -129,7 +129,7 @@
 			"name": "numbers/q00064",
 			"random": "1",
 			"period": "Jesen",
-			"subtheme": "Brojevi do 1000",
+			"subtheme": "Numbers do 1000",
 			"topic": "Zapis broja",
 			"difficulty": "1"
 		},
@@ -137,7 +137,7 @@
 			"name": "numbers/q00065",
 			"random": "1",
 			"period": "Jesen",
-			"subtheme": "Brojevi do 1000",
+			"subtheme": "Numbers do 1000",
 			"topic": "Čitanje broja",
 			"difficulty": "1"
 		},
@@ -161,7 +161,7 @@
 			"name": "numbers/q00068",
 			"random": "1",
 			"period": "Jesen",
-			"subtheme": "Brojevi do 1000",
+			"subtheme": "Numbers do 1000",
 			"topic": "Par/nepar, najveći/najmanji",
 			"difficulty": "1"
 		},
@@ -177,7 +177,7 @@
 			"name": "numbers/q00070",
 			"random": "1",
 			"period": "Jesen",
-			"subtheme": "Brojevi do 1000",
+			"subtheme": "Numbers do 1000",
 			"topic": "Prethodnik/sledbenik",
 			"difficulty": "1"
 		},
@@ -201,7 +201,7 @@
 			"name": "numbers/q00073",
 			"random": "1",
 			"period": "Jesen",
-			"subtheme": "Brojevi do 1000",
+			"subtheme": "Numbers do 1000",
 			"topic": "Par/nepar, najveći/najmanji",
 			"difficulty": "1"
 		},
@@ -473,7 +473,7 @@
 			"name": "numbers/q00118",
 			"random": "1",
 			"period": "Jesen",
-			"subtheme": "Brojevi do 1000",
+			"subtheme": "Numbers do 1000",
 			"topic": "Prethodnik/sledbenik",
 			"difficulty": "1"
 		},
@@ -513,7 +513,7 @@
 			"name": "numbers/q00167",
 			"random": "1",
 			"period": "Jesen",
-			"subtheme": "Brojevi do 1000",
+			"subtheme": "Numbers do 1000",
 			"topic": "Tekstualni zadatak",
 			"difficulty": "1"
 		},
@@ -521,7 +521,7 @@
 			"name": "numbers/q00168",
 			"random": "0",
 			"period": "Jesen",
-			"subtheme": "Brojevi do 1000",
+			"subtheme": "Numbers do 1000",
 			"topic": "Brojevna prava",
 			"difficulty": "1"
 		},
@@ -553,7 +553,7 @@
 			"name": "numbers/q00175",
 			"random": "1",
 			"period": "Zima",
-			"subtheme": "Brojevi do 1000",
+			"subtheme": "Numbers do 1000",
 			"topic": "Zaokrugljivanje brojeva",
 			"difficulty": "1"
 		},
@@ -562,14 +562,14 @@
 			"random": "1",
 			"period": "Zima",
 			"subtheme": "Sabiranje i oduzimanje do 1000",
-			"topic": "Operacije sa zaokrugljivanjem",
+			"topic": "Addition and subtraction sa zaokrugljivanjem",
 			"difficulty": "2"
 		},
 		{
 			"name": "numbers/q00177",
 			"random": "1",
 			"period": "Jesen",
-			"subtheme": "Brojevi do 1000",
+			"subtheme": "Numbers do 1000",
 			"topic": "Poređenje brojeva",
 			"difficulty": "1"
 		},

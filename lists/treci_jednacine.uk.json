@@ -9,7 +9,7 @@
 			"name": "equations/q00001",
 			"random": "1",
 			"period": "Zima",
-			"subtheme": "Jednačine",
+			"subtheme": "Equalities",
 			"topic": "Zbir/razlika",
 			"difficulty": "1"
 		},
@@ -17,7 +17,7 @@
 			"name": "equations/q00002",
 			"random": "1",
 			"period": "Zima",
-			"subtheme": "Jednačine",
+			"subtheme": "Equalities",
 			"topic": "Zbir/razlika",
 			"difficulty": "1"
 		},
@@ -25,7 +25,7 @@
 			"name": "equations/q00003",
 			"random": "1",
 			"period": "Zima",
-			"subtheme": "Jednačine",
+			"subtheme": "Equalities",
 			"topic": "Zbir",
 			"difficulty": "1"
 		},
@@ -33,7 +33,7 @@
 			"name": "equations/q00004",
 			"random": "1",
 			"period": "Zima",
-			"subtheme": "Jednačine",
+			"subtheme": "Equalities",
 			"topic": "Razlika",
 			"difficulty": "1"
 		},
@@ -41,7 +41,7 @@
 			"name": "equations/q00005",
 			"random": "1",
 			"period": "Zima",
-			"subtheme": "Jednačine",
+			"subtheme": "Equalities",
 			"topic": "Proizvod/količnik",
 			"difficulty": "2"
 		},
@@ -49,7 +49,7 @@
 			"name": "equations/q00006",
 			"random": "1",
 			"period": "Zima",
-			"subtheme": "Jednačine",
+			"subtheme": "Equalities",
 			"topic": "Zbir/razlika",
 			"difficulty": "1"
 		},
@@ -57,7 +57,7 @@
 			"name": "equations/q00007",
 			"random": "1",
 			"period": "Zima",
-			"subtheme": "Jednačine",
+			"subtheme": "Equalities",
 			"topic": "Proizvod/količnik",
 			"difficulty": "1"
 		},
@@ -65,7 +65,7 @@
 			"name": "equations/q00008",
 			"random": "1",
 			"period": "Zima",
-			"subtheme": "Jednačine",
+			"subtheme": "Equalities",
 			"topic": "Proizvod/količnik",
 			"difficulty": "2"
 		},
@@ -73,7 +73,7 @@
 			"name": "equations/q00009",
 			"random": "1",
 			"period": "Zima",
-			"subtheme": "Jednačine",
+			"subtheme": "Equalities",
 			"topic": "Sve računske operacije",
 			"difficulty": "2"
 		},
@@ -81,7 +81,7 @@
 			"name": "equations/q00010",
 			"random": "1",
 			"period": "Zima",
-			"subtheme": "Jednačine",
+			"subtheme": "Equalities",
 			"topic": "Sve računske operacije",
 			"difficulty": "3"
 		},
@@ -89,7 +89,7 @@
 			"name": "equations/q00011",
 			"random": "1",
 			"period": "Zima",
-			"subtheme": "Jednačine",
+			"subtheme": "Equalities",
 			"topic": "Proizvod/kolicnik",
 			"difficulty": "2"
 		},
@@ -97,7 +97,7 @@
 			"name": "equations/q00012",
 			"random": "1",
 			"period": "Zima",
-			"subtheme": "Jednačine",
+			"subtheme": "Equalities",
 			"topic": "Proizvod/kolicnik",
 			"difficulty": "3"
 		},		

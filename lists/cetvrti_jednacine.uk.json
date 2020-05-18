@@ -6,7 +6,7 @@
   "questions":  [
    {
       "name" : "equations/q0xxxx", "random": "1", "period": "Zima", 
-      "subtheme": "Jednačine", 
+      "subtheme": "Equalities", 
   	  "topic": "Proizvod/kolicnik", "difficulty": "2"
     }	
   ]
