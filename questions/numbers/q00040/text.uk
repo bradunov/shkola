@@ -1,0 +1,12 @@
+                                                @repeat(4)@
+To the @name@ of the numbers @term1@ and @term2@ add the number @term3@.
+The answer is  @lib.check_number(result)@ 
+
+@vspace@
+@/repeat@     
+                  
+               
+
+            
+            
+            

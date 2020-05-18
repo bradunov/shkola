@@ -1,0 +1,10 @@
+                                                                @ime@ picked @weight@ kg of apricots each day for @day@ days. From @sweet@ she made jam, and from @juice@ she made juice. 
+
+How many kg of apricots are left? @hspace@  @lib.check_number(result)@ kg
+
+
+
+            
+            
+            
+            

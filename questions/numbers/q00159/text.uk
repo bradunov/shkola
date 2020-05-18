@@ -1,0 +1,19 @@
+                                                @repeat(2)@
+
+The smallest two-digit number that can be made with the digits@hspacept(3)@ @out[1]@ and @out[2]@ @hspacept(3)@ is @hspacept(3)@  @lib.check_number(value_min,20)@, the biggest is @lib.check_number(value_max,20)@. 
+
+The sum of these numbers is @lib.check_number(summ,20)@, the difference is @lib.check_number(diff,20)@.
+
+@vspace@ 
+@/repeat@
+
+
+
+      
+                                 
+                  
+
+                  
+            
+            
+            

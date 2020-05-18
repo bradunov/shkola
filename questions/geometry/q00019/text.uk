@@ -1,0 +1,21 @@
+                The circumference of a triangle is @circ@ cm. Two sides of the triangle are @side[1]@ cm and @side[2]@ cm. 
+
+How long is the third side of the triangle? 
+Select the circle next to the correct answer.
+
+@vspace@
+@vspace@
+
+@center@ @lib.check_one_option(answ,ind)@         
+
+          
+           
+                
+
+                 
+                  
+
+                  
+
+
+            

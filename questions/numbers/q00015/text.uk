@@ -1,0 +1,14 @@
+                                Write in order:
+
+@repeat(4)@
+
+all @izbor@ numbers of the @name@ ten 
+@center@ @lib.check_number(array_value[1])@ @hspace@ @lib.check_number(array_value[2])@ @hspace@ @lib.check_number(array_value[3])@ @hspace@ @lib.check_number(array_value[4])@ @hspace@ @lib.check_number(array_value[5])@
+@/repeat@
+                  
+    
+
+
+                  
+            
+            

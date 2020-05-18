@@ -1,0 +1,16 @@
+                                                                                                  
+Some birds are flying in the following formation:
+@center@ 2 birds in front of one,
+@center@ 2 birds behind one, and
+@center@ 1 bird in between two.
+
+@vspace@
+What is the smallest number of birds that can fly like this?
+
+@center@ @lib.check_number(3)@
+
+
+
+
+            
+            

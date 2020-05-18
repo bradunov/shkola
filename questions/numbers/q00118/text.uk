@@ -1,0 +1,8 @@
+                                The sum of two consecutive numbers has been given. Find those two numbers. 
+
+@repeat(5)@
+
+the sum is   @summ@, @hspacept(5)@  the numbers are @hspacept(5)@ @lib.check_number(numb1)@  @hspacept(5)@ @lib.check_number(numb2)@
+@/repeat@
+            
+            

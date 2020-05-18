@@ -1,0 +1,15 @@
+                                                
+@ime@ bought a book for @price@ pounds. How much change did he receive, if he paid for the book with @1000@ pounds?
+
+@vspace@
+The change was @hspacept(3)@ @lib.check_number(change)@ pounds.
+@vspace@ 
+The shopkeeper gave @ime@ the change in the following denomination (the smallest number of notes of 500, 200, 100, 50, 20 and 10 pounds):
+@answ@
+
+
+
+
+            
+            
+            

@@ -1,0 +1,12 @@
+                                                In one month a supermarket sold @tomato@ bags of tomato soup, @vegetable@ bags of vegetable soup and @chicken@ bags of chicken soup. This quantity is @diff@ @sign@ than the total number of bags of other types of soup sold. 
+How many bags of soup were sold altogether in the supermarket that month?
+ 
+@center@ @lib.check_number(result,40)@
+
+
+
+
+
+            
+            
+            

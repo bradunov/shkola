@@ -1,0 +1,10 @@
+                                Select the circle next to the correct answer.
+The area of the rectangle in the picture is:
+
+@center@ @mycanvas()@                  
+
+@center@ @lib.check_one_option(answ,ind)@
+
+       
+            
+            

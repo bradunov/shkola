@@ -1,0 +1,13 @@
+                                                
+@repeat(3)@
+@sign2@ the @sign1@ of the numbers @term1@ and @term2@ by the number @term3@.
+The answer is  @lib.check_number(result,50)@. 
+
+@vspace@
+@/repeat@     
+                 
+               
+
+            
+            
+            

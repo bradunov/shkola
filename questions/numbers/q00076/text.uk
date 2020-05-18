@@ -1,0 +1,12 @@
+                                            @repeat(4)@
+
+Decrease the sum of the numbers @term1@ and @term2@ by the difference between them.
+The answer is  @lib.check_number(result)@ 
+
+@vspace@
+@/repeat@     
+                             
+               
+
+                  
+                  

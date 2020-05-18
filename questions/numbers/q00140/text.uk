@@ -1,0 +1,13 @@
+                                Write the given numbers as roman numerals: 
+
+@repeat(5)@
+
+@center@ @value@  @hspacept(30)@ @lib.check_string(reply,60)@ 
+@/repeat@                 
+          
+               
+               
+                  
+                  
+            
+            

@@ -1,0 +1,20 @@
+                                                                The scale shows the temperature in ℃ in places A, B and H  
+
+@center@ @mycanvas()@
+
+The temperature in place A is @lib.check_number(tempA,20)@℃, @hspacept(3)@ B is @lib.check_number(tempB,20)@℃, @hspacept(3)@ H is @lib.check_number(tempH,20)@℃.
+
+Which place is the coldest? @hspacept(3)@ @lib.check_string("A",15)@
+
+Calculate the temperature differences between places 
+@hspace@ A and B @hspacept(3)@ @lib.check_number(tempAmB,15)@℃, @hspacept(6)@ B and H @hspacept(3)@ @lib.check_number(tempBmH,15)@℃, @hspacept(6)@ A and H @hspacept(3)@ @lib.check_number(tempAmH,15)@℃. 
+
+If the temperature in:
+@hspace@ A increases by 6℃ @hspacept(3)@ it will be @lib.check_number(tempAr,20)@℃, 
+@hspace@ H decreases by 5℃ @hspacept(3)@ it will be @lib.check_number(tempHf,20)@℃.                        
+                  
+          
+            
+            
+            
+            

@@ -1,0 +1,7 @@
+                                Colour the squares in the table, where the row and column labels have the same shape and colour, as shown by the example.
+
+@vspace@
+
+@center@ @mycanvas()@
+            
+            

@@ -1,0 +1,19 @@
+                                Using each digit only once  
+@center@ @cifre[1]@, @cifre[2]@, @cifre[3]@, @cifre[4]@, @cifre[5]@, @cifre[6]@, @cifre[7]@, @cifre[8]@
+enter the four-digit numbers that give:
+
+@vspace@
+
+the biggest possible sum (write the smaller number first)
+@center@ @lib.check_number(value_max1)@ @hspacept(3)@ + @hspacept(3)@ @lib.check_number(value_max)@ @hspacept(3)@ = @hspacept(3)@ @lib.check_number(summ_max,40)@
+
+the smallest possible sum (write the smaller number first)
+@center@ @lib.check_number(value_min)@ @hspacept(3)@ + @hspacept(3)@ @lib.check_number(value_min1)@ @hspacept(3)@ = @hspacept(3)@ @lib.check_number(summ_min,40)@
+
+the biggest possible difference
+@center@ @lib.check_number(value_max)@ @hspacept(3)@ - @hspacept(3)@ @lib.check_number(value_min)@ @hspacept(3)@ = @hspacept(3)@ @lib.check_number(diff_max,40)@
+
+What is the smallest possible difference between these numbers?@hspacept(3)@ @lib.check_number(1,15)@                  
+               
+            
+            

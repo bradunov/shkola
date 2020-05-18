@@ -1,0 +1,18 @@
+                                            Look at the picture and answer the following: 
+
+@center@ @fraction_table(3)@
+One whole has @lib.check_number(5)@ fifths.
+One whole has @lib.check_number(10)@ tenths.
+
+@vspace@
+Compare the fractions. Use the sign < or >. 
+
+Which fraction is bigger, \(\frac{1}{5}\) or \(\frac{1}{10}\)?	
+@center@ \(\frac{1}{5}\) @lib.check_string(">")@ \(\frac{1}{10}\)
+
+
+
+
+
+                  
+                  

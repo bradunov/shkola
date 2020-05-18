@@ -1,0 +1,14 @@
+                                                                  In the rectangles write a number that makes the equality correct. 
+
+@repeat(4)@
+
+@center@ @decade@ @lib.check_number(number1, 20)@ @hspace@ @znak@ @hspace@ @number2@
+@/repeat@
+
+
+
+
+
+                  
+                  
+                  

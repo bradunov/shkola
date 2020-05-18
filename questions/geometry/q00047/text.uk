@@ -1,0 +1,7 @@
+                                                The picture shows a line and some points. Select the circle next to the correct answer.
+
+Dots @dot[1]@ and @dot[2]@ are found @lib.check_one_option(answ,ind,true)@
+@center@ @mycanvas()@
+            
+            
+            

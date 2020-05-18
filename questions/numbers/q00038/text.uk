@@ -1,0 +1,10 @@
+                                            Write in the numbers that make the equalities correct.
+
+@repeat(6)@
+
+@center@ @number1@ @hspace@ + @hspace@ @lib.check_number(result)@ @hspace@ = @hspace@ @number2@ 
+@/repeat@
+
+
+                  
+                  

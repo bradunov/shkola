@@ -1,0 +1,10 @@
+                                
+Express the volume in the indicated units. 
+ 
+@repeat(5)@ 
+
+@value@ @measure[indr]@ @hspacept(3)@ = @hspacept(3)@ @answ@  
+@/repeat@     
+       
+            
+            

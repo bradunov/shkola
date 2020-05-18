@@ -1,0 +1,10 @@
+                                Calculate the sum of the first @hspacept(3)@ M @hspacept(3)@ natural numbers. 
+
+@repeat(5)@
+
+M = @ind@ @hspacept(5)@ the sum is @hspacept(5)@ @lib.check_number(summ)@  
+@/repeat@        
+        
+  
+            
+            

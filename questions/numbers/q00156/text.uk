@@ -1,0 +1,10 @@
+                                In the first box enter the nearest ten smaller than the given number, and in the second box write the nearest ten larger than the given number.
+
+@vspace@
+@repeat(5)@ 
+@center@  @lib.check_number(decmin,20)@  @hspacept(40)@  @number@ @hspacept(40)@ @lib.check_number(decmax,20)@ 
+@/repeat@ 
+  
+
+            
+            

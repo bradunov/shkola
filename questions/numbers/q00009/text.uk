@@ -1,0 +1,23 @@
+                                Some crows were flying, when they spotted branches.
+
+If there are @3@ crows on each branch, there is one branch left.
+
+If there are @2@ crows on each branch, there is one crow left.
+
+@vspace@
+@vspace@
+
+How many crows were there? @lib.check_number(vrane)@   
+
+@vspace@
+
+How many branches were there? @lib.check_number(grane)@
+           
+                  
+
+
+
+                 
+
+            
+            

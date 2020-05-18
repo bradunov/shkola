@@ -1,0 +1,11 @@
+                                Write the smallest and largest 
+
+@repeat(5)@
+
+@choice@ number of the @name@ hundred @hspacept(5)@ @lib.check_number(min)@  @hspacept(5)@ @lib.check_number(max)@
+
+@/repeat@  
+
+                  
+            
+            

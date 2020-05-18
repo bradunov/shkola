@@ -1,0 +1,15 @@
+                                
+@ime@ bought a book, a notebook and a pencil at the bookstore. The book and the notebook cost him @value1@ pounds, the book and the pencil cost @value2@ pounds, and the notebook and the pencil cost @value3@ pounds.
+
+@vspace@
+
+The book cost @hspacept(3)@ @lib.check_number(book)@ pounds.
+The notebook cost @hspacept(3)@ @lib.check_number(notebook)@ pounds.
+The pencil cost @hspacept(3)@ @lib.check_number(pencil)@ pounds.
+
+     
+
+
+
+            
+            

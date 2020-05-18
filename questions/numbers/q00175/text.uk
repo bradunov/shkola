@@ -1,0 +1,11 @@
+                                
+Find the number of tens and hundreds closest to the given number:   
+
+@vspace@
+@repeat(5)@ 
+@center@ @number@, @hspacept(10)@ tens @lib.check_number(decade,50)@, @hspacept(10)@ hundreds @lib.check_number(hundred,50)@.
+@/repeat@
+  
+
+            
+            

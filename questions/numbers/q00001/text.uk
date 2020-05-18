@@ -1,0 +1,13 @@
+                                            How many triangles are there? Write the number.
+
+@center@ @mycanvas(no)@
+
+@center@ @lib.check_number(total)@  
+                  
+                            
+                  
+
+
+
+                  
+                  

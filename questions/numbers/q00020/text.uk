@@ -1,0 +1,15 @@
+                                                                                @ime@ bought a chocolate bar for @price@ pounds. How much change did he get, if he paid for the bar with a £@100@ note?
+
+@vspace@
+The change was @hspacept(3)@ @lib.check_number(change)@ pounds.
+@vspace@ 
+The shopkeeper gave @ime@ the change in the following denomination (the smallest number of notes/coins in these denominations 50, 20, 10, 5, 2 and 1):
+@answ@
+
+
+
+            
+            
+            
+            
+            

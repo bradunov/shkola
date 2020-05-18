@@ -1,0 +1,11 @@
+                                
+Enter the natural numbers which are found between the given numbers:
+
+@repeat(4)@
+@reply@
+@/repeat@   
+                  
+ 
+
+            
+            

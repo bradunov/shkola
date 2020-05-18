@@ -1,0 +1,12 @@
+                                Calculate the area of a rectangle with 
+ 
+@repeat(3)@ 
+@vspace@ 
+length @numb[1]@@measure[ind]@ @numb[3]@@measure[ind+1]@, width @numb[2]@@measure[ind]@ @numb[4]@@measure[ind+1]@
+@center@ @lib.check_number(value[1])@@measure2[ind+1]@  @answ@
+
+@/repeat@   
+
+    
+            
+            

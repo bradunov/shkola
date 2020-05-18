@@ -1,0 +1,8 @@
+                                Write two numbers (biggest then smallest) which have
+
+@repeat(4)@ 
+the sum @hspacept(3)@ @summ@,  @hspacept(3)@ and the difference of @hspacept(3)@ @diff@ 
+@center@ @lib.check_number(number2,40)@,@hspacept(8)@ @lib.check_number(number1,40)@
+@/repeat@
+            
+            

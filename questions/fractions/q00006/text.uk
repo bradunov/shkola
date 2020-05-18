@@ -1,0 +1,27 @@
+                                            Look at the picture and answer the following: 
+
+@center@ @fraction_table(4)@
+
+One whole has @lib.check_number(2)@ halves.
+One whole has @lib.check_number(4)@ quarters.
+One whole has @lib.check_number(8)@ eighths.
+
+@vspace@
+Compare the fractions. Use the sign  < or > . 
+
+Which fraction is bigger, \(\frac{1}{2}\) or \(\frac{1}{4}\)?
+@center@ \(\frac{1}{2}\) @lib.check_string(">")@ \(\frac{1}{4}\)
+
+Which fraction is smaller, \(\frac{1}{4}\) or \(\frac{1}{8}\)?
+@center@ \(\frac{1}{4}\) @lib.check_string(">")@ \(\frac{1}{8}\)
+
+                  
+                
+
+                  
+                
+
+                  
+                
+                  
+                  

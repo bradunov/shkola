@@ -1,0 +1,9 @@
+                                                @ime1@ has @value[1]@ marbles, @ime2@ has @factor@ times @oper1@, and @ime3@ has the same amount of marbles as @ime1@ and @ime2@ together. 
+
+@vspace@
+
+How many marbles do they have altogether? @hspace@  @lib.check_number(result)@ 
+ 
+            
+            
+            

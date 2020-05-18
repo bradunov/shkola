@@ -1,0 +1,12 @@
+                                                                @ime1@ has @ukupno@ sweets. He gave @padezd2@ \(\frac{1}{@imenilac@}\) of the sweets.  
+
+@vspace@
+How many sweets are left for @ime1@?
+
+@center@ @lib.check_number(ostalo)@   
+
+
+            
+            
+            
+            

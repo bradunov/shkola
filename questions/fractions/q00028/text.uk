@@ -1,0 +1,12 @@
+                                 
+Compare the sizes and enter the signs < , >  or  = :
+
+@repeat(5)@
+@center@ @answ@ 
+@/repeat@           
+
+
+
+
+            
+            

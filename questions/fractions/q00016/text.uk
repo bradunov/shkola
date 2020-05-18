@@ -1,0 +1,10 @@
+                                            Fill in: 
+
+@repeat(4)@
+@center@ @rezultat@ @hspace@ is @hspace@ @lib.check_fraction_simple(1, imenilac)@ @hspace@ of @hspace@ @broj@   
+@/repeat@
+
+
+
+                  
+                  

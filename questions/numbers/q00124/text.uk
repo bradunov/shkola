@@ -1,0 +1,14 @@
+                                Write @hspace8pt@ + @hspace8pt@ or @hspace8pt@ - @hspace8pt@ so that the equation is correct. 
+
+@repeat(6)@ 
+@center@ @number2@ @hspace@ @lib.check_string(sign, 20)@ @hspace@ @number1@ @hspace@ = @hspace@ @value@
+@/repeat@
+  
+                  
+                            
+                  
+
+
+
+            
+            

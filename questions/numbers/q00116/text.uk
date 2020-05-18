@@ -1,0 +1,14 @@
+                                                                                Write the digit that,  
+
+@repeat(4)@
+
+is in the @value[index]@ of the number @number@ @hspace@ @lib.check_number(result,20)@ 
+
+@/repeat@
+
+
+            
+            
+            
+            
+            

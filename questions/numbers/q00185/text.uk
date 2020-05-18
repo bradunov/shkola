@@ -1,0 +1,15 @@
+                                                
+@ime@ had @bank@ pounds in her bank account. During the month, she took out @car@ pounds to buy a car and another @cost@ pounds to pay additional costs. During the month her salary of @salary@ pounds was added to her bank account. 
+How much money did @ime@ have in her bank account at the end of the month? 
+  
+@vspace@
+
+@ime@ has @lib.check_number(rest, 60)@ pounds in her bank account.
+ 
+                
+
+
+
+            
+            
+            

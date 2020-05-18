@@ -1,0 +1,13 @@
+                                
+The standard unit to measure: 
+@vspace@   
+@measure[ind[1]]@ is @hspacept(3)@  @lib.check_string(name[ind[1]],50)@, @hspacept(3)@ written as @hspacept(3)@ @lib.check_string(sign[ind[1]],20)@,
+@vspace@ 
+@measure[ind[2]]@ is @hspacept(3)@  @lib.check_string(name[ind[2]],50)@, @hspacept(3)@ written as @hspacept(3)@ @lib.check_string(sign[ind[2]],20)@,
+@vspace@ 
+@measure[ind[3]]@ is @hspacept(3)@  @lib.check_string(name[ind[3]],50)@, @hspacept(3)@ written as @hspacept(3)@ @lib.check_string(sign[ind[3]],20)@,
+@vspace@ 
+@measure[ind[4]]@ is @hspacept(3)@  @lib.check_string(name[ind[4]],50)@, @hspacept(3)@ written as @hspacept(3)@ @lib.check_string(sign[ind[4]],20)@.       
+                  
+            
+            

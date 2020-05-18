@@ -1,0 +1,26 @@
+                                            @ime1@ and @ime2@ get the same pocket money. @ime1@ spent \(\frac{@brojilac@}{@imenilac1@}\) of all his money on sweets, and @ime2@ spent \(\frac{@brojilac@}{@imenilac2@}\). 
+
+Who is left with more money after buying sweets?
+
+@vspace@
+
+The person with the most money left over after buying sweets is @lib.check_string(reply,50)@.
+          
+                  
+                   
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+             
+                  
+
+                  
+                  

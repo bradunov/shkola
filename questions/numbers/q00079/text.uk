@@ -1,0 +1,15 @@
+                                            
+@ime@ organised @number@ marbles by colour into three boxes. There were @bgnumb@ in the blue and green boxes, and the same amount in the green and red boxes. 
+How many blue, green and red marbles are there?
+
+@vspace@
+There are @lib.check_number(bluevalue)@ blue marbles, @lib.check_number(grinvalue)@ green marbles, and @lib.check_number(redvalue)@ red marbles.
+
+
+
+
+
+                                 
+
+                  
+                  

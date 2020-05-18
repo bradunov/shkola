@@ -1,0 +1,10 @@
+                                                                                @repeat(6)@ 
+How many @term2@ are in @term1@? @hspacept(5)@ @lib.check_number(value[ITEM],20)@  
+
+@/repeat@  
+
+            
+            
+            
+            
+            

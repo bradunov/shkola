@@ -1,0 +1,10 @@
+                                                @ime1@ and @ime2@ live @length@ m away from each other. They went to meet each other. @ime1@ went @first@ m, and @ime2@ @part@ m @differ@ than him. 
+   
+How far is there between them now?  @hspace@ @lib.check_number(result)@ m
+        
+
+
+
+            
+            
+            

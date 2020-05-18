@@ -1,0 +1,13 @@
+                                            One day at the cinema, they showed three screenings of one film. The first screening was attended by @first@ people, the second was attended by @second@ people, and the third was viewed by @third@ fewer people than the first.
+How many people watched the three screenings altogether?
+
+@vspace@
+Altogether there were @lib.check_number(number)@ viewers.
+  
+  
+ 
+
+                                 
+
+                  
+                  

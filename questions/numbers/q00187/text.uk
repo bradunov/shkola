@@ -1,0 +1,13 @@
+                                                
+By how much is
+
+@repeat(3)@
+the @sign1@ of the numbers @term1@ and @term2@ @sign2@ than the @sign3@ of the numbers @term3@ and @term4@?
+@center@ @lib.check_number(result,50)@ 
+@/repeat@      
+                 
+               
+
+            
+            
+            

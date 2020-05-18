@@ -1,0 +1,13 @@
+                                                The circumference and one side of a rectangle have been given.
+
+@repeat(3)@
+@vspace@
+The circumference is @circ@@measure[ind]@, the side is @edge_a@@measure[ind]@. 
+The area of the rectangle is @lib.check_number(surface)@ @measure2[ind]@. 
+
+@/repeat@
+  
+   
+            
+            
+            

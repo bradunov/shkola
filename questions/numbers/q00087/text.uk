@@ -1,0 +1,13 @@
+                                In a garden @number@ tulips flowered. There are @factor@ times more red tulips than yellow.  
+How many red and how many yellow tulips are there? 
+
+@vspace@ 
+There are @hspacept(5)@ @lib.check_number(red)@ red tulips. 
+There are @hspacept(5)@ @lib.check_number(yelow)@ yellow tulips. 
+                  
+   
+
+
+
+            
+            

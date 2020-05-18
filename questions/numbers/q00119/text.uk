@@ -1,0 +1,11 @@
+                                The sum of three consecutive numbers has been given. Find those numbers. 
+
+@repeat(4)@
+
+the sum is @summ@, @hspacept(5)@ the numbers are @hspacept(5)@ 
+@center@ @lib.check_number(numb1)@  @hspacept(5)@ @lib.check_number(numb2)@ @hspacept(5)@ @lib.check_number(numb3)@
+@/repeat@        
+                  
+  
+            
+            

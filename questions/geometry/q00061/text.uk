@@ -1,0 +1,11 @@
+                                
+Select the circle next to the correct answer.
+The circumference of the rectangle in the picture is:
+
+@center@ @mycanvas()@                  
+
+@center@ @lib.check_one_option(answ,ind)@
+
+       
+            
+            

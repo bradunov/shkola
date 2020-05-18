@@ -1,0 +1,13 @@
+                                            There were @number@ copies of a book at the book fair. On the first day @first@ copies were sold, and on the second day @value@ more copies were sold than on the first day.
+How many copies were left?
+
+@vspace@
+Altogether @lib.check_number(rest)@ copies were left.
+                  
+  
+  
+ 
+ 
+ 
+                  
+                  

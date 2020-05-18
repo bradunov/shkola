@@ -1,0 +1,14 @@
+                                Calculate the difference between the numbers 
+
+@repeat(6)@
+@center@ @broj1@ @hspace@ and @hspace@  @broj2@  @hspacept(20)@ @lib.check_number(diff)@
+@/repeat@
+
+
+
+
+
+
+
+            
+            

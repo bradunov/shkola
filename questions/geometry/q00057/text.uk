@@ -1,0 +1,10 @@
+                                Write the year that
+
+@repeat(5)@
+@begin[index]@ the @numb_decade[ind_dec]@ decade @numb_century[ind_cent]@ century. @hspacept(3)@ @lib.check_number(year,40)@  
+
+@/repeat@
+  
+
+            
+            

@@ -1,0 +1,11 @@
+                                Write the numbers as words: 
+
+@repeat(6)@
+
+@value[ITEM]@  @hspace@ @lib.check_string(reply,240)@ 
+@/repeat@ 
+
+                      
+     
+            
+            

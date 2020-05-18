@@ -1,0 +1,10 @@
+                                Enter the number that gives you the correct equation.
+ 
+@repeat(5)@ 
+ 
+@answ@ 
+
+@/repeat@       
+      
+            
+            

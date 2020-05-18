@@ -1,0 +1,10 @@
+                                                                
+@ime@ bought @number@ bottles of juice of 1 litre each, to serve to guests at her birthday party. If  @glass[ind]@ ml of juice can fit into one glass, how many glasses can she fill up? 
+
+@vspace@
+@ime@ can fill @lib.check_number(value,20)@ glasses of juice.
+                  
+            
+            
+            
+            

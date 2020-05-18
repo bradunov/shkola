@@ -1,0 +1,10 @@
+                                                      
+@imez@ intends to go to the cinema, which starts in @cinema@ hours. In order to arrive on time she needs to leave her house at least @home@ minutes early.
+What is the latest time that @imez@ can leave her house? 
+@vspace@ 
+
+@imez@ needs to leave her house in @lib.check_number(time_hour,20)@ hours and @lib.check_number(time_minute,20)@ minutes.
+                            
+
+            
+            
