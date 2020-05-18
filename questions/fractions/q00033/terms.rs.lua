@@ -1,0 +1,2 @@
+num = "brojilac"
+denom = "imenilac"

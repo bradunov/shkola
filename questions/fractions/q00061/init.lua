@@ -1,10 +1,9 @@
 include("names")
+include("terms")
 
 r = math.random(#zensko_ime_nom)
 ime = zensko_ime_nom[r] 
 
-
-part = {"trećine", "četvrtine", "petine", "šestine", "sedmine", "osmine", "devetine"}
 
 fract_s = math.random(3) + 2
 fract_j = math.random(10 - fract_s ) + 2
