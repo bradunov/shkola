@@ -1,0 +1,137 @@
+{
+	"name": "Year 4 Geometry",
+	"level": "Year 4",
+	"theme": "Geometry",
+	"level_short": "4",
+	"language": "uk",
+	"questions": [
+		{
+			"name": "geometry/q00023",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Pretvaranje većih mera za površinu u manje",
+			"difficulty": "1"
+		},
+		{
+			"name": "geometry/q00024",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Pretvaranje većih mera za površinu u manje",
+			"difficulty": "2"
+		},
+		{
+			"name": "geometry/q00025",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Pretvaranje manjih mera za površinu u veće",
+			"difficulty": "2"
+		},
+		{
+			"name": "geometry/q00026",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Pretvaranje većih mera za površinu u manje",
+			"difficulty": "2"
+		},
+		{
+			"name": "geometry/q00027",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Poređenje mera za površinu",
+			"difficulty": "1"
+		},
+		{
+			"name": "geometry/q00028",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Poređenje mera za površinu",
+			"difficulty": "1"
+		},
+		{
+			"name": "geometry/q00029",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Pretvaranje mera za površinu jednih u druge",
+			"difficulty": "1"
+		},
+		{
+			"name": "geometry/q00030",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Uređenje niza mera za površinu",
+			"difficulty": "2"
+		},
+		{
+			"name": "geometry/q00031",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Sabiranje i oduzimanje mera za površinu",
+			"difficulty": "2"
+		},
+		{
+			"name": "geometry/q00032",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Površina pravougaonika",
+			"difficulty": "1"
+		},
+		{
+			"name": "geometry/q00033",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Površina pravougaonika",
+			"difficulty": "2"
+		},
+		{
+			"name": "geometry/q00034",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Površina pravougaonika",
+			"difficulty": "2"
+		},
+		{
+			"name": "geometry/q00035",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Površina pravougaonika",
+			"difficulty": "2"
+		},
+		{
+			"name": "geometry/q00036",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Površina kvadrata i pravougaonika",
+			"difficulty": "2"
+		},
+		{
+			"name": "geometry/q00037",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Površina kvadrata i pravougaonika",
+			"difficulty": "3"
+		},
+		{
+			"name": "geometry/q00038",
+			"random": "1",
+			"period": "Jesen",
+			"subtheme": "Merenje i mere",
+			"topic": "Površina pravougaonika",
+			"difficulty": "3"
+		}
+	]
+}

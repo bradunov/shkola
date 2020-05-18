@@ -1,0 +1,145 @@
+{ "name" : "Year 5 Numbers",
+  "level": "Year 5", 
+  "level_short": "5", 
+  "theme" : "Nubmers", 
+  "language" : "uk",
+  "questions":  [
+    {
+      "name" : "numbers/q00123", "random": "1", "period": "Jesen", 
+      "subtheme": "uredjenje brojeva", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00124", "random": "1", "period": "Jesen", 
+      "subtheme": "operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00125", "random": "1", "period": "Jesen", 
+      "subtheme": "operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00126", "random": "1", "period": "Jesen", 
+      "subtheme": "operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00127", "random": "1", "period": "Jesen", 
+      "subtheme": "uredjenje brojeva", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00128", "random": "1", "period": "Jesen", 
+      "subtheme": "uredjenje brojeva", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00129", "random": "1", "period": "Jesen", 
+      "subtheme": "zapis broja", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00116", "random": "1", "period": "Jesen", 
+      "subtheme": "zapis broja", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00130", "random": "1", "period": "Jesen", 
+      "subtheme": "zapis broja", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00131", "random": "1", "period": "Jesen", 
+      "subtheme": "zaokrugljivanje broja", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00132", "random": "0", "period": "prolece", 
+      "subtheme": "negativni brojevi", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00133", "random": "0", "period": "prolece", 
+      "subtheme": "negativni brojevi", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00134", "random": "0", "period": "prolece", 
+      "subtheme": "operacije sa negativnim brojevima", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00135", "random": "1", "period": "prolece", 
+      "subtheme": "poredjenje negativnih brojeva", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00136", "random": "1", "period": "prolece", 
+      "subtheme": "operacije sa negativnim brojevima", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00137", "random": "1", "period": "prolece", 
+      "subtheme": "poredjenje negativnih brojeva", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00138", "random": "1", "period": "prolece", 
+      "subtheme": "negativni brojevi", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00139", "random": "1", "period": "prolece", 
+      "subtheme": "rimski brojevi", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00140", "random": "1", "period": "prolece", 
+      "subtheme": "rimski brojevi", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00141", "random": "1", "period": "prolece", 
+      "subtheme": "rimski brojevi", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00142", "random": "1", "period": "prolece", 
+      "subtheme": "operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00143", "random": "1", "period": "prolece", 
+      "subtheme": "operacije", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00144", "random": "1", "period": "prolece", 
+      "subtheme": "problem", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00145", "random": "1", "period": "prolece", 
+      "subtheme": "problem", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00146", "random": "1", "period": "prolece", 
+      "subtheme": "problem", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00147", "random": "1", "period": "prolece", 
+      "subtheme": "negativni brojevi", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00148", "random": "1", "period": "prolece", 
+      "subtheme": "zaokrugljivanje brojeva", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00149", "random": "1", "period": "prolece", 
+      "subtheme": "zaokrugljivanje u operacijama", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00150", "random": "1", "period": "prolece", 
+      "subtheme": "cinioci broja", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00151", "random": "1", "period": "prolece", 
+      "subtheme": "cinioci broja", "difficulty": "1"
+    },
+    {
+      "name" : "numbers/q00152", "random": "1", "period": "prolece", 
+      "subtheme": "cinioci broja", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00153", "random": "1", "period": "prolece", 
+      "subtheme": "racunske operacije", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00154", "random": "1", "period": "prolece", 
+      "subtheme": "racunske operacije", "difficulty": "2"
+    },
+    {
+      "name" : "numbers/q00155", "random": "1", "period": "prolece", 
+      "subtheme": "problem", "difficulty": "2"
+    }	
+  ]
+ }
+ 

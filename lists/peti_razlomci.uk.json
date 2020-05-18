@@ -1,0 +1,97 @@
+{ "name" : "Year 5 Fractions",
+  "level": "Year 5", 
+  "level_short": "5", 
+  "theme" : "Fractions", 
+  "language" : "uk",
+  "questions":  [
+    {
+      "name" : "fractions/q00018", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "3"
+    },
+    {
+      "name" : "fractions/q00021", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "3"
+    },
+    {
+      "name" : "fractions/q00029", "random": "0", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "3"
+    },
+    {
+      "name" : "fractions/q00032", "random": "0", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "2"
+    },
+    {
+      "name" : "fractions/q00033", "random": "0", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00035", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "2"
+    }, 
+    {
+      "name" : "fractions/q00036", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "3"
+    }, 
+    {
+      "name" : "fractions/q00038", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "3"
+    }, 
+    {
+      "name" : "fractions/q00043", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "2"
+    }, 
+    {
+      "name" : "fractions/q00047", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "1"
+    }, 
+    {
+      "name" : "fractions/q00048", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "1"
+    }, 
+    {
+      "name" : "fractions/q00049", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "2"
+    }, 
+    {
+      "name" : "fractions/q00051", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "1"
+    }, 
+    {
+      "name" : "fractions/q00053", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "3"
+    }, 
+    {
+      "name" : "fractions/q00054", "random": "1", "period": "Jesen", 
+      "subtheme": "Razlomci", "difficulty": "3"
+    }, 
+    {
+      "name" : "fractions/q00062", "random": "1", "period": "zima", 
+      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+    },
+	{
+      "name" : "fractions/q00063", "random": "1", "period": "zima", 
+      "subtheme": "oduzimanje razlomaka", "difficulty": "1"
+    },
+	{
+      "name" : "fractions/q00064", "random": "1", "period": "zima", 
+      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+    },
+	{
+      "name" : "fractions/q00065", "random": "1", "period": "zima", 
+      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+    },
+	{
+      "name" : "fractions/q00066", "random": "1", "period": "zima", 
+      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+    },
+	{
+      "name" : "fractions/q00067", "random": "1", "period": "zima", 
+      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+    },
+	{
+      "name" : "fractions/q00068", "random": "1", "period": "zima", 
+      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+    }	
+  ]
+ }
+ 

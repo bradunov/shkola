@@ -1,0 +1,65 @@
+{ "name" : "Year 2 Fractions",
+  "level": "Year 2", 
+  "level_short": "2", 
+  "theme" : "Fractions", 
+  "language" : "uk",
+  "questions":  [
+    {
+      "name" : "fractions/q00001", "random": "0", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Pojam", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00002", "random": "1", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Računanje dela", "difficulty": "2"
+    },	
+    {
+      "name" : "fractions/q00005", "random": "1", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Pojam", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00006", "random": "0", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Pojam", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00007", "random": "0", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Pojam", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00009", "random": "0", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Pojam", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00010", "random": "1", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Pojam", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00011", "random": "0", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Pojam", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00013", "random": "1", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Pojam", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00014", "random": "0", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Pojam", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00015", "random": "1", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Pojam", "difficulty": "1"
+    },
+    {
+      "name" : "fractions/q00016", "random": "1", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Računanje dela", "difficulty": "2"
+    },
+    {
+      "name" : "fractions/q00017", "random": "1", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Tekstualni zadatak", "difficulty": "2"
+    },
+    {
+      "name" : "fractions/q00044", "random": "1", "period": "Proleće", "subtheme": "Razlomci",	  
+      "topic": "Pojam", "difficulty": "1"
+    }
+  ]
+ }
+ 
