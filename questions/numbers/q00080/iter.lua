@@ -1,4 +1,4 @@
-array_operfirst = {"razlika", "zbir"}
+include("terms")
 
 ind = math.random(2);
 
@@ -26,16 +26,16 @@ term3 = math.random(900 - temp) + 100;
 if (temp < term3 ) then 
     result =  term3 - temp;
 	if (ind == 1) then
-	    opersecond = "manja";
+	    opersecond = msg_less[1];
     else
-        opersecond = "manji";
+        opersecond = msg_less[2];
     end    	
 else   
     result = temp - term3;
 	if (ind == 1) then
-	    opersecond = "veća";
+	    opersecond = msg_great[1];
     else
-        opersecond = "veći";
+        opersecond = msg_great[2];
     end  
 end          
    

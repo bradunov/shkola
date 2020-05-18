@@ -1,5 +1,4 @@
-array_operfirst = {"Razliku", "Zbir"}
-array_opersecond = {"uvećaj", "umanji"}
+include("terms")
 
 ind1 = math.random(2);
 

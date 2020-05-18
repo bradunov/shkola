@@ -1,6 +1,4 @@
-
-operat1 = {"Razliku", "Zbir"}
-operat2 = {"umanji", "uvećaj"}
+include("terms")
 
 ind1 = math.random(2);
 sign1 = operat1[ind1]

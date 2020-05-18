@@ -1,4 +1,4 @@
-format = {"od najmanjeg do najvećeg", "od najvećeg  do najmanjeg"}
+include("terms")
 number = {};
 array_value = {};
 array_out = {};

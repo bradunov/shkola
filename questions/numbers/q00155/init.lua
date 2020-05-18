@@ -1,4 +1,4 @@
-operation = {"veća", "manja"}
+include("terms")
 
 tomato = 1110 + math.random(4889)
 vegetable = 1110 + math.random(3889)

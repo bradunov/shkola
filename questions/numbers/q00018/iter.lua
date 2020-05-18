@@ -1,4 +1,4 @@
-array_operation = {"Razlici", "Zbiru"}
+include("terms")
 
 index = math.random(2);
 name = array_operation[index]

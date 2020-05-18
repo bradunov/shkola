@@ -1,3 +1,4 @@
+include("terms")
 include("names")
 
 dimnames = 6
@@ -11,7 +12,6 @@ r = lib.math.random_shuffle(index)
 ime1 = zensko_ime_nom[r[1]]
 ime2 = zensko_ime_nom[r[2]] 
 
-comp = {"više", "manje"}
 sign = {"+","-"}
 answ = {""}
 

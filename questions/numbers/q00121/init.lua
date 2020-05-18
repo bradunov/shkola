@@ -1,3 +1,5 @@
+include("terms")
+
 style = 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -12,7 +14,6 @@ check_style =
 
 text_style = {["font_size"] = "14"}
 
-position = {"drugi", "peti", "deseti", "treći", "četvrti", "šesti", "sedmi", "osmi", "deveti"}
 numb_position = {2, 5, 10, 3, 4, 6, 7, 8, 9}
 
 choice = math.random(9)

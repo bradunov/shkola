@@ -1,3 +1,4 @@
+include("terms")
 
 addition_table = function()
   columns = 6
@@ -19,9 +20,9 @@ addition_table = function()
   style["width"] = "40px"
   text = lib.start_table()
   text = text .. lib.start_row()
-  text = text .. lib.add_cell("prethodnik", style)
-  text = text .. lib.add_cell("broj", style)
-  text = text .. lib.add_cell("sledbenik", style)
+  text = text .. lib.add_cell(msg_prec, style)
+  text = text .. lib.add_cell(msg_num, style)
+  text = text .. lib.add_cell(msg_fol, style)
   text = text .. lib.end_row()
   for c=0,columns-1 do
     text = text .. lib.start_row()

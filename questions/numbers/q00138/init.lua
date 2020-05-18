@@ -1,3 +1,5 @@
+include("terms")
+
 addition_table = function()
   columns = 8
   min_range = 9
@@ -17,9 +19,9 @@ addition_table = function()
   style["width"] = "40px"
   text = lib.start_table()
   text = text .. lib.start_row()
-  text = text .. lib.add_cell("Utorak", style)
-  text = text .. lib.add_cell("Promena", style)
-  text = text .. lib.add_cell("Sreda", style)
+  text = text .. lib.add_cell(msg_tue, style)
+  text = text .. lib.add_cell(msg_change, style)
+  text = text .. lib.add_cell(msg_wed, style)
   text = text .. lib.end_row()
   for c=0,columns-1 do
     text = text .. lib.start_row()

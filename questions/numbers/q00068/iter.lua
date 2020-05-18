@@ -1,6 +1,4 @@
-array_decname = {"druge", "treće", "četvrte", "pete", "šeste", "sedme", "osme", "devete", "desete"}
-array_izbor = {"paran", "neparan"}
-
+include("terms")
 
 factor = math.random(9);
 name = array_decname[factor]

@@ -1,5 +1,4 @@
-
-sign = {"veći", "manji"}
+include("terms")
 
 factor1 = math.random(8) + 2
 factor2 = math.random(140 - factor1*10) + 60

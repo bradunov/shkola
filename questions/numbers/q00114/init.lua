@@ -1,8 +1,4 @@
-ones = {"dve", "tri", "četiri", "pet", "šest", "sedam", "osam", "devet"}
-tens = {"dvadeset", "trideset", "četrdeset", "pedeset", "šezdeset", "sedamdeset", "osamdeset", "devedeset"}
-ones_L = {"dve", "tri", "cetiri", "pet", "sest", "sedam", "osam", "devet"}
-tens_L = {"dvadeset", "trideset", "cetrdeset", "pedeset", "sezdeset", "sedamdeset", "osamdeset", "devedeset"}
-
+include("terms")
 value = {}
   
 numb = 1 + math.random(8);
@@ -16,16 +12,16 @@ digit10_L = tens_L[numb-1];
 digit2 = digit
 digit2_L = digit_L
 if (numb == 2) then
-   digit2 = "dva"
-   digit2_L = "dva"
+   digit2 = msg_two
+   digit2_L = msg_two
 end
 
 if (numb < 5) then
-    name_2 = "stotine"
-	name_3 = "hiljade"
+    name_2 = msg_hundred[1]
+	name_3 = msg_thousand[1]
 else 
-    name_2 = "stotina"
-	name_3 = "hiljada"	
+    name_2 = msg_hundred[2]
+	name_3 = msg_thousand[2]	
 end	
 
 value[1] = numb*10000 + numb;

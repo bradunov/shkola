@@ -1,0 +1,1 @@
+comp = {"više", "manje"}

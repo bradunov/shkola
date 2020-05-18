@@ -1,0 +1,1 @@
+value = {"units", "tens", "hundreds", "thousands", "ten thousands", "hundred thousands", "millions"}

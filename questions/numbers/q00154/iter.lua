@@ -1,4 +1,4 @@
-operation = {"dodaš", "oduzmeš"}
+include("terms")
 
 number1 = 111 + math.random(3889)
 number2 = 111 + math.random(3889)

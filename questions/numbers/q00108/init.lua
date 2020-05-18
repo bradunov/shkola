@@ -1,3 +1,4 @@
+include("terms")
 include("names")
 
 dimnames = 6
@@ -21,10 +22,10 @@ result = 11 + math.random(989 - length)
 length = length + result
 
 if (first > second) then
-   differ = "manje"
+   differ = msg[1]
    part = first - second
 else   
-   differ = "više"
+   differ = msg[2]
    part = second - first  
 end   
    

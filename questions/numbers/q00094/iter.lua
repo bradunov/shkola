@@ -1,5 +1,4 @@
-
-sign = {"količnik","proizvod", "uvećaš", "umanjiš"}
+include("terms")
 
 
 factor1 = math.random(5) + 2

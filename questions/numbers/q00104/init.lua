@@ -1,3 +1,4 @@
+include("terms")
 include("names")
 
 dimnames = 6
@@ -15,7 +16,6 @@ ime3 = musko_ime_nom[r[3]]
 value = {}
 add = {}
  
-sign = {"više", "manje"}            
 ind = math.random(2);
 
 number = math.random(34) + 21;

@@ -1,3 +1,4 @@
+include("terms")
 
 q1 = {"Abraham Lincoln", "William Shakespeare", "Isaac Newton", "Leonardo da Vinci", "Marjam Mirzahani", "Charlie Chaplin"}
 q2 = {1809, 1564, 1642, 1452, 1977, 1889}
@@ -16,10 +17,10 @@ addition_table = function()
   text = lib.start_table()
   text = text .. lib.start_row()
   text = text .. lib.add_cell("", style)
-  text = text .. lib.add_cell("rođen (arab)", style)
-  text = text .. lib.add_cell("rođen (roman)", style)
-  text = text .. lib.add_cell("godine (arab)", style)
-  text = text .. lib.add_cell("godine (roman)" , style)
+  text = text .. lib.add_cell(msg_birth_a, style)
+  text = text .. lib.add_cell(msg_birth_r, style)
+  text = text .. lib.add_cell(msg_year_a, style)
+  text = text .. lib.add_cell(msg_year_r, style)
   text = text .. lib.end_row()
   for i = 1,6 do
       text = text .. lib.start_row()

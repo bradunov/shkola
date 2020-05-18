@@ -1,4 +1,6 @@
+include("terms")
 include("names")
+
 
 dimnames = 6
 index = {}
@@ -17,7 +19,6 @@ padezg2 = musko_ime_gen[r[2]]
 value = {}
 add = {}
  
-sign = {"više", "manje"}            
 ind = math.random(2);
 
 value[1] = math.random(150) + 150;
