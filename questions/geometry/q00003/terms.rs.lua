@@ -1,0 +1,1 @@
+choice = {"užu", "širu"}	

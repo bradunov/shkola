@@ -1,3 +1,5 @@
+include("terms")
+
 style = 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -16,18 +18,17 @@ marker_style =
         ["line_color"] = "000",
         ["line_width"] = "1"};
 
-model = {"valjak", "kocka", "lopta", "kvadar", "piramida", "kupa"}
 
 mycanvas = function(result)
 
-  lib.start_canvas(350, 310, "center", result)
+  lib.start_canvas(335, 310, "center", result)
 
 --[[  valjak  ]]--
   lib.add_straight_path(30, 50, {{0, 60}}, style,  false, false)
   lib.add_straight_path(90, 50, {{0, 60}}, style,  false, false)
   lib.add_ellipse(60, 50, 30, 10, style,  false, false )
   lib.add_ellipse(60, 110, 30, 10, style,  false, false )
-  lib.add_input(30, 125, 60, 30, lib.check_string(model[1], 40))  
+  lib.add_input(28, 125, 65, 30, lib.check_string(model[1], 55))  
   
 --[[ kocka  ]]--  
   lib.add_straight_path(140, 60, {{20, -10}, {40, 0}, {0, 40}, {-20, 10}}, style, "", false)
@@ -40,7 +41,7 @@ mycanvas = function(result)
   lib.add_curved_path (270, 40, {{30, 30, 0, 60}}, transparent_style, false, false)
   lib.add_curved_path (240, 70, {{30, 30, 60, 0}}, transparent_style, false, false) 
   lib.add_curved_path (245, 55, {{30, 30, 50, 0}}, transparent_style, false, false)
-  lib.add_input(240, 105, 60, 30, lib.check_string(model[3], 40))
+  lib.add_input(240, 105, 60, 30, lib.check_string(model[3], 45))
 
 --[[ kvadar  ]]--  
   lib.add_straight_path(240, 220, {{40, -50}, {20, 0}, {0, 50}, {-40, 50}}, style,  false, false)

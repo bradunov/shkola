@@ -1,7 +1,6 @@
 
 include("names")
-
-padez = {"dela", "delova"}
+include("terms")
 
 rz = math.random(#zensko_ime_nom);
 imez = zensko_ime_nom[rz];
@@ -39,8 +38,8 @@ end
 
 answ = tostring(lib.check_number(total,30)) .. " minuta"
 if (hour == 1) then
-    answ = answ .. " = " .. lib.check_number(hour,20) .. " sat " .. lib.check_number(minute,20) .. " minuta."
+    answ = answ .. " = " .. lib.check_number(hour,20) .. msg_hour .. lib.check_number(minute,20) .. msg_min .. "."
 else	
-    answ = answ .. " = " .. lib.check_number(hour,20) .. " sata " .. lib.check_number(minute,20) .. " minuta."
+    answ = answ .. " = " .. lib.check_number(hour,20) .. msg_hour_dec .. lib.check_number(minute,20) .. msg_min .. "."
 end	
 	

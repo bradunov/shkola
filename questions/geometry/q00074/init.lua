@@ -1,5 +1,5 @@
+include("terms")
 
-comp = {"najduži", "najkraći"}
 out = {}
 term = {}
 
@@ -8,7 +8,6 @@ index = {1,7,30,1}
 day = 21 + math.random(99)
 week = 2 + math.random(16)
 month = 1 + math.random(5)
-year = {"trećina", "četvrtina", "petina", "šestina",  "sedmina", "osmina",}
 year_ind = math.random(6)
 
 term[1] = day
@@ -29,21 +28,21 @@ end
 
 answ = {""}
               
-answ[1] = tostring(math.floor(day)) .. " dana" 
+answ[1] = tostring(math.floor(day)) .. msg_day
 
 if (week > 4 ) then
-    answ[2] = tostring(math.floor(week)) .. " nedelja"
+    answ[2] = tostring(math.floor(week)) .. msg_week[1]
 else
-    answ[2] = tostring(math.floor(week)) .. " nedelje"
+    answ[2] = tostring(math.floor(week)) .. msg_week[2]
 end	
 
 if (month > 4 ) then	               
-    answ[3] = tostring(math.floor(month)) .. " meseci"  
+    answ[3] = tostring(math.floor(month)) .. msg_month[1]  
 else
-    answ[3] = tostring(math.floor(month)) .. " meseca"
+    answ[3] = tostring(math.floor(month)) .. msg_month[2]
 end	
                 
-answ[4] = year[year_ind] .. " godine"     
+answ[4] = year[year_ind] .. msg_year
                 
 
 

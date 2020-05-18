@@ -1,7 +1,5 @@
 include("names")
-
-padez = {"meseca", "meseci"}
-months = {"januaru", "februaru", "martu", "aprilu", "maju", "junu", "julu", "avgustu", "septembru", "oktobru", "novembru", "decembru"}
+include("terms")
 
 rf = math.random(#zensko_ime_dativ);
 rm = math.random(#musko_ime_dativ)

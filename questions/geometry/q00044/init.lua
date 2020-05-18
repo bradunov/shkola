@@ -1,3 +1,5 @@
+include("terms")
+
 style = 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -16,7 +18,6 @@ marker_style =
         ["line_color"] = "000",
         ["line_width"] = "1"};
 
-model = {"kvadrat", "krug", "trougao", "pravougaonik"}
 
 mycanvas = function(result)
   lib.start_canvas(300, 300, "center", result)

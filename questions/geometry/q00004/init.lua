@@ -1,3 +1,5 @@
+include("terms")
+
 green_style = {["off_color"] = "fff",
          ["on_color"] = "6f6",
          ["line_color"] = "000",
@@ -18,8 +20,6 @@ red_style = {["off_color"] = "fff",
                ["line_color"] = "000",
                ["line_width"] = "2"};			   
 
-
-figure = {"krugove", "pravougaonike", "kvadrate", "trouglove"}
 
 ind = math.random(4)
 

@@ -1,5 +1,6 @@
-measure = {"\(m^2\)","a","ha","\(km^2\)"}
+include("terms")
 
-measout = {"kvadratni metar", "ar", "hektar", "kvadratni kilometar"}
+measure = {"m\(^2\)","a","ha","km\(^2\)"}
+
  
 

@@ -1,5 +1,6 @@
 
 include("names")
+include("terms")
 
 rz = math.random(#zensko_ime_nom);
 imez = zensko_ime_nom[rz];
@@ -24,10 +25,10 @@ total = number * lesson + (number - 1) * pause
 hour = math.floor(total/60)
 minute = total - hour * 60
 
-answ = tostring(lib.check_number(total,30)) .. " minuta"
+answ = tostring(lib.check_number(total,30)) .. msg_min
 if (hour == 1) then
-    answ = answ .. " = " .. lib.check_number(hour,20) .. " sat " .. lib.check_number(minute,30) .. " minuta."
+    answ = answ .. " = " .. lib.check_number(hour,20) .. msg_hour .. lib.check_number(minute,30) .. msg_min .. "."
 else	
-    answ = answ .. " = " .. lib.check_number(hour,20) .. " sata " .. lib.check_number(minute,30) .. " minuta."
+    answ = answ .. " = " .. lib.check_number(hour,20) .. msg_hour_dec .. lib.check_number(minute,30) .. msg_min .. "."
 end	
 	

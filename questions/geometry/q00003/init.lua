@@ -1,3 +1,4 @@
+include("terms")
 
 style = {["off_color"] = "fff",
         ["on_color"] = "aff",
@@ -10,7 +11,6 @@ different_style =
         ["line_color"] = "00f",
         ["line_width"] = "4"};
 		
-choice = {"užu", "širu"}	
 ind = math.random(2)	
 
 mycanvas = function(no)

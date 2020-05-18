@@ -1,3 +1,5 @@
+include("terms")
+
 style = 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -11,7 +13,6 @@ diff_style =
         ["line_width"] = "2"};
 
 
-array_position = {"gore levo", "gore desno", "dole levo", "dole desno"}
 choice = math.random(4)
 place = array_position[choice] 
 

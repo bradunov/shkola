@@ -1,3 +1,5 @@
+include("terms")
+
 style = 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -17,7 +19,6 @@ out_style =
 
 include("shapes")
 
-place = {"unutar", "van"}
 ind = math.random(2)
 position = place[ind]
 

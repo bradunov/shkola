@@ -1,0 +1,5 @@
+msg1 = "The circumference of a square is "
+msg2 = " cm. How long is one of its sides?"
+msg3 = "The circumference of a rectangle is "
+msg4 = " cm. One of its sides is "
+msg5 = " times shorter than the other. How long is the shorter side of the rectangle?"

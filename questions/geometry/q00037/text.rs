@@ -1,5 +1,5 @@
 
 @repeat(2)@
-@answ@ @hspacept(3)@ @lib.check_number(circ)@ @measure[ind]@ 
+@answ@ @hspacept(3)@ @lib.check_number(circ)@ @measure2[ind]@ 
 
 @/repeat@

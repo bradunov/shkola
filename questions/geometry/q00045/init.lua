@@ -1,3 +1,5 @@
+include("terms")
+
 style = 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -17,11 +19,9 @@ check_style =
         ["line_width"] = "1"};		
 
 
-array_position = {"gore levo", "dole levo", "dole desno", "gore desno"}
 choice = math.random(4)
 place = array_position[choice] 
 
-part  = {"spoljašnju", "unutrašnju"}
 out = math.random(2)
 figure = part[out]
 

@@ -1,10 +1,10 @@
+include("terms")
 
 style = {["off_color"] = "fff",
          ["on_color"] = "f30",
          ["line_color"] = "000",
          ["line_width"] = "2"};
 
-position = {"na levom kraju", "u sredini", "na desnom kraju"}
 
 ind = math.random(3)
 

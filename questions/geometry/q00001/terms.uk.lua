@@ -1,0 +1,1 @@
+position = {"on the left side", "in the middle", "on the right side"}

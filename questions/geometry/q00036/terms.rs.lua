@@ -1,0 +1,5 @@
+msg1 = "Obim kvadrata je "
+msg2 = ". Kolika je njegova površina?"
+msg3 = "Obim pravougaonika je "
+msg4 = ". Jedna njegova stranica je "
+msg5 = " puta kraća od druge. Kolika je površina pravougaonika?"

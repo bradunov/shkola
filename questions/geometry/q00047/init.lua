@@ -1,3 +1,5 @@
+include("terms")
+
 style = 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -12,7 +14,6 @@ position_down = {"A", "T"}
 position_on = {"O", "M"}
 dot = {""}
 
-answ = {" na pravoj i određuju duž.", "sa iste strane prave.", " sa raznih strana prave." }
 index = math.random(3)
 ind = index - 1
 

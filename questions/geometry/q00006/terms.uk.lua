@@ -1,0 +1,1 @@
+direction = {"left", "upwards", "right", "downwards"}

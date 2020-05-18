@@ -1,9 +1,11 @@
+include("terms")
+
 text_style = 
 	{["off_color"] = "000",
         ["on_color"] = "f00",
         ["line_color"] = "f00",
         ["off_line_color"] = "000",
-        ["line_width"] = "3",
+        ["line_width"] = "1",
 	["font_size"] = "24"};
 
 
@@ -17,19 +19,17 @@ check_style =
 ]]--
 
 
-straight = {"M", "Г", "Е", "Ш", "Х" , "А", "П", "Т", "И"}
-curved = {"Ф", "Б", "Ч", "О", "Њ", "Р", "В", "С", "У"}
 
 izbor = math.random(2)
 results = ""
 if (izbor == 1) then
    solution = strait
-   name = "samo pravim"
+   name = name_straight
    rstraight = "1"
    rcurved = "0"
 else
    solution = curved
-   name = "i krivim"
+   name = name_curved
    rstraight = "0"
    rcurved = "1"
 end   
@@ -79,7 +79,7 @@ mycanvas = function(all, results)
   lib.start_canvas(300, 100, "center", results)
 
   w = 30
-  x = w/2 + 5
+  x = w/2 + 5 + offset
   y = w/2 + 5
   ow = 15
   for i = 1, #all do

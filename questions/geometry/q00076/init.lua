@@ -1,3 +1,4 @@
+include("terms")
 
 result = {}
 
@@ -19,14 +20,14 @@ end
 
 result[3] = second
 
-answ = lib.check_number(result[1],30) .. " časova"
+answ = lib.check_number(result[1],30) .. msg_hour
 if (result[2] == 0) then
-    answ = answ .. " " .. lib.check_number(result[3],30) .. " sekund1."
+    answ = answ .. " " .. lib.check_number(result[3],30) .. msg_sec
 else
     if (result[2] == 1) then 	
-        answ = answ .. "  " .. lib.check_number(result[2],30) .. " minut " .. lib.check_number(result[3],30) .. " sekundi."	
+        answ = answ .. "  " .. lib.check_number(result[2],30) .. msg_min[1] .. lib.check_number(result[3],30) .. msg_sec	
 	else
-        answ = answ .. "  " .. lib.check_number(result[2],30) .. " minuta " .. lib.check_number(result[3],30) .. " sekundi."
+        answ = answ .. "  " .. lib.check_number(result[2],30) .. msg_min[2] .. lib.check_number(result[3],30) .. msg_sec
     end	 	
 end	
 	

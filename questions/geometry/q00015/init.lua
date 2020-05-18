@@ -1,3 +1,5 @@
+include("terms")
+
 style = {["off_color"] = "fff",
         ["on_color"] = "f90",
         ["line_color"] = "000",
@@ -22,13 +24,6 @@ line_style =
         ["line_width"] = "3"};
 
 
-
-directions = {
-    {"levo", "desno", "pravo"}, 
-    {"pravo", "desno", "levo"}, 
-    {"desno", "pravo", "levo"}, 
-    {"desno", "levo", "pravo"}
-}
 
 all_indices = {
     {[3] = true, [16] = true, [20] = true},
@@ -59,37 +54,40 @@ end
 
 
 mycanvas = function(results)
-    lib.start_canvas(390, 390, "center", results)
+    lib.start_canvas(340, 363, "center", results)
 
-    lib.add_rectangle (30, 30, 350, 350, style, false, false)
+    offset = 29;
+
+    lib.add_rectangle (30-offset, 30, 330, 330, style, false, false)
 
     nx = 3
     ny = 3
 
-    sqw = 50
-    rw = 30
-    rl = 70
+    sqw = 45
+    rw = 25
+    rl = 65
+    space = 30
 
     for x = 0,nx do
         for y = 0,(ny-1) do
-            lib.add_rectangle(40+x*100, 70+y*100, rw, rl, check_style, false, true)
+            lib.add_rectangle(40+x*(space+rl)-offset, 70+y*(space+rl), rw, rl, check_style, false, true)
         end
     end
 
     for x = 0,(nx-1) do
         for y = 0,ny do
-            lib.add_rectangle(70+x*100, 40+y*100, rl, rw, check_style, false, true)
+            lib.add_rectangle(70+x*(space+rl)-offset, 40+y*(space+rl), rl, rw, check_style, false, true)
         end
     end
 
     for x = 0,(nx-1) do
         for y = 0,(ny-1) do
-            lib.add_rectangle (80+x*100, 80+y*100, sqw, sqw, style, true, false)
+            lib.add_rectangle (80+x*(space+rl)-offset, 80+y*(space+rl), sqw, sqw, style, true, false)
         end
     end
 
-    lib.add_rectangle(70, 40+100, rl, rw, checked_style, true, false)
-    lib.add_straight_path (100, 155, {{20, 0}, {0, -5}, {15, 5}, {-15, 5}, {0, -5}},
+    lib.add_rectangle(70-offset, 40+(space+rl), rl, rw, checked_style, true, false)
+    lib.add_straight_path ((space+rl)-offset, 147, {{20, 0}, {0, -5}, {15, 5}, {-15, 5}, {0, -5}},
     line_style, true, false)
 
     lib.end_canvas()

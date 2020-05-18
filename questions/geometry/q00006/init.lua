@@ -1,10 +1,11 @@
+include("terms")
+
 style = {["off_color"] = "fff",
         ["on_color"] = "f90",
         ["line_color"] = "000",
         ["line_width"] = "2"};
 
-direction = {"levo", "gore", "desno", "dole"}
-
+        
 ind = math.random(4)
 
 

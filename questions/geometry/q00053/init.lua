@@ -1,7 +1,4 @@
-                            
-measure1 = {"minutu", "času", "danu", "mesecu", "godini", "deceniji", "veku"}
-
-measure2 = {"sekundi", "minuta", "časova", "dana", "meseci", "godina", "decenija"}
+include("terms")
 
 number = {60, 60, 24, 12, 10, 10}
 

@@ -1,3 +1,4 @@
+include("terms")
 
 velocity = math.random(3) * 10
 
@@ -17,11 +18,11 @@ if (rest ~=0) then
     quest = quest .. " " .. tostring(math.floor(rest)) .. "l" 
 end	        
    
-answ = lib.check_number(number) .. "minuta" 
+answ = lib.check_number(number) .. msg_min 
 
 if (minute ~=0) then 
-    answ = answ .. " = " .. lib.check_number(hour,20) .. "časa"  .. " " .. lib.check_number(minute) .. "minuta." 
+    answ = answ .. " = " .. lib.check_number(hour,20) .. msg_hour  .. " " .. lib.check_number(minute) .. msg_min .. "." 
 else
-    answ = answ .. " = " .. lib.check_number(hour,20) .. "časa."
+    answ = answ .. " = " .. lib.check_number(hour,20) .. msg_hour .. "."
 end           
                  

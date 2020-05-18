@@ -1,6 +1,4 @@
-
-measure = {"dužine", "mase", "zapremine tečnosti", "vremena"}
-name = {"metar", "kilogram", "litar", "sekund"}
+include("terms")
 sign = {"m", "kg", "l", "s"}
 
 out = {1, 2, 3, 4}

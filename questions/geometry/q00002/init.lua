@@ -1,3 +1,5 @@
+include("terms")
+
 style = {["off_color"] = "fff",
         ["on_color"] = "f30",
         ["line_color"] = "000",
@@ -8,7 +10,6 @@ different_style = {["off_color"] = "0cf",
         ["line_color"] = "00f",
         ["line_width"] = "2"};
 
-position = {"ispred", "iza"}
 
 ind = math.random(2)
 

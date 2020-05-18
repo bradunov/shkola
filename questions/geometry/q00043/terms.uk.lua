@@ -1,0 +1,1 @@
+model = {"cylinder", "cube", "sphere", "cuboid", "pyramid", "cone"}

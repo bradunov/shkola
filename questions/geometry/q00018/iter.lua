@@ -8,10 +8,10 @@ factor = min + math.random(5);
 
 if (ITEM == 1) then
     circ = side * 4
-    answ = "Obim kvadrata je " .. tostring(math.floor(circ)) .. " cm. Kolika je njegova stranica?"
+    answ = msg1 .. tostring(math.floor(circ)) .. msg2
 else
     circ = side * (factor + 1) * 2
-    answ = "Obim pravougaonika je " .. tostring(math.floor(circ)) .. " cm. Jedna njegova stranica je " .. tostring(math.floor(factor)) .. " puta kraća od druge. Kolika je kraća stranica tog pravougaonika?"
+    answ = msg3 .. tostring(math.floor(circ)) .. msg4 .. tostring(math.floor(factor)) .. msg5
 end            
                   	
     
