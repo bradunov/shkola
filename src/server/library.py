@@ -39,7 +39,6 @@ class LibMath(object):
                     xhr.setRequestHeader('Content-Type', 'application/json');
                     console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
                     xhr.send(JSON.stringify(feedback));
-                    attempt = attempt + 1;
                 }
             </script>
         """)
