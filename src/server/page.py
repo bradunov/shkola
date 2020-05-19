@@ -423,7 +423,7 @@ class Page(object):
                     shown_solution = args["shown_solutions"]
 
                 hist = context.c.session.get("history")
-                if (hist[-1]["correct"] == 0 or correct > hist[-1]["correct"]) and not shown_solution:
+                if (len(hist) > 0 and (hist[-1]["correct"] == 0 or correct > hist[-1]["correct"])) and not shown_solution:
                     hist[-1]["correct"] = correct
                     hist[-1]["incorrect"] = incorrect
                 context.c.session.set("history", hist)
