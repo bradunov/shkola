@@ -705,6 +705,7 @@ class Design_default(object):
         page.template_params["root"] = page.page_params.get_param("root")
         page.template_params["q_id"] = page.page_params.get_param("q_id")
         page.template_params["l_id"] = page.page_params.get_param("l_id")
+        page.template_params["language"] = PageLanguage.toStr(page.page_params.get_param("language"))
 
         page.template_params["year"] = page.page_params.get_param("year")
         page.template_params["theme"] = page.page_params.get_param("theme")

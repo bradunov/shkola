@@ -16,12 +16,13 @@ class LibMath(object):
             <script> 
                 var alread_shown_solutions = false;
                 var rnd_val_"""+ str(self.lib_id) + """ = {};
-                function sendFeedbackToServer_"""+ str(self.lib_id) + """(root, type, q_id, l_id, comment) {
+                function sendFeedbackToServer_"""+ str(self.lib_id) + """(root, type, q_id, l_id, language, comment) {
                     var xhr = new XMLHttpRequest();
                     var url = '/' + root + '?op=feedback'
                     var feedback = {};
                     feedback['type'] = type;
                     feedback['q_id'] = q_id;
+                    feedback['language'] = language;
                     feedback['l_id'] = l_id;
                     feedback['test_id'] = test_id;
                     feedback['test_order'] = test_order;
@@ -1091,6 +1092,7 @@ class Library(object):
             var report = {};
             report['q_id'] = q_id;
             report['l_id'] = l_id;
+            report['language'] = language;
             report['test_id'] = test_id;
             report['test_order'] = test_order;
             report['start'] = question_start_time.toString();
@@ -1136,7 +1138,7 @@ class Library(object):
 
         // operation == SUBMIT | SKIP
         // root == URL root to which to post the results
-        function checkAll_""" + str(self.lib_id) + """(operation, root, q_id, l_id) {
+        function checkAll_""" + str(self.lib_id) + """(operation, root, q_id, l_id, language) {
             q_correct=0; q_incorrect=0;
         """ + assign + "\n" \
             + cond + "\n" + """
@@ -1152,9 +1154,9 @@ class Library(object):
         }
 
         var checked_all = false;
-        function checkAll(operation, root, q_id, l_id) {
+        function checkAll(operation, root, q_id, l_id, language) {
             checked_all = true;
-            return checkAll_""" + str(self.lib_id) + """(operation, root, q_id, l_id);
+            return checkAll_""" + str(self.lib_id) + """(operation, root, q_id, l_id, language);
         }
         </script>
         """
@@ -1223,8 +1225,8 @@ class Library(object):
     def add_error_report_button_code(self):
         script_error_report = """
         <script>
-        function sendFeedbackToServer(root, type, q_id, l_id, comment){
-            sendFeedbackToServer_"""+ str(self.lib_id) + """(root, type, q_id, l_id, comment);
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_"""+ str(self.lib_id) + """(root, type, q_id, l_id, language, comment);
         }
         </script>
         """
