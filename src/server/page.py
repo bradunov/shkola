@@ -85,6 +85,7 @@ class Page(object):
         file_loader = jinja2.FileSystemLoader(self.template_path)
         self.templates = jinja2.Environment(loader=file_loader)
         self.template_params = self._default_template_params
+        self.template_params["title"] = self.title
 
 
         
@@ -98,6 +99,7 @@ class Page(object):
 
     def clear_template_params(self):
         self.template_params = self._default_template_params
+        self.template_params["title"] = self.title
 
 
     def add_code(self, init_code = "", iter_code = "", text = ""):
