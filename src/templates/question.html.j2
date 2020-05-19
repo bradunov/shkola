@@ -65,18 +65,26 @@
 
       function question_onnext() {
         if (document.getElementById("wr_report").checked) {
-          sendFeedbackToServer('{{template_params['root']}}', 
-              document.getElementById('fb_problem').checked?'problem':(
-                document.getElementById('fb_unclear').checked?'unclear':(
-                document.getElementById('fb_difficult').checked?'unclear':(
-                document.getElementById('fb_easy').checked?'unclear':'other'))), 
-              '{{template_params['q_id']}}', '{{template_params['l_id']}}', 
-              '{{template_params['language']}}', 
-              document.getElementById('fb_komentar').value); 
+          // Only send if one of the options is selected
+          if (document.getElementById('fb_problem').checked || 
+              document.getElementById('fb_unclear').checked || 
+              document.getElementById('fb_difficult').checked || 
+              document.getElementById('fb_easy').checked ||
+              document.getElementById('fb_other').checked) 
+          {
+            sendFeedbackToServer('{{template_params['root']}}', 
+                document.getElementById('fb_problem').checked?'problem':(
+                  document.getElementById('fb_unclear').checked?'unclear':(
+                  document.getElementById('fb_difficult').checked?'unclear':(
+                  document.getElementById('fb_easy').checked?'unclear':'other'))), 
+                '{{template_params['q_id']}}', '{{template_params['l_id']}}', 
+                '{{template_params['language']}}', 
+                document.getElementById('fb_komentar').value); 
 
-          toggle_feedback(false);
-          document.getElementById('wr_report').checked = false;
-          document.getElementById('wr_report_option').style.display='none';
+            toggle_feedback(false);
+            document.getElementById('wr_report').checked = false;
+            document.getElementById('wr_report_option').style.display='none';
+          }
           return;
         }
         if (solved || showed_sol) {
