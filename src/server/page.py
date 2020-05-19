@@ -396,6 +396,10 @@ class Page(object):
                 else:
                     l_id = args["l_id"]
                     
+                if "language" not in args.keys() or not args["language"] or args["language"] is None:
+                    language = ""
+                else:
+                    language = args["language"]
 
                 # for key, v in args.items():
                 #     value = v
@@ -428,6 +432,7 @@ class Page(object):
                 response = {"user_id" : user_id,
                             "question_id": args["q_id"],
                             "list_id": l_id,
+                            "language" : language,
                             "test_id": args["test_id"],
                             "test_order": args["test_order"],
                             "response_type": args["response_type"],
@@ -439,10 +444,10 @@ class Page(object):
                             "incorrect": incorrect,
                             "questions": questions}
 
-                logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, response_type=%s, " +
+                logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, lang=%s, response_type=%s, " +
                             "attempt=%s, start=%s, duration=%s, correct=%s, incorrect=%s, questions=\"%s\"", 
-                            str(user_id), str(args["q_id"]), 
-                            str(l_id), str(args["response_type"]), str(args["attempt"]),
+                            str(user_id), str(args["q_id"]), str(l_id), 
+                            str(language), str(args["response_type"]), str(args["attempt"]),
                             str(args["start"]), str(int(args["now"]) - int(args["start"])),
                             str(correct), str(incorrect), str(questions))
 
@@ -498,12 +503,17 @@ class Page(object):
             else:
                 l_id = args["l_id"]
                 
+            if "language" not in args.keys() or not args["language"] or args["language"] is None:
+                language = ""
+            else:
+                language = args["language"]
 
             random_vals = str(args['rand_val'])
 
             response = {"user_id" : user_id,
                         "question_id": args["q_id"],
                         "list_id": l_id,
+                        "language": language,
                         "test_id": args["test_id"],
                         "test_order": args["test_order"],
                         "type": args["type"],
@@ -511,9 +521,9 @@ class Page(object):
                         "shown_solutions": args["shown_solutions"],
                         "random_vals": random_vals}
 
-            logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, type=%s, comment=%s, random_vals=%s", 
-                        str(user_id), str(args["q_id"]), 
-                        str(l_id), str(args["type"]), str(args["comment"]), random_vals)
+            logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, language=%s, type=%s, comment=%s, random_vals=%s", 
+                        str(user_id), str(args["q_id"]), str(l_id), 
+                        str(language), str(args["type"]), str(args["comment"]), random_vals)
 
             try:
                 self.storage.record_feedback(response)
