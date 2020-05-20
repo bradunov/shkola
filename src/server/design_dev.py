@@ -192,29 +192,62 @@ class Design_dev(object):
     @staticmethod
     def render_list(page):
 
-        list = page.repository.get_list(page.page_params.get_param("l_id"))
+        qlist = page.repository.get_list(page.page_params.get_param("l_id"))
 
         page.template_params["template_name"] = "dev/list.html.j2"
 
         Design_dev.render_menu(page)
 
 
-        if "name" in list.keys():
-            page.template_params["name"] = list["name"]
+        if "name" in qlist.keys():
+            page.template_params["name"] = qlist["name"]
         else:
             page.template_params["name"] = "UNKNOWN"
 
 
         page.template_params["attributes"] = {}
-        for key, value in list.items():
+        for key, value in qlist.items():
             if key != "name" and key != "questions":
                 page.template_params["attributes"][key] = value
 
 
         page.template_params["questions"] = []
-        for i in list["questions"]:
-            q_id = i["name"]
+        page.template_params["summary"] = {}
 
+        for i in qlist["questions"]:
+
+            if "subtheme" in i.keys():
+                if isinstance(i["subtheme"], list):
+                    asubtheme = i["subtheme"]
+                else: 
+                    asubtheme = [i["subtheme"]]
+            else:
+                asubtheme = ["UNKNOWN"]
+
+            for subtheme in asubtheme:
+                topic = i["topic"] if "topic" in i.keys() else "UNKNOWN"
+                difficulty = i["difficulty"] if "difficulty" in i.keys() else "UNKNOWN"
+                period = i["period"] if "period" in i.keys() else "UNKNOWN"
+
+                if subtheme not in page.template_params["summary"].keys():
+                    page.template_params["summary"][subtheme] = {}
+                if topic not in page.template_params["summary"][subtheme].keys():
+                    page.template_params["summary"][subtheme][topic] = {
+                        "difficulty": {},
+                        "period": {}
+                    }
+                if difficulty not in page.template_params["summary"][subtheme][topic]["difficulty"].keys():
+                    page.template_params["summary"][subtheme][topic]["difficulty"][difficulty] = 0
+                if period not in page.template_params["summary"][subtheme][topic]["period"].keys():
+                    page.template_params["summary"][subtheme][topic]["period"][period] = 0
+
+                page.template_params["summary"][subtheme][topic]["difficulty"][difficulty] = \
+                    page.template_params["summary"][subtheme][topic]["difficulty"][difficulty] + 1
+                page.template_params["summary"][subtheme][topic]["period"][period] = \
+                    page.template_params["summary"][subtheme][topic]["period"][period] + 1
+
+
+            q_id = i["name"]
             q = {}
             q["q_id"] = q_id
             q["attributes"] = {}
