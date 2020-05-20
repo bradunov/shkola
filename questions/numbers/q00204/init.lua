@@ -59,7 +59,7 @@ mycanvas = function()
     lib.add_line(ow, ow+(i-1)*w, index_out*w, 0, style, false, false)
   end
   lib.add_line(ow, ow+stampa*w, index_out*w, 0, diff_style, false, false)
-  lib.add_text((index_out-1)*w, 3*ow+(stampa-1)*w, "*", text_style)
+  lib.add_text((index_out-1)*w-ow, 3*ow+(stampa-1)*w, "*", text_style)
   lib.add_text(index_out*w, 3*ow+(stampa-1)*w, tostring(math.floor(factor)), text_style)  
 			  
   for j = 1,stampa+1 do
@@ -69,7 +69,7 @@ mycanvas = function()
 	  end	  
       for i = imin,index do
           if (j ~= 1) then 
-		      lib.add_input(ow+(i-1)*w, ow+(j-1)*w, 40, 40, lib.check_number(cifre[j][i],20))
+		      lib.add_input(ow+(i-1)*w, 2*ow+(j-1)*w, 40, 40, lib.check_number(cifre[j][i],20))
 		  else			  
 		      text = tostring(math.floor(cifre[j][i]))
 		      lib.add_text(3*ow+(i-1)*w, 3*ow+(j-1)*w, text, text_style)
@@ -80,7 +80,7 @@ mycanvas = function()
 
   lib.end_canvas()
 end
-  
+   
    
         
        

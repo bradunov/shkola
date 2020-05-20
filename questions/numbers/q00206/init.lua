@@ -70,7 +70,7 @@ mycanvas = function()
   end
   lib.add_line(ow, ow+w, index_out*w, 0, red_style, false, false)
    lib.add_line(ow, ow+stampa*w, index_out*w, 0, diff_style, false, false)
-  lib.add_text((index+1)*w-3, w-3, "×", text_style)
+  lib.add_text((index+1)*w-3, w-3+5, "*", text_style)
   for j = 1,stampa-1 do
       lib.add_text((index+1+j)*w-3, w-3, tostring(math.floor(fact[j])), text_style)  
   end			  
@@ -100,6 +100,7 @@ mycanvas = function()
 
   lib.end_canvas()
 end
+   
             
             
    
