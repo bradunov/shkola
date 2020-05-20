@@ -702,6 +702,10 @@ class Design_default(object):
 
         page.template_params["q_number"] = str(q_number)
 
+        page.template_params["debug"] = "DEBUG: {} / {} / {} - {}".format(
+            next_question["subtheme"], next_question["topic"], next_question["period"], next_question["q_id"]
+        )
+
         page.template_params["root"] = page.page_params.get_param("root")
         page.template_params["q_id"] = page.page_params.get_param("q_id")
         page.template_params["l_id"] = page.page_params.get_param("l_id")

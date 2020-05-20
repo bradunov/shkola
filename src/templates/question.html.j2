@@ -148,13 +148,18 @@
 
 
     <div style="height: calc(100% - 90px); width:100%; overflow-y: auto; overflow-x: auto; ">
-
       <div style="display:inline-block; width: 100%; text-align: center; margin-top: 30px; ">
         {{ elements.stats("bar", template_params["bar"]["star1"], template_params["bar"]["star2"], 
                                 template_params["bar"]["star3"], template_params["bar"]["missed"]) }} 
       </div>
 
       <div style="display:inline-block; width: 100%; text-align: center; margin-top: 12px; background: white; overflow-x: auto; ">
+        {% if "debug" in template_params.keys() %}
+          <div style="display:inline-block; width: 100%; text-align: left; margin-top: 0px; color: #aaaaaa">
+            {{template_params["debug"]}}
+          </div>
+        {% endif %}
+
         <div style="display:inline-block; width: 100%; text-align: right; margin-top: 10px; ">
           <div style="display:inline-block; margin-right: 35px; ">
             {{elements.stars(template_params["difficulty"])}}

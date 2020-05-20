@@ -87,7 +87,7 @@ class Storage_az_table():
         try:
             self.table_service.insert_entity(self.responses_table_name, response)
         except Exception as err:
-            logging.exception('Error adding response: ' + str(err))
+            logging.exception('Error adding response: {}\n\n{}' + str(response, err))
 
 
     def record_feedback(self, response):
@@ -241,7 +241,7 @@ class Storage_az_table():
 
         print("           USER ID                    NAME                      EMAIL                 LAST ACCESSED          REMOTE IP                      USER AGENT             USER LANGUAGE")
         for row in entries:
-            print("{:^30} {:^20} {:^30} {:^20} {:^20} {:^40} {:^40}".format(
+            print("{:^30} {:^20} {:^20} {:^20} {:^40} {:^40}".format(
                 row['user_id'],
                 row['name'],
                 time.strftime("%d-%m-%y %H:%M:%S", time.localtime(row['last_accessed'])),
