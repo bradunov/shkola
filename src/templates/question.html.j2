@@ -200,7 +200,7 @@
     {{ elements.next("question_onnext()") }}
 
     <script>
-      {% if template_params["debug"] %}
+      {% if template_params["debug_checkall"] %}
         function checkAll(a,b,c,d) {return false;}
         function sendFeedbackToServer(a,b,c) {};
       {% endif %}
