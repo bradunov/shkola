@@ -55,6 +55,19 @@
     </script>  
 
 
+    <script>
+    window.onerror = function (msg, url, lineNo, columnNo, error) {
+        document.getElementById('error_sign').textContent = 'ERROR:';
+        document.getElementById('error_sign').style.display = 'inline';
+        document.getElementById('error_msg').textContent = 
+            'msg: ' + msg + ', url: ' + url + ', lineNo: ' + lineNo + 
+            ', columnNo: ' + columnNo + ', error: ' + error;
+        document.getElementById('error_msg').style.display = 'inline';
+        return false;
+    }    
+    </script>
+
+
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Bubblegum+Sans" />
     {# Does not support all Serbian fonts #}
     {# <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" /> #}
@@ -97,6 +110,13 @@
       }
     </style>
 
+{% endmacro %}
+
+
+{% macro js_error_block() %}
+    <!-- Test error message to capture JS errors -->
+    <div style='display:none;font-size: 72px;color:  red;' id='error_sign'></div>
+    <div style='display:none;font-size: 24px;color:  red;' id='error_msg'></div>
 {% endmacro %}
 
 

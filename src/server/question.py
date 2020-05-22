@@ -71,7 +71,7 @@ class Question(object):
 
     
     def __init__(self, page, q_id=None, language=None, test_id=None, test_order=None, 
-                 init_code=None, iter_code=None, text=None, test_mode=False):
+                 init_code=None, iter_code=None, text=None):
                  
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.page = page
@@ -84,11 +84,19 @@ class Question(object):
             self.q_id = q_id
         else:
             self.q_id = page.page_params.get_param("q_id")
+        self.page.add_script_lines("<script> global_q_id = \"{}\";</script>".format(self.q_id))
 
         if language:
             self.language = language
         else:
             self.language = page.page_params.get_param("language")
+        self.page.add_script_lines("<script> global_language = \"{}\";</script>".format(PageLanguage.toStr(self.language)))
+
+        # Parameters useful for error reporting
+        if self.page.page_params.get_param("l_id"):
+            self.page.add_script_lines("<script> global_l_id = \"{}\";</script>".format(self.page.page_params.get_param("l_id")))
+        if self.page.page_params.get_param("root"):
+            self.page.add_script_lines("<script> global_root = \"{}\";</script>".format(self.page.page_params.get_param("root")))
 
         self.test_id = test_id if test_id else 0
         self.test_order = test_order if test_order else 0
@@ -108,11 +116,9 @@ class Question(object):
         else:
             self.text = page.page_params.get_param("text")
 
-        self.test_mode = test_mode
-
         self.lib = Library(self)
-        logging.debug("Rendering question %s, language=%s, test_mode=%s", 
-            self.question_url(), PageLanguage.toStr(self.language), str(self.test_mode))
+        logging.debug("Rendering question %s, language=%s", 
+            self.question_url(), PageLanguage.toStr(self.language))
         self.questions_root_path = self.page.rel_path + "/" + self.questions_rel_path
 
 
@@ -339,25 +345,6 @@ class Question(object):
 
         self.page.add_lines("<script>var test_id = {}; var test_order = {};</script>\n".format(
             self.test_id, self.test_order))
-
-        if self.test_mode:
-            self.page.add_lines(
-                """
-                <div style='display:none;font-size: 72px;color:  red;' id='error_sign'></div>
-                <div style='display:none;font-size: 24px;color:  red;' id='error_msg'></div>
-                <script>
-                window.onerror = function (msg, url, lineNo, columnNo, error) {
-                    document.getElementById('error_sign').textContent = 'ERROR:';
-                    document.getElementById('error_sign').style.display = 'inline';
-                    document.getElementById('error_msg').textContent = 
-                        'msg: ' + msg + ', url: ' + url + ', lineNo: ' + lineNo + 
-                        ', columnNo: ' + columnNo + ', error: ' + error;
-                    document.getElementById('error_msg').style.display = 'inline';
-                    return false;
-                }
-                </script>
-                """
-            )
 
 
         btext = self.make_pretty(self.text)

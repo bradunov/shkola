@@ -508,17 +508,20 @@ class Page(object):
             else:
                 language = args["language"]
 
-            random_vals = str(args['rand_val'])
+            if "rand_val" in args.keys():
+                random_vals = str(args['rand_val'])
+            else:
+                random_vals = ""
 
             response = {"user_id" : user_id,
                         "question_id": args["q_id"],
                         "list_id": l_id,
                         "language": language,
-                        "test_id": args["test_id"],
-                        "test_order": args["test_order"],
-                        "type": args["type"],
-                        "comment": args["comment"],
-                        "shown_solutions": args["shown_solutions"],
+                        "test_id": args["test_id"] if "test_id" in args.keys() else "",
+                        "test_order": args["test_order"] if "test_order" in args.keys() else "",
+                        "type": args["type"] if "type" in args.keys() else "",
+                        "comment": args["comment"] if "comment" in args.keys() else "",
+                        "shown_solutions": args["shown_solutions"] if "shown_solutions" in args.keys() else "",
                         "random_vals": random_vals}
 
             logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, language=%s, type=%s, comment=%s, random_vals=%s", 

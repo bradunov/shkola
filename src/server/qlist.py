@@ -57,7 +57,7 @@ class Qlist(object):
                     title = title + str(key) + "=<em>" + str(value) + "</em> "
 
             self.page.page_params.set_param("q_id", q_id)
-            q = Question(self.page, test_mode=True)
+            q = Question(self.page)
             q.set_from_file_with_exception()
 
             self.page.add_lines("\n<!-- QUESTION HEADER -->\n")
