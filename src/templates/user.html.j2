@@ -23,6 +23,99 @@
     </div>
 
 
+
+    <!-- START WAIT POPUP -->
+    {{elements.start_popup("wait", "top: 127px; left: 0%; 
+         width: 100%; text-align: center; background: white; scroll-y: auto;
+         border-radius: 10px; border: 0px solid #000000; box-shadow: 0px 5px 5px #dddddd;", 
+         "100%", "0px", False)}}
+
+      {% set width=4 %}
+
+      <div style="display:block; width: 100%; text-align: center; margin-top: 14px; ">
+        <div style="display: inline-block; text-align: center; 
+                width: calc(100% - 70px); margin: 0 35px 0 35px; border: 3px solid #148f91">
+
+          <div style="display: inline-block; text-align: center; width: 100%-50px; margin: 25px 25px 35px 25px">
+            <div class="sh_chalk_font" style="color: #636661; font-size: 18px;">
+              Zauzeta sam... <br>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div style="display:block; width: 100%; text-align: right; margin-top: -3px; ">
+        <svg xmlns="http://www.w3.org/2000/svg" id="prefix__noun_Monster_3288402" 
+             width="84.305" height="91.091" viewBox="0 0 84.305 91.091" style="margin-right:35px">
+            <defs>
+                <style>
+                    .prefix__cls-1{fill:#148f91}
+                </style>
+            </defs>
+            <path id="prefix__Path_219" d="M50.136 79.97c6.728 6.241 18.278-5.288 22.839-8.639 3.869-2.837 8.078-6.648 12.719-8.425A22.581 22.581 0 0 1 86.556 66c1.021 3.3 6.5 1.895 5.469-1.424-1.259-4.036-2.712-8.478-8.237-6.691a18.047 18.047 0 0 0-2.235.91c-3.165 1.563-6.081 4.025-8.782 5.973-3.063 2.216-6.1 4.475-9.156 6.733-1.986 1.467-4.856 4.089-7.511 4.571-5.412 1-2.235-10.983-1.645-13.7.579-2.6 1.259-5.2 2.02-7.772l1.509-1.435 1.312 4.228 4.618-3.768L68.2 37.7c.465-.332.908-.674 1.373-.985 1.464-.974 7.318-5.342 9.292-4.143 1.588.974-.2 7.258-.374 8.4q-.613 4.336-1.248 8.693l-.545 3.79a3.091 3.091 0 0 0 3.211 3.361 2.133 2.133 0 0 0 2.258-1.938L83.152 48c.635-4.421 1.849-9.078 1.793-13.553-.034-2.312-.647-4.721-2.712-6.155-3.721-2.6-8.85-.739-13.513 2.152a18.9 18.9 0 0 0-.545-2.644l9.065-10.855c1.259-1.52.9-1.884-.806-.824l-10.584 6.63a20.086 20.086 0 0 0-12.174-8.457 21.1 21.1 0 0 0-14.965 1.97L32.743 5.676c-.964-1.7-1.464-1.542-1.112.364l2.485 13.617a18.685 18.685 0 0 0-4.947 8.4l-.522 1.97c-7.795-6.509-14.772-15.394-15.124-25-.125-3.436-5.8-3.447-5.673 0 .443 12.222 9.36 23.034 19.25 30.731l-2.281 8.511 2.156 5.385 2.28-2.162c-4.357 12.942-6.819 27.416-4.436 40.7h-8.857a2.677 2.677 0 1 0 0 5.353h12.3A2.737 2.737 0 0 0 31 90.161c-3.347-13.542-.59-28.743 4.028-42.114l1.191 3.822 3.29-3.126 1.316 4.229 3.313-3.147 1.327 4.25 3.279-3.115 1.316 4.218.511-.482q-.94 3.304-1.66 6.647c-1.135 5.213-3.449 14.281 1.225 18.627zm-5.083-46.632a8.436 8.436 0 0 1-6.49-10.277 9 9 0 0 1 10.892-6.113 8.436 8.436 0 0 1 6.49 10.277 9 9 0 0 1-10.892 6.113z" class="prefix__cls-1" data-name="Path 219" transform="translate(-7.848 -2.453)"/>
+            <path id="prefix__Path_220" d="M43.58 19.694a4.079 4.079 0 1 0 2.95 4.96 4.077 4.077 0 0 0-2.95-4.96zM42.6 22.4a.918.918 0 1 1-1.78-.45.918.918 0 0 1 1.78.45z" class="prefix__cls-1" data-name="Path 220" transform="translate(-3.214 -1.118)"/>
+        </svg>
+      </div>
+
+
+    {{elements.end_popup()}}
+    <!-- END WAIT POPUP -->
+
+
+
+
+    <!-- START ERROR POPUP -->
+    {{elements.start_popup("error", "top: 127px; left: 0%; 
+         width: 100%; text-align: center; background: white; scroll-y: auto;
+         border-radius: 10px; border: 0px solid #000000; box-shadow: 0px 5px 5px #dddddd;")}}
+
+      <div style="display:block; width: 100%; text-align: left; margin-top: 23px; ">
+        <div style="display: inline-block; cursor: pointer; width: 23px; height: 23px; margin-left: 37px"
+             onclick="popup_toggle_error()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
+            <path id="prefix__Icon_material-close" d="M30.5 9.816L28.184 7.5 19 16.684 9.816 7.5 7.5 9.816 16.684 19 7.5 28.184 9.816 30.5 19 21.316l9.184 9.184 2.316-2.316L21.316 19z" data-name="Icon material-close" transform="translate(-7.5 -7.5)" style="fill:#148f91"/>
+          </svg>
+        </div>
+      </div>
+
+      {% set width=4 %}
+
+      <div style="display:block; width: 100%; text-align: center; margin-top: 14px; ">
+        <div style="display: inline-block; text-align: center; 
+                width: calc(100% - 70px); margin: 0 35px 0 35px; border: 3px solid #148f91">
+
+          <div style="display: inline-block; text-align: center; width: 100%-50px; margin: 25px 25px 35px 25px">
+            <div class="sh_chalk_font" style="color: #636661; font-size: 18px;">
+              Izvinjavam se, neka greška... <br><br>
+              Mozda da probaš kao gost?
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div style="display:block; width: 100%; text-align: right; margin-top: -3px; ">
+        <svg xmlns="http://www.w3.org/2000/svg" id="prefix__noun_Monster_3288402" 
+             width="84.305" height="91.091" viewBox="0 0 84.305 91.091" style="margin-right:35px">
+            <defs>
+                <style>
+                    .prefix__cls-1{fill:#148f91}
+                </style>
+            </defs>
+            <path id="prefix__Path_219" d="M50.136 79.97c6.728 6.241 18.278-5.288 22.839-8.639 3.869-2.837 8.078-6.648 12.719-8.425A22.581 22.581 0 0 1 86.556 66c1.021 3.3 6.5 1.895 5.469-1.424-1.259-4.036-2.712-8.478-8.237-6.691a18.047 18.047 0 0 0-2.235.91c-3.165 1.563-6.081 4.025-8.782 5.973-3.063 2.216-6.1 4.475-9.156 6.733-1.986 1.467-4.856 4.089-7.511 4.571-5.412 1-2.235-10.983-1.645-13.7.579-2.6 1.259-5.2 2.02-7.772l1.509-1.435 1.312 4.228 4.618-3.768L68.2 37.7c.465-.332.908-.674 1.373-.985 1.464-.974 7.318-5.342 9.292-4.143 1.588.974-.2 7.258-.374 8.4q-.613 4.336-1.248 8.693l-.545 3.79a3.091 3.091 0 0 0 3.211 3.361 2.133 2.133 0 0 0 2.258-1.938L83.152 48c.635-4.421 1.849-9.078 1.793-13.553-.034-2.312-.647-4.721-2.712-6.155-3.721-2.6-8.85-.739-13.513 2.152a18.9 18.9 0 0 0-.545-2.644l9.065-10.855c1.259-1.52.9-1.884-.806-.824l-10.584 6.63a20.086 20.086 0 0 0-12.174-8.457 21.1 21.1 0 0 0-14.965 1.97L32.743 5.676c-.964-1.7-1.464-1.542-1.112.364l2.485 13.617a18.685 18.685 0 0 0-4.947 8.4l-.522 1.97c-7.795-6.509-14.772-15.394-15.124-25-.125-3.436-5.8-3.447-5.673 0 .443 12.222 9.36 23.034 19.25 30.731l-2.281 8.511 2.156 5.385 2.28-2.162c-4.357 12.942-6.819 27.416-4.436 40.7h-8.857a2.677 2.677 0 1 0 0 5.353h12.3A2.737 2.737 0 0 0 31 90.161c-3.347-13.542-.59-28.743 4.028-42.114l1.191 3.822 3.29-3.126 1.316 4.229 3.313-3.147 1.327 4.25 3.279-3.115 1.316 4.218.511-.482q-.94 3.304-1.66 6.647c-1.135 5.213-3.449 14.281 1.225 18.627zm-5.083-46.632a8.436 8.436 0 0 1-6.49-10.277 9 9 0 0 1 10.892-6.113 8.436 8.436 0 0 1 6.49 10.277 9 9 0 0 1-10.892 6.113z" class="prefix__cls-1" data-name="Path 219" transform="translate(-7.848 -2.453)"/>
+            <path id="prefix__Path_220" d="M43.58 19.694a4.079 4.079 0 1 0 2.95 4.96 4.077 4.077 0 0 0-2.95-4.96zM42.6 22.4a.918.918 0 1 1-1.78-.45.918.918 0 0 1 1.78.45z" class="prefix__cls-1" data-name="Path 220" transform="translate(-3.214 -1.118)"/>
+        </svg>
+      </div>
+
+
+    {{elements.end_popup()}}
+    <!-- END ERROR POPUP -->
+
+
+
     <script>
       function onSignIn(googleUser) {
           console.log('Google sign in');
@@ -43,6 +136,8 @@
               window.location.assign(r[1]);
           } else {
               document.getElementById('gauth_status').innerText = "Login error: " + r[1];
+              popup_toggle_wait("hidden");
+              popup_toggle_error("visible");
           }
           };
           xhr.send('id_token=' + id_token);
@@ -69,7 +164,7 @@
       };
 
       function attachSignin(element) {
-          console.log(element.id);
+          console.log("Element id: ", element.id);
           auth2.attachClickHandler(element, {}, onSignIn,
               function(error) {
                 var xhr = new XMLHttpRequest();
@@ -87,6 +182,7 @@
                 console.log("Sending report to " + url + ": " + JSON.stringify(report));
                 xhr.send(JSON.stringify(report));
                 alert(JSON.stringify(error, undefined, 2));
+                popup_toggle_wait("hidden");
               });
       }
     </script>
@@ -96,6 +192,7 @@
     <div style="display:table; margin:0 auto">
       <div align="center" style="display:content; border:0px; padding:0px; margin:0px">
         <div id="button_user_google" class="sh-std-button" 
+            onclick="popup_toggle_wait('visible');"
             style="display: inline-block;
                     background: #f9f9f9;
                     width: 256px;

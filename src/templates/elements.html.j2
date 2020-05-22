@@ -238,7 +238,7 @@
 
 
 
-{% macro start_popup(name, extra_style="") %}
+{% macro start_popup(name, extra_style="", bg_height="100%", bg_top="0px", toggle=True) %}
   <script>
       // When the user clicks on div, open the popup
       function popup_toggle_{{name}}(new_state) {
@@ -266,9 +266,12 @@
 
   <span id='popup_background_{{name}}' style='visibility: hidden;
       position: fixed; z-index: 2; 
-      top: 50px; left: 0%; width: 100%; height: calc(100% - 100px); 
+      top: {{bg_top}}; left: 0%; width: 100%; height: {{bg_height}}; 
       opacity=0.8; background-color: white; ' 
-      onclick='popup_toggle_{{name}}()'>
+      {% if toggle %}
+      onclick='popup_toggle_{{name}}()'
+      {% endif %}
+  >
   </span>        
 
   <div id='popup_{{name}}' style='visibility: hidden; position: fixed; z-index: 3; {{extra_style}}'>    
