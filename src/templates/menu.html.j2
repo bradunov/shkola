@@ -4,13 +4,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
-      .sh-menu-font{font-family: 'Lato'; font-size: 18px; color: #f7f7f7}
+      .sh-menu-font{font-family: 'Lato-Regular'; font-size: 18px; color: #f7f7f7}
       .sh-menu-button{background-color:white;outline:none;border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;text-align:center;cursor:pointer;white-space:nowrap}
       .sh-menu-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}   
       .sh-menu-button-arrow{background-color:#029194;border:none;display:inline-block;padding:8px 0px 8px 0px;vertical-align:middle;overflow:hidden;text-decoration:none;text-align:center;cursor:pointer;white-space:nowrap}
       .sh-menu-button-arrow{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}   
       .sh-menu-border-left{background-color:#029194;border-left:1px solid #ccc!important}
-      .sh-menu-sidebar{width:185px;background-color:#029194;position:fixed!important;z-index:4;overflow-x:hidden;overflow-y:auto;}
+      .sh-menu-sidebar{width:185px;right:0px;top:0px;background-color:#029194;position:fixed!important;z-index:4;overflow-x:hidden;overflow-y:auto;}
       .sh-menu-left-align{text-align:left!important}
       .sh-menu-right-align{text-align:right!important}
       .sh-menu-block{background-color:#029194;display:block;width:100%}
@@ -37,8 +37,10 @@
       function shm_toggle() {
         if (document.getElementById("shMenu").style.display == "none") {
           document.getElementById("shMenu").style.display = "block";
+          document.getElementById("menu_background").style.visibility = "visible";
         } else {
           document.getElementById("shMenu").style.display = "none";
+          document.getElementById("menu_background").style.visibility = "hidden";
         }
       }
       function shl_toggle() {
@@ -90,6 +92,7 @@
       {% endfor %}
       {{ submenu['name'] }}
     </a>
+    &nbsp;
     <button class="sh-menu-button-arrow sh-menu-left-align sh-menu-font" onclick="myAccFunc('{{ submenu['submenu']['id'] }}')">
       <i class="fa fa-caret-down"></i>
     </button>
@@ -106,6 +109,7 @@
           <div class="space"></div> 
         {% endfor %}
         {{ submenu['name'] }} 
+        &nbsp;
         <i class="fa fa-caret-down"></i>
       </button>
   {% else %}
@@ -135,7 +139,24 @@
 
 {% macro dropdowns(template_params) %}
 
-    <div class="sh-menu-sidebar sh-menu-bar-block sh-menu-border-left" style="right:0;display:none" id="shMenu">
+    <span id='menu_background' style='visibility: hidden;
+        position: fixed; z-index: 3; 
+        top: 0px; left: 0%; width: 100%; height: 100%; 
+        opacity: 0; background-color: white; ' 
+        onclick='shm_toggle()'>
+    </span>        
+
+    <div class="sh-menu-sidebar sh-menu-bar-block sh-menu-border-left" style="display:none" id="shMenu">
+
+      <div style="display:block; position:fixed; z-index:5; right:0px; top:0px; margin: 8px 8px 8px 8px;cursor:pointer;"
+           onclick="shm_toggle()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" style="background:#029194">
+          <path id="prefix__Icon_material-close" 
+                d="M26.5 9.414L24.586 7.5 17 15.086 9.414 7.5 7.5 9.414 15.086 17 7.5 24.586 9.414 26.5 
+                   17 18.914l7.586 7.586 1.914-1.914L18.914 17z" transform="translate(-7.5 -7.5)" style="fill:#ffffff"/>
+        </svg>
+      </div>
+
       {% for subm in template_params['menu'] %}
         {{ one_dropdown(subm) }}
       {% endfor %}

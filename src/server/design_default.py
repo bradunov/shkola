@@ -204,8 +204,9 @@ class Design_default(object):
                             op = PageOperation.toStr(PageOperation.MENU_YEAR), language = lang, js = False)
             })            
 
+        # Jezik: &nbsp; 
         lang = {
-            "name" : "Jezik: &nbsp; <input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
+            "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
                     "height=\"15px\" alt=\"" + page.get_language_details()["country"] + 
                     "\" src=\"" + page.get_file_url("images/" + 
                                   page.get_language_details()["image"]) + "\">",
@@ -220,7 +221,7 @@ class Design_default(object):
         menu_id = 0
 
         lists = {
-            "name" : "Razred",
+            "name" : "Razred".upper(),
             "link" : new_page_params.create_url(\
                     op = PageOperation.toStr(PageOperation.MENU_YEAR), \
                     js = False),
@@ -237,7 +238,7 @@ class Design_default(object):
             for theme in sorted(content[level].keys()):
                 if not theme == "level_short":
                     options.append({
-                        "name" : theme.title(),
+                        "name" : theme.upper(),
                         "link" : new_page_params.create_url(\
                             op = PageOperation.toStr(PageOperation.MENU_SUBTHEME), \
                             year = level, \
@@ -246,7 +247,7 @@ class Design_default(object):
                     })
 
             lists['submenu']['options'].append({
-                "name" : level.title(),
+                "name" : level.upper(),
                 "link" : new_page_params.create_url( \
                         op = PageOperation.toStr(PageOperation.MENU_THEME), \
                         year = level, 
@@ -263,13 +264,13 @@ class Design_default(object):
         # Do not show results to an anonymous user
         if not user_picture is None:
             page.template_params['menu'].append({
-                "name" : "Rezultati",
+                "name" : "Rezultati".upper(),
                 "link" : new_page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False)
             })
 
         # "name" : "Izloguj se (" + context.c.user.name + ")",
         page.template_params['menu'].append({
-            "name" : "Izloguj se",
+            "name" : "Izloguj se".upper(),
             "link" : new_page_params.create_url(op = PageOperation.LOGOUT.value, js = False)
         })
 
