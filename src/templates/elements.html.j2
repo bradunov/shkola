@@ -65,7 +65,8 @@
 
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Bubblegum+Sans" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" />
+    {# Does not support all Serbian fonts #}
+    {# <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" /> #}
 
     <style type="text/css">
       @font-face {
@@ -80,11 +81,26 @@
           font-family: 'ChalkboardSE-Light';
           src: url('item?url=fonts/ChalkboardSE-Light.ttf') format('truetype');
       }
+      @font-face {
+          font-family: 'Lato-Bold';
+          src: url('item?url=fonts/Lato-Bold.ttf') format('truetype');
+      }
+      @font-face {
+          font-family: 'Lato-Regular';
+          src: url('item?url=fonts/Lato-Regular.ttf') format('truetype');
+      }
+      @font-face {
+          font-family: 'Lato-Light';
+          src: url('item?url=fonts/Lato-Light.ttf') format('truetype');
+      }
       .sh_chalk_font {
           font-family: 'ChalkboardSE-Regular';
       }
+      .sh_chalk_bold_font {
+          font-family: 'ChalkboardSE-Bold';
+      }
       .sh_lato_font {
-          font-family: 'Lato'; 
+          font-family: 'Lato-Regular'; 
       }
     </style>
 

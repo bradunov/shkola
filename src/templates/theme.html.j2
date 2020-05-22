@@ -147,14 +147,13 @@
                     cursor: pointer;
                     width: 290px;
                     height: 35px;">
-          <div style="font-family: 'Bubblegum Sans'; 
-                    display: inline-block;
+          <div class="sh_chalk_bold_font" style="display: inline-block;
                     width: 258px;
                     font-size: 24px; 
                     color: #148f91;
                     text-align: left;"
                     onclick="el_select_list('{{theme_button}}', next_callback)">                      
-            {{ elements.color_string(t['title']) }}
+            {{ elements.color_string(t['title'], -6) }}
             <img id="{{theme_tick}}" src="item?url=images/checkbox.svg" 
                   style="display:none; width: 18px; height: 18px; margin-left: 18px"> 
           </div>
