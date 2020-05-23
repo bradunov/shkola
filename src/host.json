@@ -15,6 +15,7 @@
       "default": "Information",
       "Host.Results": "Information",
       "Host.Aggregator": "Information",
+      "Microsoft.AspNetCore.Mvc.StatusCodeResult": "Error",
       "Host": "Information", 
       "Function.main": "Debug",
       "Function.edit": "Debug",

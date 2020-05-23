@@ -473,7 +473,7 @@ class Page(object):
                 try:
                     self.storage.record_response(response)
                 except Exception as err:
-                    logging.error("Error submitting record response: {}".format(str(err)))
+                    logging.error("Error submitting record response: {}".format(err))
             else:
                 logging.error("Register operation with incomplete parameters: {}".format(args))
 
