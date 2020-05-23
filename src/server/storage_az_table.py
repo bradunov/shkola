@@ -28,9 +28,13 @@ class Storage_az_table():
         tables = [self.users_table_name, self.responses_table_name, 
                   self.sessions_table_name, self.feedbacks_table_name]
 
+        existing_tables = list(map(lambda x : x.name, self.table_service.list_tables()))
+
         for table in tables:
-            self.table_service.create_table(table)
-            
+            if table not in existing_tables:
+                self.table_service.create_table(table)
+
+
 
     def get_user(self, user_id):
         partition_key = self.default_partition_key
