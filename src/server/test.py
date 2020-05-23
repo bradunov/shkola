@@ -69,15 +69,21 @@ class Test(object):
                self.page.page_params.get_param("difficulty") and \
                     (self.page.page_params.get_param("difficulty") == "*" or \
                     q["difficulty"].lower() == self.page.page_params.get_param("difficulty").lower()):
+
+                if "subtheme" not in q.keys() or "topic" not in q.keys() or \
+                   "period" not in q.keys() or "difficulty" not in q.keys() or "random" not in q.keys():
+                    logging.error("Problem with question {} in list {}.".format(
+                        q,self.page.page_params.get_param("l_id")))
+
                 next_q = {
                     "q_id" : q["name"],
-                    "subtheme" : q["subtheme"],
-                    "topic" : q["topic"],
-                    "period" : q["period"], 
-                    "difficulty" : q["difficulty"],
-                    "random" : not (q["random"] == 0)
+                    "subtheme" : q["subtheme"] if "subtheme" in q.keys() else "",
+                    "topic" : q["topic"] if "topic" in q.keys() else "",
+                    "period" : q["period"] if "period" in q.keys() else "", 
+                    "difficulty" : q["difficulty"] if "difficulty" in q.keys() else "",
+                    "random" : not (q["random"] == 0) if "random" in q.keys() else False
                 }
-                logging.debug("\n\nNNNNN: {}\n\n".format(next_q))
+                #logging.debug("\n\nNNNNN: {}\n\n".format(next_q))
     
                 if next_q["random"]:
                     potential_questions_w_repeat.append(next_q)

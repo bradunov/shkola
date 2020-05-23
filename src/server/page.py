@@ -88,7 +88,7 @@ class Page(object):
         self.template_params["title"] = self.title
 
 
-        
+
     def clear(self):
         self.page_params = PageParameters()
         self.question = None
@@ -489,7 +489,7 @@ class Page(object):
                         "shown_solutions": "",
                         "random_vals": ""}
 
-            logging.debug("Submitting google error feedback: user_id=%s, error=%s", str(user_id), str(args["comment"]))
+            logging.error("GOOGLE_ERROR feedback: user_id=%s, error=%s", str(user_id), str(args["comment"]))
 
             try:
                 self.storage.record_feedback(response)
@@ -524,9 +524,14 @@ class Page(object):
                         "shown_solutions": args["shown_solutions"] if "shown_solutions" in args.keys() else "",
                         "random_vals": random_vals}
 
-            logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, language=%s, type=%s, comment=%s, random_vals=%s", 
-                        str(user_id), str(args["q_id"]), str(l_id), 
-                        str(language), str(args["type"]), str(args["comment"]), random_vals)
+            if 'type' in args.keys() and args["type"] == "JS_ERROR":
+                logging.error("JS_ERROR feedback: user_id=%s, q_id=%s, l_id=%s, language=%s, type=%s, comment=%s, random_vals=%s", 
+                            str(user_id), str(args["q_id"]), str(l_id), 
+                            str(language), str(args["type"]), str(args["comment"]), random_vals)
+            else:
+                logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, language=%s, type=%s, comment=%s, random_vals=%s", 
+                            str(user_id), str(args["q_id"]), str(l_id), 
+                            str(language), str(args["type"]), str(args["comment"]), random_vals)
 
             try:
                 self.storage.record_feedback(response)
