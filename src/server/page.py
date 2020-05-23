@@ -48,6 +48,25 @@ class Page(object):
     # use_azure_blob = True: use blob for question storage rather than the local disk
     # preload = True: fetch all questions in memory at start time (may be slow for a blob)
     def __init__(self, title="tatamata.org", rel_path=None, template_path=None, use_azure_blob=False, preload=True):
+
+        # Set logging formater
+        # See this for attributes: https://docs.python.org/3/library/logging.html#logrecord-attributes
+        # Note: the usual python way through basicConfig won't work as Azure Functions mess up with it
+        # This is a possible way. See: https://stackoverflow.com/a/57896847
+        # The loop is taken from Logger.callHandlers() implementation
+        # Note: logging.Logger.root should be the root (no parent) but I leave the loop just in case AF change
+        #formatter    = logging.Formatter('%(pathname)s:%(funcName)s(%(lineno)d) : %(message)s\n')
+        formatter    = logging.Formatter('%(filename)s:%(funcName)s(%(lineno)d) : %(message)s\n')
+        logger = logging.Logger.root
+        while logger:
+            for hdlr in logger.handlers:
+                hdlr.setFormatter(formatter)
+            if not logger.propagate:
+                logger = None    #break out
+            else:
+                logger = logger.parent
+
+
         if rel_path:
             self.rel_path = rel_path
         else:

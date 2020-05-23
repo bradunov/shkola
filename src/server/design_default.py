@@ -349,7 +349,6 @@ class Design_default(object):
             i = 0
             for ynumber in sorted(ordered.keys()):
                 year = ordered[ynumber]
-                logging.debug("\n\n\nDD: {} {}\n\n".format(year, ynumber))
 
                 page.template_params['button']['choices'].append({
                     'title' : ynumber,

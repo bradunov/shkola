@@ -31,11 +31,15 @@ PAGE = None
 import azure.functions as func
 
 
+# Not needed anymore, all configured through host.json
+
 #logging.basicConfig(level=logging.INFO)
-logging.basicConfig(level=logging.DEBUG)
+#logging.basicConfig(level=logging.DEBUG, format='AAAA: %(message)s')
 
 # https://stackoverflow.com/a/57896847
-logging.Logger.root.level = logging.DEBUG
+#logging.Logger.root.level = logging.INFO
+
+
 
 
 use_azure_blob = False

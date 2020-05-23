@@ -12,7 +12,13 @@
   "logging": {
     "fileLoggingMode": "always",
     "logLevel": {
-      "default": "Debug"
+      "default": "Information",
+      "Host.Results": "Information",
+      "Host.Aggregator": "Information",
+      "Host": "Information", 
+      "Function.main": "Debug",
+      "Function.edit": "Debug",
+      "Function.item": "Error"
     }
   } 
 }
