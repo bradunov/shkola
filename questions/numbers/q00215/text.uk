@@ -4,8 +4,7 @@ Enter the numbers which are missing.
 
 @center@ @mycanvas()@
 
-@value1@ +  @lib.check_number(value2,40)@ + @lib.check_number(value3,40)@ - @lib.check_number(value4,40)@ =  @lib.check_number(result,40)@  
-
+@center@  @lib.check_number(value1,20)@ - @lib.check_number(value2,20)@ =  @lib.check_number(result,20)@  
 
             
             

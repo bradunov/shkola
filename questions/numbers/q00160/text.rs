@@ -1,3 +1,4 @@
+
 Izračunaj zamenom mesta i združivanjem sabiraka:
 
 @repeat(4)@

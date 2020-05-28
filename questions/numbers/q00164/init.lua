@@ -1,3 +1,4 @@
+
 addition_table = function()
   columns = 6
 
@@ -31,7 +32,7 @@ addition_table = function()
 
   style = {}
   style["text-align"] = "center"
-  style["width"] = "50px"
+  style["width"] = "40px"
 
   text = lib.start_table()
   text = text .. lib.start_row()
@@ -40,7 +41,7 @@ addition_table = function()
   text = text .. lib.add_cell("a+b", style)
   text = text .. lib.add_cell("a-b", style)
   text = text .. lib.add_cell("(a+b):" .. tostring(devide) , style)
-  text = text .. lib.add_cell("(a-b)·" .. tostring(multiple) , style)
+  text = text .. lib.add_cell("(a-b)" .. " ·" .. tostring(multiple) , style)
   text = text .. lib.end_row()
   for c=0,columns-1 do
     text = text .. lib.start_row()
@@ -57,6 +58,7 @@ addition_table = function()
 
   return text
 end        
+  
      
                   
          

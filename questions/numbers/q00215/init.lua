@@ -5,13 +5,25 @@ style =
         ["line_color"] = "000",
         ["line_width"] = "2"};
 
+orange_style = 
+	{["off_color"] = "none",
+        ["on_color"] = "fff",
+        ["line_color"] = "f90",
+        ["line_width"] = "2"};
+
+orange1_style = 
+	{["off_color"] = "f90e",
+        ["on_color"] = "f90",
+        ["line_color"] = "f90",
+        ["line_width"] = "1"};
+
 
 text_style = {["font_size"] = "16"}
 
 number = {}
 
 term = math.random(9)
-add = math.random(9)
+add = 1
 
 
 number[1] = term 
@@ -20,9 +32,13 @@ for i = 1, 10 do
 end	
 
 first = tostring(math.floor(number[1]))
-midl = tostring(math.floor(number[3]))
-midr = tostring(math.floor(number[8]))
+middle = tostring(math.floor(number[8]))
 last = tostring(math.floor(number[11]))
+
+value1 = number[10]
+value2 = number[10] - number[2]
+
+result = number[2]
 
 mycanvas = function(no)
   lib.start_canvas(350, 150, "center")
@@ -39,7 +55,7 @@ vscale = 5
   lib.add_input(22*hscale, 17*vscale, 50, 33, lib.check_number(number[2],15))  
   
   lib.add_straight_path(70*hscale, 14*vscale, {{0, 10}}, style, false, true)
-  lib.add_text(68*hscale, 19*vscale, midl, text_style)
+  lib.add_input(48*hscale, 17*vscale, 50, 33, lib.check_number(number[3],15))  
 
   lib.add_straight_path(95*hscale, 14*vscale, {{0, 10}}, style, false, true) 
   lib.add_input(74*hscale, 17*vscale, 50, 33, lib.check_number(number[4],15))
@@ -54,7 +70,7 @@ vscale = 5
   lib.add_input(150*hscale, 17*vscale, 50, 33, lib.check_number(number[7],15))
 
   lib.add_straight_path(195*hscale, 14*vscale, {{0, 10}}, style, false, true)
-  lib.add_text(195*hscale, 19*vscale, midr, text_style)
+  lib.add_text(195*hscale, 19*vscale, middle, text_style)
 
   lib.add_straight_path(220*hscale, 14*vscale, {{0, 10}}, style, false, true)
   lib.add_input(200*hscale, 17*vscale, 50, 33, lib.check_number(number[9],15))
@@ -65,7 +81,14 @@ vscale = 5
   lib.add_straight_path(270*hscale, 14*vscale, {{0, 10}}, style, false, true)  
   lib.add_text(275*hscale, 19*vscale, last, text_style)
  
+
+  lib.add_curved_path (45*hscale, 14*vscale, {{100, -100, 202*hscale, 0}}, orange_style, false, false)   
+  lib.add_straight_path (45*hscale, 14*vscale, {{7, 0}, {-6, -3}, {-3, 7}, {7, -3}}, orange1_style, true, false)
+
   lib.end_canvas()
 end                
-   
-   
+                                          
+                   
+            
+                               
+                   
