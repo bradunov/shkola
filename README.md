@@ -43,6 +43,9 @@ az functionapp plan create --resource-group <resource_group_name> --name <plan_n
 az functionapp create --name <function_name> --storage-account <storage_name> --resource-group <resource_group_name> --plan <plan_name> --deployment-container-image-name <username>/shkola:v0.0.1
 ```
 
+NOTE: Azure currently only supports deploying function containers as web app, not as a proper scalable functions (consumption plan). For a proper functional deployment one needs to fix the runtime environment and deploy as python. See https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=bash%2Cportal&pivots=programming-language-python. To be done.
+
+
 To register continuous integration and get your function deployed every time it is pushed to a Docker hub, first obtain a web hook:
 ```
 az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name <function_name> --resource-group <resource_group_name>
