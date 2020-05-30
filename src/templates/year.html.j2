@@ -19,80 +19,83 @@
     <!-- MENU END -->
 
 
-    <div style="display:block; width:100%; text-align: center;">
-      <div class="sh_lato_font" style="display:inline-block; width:210px; margin: 35px 0 30px 0; 
-                  font-weight: 400; font-size: 18px; color: #636661">
-        Za koji razred bi da vežbaš zadatke?
+    <div style="display:block; position:fixed; top: 50px; left: 0px; z-index: 0; height: calc(100% - 162px); width:100%; overflow-y: auto; overflow-x: auto; ">
+      <div style="display:block; width:100%; text-align: center;">
+        <div class="sh_lato_font" style="display:inline-block; width:210px; margin: 35px 0 30px 0; 
+                    font-weight: 400; font-size: 18px; color: #636661">
+          Za koji razred bi da vežbaš zadatke?
+        </div>
       </div>
-    </div>
 
-    <script>
-      el_but_link = {};
-      function year_onclick() {
-        var ks = Object.keys(el_but_state);
-        for (var i=0; i<ks.length; i++) {
-          var b = ks[i];
-          if (el_but_state[b]) {
-            location.href = el_but_link[b];
+      <script>
+        el_but_link = {};
+        function year_onclick() {
+          var ks = Object.keys(el_but_state);
+          for (var i=0; i<ks.length; i++) {
+            var b = ks[i];
+            if (el_but_state[b]) {
+              location.href = el_but_link[b];
+            }
           }
         }
-      }
-    </script>
+      </script>
 
-    <div style="display:table; margin:0 auto">
-      <div class="" align="center" style="display:content; border:0px; padding:0px; margin:0px">
+      <div style="display:table; margin:0 auto">
+        <div class="" align="center" style="display:content; border:0px; padding:0px; margin:0px">
 
-        {% for b in template_params['button']['choices'] %}             
-          <script>
-            el_but_link[ "{{ "button_{}".format(loop.index) }}" ] = '{{b['link']}}';
-          </script>
-                 
-          <div id="{{"button_{}".format(loop.index)}}" class="sh-std-button sh_chalk_font" 
-              style="display: inline-block;
-                      background: {{b['back_color']}};
-                      color: {{b['front_color']}};
-                      width: 130px;
-                      height: 130px;
-                      margin-right: 8px;
-                      margin-left: 8px;
-                      margin-bottom: 8px;
-                      margin-top: 8px;
-                      vertical-align: middle;
-                      font-size: {{ template_params['button']['font_size'] }};"
-                      onclick="el_select_button('{{"button_{}".format(loop.index)}}', 
-                            function (bs, selected) {
-                              b = document.getElementById(bs);
-                              if (selected) { 
-                                b.style.border = '{{b['front_color']}} 3px solid'; 
-                              } else {
-                                b.style.border = '#000000 0px solid'; 
-                              }
-                            }, 
-                            next_callback)">
-            <div id="{{ "text_{}".format(loop.index) }}",  
-                style="vertical-align: middle;
-                       margin-top: -15px;
-                       height: 130px;">
-                 {{ b['title'] }}
-            </div>                
-          </div>
-
-          {% if loop.index % 2 == 0 %}
+          {% for b in template_params['button']['choices'] %}             
+            <script>
+              el_but_link[ "{{ "button_{}".format(loop.index) }}" ] = '{{b['link']}}';
+            </script>
+                  
+            <div id="{{"button_{}".format(loop.index)}}" class="sh-std-button sh_chalk_font" 
+                style="display: inline-block;
+                        background: {{b['back_color']}};
+                        color: {{b['front_color']}};
+                        width: 130px;
+                        height: 130px;
+                        margin-right: 8px;
+                        margin-left: 8px;
+                        margin-bottom: 8px;
+                        margin-top: 8px;
+                        vertical-align: middle;
+                        font-size: {{ template_params['button']['font_size'] }};"
+                        onclick="el_select_button('{{"button_{}".format(loop.index)}}', 
+                              function (bs, selected) {
+                                b = document.getElementById(bs);
+                                if (selected) { 
+                                  b.style.border = '{{b['front_color']}} 3px solid'; 
+                                } else {
+                                  b.style.border = '#000000 0px solid'; 
+                                }
+                              }, 
+                              next_callback)">
+              <div id="{{ "text_{}".format(loop.index) }}",  
+                  style="vertical-align: middle;
+                        margin-top: -15px;
+                        height: 130px;">
+                  {{ b['title'] }}
+              </div>                
             </div>
-            <div class="" align="center" style="display:content; border:0px; padding:0px; margin:0px">
-          {% endif %}
-        {% endfor %}
 
-      </div>
-      <div class="" align="center" style="display:content; border:0px; padding:0px; margin:0px">
+            {% if loop.index % 2 == 0 %}
+              </div>
+              <div class="" align="center" style="display:content; border:0px; padding:0px; margin:0px">
+            {% endif %}
+          {% endfor %}
+
+        </div>
+        <div class="" align="center" style="display:content; border:0px; padding:0px; margin:0px">
+        </div>
       </div>
     </div>
 
 
 
-
-  {{ elements.next("year_onclick()", 38) }}
-
+  <div style="display:block; position: fixed; z-index: 0;  
+              top: calc(100% - 110px); left: 0px; z-index: 0; height: 40px; width:100%; ">
+    {{ elements.next("year_onclick()") }}
+  </div>
 
   {{ elements.footer(0, "", "") }}
 
