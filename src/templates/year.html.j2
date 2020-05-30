@@ -47,7 +47,7 @@
             el_but_link[ "{{ "button_{}".format(loop.index) }}" ] = '{{b['link']}}';
           </script>
                  
-          <div id="{{"button_{}".format(loop.index)}}" class="sh-std-button" 
+          <div id="{{"button_{}".format(loop.index)}}" class="sh-std-button sh_chalk_font" 
               style="display: inline-block;
                       background: {{b['back_color']}};
                       color: {{b['front_color']}};
@@ -56,7 +56,9 @@
                       margin-right: 8px;
                       margin-left: 8px;
                       margin-bottom: 8px;
-                      margin-top: 8px;"
+                      margin-top: 8px;
+                      vertical-align: middle;
+                      font-size: {{ template_params['button']['font_size'] }};"
                       onclick="el_select_button('{{"button_{}".format(loop.index)}}', 
                             function (bs, selected) {
                               b = document.getElementById(bs);
@@ -67,11 +69,11 @@
                               }
                             }, 
                             next_callback)">
-            <div id="{{ "text_{}".format(loop.index) }}", class="sh_chalk_font" 
-                style="display: inline-block;
-                    margin-top: -15px;
-                    font-size: {{ template_params['button']['font_size'] }}  ; 
-                    color: {{ b['front_color'] }}"> {{ b['title'] }}
+            <div id="{{ "text_{}".format(loop.index) }}",  
+                style="vertical-align: middle;
+                       margin-top: -15px;
+                       height: 130px;">
+                 {{ b['title'] }}
             </div>                
           </div>
 

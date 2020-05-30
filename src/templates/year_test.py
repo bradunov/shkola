@@ -32,6 +32,22 @@ page['button']['choices'].append({
     'link' : 'href="2"'
 })
 
+page['button']['choices'].append({
+    'title' : '3',
+    'obj_type' : 'A',
+    'front_color' : '#ff6956',
+    'back_color' : '#f9f9f9',
+    'link' : 'href="1"'
+})
+
+page['button']['choices'].append({
+    'title' : '4',
+    'obj_type' : 'A',
+    'front_color' : '#489cba',
+    'back_color' : '#f9f9f9',
+    'link' : 'href="2"'
+})
+
 page['menu'] = [
     {
         'name' : 'Zadaci',
