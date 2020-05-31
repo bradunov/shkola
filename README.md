@@ -45,6 +45,8 @@ az functionapp create --name <function_name> --storage-account <storage_name> --
 
 NOTE: Azure currently only supports deploying function containers as web app, not as a proper scalable functions (consumption plan). For a proper functional deployment one needs to fix the runtime environment and deploy as python. See https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=bash%2Cportal&pivots=programming-language-python. To be done.
 
+https://azure.microsoft.com/en-us/pricing/details/functions/
+
 
 To register continuous integration and get your function deployed every time it is pushed to a Docker hub, first obtain a web hook:
 ```

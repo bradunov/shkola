@@ -291,6 +291,29 @@ class Design_default(object):
 
         page.template_params["template_name"] = "user.html.j2"
 
+
+        page.template_params['current_lang'] = \
+            "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" " \
+                "height=\"15px\" alt=\"" + page.get_language_details()["country"] + \
+                "\" src=\"" + page.get_file_url("images/" + \
+                                page.get_language_details()["image"]) + "\">"
+
+        sublang = []
+        for lang in page.get_language_list():
+            sublang.append({
+                "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
+                    "height=\"15px\" alt=\"" + page.get_language_details(lang)["country"] + 
+                    "\" src=\"" + page.get_file_url("images/" + 
+                                  page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
+                                  page.get_language_details(lang)["country"],
+                "link" : page.page_params.create_url( \
+                            op = PageOperation.toStr(PageOperation.MENU_USER), language = lang, js = False)
+            })            
+
+        page.template_params['menu_lang'] = sublang
+
+
+
         page.template_params["google_link"] = "/main?op={}".format(PageOperation['LOGIN_GOOGLE'].value)
 
         page.template_params["guest_link"] = page.page_params.create_url(
@@ -522,8 +545,9 @@ class Design_default(object):
         page.template_params["next"] = page.page_params.create_url(\
                     op = PageOperation.toStr(PageOperation.MENU_YEAR), js = False)
         page.template_params["back"] = page.page_params.create_url(\
-                    op = PageOperation.toStr(PageOperation.MENU_USER), js = False)
+                    op = PageOperation.toStr(PageOperation.LOGOUT), js = False)
 
+#                    op = PageOperation.toStr(PageOperation.MENU_USER), js = False)
 
 
 

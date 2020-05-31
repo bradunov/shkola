@@ -584,8 +584,11 @@ class Page(object):
             ok = True
             logging.info("login_google(): User already logged in")
 
-        url = self.page_params.get_param("root") + \
-            "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
+        # url = self.page_params.get_param("root") + \
+        #     "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
+
+        url = self.page_params.create_url( \
+            op = PageOperation.toStr(PageOperation.MENU_YEAR), js = False)
 
         if not ok:
             # If error, pass error message as url (to be printed for debug)
@@ -598,7 +601,11 @@ class Page(object):
         context.c.user = None
         context.c.session.close()
 
-        url = self.page_params.get_param("root") + "?op={}".format(PageOperation.MENU_USER.value)
+        # url = self.page_params.get_param("root") + "?op={}".format(PageOperation.MENU_USER.value)
+
+        url = self.page_params.create_url( \
+            op = PageOperation.toStr(PageOperation.MENU_USER), js = False)
+
         return url
 
     # Debug function, not used
@@ -640,7 +647,10 @@ class Page(object):
         else:
             logging.info("login(): User already logged in")
 
-        url = self.page_params.get_param("root") + \
-            "?op={}".format(PageOperation.toStr(PageOperation.CONFIRM_ANON))
+        # url = self.page_params.get_param("root") + \
+        #     "?op={}".format(PageOperation.toStr(PageOperation.CONFIRM_ANON))
+
+        url = self.page_params.create_url( \
+            op = PageOperation.toStr(PageOperation.CONFIRM_ANON), js = False)
 
         return url
