@@ -3,6 +3,8 @@ import json
 
 # from server.helpers import encap_str
 
+
+
 from server.types import PageLanguage
 from server.types import PageOperation
 # from server.types import ResponseOperation
@@ -204,9 +206,8 @@ class Design_default(object):
                             op = PageOperation.toStr(PageOperation.MENU_YEAR), language = lang, js = False)
             })            
 
-        # Jezik: &nbsp; 
         lang = {
-            "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
+            "name" : "Jezik: &nbsp; <input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
                     "height=\"15px\" alt=\"" + page.get_language_details()["country"] + 
                     "\" src=\"" + page.get_file_url("images/" + 
                                   page.get_language_details()["image"]) + "\">",
@@ -221,7 +222,7 @@ class Design_default(object):
         menu_id = 0
 
         lists = {
-            "name" : "Razred".upper(),
+            "name" : "Razred",
             "link" : new_page_params.create_url(\
                     op = PageOperation.toStr(PageOperation.MENU_YEAR), \
                     js = False),
@@ -238,7 +239,7 @@ class Design_default(object):
             for theme in sorted(content[level].keys()):
                 if not theme == "level_short":
                     options.append({
-                        "name" : theme.upper(),
+                        "name" : theme.title(),
                         "link" : new_page_params.create_url(\
                             op = PageOperation.toStr(PageOperation.MENU_SUBTHEME), \
                             year = level, \
@@ -247,7 +248,7 @@ class Design_default(object):
                     })
 
             lists['submenu']['options'].append({
-                "name" : level.upper(),
+                "name" : level.title(),
                 "link" : new_page_params.create_url( \
                         op = PageOperation.toStr(PageOperation.MENU_THEME), \
                         year = level, 
@@ -261,16 +262,16 @@ class Design_default(object):
 
         page.template_params['menu'].append(lists)
 
-        # Do not show results to an anonymous user
-        if not user_picture is None:
-            page.template_params['menu'].append({
-                "name" : "Rezultati".upper(),
-                "link" : new_page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False)
-            })
+        # Do not show results to an anonymous user - currently disabled
+        #if not user_picture is None:
+        page.template_params['menu'].append({
+            "name" : "Rezultati",
+            "link" : new_page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False)
+        })
 
         # "name" : "Izloguj se (" + context.c.user.name + ")",
         page.template_params['menu'].append({
-            "name" : "Izloguj se".upper(),
+            "name" : "Izloguj se",
             "link" : new_page_params.create_url(op = PageOperation.LOGOUT.value, js = False)
         })
 
@@ -349,6 +350,7 @@ class Design_default(object):
             i = 0
             for ynumber in sorted(ordered.keys()):
                 year = ordered[ynumber]
+                logging.debug("\n\n\nDD: {} {}\n\n".format(year, ynumber))
 
                 page.template_params['button']['choices'].append({
                     'title' : ynumber,

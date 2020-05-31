@@ -39,15 +39,33 @@
                 ">
             <span style = "color:red" > 
               {{ level_key }} 
-            </span> 
+            </span>
+
             <span style = "color:gray">
-              {{template_params["class_gen_str"]}}  
+                 {{template_params["class_gen_str"]}}
             </span> <br>
+            {% set label_cls, field_cls = "col-md-7", "col-md-3" %}
+
+            {#add theme in different colors in python #}
+            {#clr = [] #}
+            {#clr.append('#dc3d39')  # red #}
+            {#clr.append('#489cba')  # blue #}
+            {#clr.append('#f3b051')  # yellow #}
+            {#clr.append('#8f53cb')  # violet #}
+            {#clr.append('#6ab288')  # green #}
+            {#clr.append('#ec8e43')  # orange #}
+            {#clr.append('#df367c')  # pink #}
+            {#theme_str='' #}
+            {#c=0 #}
+            {#for ch in {{template_params["class_gen_str"]}}: #}
+            {#    theme_str=theme_str+'<span style = "color:'+clr[c]+'" >' + ch + '</span>' #}
+            {#    c+=1 #}
+            {#    if c==6: c=0 #}
 
             {{theme_key}}
           </div>
 
-          <div class="sh_chalk_font" style="display:inline-block; width:calc(49% - 20px);
+          <div class="sh_lato_font" style="display:inline-block; width:calc(49% - 20px);
                 font-weight:550; font-size: 18px; margin-top:4px; margin-right:20px; vertical-align:middle; text-align:right">
             <div style="display:block; height:20px">
               {{ elements.stars(1) }}
@@ -74,14 +92,14 @@
                     box-shadow: 0px 5px 5px #dddddd;">
           {% for subtheme_key, subtheme_val in theme_val.items() %}
             <div style="display:inline-block; width: 100%; text-align: center; margin-top: 15px; ">
-              <div class="sh_chalk_font" style="display:inline-block; width: calc(49% - 24px); 
+              <div class="sh_lato_font" style="display:inline-block; width: calc(49% - 24px);
                                           font-size: 16px; text-align: left; margin-left: 24px">
                 {{subtheme_key}}
               </div>          
-              <div class="sh_chalk_font" style="display:inline-block; width: calc(49% - 24px); 
+              <div class="sh_lato_font" style="display:inline-block; width: calc(49% - 24px);
                                           font-size: 16px; text-align: right; margin-right: 24px">
-                {{subtheme_val["total"]}}
                 {{subtheme_val["message"]}}
+                {{subtheme_val["total"]}}
               </div>          
             </div>
             <div style="display:inline-block; width: 100%; text-align: center; margin-top: 11px; ">

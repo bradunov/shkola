@@ -64,47 +64,8 @@
     </script>  
 
 
-
-    <script>
-    window.onerror = function (msg, url, lineNo, columnNo, error) {
-      let q_id = (typeof global_q_id === "undefined")?"":global_q_id;
-      let l_id = (typeof global_l_id === "undefined")?"":global_l_id;
-      let language = (typeof global_language === "undefined")?"":global_language;
-      let root = (typeof global_root === "undefined")?"main":global_root;
-      let error_msg = 'msg: ' + msg + ', url: ' + url + ', lineNo: ' + lineNo + 
-                      ', columnNo: ' + columnNo + ', error: ' + error;
-      let type = "JS_ERROR";
-
-      if (typeof sendFeedbackToServer === "function") {
-        // If a feedback function exists, use it as it will also record question state
-        sendFeedbackToServer(root, type, q_id, l_id, language, error_msg);
-      } else {
-        var xhr = new XMLHttpRequest();
-        var url = '/' + root + '?op=feedback'
-        var feedback = {};
-        feedback['type'] = type;
-        feedback['q_id'] = q_id;
-        feedback['language'] = language;
-        feedback['l_id'] = l_id;
-        feedback['comment'] = error_msg;
-        xhr.open('POST', url);
-        xhr.onreadystatechange = function() {
-            console.log("Received");
-            console.log(xhr);
-            if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
-        };
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
-        xhr.send(JSON.stringify(feedback));
-      }
-      return false;
-    }
-    </script>
-
-
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Bubblegum+Sans" />
-    {# Does not support all Serbian fonts #}
-    {# <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" /> #}
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" />
 
     <style type="text/css">
       @font-face {
@@ -119,26 +80,11 @@
           font-family: 'ChalkboardSE-Light';
           src: url('item?url=fonts/ChalkboardSE-Light.ttf') format('truetype');
       }
-      @font-face {
-          font-family: 'Lato-Bold';
-          src: url('item?url=fonts/Lato-Bold.ttf') format('truetype');
-      }
-      @font-face {
-          font-family: 'Lato-Regular';
-          src: url('item?url=fonts/Lato-Regular.ttf') format('truetype');
-      }
-      @font-face {
-          font-family: 'Lato-Light';
-          src: url('item?url=fonts/Lato-Light.ttf') format('truetype');
-      }
       .sh_chalk_font {
           font-family: 'ChalkboardSE-Regular';
       }
-      .sh_chalk_bold_font {
-          font-family: 'ChalkboardSE-Bold';
-      }
       .sh_lato_font {
-          font-family: 'Lato-Regular'; 
+          font-family: 'Lato'; 
       }
     </style>
 
@@ -292,7 +238,7 @@
 
 
 
-{% macro start_popup(name, extra_style="", bg_height="100%", bg_top="0px", toggle=True) %}
+{% macro start_popup(name, extra_style="") %}
   <script>
       // When the user clicks on div, open the popup
       function popup_toggle_{{name}}(new_state) {
@@ -320,12 +266,9 @@
 
   <span id='popup_background_{{name}}' style='visibility: hidden;
       position: fixed; z-index: 2; 
-      top: {{bg_top}}; left: 0%; width: 100%; height: {{bg_height}}; 
+      top: 50px; left: 0%; width: 100%; height: calc(100% - 100px); 
       opacity=0.8; background-color: white; ' 
-      {% if toggle %}
-      onclick='popup_toggle_{{name}}()'
-      {% endif %}
-  >
+      onclick='popup_toggle_{{name}}()'>
   </span>        
 
   <div id='popup_{{name}}' style='visibility: hidden; position: fixed; z-index: 3; {{extra_style}}'>    
@@ -442,7 +385,7 @@
 {% macro stars(number, size=14) %}
 
   {% set scale = size/21 %}
-  {% set off_color = "#b0b6b6" %}
+  {% set off_color = "#e0e0e0" %}
   {% if number == 1 %}
     {% set on_color = "#f3b051" %}
   {% elif number == 2 %}
@@ -454,7 +397,7 @@
 
 
   {% for i in range(0, 3) %}
-    {% if i < number %}
+    {% if 2-i < number %}
       {% set color = on_color %}
     {% else %}
       {% set color = off_color %}

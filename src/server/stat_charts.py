@@ -3,6 +3,9 @@
 # import matplotlib.pyplot as plt
 # import pybase64
 
+import sys
+sys.path.append("..")
+
 from server import stats
 
 if __name__ == '__main__':
@@ -42,23 +45,29 @@ def draw_chart(chart_data, pg):
         subtop_name.append(subtheme_key)
         st_tmp=0
         st_cor_tmp=[0, 0, 0]
+        #for difficulty_key, difficulty_val in subtheme_val['difficulty'].items():
+        #    st_tmp+= difficulty_val['total']
+        #    curr_st=len(subtop_cor_dif)-1
+        #    subtop_cor_dif[curr_st][int(difficulty_key)-1]=difficulty_val['correct']
+        #subtop_total.append(st_tmp)
+
         for difficulty_key, difficulty_val in subtheme_val['difficulty'].items():
             st_tmp+= difficulty_val['total']
-            # curr_st=len(subtop_cor_dif)-1
+            curr_st=len(subtop_cor_dif)-1
             st_cor_tmp[int(difficulty_key)-1] = round(difficulty_val['correct'] *  difficulty_val['total'])
         subtop_cor_dif.append(st_cor_tmp)
         subtop_total.append(st_tmp)
 
         #assing value of task in Serbian depending on the case
         subtop_task_tmp = pg.get_messages()['tasks'] #'zadataka'
-        st_tmp_mod=st_tmp % 10
-        if (st_tmp<= 4 or st_tmp >= 20):
-            if st_tmp_mod == 1:
-                subtop_task_tmp = 'zadatak'
-            elif (st_tmp_mod >= 2 and  st_tmp_mod <= 4):
-                subtop_task_tmp = 'zadatka'
-        subtop_task.append(subtop_task_tmp)
-
+        #st_tmp_mod=st_tmp % 10
+        #if (st_tmp<= 4 or st_tmp >= 20):
+        #    if st_tmp_mod == 1:
+        #        subtop_task_tmp = 'zadatak'
+        #    elif (st_tmp_mod >= 2 and  st_tmp_mod <= 4):
+        #        subtop_task_tmp = 'zadatka'
+        #subtop_task.append(subtop_task_tmp)
+        subtop_task_tmp+=":"
         single_stat = {
             "diff1" : st_cor_tmp[0],
             "diff2" : st_cor_tmp[1],
@@ -69,7 +78,6 @@ def draw_chart(chart_data, pg):
         }
 
         stats_per_subtask[subtheme_key.lower().capitalize()] = single_stat
-
 
     return stats_per_subtask
 
