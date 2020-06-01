@@ -66,7 +66,7 @@
              style="display: inline-block; vertical-align: middle; padding: 8px 0 8px 0;">
       {% endif %}
       <button class="sh-menu-button" style="display: inline-block; vertical-align: middle; 
-                  text-align: center; padding: 8px 8px 8px 8px; font-size: 20px; font-weight: 900; color: #029194" 
+                  text-align: center; padding: 8px 35px 8px 8px; font-size: 20px; font-weight: 900; color: #029194" 
                   onclick="shm_toggle()">☰</button>
     </span>
   </div>
@@ -86,25 +86,28 @@
 
 {% macro one_dropdown(submenu, level=0) %}
   {% if 'link' in submenu.keys() and 'submenu' in submenu.keys() %}
-    <a class="sh-menu-font" href="{{ submenu['link'] }}" style="padding: 8px 0px 8px 16px ; text-decoration:none"> 
+    <a class="sh-menu-font" href="{{ submenu['link'] }}" style="height: 34px; padding: 8px 0px 8px 16px ; text-decoration:none"> 
       {% for i in range(0, level) %}
         <div class="space"></div> 
       {% endfor %}
       {{ submenu['name'] }}
     </a>
     &nbsp;
-    <button class="sh-menu-button-arrow sh-menu-left-align sh-menu-font" onclick="myAccFunc('{{ submenu['submenu']['id'] }}')">
+    <button class="sh-menu-button-arrow sh-menu-left-align sh-menu-font" style="height: 50px" onclick="myAccFunc('{{ submenu['submenu']['id'] }}')">
       <i class="fa fa-caret-down"></i>
     </button>
   {% elif 'link' in submenu.keys() %}
-    <a class="sh-menu-bar-item sh-menu-button sh-menu-font" href="{{ submenu['link'] }}"> 
+    <a class="sh-menu-bar-item sh-menu-button sh-menu-font" style="height: 34px; vertical-align:middle; " href="{{ submenu['link'] }}"> 
       {% for i in range(0, level) %}
         <div class="space"></div> 
       {% endfor %}
+      <div style="display:inline-block; vertical-align:middle; padding-top: 6px">
       {{ submenu['name'] }}
+      </div>
     </a> 
   {% elif 'submenu' in submenu.keys() %}
-      <button class="sh-menu-button sh-menu-block sh-menu-left-align sh-menu-font" onclick="myAccFunc('{{ submenu['submenu']['id'] }}')">
+      <button class="sh-menu-button sh-menu-block sh-menu-left-align sh-menu-font" style="height: 50px" 
+              onclick="myAccFunc('{{ submenu['submenu']['id'] }}')">
         {% for i in range(0, level) %}
           <div class="space"></div> 
         {% endfor %}
@@ -116,7 +119,7 @@
     {% for i in range(0, level) %}
       <div class="space"></div> 
     {% endfor %}
-    <div class="sh-menu-font sh-menu-bar-item sh-menu-button"> 
+    <div class="sh-menu-font sh-menu-bar-item sh-menu-button" style="height: 34px"> 
       {{ submenu['name'] }} 
     </div> 
   {% endif %}
@@ -148,7 +151,7 @@
 
     <div class="sh-menu-sidebar sh-menu-bar-block sh-menu-border-left" style="display:none" id="shMenu">
 
-      <div style="display:block; position:fixed; z-index:5; right:0px; top:0px; margin: 8px 8px 8px 8px;cursor:pointer;"
+      <div style="display:block; position:fixed; z-index:5; right:0px; top:0px; margin: 17px 35px 8px 8px;cursor:pointer;"
            onclick="shm_toggle()">
         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" style="background:#029194">
           <path id="prefix__Icon_material-close" 

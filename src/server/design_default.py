@@ -240,9 +240,13 @@ class Design_default(object):
                     options.append({
                         "name" : theme.upper(),
                         "link" : new_page_params.create_url(\
-                            op = PageOperation.toStr(PageOperation.MENU_SUBTHEME), \
+                            op = PageOperation.toStr(PageOperation.INTRO), \
                             year = level, \
                             theme = theme, \
+                            subtheme = "*", \
+                            period = "*", \
+                            difficulty = "*", \
+                            l_id = content[level][theme]["name"], \
                             js = False)
                     })
 
@@ -264,7 +268,7 @@ class Design_default(object):
         # Do not show results to an anonymous user
         if not user_picture is None:
             page.template_params['menu'].append({
-                "name" : "Rezultati".upper(),
+                "name" : "Moj uspeh".upper(),
                 "link" : new_page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False)
             })
 
