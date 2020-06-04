@@ -16,10 +16,18 @@ The prefer install is as an Azure function. For local testing, in shkola root ty
 
 * Install: `docker build -f src/Dockerfile --tag <username>/shkola:v0.0.1 .`
 
-* Install Azure emulator called [Azurite](https://github.com/Azure/Azurite/tree/legacy-master). 
-  **IMPORTANT:** install version the old version (v2), not the new one (v3) as the new one doesn't emulate Azure tables. 
+	* NOTE: This will create the dockerfile from the entire python project in shkola root dir. Every time you change the python files, this has to be done to update the docker container
 
-* Deploy with result logging in Azure table: `docker run -p 8080:80 --name shkola -e SHKOLA_AZ_TABLE_CONN_STR="<connection_str>" -it <username>/shkola:v0.0.1`. Use the following [test](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string) connection string for Azurite emulator: `DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=http://XX.XX.XX.XX:10002/devstoreaccount1`, where XX.XX.XX.XX is your IP address. 
+* Install Azure emulator called [Azurite](https://github.com/Azure/Azurite/tree/legacy-master). 
+  **IMPORTANT:** install version the old version (v2), not the new one (v3) as the new one doesn't emulate Azure tables. This is done by follwing the instructions in the link, with one important DIFFERENCE:
+  type npm install -g azurite@2.7.1, instead of npm install -g azurite, as stated in the instructions, which will the latest version
+
++ starting Azurite by typing azurite in PowerShell
+
+* Deploy docker with result logging in Azure table by running in a new PowerShell: `docker run -p 8080:80 --name shkola -e SHKOLA_AZ_TABLE_CONN_STR="<connection_str>" -it <username>/shkola:v0.0.1`. Use the following [test](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string) connection string for Azurite emulator: `DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=http://XX.XX.XX.XX:10002/devstoreaccount1`, where XX.XX.XX.XX is your IP address. 
+
+*NOTE: <username> should be the same as in docker build above
+
 
 * Local web access: `http://127.0.0.1:8080/main`
 
@@ -42,9 +50,6 @@ az storage account create --name <storage_name> --location westeurope --resource
 az functionapp plan create --resource-group <resource_group_name> --name <plan_name> --location westeurope --number-of-workers 1 --sku B1 --is-linux
 az functionapp create --name <function_name> --storage-account <storage_name> --resource-group <resource_group_name> --plan <plan_name> --deployment-container-image-name <username>/shkola:v0.0.1
 ```
-
-NOTE: Azure currently only supports deploying function containers as web app, not as a proper scalable functions (consumption plan). For a proper functional deployment one needs to fix the runtime environment and deploy as python. See https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=bash%2Cportal&pivots=programming-language-python. To be done.
-
 
 To register continuous integration and get your function deployed every time it is pushed to a Docker hub, first obtain a web hook:
 ```

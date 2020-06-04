@@ -409,23 +409,23 @@
         <path id="rect_2_{{name}}" d="M0 0H{{d3_w}}V{{r_height}}H0z" data-name="Rectangle 109" 
               transform="translate({{d3_x}} {{r_y_start}})" style="fill:#489cba"/>
         {% if t_w < d1_w %}
-          <text id="text_1_{{name}}" class="stats__cls-6 sh_chalk_font" data-name="d1" transform="translate({{d1_t_x}} {{t_y_start}})">
+          <text id="text_1_{{name}}" class="stats__cls-6 sh_lato_font" data-name="d1" transform="translate({{d1_t_x}} {{t_y_start}})">
               <tspan x="-3.48" y="0">{{d1}}</tspan>
           </text>
         {% endif %}
         {% if t_w < d2_w %}
-          <text id="text_2_{{name}}" class="stats__cls-6 sh_chalk_font" data-name="d2" transform="translate({{d2_t_x}} {{t_y_start}})">
+          <text id="text_2_{{name}}" class="stats__cls-6 sh_lato_font" data-name="d2" transform="translate({{d2_t_x}} {{t_y_start}})">
               <tspan x="-6.96" y="0">{{d2}}</tspan>
           </text>
         {% endif %}
         {% if t_w < d3_w %}
-          <text id="text_3_{{name}}" class="stats__cls-6 sh_chalk_font" data-name="d3" transform="translate({{d3_t_x}} {{t_y_start}})">
+          <text id="text_3_{{name}}" class="stats__cls-6 sh_lato_font" data-name="d3" transform="translate({{d3_t_x}} {{t_y_start}})">
               <tspan x="-3.48" y="0">{{d3}}</tspan>
           </text>
         {% endif %}
         {% if t_w < miss_w %}
           <text id="text_miss_{{name}}" data-name="missed" transform="translate({{missed_t_x}} {{t_y_start}})" 
-                style="fill:#636661;font-size:12px;font-weight:600" class="sh_chalk_font">
+                style="fill:#636661;font-size:12px;font-weight:600" class="sh_lato_font">
               <tspan x="-6.96" y="0">{{missed}}</tspan>
           </text>
         {% endif %}
@@ -443,7 +443,7 @@
 {% macro stars(number, size=14) %}
 
   {% set scale = size/21 %}
-  {% set off_color = "#b0b6b6" %}
+  {% set off_color = "#e0e0e0" %}
   {% if number == 1 %}
     {% set on_color = "#f3b051" %}
   {% elif number == 2 %}
@@ -455,7 +455,7 @@
 
 
   {% for i in range(0, 3) %}
-    {% if i < number %}
+    {% if 2-i < number %}
       {% set color = on_color %}
     {% else %}
       {% set color = off_color %}

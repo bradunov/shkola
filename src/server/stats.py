@@ -1,3 +1,6 @@
+import sys
+sys.path.append("..")
+
 import server.storage
 import logging
 import json
@@ -151,6 +154,7 @@ class Stats(object):
                 continue
 
             level = page.repository.lists[l_id]["level"]
+            level_short=page.repository.lists[l_id]["level_short"]
             theme = page.repository.lists[l_id]["theme"]
             subthemes = q_info["subtheme"]
 
@@ -169,6 +173,7 @@ class Stats(object):
             if not level in stats["level"].keys():
                 stats["level"][level] = {
                     "all" : { "q_correct" : 0, "q_total" : 0, "sq_correct" : 0, "sq_total" : 0 },
+                    "level_short" : level_short,
                     "theme" : {},
                     "difficulty" : {}
                 }

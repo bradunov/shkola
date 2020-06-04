@@ -3,6 +3,9 @@
 # import matplotlib.pyplot as plt
 # import pybase64
 
+import sys
+sys.path.append("..")
+
 from server import stats
 
 if __name__ == '__main__':
@@ -18,6 +21,7 @@ def render_stats_data(pg, u_ID):
     user_stats={'level':{}}
     for level_key, level_val in stats_for_user['level'].items():
         user_stats['level'][level_key]={'theme':{}}
+        user_stats['level'][level_key]['level_short']=stats_for_user['level'][level_key]['level_short']
         for theme_key, theme_val in level_val['theme'].items():
             user_stats['level'][level_key]['theme'][theme_key]={'subtheme':{}}
             for subtheme_key, subtheme_val in theme_val['subtheme'].items():
@@ -42,6 +46,15 @@ def draw_chart(chart_data, pg):
         subtop_name.append(subtheme_key)
         st_tmp=0
         st_cor_tmp=[0, 0, 0]
+
+
+        #for difficulty_key, difficulty_val in subtheme_val['difficulty'].items():
+        #    st_tmp+= difficulty_val['total']
+        #    curr_st=len(subtop_cor_dif)-1
+        #    subtop_cor_dif[curr_st][int(difficulty_key)-1]=difficulty_val['correct']
+        #subtop_total.append(st_tmp)
+
+
         for difficulty_key, difficulty_val in subtheme_val['difficulty'].items():
             st_tmp+= difficulty_val['total']
             # curr_st=len(subtop_cor_dif)-1
@@ -51,13 +64,14 @@ def draw_chart(chart_data, pg):
 
         #assing value of task in Serbian depending on the case
         subtop_task_tmp = pg.get_messages()['tasks'] #'zadataka'
-        st_tmp_mod=st_tmp % 10
-        if (st_tmp<= 4 or st_tmp >= 20):
-            if st_tmp_mod == 1:
-                subtop_task_tmp = 'zadatak'
-            elif (st_tmp_mod >= 2 and  st_tmp_mod <= 4):
-                subtop_task_tmp = 'zadatka'
-        subtop_task.append(subtop_task_tmp)
+        #st_tmp_mod=st_tmp % 10
+        #if (st_tmp<= 4 or st_tmp >= 20):
+        #    if st_tmp_mod == 1:
+        #        subtop_task_tmp = 'zadatak'
+        #    elif (st_tmp_mod >= 2 and  st_tmp_mod <= 4):
+        #        subtop_task_tmp = 'zadatka'
+        #subtop_task.append(subtop_task_tmp)
+        subtop_task_tmp+=":"
 
         single_stat = {
             "diff1" : st_cor_tmp[0],
@@ -184,10 +198,11 @@ def prepare_user_stats_chart(pg, u_ID):
 
 
     for level_key, level_val in user_stats['level'].items():
+        level_short=level_val['level_short']
         pg.template_params["stats"][level_key] = {}
+        pg.template_params["stats"][level_key]['level_short'] = level_short
         for theme_key, theme_val in level_val['theme'].items():
             pg.template_params["stats"][level_key][theme_key] = draw_chart(theme_val['subtheme'], pg)
-
 
     pg.template_params["url_year"] = pg.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_YEAR), \
                                     year = "", \
