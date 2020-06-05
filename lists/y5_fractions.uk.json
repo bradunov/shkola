@@ -6,151 +6,151 @@
   "questions":  [
     {
       "name" : "fractions/q00031", "random": "1", "period": "leto", 
-      "subtheme": "Fractions", "difficulty": "1"
+      "subtheme": "Fractions", "topic": "", "difficulty": "1"
     },
     {
       "name" : "fractions/q00037", "random": "1", "period": "leto", 
-      "subtheme": "Fractions", "difficulty": "2"
+      "subtheme": "Fractions", "topic": "", "difficulty": "2"
     },
     {
       "name" : "fractions/q00039", "random": "0", "period": "leto", 
-      "subtheme": "Fractions", "difficulty": "3"
+      "subtheme": "Fractions", "topic": "", "difficulty": "3"
     },
     {
       "name" : "fractions/q00041", "random": "0", "period": "leto", 
-      "subtheme": "Fractions", "difficulty": "1"
+      "subtheme": "Fractions", "topic": "", "difficulty": "1"
     },
     {
       "name" : "fractions/q00042", "random": "0", "period": "leto", 
-      "subtheme": "Fractions", "difficulty": "1"
+      "subtheme": "Fractions", "topic": "", "difficulty": "1"
     },
     {
       "name" : "fractions/q00050", "random": "1", "period": "leto", 
-      "subtheme": "Fractions", "difficulty": "1"
+      "subtheme": "Fractions", "topic": "", "difficulty": "1"
     },
     {
       "name" : "fractions/q00062", "random": "1", "period": "zima", 
-      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+      "subtheme": "sabiranje razlomaka", "topic": "", "difficulty": "1"
     },
     {
       "name" : "fractions/q00063", "random": "1", "period": "zima", 
-      "subtheme": "oduzimanje razlomaka", "difficulty": "1"
+      "subtheme": "oduzimanje razlomaka", "topic": "", "difficulty": "1"
     },
     {
       "name" : "fractions/q00064", "random": "1", "period": "zima", 
-      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+      "subtheme": "sabiranje razlomaka", "topic": "", "difficulty": "1"
     },
     {
       "name" : "fractions/q00065", "random": "1", "period": "zima", 
-      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+      "subtheme": "sabiranje razlomaka", "topic": "", "difficulty": "1"
     },
   	{
       "name" : "fractions/q00066", "random": "1", "period": "zima", 
-      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+      "subtheme": "sabiranje razlomaka", "topic": "", "difficulty": "1"
     },
 	  {
       "name" : "fractions/q00067", "random": "1", "period": "zima", 
-      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+      "subtheme": "sabiranje razlomaka", "topic": "", "difficulty": "1"
     },
 	  {
       "name" : "fractions/q00068", "random": "1", "period": "zima", 
-      "subtheme": "sabiranje razlomaka", "difficulty": "1"
+      "subtheme": "sabiranje razlomaka", "topic": "", "difficulty": "1"
     },	
     {
       "name" : "fractions/q00003", "random": "1", "period": "leto", 
-      "subtheme": "mesoviti razlomak", "difficulty": "1"
+      "subtheme": "mesoviti razlomak", "topic": "", "difficulty": "1"
     },	
     {
       "name" : "fractions/q00004", "random": "1", "period": "leto", 
-      "subtheme": "skracivanje razlomka", "difficulty": "1"
+      "subtheme": "skracivanje razlomka", "topic": "", "difficulty": "1"
     },	
     {
       "name" : "fractions/q00032", "random": "1", "period": "leto", 
-      "subtheme": "prosirivanje razlomaka", "difficulty": "1"
+      "subtheme": "prosirivanje razlomaka", "topic": "", "difficulty": "1"
     },	
     {
       "name" : "fractions/q00035", "random": "1", "period": "leto", 
-      "subtheme": "prosirivanje razlomaka", "difficulty": "2"
+      "subtheme": "prosirivanje razlomaka", "topic": "", "difficulty": "2"
     },
     {
       "name" : "fractions/q00047", "random": "0", "period": "leto", 
-      "subtheme": "prosirivanje razlomaka", "difficulty": "1"
+      "subtheme": "prosirivanje razlomaka", "topic": "", "difficulty": "1"
     },
     {
       "name" : "fractions/q00048", "random": "0", "period": "leto", 
-      "subtheme": "skracivanje razlomaka", "difficulty": "2"
+      "subtheme": "skracivanje razlomaka", "topic": "", "difficulty": "2"
     },
     {
       "name" : "fractions/q00020", "random": "0", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "3"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "3"
     },
     {
       "name" : "fractions/q00021", "random": "0", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "3"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "3"
     },	
     {
       "name" : "fractions/q00022", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "2"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "2"
     },
     {
       "name" : "fractions/q00023", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "3"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "3"
     },
     {
       "name" : "fractions/q00024", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "2"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "2"
     },
     {
       "name" : "fractions/q00026", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "2"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "2"
     },
     {
       "name" : "fractions/q00027", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "3"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "3"
     },
     {
       "name" : "fractions/q00028", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "2"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "2"
     },
     {
       "name" : "fractions/q00029", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "2"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "2"
     },	
     {
       "name" : "fractions/q00030", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "1"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "1"
     },
     {
       "name" : "fractions/q00040", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "2"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "2"
     },
     {
       "name" : "fractions/q00046", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "3"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "3"
     },
     {
       "name" : "fractions/q00052", "random": "1", "period": "leto", 
-      "subtheme": "Razlomci", "difficulty": "3"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "3"
     },
     {
       "name" : "fractions/q00056", "random": "1", "period": "jesen", 
-      "subtheme": "Razlomci", "difficulty": "2"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "2"
     },
     {
       "name" : "fractions/q00057", "random": "1", "period": "jesen", 
-      "subtheme": "Razlomci", "difficulty": "2"
+      "subtheme": "Razlomci", "topic": "", "difficulty": "2"
     },
     {
       "name" : "fractions/q00058", "random": "1", "period": "jesen", 
-      "subtheme": "problem", "difficulty": "3"
+      "subtheme": "problem", "topic": "", "difficulty": "3"
     },
     {
       "name" : "fractions/q00059", "random": "1", "period": "jesen", 
-      "subtheme": "problem", "difficulty": "2"
+      "subtheme": "problem", "topic": "", "difficulty": "2"
     },
     {
       "name" : "fractions/q00060", "random": "1", "period": "jesen", 
-      "subtheme": "problem", "difficulty": "2"
+      "subtheme": "problem", "topic": "", "difficulty": "2"
     }	
   ]
  }

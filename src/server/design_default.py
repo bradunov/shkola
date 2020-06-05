@@ -266,11 +266,11 @@ class Design_default(object):
         page.template_params['menu'].append(lists)
 
         # Do not show results to an anonymous user
-        if not user_picture is None:
-            page.template_params['menu'].append({
-                "name" : "Moj uspeh".upper(),
-                "link" : new_page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False)
-            })
+        # if not user_picture is None:
+        page.template_params['menu'].append({
+            "name" : "Moj uspeh".upper(),
+            "link" : new_page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False)
+        })
 
         # "name" : "Izloguj se (" + context.c.user.name + ")",
         page.template_params['menu'].append({
