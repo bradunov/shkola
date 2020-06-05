@@ -16,10 +16,18 @@ The prefer install is as an Azure function. For local testing, in shkola root ty
 
 * Install: `docker build -f src/Dockerfile --tag <username>/shkola:v0.0.1 .`
 
-* Install Azure emulator called [Azurite](https://github.com/Azure/Azurite/tree/legacy-master). 
-  **IMPORTANT:** install version the old version (v2), not the new one (v3) as the new one doesn't emulate Azure tables. 
+	* NOTE: This will create the dockerfile from the entire python project in shkola root dir. Every time you change the python files, this has to be done to update the docker container
 
-* Deploy with result logging in Azure table: `docker run -p 8080:80 --name shkola -e SHKOLA_AZ_TABLE_CONN_STR="<connection_str>" -it <username>/shkola:v0.0.1`. Use the following [test](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string) connection string for Azurite emulator: `DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=http://XX.XX.XX.XX:10002/devstoreaccount1`, where XX.XX.XX.XX is your IP address. 
+* Install Azure emulator called [Azurite](https://github.com/Azure/Azurite/tree/legacy-master). 
+  **IMPORTANT:** install version the old version (v2), not the new one (v3) as the new one doesn't emulate Azure tables. This is done by follwing the instructions in the link, with one important DIFFERENCE:
+  type npm install -g azurite@2.7.1, instead of npm install -g azurite, as stated in the instructions, which will the latest version
+
++ starting Azurite by typing azurite in PowerShell
+
+* Deploy docker with result logging in Azure table by running in a new PowerShell: `docker run -p 8080:80 --name shkola -e SHKOLA_AZ_TABLE_CONN_STR="<connection_str>" -it <username>/shkola:v0.0.1`. Use the following [test](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string) connection string for Azurite emulator: `DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=http://XX.XX.XX.XX:10002/devstoreaccount1`, where XX.XX.XX.XX is your IP address. 
+
+*NOTE: <username> should be the same as in docker build above
+
 
 * Local web access: `http://127.0.0.1:8080/main`
 

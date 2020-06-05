@@ -26,70 +26,77 @@
 
     {% for level_key, level_val in template_params["stats"].items() %}
       {% for theme_key, theme_val in level_val.items() %}
+		{% if theme_val is mapping %}
 
-        <div style='display:block; width:100%; margin-bottom:6px'>
-          <div class="sh_chalk_font" style="
-                display:inline-block;
-                width: calc(49% - 20px);
-                font-weight:550;
-                font-size: 18px;
-                margin-top:4px;
-                margin-left:20px;
-                text-align:left; vertical-align:middle;
-                ">
-            <span style = "color:red" > 
-              {{ level_key }} 
-            </span> 
-            <span style = "color:gray">
-              {{template_params["class_gen_str"]}}  
-            </span> <br>
+			<div style='display:block; width:100%; margin-bottom:6px'>
+			  <div class="sh_chalk_font" style="
+					display:inline-block;
+					width: calc(49% - 20px);
+					font-weight:550;
+					font-size: 18px;
+					margin-top:4px;
+					margin-left:20px;
+					text-align:left; vertical-align:middle;
+					">
+				
+				{% set colors = ['#dc3d39', '#489cba', '#f3b051', '#8f53cb', '#6ab288', '#ec8e43', '#df367c', '#636661'] %}
+				{% set level_sh = template_params["stats"][level_key]['level_short'] | int %}
+				<span style = "color:{{colors[level_sh-1]}}" >
+				  {{ level_key }} 
+				</span> 
+				<span style = "color:gray">
+				  {{template_params["class_gen_str"]}}  
+				</span> <br> 																						  
+				{{ elements.color_string(theme_key,-6)}}          
+			  </div>
 
-            {{theme_key}}
-          </div>
+			  <div class="sh_chalk_font" style="display:inline-block; width:calc(49% - 20px);
+					font-weight:550; font-size: 18px; margin-top:4px; margin-right:20px; vertical-align:middle; text-align:right">
+				<div style="display:block; height:20px">
+				  {{ elements.stars(1) }}
+				  {# <span style = "color:yellow" > &#9733 </span> #}
+				</div>
+				<div style="display:block; height:20px">
+				  {{ elements.stars(2) }}
+				  {# <span style = "color:green" > &#9733 &#9733 </span> #}
+				</div>
+				<div style="display:block; height:20px">
+				  {{ elements.stars(3) }}
+				  {# <span style = "color:blue" > &#9733 &#9733 &#9733 </span> #}
+				</div>
+			  </div>
+			</div>
 
-          <div class="sh_chalk_font" style="display:inline-block; width:calc(49% - 20px);
-                font-weight:550; font-size: 18px; margin-top:4px; margin-right:20px; vertical-align:middle; text-align:right">
-            <div style="display:block; height:20px">
-              {{ elements.stars(1) }}
-              {# <span style = "color:yellow" > &#9733 </span> #}
-            </div>
-            <div style="display:block; height:20px">
-              {{ elements.stars(2) }}
-              {# <span style = "color:green" > &#9733 &#9733 </span> #}
-            </div>
-            <div style="display:block; height:20px">
-              {{ elements.stars(3) }}
-              {# <span style = "color:blue" > &#9733 &#9733 &#9733 </span> #}
-            </div>
-          </div>
-        </div>
+			{# <div>
+			  <img src=data:image/png;base64,{{ template_params["base64_str"][theme_key] }} 
+				   alt="File Missing"> 
+			</div> #}
 
-        {# <div>
-          <img src=data:image/png;base64,{{ template_params["base64_str"][theme_key] }} 
-               alt="File Missing"> 
-        </div> #}
+			<div style="display:inline-block; width: 100%; margin-bottom:30px;
+						background:white; 
+						box-shadow: 0px 5px 5px #dddddd;">
+				
+			  {% for subtheme_key, subtheme_val in theme_val.items() %}
+				<div style="display:inline-block; width: 100%; text-align: center; margin-top: 15px; ">
+				  <div class="sh_lato_font" style="display:inline-block; width: calc(49% - 24px); 
+											  font-size: 16px; text-align: left; margin-left: 24px">
+					{{subtheme_key}}
+				  </div>          
+				  <div class="sh_lato_font" style="display:inline-block; width: calc(49% - 24px); 
+											  font-size: 16px; text-align: right; margin-right: 24px">
+					{{subtheme_val["message"]}}
+					{{subtheme_val["total"]}}
 
-        <div style="display:inline-block; width: 100%; margin-bottom:30px;
-                    background:white; 
-                    box-shadow: 0px 5px 5px #dddddd;">
-          {% for subtheme_key, subtheme_val in theme_val.items() %}
-            <div style="display:inline-block; width: 100%; text-align: center; margin-top: 15px; ">
-              <div class="sh_chalk_font" style="display:inline-block; width: calc(49% - 24px); 
-                                          font-size: 16px; text-align: left; margin-left: 24px">
-                {{subtheme_key}}
-              </div>          
-              <div class="sh_chalk_font" style="display:inline-block; width: calc(49% - 24px); 
-                                          font-size: 16px; text-align: right; margin-right: 24px">
-                {{subtheme_val["total"]}}
-                {{subtheme_val["message"]}}
-              </div>          
-            </div>
-            <div style="display:inline-block; width: 100%; text-align: center; margin-top: 11px; ">
-              {{ elements.stats("bar_" + subtheme_key, 
-                      subtheme_val["diff1"], subtheme_val["diff2"], 
-                      subtheme_val["diff3"], subtheme_val["wrong"]) }} 
-            </div>
-          {% endfor %}
+				  </div>          
+				</div>
+				<div style="display:inline-block; width: 100%; text-align: center; margin-top: 11px; ">
+				  {{ elements.stats("bar_" + subtheme_key, 
+						  subtheme_val["diff1"], subtheme_val["diff2"], 
+						  subtheme_val["diff3"], subtheme_val["wrong"]) }} 
+				</div>
+			{% endfor %}
+		{% endif %}	
+		  		  
         </div>
 
       {% endfor %}
