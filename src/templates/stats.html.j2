@@ -24,7 +24,7 @@
     <!-- prepare columns for the stars -->
     {# <style> * .column{float:left; width:50%} .row:after{content: ""; display:table; clear:both} </style> #}
 
-    <div style='display:block; height:calc(100% - 505px)'>
+    <div style="display:block; position:fixed; top: 50px; left: 0px; z-index: 0; height: calc(100% - 108px); width:100%; overflow-y: auto; overflow-x: auto; ">
 
     {% for level_key, level_val in template_params["stats"].items() %}
       {% for theme_key, theme_val in level_val.items() %}
