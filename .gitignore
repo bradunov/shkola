@@ -4,3 +4,6 @@ src/server/*.sql
 tmp
 exports.sh
 
+
+# Excel tmp files
+**/~$*.xlsx
