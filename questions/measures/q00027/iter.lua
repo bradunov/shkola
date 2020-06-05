@@ -1,4 +1,5 @@
-measure = {"\(mm^2\)","\(cm^2\)","\(dm^2\)","\(m^2\)"}
+
+measure = {"mm\(^2\)","cm\(^2\)","dm\(^2\)","m\(^2\)"}
 index = {1,2,3,4}
 ind = lib.math.random_shuffle(index)
 
@@ -34,5 +35,4 @@ else
       sign = "<"
   end
 end
-       
  

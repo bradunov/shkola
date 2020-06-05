@@ -1,3 +1,4 @@
+
 addition_table = function()
   columns = 8
 
@@ -21,12 +22,12 @@ addition_table = function()
 
   style = {}
   style["text-align"] = "center"
-  style["width"] = "70px"
+  style["width"] = "80px"
 
   text = lib.start_table()
   text = text .. lib.start_row()
   text = text .. lib.add_cell("A", style)
-  text = text .. lib.add_cell("B = A &middot; " .. tostring(factor) , style)
+  text = text .. lib.add_cell("B = A · " .. tostring(factor) , style)
   text = text .. lib.add_cell("C = B : " .. tostring(devide) , style)
   text = text .. lib.end_row()
   for c=0,columns-1 do

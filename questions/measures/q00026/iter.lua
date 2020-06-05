@@ -1,4 +1,5 @@
-measure = {"\(km^2\)","ha","a","\(m^2\)"}
+
+measure = {"km\(^2\)","ha","a","m\(^2\)"}
 numb = {0, 0, 0, 0}
 
 indr = 1 + math.random(3)

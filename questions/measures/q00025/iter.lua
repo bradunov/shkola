@@ -1,4 +1,5 @@
-measure = {"\(m^2\)","\(dm^2\)","\(cm^2\)","\(mm^2\)"}
+
+measure = {"m\(^2\)","dm\(^2\)","cm\(^2\)","mm\(^2\)"}
 numb = {0, 0, 0, 0}
 
 ind = 1 + math.random(3)
@@ -33,5 +34,6 @@ for i = 1,ind do
         out = 1 
     end
 end		
+   
               
    

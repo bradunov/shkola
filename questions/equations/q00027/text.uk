@@ -1,0 +1,13 @@
+                                
+Solve the following inequalities. 
+
+@repeat(4)@
+@vspace@
+ @noneq@,  
+@center@ @answ@ 
+@/repeat@
+
+
+
+            
+            
