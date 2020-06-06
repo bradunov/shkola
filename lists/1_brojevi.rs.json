@@ -1,0 +1,281 @@
+{
+  "name": "1 Brojevi",
+  "level": "1",
+  "level_short": "1",
+  "theme": "Brojevi",
+  "language": "rs",
+  "questions": [
+    {
+      "name": "numbers/q00001",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Brojevi do 10",
+      "topic": "Prebrojavanje elemenata",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00002",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje do 10",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00003",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Oduzimanje do 10",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00004",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Brojevi do 10",
+      "topic": "Upoređivanje brojeva",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00005",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Brojevi do 10",
+      "topic": "Brojevna prava",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00006",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Brojevi do 10",
+      "topic": "Prebrojavanje elemenata",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00007",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Brojevi do 10",
+      "topic": "Upoređivanje brojeva",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00008",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje, oduzimanje i upoređivanje",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00010",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Brojevi do 10",
+      "topic": "Upoređivanje brojeva",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00011",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje do 20",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00013",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje do 20",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00014",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Brojevi do 100",
+      "topic": "Prethodnik i sledbenik",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00015",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Brojevi do 100",
+      "topic": "Brojevni niz ",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00016",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Brojevi do 100",
+      "topic": "Brojevni niz ",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00017",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje desetica i jedinica, i upoređivanje",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00018",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje do 20",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00019",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje do 20",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00020",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Brojevi do 100",
+      "topic": "Dinar, novčanice do 100 dinara",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00024",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Brojevi do 100",
+      "topic": "Brojevni niz ",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00025",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje do 20",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00026",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Računanje nepoznatog sabirka do 20",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00027",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje do 20",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00028",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje do 100",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00029",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje do 100",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00030",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Oduzimanje do 20",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00031",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Računske operacije",
+      "topic": "Oduzimanje do 100",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00032",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Računske operacije",
+      "topic": "Oduzimanje do 100",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00046",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Brojevi do 100",
+      "topic": "Upoređivanje brojeva",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00121",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Brojevi do 100",
+      "topic": "Brojevni niz",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00169",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Brojevi do 100",
+      "topic": "Brojevna prava",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00213",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje do 20",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00214",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje do 20",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00215",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Oduzimanje do 20",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00216",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje",
+      "difficulty": "3"
+    }
+  ]
+}

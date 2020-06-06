@@ -1,0 +1,73 @@
+{
+  "name": "2 Merenje i mere",
+  "level": "2",
+  "level_short": "2",
+  "theme": "Merenje i mere",
+  "language": "rs",
+  "questions": [
+    {
+      "name": "measures/q00039",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Merenje i mere",
+      "topic": "Poređenje",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00040",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Merenje i mere",
+      "topic": "Izražavanje veće jedinice pomoću manje",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00041",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Merenje i mere",
+      "topic": "Izražavanje veće jedinice pomoću manje",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00042",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Merenje i mere",
+      "topic": "Izražavanje veće jedinice pomoću manje",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00048",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Merenje i mere",
+      "topic": "Tekstualni zadatak - vreme",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00049",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Merenje i mere",
+      "topic": "Tekstualni zadatak - vreme",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00050",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Merenje i mere",
+      "topic": "Tekstualni zadatak - vreme",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00051",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Merenje i mere",
+      "topic": "Tekstualni zadatak - vreme",
+      "difficulty": "3"
+    }
+  ]
+}

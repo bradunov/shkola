@@ -84,5 +84,10 @@ for isheet in range(0, book.nsheets):
 
 #print(json.dumps(lists, indent=2))
 for file_name, content in lists.items():
+
+  # Tmp: do not convert level 5
+  if file_name[0] == '5':
+    continue
+  
   with open(file_name, 'w') as outfile:
     json.dump(content, outfile, indent=2, ensure_ascii=False)

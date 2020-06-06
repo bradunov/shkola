@@ -1,0 +1,73 @@
+{
+  "name": "3 Geometrija",
+  "level": "3",
+  "level_short": "3",
+  "theme": "Geometrija",
+  "language": "rs",
+  "questions": [
+    {
+      "name": "geometry/q00017",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Obim geometrijskih figura",
+      "topic": "Obim trougla, kvadrata i pravougaonika",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00018",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Obim geometrijskih figura",
+      "topic": "Obim kvadrata i pravougaonika",
+      "difficulty": "3"
+    },
+    {
+      "name": "geometry/q00019",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Obim geometrijskih figura",
+      "topic": "Obim trougla",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00020",
+      "random": "0",
+      "period": "2",
+      "subtheme": "Površina figure",
+      "topic": "Merenje površine figure zadatom merom",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00021",
+      "random": "0",
+      "period": "2",
+      "subtheme": "Površina figure",
+      "topic": "Merenje površine figure zadatom merom",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00022",
+      "random": "0",
+      "period": "2",
+      "subtheme": "Površina figure",
+      "topic": "Merenje površine figure zadatom merom",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00061",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Obim geometrijskih figura",
+      "topic": "Obim pravougaonika",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00062",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Obim geometrijskih figura",
+      "topic": "Obim pravougaonika",
+      "difficulty": "3"
+    }
+  ]
+}

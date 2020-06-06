@@ -1,0 +1,201 @@
+{
+  "name": "3 Merenje i mere",
+  "level": "3",
+  "level_short": "3",
+  "theme": "Merenje i mere",
+  "language": "rs",
+  "questions": [
+    {
+      "name": "measures/q00016",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Poređenje dužina",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00052",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Tekstualni zadatak - vreme",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00053",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Izražavanje veće jedinice pomoću manje - vreme",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00054",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Izražavanje veće dužinske jedinice pomoću manje",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00055",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Izražavanje u različitim dužinskim jedinicama",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00056",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Izražavanje većih dužinskih jedinica pomoću manje",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00057",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Decenija, vek, godina",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00058",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Izražavanje manje dužinske jedinice pomoću većih",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00059",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Poređenje dužina",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00060",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Sabiranje i oduzimanje dužina",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00063",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Izražavanje veće jedinice za merenje zapremine tečnosti pomoću manje",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00064",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Izražavanje u različitim jedinice za merenje zapremine tečnosti",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00065",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Izražavanje većih jedinica za merenje zapremine tečnosti pomoću manje",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00066",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Izražavanje manje jedinice za merenje zapremine tečnosti pomoću većih",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00067",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Poređenje zapremina",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00068",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Sabiranje i oduzimanje zapremina",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00069",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Izražavanje veće jedinice za masu pomoću manje",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00070",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Osnovne jedinice za dužinu, masu, zapreminu tečnosti i vreme",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00071",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Jedinice za dužinu, masu, zapreminu tečnosti i vreme",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00072",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Tekstualni zadatak - masa",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00073",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Tekstualni zadatak - zapremina tečnosti",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00074",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Tekstualni zadatak - vreme",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00075",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Tekstualni zadatak - zapremina tečnosti",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00076",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje i mere",
+      "topic": "Tekstualni zadatak - vreme",
+      "difficulty": "2"
+    }
+  ]
+}
