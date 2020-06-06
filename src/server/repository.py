@@ -245,7 +245,9 @@ class Repository(object):
                                 "**********************************************\n"\
                                 )
                             pass
-                    elif not self.check_extension(file, ".png") and not self.check_extension(file, ".xlsx"):
+                    elif not self.check_extension(file, ".png") and \
+                         not self.check_extension(file, ".xlsx") and \
+                         not self.check_extension(file, ".py"):
                         try:
                             with open(dirpath + "/" + file, encoding='utf-8') as f_text:
                                 text = f_text.read()
