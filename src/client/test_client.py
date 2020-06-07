@@ -7,13 +7,14 @@ import json
 
 
 
-#url = "http://shkola.vladap.com:7071/main"
-url = 'https://www.tatamata.org'
+url = "http://shkola.vladap.com:7071/main"
+#url = 'https://www.tatamata.org'
 
-number_of_runs_per_user = 10
-number_of_users = 2
+number_of_runs_per_user = 1
+number_of_users = 1
 
 
+DEBUG = True
 
 
 http_timeout_s = 10
@@ -113,17 +114,17 @@ async def session_op(id, samples, get_method, op, jar=None, page_name=None):
   if not page_name:
     page_name = op
 
+  if DEBUG:
+    print(f"#{id} Requestion URL: {url}")
   start_time = time.time()
   r = await get_method(url, params=test_params[pop], cookies=jar, timeout=http_timeout_s)
   end_time = time.time()
 
-
-  if False:
-    # DEBUG
-    #print(r.text)
-    #print(r.headers)
-    print(f"Page name: {get_page_name(r.text)}")
-    print(f"Requested url: {r.url}\n")
+  if DEBUG:
+    print(f"#{id} Requested url: {r.url}\n")
+    print(f"#{id} Obtained page name: {get_page_name(r.text)}")
+    #print(f"#{id} Received header: {r.headers}\n")
+    #print(f"#{id} Received cookies: {r.cookies['shkola_session_id']}\n")
 
   if not r.status_code == 200:
     #print(f"Error code {r.status_code}")
@@ -131,7 +132,7 @@ async def session_op(id, samples, get_method, op, jar=None, page_name=None):
     raise HTTPError
     return False, r
   elif not page_name == get_page_name(r.text):
-    print(f"Wrong page, expecting {page_name}, got {get_page_name(r.text)}")
+    print(f"#{id} Wrong page, expecting {page_name}, got {get_page_name(r.text)}")
     add_stats(samples, "wrong_page", start_time, end_time)
     raise WrongPageError
     return False, r
@@ -148,7 +149,8 @@ async def session_login(id, samples, get_method):
     session_id = r.cookies["shkola_session_id"]
     jar = requests.cookies.RequestsCookieJar()
     jar.set('shkola_session_id', session_id)
-    #print(f"Session id: {session_id}")
+    if DEBUG:
+      print(f"#{id} Logged in, session id: {session_id}")
     return resp, jar
   else:
     return resp, None
@@ -156,13 +158,16 @@ async def session_login(id, samples, get_method):
 
 
 
-async def test_session(id, samples, get_method):
+async def test_session(id, no, samples, get_method):
+  if DEBUG:
+    print(f"#{id} starting user task {no}")
+
   try:
     resp, jar = await session_login(id, samples, get_method)
     if not resp:
       return False
   except Exception as e:
-    print(f"EXCEPTION during login: {e}")
+    print(f"#{id} EXCEPTION during login: {e}")
     return False
 
   try:
@@ -173,28 +178,23 @@ async def test_session(id, samples, get_method):
       await session_op(id, samples, get_method, "question", jar)
     await session_op(id, samples, get_method, "final", jar, "summary")
   except Exception as e:
-    print(f"EXCEPTION: {e}")
+    print(f"#{id} EXCEPTION: {e}")
     try:
       await session_op(id, samples, get_method, "logout", jar, "user")
     except Exception as e:
-      print(f"EXCEPTION during logout: {e}")
+      print(f"#{id} EXCEPTION during logout: {e}")
       pass
     return False
 
   try:
     await session_op(id, samples, get_method, "logout", jar, "user")
   except Exception as e:
-    print(f"EXCEPTION during logout: {e}")
+    print(f"#{id} EXCEPTION during logout: {e}")
     return False
+
+  if DEBUG:
+    print(f"#{id} user task {no} done")
   return True
-
-
-
-
-
-
-
-
 
 
 
@@ -204,18 +204,9 @@ async def get_page(id, samples):
     for i in range(0,number_of_runs_per_user):
       if id == 0:
         print(".", end="", flush=True)
-      await test_session(id, samples, client.get)
+      await test_session(id, i, samples, client.get)
 
-      # start_time = time.time()
-      # r = await client.get(url, timeout=http_timeout_s)
-      # end_time = time.time()
-      # duration = end_time - start_time
-      # if id == 0:
-      #   print(".", end="", flush=True)
-      # if not r.status_code == 200:
-      #   print(f"Error code {r.status_code}")
-      # else:
-      #   samples.append(duration)
+
 
 
 async def async_test():
