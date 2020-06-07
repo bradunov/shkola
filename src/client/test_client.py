@@ -3,11 +3,20 @@ import requests.cookies
 import httpx
 import time
 import trio
+import json
+
+
+
+#url = "http://shkola.vladap.com:7071/main"
+url = 'https://www.tatamata.org'
+
+number_of_runs_per_user = 10
+number_of_users = 2
+
 
 
 
 http_timeout_s = 10
-
 number_of_question_in_test = 5
 
 
@@ -27,7 +36,6 @@ test_params = {
 
 
 def print_stats(samples):
-  print("Samples:")
   for k,v in samples.items():
     v.sort()
     perc_10 = v[int(len(v)*0.1)]
@@ -94,7 +102,7 @@ class HTTPError(Exception):
   pass
 
 
-def session_op(samples, get_method, op, jar=None, page_name=None):
+async def session_op(id, samples, get_method, op, jar=None, page_name=None):
   if (op == "final"):
     # Last page is also question, but generates final result instead
     # The caller needs to know when is the last question
@@ -103,10 +111,10 @@ def session_op(samples, get_method, op, jar=None, page_name=None):
     pop = op
 
   if not page_name:
-    page_name = op 
+    page_name = op
 
   start_time = time.time()
-  r = get_method(url, params=test_params[pop], cookies=jar, timeout=http_timeout_s)
+  r = await get_method(url, params=test_params[pop], cookies=jar, timeout=http_timeout_s)
   end_time = time.time()
 
 
@@ -126,7 +134,6 @@ def session_op(samples, get_method, op, jar=None, page_name=None):
     print(f"Wrong page, expecting {page_name}, got {get_page_name(r.text)}")
     add_stats(samples, "wrong_page", start_time, end_time)
     raise WrongPageError
-    print("AAAAA")
     return False, r
   else:
     add_stats(samples, op, start_time, end_time)
@@ -135,8 +142,8 @@ def session_op(samples, get_method, op, jar=None, page_name=None):
 
 
 
-def session_login(samples, get_method):
-  resp, r = session_op(samples, get_method, "login_anon", page_name="confirm_anon")
+async def session_login(id, samples, get_method):
+  resp, r = await session_op(id, samples, get_method, "login_anon", page_name="confirm_anon")
   if resp:
     session_id = r.cookies["shkola_session_id"]
     jar = requests.cookies.RequestsCookieJar()
@@ -149,9 +156,9 @@ def session_login(samples, get_method):
 
 
 
-def test_session(samples, get_method):
+async def test_session(id, samples, get_method):
   try:
-    resp, jar = session_login(samples, get_method)
+    resp, jar = await session_login(id, samples, get_method)
     if not resp:
       return False
   except Exception as e:
@@ -159,30 +166,29 @@ def test_session(samples, get_method):
     return False
 
   try:
-    session_op(samples, get_method, "year", jar)
-    session_op(samples, get_method, "theme", jar)
-    session_op(samples, get_method, "intro", jar)
+    await session_op(id, samples, get_method, "year", jar)
+    await session_op(id, samples, get_method, "theme", jar)
+    await session_op(id, samples, get_method, "intro", jar)
     for i in range(0, number_of_question_in_test):
-      session_op(samples, get_method, "question", jar)
-    session_op(samples, get_method, "final", jar, "summary")
+      await session_op(id, samples, get_method, "question", jar)
+    await session_op(id, samples, get_method, "final", jar, "summary")
   except Exception as e:
     print(f"EXCEPTION: {e}")
     try:
-      r = session_op(samples, get_method, "logout", jar, "user")
+      await session_op(id, samples, get_method, "logout", jar, "user")
     except Exception as e:
       print(f"EXCEPTION during logout: {e}")
       pass
     return False
 
   try:
-    r = session_op(samples, get_method, "logout", jar, "user")
+    await session_op(id, samples, get_method, "logout", jar, "user")
   except Exception as e:
     print(f"EXCEPTION during logout: {e}")
     return False
   return True
 
 
-  
 
 
 
@@ -192,59 +198,62 @@ def test_session(samples, get_method):
 
 
 
-async def get_page(id):
+
+async def get_page(id, samples):
   async with httpx.AsyncClient() as client:
-    samples = {}
     for i in range(0,number_of_runs_per_user):
-      start_time = time.time()
-      r = await client.get(url, timeout=http_timeout_s)
-      end_time = time.time()
-      duration = end_time - start_time
       if id == 0:
         print(".", end="", flush=True)
-      if not r.status_code == 200:
-        print(f"Error code {r.status_code}")
-      else:
-        samples.append(duration)
-    if id == 0:
-      print("", flush=True)
-    print_stats(samples)
+      await test_session(id, samples, client.get)
+
+      # start_time = time.time()
+      # r = await client.get(url, timeout=http_timeout_s)
+      # end_time = time.time()
+      # duration = end_time - start_time
+      # if id == 0:
+      #   print(".", end="", flush=True)
+      # if not r.status_code == 200:
+      #   print(f"Error code {r.status_code}")
+      # else:
+      #   samples.append(duration)
+
 
 async def async_test():
+  list_of_samples= []
+  for i in range(0,number_of_users):
+    list_of_samples.append({})
   async with trio.open_nursery() as nursery:
     for i in range(0,number_of_users):
-      nursery.start_soon(get_page, i)
-    
+      nursery.start_soon(get_page, i, list_of_samples[i])
 
+  print("", flush=True)
+  for i in range(0,number_of_users):
+    print(f"Samples user {i+1}:")
+    print_stats(list_of_samples[i])
 
+  #print(json.dumps(list_of_samples, indent=2))
 
 
 
 
 if __name__ == "__main__":
 
-  #url = "http://shkola.vladap.com:7071/main"
-  url = 'https://www.tatamata.org'
 
-  number_of_runs_per_user = 10
-  number_of_users = 1
-
-
-  print("IMPORTANT: if you run this in windows, run from PowerShell, not WSL!\n")
-
+  print("\nIMPORTANT: if you run this in windows, run from PowerShell, not WSL!\n")
+  print(f"Target URL: {url}")
 
   # Async still doesn't work - needs fixing, if we decide we need it
-  # print("\n\nAsync:", end="", flush=True)
-  # trio.run(async_test)
+  print(f"Running {number_of_runs_per_user} runs for each of {number_of_users} users:", end="", flush=True)
+  trio.run(async_test)
 
-  samples = {}
-  print("\n\nSync:", end="", flush=True)
+  # samples = {}
+  # print("\n\nSync:", end="", flush=True)
 
-  for i in range(0,number_of_runs_per_user):
-    print(".", end="", flush=True)
-    test_session(samples, requests.get)
+  # for i in range(0,number_of_runs_per_user):
+  #   print(".", end="", flush=True)
+  #   test_session(samples, requests.get)
 
-  print("")
+  # print("")
 
-  print_stats(samples)
+  # print_stats(samples)
 
