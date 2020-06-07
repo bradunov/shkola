@@ -96,7 +96,7 @@ class PageOperation(Enum):
     # Stats
     STATS = "stats"
     # Intro
-    INTRO = "into"
+    INTRO = "intro"
     # Summary
     SUMMARY = "summary"
     # Previous question in test
