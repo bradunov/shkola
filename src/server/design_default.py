@@ -420,7 +420,7 @@ class Design_default(object):
             
             page.template_params["template_name"] = "theme.html.j2"
 
-            page.template_params['year'] = page.page_params.get_param("year").upper()
+            page.template_params['year'] = page.page_params.get_param("year").upper().strip()
             page.template_params['url_year'] = page.page_params.create_url(
                                             op = PageOperation.toStr(PageOperation.MENU_YEAR), js = False)
 
@@ -440,13 +440,13 @@ class Design_default(object):
 
                     for subclass in sorted(content[page.page_params.get_param("year")][theme].keys()):
                         if not subclass == "name":
-                            subtheme = content[page.page_params.get_param("year")][theme][subclass]["subtheme"]
+                            subtheme = content[page.page_params.get_param("year")][theme][subclass]["subtheme"].strip()
                             if subtheme not in all_subthemes:
                                 subtheme_list.append({
                                     'title' : subtheme.title(),
                                     'link' : page.page_params.create_url(
                                             op = PageOperation.toStr(PageOperation.INTRO), 
-                                            theme = theme.title(), \
+                                            theme = theme.title().strip(), \
                                             subtheme = subtheme, 
                                             period = "*", 
                                             difficulty = "*", 
@@ -468,10 +468,10 @@ class Design_default(object):
 
 
                     page.template_params['themes'].append({
-                        'title' : theme.title().upper(),
+                        'title' : theme.title().upper().strip(),
                         'link' : page.page_params.create_url(
                                 op = PageOperation.toStr(PageOperation.INTRO), 
-                                theme = theme.title(), \
+                                theme = theme.title().strip(), \
                                 subtheme = "*", \
                                 period = "*", \
                                 difficulty = "*", \
