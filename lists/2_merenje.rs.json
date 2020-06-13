@@ -9,64 +9,64 @@
       "name": "measures/q00039",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Poređenje",
+      "subtheme": "Merenje dužine",
+      "topic": "Poređenje mera",
       "difficulty": "1"
     },
     {
       "name": "measures/q00040",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Izražavanje veće jedinice pomoću manje",
+      "subtheme": "Merenje dužine",
+      "topic": "Pretvaranje jedne mere u drugu",
       "difficulty": "2"
     },
     {
       "name": "measures/q00041",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Izražavanje veće jedinice pomoću manje",
+      "subtheme": "Merenje dužine",
+      "topic": "Pretvaranje jedne mere u drugu",
       "difficulty": "1"
     },
     {
       "name": "measures/q00042",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Izražavanje veće jedinice pomoću manje",
+      "subtheme": "Merenje dužine",
+      "topic": "Pretvaranje jedne mere u drugu",
       "difficulty": "2"
     },
     {
       "name": "measures/q00048",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Tekstualni zadatak - vreme",
+      "subtheme": "Merenje vremena",
+      "topic": "Pretvaranje jedne mere u drugu",
       "difficulty": "1"
     },
     {
       "name": "measures/q00049",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Tekstualni zadatak - vreme",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
       "difficulty": "2"
     },
     {
       "name": "measures/q00050",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Tekstualni zadatak - vreme",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
       "difficulty": "2"
     },
     {
       "name": "measures/q00051",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Tekstualni zadatak - vreme",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
       "difficulty": "3"
     }
   ]

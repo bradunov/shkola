@@ -1,0 +1,28 @@
+
+measure = {"m", "dm", "cm","mm"}
+
+grad3 ="\(^3\)"
+
+dim = {""}
+number = {};
+value = {};
+out = {};
+
+stampa = 6
+
+for i = 1, stampa do
+    ind = math.random(4)
+    temp = 10^(ind-1)
+    value[i] = temp + math.random(50*temp)
+    if (ind > 2) then
+        value[i] = value[i] * 100^(ind - 2)	   
+    end   
+    number[i] = value[i] * 1000^(4-ind)
+    dim[i] = measure[ind]
+end		
+ 
+out = lib.math.argsort(number);
+          
+          
+
+  

@@ -1,0 +1,10 @@
+
+Upiši odgovarajuće jedinice mere tako da jednakost bude tačna. 
+   
+@repeat(5)@ 
+@vspace@
+@center@ @numleft@ @measure3[indl]@ @hspacept(5)@ = @hspacept(5)@ @numright@ @lib.check_string(measure[indr],25)@\(^3\)
+
+@/repeat@       
+           
+      

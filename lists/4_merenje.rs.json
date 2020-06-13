@@ -6,83 +6,139 @@
   "language": "rs",
   "questions": [
     {
+      "name": "measures/q00017",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Merenje zapremine",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00018",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Merenje zapremine",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00019",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Merenje zapremine",
+      "topic": "Poređenje mera",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00020",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Merenje zapremine",
+      "topic": "Poređenje mera",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00021",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Merenje zapremine",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00022",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Merenje zapremine",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "difficulty": "2"
+    },
+    {
       "name": "measures/q00023",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Pretvaranje većih mera za površinu u manje",
+      "subtheme": "Merenje površine",
+      "topic": "Pretvaranje jedne mere u drugu",
       "difficulty": "1"
     },
     {
       "name": "measures/q00024",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Pretvaranje većih mera za površinu u manje",
+      "subtheme": "Merenje površine",
+      "topic": "Pretvaranje jedne mere u drugu",
       "difficulty": "2"
     },
     {
       "name": "measures/q00025",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Pretvaranje manjih mera za površinu u veće",
+      "subtheme": "Merenje površine",
+      "topic": "Pretvaranje jedne mere u drugu",
       "difficulty": "1"
     },
     {
       "name": "measures/q00026",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Pretvaranje manjih mera za površinu u veće",
+      "subtheme": "Merenje površine",
+      "topic": "Pretvaranje jedne mere u drugu",
       "difficulty": "2"
     },
     {
       "name": "measures/q00027",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Poređenje površina",
+      "subtheme": "Merenje površine",
+      "topic": "Poređenje mera",
       "difficulty": "1"
     },
     {
       "name": "measures/q00028",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Poređenje površina",
+      "subtheme": "Merenje površine",
+      "topic": "Poređenje mera",
       "difficulty": "1"
     },
     {
       "name": "measures/q00029",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Pretvaranje mera za površinu jednih u druge",
+      "subtheme": "Merenje površine",
+      "topic": "Pretvaranje jedne mere u drugu",
       "difficulty": "1"
     },
     {
       "name": "measures/q00030",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Poređenje površina",
+      "subtheme": "Merenje površine",
+      "topic": "Poređenje mera",
       "difficulty": "2"
     },
     {
       "name": "measures/q00031",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Sabiranje i oduzimanje mera za površinu",
+      "subtheme": "Merenje površine",
+      "topic": "Računske operacije ",
       "difficulty": "2"
+    },
+    {
+      "name": "measures/q00032",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Merenje površine",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "difficulty": "1"
     },
     {
       "name": "measures/q00033",
       "random": "1",
       "period": "1",
-      "subtheme": "Merenje i mere",
-      "topic": "Površina pravougaonika",
+      "subtheme": "Merenje površine",
+      "topic": "Računske operacije ",
       "difficulty": "2"
     }
   ]
