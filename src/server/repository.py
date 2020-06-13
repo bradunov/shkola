@@ -247,18 +247,21 @@ class Repository(object):
                             pass
                     elif not self.check_extension(file, ".png") and \
                          not self.check_extension(file, ".xlsx") and \
+                         not self.check_extension(file, ".docx") and \
                          not self.check_extension(file, ".py"):
                         try:
                             with open(dirpath + "/" + file, encoding='utf-8') as f_text:
                                 text = f_text.read()
-                        except IOError:
+                        except Exception as e:
                             logging.warn( \
                                 "\n\n**********************************************\n" + \
-                                "Error parsing PNG file: {}\n".format(file) + \
+                                "Error parsing file {}: {}\n".format(file, e) + \
                                 "**********************************************\n"\
                                 )
                             text = ""
                             pass
+                            
+
                         d[file] = text
         else:
             list_files = self.azure_blob.list_files(path)
