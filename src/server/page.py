@@ -513,7 +513,7 @@ class Page(object):
             try:
                 self.storage.record_feedback(response)
             except Exception as err:
-                logging.error("Error submitting google error feedback: {}".format(str(err)))
+                logging.error("Error submitting google error feedback (user_id={}): {}".format(user_id, str(err)))
 
 
         elif "q_id" in args.keys():
@@ -555,9 +555,9 @@ class Page(object):
             try:
                 self.storage.record_feedback(response)
             except Exception as err:
-                logging.error("Error submitting record response: {}".format(str(err)))
+                logging.error("Error submitting record response (user_id={}): {}".format(user_id, str(err)))
         else:
-            logging.error("Register operation with incomplete parameters: {}".format(args))
+            logging.error("Register operation with incomplete parameters (user_id={}): {}".format(user_id, args))
 
         return "ABC"
 
