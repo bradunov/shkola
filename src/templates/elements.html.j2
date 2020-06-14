@@ -572,8 +572,10 @@
 
 
 {% macro bravo() %}
-
-  <div id="monster" style="display:block; visibility:hidden; width:200px; position: fixed; z-index: 1; 
+  <div id="monster_background" style="display:block; visibility:hidden; width:100%; height: calc(100% - 170px); position: fixed; 
+              z-index: 1; bottom: 40px; left: 50%; transform: translate(-50%, 0%); background: white; opacity: 0.7; ">
+  </div>
+  <div id="monster" style="display:block; visibility:hidden; width:200px; position: fixed; z-index: 2; 
               bottom: 40px; left: 50%; transform: translate(-50%, 0%);">
 
     <svg width="192" height="170" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
@@ -634,7 +636,10 @@
 
 
 {% macro bravo2() %}
-  <div id="monster_table" style="display:block; visibility:hidden; position: fixed; z-index: 1; 
+  <div id="monster_background" style="display:block; visibility:hidden; width:100%; height: calc(100% - 170px); position: fixed; 
+              z-index: 1; bottom: 40px; left: 50%; transform: translate(-50%, 0%); background: white; opacity: 0.7; ">
+  </div>
+  <div id="monster_table" style="display:block; visibility:hidden; position: fixed; z-index: 2; 
               bottom: 140px; left: calc(50% - 30px); transform: translate(-50%, 0%);">
     <svg width="192" height="160" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
       <g>
@@ -650,7 +655,7 @@
     </svg>
   </div>
 
-  <div id="monster" style="display:block; visibility:hidden; position: fixed; z-index: 1; 
+  <div id="monster" style="display:block; visibility:hidden; position: fixed; z-index: 2; 
               bottom: 40px; left: 50%; transform: translate(-50%, 0%);">
     <svg id="svg_monster" xmlns="http://www.w3.org/2000/svg" id="prefix__monster_4" width="117.388" height="104.629" 
           data-name="monster 4" viewBox="0 0 117.388 104.629">
@@ -708,8 +713,10 @@
 
 
 {% macro bravo3() %}
-
-  <div id="monster" style="display:block; visibility:hidden; position: fixed; z-index: 1; 
+  <div id="monster_background" style="display:block; visibility:hidden; width:100%; height: calc(100% - 170px); position: fixed; 
+              z-index: 1; bottom: 40px; left: 50%; transform: translate(-50%, 0%); background: white; opacity: 0.7; ">
+  </div>
+  <div id="monster" style="display:block; visibility:hidden; position: fixed; z-index: 2; 
               bottom: 40px; left: calc(50% - 20px); transform: translate(-50%, 0%);">
 
     <svg width="152" height="240" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
