@@ -700,6 +700,118 @@
       "subtheme": "Nejednačine ",
       "topic": "Zbir/razlika, tekstualni zadatak",
       "difficulty": "2"
+    },
+    {
+      "name": "equations/q00032",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Jednačine ",
+      "topic": "Proizvod/količnik",
+      "difficulty": "1"
+    },
+    {
+      "name": "equations/q00033",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Jednačine ",
+      "topic": "Sve računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00034",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Jednačine ",
+      "topic": "Sve računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00035",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Jednačine ",
+      "topic": "Proizvod/količnik",
+      "difficulty": "1"
+    },
+    {
+      "name": "equations/q00036",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Jednačine ",
+      "topic": "Sve računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00037",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Jednačine ",
+      "topic": "Sve računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00038",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Jednačine ",
+      "topic": "Sve računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00039",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Proizvod/količnik",
+      "difficulty": "1"
+    },
+    {
+      "name": "equations/q00040",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Sve računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00041",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Sve računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00042",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Sve računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00043",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Proizvod/količnik",
+      "difficulty": "1"
+    },
+    {
+      "name": "equations/q00044",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Proizvod/količnik",
+      "difficulty": "1"
+    },
+    {
+      "name": "equations/q00045",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Sve računske operacije",
+      "difficulty": "2"
     }
   ]
 }
