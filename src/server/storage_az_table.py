@@ -2,6 +2,7 @@ from azure.cosmosdb.table.tableservice import TableService
 from azure.common import AzureMissingResourceHttpError
 
 from .helpers import encode_dict, decode_dict
+from .timers import timer_section
 
 import os
 import time
@@ -33,7 +34,6 @@ class Storage_az_table():
         for table in tables:
             if table not in existing_tables:
                 self.table_service.create_table(table)
-
 
 
     def get_user(self, user_id):
@@ -78,6 +78,7 @@ class Storage_az_table():
         return user_id
             
 
+    @timer_section("storage.record_response")
     def record_response(self, response):
         response['PartitionKey'] = response['user_id']
         response['RowKey'] = response['question_id'] + "|" + str(response['time']) + "|" + str(response['duration'])
@@ -94,6 +95,7 @@ class Storage_az_table():
             logging.exception('Error adding response: {}\n\n{}' + str(response, err))
 
 
+    @timer_section("storage.record_feedback")
     def record_feedback(self, response):
         fb_time = int(time.time() * 1000)
 
@@ -113,6 +115,7 @@ class Storage_az_table():
             logging.exception('Error adding response: ' + str(err))
 
 
+    @timer_section("storage.update_session")
     def update_session(self, session_id, data = {}):
         assert session_id is not None
         assert data['state_id'] is not None
@@ -132,6 +135,7 @@ class Storage_az_table():
             logging.exception('Error adding to table ' + self.sessions_table_name + ' record: {}'.format(properties))
 
 
+    @timer_section("get_session")
     def get_session(self, session_id):
         try:
             entity = self.table_service.get_entity(self.sessions_table_name, session_id, "")

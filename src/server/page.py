@@ -297,12 +297,8 @@ class Page(object):
     # def footer(self):
     #     return "</body>\n</html>\n"
         
-    
-
-
-
         
-    def main(self, req, headers, args):
+    def main(self, req, headers, timers, args):
         self.clear()
 
         logging.debug("\n\nMAIN ARGS: {}\n\n".format(args))        
@@ -339,12 +335,14 @@ class Page(object):
 
 
         with context.new_context(req, headers):
+            context.c.timers = timers
+
             with self.sessiondb.init_session(req, headers) as session:
                 context.c.session = session
                 context.c.user = self.userdb.get_user(session.user_id())
 
                 # Debug
-                if True:
+                if False:
                     session.print()
 
                 # Page counter (for testing)
@@ -382,8 +380,8 @@ class Page(object):
                                         self.page_params.get_param("text"),
                                     ))
 
-
-                    return Design.main(self)
+                    with context.c.timers.new_section("design.main"):
+                        return Design.main(self)
 
 
     # args is in format returned by urllib.parse.parse_qs

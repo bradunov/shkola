@@ -5,7 +5,9 @@ import sys
 import json
 
 # This is the web root dir that has to be defined in Dockerfile 
-sys.path.append(os.environ['AzureWebJobsScriptRoot']) 
+webroot = os.environ.get('AzureWebJobsScriptRoot')
+if webroot:
+    sys.path.append(webroot)
 
 #sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/..")
 
@@ -14,10 +16,10 @@ sys.path.append(os.environ['AzureWebJobsScriptRoot'])
 #logging.warning("Current path: " + str(os.getcwd()))
 
 
-from server.helpers import extract_dict_from_post
 from server.page import Page
 from server.headers import Headers
 from server.request import Request
+from server.timers import TimerControl
 
 #DEBUG
 #from pprint import pprint
@@ -46,17 +48,25 @@ use_azure_blob = False
 preload = True
 
 
-
-
-
 def main(req: func.HttpRequest) -> func.HttpResponse:
+    tc = TimerControl()
+    with tc.new_section("request"):
+        ret = main_work(req, tc)
+
+    d = tc.dump()
+    logging.debug("TIMERS:\n%s", d)
+
+    return ret
+
+
+def main_work(req: func.HttpRequest, tc: TimerControl) -> func.HttpResponse:
     global PAGE
     if PAGE is None:
         logging.info("Reloading page (%s, %s)", str(use_azure_blob), str(preload))
         PAGE = Page(use_azure_blob=use_azure_blob, preload=preload)
 
 
-    if True:
+    if False:
         logging.debug("METHOD: " + str(req.method))
         logging.debug("URL: " + str(req.url))
         logging.debug("HEADERS: " + str(dict(req.headers)))
@@ -99,7 +109,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     if "language" not in args.keys():
         args["language"] = "rs"
 
-    page_body = PAGE.main(request, headers, args)
+    with tc.new_section("page_main"):
+        page_body = PAGE.main(request, headers, tc, args)
 
     return func.HttpResponse(
         page_body,
