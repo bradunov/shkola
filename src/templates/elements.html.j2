@@ -254,6 +254,13 @@
         }
       }
 
+      function next_emphasize() {
+        document.getElementById("next_text").style.color = "white";
+        document.getElementById("next_button").style.background = "#6AB288";
+        document.getElementById("next_skuter_1").style.color = "white";
+        document.getElementById("next_skuter_2").style.color = "white";
+      }
+
       let next_timer = setInterval(function() {
         let toggle = function(obj) {
           if (obj.style.opacity == 1) obj.style.opacity = 0.4;
@@ -269,7 +276,7 @@
     <div id="next_menu" style="display:table; margin:0 auto; ">
       <div class="" align="center" style="display:content; border:0px; padding:0px; margin: {{top_margin}}px 0 0 0">
 
-        <div class="sh-std-button" style="display: table; width: 291px; height: 40px; margin: 0; 
+        <div id="next_button" class="sh-std-button" style="display: table; width: 291px; height: 40px; margin: 0; 
                     background-color: white; " onclick="{{onclick}}">
           <div id="next_text" class="sh_lato_font" style="display: table-cell; vertical-align: middle; text-align: right; width: 145px;
                       font-size: 18px; color: #148f91; opacity:0.4;">
@@ -627,6 +634,7 @@
       monster.style.visibility = "visible";
       var monster_background = document.getElementById("monster_background");
       monster_background.style.visibility = "visible";
+      next_emphasize();
     }
   </script>
 {% endmacro %}
@@ -685,6 +693,7 @@
       document.getElementById("monster_table").style.visibility = "visible";
       document.getElementById("monster").style.visibility = "visible";
       document.getElementById("monster_background").style.visibility = "visible";
+      next_emphasize();
     }
 
     var cup_monster = document.getElementById("svg_monster");
@@ -742,6 +751,7 @@
       var monster = document.getElementById("monster");
       monster.style.visibility = "visible";
       document.getElementById("monster_background").style.visibility = "visible";
+      next_emphasize();
     }
   </script>
 {% endmacro %}
