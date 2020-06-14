@@ -625,6 +625,8 @@
     function make_monster_visible() {
       var monster = document.getElementById("monster");
       monster.style.visibility = "visible";
+      var monster_background = document.getElementById("monster_background");
+      monster_background.style.visibility = "visible";
     }
   </script>
 {% endmacro %}
@@ -682,6 +684,7 @@
     function make_monster_visible() {
       document.getElementById("monster_table").style.visibility = "visible";
       document.getElementById("monster").style.visibility = "visible";
+      document.getElementById("monster_background").style.visibility = "visible";
     }
 
     var cup_monster = document.getElementById("svg_monster");
@@ -738,6 +741,7 @@
     function make_monster_visible() {
       var monster = document.getElementById("monster");
       monster.style.visibility = "visible";
+      document.getElementById("monster_background").style.visibility = "visible";
     }
   </script>
 {% endmacro %}
