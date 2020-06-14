@@ -739,8 +739,8 @@ class Design_default(object):
         page.template_params["l_id"] = page.page_params.get_param("l_id")
         page.template_params["language"] = PageLanguage.toStr(page.page_params.get_param("language"))
 
-        page.template_params["year"] = page.page_params.get_param("year")
-        page.template_params["theme"] = page.page_params.get_param("theme")
+        page.template_params["year"] = page.page_params.get_param("year").upper()
+        page.template_params["theme"] = page.page_params.get_param("theme").upper()
         page.template_params["subtheme"] = page.page_params.get_param("subtheme")
         page.template_params["difficulty"] = int(difficulty)
 

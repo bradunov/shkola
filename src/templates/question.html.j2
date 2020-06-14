@@ -26,10 +26,10 @@
     {{ menu.start_head() }}
 
       <div style="display:inline-block; text-align:left; height: 36px; margin-left: 37px; margin-top: 8px">
-        <div class="sh_chalk_font" style="display:inline-block; color: #dc3d39; font-size: 14px;">
+        <div class="sh_lato_font" style="display:inline-block; color: #dc3d39; font-size: 14px;">
           {{template_params["year"].upper()}}
         </div> 
-        <div class="sh_chalk_font" style="display:inline-block; color: #636661; font-size: 14px;">
+        <div class="sh_lato_font" style="display:inline-block; color: #636661; font-size: 14px;">
           razred
         </div> 
         <br>
@@ -37,7 +37,7 @@
           {{ elements.color_string(template_params["theme"], -4) }}
         </div>
         {% if template_params["subtheme"].strip() != "*" %}
-        <div class="sh_chalk_font" style="display:inline-block;color: #636661; font-size: 14px;">
+        <div class="sh_lato_font" style="display:inline-block;color: #636661; font-size: 14px;">
           / {{template_params["subtheme"].capitalize()}}
         </div>
         {% endif %}
@@ -118,16 +118,19 @@
           document.getElementById("cup3").style.visibility = "visible";
           document.getElementById("cup4").style.visibility = "visible";
           document.getElementById("cup5").style.visibility = "visible";
+          document.getElementById("next_text").innerHTML = "NASTAVI";
         } else {
           //if (!showed_wrong) {
           if (document.getElementById("popup_wrong_answer").style.visibility == "hidden") {
             //document.getElementById("wrong_answer").style.visibility = "visible";
             popup_toggle_wrong_answer("visible");
+            document.getElementById("next_text").innerHTML = "NASTAVI";
             //showed_wrong = true;
           } else {
             if (document.getElementById("wr_again").checked) {
               //document.getElementById("wrong_answer").style.visibility = "hidden";
               popup_toggle_wrong_answer("hidden");
+              document.getElementById("next_text").innerHTML = "PROVERI";
               //showed_wrong = false;
               // Delete all wrong answers
               clearAll();
@@ -135,6 +138,7 @@
               //document.getElementById("wrong_answer").style.visibility = "hidden";
               popup_toggle_wrong_answer("hidden");
               popup_toggle_reveal("visible");
+              document.getElementById("next_text").innerHTML = "NASTAVI";
               //showed_wrong = false;
               clearAll();
               addSolutionAll();
@@ -142,6 +146,7 @@
             } else if (document.getElementById("wr_skip").checked) {
               popup_toggle_wrong_answer("hidden");
               popup_toggle_skip("visible");
+              document.getElementById("next_text").innerHTML = "NASTAVI";
               return;
             }
           }
@@ -150,6 +155,7 @@
     </script>
 
 
+    <!-- QUESTION START -->
     <div style="height: calc(100% - 90px); width:100%; overflow-y: auto; overflow-x: auto; ">
       <div style="display:inline-block; width: 100%; text-align: center; margin-top: 30px; ">
         {{ elements.stats("bar", template_params["bar"]["star1"], template_params["bar"]["star2"], 
@@ -195,9 +201,8 @@
           </div>
         </div>
       </div>
-
-
     </div>
+    <!-- QUESTION END -->
 
     {{ elements.next("question_onnext()") }}
 
@@ -206,6 +211,8 @@
         function checkAll(a,b,c,d) {return false;}
         function sendFeedbackToServer(a,b,c) {};
       {% endif %}
+
+      document.getElementById("next_text").innerHTML = "PROVERI";
 
       // Immediately enable next
       next_callback(true, "");
@@ -427,7 +434,7 @@
 
       {% set width=4 %}
 
-      <div style="display:block; width: 100%; text-align: center; margin-top: 14px; ">
+      <div style="display:block; width: calc(100% - 6px); text-align: center; margin-top: 14px; ">
         <div style="display: inline-block; text-align: center; 
                 width: calc(100% - 70px); margin: 0 35px 0 35px; border: 3px solid #148f91">
 

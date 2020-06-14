@@ -274,19 +274,21 @@
     </script>
 
     <!-- NEXT BUTTON START -->
-    <div id="next_menu" style="display:table; margin:0 auto; ">
-      <div class="" align="center" style="display:content; border:0px; padding:0px; margin: {{top_margin}}px 0 0 0">
+    {# <div id="next_menu" style="display:table; margin:0 auto; "> #}
+      <div class="" align="center" style="display:inline-block; width:100%; border:0px; padding:0px; margin: {{top_margin}}px 0 0 0">
 
-        <div id="next_button" class="sh-std-button" style="display: table; width: 291px; height: 40px; margin: 0; 
+        <div id="next_button" class="sh-std-button" style="display: table; width: 100%; height: 40px; margin: 0; 
                     background-color: white; " onclick="{{onclick}}">
-          <div id="next_text" class="sh_lato_font" style="display: table-cell; vertical-align: middle; text-align: right; width: 145px;
-                      font-size: 18px; color: #148f91; opacity:0.4;">
-              NASTAVI 
+          <div class="sh_lato_font" style="display: table-cell; vertical-align: middle; 
+                    text-align: right; width: 145px;">
+              <div id="next_text" style="margin-right:14px; font-size: 18px; color: #148f91; opacity:0.4;">
+                NASTAVI 
+              </div>
           </div>
           <div style="display: table-cell; vertical-align: middle; text-align: left; width: 145px">
               <svg id="next_skuter_1" xmlns="http://www.w3.org/2000/svg" 
                       style="display: inline-block; width: 32px; height: 22px; 
-                      margin-left:27px; margin-right:0px; object-fit: contain; opacity:0.4;"
+                      margin-left:14px; margin-right:0px; object-fit: contain; opacity:0.4;"
                       width="32" height="22" data-name="skuter jak" viewBox="0 0 32 22">
                   <g id="prefix__Artboard" transform="translate(-810 -742)">
                       <g id="prefix__next" transform="translate(810 742)">
@@ -312,7 +314,7 @@
           </div>
         </div>
       </div>
-    </div>
+    {# </div> #}
     <!-- NEXT BUTTON END -->
 
 {% endmacro %}
