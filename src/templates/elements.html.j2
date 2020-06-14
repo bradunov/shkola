@@ -557,7 +557,7 @@
     {% set scale = (range(1, 5) | random)/20 %}
   {% endif %}
 
-  <div id="{{name}}" style="display:block; visibility:hidden; position: fixed; z-index: 1; 
+  <div id="{{name}}" style="display:block; visibility:hidden; position: fixed; z-index: 2; 
               bottom: {{y}}%; left: {{x}}%; transform: translate(-50%, 0%);">
 
     <svg id="svg_{{name}}" width="{{(640*scale) | int}}" height="{{(720*scale) | int}}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
