@@ -4,6 +4,11 @@ The area of the rectangle in the picture is:
 @center@ @mycanvas()@                  
 
 @center@ @lib.check_one_option(answ,ind)@
+@vspace@
+
+What units are we using for the area? 
+Write the full name in words.
+@center@ @lib.check_string("centimetre squared", 130)@
 
        
             
