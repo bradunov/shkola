@@ -237,7 +237,7 @@
 
 
     {% set monster_opt = (range(3) | random) %}
-    
+
     {% if monster_opt == 0 %}
       {{elements.bravo()}}
     {% elif monster_opt == 1 %}
@@ -352,11 +352,11 @@
 
       {% set width=4 %}
 
-      <div style="display:block; width: 100%; text-align: center; margin-top: 14px; ">
+      <div style="display:block; width: calc(100% - 6px); text-align: center; margin-top: 14px; ">
         <div style="display: inline-block; text-align: center; 
                 width: calc(100% - 70px); margin: 0 35px 0 35px; border: 3px solid #148f91">
 
-          <div style="display: inline-block; text-align: center; width: 100%-50px; margin: 25px 25px 35px 25px">
+          <div style="display: inline-block; text-align: center; width: calc(100% - 50px); margin: 25px 25px 35px 25px">
             <div class="sh_chalk_font" style="color: #636661; font-size: 18px;">
               Ovaj zadatak ti se neće računati kao urađen. <br>
               Da li si siguran da nećeš da pokušaš? <br><br>
