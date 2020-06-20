@@ -7,6 +7,7 @@ sys.path.append("..")
 
 from page import Page
 from repository import Repository
+from timers import TimerControl
 
 import logging
 
@@ -32,7 +33,13 @@ class editor(object):
         args["root"] = "main"
         args["design"] = "default"
         args["user_agent"] = self.get_user_agent()
-        return self.page.main(None, None, args)
+        tc = TimerControl()
+        with tc.new_section("request"):
+            ret = self.page.main(None, None, tc, args)
+
+        d = tc.dump()
+        logging.debug("TIMERS:\n%s", d)
+        return ret
 
     
 
@@ -41,16 +48,28 @@ class editor(object):
         args["root"] = "edit"
         args["design"] = "dev"
         args["user_agent"] = self.get_user_agent()
-        return self.page.main(None, None, args)
+        tc = TimerControl()
+        with tc.new_section("request"):
+            ret = self.page.main(None, None, tc, args)
 
-    
+        d = tc.dump()
+        logging.debug("TIMERS:\n%s", d)
+        return ret
+
+
     
     @cherrypy.expose
     def index(self, **args):
         args["root"] = "edit"
         args["design"] = "dev"
         args["user_agent"] = self.get_user_agent()
-        return self.page.main(None, None, args)
+        tc = TimerControl()
+        with tc.new_section("request"):
+            ret = self.page.main(None, None, tc, args)
+
+        d = tc.dump()
+        logging.debug("TIMERS:\n%s", d)
+        return ret
 
 
         
@@ -60,7 +79,13 @@ class editor(object):
         args["root"] = "main"
         args["op"] = "view"
         args["user_agent"] = self.get_user_agent()
-        return self.page.main(None, None, args)
+        tc = TimerControl()
+        with tc.new_section("request"):
+            ret = self.page.main(None, None, tc, args)
+
+        d = tc.dump()
+        logging.debug("TIMERS:\n%s", d)
+        return ret
 
 
     
@@ -70,8 +95,13 @@ class editor(object):
         args["root"] = "main"
         args["op"] = "view"
         args["user_agent"] = self.get_user_agent()
-        return self.page.main(None, None, args)
+        tc = TimerControl()
+        with tc.new_section("request"):
+            ret = self.page.main(None, None, tc, args)
 
+        d = tc.dump()
+        logging.debug("TIMERS:\n%s", d)
+        return ret
     
 
 
