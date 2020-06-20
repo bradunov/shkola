@@ -37,7 +37,7 @@ def draw_chart(chart_data, pg):
     subtop_name=[]
     subtop_total=[]
     subtop_cor_dif=[]
-    subtop_task=[]
+    # subtop_task=[]
 
     stats_per_subtask = {}
 

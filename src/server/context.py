@@ -2,7 +2,7 @@ import threading
 from contextlib import contextmanager
 
 class Context(threading.local):
-    ATTRS = ["request", "headers", "session", "user"]
+    ATTRS = ["request", "headers", "session", "user", "timers"]
 
     def __setattr__(self, k, v):
         if not k in Context.ATTRS:
@@ -24,6 +24,7 @@ def new_context(request, headers):
 
     c.request = request
     c.headers = headers
+    c.timers = None
     c.session = None
     c.user = None
 
