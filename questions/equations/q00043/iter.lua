@@ -1,4 +1,4 @@
-
+	
 compare = {"<", ">"}
 
 operat = {"+", "-"}
@@ -9,7 +9,6 @@ sign1 = " "
 factor1 = math.random(15) + 4
 factor2 = math.random(99 - factor1) + 31
 factor3 = math.random(15) + 4
-
 
 
 if (ITEM == 1) then
@@ -47,13 +46,18 @@ if (ITEM == 3) then
     relat = compare[index] 
     relatsol = relat
 	sign1 = "·"
+	sign2 = operat[ind]	
     value = factor3 * factor3
+	temp = 10 + math.random(value - 11)
+	if (ind == 1) then
+	    value = value + temp
+	else
+        value = value - temp
+    end		
 	result = factor3	
-	answ = " x " .. sign1 .. " x " .. " " .. relat .. " " .. tostring(value)
+	answ = " x " .. sign1 .. " x " .. " " .. sign2 .. " " .. tostring(temp) .. " " .. relat .. " " .. tostring(value)
 end
      
+
+
   
-
-
-    
-     
