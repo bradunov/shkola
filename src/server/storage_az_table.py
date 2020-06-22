@@ -1,5 +1,9 @@
+# Now with custom implementation
 from azure.cosmosdb.table.tableservice import TableService
 from azure.common import AzureMissingResourceHttpError
+
+#import sys
+#sys.path.append("..")
 
 from .helpers import encode_dict, decode_dict
 from .timers import timer_section
@@ -9,9 +13,85 @@ import time
 import re
 import logging
 
+import requests
+import datetime
+import hmac
+import hashlib
+import base64
+import json
+from types import SimpleNamespace
+
+
 
 class Storage_az_table():
     
+    _conn_params = {
+        "DefaultEndpointsProtocol" : "https",
+        "EndpointSuffix" : "core.windows.net"
+    }
+
+    # Shared key authentification: https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
+    # The actual code extracted from https://github.com/Azure/azure-cosmos-table-python/tree/master/azure-cosmosdb-table
+    # C# example: https://docs.microsoft.com/en-us/azure/storage/common/storage-rest-api-auth
+    # Full tables REST API: https://docs.microsoft.com/en-us/rest/api/storageservices/table-service-rest-api
+
+    def _get_authorization(self, date_str, resource):
+        key_bytes = base64.b64decode(self._conn_params["AccountKey"].encode('utf-8'))
+
+        #string_to_sign = "GET\n\n\nSun, 21 Jun 2020 22:12:58 GMT\n/tatamata/Tables"
+        string_to_sign = "GET\n\n\n{}\n/{}/{}".format(date_str, self._conn_params["AccountName"], resource)
+        string_to_sign_b = string_to_sign.encode('utf-8')
+        signed_hmac_sha256 = hmac.HMAC(key_bytes, string_to_sign.encode('utf-8'), hashlib.sha256)
+        digest = signed_hmac_sha256.digest()
+        encoded_digest = base64.b64encode(digest).decode('utf-8')
+
+        # print("get_authorization date={}, key1={}\n key={}\n string_to_sign={}\n digest={}\n encoded_digest={}\n".format(
+        #     date_str, storage_key, key_bytes, string_to_sign_b, digest, encoded_digest))
+        
+        return 'SharedKey ' + self._conn_params["AccountName"] + ':' + encoded_digest
+
+
+
+    def _make_req(self, resource):
+        uri = self._conn_params["TableEndpoint"] + resource
+
+        headers = {}
+        # GMT and UTC are the same: https://www.differencebetween.com/difference-between-gmt-and-utc/
+        now = datetime.datetime.utcnow()
+        headers["Date"] = now.strftime('%a, %d %b %Y %H:%M:%S GMT')
+        headers["x-ms-version"] = "2017-04-17"
+        headers["Authorization"] = self._get_authorization(headers["Date"], resource)
+
+        #https://docs.microsoft.com/en-us/rest/api/storageservices/payload-format-for-table-service-operations
+        headers["Accept"] = "application/json;odata=nometadata"
+        #headers["Accept"] = "application/json;odata=minimalmetadata"
+        #headers["Accept"] = "application/json;odata=fullmetadata"
+
+        return requests.get(uri, headers=headers)
+
+
+    def _parse_connection_string(self, connection_string):
+        #DefaultEndpointsProtocol=https;AccountName=tatamata;AccountKey=5ckDVrGf0dTb85x8TuwyN+P9kz9wiS2vnpw8xlBScWv1tGJ5M4hLWbwjvZxAcHqxF3sC6aMABPqK6uXFuVa1dA==;EndpointSuffix=core.windows.net
+        #TableEndpoint
+        params = connection_string.split(";")
+        for s in params:
+            i = s.find("=")
+            key = s[0:i]
+            val = s[i+1:]
+            self._conn_params[key] = val
+        if not "TableEndpoint" in self._conn_params.keys():
+            self._conn_params["TableEndpoint"] = "https://{}.table.core.windows.net/".format(
+                self._conn_params["AccountName"])
+
+
+    def list_tables(self):
+        resource = "Tables"
+        r = self._make_req(resource)
+        resp = []
+        for t in r.json()["value"]:
+            resp.append(SimpleNamespace(**{"name" : t["TableName"]}))
+        return resp
+
 
     ##################################################################
     # BEGIN - Common methods to implement storage interface
@@ -19,6 +99,7 @@ class Storage_az_table():
     def __init__(self):
         connection_string = os.environ['SHKOLA_AZ_TABLE_CONN_STR']
         self.table_service = TableService(connection_string=connection_string)
+        #self._parse_connection_string(connection_string)
 
         self.default_partition_key = "USER"
         self.users_table_name = 'users'
