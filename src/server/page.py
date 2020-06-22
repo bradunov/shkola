@@ -165,7 +165,8 @@ class Page(object):
     # def add_on_loaded_script_lines(self, code):
     #     self.on_loaded_script = self.on_loaded_script + code
         
-    @timer_section("page.render")
+    # This breaks edit mode
+    #@timer_section("page.render")
     def render(self):
         logging.debug("Render: loading template: '{}'".format(self.template_params["template_name"]))
         template = self.templates.get_template(self.template_params["template_name"])

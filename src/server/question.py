@@ -71,7 +71,8 @@ class Question(object):
     """
 
     
-    @timer_section("question.init")
+    # This breaks edit mode
+    #@timer_section("question.init")
     def __init__(self, page, q_id=None, language=None, test_id=None, test_order=None, 
                  init_code=None, iter_code=None, text=None):
                  
@@ -539,7 +540,8 @@ class Question(object):
 
         
         
-    @timer_section("question.eval_with_exception")
+    # This breaks edit mode
+    #@timer_section("question.eval_with_exception")
     def eval_with_exception(self, catch=False):
 
         if not catch:
