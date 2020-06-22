@@ -7,6 +7,8 @@ import google.auth.transport.requests
 import time
 import logging
 from collections import namedtuple
+from server.timers import timer_section
+
 
 GOOGLE_CLIENT_ID = os.environ['GOOGLE_CLIENT_ID'] if 'GOOGLE_CLIENT_ID' in os.environ.keys() else ""
 GOOGLE_SITE_VERIFICATION = os.environ['GOOGLE_SITE_VERIFICATION'] if 'GOOGLE_SITE_VERIFICATION' in os.environ.keys() else ""
@@ -50,6 +52,7 @@ class UserDB(object):
                 user_language=user_language, last_accessed=now)
 
 
+    @timer_section("get_user")
     def get_user(self, user_id):
         if not user_id:
             return None

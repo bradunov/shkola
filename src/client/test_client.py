@@ -7,11 +7,11 @@ import json
 
 
 
-url = "http://shkola.vladap.com:7071/main"
-#url = 'https://www.tatamata.org'
+#url = "http://shkola.vladap.com:7071/main"
+url = 'https://www.tatamata.org'
 
-number_of_runs_per_user = 1
-number_of_users = 1
+number_of_runs_per_user = 2
+number_of_users = 10
 
 
 DEBUG = True

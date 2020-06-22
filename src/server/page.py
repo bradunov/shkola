@@ -17,6 +17,8 @@ from server.user_db import UserDB, GOOGLE_CLIENT_ID, GOOGLE_SITE_VERIFICATION
 from server.design import Design
 from server.session import SessionDB
 
+from server.timers import timer_section
+
 import logging
 
 
@@ -163,6 +165,7 @@ class Page(object):
     # def add_on_loaded_script_lines(self, code):
     #     self.on_loaded_script = self.on_loaded_script + code
         
+    @timer_section("page.render")
     def render(self):
         logging.debug("Render: loading template: '{}'".format(self.template_params["template_name"]))
         template = self.templates.get_template(self.template_params["template_name"])

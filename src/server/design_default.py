@@ -15,6 +15,7 @@ from server.question import Question
 from server.stat_charts import prepare_user_stats_chart
 
 import server.context as context
+from server.timers import timer_section
 
 import logging
 
@@ -25,6 +26,7 @@ class Design_default(object):
     total_questions = 5
 
     @staticmethod
+    @timer_section("render_main_page")
     def render_main_page(page):
 
 
@@ -147,6 +149,7 @@ class Design_default(object):
 
 
     @staticmethod
+    @timer_section("add_menu")
     def add_menu(page):
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
         page.template_params['menu'] = []
@@ -284,6 +287,7 @@ class Design_default(object):
 
 
     @staticmethod
+    @timer_section("render_select_user_page")
     def render_select_user_page(page):
 
         page.page_params.delete_history()
@@ -331,6 +335,7 @@ class Design_default(object):
 
 
     @staticmethod
+    @timer_section("render_select_year_page")
     def render_select_year_page(page):
         page.page_params.delete_history()
         page.page_params.set_param("year", "")
@@ -403,6 +408,7 @@ class Design_default(object):
 
 
     @staticmethod
+    @timer_section("render_select_theme_page")
     def render_select_theme_page(page):
         page.page_params.delete_history()
         page.page_params.set_param("theme", "")
@@ -542,6 +548,7 @@ class Design_default(object):
     #         page.add_lines("</div>\n")
 
     @staticmethod
+    @timer_section("render_confirm_anon_page")
     def render_confirm_anon_page(page):
 
         page.template_params["template_name"] = "confirm_anon.html.j2"
@@ -556,6 +563,7 @@ class Design_default(object):
 
 
     @staticmethod
+    @timer_section("render_select_get_started_page")
     def render_select_get_started_page(page):
         page.page_params.delete_history()
         page.page_params.set_param("q_id", "")
@@ -640,6 +648,7 @@ class Design_default(object):
 
 
     @staticmethod
+    @timer_section("render_question_page")
     def render_question_page(page):
 
         next_question = None
@@ -897,6 +906,7 @@ class Design_default(object):
 
 
     @staticmethod
+    @timer_section("render_summary_page")
     def render_summary_page(page):
         
 
@@ -1374,6 +1384,7 @@ class Design_default(object):
 
 
     @staticmethod
+    @timer_section("render_user_stats")
     def render_user_stats(page, u_id):
 
         # Create dictionary entries that define menu

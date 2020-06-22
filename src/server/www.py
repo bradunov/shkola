@@ -34,7 +34,7 @@ class editor(object):
         args["design"] = "default"
         args["user_agent"] = self.get_user_agent()
         tc = TimerControl()
-        with tc.new_section("request"):
+        with tc.new_section("main"):
             ret = self.page.main(None, None, tc, args)
 
         d = tc.dump()
@@ -49,7 +49,7 @@ class editor(object):
         args["design"] = "dev"
         args["user_agent"] = self.get_user_agent()
         tc = TimerControl()
-        with tc.new_section("request"):
+        with tc.new_section("edit"):
             ret = self.page.main(None, None, tc, args)
 
         d = tc.dump()
@@ -64,7 +64,7 @@ class editor(object):
         args["design"] = "dev"
         args["user_agent"] = self.get_user_agent()
         tc = TimerControl()
-        with tc.new_section("request"):
+        with tc.new_section("index"):
             ret = self.page.main(None, None, tc, args)
 
         d = tc.dump()
@@ -80,7 +80,7 @@ class editor(object):
         args["op"] = "view"
         args["user_agent"] = self.get_user_agent()
         tc = TimerControl()
-        with tc.new_section("request"):
+        with tc.new_section("mobile"):
             ret = self.page.main(None, None, tc, args)
 
         d = tc.dump()
@@ -96,7 +96,7 @@ class editor(object):
         args["op"] = "view"
         args["user_agent"] = self.get_user_agent()
         tc = TimerControl()
-        with tc.new_section("request"):
+        with tc.new_section("nonmobile"):
             ret = self.page.main(None, None, tc, args)
 
         d = tc.dump()

@@ -54,7 +54,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         ret = main_work(req, tc)
 
     d = tc.dump()
-    logging.debug("TIMERS:\n%s", d)
+    logging.debug("TIMERS (%s):\n%s", str(req.url), d)
 
     return ret
 
