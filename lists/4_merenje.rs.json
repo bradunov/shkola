@@ -6,6 +6,126 @@
   "language": "rs",
   "questions": [
     {
+      "name": "measures/q00001",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kvadrata i pravougaonika",
+      "topic": "Površina pravougaonika",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00002",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kvadrata i pravougaonika",
+      "topic": "Površina kvadrata",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00003",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kvadrata i pravougaonika",
+      "topic": "Površina pravougaonika",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00004",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kocke",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00005",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kvadra",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00006",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kocke",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00007",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kocke",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00008",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kocke",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00009",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kvadra",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00010",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kvadra",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00011",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kvadra",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00012",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kvadra",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00013",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kvadra",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00014",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kvadra",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00015",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Merenje zapremine",
+      "topic": "Računske operacije ",
+      "difficulty": "3"
+    },
+    {
       "name": "measures/q00017",
       "random": "1",
       "period": "3",
@@ -139,6 +259,102 @@
       "period": "1",
       "subtheme": "Merenje površine",
       "topic": "Računske operacije ",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00034",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kvadrata i pravougaonika",
+      "topic": "Površina pravougaonika",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00035",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kvadrata i pravougaonika",
+      "topic": "Površina pravougaonika",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00036",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kvadrata i pravougaonika",
+      "topic": "Površina kvadrata",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00037",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kvadrata i pravougaonika",
+      "topic": "Površina kvadrata",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00038",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Površina kvadrata i pravougaonika",
+      "topic": "Površina pravougaonika",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00077",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Zapremina kocke i kvadra",
+      "topic": "Zapremina kocke",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00078",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Zapremina kocke i kvadra",
+      "topic": "Zapremina kocke",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00079",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Zapremina kocke i kvadra",
+      "topic": "Zapremina kvadra",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00080",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Zapremina kocke i kvadra",
+      "topic": "Zapremina kvadra",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00081",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Zapremina kocke i kvadra",
+      "topic": "Zapremina kvadra",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00082",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Zapremina kocke i kvadra",
+      "topic": "Zapremina kvadra",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00083",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Zapremina kocke i kvadra",
+      "topic": "Zapremina kvadra",
       "difficulty": "2"
     }
   ]

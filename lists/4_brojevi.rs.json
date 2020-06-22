@@ -118,6 +118,54 @@
       "difficulty": "1"
     },
     {
+      "name": "fractions/q00071",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": " Decimalni broj ",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00072",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": " Decimalni broj ",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00073",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": " Decimalni broj ",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00074",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": " Decimalni broj ",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00075",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": " Decimalni broj ",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00076",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": " Decimalni broj ",
+      "difficulty": "1"
+    },
+    {
       "name": "numbers/q00109",
       "random": "1",
       "period": "1",
@@ -619,6 +667,30 @@
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Množenje i deljenje",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00217",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Brojevni izraz",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00218",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Brojevni izraz",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00219",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Brojevni izraz",
       "difficulty": "2"
     },
     {
