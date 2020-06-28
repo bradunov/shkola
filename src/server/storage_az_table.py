@@ -4,9 +4,15 @@ from azure.common import AzureMissingResourceHttpError
 
 #import sys
 #sys.path.append("..")
-
-from .helpers import encode_dict, decode_dict
-from .timers import timer_section
+try:
+    from .helpers import encode_dict, decode_dict
+    from .timers import timer_section
+    from .azure_table_async import AzureTableAsync
+except:
+    # For running standalone, from __main__
+    from helpers import encode_dict, decode_dict
+    from timers import timer_section
+    from azure_table_async import AzureTableAsync
 
 import os
 import time
@@ -19,87 +25,21 @@ import hmac
 import hashlib
 import base64
 import json
+from urllib.parse import quote as url_quote
 from types import SimpleNamespace
 
 
 
 class Storage_az_table():
     
-    _conn_params = {
-        "DefaultEndpointsProtocol" : "https",
-        "EndpointSuffix" : "core.windows.net"
-    }
-
-    # Shared key authentification: https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
-    # The actual code extracted from https://github.com/Azure/azure-cosmos-table-python/tree/master/azure-cosmosdb-table
-    # C# example: https://docs.microsoft.com/en-us/azure/storage/common/storage-rest-api-auth
-    # Full tables REST API: https://docs.microsoft.com/en-us/rest/api/storageservices/table-service-rest-api
-
-    def _get_authorization(self, date_str, resource):
-        key_bytes = base64.b64decode(self._conn_params["AccountKey"].encode('utf-8'))
-
-        #string_to_sign = "GET\n\n\nSun, 21 Jun 2020 22:12:58 GMT\n/tatamata/Tables"
-        string_to_sign = "GET\n\n\n{}\n/{}/{}".format(date_str, self._conn_params["AccountName"], resource)
-        string_to_sign_b = string_to_sign.encode('utf-8')
-        signed_hmac_sha256 = hmac.HMAC(key_bytes, string_to_sign.encode('utf-8'), hashlib.sha256)
-        digest = signed_hmac_sha256.digest()
-        encoded_digest = base64.b64encode(digest).decode('utf-8')
-
-        # print("get_authorization date={}, key1={}\n key={}\n string_to_sign={}\n digest={}\n encoded_digest={}\n".format(
-        #     date_str, storage_key, key_bytes, string_to_sign_b, digest, encoded_digest))
-        
-        return 'SharedKey ' + self._conn_params["AccountName"] + ':' + encoded_digest
-
-
-
-    def _make_req(self, resource):
-        uri = self._conn_params["TableEndpoint"] + resource
-
-        headers = {}
-        # GMT and UTC are the same: https://www.differencebetween.com/difference-between-gmt-and-utc/
-        now = datetime.datetime.utcnow()
-        headers["Date"] = now.strftime('%a, %d %b %Y %H:%M:%S GMT')
-        headers["x-ms-version"] = "2017-04-17"
-        headers["Authorization"] = self._get_authorization(headers["Date"], resource)
-
-        #https://docs.microsoft.com/en-us/rest/api/storageservices/payload-format-for-table-service-operations
-        headers["Accept"] = "application/json;odata=nometadata"
-        #headers["Accept"] = "application/json;odata=minimalmetadata"
-        #headers["Accept"] = "application/json;odata=fullmetadata"
-
-        return requests.get(uri, headers=headers)
-
-
-    def _parse_connection_string(self, connection_string):
-        #DefaultEndpointsProtocol=https;AccountName=tatamata;AccountKey=5ckDVrGf0dTb85x8TuwyN+P9kz9wiS2vnpw8xlBScWv1tGJ5M4hLWbwjvZxAcHqxF3sC6aMABPqK6uXFuVa1dA==;EndpointSuffix=core.windows.net
-        #TableEndpoint
-        params = connection_string.split(";")
-        for s in params:
-            i = s.find("=")
-            key = s[0:i]
-            val = s[i+1:]
-            self._conn_params[key] = val
-        if not "TableEndpoint" in self._conn_params.keys():
-            self._conn_params["TableEndpoint"] = "https://{}.table.core.windows.net/".format(
-                self._conn_params["AccountName"])
-
-
-    def list_tables(self):
-        resource = "Tables"
-        r = self._make_req(resource)
-        resp = []
-        for t in r.json()["value"]:
-            resp.append(SimpleNamespace(**{"name" : t["TableName"]}))
-        return resp
-
 
     ##################################################################
     # BEGIN - Common methods to implement storage interface
     
     def __init__(self):
         connection_string = os.environ['SHKOLA_AZ_TABLE_CONN_STR']
-        self.table_service = TableService(connection_string=connection_string)
-        #self._parse_connection_string(connection_string)
+        #self.table_service = TableService(connection_string=connection_string)
+        self.table_service = AzureTableAsync(connection_string=connection_string)
 
         self.default_partition_key = "USER"
         self.users_table_name = 'users'
@@ -110,18 +50,20 @@ class Storage_az_table():
         tables = [self.users_table_name, self.responses_table_name, 
                   self.sessions_table_name, self.feedbacks_table_name]
 
-        existing_tables = list(map(lambda x : x.name, self.table_service.list_tables()))
-
-        for table in tables:
-            if table not in existing_tables:
-                self.table_service.create_table(table)
+        # No need to do this at every startup
+        # existing_tables = list(map(lambda x : x.name, self.table_service.list_tables()))
+        # for table in tables:
+        #     if table not in existing_tables:
+        #         self.table_service.create_table(table)
 
 
     def get_user(self, user_id):
         partition_key = self.default_partition_key
 
         try:
-            entity = self.table_service.get_entity(self.users_table_name, partition_key, user_id)
+            #entity = self.table_service.get_entity(self.users_table_name, partition_key, user_id)
+            entity = self.table_service.async_get_entity(self.users_table_name, 
+                partition_key=partition_key, row_key=user_id)
         except AzureMissingResourceHttpError:
             return None
 
@@ -149,7 +91,8 @@ class Storage_az_table():
         logging.debug("azure table update_user %s: %s", str(name), str(properties))
 
         try:
-            self.table_service.insert_or_merge_entity(self.users_table_name, properties)
+            #self.table_service.insert_or_merge_entity(self.users_table_name, properties)
+            self.table_service.async_insert_or_merge_entity(self.users_table_name, properties)
         except Exception:
             logging.exception('Error adding to table ' + self.users_table_name + ' record: {}'.format(properties))
         
@@ -171,7 +114,8 @@ class Storage_az_table():
         #logging.debug("*** record response: {}".format(response))
 
         try:
-            self.table_service.insert_entity(self.responses_table_name, response)
+            #self.table_service.insert_entity(self.responses_table_name, response)
+            self.table_service.async_insert_entity(self.responses_table_name, response)
         except Exception as err:
             logging.exception('Error adding response: {}\n\n{}' + str(response, err))
 
@@ -191,7 +135,8 @@ class Storage_az_table():
         logging.debug("*** record feedback: {}".format(response))
 
         try:
-            self.table_service.insert_entity(self.feedbacks_table_name, response)
+            #self.table_service.insert_entity(self.feedbacks_table_name, response)
+            self.table_service.async_insert_entity(self.feedbacks_table_name, response)
         except Exception as err:
             logging.exception('Error adding response: ' + str(err))
 
@@ -211,7 +156,8 @@ class Storage_az_table():
         }
 
         try:
-            self.table_service.insert_or_merge_entity(self.sessions_table_name, properties)
+            #self.table_service.insert_or_merge_entity(self.sessions_table_name, properties)
+            self.table_service.async_insert_or_merge_entity(self.sessions_table_name, properties)
         except Exception:
             logging.exception('Error adding to table ' + self.sessions_table_name + ' record: {}'.format(properties))
 
@@ -219,7 +165,8 @@ class Storage_az_table():
     @timer_section("get_session")
     def get_session(self, session_id):
         try:
-            entity = self.table_service.get_entity(self.sessions_table_name, session_id, "")
+            #entity = self.table_service.get_entity(self.sessions_table_name, session_id, "")
+            entity = self.table_service.async_get_entity(self.sessions_table_name, partition_key=session_id, row_key="")
         except AzureMissingResourceHttpError:
             return None
 
@@ -284,7 +231,8 @@ class Storage_az_table():
             req = "PartitionKey = {}".format(user_id)
 
 
-        entries = self.table_service.query_entities(self.responses_table_name, req)
+        #entries = self.table_service.query_entities(self.responses_table_name, req)
+        entries = self.table_service.async_get_entity(self.responses_table_name, req)
 
         return entries
 
@@ -292,7 +240,8 @@ class Storage_az_table():
 
 
     def get_all_users(self):
-        entries = self.table_service.query_entities(self.users_table_name, "")
+        #entries = self.table_service.query_entities(self.users_table_name, "")
+        entries = self.table_service.async_get_entity(self.users_table_name, "")
 
         return entries
 
@@ -330,10 +279,11 @@ class Storage_az_table():
 
         print("           USER ID                    NAME                      EMAIL                 LAST ACCESSED          REMOTE IP                      USER AGENT             USER LANGUAGE")
         for row in entries:
-            print("{:^30} {:^20} {:^20} {:^20} {:^40} {:^40}".format(
+            #print("{:^30} {:^20} {:^20} {:^20} {:^40} {:^40}".format(
+            print("{} {} {} {} {} {}".format(
                 row['user_id'],
                 row['name'],
-                time.strftime("%d-%m-%y %H:%M:%S", time.localtime(row['last_accessed'])),
+                time.strftime("%d-%m-%y %H:%M:%S", time.localtime(int(row['last_accessed']))),
                 row['remote_ip'] if 'remote_ip' in row.keys() else "",
                 row['user_agent'] if 'user_agent' in row.keys() else "",
                 row['user_language'] if 'user_language' in row.keys() else ""
@@ -348,17 +298,17 @@ class Storage_az_table():
 
         if q_id:
             # Remove / from q_id
-            mq_id = ("".join("fractions/q00022".split("/")))
-            req = req + "((RowKey ge '{}|') and (RowKey lt '{}{}'))".format(mq_id, mq_id, chr(255)) 
+            mq_id = ("_".join(q_id.split("/")))
+            req = req + "((RowKey ge '{}') and (RowKey lt '{}{}'))".format(mq_id, mq_id, chr(255)) 
 
         if from_date:
             if len(req) > 0:
                 req = req + " and "
             req = req + "(Timestamp ge datetime'{}')".format(from_date)
 
-        #print(req)
-
-        entries = self.table_service.query_entities(self.responses_table_name, req)
+ 
+        #entries = self.table_service.query_entities(self.responses_table_name, req)
+        entries = self.table_service.async_get_entity(self.responses_table_name, req)
 
         result = []
         for row in entries:
@@ -390,7 +340,8 @@ class Storage_az_table():
         #print(req)
         logging.info("\n\nBBBBBBBB: {}\n\n".format(req))
 
-        entries = self.table_service.query_entities(self.responses_table_name, req)
+        #entries = self.table_service.query_entities(self.responses_table_name, req)
+        entries = self.table_service.async_get_entity(self.responses_table_name, req)
 
         result = []
         for row in entries:
@@ -402,10 +353,10 @@ class Storage_az_table():
         
         
 if __name__ == '__main__':
-    
+
     storage = Storage_az_table()
     print("Opened storage")
-    
+
     wipe_all = False
     #wipe_all = True
 
@@ -454,12 +405,13 @@ if __name__ == '__main__':
 
     if print_question_stats:
         #storage.get_question_stats("fractions/q00022")
-        print(storage.get_question_stats("fractions/q00022", "2020-03-01T00:00:00.000Z"))
+        #print(storage.get_question_stats("fractions/q00063", "2020-03-01T00:00:00.000Z"))
+        print(storage.get_question_stats("fractions/q00063"))
 
 
     print_user_stats = False
     if print_user_stats:
-        print(storage.get_user_stats("Petar"))
+        print(storage.get_user_stats("UNKNOWN"))
         #print(storage.get_question_stats("fractions/q00022", "2020-03-01T00:00:00.000Z"))
 
 
