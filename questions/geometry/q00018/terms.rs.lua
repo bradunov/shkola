@@ -1,5 +1,5 @@
 msg1 = "Obim kvadrata je "
-msg2 = " cm. Kolika je njegova stranica?"
+msg2 = " cm. Kolika je dužina njegove stranice?"
 msg3 = "Obim pravougaonika je "
 msg4 = " cm. Jedna njegova stranica je "
-msg5 = " puta kraća od druge. Kolika je kraća stranica tog pravougaonika?"
+msg5 = " puta kraća od druge. Kolika je dužina kraće stranice tog pravougaonika?"

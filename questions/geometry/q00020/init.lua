@@ -37,7 +37,7 @@ violet_style = {["off_color"] = "f9c",
 
 mycanvas = function()
 
-  lib.start_canvas(400, 250, "center", results)
+  lib.start_canvas(380, 250, "center", results)
 
   w = 20
   ow = 15

@@ -28,7 +28,7 @@ mycanvas = function(result)
   lib.add_straight_path(90, 50, {{0, 60}}, style,  false, false)
   lib.add_ellipse(60, 50, 30, 10, style,  false, false )
   lib.add_ellipse(60, 110, 30, 10, style,  false, false )
-  lib.add_input(28, 125, 65, 30, lib.check_string(model[1], 55))  
+  lib.add_input(28, 125, 75, 30, lib.check_string(model[1], 55))  
   
 --[[ kocka  ]]--  
   lib.add_straight_path(140, 60, {{20, -10}, {40, 0}, {0, 40}, {-20, 10}}, style, "", false)

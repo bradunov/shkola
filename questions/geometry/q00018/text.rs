@@ -1,5 +1,7 @@
 
 @repeat(2)@
-@answ@ @hspace@ @lib.check_number(side)@ cm 
-
+@ITEM@ @answ@ 
+@center@ @lib.check_number(side)@ cm 
+@vspace@
 @/repeat@
+
