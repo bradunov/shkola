@@ -23,7 +23,7 @@ else
 	result = surface - surface_new
 end    
        
-answ = "Površina kocke bi se " .. lib.check_string(change[ind],50) .. " za " .. lib.check_number(result,30) .. measure2[ind] .. "."	             	
+answ = "Površina kocke bi se " .. change[ind] .. " za " .. lib.check_number(result,30) .. measure2[ind] .. "."	             	
        
 
 
