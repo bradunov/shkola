@@ -26,7 +26,7 @@ mycanvas = function()
       end		  
   end
 
-  lib.start_canvas(320, 250, "center", results)
+  lib.start_canvas(300, 250, "center", results)
  
   lib.add_straight_path (80, 120, {{50, 0}, {0, 20}, {-50,0}, {0, 10}, {-30, -20}, {30, -20}, {0, 10}}, style, false, true) 
   

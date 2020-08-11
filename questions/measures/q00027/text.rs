@@ -1,5 +1,5 @@
 
-Poredi površine i upiši znak @hspacept(5)@ < , @hspacept(5)@ > @hspacept(5)@ ili @hspacept(5)@ = :
+Uporedi površine i upiši znak  < ,  >  ili  = .
 
 @repeat(5)@ 
 

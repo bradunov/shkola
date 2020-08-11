@@ -8,9 +8,18 @@ style =
 text_style = {["font_size"] = "16"}		
 
 name = {"jednakokraki", "jednakostranicni", "nejednakostranicni"}
+name2 = {"jednakokraki", "jednakostranični", "nejednakostranični"}
 answ = { "temena", "stranice"}
-
+reply = {}
 ind = math.random(3)
+
+reply[1] = "answer == '" .. name[1] .. "' "  ..
+        "|| answer == '" .. name2[1] .. "'" ;   
+reply[2] = "answer == '" .. name[2] .. "' "  ..
+        "|| answer == '" .. name2[2] .. "'" ;   
+reply[3] = "answer == '" .. name[3] .. "' "  ..
+        "|| answer == '" .. name2[3] .. "'" ;   		
+		
 
 ow = 20
 w = 5
@@ -40,10 +49,10 @@ mycanvas = function(no)
   lib.add_text(ov+x, v+ov/2, "A", text_style, false, false) 
   lib.add_text(ov+x+y, v+ov/2, "B", text_style, false, false) 
   lib.add_text(ov, ow+w, "C", text_style, false, false)    
-  lib.add_input(ov-v+ow, ov+2*ow, 150, 30, lib.check_string(name[ind], 120))
+  lib.add_input(ov-v+ow, ov+2*ow, 150, 30, lib.check_string(reply[ind], 120))
   
   lib.end_canvas()
 end
-             
             
+        
            

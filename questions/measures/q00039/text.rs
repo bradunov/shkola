@@ -1,4 +1,5 @@
-Poredi veličine i upiši znak @hspacept(5)@ < , @hspacept(5)@ > @hspacept(5)@ ili @hspacept(5)@ = :
+
+Uporedi veličine i upiši znak  < ,  >  ili  = .
 
 @repeat(5)@ 
 
@@ -6,5 +7,5 @@ Poredi veličine i upiši znak @hspacept(5)@ < , @hspacept(5)@ > @hspacept(5)@ i
 
 @vspace@
 @/repeat@       
-                    
+                        
             

@@ -38,6 +38,14 @@
       "difficulty": "2"
     },
     {
+      "name": "measures/q00043",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Merenje vremena",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "difficulty": "1"
+    },
+    {
       "name": "measures/q00048",
       "random": "1",
       "period": "1",

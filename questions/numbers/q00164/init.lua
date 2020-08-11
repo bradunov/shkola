@@ -40,8 +40,8 @@ addition_table = function()
   text = text .. lib.add_cell("b", style)
   text = text .. lib.add_cell("a+b", style)
   text = text .. lib.add_cell("a-b", style)
-  text = text .. lib.add_cell("(a+b):" .. tostring(devide) , style)
-  text = text .. lib.add_cell("(a-b)" .. " ·" .. tostring(multiple) , style)
+  text = text .. lib.add_cell("(a+b) :" .. tostring(devide) , style)
+  text = text .. lib.add_cell("(a-b) ·" .. tostring(multiple) , style)
   text = text .. lib.end_row()
   for c=0,columns-1 do
     text = text .. lib.start_row()
@@ -58,6 +58,7 @@ addition_table = function()
 
   return text
 end        
+  
   
      
                   

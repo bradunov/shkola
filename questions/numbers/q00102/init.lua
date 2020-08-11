@@ -1,3 +1,4 @@
+
 addition_table = function()
   
   ind = math.random(2)
@@ -40,16 +41,16 @@ addition_table = function()
 
   style = {}
   style["text-align"] = "center"
-  style["width"] = "60px"
+  style["width"] = "50px"
 
   text = lib.start_table()
   text = text .. lib.start_row()
   text = text .. lib.add_cell("a", style)
   text = text .. lib.add_cell("b", style)
-  text = text .. lib.add_cell(tostring(multiple) .. "·(a" .. sign1 .. "b)", style)
+  text = text .. lib.add_cell(tostring(multiple) .. "· (a" .. sign1 .. "b)", style)
   text = text .. lib.add_cell(tostring(multiple) .. "·a" .. sign1 .. "b", style)
   text = text .. lib.add_cell("a" .. sign2 .. "b:" .. tostring(devide), style)
-  text = text .. lib.add_cell("(a" .. sign2 .. "b):" .. tostring(devide) , style)
+  text = text .. lib.add_cell("(a" .. sign2 .. "b) :" .. tostring(devide) , style)
   text = text .. lib.end_row()
   for c=0,columns-1 do
     text = text .. lib.start_row()

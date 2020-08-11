@@ -1,3 +1,4 @@
+
 include("terms")
 
 style = {["off_color"] = "fff",
@@ -30,17 +31,18 @@ mycanvas = function(no)
       end		  
   end	
   
-  lib.start_canvas(350, 260, "center", results)
+  lib.start_canvas(320, 260, "center", results)
    
-  lib.add_straight_path(30, 80, {{50, 0}, {0, 50}, {80, 0}, {0, 50}, {80, 0}, {0, 50}, {80, 0}, {0, 50}, {40, 0}}, style, false, false)
+  lib.add_straight_path(10, 80, {{50, 0}, {0, 50}, {80, 0}, {0, 50}, {80, 0}, {0, 50}, {80, 0}, {0, 50}, {40, 0}}, style, false, false)
 
-  lib.add_triangle(125, 92, 40, 70, different_style, false, true)
-  lib.add_circle(125, 40, 12, different_style, false, true)
+  lib.add_triangle(105, 92, 40, 70, different_style, false, true)
+  lib.add_circle(105, 40, 12, different_style, false, true)
 
-  lib.add_triangle(280, 148, 70, 160, different_style, false, true)
-  lib.add_circle(280, 45, 20, different_style, false, true)
+  lib.add_triangle(260, 148, 70, 160, different_style, false, true)
+  lib.add_circle(260, 45, 20, different_style, false, true)
 
   lib.end_canvas()
 end
+
 
 

@@ -1,3 +1,4 @@
+
 style = 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -77,7 +78,7 @@ mycanvas = function()
   end
   
 
-  lib.start_canvas(350, 300, "center", results)
+  lib.start_canvas(320, 300, "center", results)
 
   w = 60
   ow = 40

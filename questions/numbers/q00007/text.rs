@@ -1,5 +1,6 @@
+
 Uporedi broj crvenih i plavih kvadratića.
-Upiši znak @hspacept(8)@<@hspacept(4)@, @hspacept(8)@> @hspacept(8)@ili @hspacept(8)@ =@hspacept(4)@.
+Upiši znak <, > ili  = .
 
 @center@ @mycanvas(no)@
 

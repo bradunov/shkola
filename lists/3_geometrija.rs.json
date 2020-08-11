@@ -230,6 +230,14 @@
       "difficulty": "2"
     },
     {
+      "name": "geometry/q00060",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Ugao",
+      "topic": "Vrste uglova",
+      "difficulty": "1"
+    },
+    {
       "name": "geometry/q00061",
       "random": "1",
       "period": "2",
@@ -244,6 +252,46 @@
       "subtheme": "Obim geometrijskih figura",
       "topic": "Obim pravougaonika",
       "difficulty": "3"
+    },
+    {
+      "name": "geometry/q00063",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Ugao",
+      "topic": "Vrste uglova",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00064",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Ugao",
+      "topic": "Vrste uglova",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00065",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Pojam, elementi I  vrste",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00066",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Prava",
+      "topic": "Uzajamni položaj pravih",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00067",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Ugao",
+      "topic": "Pojam, elementi ",
+      "difficulty": "1"
     }
   ]
 }

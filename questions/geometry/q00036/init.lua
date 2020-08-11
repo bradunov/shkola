@@ -3,7 +3,7 @@ style =
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
         ["line_color"] = "000",
-        ["line_width"] = "3"};
+        ["line_width"] = "2"};
 
 text_style = {["font_size"] = "16"}
 
