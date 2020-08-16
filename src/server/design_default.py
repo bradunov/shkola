@@ -27,17 +27,17 @@ class Design_default(object):
 
     @staticmethod
     @timer_section("render_main_page")
-    def render_main_page(page):
+    async def render_main_page(page):
 
 
         # If login, update user and replace op with the original op
         if page.page_params.get_param("op") == PageOperation.LOGIN_ANON:
-            new_url = page.login_anon()
+            new_url = await page.login_anon()
             context.c.headers.redirect(new_url)
             return ""
 
         if page.page_params.get_param("op") == PageOperation.LOGIN_GOOGLE:
-            new_url, ok = page.login_google()
+            new_url, ok = await page.login_google()
             context.c.headers.set_content_type('text/plain')
             return "OK:{}".format(new_url) if ok else "ERROR:{}".format(new_url)
 

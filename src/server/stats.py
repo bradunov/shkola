@@ -119,11 +119,11 @@ class Stats(object):
 
 
     @staticmethod
-    def render_user_stats(page, u_id, from_date=None):
+    async def render_user_stats(page, u_id, from_date=None):
         storage = server.storage.get_storage()
         if not from_date:
             from_date = "2020-03-15T00:00:00.000Z"
-        results = storage.get_user_stats(u_id=u_id, from_date=from_date)
+        results = await storage.get_user_stats(u_id=u_id, from_date=from_date)
 
 
 

@@ -26,7 +26,7 @@ class UserDB(object):
         logging.debug("User DB initialized")
         
 
-    def session_login_and_update_user(self, domain, user_id, name, picture, user_language):
+    async def session_login_and_update_user(self, domain, user_id, name, picture, user_language):
         assert(user_id)
         assert(domain in DOMAINS)
         assert(name)
@@ -47,17 +47,17 @@ class UserDB(object):
             context.c.session.set("user_picture", picture)
             context.c.session.set("user_name", name)
 
-        self._storage.update_user(full_user_id, name=name,  
+        await self._storage.update_user(full_user_id, name=name,  
                 remote_ip=remote_ip, user_agent=user_agent, picture=picture,  
                 user_language=user_language, last_accessed=now)
 
 
     @timer_section("get_user")
-    def get_user(self, user_id):
+    async def get_user(self, user_id):
         if not user_id:
             return None
 
-        d = self._storage.get_user(user_id)
+        d = await self._storage.get_user(user_id)
         if d is None:
             return None
 
@@ -78,8 +78,8 @@ class UserDB(object):
         return "{}:{}".format(domain, user_id)
 
 
-    def login_test(self, user_id, name, picture, language) -> bool:
-        self.session_login_and_update_user(
+    async def login_test(self, user_id, name, picture, language) -> bool:
+        await self.session_login_and_update_user(
             'local', user_id,
             name = name,
             picture = picture,
@@ -89,7 +89,7 @@ class UserDB(object):
         return True
 
 
-    def login_google(self, id_token) -> (bool, str):
+    async def login_google(self, id_token) -> (bool, str):
         try:
             idinfo = google.oauth2.id_token.verify_oauth2_token(
                 id_token,
@@ -143,7 +143,7 @@ class UserDB(object):
             return False, str(ex)
 
 
-        self.session_login_and_update_user(
+        await self.session_login_and_update_user(
             'google', auth_user_id,
             name=name,
             picture=picture,

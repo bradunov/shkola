@@ -302,7 +302,7 @@ class Page(object):
     #     return "</body>\n</html>\n"
         
         
-    def main(self, req, headers, timers, args):
+    async def main(self, req, headers, timers, args):
         self.clear()
 
         logging.debug("\n\nMAIN ARGS: {}\n\n".format(args))        
@@ -313,10 +313,10 @@ class Page(object):
             # Special ops to register a user reported error
             # DEBUG: This is only for testing and may not implement the full feedback functionality
             if "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.FEEDBACK):
-                return self.feedback(args)
+                return await self.feedback(args)
 
             self.page_params.parse(args, legacy=True)
-            return Design.main(self)
+            return await Design.main(self)
 
         # No caching
         headers.set_no_store()
@@ -327,23 +327,23 @@ class Page(object):
             # DEBUG: these two special ops are for testing and are not fully functional in edit mode
             # Special ops to register results
             if "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.REGISTER):
-                return self.register(args)
+                return await self.register(args)
 
             # Special ops to register a user reported error
             elif "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.FEEDBACK):
-                return self.feedback(args)
+                return await self.feedback(args)
 
             self.page_params.parse(in_args=args, legacy=True)
             # self.page_params.print_params()
-            return Design.main(self)
+            return await Design.main(self)
 
 
         with context.new_context(req, headers):
             context.c.timers = timers
 
-            with self.sessiondb.init_session(req, headers) as session:
+            async with self.sessiondb.init_session(req, headers) as session:
                 context.c.session = session
-                context.c.user = self.userdb.get_user(session.user_id())
+                context.c.user = await self.userdb.get_user(session.user_id())
 
                 # Debug
                 if False:
@@ -354,11 +354,11 @@ class Page(object):
 
                 # Special ops to register results
                 if "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.REGISTER):
-                    return self.register(args)
+                    return await self.register(args)
 
                 # Special ops to register a user reported error
                 elif "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.FEEDBACK):
-                    return self.feedback(args)
+                    return await self.feedback(args)
 
                 else:
                     self.page_params.set_url(req.get_url())
@@ -385,11 +385,11 @@ class Page(object):
                                     ))
 
                     with context.c.timers.new_section("design.main"):
-                        return Design.main(self)
+                        return await Design.main(self)
 
 
     # args is in format returned by urllib.parse.parse_qs
-    def register(self, args):
+    async def register(self, args):
 
         # TBD: we record UNKNOWN for testing only. 
         # In deployment we should ignore registering requests from UNKNOWN
@@ -473,7 +473,7 @@ class Page(object):
                             str(correct), str(incorrect), str(questions))
 
                 try:
-                    self.storage.record_response(response)
+                    await self.storage.record_response(response)
                 except Exception as err:
                     logging.error("Error submitting record response: {}".format(err))
             else:
@@ -490,7 +490,7 @@ class Page(object):
 
 
     # args is in format returned by urllib.parse.parse_qs
-    def feedback(self, args):
+    async def feedback(self, args):
 
         # Record feedback to the database
         try:
@@ -513,7 +513,7 @@ class Page(object):
             logging.error("GOOGLE_ERROR feedback: user_id=%s, error=%s", str(user_id), str(args["comment"]))
 
             try:
-                self.storage.record_feedback(response)
+                await self.storage.record_feedback(response)
             except Exception as err:
                 logging.error("Error submitting google error feedback (user_id={}): {}".format(user_id, str(err)))
 
@@ -555,7 +555,7 @@ class Page(object):
                             str(language), str(args["type"]), str(args["comment"]), random_vals)
 
             try:
-                self.storage.record_feedback(response)
+                await self.storage.record_feedback(response)
             except Exception as err:
                 logging.error("Error submitting record response (user_id={}): {}".format(user_id, str(err)))
         else:
@@ -567,7 +567,7 @@ class Page(object):
 
 
 
-    def login_google(self):
+    async def login_google(self):
         id_token = None
         ok = False
 
@@ -578,7 +578,7 @@ class Page(object):
 
             id_token = pdict.get('id_token', None)
             if id_token:
-                ok, s = self.userdb.login_google(id_token)
+                ok, s = await self.userdb.login_google(id_token)
             else:
                 logging.info("login_google(): no id_token")
 
@@ -637,7 +637,7 @@ class Page(object):
 
 
 
-    def login_anon(self) -> str:
+    async def login_anon(self) -> str:
         if not context.c.user:
             user_id = 'UNKNOWN'
             name = 'UNKNOWN'
@@ -645,7 +645,7 @@ class Page(object):
             user_language = "rs"
 
             logging.debug("Login anonymous user UNKNOWN")
-            self.userdb.login_test(user_id, name, email, user_language)
+            await self.userdb.login_test(user_id, name, email, user_language)
         else:
             logging.info("login(): User already logged in")
 

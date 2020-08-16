@@ -48,10 +48,10 @@ use_azure_blob = False
 preload = True
 
 
-def main(req: func.HttpRequest) -> func.HttpResponse:
+async def main(req: func.HttpRequest) -> func.HttpResponse:
     tc = TimerControl()
     with tc.new_section("request"):
-        ret = main_work(req, tc)
+        ret = await main_work(req, tc)
 
     d = tc.dump()
     logging.debug("TIMERS (%s):\n%s", str(req.url), d)
@@ -59,7 +59,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     return ret
 
 
-def main_work(req: func.HttpRequest, tc: TimerControl) -> func.HttpResponse:
+async def main_work(req: func.HttpRequest, tc: TimerControl) -> func.HttpResponse:
     global PAGE
     if PAGE is None:
         logging.info("Reloading page (%s, %s)", str(use_azure_blob), str(preload))
@@ -110,7 +110,7 @@ def main_work(req: func.HttpRequest, tc: TimerControl) -> func.HttpResponse:
         args["language"] = "rs"
 
     with tc.new_section("page_main"):
-        page_body = PAGE.main(request, headers, tc, args)
+        page_body = await PAGE.main(request, headers, tc, args)
 
     return func.HttpResponse(
         page_body,

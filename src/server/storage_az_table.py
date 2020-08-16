@@ -2,8 +2,11 @@
 from azure.cosmosdb.table.tableservice import TableService
 from azure.common import AzureMissingResourceHttpError
 
-#import sys
+import asyncio
+
+import sys
 #sys.path.append("..")
+sys.path.append("./server")
 try:
     from .helpers import encode_dict, decode_dict
     from .timers import timer_section
@@ -57,12 +60,12 @@ class Storage_az_table():
         #         self.table_service.create_table(table)
 
 
-    def get_user(self, user_id):
+    async def get_user(self, user_id):
         partition_key = self.default_partition_key
 
         try:
             #entity = self.table_service.get_entity(self.users_table_name, partition_key, user_id)
-            entity = self.table_service.async_get_entity(self.users_table_name, 
+            entity = await self.table_service.async_get_entity(self.users_table_name, 
                 partition_key=partition_key, row_key=user_id)
         except AzureMissingResourceHttpError:
             return None
@@ -71,7 +74,7 @@ class Storage_az_table():
         return entity
         
 
-    def update_user(self, user_id, name=None, remote_ip=None, 
+    async def update_user(self, user_id, name=None, remote_ip=None, 
                     user_agent=None, picture=None, user_language=None, last_accessed=None):
         properties = dict()
             
@@ -92,7 +95,7 @@ class Storage_az_table():
 
         try:
             #self.table_service.insert_or_merge_entity(self.users_table_name, properties)
-            self.table_service.async_insert_or_merge_entity(self.users_table_name, properties)
+            await self.table_service.async_insert_or_merge_entity(self.users_table_name, properties)
         except Exception:
             logging.exception('Error adding to table ' + self.users_table_name + ' record: {}'.format(properties))
         
@@ -103,7 +106,7 @@ class Storage_az_table():
             
 
     @timer_section("storage.record_response")
-    def record_response(self, response):
+    async def record_response(self, response):
         response['PartitionKey'] = response['user_id']
         response['RowKey'] = response['question_id'] + "|" + str(response['time']) + "|" + str(response['duration'])
 
@@ -115,13 +118,13 @@ class Storage_az_table():
 
         try:
             #self.table_service.insert_entity(self.responses_table_name, response)
-            self.table_service.async_insert_entity(self.responses_table_name, response)
+            await self.table_service.async_insert_entity(self.responses_table_name, response)
         except Exception as err:
             logging.exception('Error adding response: {}\n\n{}' + str(response, err))
 
 
     @timer_section("storage.record_feedback")
-    def record_feedback(self, response):
+    async def record_feedback(self, response):
         fb_time = int(time.time() * 1000)
 
         response['PartitionKey'] = response['question_id']
@@ -136,13 +139,13 @@ class Storage_az_table():
 
         try:
             #self.table_service.insert_entity(self.feedbacks_table_name, response)
-            self.table_service.async_insert_entity(self.feedbacks_table_name, response)
+            await self.table_service.async_insert_entity(self.feedbacks_table_name, response)
         except Exception as err:
             logging.exception('Error adding response: ' + str(err))
 
 
     @timer_section("storage.update_session")
-    def update_session(self, session_id, data = {}):
+    async def update_session(self, session_id, data = {}):
         assert session_id is not None
         assert data['state_id'] is not None
 
@@ -157,16 +160,16 @@ class Storage_az_table():
 
         try:
             #self.table_service.insert_or_merge_entity(self.sessions_table_name, properties)
-            self.table_service.async_insert_or_merge_entity(self.sessions_table_name, properties)
+            await self.table_service.async_insert_or_merge_entity(self.sessions_table_name, properties)
         except Exception:
             logging.exception('Error adding to table ' + self.sessions_table_name + ' record: {}'.format(properties))
 
 
     @timer_section("get_session")
-    def get_session(self, session_id):
+    async def get_session(self, session_id):
         try:
             #entity = self.table_service.get_entity(self.sessions_table_name, session_id, "")
-            entity = self.table_service.async_get_entity(self.sessions_table_name, partition_key=session_id, row_key="")
+            entity = await self.table_service.async_get_entity(self.sessions_table_name, partition_key=session_id, row_key="")
         except AzureMissingResourceHttpError:
             return None
 
@@ -224,7 +227,7 @@ class Storage_az_table():
 
 
 
-    def get_all_responses(self, user_id = None):
+    async def get_all_responses(self, user_id = None):
         if user_id is None:
             req = ""
         else:
@@ -232,24 +235,24 @@ class Storage_az_table():
 
 
         #entries = self.table_service.query_entities(self.responses_table_name, req)
-        entries = self.table_service.async_get_entity(self.responses_table_name, req)
+        entries = await self.table_service.async_get_entity(self.responses_table_name, req)
 
         return entries
 
 
 
 
-    def get_all_users(self):
+    async def get_all_users(self):
         #entries = self.table_service.query_entities(self.users_table_name, "")
-        entries = self.table_service.async_get_entity(self.users_table_name, "")
+        entries = await self.table_service.async_get_entity(self.users_table_name, "")
 
         return entries
 
             
 
 
-    def print_all_responses(self, user_id = None):
-        entries = self.get_all_responses(user_id)
+    async def print_all_responses(self, user_id = None):
+        entries = await self.get_all_responses(user_id)
 
 
         if user_id is None:
@@ -274,8 +277,8 @@ class Storage_az_table():
 
 
 
-    def print_all_users(self):
-        entries = self.get_all_users()
+    async def print_all_users(self):
+        entries = await self.get_all_users()
 
         print("           USER ID                    NAME                      EMAIL                 LAST ACCESSED          REMOTE IP                      USER AGENT             USER LANGUAGE")
         for row in entries:
@@ -293,7 +296,7 @@ class Storage_az_table():
 
 
 
-    def get_question_stats(self, q_id=None, from_date=None):
+    async def get_question_stats(self, q_id=None, from_date=None):
         req = ""
 
         if q_id:
@@ -308,7 +311,7 @@ class Storage_az_table():
 
  
         #entries = self.table_service.query_entities(self.responses_table_name, req)
-        entries = self.table_service.async_get_entity(self.responses_table_name, req)
+        entries = await self.table_service.async_get_entity(self.responses_table_name, req)
 
         result = []
         for row in entries:
@@ -326,7 +329,7 @@ class Storage_az_table():
 
 
 
-    def get_user_stats(self, u_id, from_date=None):
+    async def get_user_stats(self, u_id, from_date=None):
 
         # TBD DEBUG: temporary cleanup for various user names we used over time
         # Remove (PartitionKey eq 'local:{}') in future
@@ -341,7 +344,7 @@ class Storage_az_table():
         logging.info("\n\nBBBBBBBB: {}\n\n".format(req))
 
         #entries = self.table_service.query_entities(self.responses_table_name, req)
-        entries = self.table_service.async_get_entity(self.responses_table_name, req)
+        entries = await self.table_service.async_get_entity(self.responses_table_name, req)
 
         result = []
         for row in entries:
@@ -354,6 +357,7 @@ class Storage_az_table():
         
 if __name__ == '__main__':
 
+    loop = asyncio.get_event_loop()
     storage = Storage_az_table()
     print("Opened storage")
 
@@ -365,40 +369,40 @@ if __name__ == '__main__':
 
     # WARNING: Delete table takes 40s, so everything else will fail
     # Rerun with wipe_all disabled to test
-    # if wipe_all:
-    #     print("Wiping out existing data: ", end="")
-    #     storage.delete_all_tables()
-    #     print("Done")
+    if wipe_all:
+        print("Wiping out existing data: ", end="")
+        loop.run_until_complete(storage.delete_all_tables())
+        print("Done")
 
 
 
-    # if add_test_data:
-    #     epoch_ms = int(time.time())
-    #     delta = 3600
+    if add_test_data:
+        epoch_ms = int(time.time())
+        delta = 3600
 
-    #     user0 = storage.insert_user_id("test0")
-    #     user1 = storage.insert_user_id("test1")
-    #     storage.update_user(user0, name="User0", remote_ip="100.200.300.400", user_agent="agent0", user_language="", last_accessed=epoch_ms)
-    #     storage.update_user(user1, name="User1", remote_ip="200.300.400.500", user_agent="agent1", user_language="", last_accessed=epoch_ms)
+        user0 = loop.run_until_complete(storage.insert_user_id("test0"))
+        user1 = loop.run_until_complete(storage.insert_user_id("test1"))
+        loop.run_until_complete(storage.update_user(user0, name="User0", remote_ip="100.200.300.400", user_agent="agent0", user_language="", last_accessed=epoch_ms))
+        loop.run_until_complete(storage.update_user(user1, name="User1", remote_ip="200.300.400.500", user_agent="agent1", user_language="", last_accessed=epoch_ms))
     
-    #     response = {"user_id" : user0, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
-    #     storage.record_response(response)
+        response = {"user_id" : user0, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        loop.run_until_complete(storage.record_response(response))
 
-    #     response = {"user_id" : user0, "question_id": "q1", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
-    #     storage.record_response(response)
+        response = {"user_id" : user0, "question_id": "q1", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        loop.run_until_complete(storage.record_response(response))
 
-    #     response = {"user_id" : user1, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
-    #     storage.record_response(response)
+        response = {"user_id" : user1, "question_id": "q0", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        loop.run_until_complete(storage.record_response(response))
 
-    #     response = {"user_id" : user1, "question_id": "q1", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
-    #     storage.record_response(response)
+        response = {"user_id" : user1, "question_id": "q1", "list_id": "list", "response_type": "SUBMIT", "time": epoch_ms+delta, "duration": 0, "correct": 0, "incorrect": 0, "questions": "abc"}
+        loop.run_until_complete(storage.record_response(response))
 
 
 
     print_all_data = True
     if print_all_data:
-        storage.print_all_users()
-        storage.print_all_responses()
+        loop.run_until_complete(storage.print_all_users())
+        loop.run_until_complete(storage.print_all_responses())
 
 
     print_question_stats = False
@@ -406,12 +410,14 @@ if __name__ == '__main__':
     if print_question_stats:
         #storage.get_question_stats("fractions/q00022")
         #print(storage.get_question_stats("fractions/q00063", "2020-03-01T00:00:00.000Z"))
-        print(storage.get_question_stats("fractions/q00063"))
+        stats = storage.get_question_stats("fractions/q00063")
+        print(stats)
 
 
     print_user_stats = False
     if print_user_stats:
-        print(storage.get_user_stats("UNKNOWN"))
+        stats = storage.get_user_stats("UNKNOWN")
+        print(stats)
         #print(storage.get_question_stats("fractions/q00022", "2020-03-01T00:00:00.000Z"))
 
 

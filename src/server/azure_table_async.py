@@ -6,6 +6,9 @@ import base64
 import json
 from urllib.parse import quote as url_quote
 from types import SimpleNamespace
+import asyncio
+import httpx
+
 
 import os
 
@@ -77,52 +80,61 @@ class AzureTableAsync():
 
 
 
-    def _make_get_req(self, resource, params=""):
-        return requests.get(
-            self._make_uri(resource, params), 
-            headers=self._make_headers("GET", resource)
-        )
+    async def _make_get_req(self, resource, params=""):
+        async with httpx.AsyncClient() as client:
+            r = await client.get(
+                self._make_uri(resource, params), 
+                headers=self._make_headers("GET", resource)
+            )
+
+        return r
 
 
-    def _make_post_req(self, resource, data):
+    async def _make_post_req(self, resource, data):
         headers = self._make_headers("POST", resource)
         headers['Content-Type'] = 'application/json'
         data = self._make_data(data)
         #print("DATA: ", data)
-        return requests.post(
-            self._make_uri(resource), 
-            headers=headers,
-            data=data
-        )
+        async with httpx.AsyncClient() as client:
+            r = await client.post(
+                self._make_uri(resource), 
+                headers=headers,
+                data=data
+            )
+        return r
 
 
-    def _make_merge_req(self, resource, data):
+    async def _make_merge_req(self, resource, data):
         headers=self._make_headers("MERGE", resource)
         headers['Content-Type'] = 'application/json'
-        return requests.request(
-            "MERGE", 
-            self._make_uri(resource), 
-            headers=headers,
-            data=self._make_data(data)
-        )
-
-
-    def _make_delete_req(self, resource, data=None):
-        headers=self._make_headers("DELETE", resource)
-        headers["If-Match"] = "*"
-        if data:
-            return requests.request(
-                "DELETE", 
+        async with httpx.AsyncClient() as client:
+            r = await client.request(
+                "MERGE", 
                 self._make_uri(resource), 
                 headers=headers,
                 data=self._make_data(data)
             )
-        else:
-            return requests.request(
-                "DELETE", 
-                self._make_uri(resource), 
-                headers=headers
-            )
+        return r
+
+
+    async def _make_delete_req(self, resource, data=None):
+        headers=self._make_headers("DELETE", resource)
+        headers["If-Match"] = "*"
+        async with httpx.AsyncClient() as client:
+            if data:
+                r = await client.request(
+                    "DELETE", 
+                    self._make_uri(resource), 
+                    headers=headers,
+                    data=self._make_data(data)
+                )
+            else:
+                r = await client.request(
+                    "DELETE", 
+                    self._make_uri(resource), 
+                    headers=headers
+                )
+        return r
 
 
     def _get_json(self, req):
@@ -163,10 +175,10 @@ class AzureTableAsync():
 
 
 
-    def async_list_tables(self):
+    async def async_list_tables(self):
         resource = "Tables"
         resource = url_quote(resource, '/()$=\',~')
-        r = self._make_get_req(resource)
+        r = await self._make_get_req(resource)
         resp = []
         # print(r.url)
         # print(r.text)
@@ -178,7 +190,7 @@ class AzureTableAsync():
         return resp
 
 
-    def async_get_entity(self, table_name, filter=None, partition_key=None, row_key=None, select=None):
+    async def async_get_entity(self, table_name, filter=None, partition_key=None, row_key=None, select=None):
         if not row_key is None and not partition_key is None:
             resource = "{}(PartitionKey='{}',RowKey='{}')".format(table_name, partition_key, row_key)
         elif not partition_key is None:
@@ -193,7 +205,7 @@ class AzureTableAsync():
             params = "?$filter={}".format(filter)
         if select:
             params = params + "?$select={}".format(select)            
-        r = self._make_get_req(resource, params)
+        r = await self._make_get_req(resource, params)
         print(r.url)
         # print(r.text)
         r_json = self._get_json(r)
@@ -207,10 +219,10 @@ class AzureTableAsync():
 
 
     # Insert record. Return True if successful, False if already exists
-    def async_insert_entity(self, table_name, entry):
+    async def async_insert_entity(self, table_name, entry):
         resource = table_name
         resource = url_quote(resource, '/()$=\',~')
-        r = self._make_post_req(resource, entry)
+        r = await self._make_post_req(resource, entry)
         # print(r.url)
         # print(r.text)
         r_json = self._get_json(r)
@@ -221,7 +233,7 @@ class AzureTableAsync():
 
 
 
-    def async_insert_or_merge_entity(self, table_name, entry):
+    async def async_insert_or_merge_entity(self, table_name, entry):
         partition_key = entry["PartitionKey"].replace('\'', '\'\'')
         row_key = entry["RowKey"].replace('\'', '\'\'')
         resource = '{0}(PartitionKey=\'{1}\',RowKey=\'{2}\')'.format(
@@ -230,14 +242,14 @@ class AzureTableAsync():
             row_key
         )
         resource = url_quote(resource, '/()$=\',~')
-        r = self._make_merge_req(resource, entry)
+        r = await self._make_merge_req(resource, entry)
         # print(r.url)
         # print(r.text)
 
 
 
     # Delete record. Return True if successful, False if not found
-    def async_delete_entity(self, table_name, partition_key, row_key):
+    async def async_delete_entity(self, table_name, partition_key, row_key):
         partition_key = partition_key.replace('\'', '\'\'')
         row_key = row_key.replace('\'', '\'\'')
         resource = '{0}(PartitionKey=\'{1}\',RowKey=\'{2}\')'.format(
@@ -246,7 +258,7 @@ class AzureTableAsync():
             row_key
         )
         resource = url_quote(resource, '/()$=\',~')
-        r = self._make_delete_req(resource)
+        r = await self._make_delete_req(resource)
         # print(r.url)
         # print(r.text)
         r_json = self._get_json(r)
@@ -259,84 +271,97 @@ class AzureTableAsync():
 
 if __name__ == '__main__':
 
-    # The test doesn't work with Azurite but works with Azure
-    connection_string = os.environ['SHKOLA_AZ_TABLE_CONN_STR']
-    connection_string = "DefaultEndpointsProtocol=https;AccountName=tatamata;AccountKey=5ckDVrGf0dTb85x8TuwyN+P9kz9wiS2vnpw8xlBScWv1tGJ5M4hLWbwjvZxAcHqxF3sC6aMABPqK6uXFuVa1dA==;EndpointSuffix=core.windows.net"
-    print(connection_string)
-
-    az_table = AzureTableAsync(connection_string)
-
-    print("\n\nAll tables:", az_table.async_list_tables())
-    # print("\nB:", az_table.async_get_entity("users", ""))
-    # print("\nC:", az_table.async_get_entity("users", "user_language eq 'rs'"))
-
-    data = {
-        'Timestamp': '2020-06-13T06:41:50.634Z', 
-        'user_id': 'local:TEST', 
-        'user_language': 'rs', 
-        'name': 'TEST', 
-        'email': None, 
-        'remote_ip': None, 
-        'user_agent': 'Mozilla/5.0', 
-        'last_accessed': '1592030510', 
-        'PartitionKey': 'USER', 
-        'RowKey': 'local:TEST'
-    }
+    async def main():
+        # The test doesn't work with Azurite but works with Azure
+        connection_string = os.environ['SHKOLA_AZ_TABLE_CONN_STR']
+        connection_string = "DefaultEndpointsProtocol=https;AccountName=tatamata;AccountKey=5ckDVrGf0dTb85x8TuwyN+P9kz9wiS2vnpw8xlBScWv1tGJ5M4hLWbwjvZxAcHqxF3sC6aMABPqK6uXFuVa1dA==;EndpointSuffix=core.windows.net"
+        print(connection_string)
 
 
-    # The first delete may or may not succeed
-    deleted = az_table.async_delete_entity(
-        "users", 
-        partition_key=data["PartitionKey"], 
-        row_key=data["RowKey"]
-    )
+        az_table = AzureTableAsync(connection_string)
+
+        all_tables = await az_table.async_list_tables()
+        print("\n\nAll tables:", all_tables)
+        # print("\nB:", az_table.async_get_entity("users", ""))
+        # print("\nC:", az_table.async_get_entity("users", "user_language eq 'rs'"))
+
+        data = {
+            'Timestamp': '2020-06-13T06:41:50.634Z', 
+            'user_id': 'local:TEST', 
+            'user_language': 'rs', 
+            'name': 'TEST', 
+            'email': None, 
+            'remote_ip': None, 
+            'user_agent': 'Mozilla/5.0', 
+            'last_accessed': '1592030510', 
+            'PartitionKey': 'USER', 
+            'RowKey': 'local:TEST'
+        }
 
 
-    deleted = az_table.async_delete_entity(
-        "users", 
-        partition_key=data["PartitionKey"], 
-        row_key=data["RowKey"]
-    )
+        # The first delete may or may not succeed
+        deleted = await az_table.async_delete_entity(
+            "users", 
+            partition_key=data["PartitionKey"], 
+            row_key=data["RowKey"]
+        )
 
-    assert(deleted == False)
+        deleted = await az_table.async_delete_entity(
+            "users", 
+            partition_key=data["PartitionKey"], 
+            row_key=data["RowKey"]
+        )
 
-
-
-    inserted = az_table.async_insert_entity("users", data)
-    assert(inserted == True)
+        assert(deleted == False)
+        print("Deleted: {} {}".format(data["PartitionKey"], data["RowKey"]))
 
 
 
-    read_data = az_table.async_get_entity(
-        "users", 
-        partition_key=data["PartitionKey"], 
-        row_key=data["RowKey"]
-    )
-    assert(read_data["user_id"] == data["user_id"])
-    print("\n\nRead:", read_data)
+        inserted = await az_table.async_insert_entity("users", data)
+        assert(inserted == True)
+        print("Insert: {} {}".format(data["PartitionKey"], data["RowKey"]))
 
 
-    data["user_id"] = "AAAAAAAAAAA"
-    az_table.async_insert_or_merge_entity("users", data)
+
+        read_data = await az_table.async_get_entity(
+            "users", 
+            partition_key=data["PartitionKey"], 
+            row_key=data["RowKey"]
+        )
+        assert(read_data["user_id"] == data["user_id"])
+        print("\n\nRead:", read_data)
 
 
-    read_data = az_table.async_get_entity(
-        "users", 
-        partition_key=data["PartitionKey"], 
-        row_key=data["RowKey"]
-    )
-    assert(read_data["user_id"] == data["user_id"])
-    print("\n\nRead:", read_data)
+        data["user_id"] = "AAAAAAAAAAA"
+        await az_table.async_insert_or_merge_entity("users", data)
+        print("Inserted or merged: {} {}".format(data["PartitionKey"], data["RowKey"]))
 
 
-    # The first delete may or may not succeed
-    deleted = az_table.async_delete_entity(
-        "users", 
-        partition_key=data["PartitionKey"], 
-        row_key=data["RowKey"]
-    )
-    assert(deleted == True)
+        read_data = await az_table.async_get_entity(
+            "users", 
+            partition_key=data["PartitionKey"], 
+            row_key=data["RowKey"]
+        )
+        assert(read_data["user_id"] == data["user_id"])
+        print("\n\nRead:", read_data)
 
-    print("\n\n")
 
+        # The first delete may or may not succeed
+        deleted = await az_table.async_delete_entity(
+            "users", 
+            partition_key=data["PartitionKey"], 
+            row_key=data["RowKey"]
+        )
+        assert(deleted == True)
+        print("Deleted: {} {}".format(data["PartitionKey"], data["RowKey"]))
+
+        print("\n\n")
+
+
+
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())    
+    
+    # No need to close here as this is the global loop and will be closed by Python
+    #loop.close()
 

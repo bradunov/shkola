@@ -1,7 +1,7 @@
 import json
 import uuid
 import logging
-from contextlib import contextmanager
+from contextlib import contextmanager, asynccontextmanager
 from server.timers import timer_section
 
 from .data_cache import DataCache
@@ -121,8 +121,9 @@ class SessionDB:
         self._session_cache = DataCache(CACHE_SIZE)
 
 
-    @contextmanager
-    def init_session(self, req, headers):
+    #https://docs.python.org/3/library/contextlib.html#contextlib.asynccontextmanager
+    @asynccontextmanager
+    async def init_session(self, req, headers):
         sid, state_id = self._parse_cookie(req)
         assert state_id is None or sid is not None
 
@@ -136,7 +137,7 @@ class SessionDB:
             if session_data is None:
                 logging.info("Session: not found in cache, loading from storage: %s", sid)
 
-                session_data = self._storage.get_session(sid)
+                session_data = await self._storage.get_session(sid)
 
                 if not session_data:
                     logging.info("Session: not found in storage: %s", sid)
@@ -184,7 +185,7 @@ class SessionDB:
                     session.session_id(), session.user_id(), session.state_id(), session.data()
                 )
 
-                self._storage.update_session(session.session_id(), session.session_dict())
+                await self._storage.update_session(session.session_id(), session.session_dict())
 
             self._session_cache.set(session.session_id(), session.state_id(), session.session_dict())
 
