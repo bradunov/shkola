@@ -66,7 +66,7 @@ async def main_work(req: func.HttpRequest, tc: TimerControl) -> func.HttpRespons
         PAGE = Page(use_azure_blob=use_azure_blob, preload=preload)
 
 
-    if False:
+    if True:
         logging.debug("METHOD: " + str(req.method))
         logging.debug("URL: " + str(req.url))
         logging.debug("HEADERS: " + str(dict(req.headers)))
@@ -111,6 +111,8 @@ async def main_work(req: func.HttpRequest, tc: TimerControl) -> func.HttpRespons
 
     with tc.new_section("page_main"):
         page_body = await PAGE.main(request, headers, tc, args)
+
+    logging.debug("Return header: " + str(headers.__dict__) + " - " + str(headers))
 
     return func.HttpResponse(
         page_body,

@@ -33,7 +33,9 @@ class Design_default(object):
         # If login, update user and replace op with the original op
         if page.page_params.get_param("op") == PageOperation.LOGIN_ANON:
             new_url = await page.login_anon()
+            logging.debug("Login anonymous redirect to {}".format(new_url))
             context.c.headers.redirect(new_url)
+            logging.debug("Redirecting header: " + str(context.c.headers.__dict__) + " - " + str(context.c.headers) + " - " + str(context.c))
             return ""
 
         if page.page_params.get_param("op") == PageOperation.LOGIN_GOOGLE:
@@ -43,6 +45,7 @@ class Design_default(object):
 
         if page.page_params.get_param("op") == PageOperation.LOGOUT:
             new_url = page.logout()
+            logging.debug("Logout redirect to {}".format(new_url))
             context.c.headers.redirect(new_url)
             return ""
 

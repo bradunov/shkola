@@ -1,5 +1,5 @@
 import threading
-from contextlib import contextmanager
+from contextlib import contextmanager, asynccontextmanager
 
 class Context(threading.local):
     ATTRS = ["request", "headers", "session", "user", "timers"]
@@ -18,8 +18,9 @@ class Context(threading.local):
 c = Context()
 
 
-@contextmanager
-def new_context(request, headers):
+#https://docs.python.org/3/library/contextlib.html#contextlib.asynccontextmanager
+@asynccontextmanager
+async def new_context(request, headers):
     global c
 
     c.request = request

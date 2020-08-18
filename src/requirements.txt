@@ -5,3 +5,4 @@ google-auth-httplib2
 azure-cosmosdb-table
 azure-storage-blob
 jinja2
+httpx

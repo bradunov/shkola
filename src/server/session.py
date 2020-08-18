@@ -88,7 +88,7 @@ class Session:
 
     def _set_dirty(self):
         assert self._valid
-        logging.debug("Session: Setting session dirty: %s", self.session_id())
+        #logging.debug("Session: Setting session dirty: %s", self.session_id())
         self._state_id = None
 
 

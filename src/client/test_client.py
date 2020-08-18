@@ -7,11 +7,16 @@ import json
 
 
 
-#url = "http://shkola.vladap.com:7071/main"
-url = 'https://www.tatamata.org'
+url = "http://shkola.vladap.com:7071"
+#url = 'https://www.tatamata.org'
+root = "main"
+
 
 number_of_runs_per_user = 2
 number_of_users = 10
+
+number_of_runs_per_user = 1
+number_of_users = 2
 
 
 DEBUG = True
@@ -104,6 +109,10 @@ class HTTPError(Exception):
 
 
 async def session_op(id, samples, get_method, op, jar=None, page_name=None):
+  # We follow redirects explicitly here because httpx won't do it correctly 
+  # with multiple concurrent requests
+  redirect_url = None
+
   if (op == "final"):
     # Last page is also question, but generates final result instead
     # The caller needs to know when is the last question
@@ -114,31 +123,44 @@ async def session_op(id, samples, get_method, op, jar=None, page_name=None):
   if not page_name:
     page_name = op
 
-  if DEBUG:
-    print(f"#{id} Requestion URL: {url}")
-  start_time = time.time()
-  r = await get_method(url, params=test_params[pop], cookies=jar, timeout=http_timeout_s)
-  end_time = time.time()
 
-  if DEBUG:
-    print(f"#{id} Requested url: {r.url}\n")
-    print(f"#{id} Obtained page name: {get_page_name(r.text)}")
-    #print(f"#{id} Received header: {r.headers}\n")
-    #print(f"#{id} Received cookies: {r.cookies['shkola_session_id']}\n")
+  # Repeat until not redirected
+  while True:
+    start_time = time.time()
+    if redirect_url:
+      if DEBUG:
+        print(f"#{id} Requested URL: {redirect_url}")
+      r = await get_method(redirect_url, cookies=jar, timeout=http_timeout_s, allow_redirects=False)
+    else:
+      if DEBUG:
+        print(f"#{id} Requested URL ({pop}): {url}")
+      r = await get_method(url + "/" + root, params=test_params[pop], cookies=jar, timeout=http_timeout_s, allow_redirects=False)
+    end_time = time.time()
 
-  if not r.status_code == 200:
-    #print(f"Error code {r.status_code}")
-    add_stats(samples, "http_error", start_time, end_time)
-    raise HTTPError
-    return False, r
-  elif not page_name == get_page_name(r.text):
-    print(f"#{id} Wrong page, expecting {page_name}, got {get_page_name(r.text)}")
-    add_stats(samples, "wrong_page", start_time, end_time)
-    raise WrongPageError
-    return False, r
-  else:
-    add_stats(samples, op, start_time, end_time)
-    return True, r
+    if DEBUG:
+      print(f"#{id} Requested url: {r.url}\n")
+      print(f"#{id} Obtained page name: {get_page_name(r.text)}")
+      print(f"#{id} Received status code: {r.status_code}\n")
+      print(f"#{id} Received history: {r.history}\n")
+      print(f"#{id} Received header: {r.headers}\n")
+      print(f"#{id} Received cookies: {r.cookies['shkola_session_id']}\n")
+
+    if r.status_code == 303:
+      # Redirect
+      redirect_url = url + "/" + r.headers.get('location')
+    elif not r.status_code == 200:
+      #print(f"Error code {r.status_code}")
+      add_stats(samples, "http_error", start_time, end_time)
+      raise HTTPError
+      return False, r
+    elif not page_name == get_page_name(r.text):
+      print(f"#{id} Wrong page, expecting {page_name}, got {get_page_name(r.text)}")
+      add_stats(samples, "wrong_page", start_time, end_time)
+      raise WrongPageError
+      return False, r
+    else:
+      add_stats(samples, op, start_time, end_time)
+      return True, r
 
 
 
@@ -231,7 +253,7 @@ if __name__ == "__main__":
 
 
   print("\nIMPORTANT: if you run this in windows, run from PowerShell, not WSL!\n")
-  print(f"Target URL: {url}")
+  print(f"Target URL: {url}/{root}")
 
   # Async still doesn't work - needs fixing, if we decide we need it
   print(f"Running {number_of_runs_per_user} runs for each of {number_of_users} users:", end="", flush=True)
