@@ -2,7 +2,7 @@ import json
 import uuid
 import logging
 from contextlib import contextmanager
-from server.timers import timer_section
+# from server.timers import timer_section
 
 from .data_cache import DataCache
 

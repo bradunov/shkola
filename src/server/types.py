@@ -6,7 +6,7 @@ from server.helpers import encode_dict
 from server.helpers import decode_dict
 from server.helpers import is_user_on_mobile
 from server.helpers import encap_str
-from server.timers import timer_section
+# from server.timers import timer_section
 
 import server.context as context
 
