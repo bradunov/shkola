@@ -338,7 +338,7 @@ class Page(object):
             return await Design.main(self)
 
 
-        async with context.new_context(req, headers):
+        with context.new_context(req, headers):
             context.c.timers = timers
 
             async with self.sessiondb.init_session(req, headers) as session:
