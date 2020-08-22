@@ -5,17 +5,15 @@ from azure.common import AzureMissingResourceHttpError
 import asyncio
 
 import sys
-#sys.path.append("..")
-sys.path.append("./server")
-try:
-    from .helpers import encode_dict, decode_dict
-    from .timers import timer_section
-    from .azure_table_async import AzureTableAsync
-except:
-    # For running standalone, from __main__
+if __name__ == '__main__':
+    # sys.path.append("./server")
     from helpers import encode_dict, decode_dict
     from timers import timer_section
     from azure_table_async import AzureTableAsync
+else:
+    from server.helpers import encode_dict, decode_dict
+    from server.timers import timer_section
+    from server.azure_table_async import AzureTableAsync
 
 import os
 import time

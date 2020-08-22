@@ -1,37 +1,49 @@
-import threading
-from contextlib import contextmanager, asynccontextmanager
+from contextlib import contextmanager
+from contextvars import ContextVar
 
-class Context(threading.local):
-    ATTRS = ["request", "headers", "session", "user", "timers"]
+request = ContextVar('request')
+headers = ContextVar('headers')
+timers = ContextVar('timers')
+session = ContextVar('session')
+user = ContextVar('user')
 
+c = None
+
+# This class (and c variable) is not necessary. In the code, one can just use:
+# context.user.set(...) instead of: context.c.user = ...
+# and
+# user = context.user.get() instead of: user = context.c.user
+#
+# However, it order to avoid refactoring the old code, this class is added.
+#
+class ContextAccess():
     def __setattr__(self, k, v):
-        if not k in Context.ATTRS:
-            raise Exception("Invalid context attribute")
+        globals()[k].set(v)
 
-        threading.local.__setattr__(self, k, v)
-
-    def clear(self):
-        for k in Context.ATTRS:
-            setattr(self, k, None)
+    def __getattr__(self, k):
+        return globals()[k].get()
 
 
-c = Context()
+@contextmanager
+def new_context(prequest, pheaders):
 
+    token_request = request.set(prequest)
+    token_headers = headers.set(pheaders)
+    token_timers = timers.set(None)
+    token_session = session.set(None)
+    token_user = user.set(None)
 
-#https://docs.python.org/3/library/contextlib.html#contextlib.asynccontextmanager
-@asynccontextmanager
-async def new_context(request, headers):
     global c
-
-    c.request = request
-    c.headers = headers
-    c.timers = None
-    c.session = None
-    c.user = None
+    c = ContextAccess()
 
     try:
-        yield c
+        yield
 
     finally:
-        c.clear()
+        request.reset(token_request)
+        headers.reset(token_headers)
+        timers.reset(token_timers)
+        session.reset(token_session)
+        user.reset(token_user)
+        c = None
 
