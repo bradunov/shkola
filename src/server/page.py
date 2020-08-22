@@ -47,64 +47,92 @@ class Page(object):
 
 
 
+    class CachedElements(object):
+        def __init__(self, rel_path=None, template_path=None, use_azure_blob=False, preload=True):
+
+            # Set logging formater
+            # See this for attributes: https://docs.python.org/3/library/logging.html#logrecord-attributes
+            # Note: the usual python way through basicConfig won't work as Azure Functions mess up with it
+            # This is a possible way. See: https://stackoverflow.com/a/57896847
+            # The loop is taken from Logger.callHandlers() implementation
+            # Note: logging.Logger.root should be the root (no parent) but I leave the loop just in case AF change
+            #formatter    = logging.Formatter('%(pathname)s:%(funcName)s(%(lineno)d) : %(message)s\n')
+            formatter    = logging.Formatter('%(filename)s:%(funcName)s(%(lineno)d) : %(message)s\n')
+            logger = logging.Logger.root
+            while logger:
+                for hdlr in logger.handlers:
+                    hdlr.setFormatter(formatter)
+                if not logger.propagate:
+                    logger = None    #break out
+                else:
+                    logger = logger.parent
+
+
+            if rel_path:
+                self.rel_path = rel_path
+            else:
+                self.rel_path = os.getenv('SHKOLA_REL_PATH')                    
+
+                if not self.rel_path:
+                    self.rel_path = "../.."
+
+            assert self.rel_path
+
+            logging.info("Paths: initial rel_path: {}".format(self.rel_path))
+
+            self.rel_path = os.path.abspath(self.rel_path)
+            logging.info("Paths: rel_path: {}".format(self.rel_path))
+
+            if template_path is None:
+                template_path = os.getenv("SHKOLA_TEMPLATES")
+
+            if template_path is None:
+                template_path = os.path.join(self.rel_path, 'templates')
+
+            self.template_path = os.path.abspath(template_path)
+
+            logging.info("Paths: template_path: {}".format(self.template_path))
+            logging.info("Paths: working dir: {}".format(os.getcwd()))
+
+
+            self.storage = server.storage.get_storage()
+
+            self.repository = Repository(self.rel_path, use_azure_blob, preload)
+
+            self.userdb = UserDB(self.storage)
+            self.sessiondb = SessionDB(self.storage)
+
+            self.messages = Page.load_languages(self.rel_path)
+
+            # TBD: can we cache this?
+            file_loader = jinja2.FileSystemLoader(self.template_path)
+            self.templates = jinja2.Environment(loader=file_loader)
+
+
+
     # use_azure_blob = True: use blob for question storage rather than the local disk
     # preload = True: fetch all questions in memory at start time (may be slow for a blob)
-    def __init__(self, title="tatamata.org", rel_path=None, template_path=None, use_azure_blob=False, preload=True):
+    def __init__(self, cached_elements, title="tatamata.org"):
 
-        # Set logging formater
-        # See this for attributes: https://docs.python.org/3/library/logging.html#logrecord-attributes
-        # Note: the usual python way through basicConfig won't work as Azure Functions mess up with it
-        # This is a possible way. See: https://stackoverflow.com/a/57896847
-        # The loop is taken from Logger.callHandlers() implementation
-        # Note: logging.Logger.root should be the root (no parent) but I leave the loop just in case AF change
-        #formatter    = logging.Formatter('%(pathname)s:%(funcName)s(%(lineno)d) : %(message)s\n')
-        formatter    = logging.Formatter('%(filename)s:%(funcName)s(%(lineno)d) : %(message)s\n')
-        logger = logging.Logger.root
-        while logger:
-            for hdlr in logger.handlers:
-                hdlr.setFormatter(formatter)
-            if not logger.propagate:
-                logger = None    #break out
-            else:
-                logger = logger.parent
-
-
-        if rel_path:
-            self.rel_path = rel_path
-        else:
-            self.rel_path = os.getenv('SHKOLA_REL_PATH')                    
-
-            if not self.rel_path:
-                self.rel_path = "../.."
-
-        assert self.rel_path
-
-        logging.info("Paths: initial rel_path: {}".format(self.rel_path))
-
-        self.rel_path = os.path.abspath(self.rel_path)
-        logging.info("Paths: rel_path: {}".format(self.rel_path))
-
-        if template_path is None:
-            template_path = os.getenv("SHKOLA_TEMPLATES")
-
-        if template_path is None:
-            template_path = os.path.join(self.rel_path, 'templates')
-
-        self.template_path = os.path.abspath(template_path)
-
-        logging.info("Paths: template_path: {}".format(self.template_path))
-        logging.info("Paths: working dir: {}".format(os.getcwd()))
 
         self.page_params = PageParameters()
-        self.repository = Repository(self.rel_path, use_azure_blob, preload)
-        self.storage = server.storage.get_storage()
         self.title = title
-        self.userdb = UserDB(self.storage)
-        self.sessiondb = SessionDB(self.storage)
-        self.load_languages()
 
-        file_loader = jinja2.FileSystemLoader(self.template_path)
-        self.templates = jinja2.Environment(loader=file_loader)
+
+        # Load cached elements shared across requests
+        self.rel_path = cached_elements.rel_path
+        self.template_path = cached_elements.template_path
+        self.repository = cached_elements.repository
+        self.storage = cached_elements.storage
+        self.userdb = cached_elements.userdb
+        self.sessiondb = cached_elements.sessiondb
+        self.messages = cached_elements.messages
+
+
+        # TBD: can we cache this?
+        #file_loader = jinja2.FileSystemLoader(self.template_path)
+        #self.templates = jinja2.Environment(loader=file_loader)
+        self.templates = cached_elements.templates
         self.template_params = self._default_template_params
         self.template_params["title"] = self.title
 
@@ -200,17 +228,21 @@ class Page(object):
     #################################################
     # Language support
 
-    def load_languages(self):
-        local_path = self.rel_path + "/messages/"
-        self.messages = dict()
+    @staticmethod
+    def load_languages(rel_path):
+        local_path = rel_path + "/messages/"
+        messages = dict()
 
         for (dirpath, dirnames, filenames) in os.walk(local_path):
             for f in filenames:
                 if f[len(f)-5:len(f)] == ".json":
                     lang = json.load(open(dirpath + f, 'r', encoding='utf-8'))
-                    if lang["key"] in self.messages.keys():
+                    if lang["key"] in messages.keys():
                         logging.error("Language with key {} defined twice!".format(lang["key"]))
-                    self.messages[lang["key"].lower()] = lang
+                    messages[lang["key"].lower()] = lang
+
+        return messages
+
 
     def get_language_list(self):
         return self.messages.keys()

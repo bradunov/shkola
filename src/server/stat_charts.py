@@ -300,7 +300,8 @@ def prepare_user_stats_chart(pg, u_ID):
 
 if __name__ == '__main__':
 
-    pg = page.Page(template_path="..")
+    cache = Page.CachedElements(template_path="..")
+    pg = page.Page(cache)
     #pg = page.Page()
     prepare_user_stats_chart(pg, 'Petar')
     print(pg.render())

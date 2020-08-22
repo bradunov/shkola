@@ -125,16 +125,17 @@ async def session_op(id, samples, get_method, op, jar=None, page_name=None):
 
 
   # Repeat until not redirected
+  # NOTE: This is efectively disabled, we use httpx internals now to deal with redirections 
   while True:
     start_time = time.time()
     if redirect_url:
       if DEBUG:
         print(f"#{id} Requested URL: {redirect_url}")
-      r = await get_method(redirect_url, cookies=jar, timeout=http_timeout_s, allow_redirects=False)
+      r = await get_method(redirect_url, cookies=jar, timeout=http_timeout_s, allow_redirects=True)
     else:
       if DEBUG:
         print(f"#{id} Requested URL ({pop}): {url}")
-      r = await get_method(url + "/" + root, params=test_params[pop], cookies=jar, timeout=http_timeout_s, allow_redirects=False)
+      r = await get_method(url + "/" + root, params=test_params[pop], cookies=jar, timeout=http_timeout_s, allow_redirects=True)
     end_time = time.time()
 
     if DEBUG:
@@ -189,7 +190,7 @@ async def test_session(id, no, samples, get_method):
     if not resp:
       return False
   except Exception as e:
-    print(f"#{id} EXCEPTION during login: {e}")
+    print(f"************* #{no}/{id} EXCEPTION during login: {e}")
     return False
 
   try:
@@ -205,22 +206,22 @@ async def test_session(id, no, samples, get_method):
     stage = "final"
     await session_op(id, samples, get_method, "final", jar, "summary")
   except Exception as e:
-    print(f"#{id} EXCEPTION during {stage}: {e}")
+    print(f"************* #{no}/{id} EXCEPTION during {stage}: {e}")
     try:
       await session_op(id, samples, get_method, "logout", jar, "user")
     except Exception as e:
-      print(f"#{id} EXCEPTION during logout: {e}")
+      print(f"************* #{no}/{id} EXCEPTION during logout (2): {e}")
       pass
     return False
 
   try:
     await session_op(id, samples, get_method, "logout", jar, "user")
   except Exception as e:
-    print(f"#{id} EXCEPTION during logout: {e}")
+    print(f"************* #{no}/{id} EXCEPTION during logout (3): {e}")
     return False
 
   if DEBUG:
-    print(f"#{id} user task {no} done")
+    print(f"#{no}/{id} user task {no} done")
   return True
 
 

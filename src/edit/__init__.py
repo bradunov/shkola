@@ -25,7 +25,7 @@ from server.request import Request
 
 # Cached page object, to speed up load time
 # as advised by: https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python
-PAGE = None
+CACHE = None
 
 
 import azure.functions as func
@@ -46,11 +46,12 @@ preload = True
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
-    global PAGE
-    if PAGE is None:
-        logging.info("Reloading page (%s, %s)", str(use_azure_blob), str(preload))
-        PAGE = Page(use_azure_blob=use_azure_blob, preload=preload)
+    global CACHE
+    if CACHE is None:
+        logging.info("Reloading cached page elements (%s, %s)", str(use_azure_blob), str(preload))
+        CACHE = Page.CachedElements(use_azure_blob=use_azure_blob, preload=preload)
 
+    page = Page(CACHE)
 
     if False:
         logging.debug("METHOD: " + str(req.method))
@@ -95,7 +96,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     headers = Headers()
     request = Request(req)
 
-    page_body = PAGE.main(request, headers, args)
+    page_body = page.main(request, headers, args)
 
     return func.HttpResponse(
         page_body,

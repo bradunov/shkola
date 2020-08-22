@@ -27,7 +27,7 @@ from server.timers import TimerControl
 
 # Cached page object, to speed up load time
 # as advised by: https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python
-PAGE = None
+CACHE = None
 
 
 import azure.functions as func
@@ -60,11 +60,12 @@ async def main(req: func.HttpRequest) -> func.HttpResponse:
 
 
 async def main_work(req: func.HttpRequest, tc: TimerControl) -> func.HttpResponse:
-    global PAGE
-    if PAGE is None:
-        logging.info("Reloading page (%s, %s)", str(use_azure_blob), str(preload))
-        PAGE = Page(use_azure_blob=use_azure_blob, preload=preload)
+    global CACHE
+    if CACHE is None:
+        logging.info("Reloading cached page elements (%s, %s)", str(use_azure_blob), str(preload))
+        CACHE = Page.CachedElements(use_azure_blob=use_azure_blob, preload=preload)
 
+    page = Page(CACHE)
 
     if True:
         logging.debug("METHOD: " + str(req.method))
@@ -110,7 +111,7 @@ async def main_work(req: func.HttpRequest, tc: TimerControl) -> func.HttpRespons
         args["language"] = "rs"
 
     with tc.new_section("page_main"):
-        page_body = await PAGE.main(request, headers, tc, args)
+        page_body = await page.main(request, headers, tc, args)
 
     logging.debug("Return header: " + str(headers.__dict__) + " - " + str(headers))
 

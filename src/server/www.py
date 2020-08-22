@@ -18,8 +18,10 @@ logging.basicConfig(level=logging.DEBUG)
 class editor(object):
     page = None
 
+
     def __init__(self):
-        self.page = Page(use_azure_blob=False, preload=True, template_path="../templates")
+        cache = Page.CachedElements(use_azure_blob=False, preload=True, template_path="../templates")
+        self.page = Page(cache)
         
 
     def get_user_agent(self):
