@@ -19,7 +19,7 @@ number_of_runs_per_user = 1
 number_of_users = 2
 
 
-DEBUG = True
+DEBUG = False
 
 
 http_timeout_s = 10
@@ -193,14 +193,19 @@ async def test_session(id, no, samples, get_method):
     return False
 
   try:
+    stage = "year"
     await session_op(id, samples, get_method, "year", jar)
+    stage = "theme"
     await session_op(id, samples, get_method, "theme", jar)
+    stage = "intro"
     await session_op(id, samples, get_method, "intro", jar)
     for i in range(0, number_of_question_in_test):
+      stage = "question:" + str(i)
       await session_op(id, samples, get_method, "question", jar)
+    stage = "final"
     await session_op(id, samples, get_method, "final", jar, "summary")
   except Exception as e:
-    print(f"#{id} EXCEPTION: {e}")
+    print(f"#{id} EXCEPTION during {stage}: {e}")
     try:
       await session_op(id, samples, get_method, "logout", jar, "user")
     except Exception as e:
