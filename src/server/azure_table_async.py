@@ -8,6 +8,7 @@ from urllib.parse import quote as url_quote
 from types import SimpleNamespace
 import asyncio
 import httpx
+import logging
 
 
 import os
@@ -82,11 +83,15 @@ class AzureTableAsync():
 
     async def _make_get_req(self, resource, params=""):
         async with httpx.AsyncClient() as client:
-            r = await client.get(
-                self._make_uri(resource, params), 
-                headers=self._make_headers("GET", resource)
-            )
-
+            r = None
+            try:
+                r = await client.get(
+                    self._make_uri(resource, params), 
+                    headers=self._make_headers("GET", resource)
+                )
+                r.raise_for_status()
+            except httpx.HTTPError as exc:
+                logging.error(f"An error occured while requesting {exc.request.url!r}.")
         return r
 
 
