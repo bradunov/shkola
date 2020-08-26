@@ -1,6 +1,7 @@
 import time
 from contextlib import contextmanager
 from functools import wraps
+import asyncio
 
 class Section:
     def __init__(self, name, ts_start):
@@ -95,13 +96,22 @@ def timer_section(name):
     import server.context as context
 
     def timer_decorator(func):
+
         @wraps(func)
         def timer_wrapper(*args, **kwargs):
             assert context.c.timers is not None
             with context.c.timers.new_section(name):
                 return func(*args, **kwargs)
 
-        return timer_wrapper
+
+        @wraps(func)
+        async def timer_wrapper_async(*args, **kwargs):
+            assert context.c.timers is not None
+            with context.c.timers.new_section(name):
+                return await func(*args, **kwargs)
+
+
+        return timer_wrapper_async if asyncio.iscoroutinefunction(func) else timer_wrapper
 
     return timer_decorator
 
