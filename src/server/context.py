@@ -7,8 +7,6 @@ timers = ContextVar('timers')
 session = ContextVar('session')
 user = ContextVar('user')
 
-c = None
-
 # This class (and c variable) is not necessary. In the code, one can just use:
 # context.user.set(...) instead of: context.c.user = ...
 # and
@@ -23,6 +21,7 @@ class ContextAccess():
     def __getattr__(self, k):
         return globals()[k].get()
 
+c = ContextAccess()
 
 @contextmanager
 def new_context(prequest, pheaders):
@@ -33,9 +32,6 @@ def new_context(prequest, pheaders):
     token_session = session.set(None)
     token_user = user.set(None)
 
-    global c
-    c = ContextAccess()
-
     try:
         yield
 
@@ -45,5 +41,4 @@ def new_context(prequest, pheaders):
         timers.reset(token_timers)
         session.reset(token_session)
         user.reset(token_user)
-        c = None
 
