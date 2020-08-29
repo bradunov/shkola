@@ -16,15 +16,42 @@ page['themes'].append({
     'subthemes' : [
       {
         'title' : 'Brojanje',
-        'link' : 'b'
+        'topics' : [
+          {
+            'title' : 'Tema 1',
+            'link' : 'b1'
+          },
+          {
+            'title' : 'Tema 2',
+            'link' : 'b2'
+          }
+        ]
       },
       {
         'title' : 'Operacije',
-        'link' : 'o'
+        'topics' : [
+          {
+            'title' : 'Tema 1',
+            'link' : 'o1'
+          },
+          {
+            'title' : 'Tema 2',
+            'link' : 'o2'
+          }
+        ]
       },
       {
         'title' : 'Poredjenje',
-        'link' : 'p'
+        'topics' : [
+          {
+            'title' : 'Tema 1',
+            'link' : 'p1'
+          },
+          {
+            'title' : 'Tema 2',
+            'link' : 'p2'
+          }
+        ]
       }
     ]
 })
@@ -34,16 +61,43 @@ page['themes'].append({
     'title' : 'GEOMETRIJA',
     'subthemes' : [
       {
-        'title' : 'Brojanje',
-        'link' : 'b'
+        'title' : 'Brojanje2',
+        'topics' : [
+          {
+            'title' : 'Tema 21',
+            'link' : 'b21'
+          },
+          {
+            'title' : 'Tema 22',
+            'link' : 'b22'
+          }
+        ]
       },
       {
-        'title' : 'Operacije',
-        'link' : 'o'
+        'title' : 'Operacije2',
+        'topics' : [
+          {
+            'title' : 'Tema 21',
+            'link' : 'o21'
+          },
+          {
+            'title' : 'Tema 22',
+            'link' : 'o22'
+          }
+        ]
       },
       {
-        'title' : 'Poredjenje',
-        'link' : 'p'
+        'title' : 'Poredjenje2',
+        'topics' : [
+          {
+            'title' : 'Tema 21',
+            'link' : 'p21'
+          },
+          {
+            'title' : 'Tema 22',
+            'link' : 'p22'
+          }
+        ]
       }
     ]
 })

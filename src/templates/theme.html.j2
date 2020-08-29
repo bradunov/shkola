@@ -36,7 +36,25 @@
         el_list_rect = {};
         el_list_roll = {};
 
-        function theme_onclick() {
+        tab_ids = {};
+        tab_titles = {};
+
+        function tab_select(tab) {
+          var ks = Object.keys(tab_ids);
+          for (var i=0; i<ks.length; i++) {
+            var tab_id = document.getElementById(tab_ids[ks[i]]);
+            var tab_title = document.getElementById(tab_titles[ks[i]]);
+            if (ks[i] == tab) {
+              tab_id.style.display = "block";
+              tab_title.style.fontWeight = 'bold';
+            } else {
+              tab_id.style.display = "none";
+              tab_title.style.fontWeight = 'normal';
+            }
+          }
+        }
+
+        function subtheme_onclick() {
           var ks = Object.keys(el_list_state);
           for (var i=0; i<ks.length; i++) {
             var b = ks[i];
@@ -130,98 +148,135 @@
       </script>
 
 
+      <div style="display:block; margin:auto; text-align: center; width: 300px; margin-top: 35px; margin-bottom: 4px; ">
+        {% for t in template_params['themes'] %}             
+          {% set theme_loop = loop.index %}
+          {% set theme_tab = "tab_{}".format(theme_loop) %}
+          {% set theme_tab_id = "tab_id_{}".format(theme_loop) %}
+          {% set theme_tab_name = "tab_name_{}".format(theme_loop) %}
+          <script>
+            tab_ids[ "{{theme_tab}}" ] = '{{theme_tab_id}}';
+            tab_titles[ "{{theme_tab}}" ] = '{{theme_tab_name}}';
+          </script>
+          {% if theme_loop == 1 %}
+            <div id="{{theme_tab_name}}" class="sh_lato_font" 
+                style="display:inline-block; font-weight: bold; cursor: pointer; font-size: 14px; margin-left: 3px; margin-right: 3px; color: #148f91"
+                onclick="tab_select('{{theme_tab}}')">
+              {{ t['title'] }}
+            </div>
+          {% else %}
+            <div id="{{theme_tab_name}}" class="sh_lato_font" 
+                style="display:inline-block; font-weight: normal; cursor: pointer; font-size: 14px; margin-left: 3px; margin-right: 3px; color: #148f91"
+                onclick="tab_select('{{theme_tab}}')">
+              {{ t['title'] }}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+
       {% for t in template_params['themes'] %}             
         {% set theme_loop = loop.index %}
-        {% set theme_button = "button_{}".format(theme_loop) %}
-        {% set theme_tick = "tick_{}".format(theme_loop) %}
-        {% set theme_rect = "rec_{}".format(theme_loop) %}
-        {% set theme_roll = "roll_{}".format(theme_loop) %}
-        <script>
-          el_list_link[ "{{theme_button}}" ] = '{{t['link']}}';
-          el_list_state[ "{{theme_button}}" ] = false;
-          el_list_parent[ "{{theme_button}}" ] = "";
-          el_list_tick[ "{{theme_button}}" ] = "{{theme_tick}}";
-          el_list_rect[ "{{theme_button}}" ] = "{{theme_rect}}";
-        </script>
+        {% set theme_tab_id = "tab_id_{}".format(theme_loop) %}
+        {% if theme_loop == 1 %}
+          <div id="{{theme_tab_id}}" style="display:block; margin:auto; text-align: center; width: 300px; ">
+        {% else %}
+          <div id="{{theme_tab_id}}" style="display:none; margin:auto; text-align: center; width: 300px; ">
+        {% endif %}
+          {% for st in t['subthemes'] %}             
+            {% set subtheme_loop = loop.index %}
+            {% set subtheme_button = "button_{}_{}".format(theme_loop, subtheme_loop) %}
+            {% set subtheme_tick = "tick_{}_{}".format(theme_loop, subtheme_loop) %}
+            {% set subtheme_rect = "rec_{}_{}".format(theme_loop, subtheme_loop) %}
+            {% set subtheme_roll = "roll_{}_{}".format(theme_loop, subtheme_loop) %}
+            <script>
+              el_list_link[ "{{subtheme_button}}" ] = '{{st['link']}}';
+              el_list_state[ "{{subtheme_button}}" ] = false;
+              el_list_parent[ "{{subtheme_button}}" ] = "";
+              el_list_tick[ "{{subtheme_button}}" ] = "{{subtheme_tick}}";
+              el_list_rect[ "{{subtheme_button}}" ] = "{{subtheme_rect}}";
+            </script>
 
-        <div style="display:block; width: 100%; text-align: center; margin-top: 31px; ">
-          <div id="{{theme_button}}"  
-              style="display: inline-block;
-                      cursor: pointer;
-                      width: 290px;
-                      height: 35px;">
-            <div class="sh_chalk_bold_font" style="display: inline-block;
-                      width: 258px;
-                      font-size: 24px; 
-                      color: #148f91;
-                      text-align: left;"
-                      onclick="el_select_list('{{theme_button}}', next_callback)">                      
-              {{ elements.color_string(t['title'], -6) }}
-              <img id="{{theme_tick}}" src="item?url=images/checkbox.svg" 
-                    style="display:none; width: 18px; height: 18px; margin-left: 18px"> 
-            </div>
-              <div style="display:inline-block; text-align: right;" onclick="roll('{{theme_roll}}')">                      
-                <img id="{{theme_roll + "_off" }}" src="item?url=images/arrow_down_closed.svg" 
-                    style="display:inline; width: 27px; height: 30px;"> 
-                <img id="{{theme_roll + "_on"}}" src="item?url=images/arrow_down_open.svg" 
-                    style="display:none; width: 27px; height: 30px;"> 
+            <div style="display:block; width: 100%; text-align: center; margin-top: 31px; ">
+              <div id="{{subtheme_button}}"  
+                  style="display: inline-block;
+                          cursor: pointer;
+                          width: 290px;
+                          height: 35px;">
+                <div class="sh_lato_font" style="display: inline-block;
+                          width: 258px;
+                          font-size: 18px; 
+                          color: #148f91;
+                          text-align: left;"
+                          onclick="el_select_list('{{subtheme_button}}', next_callback)">                      
+                  <!-- elements.color_string(st['title'], -6) -->
+                  {{ st['title'] }}
+                  <img id="{{subtheme_tick}}" src="item?url=images/checkbox.svg" 
+                        style="display:none; width: 18px; height: 18px; margin-left: 18px"> 
+                </div>
+                  <div style="display:inline-block; text-align: right;" onclick="roll('{{subtheme_roll}}')">                      
+                    <img id="{{subtheme_roll + "_off" }}" src="item?url=images/arrow_down_closed.svg" 
+                        style="display:inline; width: 27px; height: 30px;"> 
+                    <img id="{{subtheme_roll + "_on"}}" src="item?url=images/arrow_down_open.svg" 
+                        style="display:none; width: 27px; height: 30px;"> 
+                  </div>
               </div>
-          </div>
-          <div style="display:block; margin-top:-14px">
-            <svg width="290px" height="3px">
-              <rect id="{{theme_rect}}" width="290px" height="3px" style="fill:white;" />
-            </svg>
-          </div>
-        </div>
-
-
-        <div id="{{theme_roll}}" style="display:none; width: 100%; text-align: center; ">
-        {% for st in t['subthemes'] %}             
-          {% set subtheme_loop = loop.index %}
-          {% set subtheme_button = "button_st_{}_{}".format(theme_loop, subtheme_loop) %}
-          {% set subtheme_tick = "tick_st_{}_{}".format(theme_loop, subtheme_loop) %}
-          <script>
-            el_list_link[ "{{subtheme_button}}" ]= '{{st['link']}}';
-            el_list_state[ "{{subtheme_button}}" ] = false;
-            el_list_parent[ "{{subtheme_button}}" ] = "{{theme_button}}";
-            el_list_tick[ "{{subtheme_button}}" ] = "{{subtheme_tick}}";
-          </script>
-
-          <div style="display:block; width: 100%; text-align: center; ">
-            <div id="{{subtheme_button}}"  
-                style="display: inline-block;
-                        background: white; 
-                        width: 290px;
-                        height: 40px;
-                        cursor: pointer;"
-                        onclick="el_select_list('{{subtheme_button}}', next_callback)">
-              <div class="sh_lato_font" style="margin-left: 25px;  
-                        width: 200px; 
-                        display: inline-block;
-                        font-size: 18px; 
-                        color: #148f91;
-                        text-align: left;">                      
-                {{ st['title'] }}
-                <img id="{{subtheme_tick}}" src="item?url=images/checkbox.svg" 
-                      style="display:none; width: 18px; height: 18px; margin-left: 18px"> 
-              </div>
-              <div style="display:inline-block; margin-right: 25px; text-align: right;">                      
-                <img src="item?url=images/theme_numbers.svg" style="width: 32px; height: 32px;"> 
+              <div style="display:block; margin-top:-14px">
+                <svg width="290px" height="3px">
+                  <rect id="{{subtheme_rect}}" width="290px" height="3px" style="fill:white;" />
+                </svg>
               </div>
             </div>
-          </div>
-        {% endfor %}
-        </div>
 
+
+            <div id="{{subtheme_roll}}" style="display:none; width: 100%; text-align: center; ">
+            {% for tp in st['topics'] %}             
+              {% set topic_loop = loop.index %}
+              {% set topic_button = "button_st_{}_{}_{}".format(theme_loop, subtheme_loop, topic_loop) %}
+              {% set topic_tick = "tick_st_{}_{}_{}".format(theme_loop, subtheme_loop, topic_loop) %}
+              <script>
+                el_list_link[ "{{topic_button}}" ]= '{{tp['link']}}';
+                el_list_state[ "{{topic_button}}" ] = false;
+                el_list_parent[ "{{topic_button}}" ] = "{{subtheme_button}}";
+                el_list_tick[ "{{topic_button}}" ] = "{{topic_tick}}";
+              </script>
+
+              <div style="display:block; width: 100%; text-align: center; ">
+                <div id="{{topic_button}}"  
+                    style="display: inline-block;
+                            background: white; 
+                            width: 290px;
+                            height: 40px;
+                            cursor: pointer;"
+                            onclick="el_select_list('{{topic_button}}', next_callback)">
+                  <div class="sh_lato_font" style="margin-left: 25px;  
+                            width: 200px; 
+                            display: inline-block;
+                            font-size: 14px; 
+                            color: #148f91;
+                            text-align: left;">                      
+                    {{ tp['title'] }}
+                    <img id="{{topic_tick}}" src="item?url=images/checkbox.svg" 
+                          style="display:none; width: 18px; height: 18px; margin-left: 18px"> 
+                  </div>
+                  <div style="display:inline-block; margin-right: 25px; text-align: right;">                      
+                    <img src="item?url=images/theme_numbers.svg" style="width: 32px; height: 32px;"> 
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
       {% endfor %}
-    </div>
+      </div>
 
 
 
 
     <div style="display:block; position: fixed; z-index: 0;  
                 top: calc(100% - 110px); left: 0px; z-index: 0; height: 40px; width:100%; ">
-      {{ elements.next("theme_onclick()") }}
+      {{ elements.next("subtheme_onclick()") }}
     </div>
 
 

@@ -32,13 +32,22 @@ class Test(object):
     # Choose the next question, preferrably without repeat, and return it
     # Also return the number of possible remaining questions without repeat
     def choose_next_question(self):
-        log_str = "Next question for {}/{}/{} - ".format(
+        log_str = "Next question for {}/{}/{}/{} - ".format(
             self.page.page_params.get_param("subtheme"),
+            self.page.page_params.get_param("topic"),
             self.page.page_params.get_param("period"),
             self.page.page_params.get_param("difficulty")
         )
 
+
+        # Total number of unique questions (including previously asked ones)
         remaining_question = 0
+
+        # At least one eligible question has random values
+        # (i.e. can be asked meaningully several times)
+        randomized_questions = False
+
+
         potential_questions = {
             "all" : [],
             "topics" : {},
@@ -63,6 +72,9 @@ class Test(object):
             if self.page.page_params.get_param("subtheme") and \
                     (self.page.page_params.get_param("subtheme") == "*" or \
                     q["subtheme"].lower() == self.page.page_params.get_param("subtheme").lower()) and \
+               self.page.page_params.get_param("topic") and \
+                    (self.page.page_params.get_param("topic") == "*" or \
+                    q["topic"].lower() == self.page.page_params.get_param("topic").lower()) and \
                self.page.page_params.get_param("period") and \
                     (self.page.page_params.get_param("period") == "*" or \
                     q["period"].lower() == self.page.page_params.get_param("period").lower()) and \
@@ -86,6 +98,7 @@ class Test(object):
                 #logging.debug("\n\nNNNNN: {}\n\n".format(next_q))
     
                 if next_q["random"]:
+                    randomized_questions = True
                     potential_questions_w_repeat.append(next_q)
                     remaining_question = remaining_question + 1
 
@@ -116,23 +129,40 @@ class Test(object):
             "random" : False
         }
 
-        if prev_question:
-            topic = self._make_topic(prev_question)
+        # Do we insiste on a specific topic in a subtheme or we can 
+        is_topic_specified = not self.page.page_params.get_param("subtheme") == '*' and \
+                             not self.page.page_params.get_param("topic") == '*'
+
+        if prev_question or is_topic_specified:
+            if prev_question:
+                topic = self._make_topic(prev_question)
+            else:
+                topic = self.page.page_params.get_param("subtheme") + "|" + \
+                    self.page.page_params.get_param("topic")
+
             if topic in potential_questions["topics"].keys():
-                # There are more potential questions in the same topic, choose one
+                # There are more potential questions in the same topic that have not been asked before, choose one
                 candidates = []
+
+                if prev_question:
+                    candidate_difficulty = prev_question["difficulty"]
+                elif self.page.page_params.get_param("difficulty") == "*":
+                    candidate_difficulty = "1"
+                else:
+                    candidate_difficulty = self.page.page_params.get_param("difficulty")
+
                 log_str = log_str + "found topic {} ".format(topic)
-                if prev_question["difficulty"] in potential_questions["topics"][topic].keys():
+                if candidate_difficulty in potential_questions["topics"][topic].keys():
                     # There are more questions in the same topic with the same difficulty, choose one
-                    candidates = potential_questions["topics"][topic][prev_question["difficulty"]]
-                    log_str = log_str + "difficulty {} ".format(prev_question["difficulty"])
-                elif str(int(prev_question["difficulty"]) + 1) in potential_questions["topics"][topic].keys():
+                    candidates = potential_questions["topics"][topic][candidate_difficulty]
+                    log_str = log_str + "difficulty {} ".format(candidate_difficulty)
+                elif str(int(candidate_difficulty) + 1) in potential_questions["topics"][topic].keys():
                     # There are more questions in the same topic with the next difficulty, choose one
-                    candidates = potential_questions["topics"][topic][str(int(prev_question["difficulty"]) + 1)]
-                    log_str = log_str + "difficulty {} ".format(str(int(prev_question["difficulty"]) + 1))
-                elif str(int(prev_question["difficulty"]) + 2) in potential_questions["topics"][topic].keys():
-                    candidates = potential_questions["topics"][topic][str(int(prev_question["difficulty"]) + 2)]
-                    log_str = log_str + "difficulty {} ".format(str(int(prev_question["difficulty"]) + 2))
+                    candidates = potential_questions["topics"][topic][str(int(candidate_difficulty) + 1)]
+                    log_str = log_str + "difficulty {} ".format(str(int(candidate_difficulty) + 1))
+                elif str(int(candidate_difficulty) + 2) in potential_questions["topics"][topic].keys():
+                    candidates = potential_questions["topics"][topic][str(int(candidate_difficulty) + 2)]
+                    log_str = log_str + "difficulty {} ".format(str(int(candidate_difficulty) + 2))
                 else:
                     log_str = log_str + "no difficulty found (!) - "
 
@@ -140,11 +170,13 @@ class Test(object):
                     total = len(candidates)
                     index = random.randrange(total)
                     next_question = candidates[index]
-                    log_str = log_str + "selected: {}".format(next_question["q_id"])
+                    log_str = log_str + "selected new question: {}".format(next_question["q_id"])
 
 
         if not next_question["q_id"]:
-            # A suitable question from the same topic not found, find an easy one from a new topic
+
+            # A suitable question from the same topic not found, find an easy one from a new topic 
+            # (if new topic allowed, otherwise potential_questions will be empty)
             candidates = []
             if "1" in potential_questions["difficulty"].keys():
                 # There are more questions in the same topic with the same difficulty, choose one
@@ -177,15 +209,21 @@ class Test(object):
         elif not next_question["q_id"]:
             log_str = log_str + "no new topics - no question selected!"
 
-        logging.info("\n\n" + log_str + "\n\n")
+        logging.info("\n\n ************ " + log_str + "\n\n")
 
         # logging.info("\n\nNEXT Q: {}\n\n {}\n\n {}\n\n {}\n\n".format(
         #      potential_questions_w_repeat, potential_questions, next_question, remaining_question))
  
         # Serve at most remaining_question
         remaining_question = (remaining_question - 1) if remaining_question > 0 else remaining_question
+        logging.info("Remaining questions: {}".format(remaining_question))
 
-        return next_question, remaining_question
+        if remaining_question == 0 and not randomized_questions:
+            more_questions = False
+        else:
+            more_questions = True
+
+        return next_question, more_questions
         
 
         

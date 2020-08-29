@@ -247,6 +247,7 @@ class Design_default(object):
                             year = level, \
                             theme = theme, \
                             subtheme = "*", \
+                            topic = "*", \
                             period = "*", \
                             difficulty = "*", \
                             l_id = content[level][theme]["name"], \
@@ -294,6 +295,7 @@ class Design_default(object):
         page.page_params.set_param("year", "")
         page.page_params.set_param("theme", "")
         page.page_params.set_param("subtheme", "")
+        page.page_params.set_param("topic", "")
         page.page_params.set_param("q_id", "")
         page.page_params.set_param("l_id", "")
 
@@ -341,6 +343,7 @@ class Design_default(object):
         page.page_params.set_param("year", "")
         page.page_params.set_param("theme", "")
         page.page_params.set_param("subtheme", "")
+        page.page_params.set_param("topic", "")
         page.page_params.set_param("q_id", "")
         page.page_params.set_param("l_id", "")
 
@@ -391,6 +394,7 @@ class Design_default(object):
                         year = year, \
                         theme = "", \
                         subtheme = "", \
+                        topic = "", \
                         period = "", \
                         difficulty = "", \
                         js = False)
@@ -413,6 +417,7 @@ class Design_default(object):
         page.page_params.delete_history()
         page.page_params.set_param("theme", "")
         page.page_params.set_param("subtheme", "")
+        page.page_params.set_param("topic", "")
         page.page_params.set_param("q_id", "")
         page.page_params.set_param("l_id", "")
 
@@ -441,25 +446,47 @@ class Design_default(object):
 
                 if not theme == "level_short": 
                     subtheme_list = []
-
-                    all_subthemes = set()
+                    subtheme_dict = dict()
 
                     for subclass in sorted(content[page.page_params.get_param("year")][theme].keys()):
                         if not subclass == "name":
                             subtheme = content[page.page_params.get_param("year")][theme][subclass]["subtheme"].strip()
-                            if subtheme not in all_subthemes:
-                                subtheme_list.append({
+                            topic = content[page.page_params.get_param("year")][theme][subclass]["topic"].strip()
+                            if subtheme not in subtheme_dict.keys():
+                                subtheme_d = {
                                     'title' : subtheme.title(),
+                                    'topics' : [],
+                                    'topics_dir' : {},
                                     'link' : page.page_params.create_url(
                                             op = PageOperation.toStr(PageOperation.INTRO), 
-                                            theme = theme.title().strip(), \
+                                            theme = theme.title().strip(), 
                                             subtheme = subtheme, 
+                                            topic = "*", 
                                             period = "*", 
                                             difficulty = "*", 
                                             l_id = content[page.page_params.get_param("year")][theme]["name"], 
                                             js = False)
-                                })
-                                all_subthemes.add(subtheme)
+                                }
+                                subtheme_dict[subtheme] = subtheme_d
+                                subtheme_list.append(subtheme_d)
+                            else:
+                                subtheme_d = subtheme_dict[subtheme]
+
+                            if topic not in subtheme_d['topics_dir'].keys():
+                                topic_d = {
+                                    'title' : topic,
+                                    'link' : page.page_params.create_url(
+                                            op = PageOperation.toStr(PageOperation.INTRO), 
+                                            theme = theme.title().strip(), 
+                                            subtheme = subtheme, 
+                                            topic = topic, 
+                                            period = "*", 
+                                            difficulty = "*", 
+                                            l_id = content[page.page_params.get_param("year")][theme]["name"], 
+                                            js = False)
+                                }
+                                subtheme_d['topics_dir'][topic] = topic_d
+                                subtheme_d['topics'].append(topic_d)
 
                             # page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
                             # page.add_lines("<a href='" + \
@@ -479,6 +506,7 @@ class Design_default(object):
                                 op = PageOperation.toStr(PageOperation.INTRO), 
                                 theme = theme.title().strip(), \
                                 subtheme = "*", \
+                                topic = "*", \
                                 period = "*", \
                                 difficulty = "*", \
                                 l_id = content[page.page_params.get_param("year")][theme]["name"], \
@@ -494,8 +522,6 @@ class Design_default(object):
                 page.template_params["error_msg"] = "No year {} in content".format(page.page_params.get_param("year"))
             else:
                 page.template_params["error_msg"] = "No content"
-
-
 
 
     # @staticmethod
@@ -577,6 +603,7 @@ class Design_default(object):
         page.template_params["year"] = page.page_params.get_param("year").title()
         page.template_params["theme"] = page.page_params.get_param("theme").title()
         page.template_params["subtheme"] = page.page_params.get_param("subtheme").title()
+        page.template_params["topic"] = page.page_params.get_param("topic").title()
         page.template_params["period"] = page.page_params.get_param("period").title()
         page.template_params["difficulty"] = page.page_params.get_param("difficulty").title()
 
@@ -587,6 +614,7 @@ class Design_default(object):
         page.template_params["back"] = page.page_params.create_url(\
                     op = PageOperation.toStr(PageOperation.MENU_THEME), 
                     subtheme = "", 
+                    topic = "", 
                     period = "", 
                     difficulty = "", 
                     l_id = "", js = False)
@@ -660,10 +688,8 @@ class Design_default(object):
         page.template_params["template_name"] = "question.html.j2"
 
 
-        # Max number of questions in a test
         # We may choose to offer fewer questions if there aren't enough available
-        max_questions = 5
-        remaining_questions = max_questions
+        more_questions = False
 
         if page.page_params.get_param("op") == PageOperation.TEST_PREV:
             if len(context.c.session.get("history")) <= 1:
@@ -685,7 +711,7 @@ class Design_default(object):
                 # Starting a new test, record the start time in epoch seconds
                 context.c.session.set("test_id", int(time.time()*1000))
 
-            next_question, remaining_questions = test.choose_next_question()
+            next_question, more_questions = test.choose_next_question()
             hist = {
                 "url" : page.page_params.get_url(),
                 "correct" : 0, 
@@ -724,7 +750,7 @@ class Design_default(object):
                         js = False)
         
 
-        if q_number >= Design_default.total_questions or remaining_questions == 0:
+        if q_number >= Design_default.total_questions or not more_questions:
             url_next = page.page_params.create_url( 
                 op=PageOperation.toStr(PageOperation.SUMMARY),
                 js=False)
@@ -751,6 +777,7 @@ class Design_default(object):
         page.template_params["year"] = page.page_params.get_param("year").upper()
         page.template_params["theme"] = page.page_params.get_param("theme").upper()
         page.template_params["subtheme"] = page.page_params.get_param("subtheme")
+        page.template_params["topic"] = page.page_params.get_param("topic")
         page.template_params["difficulty"] = int(difficulty)
 
         page.template_params["next"] = url_next
@@ -936,6 +963,7 @@ class Design_default(object):
                                         year = "", \
                                         theme = "", \
                                         subtheme = "", \
+                                        topic = "", \
                                         difficulty = "", \
                                         period = "", \
                                         js=False)
@@ -944,6 +972,7 @@ class Design_default(object):
                                         year=page.page_params.get_param("year"), \
                                         theme = "", \
                                         subtheme = "", \
+                                        topic = "", \
                                         difficulty = "", \
                                         period = "", \
                                         js=False)

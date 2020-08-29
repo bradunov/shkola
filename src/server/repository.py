@@ -32,6 +32,8 @@ class Repository(object):
         if (use_azure_blob):
             self.azure_blob = Azure_blob("/home/bozidar/shkola")
             print("Using Azure Blob storage for questions")
+        else:
+            print("Using disk storage for questions")
 
         self.preload = preload
         if (preload):
@@ -320,6 +322,7 @@ class Repository(object):
             for q in questions:
                 if "period" not in q.keys() or \
                     "subtheme" not in q.keys() or \
+                    "topic" not in q.keys() or \
                     "difficulty" not in q.keys():
                     logging.debug("Skipping question %s list %s in content - no period or subtheme or difficulty", 
                         q["name"], list_name)
@@ -327,11 +330,12 @@ class Repository(object):
 
                 if isinstance(q["subtheme"], list): 
                     for st in q["subtheme"]:
-                        label = "{}|{}|{}".format(st.lower(), q["period"].lower(), q["difficulty"].lower())
+                        label = "{}|{}|{}|{}".format(st.lower(), q["topic"].lower(), q["period"].lower(), q["difficulty"].lower())
 
                         if label not in self.content[language][level][theme].keys():
                             self.content[language][level][theme][label] = {
                                 "subtheme" : st.lower(),
+                                "topic" : q["topic"].lower(),
                                 "period" : q["period"].lower(),
                                 "difficulty" : q["difficulty"].lower(),
                                 "questions" : []
@@ -339,11 +343,12 @@ class Repository(object):
 
                         self.content[language][level][theme][label]["questions"].append(q)
                 else:
-                    label = "{}|{}|{}".format(q["subtheme"].lower(), q["period"].lower(), q["difficulty"].lower())
+                    label = "{}|{}|{}|{}".format(q["subtheme"].lower(), q["topic"].lower(), q["period"].lower(), q["difficulty"].lower())
 
                     if label not in self.content[language][level][theme].keys():
                         self.content[language][level][theme][label] = {
                             "subtheme" : q["subtheme"].lower(),
+                            "topic" : q["topic"].lower(),
                             "period" : q["period"].lower(),
                             "difficulty" : q["difficulty"].lower(),
                             "questions" : []

@@ -208,6 +208,7 @@ def prepare_user_stats_chart(pg, u_ID):
                                     year = "", \
                                     theme = "", \
                                     subtheme = "", \
+                                    topic = "", \
                                     difficulty = "", \
                                     period = "", \
                                     js=False)
@@ -216,6 +217,7 @@ def prepare_user_stats_chart(pg, u_ID):
                                     year=pg.page_params.get_param("year"), \
                                     theme = "", \
                                     subtheme = "", \
+                                    topic = "", \
                                     difficulty = "", \
                                     period = "", \
                                     js=False)
