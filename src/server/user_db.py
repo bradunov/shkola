@@ -8,13 +8,15 @@ import time
 import logging
 from collections import namedtuple
 from server.timers import timer_section
+from server.data_cache import DataCache
 
 
 GOOGLE_CLIENT_ID = os.environ['GOOGLE_CLIENT_ID'] if 'GOOGLE_CLIENT_ID' in os.environ.keys() else ""
 GOOGLE_SITE_VERIFICATION = os.environ['GOOGLE_SITE_VERIFICATION'] if 'GOOGLE_SITE_VERIFICATION' in os.environ.keys() else ""
 
-
 DOMAINS = ["local", "google"]
+
+CACHE_SIZE = 1000
 
 User = namedtuple("User", "user_id domain domain_user_id picture name")
 
@@ -23,6 +25,7 @@ class UserDB(object):
     
     def __init__(self, storage):
         self._storage = storage
+        self._cache = DataCache(CACHE_SIZE)
         logging.debug("User DB initialized")
         
 
@@ -57,6 +60,13 @@ class UserDB(object):
         if not user_id:
             return None
 
+        user = self._cache.get(user_id, DataCache.DEFAULT_STATE)
+        if user:
+            logging.debug("Userdb: got user from cache: {}".format(user_id))
+            return user
+
+        logging.debug("Userdb: user not found in cache, trying database: {}".format(user_id))
+
         d = self._storage.get_user(user_id)
         if d is None:
             return None
@@ -65,13 +75,16 @@ class UserDB(object):
         domain, domain_user_id = user_id.split(":")
         assert domain in DOMAINS
 
-        return User(
+        user = User(
             user_id = user_id,
             domain = domain,
             domain_user_id = domain_user_id,
             picture = d['picture'] if 'picture' in d.keys() else "",
             name = d['name'] if 'name' in d.keys() else ""
         )
+
+        self._cache.set(user_id, DataCache.DEFAULT_STATE, user)
+        return user
 
 
     def make_user_id(self, domain, user_id):

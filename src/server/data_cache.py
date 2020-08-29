@@ -1,6 +1,7 @@
 import threading
 
 class DataCache:
+    DEFAULT_STATE = 0
 
     def __init__(self, cache_size):
         self._cache_size = cache_size

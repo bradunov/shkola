@@ -5,7 +5,7 @@ import random
 import re
 from server.types import PageLanguage
 from server.library import Library
-from server.timers import timer_section
+# from server.timers import timer_section
 import logging
 
 

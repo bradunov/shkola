@@ -17,7 +17,7 @@ from server.user_db import UserDB, GOOGLE_CLIENT_ID, GOOGLE_SITE_VERIFICATION
 from server.design import Design
 from server.session import SessionDB
 
-from server.timers import timer_section
+#from server.timers import timer_section
 
 import logging
 
