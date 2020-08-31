@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% import 'elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+    {{ elements.init_elements() }}
+    {{ elements.standard_background() }}
+
+    <meta name="page" content="theme">
+
+  </head>
+
+  <body>
+
+    <!-- MOBILE MENU START -->
+    {% import 'menu.html.j2' as menu %}
+    {{ menu.include() }}
+    {{ menu.head(template_params) }}
+    {{ menu.dropdowns(template_params) }}
+    <!-- MENU END -->
+
+
+    <div style="display:block; position:fixed; top: 50px; left: 0px; z-index: 0; height: calc(100% - 162px); width:100%; overflow-y: auto; overflow-x: auto; ">
+      <div style="display:block; width: 100%; text-align: center; margin-top: 35px; margin-bottom: 4px; ">
+        <div class="sh_lato_font" style="display:inline-block; width: 198px; height: 44px; font-size: 18px; color: #636661">
+          Odaberi zadatke za <span style="color: #dc3d39"> {{template_params['year'].upper()}} </span> razred
+        </div>
+      </div>
+
+      <script>
+        el_list_link = {};
+        el_list_state = {};
+        el_list_parent = {};
+        el_list_tick = {};
+        el_list_rect = {};
+        el_list_roll = {};
+
+        function theme_onclick() {
+          var ks = Object.keys(el_list_state);
+          for (var i=0; i<ks.length; i++) {
+            var b = ks[i];
+            if (el_list_state[b]) {
+              //console.log("Test:", el_list_link[b]);
+              location.href = el_list_link[b];
+            }
+          }
+        }
+
+        function unselect_all() {
+          var ks = Object.keys(el_list_state);
+          for (var i=0; i<ks.length; i++) {
+            var b = ks[i];
+            var button = document.getElementById(b);
+            var tick = document.getElementById(el_list_tick[b]);
+            var rec = document.getElementById(el_list_rect[b]);
+            el_list_state[b] = false;
+            button.style.opacity = 1;
+            tick.style.display = "none";
+            if (rec != undefined) rec.style.fill = "white";
+          }
+        }
+
+        function shaded_all() {
+          var ks = Object.keys(el_list_state);
+          for (var i=0; i<ks.length; i++) {
+            var b = ks[i];
+            var button = document.getElementById(b);
+            button.style.opacity = 0.4;
+          }
+        }
+
+
+        function select(button_id) {
+          var button = document.getElementById(button_id);
+          var tick = document.getElementById(el_list_tick[button_id]);
+          if (el_list_parent[button_id].length == 0) {
+            // Theme
+            shaded_all();
+            button.style.opacity = 1;
+            tick.style.display = "inline";
+            var rec = document.getElementById(el_list_rect[button_id]);
+            rec.style.fill = "#148f91";
+          } else {
+            // Subtheme
+            shaded_all();
+            button.style.opacity = 1;
+            tick.style.display = "inline";
+            var parent = document.getElementById(el_list_parent[button_id]);
+            var parent_rect = document.getElementById(el_list_rect[el_list_parent[button_id]]);
+            parent.style.opacity = 1;
+            parent_rect.style.fill = "#148f91";
+          }
+        }
+
+        function el_select_list(button_id, callback) {
+          var button = document.getElementById(button_id);
+          if (el_list_state[button_id] == undefined) {
+            el_list_state[button_id] = false;
+          }
+          var button_state = el_list_state[button_id];
+          unselect_all();
+          el_list_state[button_id] = !(button_state);
+          if (el_list_state[button_id]) {
+            select(button_id);
+          }
+          callback(el_list_state[button_id], button_id);
+        }
+
+
+        function roll(roll_id) {
+          var roll = document.getElementById(roll_id);
+          var roll_on = document.getElementById(roll_id + "_on");
+          var roll_off = document.getElementById(roll_id + "_off");
+          console.log("R: ", roll, el_list_roll[roll_id]);
+          if (el_list_roll[roll_id] == undefined) {
+            el_list_roll[roll_id] = false;
+          }
+          el_list_roll[roll_id] = !el_list_roll[roll_id];
+          if (el_list_roll[roll_id]) {
+            roll.style.display = "block";
+            roll_on.style.display = "inline"
+            roll_off.style.display = "none";
+          } else {
+            roll.style.display = "none";
+            roll_on.style.display = "none";
+            roll_off.style.display = "inline"
+          }
+        }
+      </script>
+
+
+      {% for t in template_params['themes'] %}             
+        {% set theme_loop = loop.index %}
+        {% set theme_button = "button_{}".format(theme_loop) %}
+        {% set theme_tick = "tick_{}".format(theme_loop) %}
+        {% set theme_rect = "rec_{}".format(theme_loop) %}
+        {% set theme_roll = "roll_{}".format(theme_loop) %}
+        <script>
+          el_list_link[ "{{theme_button}}" ] = '{{t['link']}}';
+          el_list_state[ "{{theme_button}}" ] = false;
+          el_list_parent[ "{{theme_button}}" ] = "";
+          el_list_tick[ "{{theme_button}}" ] = "{{theme_tick}}";
+          el_list_rect[ "{{theme_button}}" ] = "{{theme_rect}}";
+        </script>
+
+        <div style="display:block; width: 100%; text-align: center; margin-top: 31px; ">
+          <div id="{{theme_button}}"  
+              style="display: inline-block;
+                      cursor: pointer;
+                      width: 290px;
+                      height: 35px;">
+            <div class="sh_chalk_bold_font" style="display: inline-block;
+                      width: 258px;
+                      font-size: 24px; 
+                      color: #148f91;
+                      text-align: left;"
+                      onclick="el_select_list('{{theme_button}}', next_callback)">                      
+              {{ elements.color_string(t['title'], -6) }}
+              <img id="{{theme_tick}}" src="item?url=images/checkbox.svg" 
+                    style="display:none; width: 18px; height: 18px; margin-left: 18px"> 
+            </div>
+              <div style="display:inline-block; text-align: right;" onclick="roll('{{theme_roll}}')">                      
+                <img id="{{theme_roll + "_off" }}" src="item?url=images/arrow_down_closed.svg" 
+                    style="display:inline; width: 27px; height: 30px;"> 
+                <img id="{{theme_roll + "_on"}}" src="item?url=images/arrow_down_open.svg" 
+                    style="display:none; width: 27px; height: 30px;"> 
+              </div>
+          </div>
+          <div style="display:block; margin-top:-14px">
+            <svg width="290px" height="3px">
+              <rect id="{{theme_rect}}" width="290px" height="3px" style="fill:white;" />
+            </svg>
+          </div>
+        </div>
+
+
+        <div id="{{theme_roll}}" style="display:none; width: 100%; text-align: center; ">
+        {% for st in t['subthemes'] %}             
+          {% set subtheme_loop = loop.index %}
+          {% set subtheme_button = "button_st_{}_{}".format(theme_loop, subtheme_loop) %}
+          {% set subtheme_tick = "tick_st_{}_{}".format(theme_loop, subtheme_loop) %}
+          <script>
+            el_list_link[ "{{subtheme_button}}" ]= '{{st['link']}}';
+            el_list_state[ "{{subtheme_button}}" ] = false;
+            el_list_parent[ "{{subtheme_button}}" ] = "{{theme_button}}";
+            el_list_tick[ "{{subtheme_button}}" ] = "{{subtheme_tick}}";
+          </script>
+
+          <div style="display:block; width: 100%; text-align: center; ">
+            <div id="{{subtheme_button}}"  
+                style="display: inline-block;
+                        background: white; 
+                        width: 290px;
+                        height: 40px;
+                        cursor: pointer;"
+                        onclick="el_select_list('{{subtheme_button}}', next_callback)">
+              <div class="sh_lato_font" style="margin-left: 25px;  
+                        width: 200px; 
+                        display: inline-block;
+                        font-size: 18px; 
+                        color: #148f91;
+                        text-align: left;">                      
+                {{ st['title'] }}
+                <img id="{{subtheme_tick}}" src="item?url=images/checkbox.svg" 
+                      style="display:none; width: 18px; height: 18px; margin-left: 18px"> 
+              </div>
+              <div style="display:inline-block; margin-right: 25px; text-align: right;">                      
+                <img src="item?url=images/theme_numbers.svg" style="width: 32px; height: 32px;"> 
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+
+      {% endfor %}
+    </div>
+
+
+
+
+    <div style="display:block; position: fixed; z-index: 0;  
+                top: calc(100% - 110px); left: 0px; z-index: 0; height: 40px; width:100%; ">
+      {{ elements.next("theme_onclick()") }}
+    </div>
+
+
+    {{ elements.footer(1, template_params['url_year'], "") }}
+
+
+  </body>
+</html>

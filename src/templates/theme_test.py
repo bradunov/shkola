@@ -103,6 +103,54 @@ page['themes'].append({
 })
 
 
+
+page['themes'].append({
+    'title' : 'MERE',
+    'subthemes' : [
+      {
+        'title' : 'Brojanje2',
+        'topics' : [
+          {
+            'title' : 'Tema 21',
+            'link' : 'b21'
+          },
+          {
+            'title' : 'Tema 22',
+            'link' : 'b22'
+          }
+        ]
+      },
+      {
+        'title' : 'Operacije2',
+        'topics' : [
+          {
+            'title' : 'Tema 21',
+            'link' : 'o21'
+          },
+          {
+            'title' : 'Tema 22',
+            'link' : 'o22'
+          }
+        ]
+      },
+      {
+        'title' : 'Poredjenje2',
+        'topics' : [
+          {
+            'title' : 'Tema 21',
+            'link' : 'p21'
+          },
+          {
+            'title' : 'Tema 22',
+            'link' : 'p22'
+          }
+        ]
+      }
+    ]
+})
+
+
+
 page['menu'] = [
     {
         'name' : 'Zadaci',
