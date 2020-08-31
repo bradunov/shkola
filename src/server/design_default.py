@@ -388,7 +388,8 @@ class Design_default(object):
                 page.template_params['button']['choices'].append({
                     'title' : ynumber,
                     'front_color' : color_list[i % len(color_list)],
-                    'back_color' : '#f9f9f9',
+                    #'back_color' : '#f9f9f9',
+                    'back_color' : '#ffffff',
                     'link' : page.page_params.create_url(
                         op = PageOperation.toStr(PageOperation.MENU_THEME),                         
                         year = year, \

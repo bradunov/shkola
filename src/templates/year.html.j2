@@ -20,14 +20,58 @@
     {{ menu.dropdowns(template_params) }}
     <!-- MENU END -->
 
+    <div id="fingerprint" style="display:none; position:fixed; top: 100px; left: 100px; z-index: 1;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="89.375" height="107.21" viewBox="0 0 89.375 107.21">
+        <g opacity="0.306">
+            <!-- fill="#dc3d39" -->
+            <path fill="#000000" d="M68.03 69.536A136.718 136.718 0 0 1 61.96 89a25.149 25.149 0 0 1-2.441 1.8A132.16 132.16 0 0 0 66.5 69.176a22.687 22.687 0 0 0-44.171-10.389A80.7 80.7 0 0 1 16.462 76q-.454-.861-.892-1.752a82.235 82.235 0 0 0 5.23-15.821 24.254 24.254 0 1 1 47.215 11.109zM46.752 54.077a10.17 10.17 0 0 0-12.235 7.573 82.078 82.078 0 0 1-9.888 25.362l1.1 1a82.172 82.172 0 0 0 10.311-26 8.607 8.607 0 0 1 16.757 3.943A104.107 104.107 0 0 1 41.4 95.367q.876.11 1.784.141a104.937 104.937 0 0 0 11.124-29.2 10.17 10.17 0 0 0-7.557-12.235zM48.9 44.94a19.557 19.557 0 0 0-23.473 14.551 79.043 79.043 0 0 1-7.1 19.7q.469.751.97 1.471a78.965 78.965 0 0 0 7.62-20.872 17.994 17.994 0 1 1 35.031 8.245 121.145 121.145 0 0 1-9.078 26.018c.72-.25 1.439-.532 2.143-.845a125.009 125.009 0 0 0 8.449-24.814A19.557 19.557 0 0 0 48.9 44.94zm-3.227 13.706a5.476 5.476 0 0 0-6.587 4.084 85.067 85.067 0 0 1-10.952 27.286c.422.313.861.61 1.3.907a86.709 86.709 0 0 0 11.187-27.85 3.913 3.913 0 0 1 7.62 1.784A97 97 0 0 1 36.6 94.334l1.439.407a99.241 99.241 0 0 0 11.655-29.508 5.476 5.476 0 0 0-4.021-6.587zm-1.08 4.569a.782.782 0 0 0-.939.579A90.464 90.464 0 0 1 32.2 92.488c.469.25.954.469 1.439.688a92.576 92.576 0 0 0 11.533-29.038.782.782 0 0 0-.579-.923zM57.5 5.184a27.787 27.787 0 0 0-6.509-2.66 61.441 61.441 0 0 0-13 0 27.724 27.724 0 0 0-6.6 2.66 59.939 59.939 0 0 1 26.113 0zm-9.668 44.325a14.864 14.864 0 0 0-17.884 11.062c-1.1 4.694-3.411 14.457-8.59 22.89q.516.641 1.064 1.267c5.492-8.746 7.9-18.931 9.043-23.782a13.3 13.3 0 1 1 25.895 6.086 110.852 110.852 0 0 1-10.5 28.4q.97-.094 1.924-.266a114.027 114.027 0 0 0 10.109-27.774 14.864 14.864 0 0 0-11.061-17.883zm8.23-35.094a50.724 50.724 0 0 1 16.522 7.213c-.5-.97-1.017-1.924-1.565-2.832a52.445 52.445 0 0 0-53.2 0c-.548.907-1.064 1.862-1.565 2.816a50.677 50.677 0 0 1 39.8-7.2zm1.08-4.569a55.793 55.793 0 0 1 9.9 3.348q-1.2-1.424-2.5-2.707a57.56 57.56 0 0 0-7.056-2.159 56.826 56.826 0 0 0-33.169 2.19 35.134 35.134 0 0 0-2.517 2.739 55.261 55.261 0 0 1 35.341-3.348zM55 19.109a45.92 45.92 0 0 1 21.182 11.375c-.313-1.033-.657-2.034-1.033-3.02a47.7 47.7 0 0 0-61.457 0c-.36.986-.72 2-1.033 3.02A46.093 46.093 0 0 1 55 19.109zM51.055 35.8a28.929 28.929 0 0 0-34.8 21.544 91.105 91.105 0 0 1-3.129 10.7q.376 1.126.8 2.237a86.348 86.348 0 0 0 3.88-12.517 27.379 27.379 0 1 1 53.309 12.523A140.539 140.539 0 0 1 67.17 83.9a43.2 43.2 0 0 0 2.941-3.974c1-3.27 1.831-6.4 2.519-9.278A28.945 28.945 0 0 0 51.055 35.8zm1.08-4.569A33.654 33.654 0 0 0 11.69 56.268c-.2.876-.469 1.909-.767 3.035.188 1.142.407 2.253.657 3.364.657-2.159 1.2-4.224 1.565-6.039a32.058 32.058 0 0 1 63.209 9.388 59.36 59.36 0 0 0 1.424-6.024 33.654 33.654 0 0 0-25.659-28.757zm26.707 15.822a38.332 38.332 0 0 0-68.842 0v3.912a36.768 36.768 0 0 1 68.748 0v-2.316a9.378 9.378 0 0 0 .094-1.596zM53.949 23.584a41.289 41.289 0 0 1 24.314 16.444c-.156-1.111-.313-2.206-.532-3.27a43.026 43.026 0 0 0-66.62 0c-.2 1.08-.375 2.175-.532 3.286a41.477 41.477 0 0 1 43.339-16.429z" transform="rotate(-14 63.945 50.138)"/>
+        </g>
+      </svg>
+    </div>
 
-    <div style="display:block; position:fixed; top: 50px; left: 0px; z-index: 0; height: calc(100% - 162px); width:100%; overflow-y: auto; overflow-x: auto; ">
-      <div style="display:block; width:100%; text-align: center;">
-        <div class="sh_lato_font" style="display:inline-block; width:210px; margin: 35px 0 30px 0; 
-                    font-weight: 400; font-size: 18px; color: #636661">
-          Za koji razred bi da vežbaš zadatke?
+    <div style="display:block; position:fixed; top: 50px; left: 0px; z-index: 0; height: calc(100% - 50px); width:100%; overflow-y: auto; overflow-x: auto; ">
+      <div style="display:block; 
+                  width: 290px; 
+                  height: 93px; 
+                  margin:auto; margin-top: 30px; margin-bottom: 4px; 
+                  background-color: #148f91;">
+        <div class="sh_lato_font" style="
+                  display:inline-block; 
+                  width: 188px;  
+                  vertical-align: top;
+                  margin-top: 17px; margin-bottom: 10px; margin-left: 20px;
+                  font-size: 18px; color: #ffffff">
+          Zdraaavoooo, <br>
+          za koji razred bi da vežbaš 
+          zadatke?
+        </div>
+
+        <div style="display:inline-block; 
+                    vertical-align: top;
+                    margin-top: 0px">
+          <svg xmlns="http://www.w3.org/2000/svg" id="icon_monster_questioning" width="57.438" height="86.923" data-name="icon_monster questioning" viewBox="0 0 57.438 86.923">
+              <defs>
+                  <style>
+                      .cls-1{fill:#148f91;stroke:#fff}
+                  </style>
+              </defs>
+              <g id="noun_Monster_3288299" transform="translate(11.627 31.925)">
+                  <path id="Path_269" d="M30.7 65.855a1.825 1.825 0 0 0 .205-.624q1.859-11.876 3.727-23.752a15.94 15.94 0 0 0 3.088 1.354v22.649h-3.9a1.746 1.746 0 0 0-1.377.593 1.932 1.932 0 0 0 1.377 3.209h5.8a1.927 1.927 0 0 0 1.9-1.9v-23.79c.57.053 1.148.091 1.734.091s1.164-.038 1.734-.091v23.79a1.932 1.932 0 0 0 1.9 1.9h5.8a1.925 1.925 0 0 0 1.491-3.073 1.738 1.738 0 0 0-1.491-.73h-3.895V42.834a16.147 16.147 0 0 0 3.087-1.354q1.86 11.876 3.727 23.752a1.749 1.749 0 0 0 .365.859c1.019 1.217 3.62.175 3.3-1.871q-2-12.72-3.993-25.432a9.824 9.824 0 0 0 2.685-6.609 10.227 10.227 0 0 0-3.8-7.7c.053-.137.107-.281.152-.434a7.918 7.918 0 0 0 .388-3.034 5.983 5.983 0 0 0-.989-2.875 7.009 7.009 0 0 0-1.7-1.787 11.8 11.8 0 0 0-1.384-.9l-.548-.274c-.814-.4-1.285-.441-1.346-.335-.076.145.266.441.913 1 0 0 .16.137.441.373a11.9 11.9 0 0 1 1 1.088 4.542 4.542 0 0 1 1.11 3.666 5.012 5.012 0 0 1-.684 1.7 18.145 18.145 0 0 0-16.534 0 5.012 5.012 0 0 1-.684-1.7 4.542 4.542 0 0 1 1.11-3.666 10.9 10.9 0 0 1 1-1.088l.434-.373c.654-.555 1-.852.92-1-.061-.106-.532-.068-1.346.335l-.548.274a11.794 11.794 0 0 0-1.384.9 7.158 7.158 0 0 0-1.7 1.787 6.056 6.056 0 0 0-.981 2.875 7.918 7.918 0 0 0 .388 3.034c.046.152.1.3.152.434a10.227 10.227 0 0 0-3.8 7.7 9.852 9.852 0 0 0 2.677 6.609q-1.985 12.72-3.985 25.432c-.336 2.16 2.597 3.209 3.464 1.635zm12.556-40.187a4.438 4.438 0 1 1-4.434 4.432 4.434 4.434 0 0 1 4.434-4.432z" class="cls-1" data-name="Path 269" transform="translate(-27.211 -14.787)"/>
+                  <path id="Path_270" d="M44.852 32.981a1.361 1.361 0 1 0-1.361-1.361 1.36 1.36 0 0 0 1.361 1.361z" class="cls-1" data-name="Path 270" transform="translate(-28.808 -16.304)"/>
+              </g>
+              <text id="_" fill="#fff" data-name="?" font-family="ChalkboardSE-Light, Chalkboard SE" font-size="27px" font-weight="300" transform="rotate(2 -875.99 672.033)">
+                  <tspan x="0" y="0">?</tspan>
+              </text>
+              <text id="_2" fill="none" stroke="#fff" data-name="?" font-family="ChalkboardSE-Light, Chalkboard SE" font-size="19px" font-weight="300" transform="rotate(27 -43.324 95.292)">
+                  <tspan x="0" y="0">?</tspan>
+              </text>
+              <text id="_3" fill="#fff" data-name="?" font-family="ChalkboardSE-Light, Chalkboard SE" font-size="20px" font-weight="300" transform="rotate(-32 64.344 -4.543)">
+                  <tspan x="0" y="0">?</tspan>
+              </text>
+          </svg>
         </div>
       </div>
+
 
       <script>
         el_but_link = {};
@@ -40,38 +84,44 @@
             }
           }
         }
+
+        function button_onclick(button_id) {
+          var fingerprint = document.getElementById("fingerprint");
+          var button = document.getElementById(button_id);
+          fingerprint.style.display = "block";
+          fingerprint.style.top =  (button.getBoundingClientRect().y + 10) + "px";
+          fingerprint.style.left = (button.getBoundingClientRect().x + 10) + "px";
+          location.href = el_but_link[button_id];
+        }
+
       </script>
 
-      <div style="display:table; margin:0 auto">
+      <div id="table" style="display:table; margin:0 auto; margin-top: 42px;">
         <div class="" align="center" style="display:content; border:0px; padding:0px; margin:0px">
 
           {% for b in template_params['button']['choices'] %}             
+            {% set button_id = "button_{}".format(loop.index) %}
             <script>
-              el_but_link[ "{{ "button_{}".format(loop.index) }}" ] = '{{b['link']}}';
+              el_but_link[ "{{ button_id }}" ] = '{{b['link']}}';
             </script>
                   
-            <div id="{{"button_{}".format(loop.index)}}" class="sh-std-button sh_chalk_font" 
+            <div id="{{ button_id }}" class="sh_chalk_font" 
                 style="display: inline-block;
                         background: {{b['back_color']}};
                         color: {{b['front_color']}};
                         width: 130px;
                         height: 130px;
-                        margin-right: 8px;
-                        margin-left: 8px;
+                        border-radius: 65px;
+                        padding: 0px;
+                        box-shadow: 0px 5px 5px #dddddd;
+                        cursor: pointer;
+                        margin-right: 13px;
+                        margin-left: 13px;
                         margin-bottom: 8px;
-                        margin-top: 8px;
+                        margin-top: 17px;
                         vertical-align: middle;
                         font-size: {{ template_params['button']['font_size'] }};"
-                        onclick="el_select_button('{{"button_{}".format(loop.index)}}', 
-                              function (bs, selected) {
-                                b = document.getElementById(bs);
-                                if (selected) { 
-                                  b.style.border = '{{b['front_color']}} 3px solid'; 
-                                } else {
-                                  b.style.border = '#000000 0px solid'; 
-                                }
-                              }, 
-                              next_callback)">
+                        onclick="button_onclick('{{ button_id }}')">
               <div id="{{ "text_{}".format(loop.index) }}",  
                   style="vertical-align: middle;
                         margin-top: -15px;
@@ -94,12 +144,12 @@
 
 
 
-  <div style="display:block; position: fixed; z-index: 0;  
+  {# <div style="display:block; position: fixed; z-index: 0;  
               top: calc(100% - 110px); left: 0px; z-index: 0; height: 40px; width:100%; ">
     {{ elements.next("year_onclick()") }}
   </div>
 
-  {{ elements.footer(0, "", "") }}
+  {{ elements.footer(0, "", "") }} #}
 
 
   </body>
