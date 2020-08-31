@@ -238,7 +238,7 @@
 
 
 
-      <div style="display:block; margin:auto; text-align: center; width: 300px; margin-top: 35px; margin-bottom: 4px; ">
+      <div style="display:block; margin:auto; text-align: center; width: 290px; margin-top: 35px; margin-bottom: 4px; ">
         {% for t in template_params['themes'] %}             
           {% set theme_loop = loop.index %}
           {% set theme_tab = "tab_{}".format(theme_loop) %}
@@ -295,9 +295,9 @@
         {% set theme_loop = loop.index %}
         {% set theme_tab_id = "tab_id_{}".format(theme_loop) %}
         {% if theme_loop == 1 %}
-          <div id="{{theme_tab_id}}" style="display:block; margin:auto; text-align: center; width: 300px; ">
+          <div id="{{theme_tab_id}}" style="display:block; margin:auto; text-align: center; width: 290px; ">
         {% else %}
-          <div id="{{theme_tab_id}}" style="display:none; margin:auto; text-align: center; width: 300px; ">
+          <div id="{{theme_tab_id}}" style="display:none; margin:auto; text-align: center; width: 290px; ">
         {% endif %}
           {% for st in t['subthemes'] %}             
             {% set subtheme_loop = loop.index %}
@@ -320,6 +320,7 @@
                           text-align: left;
                           background-color: white; 
                           vertical-align: top;
+                          margin-right:-5px;
                           width: 200px;
                           height: 90px;"
                           onclick="roll('{{subtheme_roll}}')">
@@ -354,11 +355,11 @@
                             vertical-align: center;">
                   <svg xmlns="http://www.w3.org/2000/svg" width="35" height="18" viewBox="0 0 35 18">
                       <defs>
-                          <linearGradient id="linear-gradient" x1="7.329" x2="8.329" y1="16.187" y2="16.187" gradientUnits="objectBoundingBox">
+                          <linearGradient id="linear_gradient_{{theme_loop}}_{{subtheme_loop}}" x1="7.329" x2="8.329" y1="16.187" y2="16.187" gradientUnits="objectBoundingBox">
                               <stop offset="0" stop-color="#148f91"/>
                               <stop offset="1" stop-color="#babdc1"/>
                           </linearGradient>
-                          <filter id="path5978" width="34.726" height="27.342" x="0" y="1.638" filterUnits="userSpaceOnUse">
+                          <filter id="path_{{theme_loop}}_{{subtheme_loop}}" width="34.726" height="27.342" x="0" y="1.638" filterUnits="userSpaceOnUse">
                               <feOffset dy="3"/>
                               <feGaussianBlur result="blur" stdDeviation="3"/>
                               <feFlood flood-opacity=".161"/>
@@ -366,11 +367,11 @@
                               <feComposite in="SourceGraphic"/>
                           </filter>
                       </defs>
-                      <g id="arrow_down" data-name="arrow down" transform="translate(4)">
-                          <g id="arrow_down-2" data-name="arrow down" filter="url(#path5978)" transform="translate(-4 -.002)">
-                              <path id="path5978-2" fill="url(#linear-gradient)" fill-rule="evenodd" d="M3.43 1041.047a1.408 1.408 0 0 0-1.315.758 1.194 1.194 0 0 0 .27 1.4l6.951 6.768a1.484 1.484 0 0 0 2.029 0l6.951-6.768a1.2 1.2 0 0 0 .35-1.255 1.349 1.349 0 0 0-1.032-.887 1.473 1.473 0 0 0-1.348.4l-5.936 5.78-5.936-5.78a1.453 1.453 0 0 0-.985-.413z" data-name="path5978" transform="translate(7 -1033.39)"/>
+                      <g id="arrow_down_{{theme_loop}}_{{subtheme_loop}}" data-name="arrow down" transform="translate(4)">
+                          <g id="arrow_down_{{theme_loop}}_{{subtheme_loop}}-2" data-name="arrow down" filter="url(#path_{{theme_loop}}_{{subtheme_loop}})" transform="translate(-4 -.002)">
+                              <path id="path_{{theme_loop}}_{{subtheme_loop}}-2" fill="url(#linear_gradient_{{theme_loop}}_{{subtheme_loop}})" fill-rule="evenodd" d="M3.43 1041.047a1.408 1.408 0 0 0-1.315.758 1.194 1.194 0 0 0 .27 1.4l6.951 6.768a1.484 1.484 0 0 0 2.029 0l6.951-6.768a1.2 1.2 0 0 0 .35-1.255 1.349 1.349 0 0 0-1.032-.887 1.473 1.473 0 0 0-1.348.4l-5.936 5.78-5.936-5.78a1.453 1.453 0 0 0-.985-.413z" data-name="path_{{theme_loop}}_{{subtheme_loop}}" transform="translate(7 -1033.39)"/>
                           </g>
-                          <path id="Rectangle_98" fill="none" d="M0 0H27V24.3H0z" data-name="Rectangle 98"/>
+                          <path id="Rectangle_{{theme_loop}}_{{subtheme_loop}}_98" fill="none" d="M0 0H27V24.3H0z" data-name="Rectangle 98"/>
                       </g>
                   </svg>
                 </div>
@@ -378,7 +379,6 @@
               <div style="display:inline-block; 
                           vertical-align: bottom;
                           background-color: #eeeeee; 
-                          margin-right:-5px;
                           height: 90px;
                           width: 90px;">
                 {{test_icon()}}
@@ -416,7 +416,7 @@
                 <div id="{{topic_button}}"  
                     style="display: inline-block;
                             background: white; 
-                            width: 300px;
+                            width: 290px;
                             height: 15px;
                             cursor: pointer;"
                             onclick="subtheme_onclick('{{topic_button}}')">

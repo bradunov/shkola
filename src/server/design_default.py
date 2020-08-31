@@ -469,12 +469,29 @@ class Design_default(object):
                                 }
                                 subtheme_dict[subtheme] = subtheme_d
                                 subtheme_list.append(subtheme_d)
+
+                                topic_d = {
+                                    'title' : "Sve Teme",
+                                    'link' : page.page_params.create_url(
+                                            op = PageOperation.toStr(PageOperation.INTRO), 
+                                            theme = theme.title().strip(), 
+                                            subtheme = subtheme, 
+                                            topic = "*", 
+                                            period = "*", 
+                                            difficulty = "*", 
+                                            l_id = content[page.page_params.get_param("year")][theme]["name"], 
+                                            js = False)
+                                }
+                                subtheme_d['topics_dir']["all"] = topic_d
+                                subtheme_d['topics'].append(topic_d)
+
+
                             else:
                                 subtheme_d = subtheme_dict[subtheme]
 
                             if topic not in subtheme_d['topics_dir'].keys():
                                 topic_d = {
-                                    'title' : topic,
+                                    'title' : topic.title(),
                                     'link' : page.page_params.create_url(
                                             op = PageOperation.toStr(PageOperation.INTRO), 
                                             theme = theme.title().strip(), 
