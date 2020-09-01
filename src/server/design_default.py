@@ -238,32 +238,33 @@ class Design_default(object):
         for level in sorted(content.keys()):
             options = []
 
-            for theme in sorted(content[level].keys()):
-                if not theme == "level_short":
-                    options.append({
-                        "name" : theme.upper(),
-                        "link" : new_page_params.create_url(\
-                            op = PageOperation.toStr(PageOperation.INTRO), \
-                            year = level, \
-                            theme = theme, \
-                            subtheme = "*", \
-                            topic = "*", \
-                            period = "*", \
-                            difficulty = "*", \
-                            l_id = content[level][theme]["name"], \
-                            js = False)
-                    })
+            # for theme in sorted(content[level].keys()):
+            #     if not theme == "level_short":
+            #         options.append({
+            #             "name" : theme.upper(),
+            #             "link" : new_page_params.create_url(\
+            #                 op = PageOperation.toStr(PageOperation.INTRO), \
+            #                 year = level, \
+            #                 theme = theme, \
+            #                 subtheme = "*", \
+            #                 topic = "*", \
+            #                 period = "*", \
+            #                 difficulty = "*", \
+            #                 l_id = content[level][theme]["name"], \
+            #                 js = False)
+            #         })
 
             lists['submenu']['options'].append({
                 "name" : level.upper(),
                 "link" : new_page_params.create_url( \
                         op = PageOperation.toStr(PageOperation.MENU_THEME), \
                         year = level, 
-                        js = False),
-                "submenu" : {
-                    "id" : "zadaci_{}".format(menu_id),
-                    "options" : options
-                }
+                        js = False)
+                #         js = False),
+                # "submenu" : {
+                #     "id" : "zadaci_{}".format(menu_id),
+                #     "options" : options
+                # }
             })
             menu_id = menu_id + 1
 
@@ -455,7 +456,7 @@ class Design_default(object):
                             topic = content[page.page_params.get_param("year")][theme][subclass]["topic"].strip()
                             if subtheme not in subtheme_dict.keys():
                                 subtheme_d = {
-                                    'title' : subtheme.title(),
+                                    'title' : subtheme.capitalize(),
                                     'topics' : [],
                                     'topics_dir' : {},
                                     'link' : page.page_params.create_url(
@@ -472,7 +473,7 @@ class Design_default(object):
                                 subtheme_list.append(subtheme_d)
 
                                 topic_d = {
-                                    'title' : "Sve Teme",
+                                    'title' : "Sve teme",
                                     'link' : page.page_params.create_url(
                                             op = PageOperation.toStr(PageOperation.INTRO), 
                                             theme = theme.title().strip(), 
@@ -492,7 +493,7 @@ class Design_default(object):
 
                             if topic not in subtheme_d['topics_dir'].keys():
                                 topic_d = {
-                                    'title' : topic.title(),
+                                    'title' : topic.capitalize(),
                                     'link' : page.page_params.create_url(
                                             op = PageOperation.toStr(PageOperation.INTRO), 
                                             theme = theme.title().strip(), 
@@ -514,12 +515,12 @@ class Design_default(object):
                             #             period = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["period"], 
                             #             difficulty = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["difficulty"], 
                             #             l_id = content[page.page_params.get_param("year")][page.page_params.get_param("theme")]["name"], js = False) + \
-                            #         "'> " + subclass.title() + "</a>\n")
+                            #         "'> " + subclass.capitalize() + "</a>\n")
                             # page.add_lines("</div>\n")
 
 
                     page.template_params['themes'].append({
-                        'title' : theme.title().upper().strip(),
+                        'title' : theme.capitalize().strip(),
                         'link' : page.page_params.create_url(
                                 op = PageOperation.toStr(PageOperation.INTRO), 
                                 theme = theme.title().strip(), \
@@ -629,6 +630,15 @@ class Design_default(object):
                     op = PageOperation.toStr(PageOperation.TEST), 
                     q_id = "", 
                     js = False)
+        page.template_params["back"] = page.page_params.create_url(
+                    op = PageOperation.toStr(PageOperation.MENU_THEME),                         
+                    year = page.page_params.get_param("year"), \
+                    theme = "", \
+                    subtheme = "", \
+                    topic = "", \
+                    period = "", \
+                    difficulty = "", \
+                    js = False)
         page.template_params["back"] = page.page_params.create_url(\
                     op = PageOperation.toStr(PageOperation.MENU_THEME), 
                     subtheme = "", 
@@ -687,6 +697,8 @@ class Design_default(object):
                     elif r["difficulty"] == "3":
                         page.template_params["bar"]["star3"] = page.template_params["bar"]["star3"] + r["correct"]
                         page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+                    else:
+                        difficulty = "0"
 
         return difficulty
 
