@@ -1135,7 +1135,7 @@ class Library(object):
             attempt = attempt + 1;
         }
 
-        // operation == SUBMIT | SKIP
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
         // root == URL root to which to post the results
         function checkAll_""" + str(self.lib_id) + """(operation, root, q_id, l_id, language) {
             q_correct=0; q_incorrect=0;

@@ -19,7 +19,7 @@
   </head>
 
   <body>
-  
+
     <!-- MOBILE MENU START -->
     {% import 'menu.html.j2' as menu %}
     {{ menu.include() }}
@@ -28,10 +28,10 @@
       <div style="display:inline-block; text-align:left; height: 36px; margin-left: 37px; margin-top: 8px">
         <div class="sh_lato_font" style="display:inline-block; color: #dc3d39; font-size: 14px;">
           {{template_params["year"].upper()}}
-        </div> 
+        </div>
         <div class="sh_lato_font" style="display:inline-block; color: #636661; font-size: 14px;">
           razred
-        </div> 
+        </div>
         <br>
         <div class="sh_chalk_font" style="display:inline-block;color: #489cba; font-size: 14px;">
           {{ elements.color_string(template_params["theme"], -4) }}
@@ -53,6 +53,7 @@
       var showed_sol = false;
       //var showed_wrong = false;
 
+      /*
       function toggle_feedback(visible) {
           var feedback_form = document.getElementById("feedback");
           var sad_mosnter = document.getElementById("sad_monster");
@@ -64,24 +65,57 @@
             sad_mosnter.style.display = "inline-block";
           }
       }
+      */
+
+      function question_show_solution() {
+        document.getElementById("next_text").innerHTML = "NASTAVI";
+        //showed_wrong = false;
+        clearAll();
+        addSolutionAll();
+        showed_sol = true;
+      }
+
+      function question_report_problem() {
+        if (document.getElementById('fb_problem').checked ||
+            document.getElementById('fb_unclear').checked ||
+            document.getElementById('fb_difficult').checked ||
+            document.getElementById('fb_easy').checked ||
+            document.getElementById('fb_other').checked)
+        {
+          sendFeedbackToServer('{{template_params['root']}}',
+              document.getElementById('fb_problem').checked?'problem':(
+                document.getElementById('fb_unclear').checked?'unclear':(
+                document.getElementById('fb_difficult').checked?'unclear':(
+                document.getElementById('fb_easy').checked?'unclear':'other'))),
+              '{{template_params['q_id']}}', '{{template_params['l_id']}}',
+              '{{template_params['language']}}',
+              document.getElementById('fb_komentar').value);
+
+          popup_toggle_report_problem();
+          document.getElementById('ic_problem').style.display='none';
+        } else {
+          popup_toggle_report_problem();
+        }
+      }
 
       function question_onnext() {
+        /*
         if (document.getElementById("wr_report").checked) {
           // Only send if one of the options is selected
-          if (document.getElementById('fb_problem').checked || 
-              document.getElementById('fb_unclear').checked || 
-              document.getElementById('fb_difficult').checked || 
+          if (document.getElementById('fb_problem').checked ||
+              document.getElementById('fb_unclear').checked ||
+              document.getElementById('fb_difficult').checked ||
               document.getElementById('fb_easy').checked ||
-              document.getElementById('fb_other').checked) 
+              document.getElementById('fb_other').checked)
           {
-            sendFeedbackToServer('{{template_params['root']}}', 
+            sendFeedbackToServer('{{template_params['root']}}',
                 document.getElementById('fb_problem').checked?'problem':(
                   document.getElementById('fb_unclear').checked?'unclear':(
                   document.getElementById('fb_difficult').checked?'unclear':(
-                  document.getElementById('fb_easy').checked?'unclear':'other'))), 
-                '{{template_params['q_id']}}', '{{template_params['l_id']}}', 
-                '{{template_params['language']}}', 
-                document.getElementById('fb_komentar').value); 
+                  document.getElementById('fb_easy').checked?'unclear':'other'))),
+                '{{template_params['q_id']}}', '{{template_params['l_id']}}',
+                '{{template_params['language']}}',
+                document.getElementById('fb_komentar').value);
 
             toggle_feedback(false);
             document.getElementById('wr_report').checked = false;
@@ -89,25 +123,30 @@
           }
           return;
         }
+        */
         if (solved || showed_sol) {
+          if (showed_sol) {
+            checkAll("SHOWED", "{{template_params["root"]}}",
+                                "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}");
+          }
           location.href = "{{template_params["next"]}}";
           return;
         }
         var check = false;
         if (document.getElementById("popup_wrong_answer").style.visibility == "hidden") {
-          // No need to (re-)check if the wrong answer form is open as the answers didn't change   
-          check = checkAll("SUBMIT", "{{template_params["root"]}}", 
-                              "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}"); 
+          // No need to (re-)check if the wrong answer form is open as the answers didn't change
+          check = checkAll("SUBMIT", "{{template_params["root"]}}",
+                              "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}");
         }
         if (document.getElementById("popup_skip").style.visibility == "visible") {
-          checkAll("SKIP", "{{template_params["root"]}}", 
-                              "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}"); 
+          checkAll("SKIP", "{{template_params["root"]}}",
+                              "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}");
           location.href = "{{template_params["next"]}}";
           return;
-        } 
+        }
         if (check) {
           solved = true;
-          
+
           // Prevent accidental Next after correct solution
           var but_next = document.getElementById("but_next");
           but_next.style.visibility = "hidden";
@@ -138,11 +177,12 @@
               //document.getElementById("wrong_answer").style.visibility = "hidden";
               popup_toggle_wrong_answer("hidden");
               popup_toggle_reveal("visible");
-              document.getElementById("next_text").innerHTML = "NASTAVI";
-              //showed_wrong = false;
-              clearAll();
-              addSolutionAll();
-              showed_sol = true;
+              question_show_solution();
+              //document.getElementById("next_text").innerHTML = "NASTAVI";
+              ////showed_wrong = false;
+              //clearAll();
+              //addSolutionAll();
+              //showed_sol = true;
             } else if (document.getElementById("wr_skip").checked) {
               popup_toggle_wrong_answer("hidden");
               popup_toggle_skip("visible");
@@ -158,8 +198,8 @@
     <!-- QUESTION START -->
     <div style="height: calc(100% - 90px); width:100%; overflow-y: auto; overflow-x: auto; ">
       <div style="display:inline-block; width: 100%; text-align: center; margin-top: 30px; ">
-        {{ elements.stats("bar", template_params["bar"]["star1"], template_params["bar"]["star2"], 
-                                template_params["bar"]["star3"], template_params["bar"]["missed"]) }} 
+        {{ elements.stats("bar", template_params["bar"]["star1"], template_params["bar"]["star2"],
+                                template_params["bar"]["star3"], template_params["bar"]["missed"]) }}
       </div>
 
       <div style="display:inline-block; width: 100%; text-align: center; margin-top: 12px; background: white; overflow-x: auto; ">
@@ -179,14 +219,16 @@
           <div style="display:inline-block; margin-right: 20px; ">
 
             <!-- Preskoči zadatak -->
-            <div title="Preskoči zadatak" 
+            <div id="ic_skip" title="Preskoči zadatak"
                 style="display:inline-block; cursor: pointer; margin-right: 4px;"
                 onclick='popup_toggle_skip()'>
             P
             </div>
 
             <!-- Pomoć -->
-            <div title="Pomoć" style="display:inline-block; cursor: pointer; margin-right: 4px;">
+            <div id="ic_help" title="Pomoć"
+                style="display:inline-block; cursor: pointer; margin-right: 4px;"
+                onclick="popup_toggle_reveal()">
               <svg xmlns="http://www.w3.org/2000/svg" width="19.659" height="22.385" viewBox="0 0 19.659 22.385">
                   <g>
                       <g>
@@ -197,7 +239,9 @@
             </div>
 
             <!-- Prijavi problem -->
-            <div title="Prijavi problem" style="display:inline-block; cursor: pointer; ">
+            <div id="ic_problem" title="Prijavi problem" 
+                style="display:inline-block; cursor: pointer; "
+                onclick="popup_toggle_report_problem()">
               <svg xmlns="http://www.w3.org/2000/svg" width="12.371" height="19.026" viewBox="0 0 12.371 19.026">
                   <g>
                       <g>
@@ -208,7 +252,7 @@
             </div>
           </div>
         </div>
-        <div class="sh_chalk_font" 
+        <div class="sh_chalk_font"
              style="display:inline-block; width: calc(100% - 16px); text-align: center; margin: 11px 8px 8px 8px; font-size: 18px;">
 
           {{template_params["question"]}}
@@ -235,15 +279,15 @@
 
 
     {# {{elements.start_popup("skip", "width: 300px; text-align:center;")}}
-      <div class='sh-font' style='display:inline-block; margin: 12px 8px 8px 8px; font-size:18px'> 
-        Mozda da ipak pokusas? 
+      <div class='sh-font' style='display:inline-block; margin: 12px 8px 8px 8px; font-size:18px'>
+        Mozda da ipak pokusas?
       </div><br>
       <div style='display:inline-block;padding-left:0px;padding-right:0px;padding-bottom:12px'>
         <input type='button' class='sh-font' style='font-size: 14px;' onclick='popup_toggle_skip()' value='Hocu da pokusam'/>
         <div style='display:inline-block;padding-left:6px;padding-right:6px'></div>
         <input type='button' class='sh-font' style='font-size: 14px; '
-                             onclick='checkAll("SKIP", "{{template_params["root"]}}", 
-                                  "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}"); 
+                             onclick='checkAll("SKIP", "{{template_params["root"]}}",
+                                  "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}");
                              location.href = "{{template_params["next"]}}"'
             value='Ipak preskoci'/>
       </div>
@@ -251,11 +295,11 @@
 
 
 
-    {{elements.cup("cup1", 20, 10)}} 
-    {{elements.cup("cup2", 80, 50)}} 
-    {{elements.cup("cup3", 20, 70)}} 
-    {{elements.cup("cup4", 55, 60)}} 
-    {{elements.cup("cup5", 70, 30)}} 
+    {{elements.cup("cup1", 20, 10)}}
+    {{elements.cup("cup2", 80, 50)}}
+    {{elements.cup("cup3", 20, 70)}}
+    {{elements.cup("cup4", 55, 60)}}
+    {{elements.cup("cup5", 70, 30)}}
 
 
     {% set monster_opt = (range(3) | random) %}
@@ -271,79 +315,47 @@
 
 
     <!-- WRONG POPUP -->
-    {{elements.start_popup("wrong_answer", "top: 127px; left: 0%; 
+    {{elements.start_popup("wrong_answer", "top: 127px; left: 0%;
          max-height: calc(100% - 170px);
          width: 100%; text-align: center; background: white; overflow-y: auto;
-         border-radius: 10px; border: 0px solid #000000; box-shadow: 0px 5px 5px #dddddd;", 
+         border-radius: 10px; border: 0px solid #000000; box-shadow: 0px 5px 5px #dddddd;",
          "calc(100% - 100px)", "50px")}}
 
-      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center; 
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center;
                   margin-top: 17px; font-size: 18px;'>
         Eh, zadatak nije skroz tačan.
       </div><br>
-      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;   
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;
                   margin-top: 22px; font-size: 18px;'>
         <label>
-          <input type='radio' id='wr_again' name="wr_input" 
-                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)' checked> 
-          Hoću još jednu šansu! 
+          <input type='radio' id='wr_again' name="wr_input"
+                style='text-align: left; margin-right: 19px;' checked>
+          Hoću još jednu šansu!
         </label>
       </div><br>
-      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;  
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;
                   margin-top: 15px; font-size: 18px;'>
         <label>
-          <input type='radio' id='wr_solution' name="wr_input" 
-                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
-          Daj da vidim rešenje! 
+          <input type='radio' id='wr_solution' name="wr_input"
+                style='text-align: left; margin-right: 19px;' >
+          Daj da vidim rešenje!
         </label>
       </div><br>
-      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;  
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;
                   margin-top: 15px; font-size: 18px;'>
         <label>
-          <input type='radio' id='wr_skip' name="wr_input" 
-                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
-          Ja bih da preskočim. 
+          <input type='radio' id='wr_skip' name="wr_input"
+                style='text-align: left; margin-right: 19px;'>
+          Ja bih da preskočim.
         </label>
       </div><br>
-      <div id='wr_report_option' class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;  
-                  margin-top: 15px; font-size: 18px;'>
-        <label>
-          <input type='radio' id='wr_report' name="wr_input" 
-                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(true)'> 
-          Ovaj zadatak ima problem. 
-        </label>
-      </div><br>
-
-      <!-- Feedback form -->
-      <div id="feedback" style='display:none; width: 250px; text-align: left; border: 2px solid #148f91; margin-top: 26px; '>
-        <div class="sh_chalk_font" style='display:inline-block; text-align: left; margin: 12px 12px 0 12px; font-size: 18px;'>
-          <label>
-            <input type='radio' id='fb_problem' name="fb_input" style='text-align: left; margin-right: 19px;'> Ima grešku 
-          </label> <br>
-          <label>
-            <input type='radio' id='fb_unclear' name="fb_input" style='text-align: left; margin-right: 19px;'> Nije jasan 
-          </label> <br>
-          <label>
-            <input type='radio' id='fb_difficult' name="fb_input" style='text-align: left; margin-right: 19px;'> Pretezak 
-          </label> <br>
-          <label>
-            <input type='radio' id='fb_easy' name="fb_input" style='text-align: left; margin-right: 19px;'> Prelak 
-          </label> <br>
-          <label>
-            <input type='radio' id='fb_other' name="fb_input" style='text-align: left; margin-right: 19px;'> Drugo 
-          </label> <br>
-          <div style='display:inline-block; margin: 12px 0 12px 0'> Dodatni komentar: </div>
-          <input type='text' id='fb_komentar' style='width: 219px'> <br> <br>
-        </div>
-      </div>
-
 
       <!-- Sad monster -->
       <div id="sad_monster" style='display:inline-block; width: 100%; text-align: center; margin-top: 38px;'>
         <svg xmlns="http://www.w3.org/2000/svg" id="prefix__noun_Monster_3288518" width="100.042" height="127.92" viewBox="0 0 100.042 127.92">
-          <path id="prefix__Path_186" d="M109.972 21.469H87.639C82.463 13.37 73.788 8.04 64 8.04s-18.463 5.33-23.639 13.429H18.028A4.2 4.2 0 0 0 14 25.8l8.8 88.083c.548 5.486 8.627 5.538 8.062 0q-4.185-41.87-8.369-83.757h14.03a32.614 32.614 0 0 0-1.193 8.67v27.026l4.983 7.632 1.048-1.9q6.289 27.879 12.61 55.757H40.683c-5.192 0-5.208 8.653 0 8.653H59.1a4.194 4.194 0 0 0 4-4.4 4.965 4.965 0 0 0-.113-1.073L49.2 69.56l1.258-2.267 3.4 6.161 3.37-6.126 3.37 6.126L64 67.293l3.4 6.161 3.37-6.126 3.37 6.126 3.4-6.161 1.26 2.267q-6.893 30.474-13.787 60.932a4.965 4.965 0 0 0-.113 1.073 4.194 4.194 0 0 0 4 4.4h18.417c5.192 0 5.208-8.653 0-8.653H74.03q6.313-27.879 12.61-55.757l1.048 1.9 4.983-7.632V38.791a32.614 32.614 0 0 0-1.193-8.67h14.029l-8.369 83.757c-.564 5.538 7.514 5.486 8.062 0l8.8-88.083a4.211 4.211 0 0 0-4.028-4.326zM64 43.5c-7.03 0-12.739-6.126-12.739-13.688 0-7.545 5.708-13.671 12.739-13.671s12.739 6.124 12.739 13.669c0 7.562-5.709 13.69-12.739 13.69z" 
+          <path id="prefix__Path_186" d="M109.972 21.469H87.639C82.463 13.37 73.788 8.04 64 8.04s-18.463 5.33-23.639 13.429H18.028A4.2 4.2 0 0 0 14 25.8l8.8 88.083c.548 5.486 8.627 5.538 8.062 0q-4.185-41.87-8.369-83.757h14.03a32.614 32.614 0 0 0-1.193 8.67v27.026l4.983 7.632 1.048-1.9q6.289 27.879 12.61 55.757H40.683c-5.192 0-5.208 8.653 0 8.653H59.1a4.194 4.194 0 0 0 4-4.4 4.965 4.965 0 0 0-.113-1.073L49.2 69.56l1.258-2.267 3.4 6.161 3.37-6.126 3.37 6.126L64 67.293l3.4 6.161 3.37-6.126 3.37 6.126 3.4-6.161 1.26 2.267q-6.893 30.474-13.787 60.932a4.965 4.965 0 0 0-.113 1.073 4.194 4.194 0 0 0 4 4.4h18.417c5.192 0 5.208-8.653 0-8.653H74.03q6.313-27.879 12.61-55.757l1.048 1.9 4.983-7.632V38.791a32.614 32.614 0 0 0-1.193-8.67h14.029l-8.369 83.757c-.564 5.538 7.514 5.486 8.062 0l8.8-88.083a4.211 4.211 0 0 0-4.028-4.326zM64 43.5c-7.03 0-12.739-6.126-12.739-13.688 0-7.545 5.708-13.671 12.739-13.671s12.739 6.124 12.739 13.669c0 7.562-5.709 13.69-12.739 13.69z"
               style="fill:#f3b051" data-name="Path 186" transform="translate(-13.979 -8.04)"/>
-          <path id="prefix__Path_187" d="M45 16.55a4.075 4.075 0 1 0 4.08 4.07A4.076 4.076 0 0 0 45 16.55zm-1.2 3.78a.915.915 0 1 1 .91-.91.915.915 0 0 1-.91.91z" 
+          <path id="prefix__Path_187" d="M45 16.55a4.075 4.075 0 1 0 4.08 4.07A4.076 4.076 0 0 0 45 16.55zm-1.2 3.78a.915.915 0 1 1 .91-.91.915.915 0 0 1-.91.91z"
               style="fill:#f3b051" data-name="Path 187" transform="translate(5.021 -8.04)"/>
         </svg>
       </div>
@@ -356,7 +368,7 @@
 
 
     <!-- START DO YOU WANT TO SKIP POPUP -->
-    {{elements.start_popup("skip", "top: 127px; left: 0%; 
+    {{elements.start_popup("skip", "top: 127px; left: 0%;
          max-height: calc(100% - 127px);
          width: 100%; text-align: center; background: white; overflow-y: auto;
          border-radius: 10px; border: 0px solid #000000; box-shadow: 0px 5px 5px #dddddd;",
@@ -375,14 +387,14 @@
       {% set width=4 %}
 
       <div style="display:block; width: calc(100% - 6px); text-align: center; margin-top: 14px; ">
-        <div style="display: inline-block; text-align: center; 
+        <div style="display: inline-block; text-align: center;
                 width: calc(100% - 70px); margin: 0 35px 0 35px; border: 3px solid #148f91">
 
           <div style="display: inline-block; text-align: center; width: calc(100% - 50px); margin: 25px 25px 35px 25px">
             <div class="sh_chalk_font" style="color: #636661; font-size: 18px;">
               Ovaj zadatak ti se neće računati kao urađen. <br>
               Da li si siguran da nećeš da pokušaš? <br><br>
-              Ako ne, ništa strašno, nastavi i probaj neki drugi zadatak. 
+              Ako ne, ništa strašno, nastavi i probaj neki drugi zadatak.
             </div>
           </div>
 
@@ -390,22 +402,22 @@
             {# <div style="display:inline-block; width: 9%; text-align: left; ">
               <!-- PREV BUTTON -->
               <div id='but_prev' style="display:inline-block;cursor: pointer; height:21px; margin-left: 35px; margin-bottom: 8px;"
-                  onclick='popup_toggle_skip()'>                  
+                  onclick='popup_toggle_skip()'>
                   {{elements.back("Ipak ću da pokušam", "#636661", 80)}}
               </div>
-              <!-- END PREV BUTTON --> 
+              <!-- END PREV BUTTON -->
             </div> #}
             <div style="display:inline-block; width: 98%; text-align: right;">
               <!-- NEXT BUTTON -->
-              <div id='but_next' style="display:inline-block;cursor: pointer; height:19px; 
+              <div id='but_next' style="display:inline-block;cursor: pointer; height:19px;
                                         margin-right: 35px; margin-bottom: 8px;"
                   onclick='location.href = "{{template_params["next"]}}"'>
                   {# {{elements.skip("Preskoči ovaj zadatak", "#636661", 80)}} #}
 
                   <div class="sh_lato_font" style="display:inline-block; font-size: 18px; color: #148f91; margin-right:10px">
-                    PRESKOČI OVAJ ZADATAK
+                    PRESKOČI 
                   </div>
-                 
+
                   <svg xmlns="http://www.w3.org/2000/svg" width="27" height="18" viewBox="0 0 27 18" style="margin-right: 4px">
                       <g opacity="0.517">
                           <g>
@@ -434,7 +446,7 @@
 
 
       <div style="display:block; width: 100%; text-align: right; margin-top: -3px; ">
-        <svg xmlns="http://www.w3.org/2000/svg" id="prefix__noun_Monster_3288402" 
+        <svg xmlns="http://www.w3.org/2000/svg" id="prefix__noun_Monster_3288402"
              width="84.305" height="91.091" viewBox="0 0 84.305 91.091" style="margin-right:35px">
             <defs>
                 <style>
@@ -454,7 +466,7 @@
 
 
     <!-- START REVEAL SOLUTION POPUP -->
-    {{elements.start_popup("reveal", "top: 127px; left: 0%; 
+    {{elements.start_popup("reveal", "top: 127px; left: 0%;
          max-height: calc(100% - 170px);
          width: 100%; text-align: center; background: white; overflow-y: auto;
          border-radius: 10px; border: 0px solid #000000; box-shadow: 0px 5px 5px #dddddd;")}}
@@ -472,13 +484,56 @@
       {% set width=4 %}
 
       <div style="display:block; width: calc(100% - 6px); text-align: center; margin-top: 14px; ">
-        <div style="display: inline-block; text-align: center; 
+        <div style="display: inline-block; text-align: center;
                 width: calc(100% - 70px); margin: 0 35px 0 35px; border: 3px solid #148f91">
 
           <div style="display: inline-block; text-align: center; width: 100%-50px; margin: 25px 25px 35px 25px">
             <div class="sh_chalk_font" style="color: #636661; font-size: 18px;">
-            Ovaj zadatak ti se neće računati kao urađen. <br>
+            Da li si sigurna/siguran? <br> 
+            Ako pogledaš rešenje, onda ti se ovaj zadatak ti se neće računati kao urađen. <br>
             U nekom trenutku ćeš opet da naletiš na njega pa ti TATA MATA savetuje da obratiš pažnju na rešenje. <br>
+            </div>
+          </div>
+
+          <div style="display:inline-block; width: 100%; text-align: center; margin-top: 14px; margin-bottom: 25px">
+            {# <div style="display:inline-block; width: 9%; text-align: left; ">
+              <!-- PREV BUTTON -->
+              <div id='but_prev' style="display:inline-block;cursor: pointer; height:21px; margin-left: 35px; margin-bottom: 8px;"
+                  onclick='popup_toggle_skip()'>
+                  {{elements.back("Ipak ću da pokušam", "#636661", 80)}}
+              </div>
+              <!-- END PREV BUTTON -->
+            </div> #}
+            <div style="display:inline-block; width: 98%; text-align: right;">
+              <!-- NEXT BUTTON -->
+              <div id='but_next' style="display:inline-block;cursor: pointer; height:19px;
+                                        margin-right: 35px; margin-bottom: 8px;"
+                  onclick='question_show_solution(); popup_toggle_reveal();'>
+                  {# {{elements.skip("Preskoči ovaj zadatak", "#636661", 80)}} #}
+
+                  <div class="sh_lato_font" style="display:inline-block; font-size: 18px; color: #148f91; margin-right:10px">
+                    POKAŽI REŠENJE
+                  </div>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" width="27" height="18" viewBox="0 0 27 18" style="margin-right: 4px">
+                      <g opacity="0.517">
+                          <g>
+                              <g>
+                                  <path fill="#148f91" d="M27 14.763a3.083 3.083 0 0 1-.982 2.3 3.168 3.168 0 0 1-2.3.933 3.2 3.2 0 0 1-2.349-.964 3 3 0 0 1-.952-2.273 3.146 3.146 0 0 1 .952-2.288 3.316 3.316 0 0 1 2.349-.9 3.189 3.189 0 0 1 2.3.9A3.066 3.066 0 0 1 27 14.763zm-1.345-1.916a2.237 2.237 0 0 0-1.611-.633 2.272 2.272 0 0 0-1.639.633 2.231 2.231 0 0 0 0 3.193 2.3 2.3 0 0 0 3.25 0 2.107 2.107 0 0 0 .687-1.6 2.135 2.135 0 0 0-.687-1.593zm-.8-2.278a.394.394 0 0 1-.283.044 4.281 4.281 0 0 0-1.95-.014H22.6a5.023 5.023 0 0 0-.923.29 4.231 4.231 0 0 0-1.027.74 3.771 3.771 0 0 0-1.191 2.8 4.218 4.218 0 0 0 .164 1.176.347.347 0 0 1-.044.319.37.37 0 0 1-.3.145H7.392a.369.369 0 0 1-.3-.145.307.307 0 0 1-.06-.319 3.747 3.747 0 0 0 .168-1.174 3.8 3.8 0 0 0-1.206-2.816A4.029 4.029 0 0 0 3.135 10.5a4.765 4.765 0 0 0-1.325.189.357.357 0 0 1-.3-.014.361.361 0 0 1-.179-.218.336.336 0 0 1 .03-.276.312.312 0 0 1 .211-.181 5.311 5.311 0 0 1 1.563-.232 4.749 4.749 0 0 1 3.379 1.336 4.441 4.441 0 0 1 1.429 3.107H16.4l3.882-5.921L17.008.726h-2.873a.374.374 0 0 1-.268-.116.313.313 0 0 1-.119-.247.358.358 0 0 1 .119-.263.4.4 0 0 1 .268-.1h4.079a.354.354 0 0 1 .342.218l4.2 9.611a6.015 6.015 0 0 1 1.995.073.366.366 0 0 1 .223.174.34.34 0 0 1 .045.261.356.356 0 0 1-.167.232zM17.729.643l3.351 7.576a.209.209 0 0 1-.015.206l-4.1 6.2a.223.223 0 0 1-.183.1H7.979a5.9 5.9 0 0 1-.076.7h11.182a4.621 4.621 0 0 1 1.371-4.287 4.634 4.634 0 0 1 1.265-.881l.67-.25L18.247.643zM5.6 12.475a3.174 3.174 0 0 1 0 4.592A3.187 3.187 0 0 1 3.285 18a3.136 3.136 0 0 1-2.318-.964A2.979 2.979 0 0 1 0 14.763a3.121 3.121 0 0 1 .967-2.288 3.243 3.243 0 0 1 2.318-.9 3.208 3.208 0 0 1 2.315.9zm-2.646-.26a2.308 2.308 0 0 0-1.636.633 2.255 2.255 0 0 0 0 3.193h.014a2.185 2.185 0 0 0 1.621.674 2.232 2.232 0 0 0 1.635-.674 2.222 2.222 0 0 0 0-3.193 2.277 2.277 0 0 0-1.631-.634z"/>
+                              </g>
+                          </g>
+                      </g>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="27" height="18" viewBox="0 0 27 18">
+                      <g>
+                          <g>
+                              <path fill="#148f91" d="M27 14.763a3.083 3.083 0 0 1-.982 2.3 3.168 3.168 0 0 1-2.3.933 3.2 3.2 0 0 1-2.349-.964 3 3 0 0 1-.952-2.273 3.146 3.146 0 0 1 .952-2.288 3.316 3.316 0 0 1 2.349-.9 3.189 3.189 0 0 1 2.3.9A3.066 3.066 0 0 1 27 14.763zm-1.345-1.916a2.237 2.237 0 0 0-1.611-.633 2.272 2.272 0 0 0-1.639.633 2.231 2.231 0 0 0 0 3.193 2.3 2.3 0 0 0 3.25 0 2.107 2.107 0 0 0 .687-1.6 2.135 2.135 0 0 0-.687-1.593zm-.8-2.278a.394.394 0 0 1-.283.044 4.281 4.281 0 0 0-1.95-.014H22.6a5.023 5.023 0 0 0-.923.29 4.231 4.231 0 0 0-1.027.74 3.771 3.771 0 0 0-1.191 2.8 4.218 4.218 0 0 0 .164 1.176.347.347 0 0 1-.044.319.37.37 0 0 1-.3.145H7.392a.369.369 0 0 1-.3-.145.307.307 0 0 1-.06-.319 3.747 3.747 0 0 0 .168-1.174 3.8 3.8 0 0 0-1.206-2.816A4.029 4.029 0 0 0 3.135 10.5a4.765 4.765 0 0 0-1.325.189.357.357 0 0 1-.3-.014.361.361 0 0 1-.179-.218.336.336 0 0 1 .03-.276.312.312 0 0 1 .211-.181 5.311 5.311 0 0 1 1.563-.232 4.749 4.749 0 0 1 3.379 1.336 4.441 4.441 0 0 1 1.429 3.107H16.4l3.882-5.921L17.008.726h-2.873a.374.374 0 0 1-.268-.116.313.313 0 0 1-.119-.247.358.358 0 0 1 .119-.263.4.4 0 0 1 .268-.1h4.079a.354.354 0 0 1 .342.218l4.2 9.611a6.015 6.015 0 0 1 1.995.073.366.366 0 0 1 .223.174.34.34 0 0 1 .045.261.356.356 0 0 1-.167.232zM17.729.643l3.351 7.576a.209.209 0 0 1-.015.206l-4.1 6.2a.223.223 0 0 1-.183.1H7.979a5.9 5.9 0 0 1-.076.7h11.182a4.621 4.621 0 0 1 1.371-4.287 4.634 4.634 0 0 1 1.265-.881l.67-.25L18.247.643zM5.6 12.475a3.174 3.174 0 0 1 0 4.592A3.187 3.187 0 0 1 3.285 18a3.136 3.136 0 0 1-2.318-.964A2.979 2.979 0 0 1 0 14.763a3.121 3.121 0 0 1 .967-2.288 3.243 3.243 0 0 1 2.318-.9 3.208 3.208 0 0 1 2.315.9zm-2.646-.26a2.308 2.308 0 0 0-1.636.633 2.255 2.255 0 0 0 0 3.193h.014a2.185 2.185 0 0 0 1.621.674 2.232 2.232 0 0 0 1.635-.674 2.222 2.222 0 0 0 0-3.193 2.277 2.277 0 0 0-1.631-.634z"/>
+                          </g>
+                      </g>
+                  </svg>
+
+              </div>
+              <!-- END NEXT BUTTON -->
             </div>
           </div>
 
@@ -487,7 +542,7 @@
 
 
       <div style="display:block; width: 100%; text-align: right; margin-top: -3px; ">
-        <svg xmlns="http://www.w3.org/2000/svg" id="prefix__noun_Monster_3288402" 
+        <svg xmlns="http://www.w3.org/2000/svg" id="prefix__noun_Monster_3288402"
              width="84.305" height="91.091" viewBox="0 0 84.305 91.091" style="margin-right:35px">
             <defs>
                 <style>
@@ -502,6 +557,112 @@
 
     {{elements.end_popup()}}
     <!-- END REVEAL SOLUTION POPUP -->
+
+
+
+    <!-- REPORT PROBLEM POPUP -->
+    {{elements.start_popup("report_problem", "top: 127px; left: 0%;
+         max-height: calc(100% - 127px);
+         width: 100%; text-align: center; background: white; overflow-y: auto;
+         border-radius: 10px; border: 0px solid #000000; box-shadow: 0px 5px 5px #dddddd;",
+         "calc(100% - 0px)", "50px")}}
+
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center;
+                  margin-top: 17px; font-size: 20px;'>
+        Prijavi problem!
+      </div><br>
+
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center;
+                  margin-top: 17px; font-size: 14px;'>
+        Klikni na kružić pored problema da bi TataMata što bolje shvatio i ispravio. 
+      </div><br>
+
+      <!-- Feedback form -->
+      {# <div id="feedback" style='display:none; width: 250px; text-align: left; border: 2px solid #148f91; margin-top: 26px; '> #}
+        <div id="feedback" class="sh_chalk_font" style='display:inline-block; text-align: left; margin: 12px 12px 0 60px; font-size: 16px; margin-top: 7px'>
+          <label>
+            <input type='radio' id='fb_problem' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
+            Nemam pojma o čemu se radi <br>
+            <div style="display:inline-block; margin-left: 41px;">u ovom zadatku</div>
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_unclear' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
+            Previše je težak
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_difficult' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
+            Pa ovo je prelako!!
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_easy' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
+            Ovaj zadatak ima grešku!
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_other' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
+            Drugo (unesi dodatni komentar):
+          </label> <br>
+          <input type='text' id='fb_komentar' style='width: 219px; margin-top: 15px'> <br> <br>
+        </div>
+      {# </div> #}
+
+          <div style="display:inline-block; width: 100%; text-align: center; margin-top: 14px; margin-bottom: 25px">
+            {# <div style="display:inline-block; width: 9%; text-align: left; ">
+              <!-- PREV BUTTON -->
+              <div id='but_prev' style="display:inline-block;cursor: pointer; height:21px; margin-left: 35px; margin-bottom: 8px;"
+                  onclick='popup_toggle_skip()'>
+                  {{elements.back("Ipak ću da pokušam", "#636661", 80)}}
+              </div>
+              <!-- END PREV BUTTON -->
+            </div> #}
+            <div style="display:inline-block; width: 98%; text-align: right;">
+              <!-- NEXT BUTTON -->
+              <div id='but_next' 
+                  style="display:inline-block;cursor: pointer; height:19px;
+                                        margin-right: 35px; margin-bottom: 8px;"
+                  onclick='question_report_problem();'>
+
+                  {# {{elements.skip("Preskoči ovaj zadatak", "#636661", 80)}} #}
+
+                  <div class="sh_lato_font" style="display:inline-block; font-size: 18px; color: #148f91; margin-right:10px">
+                    POŠALJI PRIMEDBU
+                  </div>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" width="27" height="18" viewBox="0 0 27 18" style="margin-right: 4px">
+                      <g opacity="0.517">
+                          <g>
+                              <g>
+                                  <path fill="#148f91" d="M27 14.763a3.083 3.083 0 0 1-.982 2.3 3.168 3.168 0 0 1-2.3.933 3.2 3.2 0 0 1-2.349-.964 3 3 0 0 1-.952-2.273 3.146 3.146 0 0 1 .952-2.288 3.316 3.316 0 0 1 2.349-.9 3.189 3.189 0 0 1 2.3.9A3.066 3.066 0 0 1 27 14.763zm-1.345-1.916a2.237 2.237 0 0 0-1.611-.633 2.272 2.272 0 0 0-1.639.633 2.231 2.231 0 0 0 0 3.193 2.3 2.3 0 0 0 3.25 0 2.107 2.107 0 0 0 .687-1.6 2.135 2.135 0 0 0-.687-1.593zm-.8-2.278a.394.394 0 0 1-.283.044 4.281 4.281 0 0 0-1.95-.014H22.6a5.023 5.023 0 0 0-.923.29 4.231 4.231 0 0 0-1.027.74 3.771 3.771 0 0 0-1.191 2.8 4.218 4.218 0 0 0 .164 1.176.347.347 0 0 1-.044.319.37.37 0 0 1-.3.145H7.392a.369.369 0 0 1-.3-.145.307.307 0 0 1-.06-.319 3.747 3.747 0 0 0 .168-1.174 3.8 3.8 0 0 0-1.206-2.816A4.029 4.029 0 0 0 3.135 10.5a4.765 4.765 0 0 0-1.325.189.357.357 0 0 1-.3-.014.361.361 0 0 1-.179-.218.336.336 0 0 1 .03-.276.312.312 0 0 1 .211-.181 5.311 5.311 0 0 1 1.563-.232 4.749 4.749 0 0 1 3.379 1.336 4.441 4.441 0 0 1 1.429 3.107H16.4l3.882-5.921L17.008.726h-2.873a.374.374 0 0 1-.268-.116.313.313 0 0 1-.119-.247.358.358 0 0 1 .119-.263.4.4 0 0 1 .268-.1h4.079a.354.354 0 0 1 .342.218l4.2 9.611a6.015 6.015 0 0 1 1.995.073.366.366 0 0 1 .223.174.34.34 0 0 1 .045.261.356.356 0 0 1-.167.232zM17.729.643l3.351 7.576a.209.209 0 0 1-.015.206l-4.1 6.2a.223.223 0 0 1-.183.1H7.979a5.9 5.9 0 0 1-.076.7h11.182a4.621 4.621 0 0 1 1.371-4.287 4.634 4.634 0 0 1 1.265-.881l.67-.25L18.247.643zM5.6 12.475a3.174 3.174 0 0 1 0 4.592A3.187 3.187 0 0 1 3.285 18a3.136 3.136 0 0 1-2.318-.964A2.979 2.979 0 0 1 0 14.763a3.121 3.121 0 0 1 .967-2.288 3.243 3.243 0 0 1 2.318-.9 3.208 3.208 0 0 1 2.315.9zm-2.646-.26a2.308 2.308 0 0 0-1.636.633 2.255 2.255 0 0 0 0 3.193h.014a2.185 2.185 0 0 0 1.621.674 2.232 2.232 0 0 0 1.635-.674 2.222 2.222 0 0 0 0-3.193 2.277 2.277 0 0 0-1.631-.634z"/>
+                              </g>
+                          </g>
+                      </g>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="27" height="18" viewBox="0 0 27 18">
+                      <g>
+                          <g>
+                              <path fill="#148f91" d="M27 14.763a3.083 3.083 0 0 1-.982 2.3 3.168 3.168 0 0 1-2.3.933 3.2 3.2 0 0 1-2.349-.964 3 3 0 0 1-.952-2.273 3.146 3.146 0 0 1 .952-2.288 3.316 3.316 0 0 1 2.349-.9 3.189 3.189 0 0 1 2.3.9A3.066 3.066 0 0 1 27 14.763zm-1.345-1.916a2.237 2.237 0 0 0-1.611-.633 2.272 2.272 0 0 0-1.639.633 2.231 2.231 0 0 0 0 3.193 2.3 2.3 0 0 0 3.25 0 2.107 2.107 0 0 0 .687-1.6 2.135 2.135 0 0 0-.687-1.593zm-.8-2.278a.394.394 0 0 1-.283.044 4.281 4.281 0 0 0-1.95-.014H22.6a5.023 5.023 0 0 0-.923.29 4.231 4.231 0 0 0-1.027.74 3.771 3.771 0 0 0-1.191 2.8 4.218 4.218 0 0 0 .164 1.176.347.347 0 0 1-.044.319.37.37 0 0 1-.3.145H7.392a.369.369 0 0 1-.3-.145.307.307 0 0 1-.06-.319 3.747 3.747 0 0 0 .168-1.174 3.8 3.8 0 0 0-1.206-2.816A4.029 4.029 0 0 0 3.135 10.5a4.765 4.765 0 0 0-1.325.189.357.357 0 0 1-.3-.014.361.361 0 0 1-.179-.218.336.336 0 0 1 .03-.276.312.312 0 0 1 .211-.181 5.311 5.311 0 0 1 1.563-.232 4.749 4.749 0 0 1 3.379 1.336 4.441 4.441 0 0 1 1.429 3.107H16.4l3.882-5.921L17.008.726h-2.873a.374.374 0 0 1-.268-.116.313.313 0 0 1-.119-.247.358.358 0 0 1 .119-.263.4.4 0 0 1 .268-.1h4.079a.354.354 0 0 1 .342.218l4.2 9.611a6.015 6.015 0 0 1 1.995.073.366.366 0 0 1 .223.174.34.34 0 0 1 .045.261.356.356 0 0 1-.167.232zM17.729.643l3.351 7.576a.209.209 0 0 1-.015.206l-4.1 6.2a.223.223 0 0 1-.183.1H7.979a5.9 5.9 0 0 1-.076.7h11.182a4.621 4.621 0 0 1 1.371-4.287 4.634 4.634 0 0 1 1.265-.881l.67-.25L18.247.643zM5.6 12.475a3.174 3.174 0 0 1 0 4.592A3.187 3.187 0 0 1 3.285 18a3.136 3.136 0 0 1-2.318-.964A2.979 2.979 0 0 1 0 14.763a3.121 3.121 0 0 1 .967-2.288 3.243 3.243 0 0 1 2.318-.9 3.208 3.208 0 0 1 2.315.9zm-2.646-.26a2.308 2.308 0 0 0-1.636.633 2.255 2.255 0 0 0 0 3.193h.014a2.185 2.185 0 0 0 1.621.674 2.232 2.232 0 0 0 1.635-.674 2.222 2.222 0 0 0 0-3.193 2.277 2.277 0 0 0-1.631-.634z"/>
+                          </g>
+                      </g>
+                  </svg>
+
+              </div>
+              <!-- END NEXT BUTTON -->
+            </div>
+          </div>
+
+
+      <!-- Sad monster -->
+      <div id="sad_monster" style='display:inline-block; width: 100%; text-align: center; margin-top: 38px;'>
+        <svg xmlns="http://www.w3.org/2000/svg" id="prefix__noun_Monster_3288518" width="100.042" height="127.92" viewBox="0 0 100.042 127.92">
+          <path id="prefix__Path_186" d="M109.972 21.469H87.639C82.463 13.37 73.788 8.04 64 8.04s-18.463 5.33-23.639 13.429H18.028A4.2 4.2 0 0 0 14 25.8l8.8 88.083c.548 5.486 8.627 5.538 8.062 0q-4.185-41.87-8.369-83.757h14.03a32.614 32.614 0 0 0-1.193 8.67v27.026l4.983 7.632 1.048-1.9q6.289 27.879 12.61 55.757H40.683c-5.192 0-5.208 8.653 0 8.653H59.1a4.194 4.194 0 0 0 4-4.4 4.965 4.965 0 0 0-.113-1.073L49.2 69.56l1.258-2.267 3.4 6.161 3.37-6.126 3.37 6.126L64 67.293l3.4 6.161 3.37-6.126 3.37 6.126 3.4-6.161 1.26 2.267q-6.893 30.474-13.787 60.932a4.965 4.965 0 0 0-.113 1.073 4.194 4.194 0 0 0 4 4.4h18.417c5.192 0 5.208-8.653 0-8.653H74.03q6.313-27.879 12.61-55.757l1.048 1.9 4.983-7.632V38.791a32.614 32.614 0 0 0-1.193-8.67h14.029l-8.369 83.757c-.564 5.538 7.514 5.486 8.062 0l8.8-88.083a4.211 4.211 0 0 0-4.028-4.326zM64 43.5c-7.03 0-12.739-6.126-12.739-13.688 0-7.545 5.708-13.671 12.739-13.671s12.739 6.124 12.739 13.669c0 7.562-5.709 13.69-12.739 13.69z"
+              style="fill:#f3b051" data-name="Path 186" transform="translate(-13.979 -8.04)"/>
+          <path id="prefix__Path_187" d="M45 16.55a4.075 4.075 0 1 0 4.08 4.07A4.076 4.076 0 0 0 45 16.55zm-1.2 3.78a.915.915 0 1 1 .91-.91.915.915 0 0 1-.91.91z"
+              style="fill:#f3b051" data-name="Path 187" transform="translate(5.021 -8.04)"/>
+        </svg>
+      </div>
+    </div>
+
+    {{elements.end_popup()}}
+    <!-- END REPORT PROBLEM POPUP -->
 
 
 

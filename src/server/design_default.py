@@ -989,16 +989,25 @@ class Design_default(object):
         Design_default._render_result_bar_and_get_last_difficulty(page)
 
 
-        page.template_params["url_year"] = page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_YEAR), \
-                                        year = "", \
-                                        theme = "", \
-                                        subtheme = "", \
-                                        topic = "", \
-                                        difficulty = "", \
-                                        period = "", \
-                                        js=False)
+        # page.template_params["url_year"] = page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_YEAR), \
+        #                                 year = "", \
+        #                                 theme = "", \
+        #                                 subtheme = "", \
+        #                                 topic = "", \
+        #                                 difficulty = "", \
+        #                                 period = "", \
+        #                                 js=False)
 
-        page.template_params["url_theme"] = page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_THEME), \
+        # page.template_params["url_theme"] = page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_THEME), \
+        #                                 year=page.page_params.get_param("year"), \
+        #                                 theme = "", \
+        #                                 subtheme = "", \
+        #                                 topic = "", \
+        #                                 difficulty = "", \
+        #                                 period = "", \
+        #                                 js=False)
+
+        page.template_params["next"] = page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_THEME), \
                                         year=page.page_params.get_param("year"), \
                                         theme = "", \
                                         subtheme = "", \
