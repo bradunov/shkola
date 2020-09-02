@@ -1,4 +1,3 @@
-import time
 # import json
 
 # from server.helpers import encap_str
@@ -626,19 +625,19 @@ class Design_default(object):
         page.template_params["period"] = page.page_params.get_param("period").title()
         page.template_params["difficulty"] = page.page_params.get_param("difficulty").title()
 
-        page.template_params["next"] = page.page_params.create_url(\
-                    op = PageOperation.toStr(PageOperation.TEST), 
-                    q_id = "", 
-                    js = False)
-        page.template_params["back"] = page.page_params.create_url(
-                    op = PageOperation.toStr(PageOperation.MENU_THEME),                         
-                    year = page.page_params.get_param("year"), \
-                    theme = "", \
-                    subtheme = "", \
-                    topic = "", \
-                    period = "", \
-                    difficulty = "", \
-                    js = False)
+        test = Test(page)
+        url_next = test.get_next_question_url(Design_default.total_questions)
+        page.template_params["next"] = url_next
+
+        # page.template_params["back"] = page.page_params.create_url(
+        #             op = PageOperation.toStr(PageOperation.MENU_THEME),                         
+        #             year = page.page_params.get_param("year"), \
+        #             theme = "", \
+        #             subtheme = "", \
+        #             topic = "", \
+        #             period = "", \
+        #             difficulty = "", \
+        #             js = False)
         page.template_params["back"] = page.page_params.create_url(\
                     op = PageOperation.toStr(PageOperation.MENU_THEME), 
                     subtheme = "", 
@@ -709,7 +708,6 @@ class Design_default(object):
     @timer_section("render_question_page")
     def render_question_page(page):
 
-        next_question = None
         test = Test(page)
 
         # Create dictionary entries that define menu
@@ -717,77 +715,65 @@ class Design_default(object):
 
         page.template_params["template_name"] = "question.html.j2"
 
+        q_id = page.page_params.get_param("q_id")
 
-        # We may choose to offer fewer questions if there aren't enough available
-        more_questions = False
-
+        q_number = page.page_params.get_param("q_num")
+        try:
+            q_number = int(q_number) if not q_number is None else 0
+        except ValueError as ex:
+            logging.error("Incorrect q_num={}".format(q_number))
+            q_number = 0
+            
         if page.page_params.get_param("op") == PageOperation.TEST_PREV:
-            if len(context.c.session.get("history")) <= 1:
-                logging.warning("We shouldn't have offered a back link when there is no history.")
-                next_question = context.c.session.get("history")[-1]["q_id"]
+            context.c.session.list_delete("history", -1)
+            # At this point current q_id should match the last one in history,
+            # otherwise there was an error creating TEST_PREV link
+            if not q_id == context.c.session.get("history")[-1]["q_id"]:
+                logging.error("Error getting back in questions: q_id={}, q_num={}\nHist={}".format(
+                    q_id, q_number, context.c.session.get("history")
+                ))
+        else:
+            if q_number == test.get_q_number() + 1:
+                # New question - add to history
+                hist = {
+                    "q_id" : q_id, 
+                    "url" : page.page_params.get_url(),
+                    "correct" : 0, 
+                    "incorrect" : 0
+                }
+                #hist.update(next_question)
+                context.c.session.list_append("history", hist)
+            elif q_number == test.get_q_number():
+                # The same question - probably a refresh
+                if not q_id == context.c.session.get("history")[-1]["q_id"]:
+                    logging.error("Error in history: q_id={}, q_num={}\nHist={}".format(
+                        q_id, q_number, context.c.session.get("history")
+                    ))
             else:
-                context.c.session.list_delete("history", -1)
-                next_question = context.c.session.get("history")[-1]["q_id"]
-        else: 
-            # At the moment every new PageOperation.TEST is a new question
-            # A user can hit refresh, but this will get her/him to the next question
-            # This may be avoided if POST is used instead of GET where there will be a warning
+                # Likely wrong
+                logging.error("Error in question numbering: q_id={}, q_num={}/{}\nHist={}".format(
+                    q_id, q_number, test.get_q_number(), context.c.session.get("history")
+                ))
 
-            # elif not context.c.session.get("history") or len(context.c.session.get("history")) == 0 or \
-            #     not context.c.session.get("history")[-1]["url"] == page.page_params.get_url():
-            #     # Not a simple page refresh, update history
 
-            if not context.c.session.get("history") or len(context.c.session.get("history")) == 0:
-                # Starting a new test, record the start time in epoch seconds
-                context.c.session.set("test_id", int(time.time()*1000))
 
-            next_question, more_questions = test.choose_next_question()
-            hist = {
-                "url" : page.page_params.get_url(),
-                "correct" : 0, 
-                "incorrect" : 0
-            }
-            hist.update(next_question)
-            context.c.session.list_append("history", hist)
-
+        # DEBUG
         # context.c.session.print()
 
 
-        # Create question - it will be added to page.lines and 
-        # passes as page.template_params["question"] to the jinja2 form
-
-        page.page_params.set_param("q_id", next_question["q_id"])
         test_id = context.c.session.get("test_id")
-        test_order = len(context.c.session.get("history"))
-        q = Question(page=page, q_id=next_question["q_id"], test_id=test_id, test_order=test_order)
+        q = Question(page=page, q_id=q_id, test_id=test_id, test_order=q_number)
         q.set_from_file_with_exception()
         q.eval_with_exception()
 
 
 
-        if context.c.session.get("history"):
-            q_number = len(context.c.session.get("history"))
-        else:
-            q_number = 0
+        url_next = test.get_next_question_url(Design_default.total_questions)
+        page.template_params["next"] = url_next
 
-        if q_number >= 2:
-            url_prev = page.page_params.create_url(\
-                        op = PageOperation.toStr(PageOperation.TEST_PREV), 
-                        js = False)
-        else:
-            url_prev = page.page_params.create_url(\
-                        op = PageOperation.toStr(PageOperation.MENU_THEME), 
-                        js = False)
+        #url_prev = test.get_prev_question_url()
+        #page.template_params["back"] = url_prev
         
-
-        if q_number >= Design_default.total_questions or not more_questions:
-            url_next = page.page_params.create_url( 
-                op=PageOperation.toStr(PageOperation.SUMMARY),
-                js=False)
-        else:
-            url_next = page.page_params.create_url( 
-                op=PageOperation.toStr(PageOperation.TEST),
-                js=False)
 
 
         difficulty = Design_default._render_result_bar_and_get_last_difficulty(page)
@@ -796,7 +782,10 @@ class Design_default(object):
         page.template_params["q_number"] = str(q_number)
 
         page.template_params["debug"] = "DEBUG: {} / {} / {} - {}".format(
-            next_question["subtheme"], next_question["topic"], next_question["period"], next_question["q_id"]
+            page.page_params.get_param("subtheme"), 
+            page.page_params.get_param("topic"), 
+            page.page_params.get_param("period"), 
+            page.page_params.get_param("q_id")
         )
 
         page.template_params["root"] = page.page_params.get_param("root")
@@ -810,8 +799,6 @@ class Design_default(object):
         page.template_params["topic"] = page.page_params.get_param("topic")
         page.template_params["difficulty"] = int(difficulty)
 
-        page.template_params["next"] = url_next
-        page.template_params["back"] = url_prev
 
 
 

@@ -152,6 +152,7 @@ class PageParameters(object):
         "topic" : "",
         "period" : "",
         "difficulty" : "",
+        "q_num" : "",
         "language" : PageLanguage.RS,
 
         # Parameters for edit mode
@@ -393,6 +394,10 @@ class PageParameters(object):
             self._params["difficulty"] = args["difficulty"]
             updated = True
 
+        if ("q_num" in args.keys()) and (not args["q_num"] is None) and args["q_num"]:
+            self._params["q_num"] = args["q_num"]
+            updated = True
+
         if "init_code" in args.keys():
             self._params["init_code"] = args["init_code"]
             updated = True
@@ -430,7 +435,7 @@ class PageParameters(object):
     # as they can be JS variables
     def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, 
                    theme=None, subtheme=None, topic=None, period=None, difficulty=None,
-                   language=None, design=None, js=False):
+                   q_num=None, language=None, design=None, js=False):
         if root is None:
             root = self._params["root"]
             root = encap_str(root) if js else root
@@ -451,19 +456,20 @@ class PageParameters(object):
         topic = self._str_to_url(topic, self._params["topic"], js)
         period = self._str_to_url(period, self._params["period"], js)
         difficulty = self._str_to_url(difficulty, self._params["difficulty"], js)
+        q_num = self._str_to_url(q_num, self._params["q_num"], js)
 
         if js:
             url = ("{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} " \
                   "+ \"&year=\" + {} + \"&theme=\" + {} " \
                   "+ \"&subtheme=\" + {} + \"&topic=\" + {} + \"&period=\" + {} + \"&difficulty=\" + {} " \
-                  "+ \"&language=\" + {} + \"&design=\" + {} ").format(
-                      root, op, q_id, l_id, year, theme, subtheme, topic, period, difficulty, language, design
+                  "+ \"&q_num=\" + {} + \"&language=\" + {} + \"&design=\" + {} ").format(
+                      root, op, q_id, l_id, year, theme, subtheme, topic, period, difficulty, q_num, language, design
                   )
         else:
             url = ("{}?op={}&q_id={}&l_id={}&year={}" \
                   "&theme={}&subtheme={}&topic={}&period={}" \
-                  "&difficulty={}&language={}&design={}").format(
-                      root, op, q_id, l_id, year, theme, subtheme, topic, period, difficulty, language, design
+                  "&difficulty={}&q_num={}&language={}&design={}").format(
+                      root, op, q_id, l_id, year, theme, subtheme, topic, period, difficulty, q_num, language, design
                   )
 
         return url

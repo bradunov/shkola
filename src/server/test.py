@@ -1,6 +1,8 @@
 import random
+import time
+
 # from server.question import Question
-# from server.types import PageOperation
+from server.types import PageOperation
 import server.context as context
 
 import logging
@@ -71,16 +73,16 @@ class Test(object):
         for q in self.list["questions"]:
             if self.page.page_params.get_param("subtheme") and \
                     (self.page.page_params.get_param("subtheme") == "*" or \
-                    q["subtheme"].lower() == self.page.page_params.get_param("subtheme").lower()) and \
+                    q["subtheme"].lower().strip() == self.page.page_params.get_param("subtheme").lower().strip()) and \
                self.page.page_params.get_param("topic") and \
                     (self.page.page_params.get_param("topic") == "*" or \
-                    q["topic"].lower() == self.page.page_params.get_param("topic").lower()) and \
+                    q["topic"].lower().strip() == self.page.page_params.get_param("topic").lower().strip()) and \
                self.page.page_params.get_param("period") and \
                     (self.page.page_params.get_param("period") == "*" or \
-                    q["period"].lower() == self.page.page_params.get_param("period").lower()) and \
+                    q["period"].lower().strip() == self.page.page_params.get_param("period").lower().strip()) and \
                self.page.page_params.get_param("difficulty") and \
                     (self.page.page_params.get_param("difficulty") == "*" or \
-                    q["difficulty"].lower() == self.page.page_params.get_param("difficulty").lower()):
+                    q["difficulty"].lower().strip() == self.page.page_params.get_param("difficulty").lower().strip()):
 
                 if "subtheme" not in q.keys() or "topic" not in q.keys() or \
                    "period" not in q.keys() or "difficulty" not in q.keys() or "random" not in q.keys():
@@ -88,13 +90,15 @@ class Test(object):
                         q,self.page.page_params.get_param("l_id")))
 
                 next_q = {
-                    "q_id" : q["name"],
-                    "subtheme" : q["subtheme"] if "subtheme" in q.keys() else "",
-                    "topic" : q["topic"] if "topic" in q.keys() else "",
-                    "period" : q["period"] if "period" in q.keys() else "", 
-                    "difficulty" : q["difficulty"] if "difficulty" in q.keys() else "",
+                    "q_id" : q["name"].strip(),
+                    "subtheme" : q["subtheme"].strip() if "subtheme" in q.keys() else "",
+                    "topic" : q["topic"].strip() if "topic" in q.keys() else "",
+                    "period" : q["period"].strip() if "period" in q.keys() else "", 
+                    "difficulty" : q["difficulty"].strip() if "difficulty" in q.keys() else "",
                     "random" : not (q["random"] == 0) if "random" in q.keys() else False
                 }
+
+                # DEBUG
                 #logging.debug("\n\nNNNNN: {}\n\n".format(next_q))
     
                 if next_q["random"]:
@@ -119,7 +123,7 @@ class Test(object):
 
                 elif q["name"] == asked_questions[-1]:
                     prev_question = next_q
-
+                
         next_question = {
             "q_id" : "",
             "subtheme" : "",
@@ -211,8 +215,8 @@ class Test(object):
 
         logging.info("\n\n ************ " + log_str + "\n\n")
 
-        # logging.info("\n\nNEXT Q: {}\n\n {}\n\n {}\n\n {}\n\n".format(
-        #      potential_questions_w_repeat, potential_questions, next_question, remaining_question))
+        logging.info("\n\nNEXT Q: {}\n\n {}\n\n {}\n\n {}\n\n".format(
+             potential_questions_w_repeat, potential_questions, next_question, remaining_question))
  
         # Serve at most remaining_question
         remaining_question = (remaining_question - 1) if remaining_question > 0 else remaining_question
@@ -226,7 +230,60 @@ class Test(object):
         return next_question, more_questions
         
 
-        
+    # Return question number in the test (starting from 1)
+    def get_q_number(self):
+        if context.c.session.get("history"):
+            q_number = len(context.c.session.get("history"))
+        else:
+            q_number = 0
+        return q_number
+
+
+
+    def get_next_question_url(self, total_questions):
+        # We may choose to offer fewer questions if there aren't enough available
+        more_questions = False
+
+        if not context.c.session.get("history") or len(context.c.session.get("history")) == 0:
+            # Starting a new test, record the start time in epoch seconds
+            context.c.session.set("test_id", int(time.time()*1000))
+
+        next_question, more_questions = self.choose_next_question()
+
+        q_number = self.get_q_number()
+        if q_number >= total_questions or not more_questions:
+            url_next = self.page.page_params.create_url( 
+                op=PageOperation.toStr(PageOperation.SUMMARY),
+                js=False)
+        else:
+            url_next = self.page.page_params.create_url( 
+                op=PageOperation.toStr(PageOperation.TEST),
+                q_id=next_question["q_id"], 
+                q_num=str(q_number+1),
+                js=False)
+
+        return url_next
+
+
+
+    def get_prev_question_url(self):
+        if len(context.c.session.get("history")) <= 1:
+            url_prev = self.page.page_params.create_url(\
+                        op = PageOperation.toStr(PageOperation.MENU_THEME), 
+                        js = False)
+        else:
+            q_id = context.c.session.get("history")[-2]["q_id"]
+            q_number = self.get_q_number()
+            url_prev = self.page.page_params.create_url(\
+                        op = PageOperation.toStr(PageOperation.TEST_PREV), 
+                        q_id = q_id, 
+                        q_num=str(q_number-1),
+                        js = False)
+
+        return url_prev
+
+
+
     # def render_next_questions(self, next_question=None):  
     #     if not next_question:
     #         next_question = self.choose_next_question()
