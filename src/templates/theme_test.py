@@ -7,7 +7,7 @@ page['title'] = 'Shkola'
 page['google_signin_client_id'] = ""
 page['google_site_verification'] = ""
 
-page['year'] = "PRVI"
+page['year'] = "1"
 
 page['themes'] = []
 
