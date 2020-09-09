@@ -16,42 +16,35 @@
     {% set width=4 %}
 
     <div style="display:block; width: 100%; text-align: center; margin-top: 50px; ">
-      <div style="display: inline-block; text-align: center; 
+      <div style="display: inline-block; text-align: center; height: 439px; 
                   width: calc(100% - 100px); margin: 0 50px 0 50px; border: 3px solid #148f91">
 
-        <div class="sh_lato_font" style="display: inline-block; text-align: center; margin: 13px 19px 40px 19px;
+        <div class="sh_lato_font" style="display: inline-block; text-align: center; margin: 33px 19px 0px 19px;
                     color: #636661; font-size: 18px; line-height: 1.56; letter-spacing: normal;">
-            Zdravo, da znaš,
-            ako se uloguješ kao gost
-            TATA MATA neće zapamtiti 
+            Zdravo, da znaš, <br>
+            ako se uloguješ kao gost <br>
+            TATA MATA neće zapamtiti <br>
             sve zadatke koje uradiš. <br><br>
 
-            Kada se sledeći 
-            put uloguješ  
+            Kada se sledeći <br> 
+            put uloguješ <br>
             moraćeš sve ispočetka. <br><br>
 
-            Ako ti je to ok, 
-            klikni na nastavi ili idi nazad 
+            Ako ti je to ok, <br>
+            klikni na nastavi ili idi nazad <br>
             da se uloguješ preko 
             <div style="display:inline-block"> <img src="item?url=images/google.png" alt="Google" height="20px" width="20px"> </div>
         </div>
 
+        {{elements.scooter_back_fwd('bt_prev', 'location.href = "' ~ template_params["back"] ~ '"', 
+          'bt_next', 'location.href = "' ~ template_params["next"] ~ '"')}}
+
       </div>
     </div>
 
-    <div style="display:block; width: 100%; text-align: left; margin-top: 40px; ">
-      <!-- PREV BUTTON -->
-      <div id='but_prev' style="display:inline-block;cursor: pointer; width:66px; height:21px; margin-left: 103px;"
-          onclick='location.href = "{{template_params["back"]}}"'>
-          {{elements.back("vrati se", "#636661", 5)}}
-      </div>
-      <!-- END PREV BUTTON --> 
-    </div>
 
 
-
-
-    <div style="display:block; width: 100%; text-align: left; margin-top: 29px; ">
+    <div style="display:block; width: 100%; text-align: left; margin-top: 29px; margin-left: 15px;">
       <svg xmlns="http://www.w3.org/2000/svg" id="monster" style="margin-left:34px" width="106.348" height="119.48" viewBox="0 0 106.348 119.48">
           <defs>
               <style>
@@ -64,14 +57,6 @@
           </g>
       </svg>
 
-
-      <!-- NEXT BUTTON -->
-      <div id='but_next' style="display:inline-block;cursor: pointer; vertical-align:top; 
-                                width:75px; height:19px; margin-top: 12px; margin-left: 22px"
-          onclick='location.href = "{{template_params["next"]}}"'>
-          {{elements.skip("nastavi kao gost", "#636661", 60)}}
-      </div>
-      <!-- END NEXT BUTTON -->
     </div>
 
 
