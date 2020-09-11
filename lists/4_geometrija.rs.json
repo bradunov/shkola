@@ -60,6 +60,14 @@
       "subtheme": "Kvadar i kocka",
       "topic": "Mreža",
       "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00078",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Kvadar i kocka",
+      "topic": "Mreža",
+      "difficulty": "2"
     }
   ]
 }

@@ -276,6 +276,14 @@
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje",
       "difficulty": "3"
+    },
+    {
+      "name": "numbers/q00222",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Brojevi do 100",
+      "topic": "Dinar, novčanice do 100 dinara",
+      "difficulty": "2"
     }
   ]
 }

@@ -1,0 +1,14 @@
+
+@ime1@ i @ime2@ su dobili od roditelja novac da kupe slatkiše. 
+@ime1@ ima @quest[1]@  
+@ime2@ ima @quest[2]@
+
+@vspace@
+Ko ima više novca i za koliko?
+
+@vspace@
+@lib.check_string(reply,50)@ ima vise novca za @lib.check_number(value,20)@ dinara.
+
+
+
+

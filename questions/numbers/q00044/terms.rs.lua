@@ -1,0 +1,1 @@
+sign = {"više", "manje"}            

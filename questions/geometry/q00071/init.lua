@@ -200,12 +200,12 @@ mycanvas = function()
 
   out = lib.math.argsort(number)
 
-   if (number[out[3]] > number[out[2]]) then  
-      first = fig[out[3]]
+   if (number[out[1]] < number[out[2]]) then  
+      first = fig[out[1]]
       answ = "Na cilj će prva stići " .. lib.check_string(first, 40) .. " figura."  
   else
-      if (number[out[3]] > number[out[1]]) then
-	      first = fig[out[3]]
+      if (number[out[1]] < number[out[3]]) then
+	      first = fig[out[1]]
           second = fig[out[2]] 
 	      reply = "answer == '" .. first .. "' "  ..
                   "|| answer == '" .. second .. "'" ;
@@ -217,4 +217,4 @@ mycanvas = function()
 
   lib.end_canvas()
 end   		               
-           
+  

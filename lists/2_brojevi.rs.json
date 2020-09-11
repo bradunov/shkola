@@ -406,6 +406,30 @@
       "difficulty": "1"
     },
     {
+      "name": "numbers/q00220",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Podaci",
+      "topic": "Tabela i stubičasti dijagram",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00221",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Brojevni izraz",
+      "topic": "Sve računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00223",
+      "random": "1",
+      "period": "3",
+      "subtheme": "Podaci",
+      "topic": "Tabela i stubičasti dijagram",
+      "difficulty": "1"
+    },
+    {
       "name": "equations/q00013",
       "random": "1",
       "period": "1",

@@ -14,6 +14,14 @@
       "difficulty": "1"
     },
     {
+      "name": "measures/q00044",
+      "random": "1",
+      "period": "2",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
+      "difficulty": "2"
+    },
+    {
       "name": "measures/q00052",
       "random": "1",
       "period": "2",

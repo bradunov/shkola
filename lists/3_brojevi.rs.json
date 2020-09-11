@@ -694,6 +694,14 @@
       "difficulty": "2"
     },
     {
+      "name": "numbers/q00162",
+      "random": "1",
+      "period": "1",
+      "subtheme": "Brojevni izraz",
+      "topic": "Sve računske operacije",
+      "difficulty": "2"
+    },
+    {
       "name": "numbers/q00167",
       "random": "1",
       "period": "1",
