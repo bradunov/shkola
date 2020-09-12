@@ -8,6 +8,7 @@ text_style =
         ["line_color"] = "f00",
         ["off_line_color"] = "000",
         ["line_width"] = "1",
+        ["font_family"] = "Helvetica",
 	["font_size"] = "50"};
 
 

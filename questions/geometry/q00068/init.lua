@@ -20,15 +20,18 @@ duz = {"OM", "MO", "OP", "PO", "MP", "PM", "ON", "NO"}
 tacka ={"M", "N", "O", "P"}
 
 reply = {}
+ans = {}
 
 reply[1] = "answer == '" .. prava[1] .. "' "  ..
         "|| answer == '" .. prava[2] .. "'" ;
+ans[1] = "answer = '" .. prava[1] .. "' ";
 
 reply[2] = "answer == '" .. poluprava[1] .. "' "  ..
            "|| answer == '" .. poluprava[2] .. "'" ..
            "|| answer == '" .. poluprava[3] .. "'" ..
            "|| answer == '" .. poluprava[4] .. "'" ..		   
            "|| answer == '" .. poluprava[5] .. "'" ; 
+ans[2] = "answer = '" .. poluprava[1] .. "' ";
 
 reply[3] = "answer == '" .. duz[1] .. "' "  ..
            "|| answer == '" .. duz[2] .. "'" ..
@@ -38,11 +41,13 @@ reply[3] = "answer == '" .. duz[1] .. "' "  ..
            "|| answer == '" .. duz[6] .. "'" ..
            "|| answer == '" .. duz[7] .. "'" ..			   
            "|| answer == '" .. duz[8] .. "'" ; 
+ans[3] = "answer = '" .. duz[1] .. "' ";
 		   
 reply[4] = "answer == '" .. tacka[1] .. "' "  ..
            "|| answer == '" .. tacka[2] .. "'" ..
            "|| answer == '" .. tacka[3] .. "'" ..	   
            "|| answer == '" .. tacka[4] .. "'" ;
+ans[4] = "answer = '" .. tacka[1] .. "' ";
 		
 
 mycanvas = function(no)
