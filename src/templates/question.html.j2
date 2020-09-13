@@ -107,7 +107,8 @@
           //document.getElementById("next_text").innerHTML = "PROVERI";
           //showed_wrong = false;
           // Delete all wrong answers
-          clearAll();
+          // NB: we decided not to delete wrong answers so that the kids knew what went wrong
+          //clearAll();
         } else if (document.getElementById("wr_solution").checked) {
           //document.getElementById("wrong_answer").style.visibility = "hidden";
           popup_toggle_wrong_answer("hidden");
@@ -174,9 +175,9 @@
         if (check) {
           solved = true;
 
-          // Prevent accidental Next after correct solution
-          var but_next = document.getElementById("but_next");
-          but_next.style.visibility = "hidden";
+          // Prevent accidental Skip/Help after correct solution
+          document.getElementById('ic_skip').style.display='none';
+          document.getElementById('ic_help').style.display='none';
 
           make_monster_visible();
           document.getElementById("cup1").style.visibility = "visible";
@@ -199,6 +200,7 @@
               document.getElementById("next_text").innerHTML = "PROVERI";
               //showed_wrong = false;
               // Delete all wrong answers
+              // NB: we decided not to delete wrong answers so that the kids knew what went wrong
               clearAll();
             } else if (document.getElementById("wr_solution").checked) {
               //document.getElementById("wrong_answer").style.visibility = "hidden";
@@ -230,12 +232,12 @@
       </div>
 
       <div style="display:inline-block; width: 100%; text-align: center; margin-top: 12px; background: white; overflow-x: auto; ">
-        {# DEBUG  #}
-        {# {% if "debug" in template_params.keys() %}
-          <div style="display:inline-block; width: 100%; text-align: left; margin-top: 0px; color: #aaaaaa">
+        {# DEBUG #}
+        {% if "debug" in template_params.keys() %}
+          <div style="display:none; width: 100%; text-align: left; margin-top: 0px">
             {{template_params["debug"]}}
           </div>
-        {% endif %} #}
+        {% endif %}
 
         <div style="display:inline-block; width: 25%; text-align: left; margin-top: 10px; ">
           <div style="display:inline-block; margin-left: 20px; ">
