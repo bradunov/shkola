@@ -453,11 +453,13 @@ class Design_default(object):
                         if not subclass == "name":
                             subtheme = content[page.page_params.get_param("year")][theme][subclass]["subtheme"].strip()
                             topic = content[page.page_params.get_param("year")][theme][subclass]["topic"].strip()
+                            period = content[page.page_params.get_param("year")][theme][subclass]["period"]
                             if subtheme not in subtheme_dict.keys():
                                 subtheme_d = {
                                     'title' : subtheme.capitalize(),
                                     'topics' : [],
                                     'topics_dir' : {},
+                                    'min_period' : period,
                                     'link' : page.page_params.create_url(
                                             op = PageOperation.toStr(PageOperation.INTRO), 
                                             theme = theme.title().strip(), 
@@ -473,6 +475,7 @@ class Design_default(object):
 
                                 topic_d = {
                                     'title' : "Sve teme",
+                                    'min_period' : "0",
                                     'link' : page.page_params.create_url(
                                             op = PageOperation.toStr(PageOperation.INTRO), 
                                             theme = theme.title().strip(), 
@@ -493,6 +496,7 @@ class Design_default(object):
                             if topic not in subtheme_d['topics_dir'].keys():
                                 topic_d = {
                                     'title' : topic.capitalize(),
+                                    'min_period' : period,
                                     'link' : page.page_params.create_url(
                                             op = PageOperation.toStr(PageOperation.INTRO), 
                                             theme = theme.title().strip(), 
@@ -505,6 +509,12 @@ class Design_default(object):
                                 }
                                 subtheme_d['topics_dir'][topic] = topic_d
                                 subtheme_d['topics'].append(topic_d)
+                            else:
+                                topic_d = subtheme_d['topics_dir'][topic]
+
+                            subtheme_d['min_period'] = period if period < subtheme_d['min_period'] else subtheme_d['min_period']
+                            topic_d['min_period'] = period if period < topic_d['min_period'] else topic_d['min_period']
+
 
                             # page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
                             # page.add_lines("<a href='" + \
@@ -516,6 +526,15 @@ class Design_default(object):
                             #             l_id = content[page.page_params.get_param("year")][page.page_params.get_param("theme")]["name"], js = False) + \
                             #         "'> " + subclass.capitalize() + "</a>\n")
                             # page.add_lines("</div>\n")
+
+                    # Sort first by period and then alphabetically
+                    subtheme_list.sort(key=lambda x:x['min_period'] + x['title'])
+                    #logging.debug("THEME {}: \n{}\n\n".format(
+                    #    theme, [[x['title'], x['min_period']] for x in subtheme_list] ))
+                    for st in subtheme_list:
+                        st['topics'].sort(key=lambda x:x['min_period'] + x['title'])
+                        #logging.debug("SUBTHEME {}: \n{}\n\n".format(
+                        #    st['title'], [[x['title'], x['min_period']] for x in st['topics']] ))
 
 
                     page.template_params['themes'].append({
@@ -724,6 +743,7 @@ class Design_default(object):
             logging.error("Incorrect q_num={}".format(q_number))
             q_number = 0
             
+        hist = None
         if page.page_params.get_param("op") == PageOperation.TEST_PREV:
             context.c.session.list_delete("history", -1)
             # At this point current q_id should match the last one in history,
@@ -776,15 +796,18 @@ class Design_default(object):
         
 
 
-        difficulty = Design_default._render_result_bar_and_get_last_difficulty(page)
-
+        Design_default._render_result_bar_and_get_last_difficulty(page)
+        difficulty = page.page_params.get_param("q_diff")
+        if hist:
+            hist["difficulty"] = difficulty
 
         page.template_params["q_number"] = str(q_number)
 
-        page.template_params["debug"] = "DEBUG: {} / {} / {} - {}".format(
+        page.template_params["debug"] = "DEBUG: {} / {} / {} / {} - {}".format(
             page.page_params.get_param("subtheme"), 
             page.page_params.get_param("topic"), 
             page.page_params.get_param("period"), 
+            page.page_params.get_param("q_diff"), 
             page.page_params.get_param("q_id")
         )
 

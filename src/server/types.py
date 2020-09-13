@@ -151,8 +151,9 @@ class PageParameters(object):
         "subtheme" : "",
         "topic" : "",
         "period" : "",
-        "difficulty" : "",
+        "difficulty" : "",                                  # Difficulty level for the current test 
         "q_num" : "",
+        "q_diff" : "",                                      # Difficulty level of the last question (may differ from the test)
         "language" : PageLanguage.RS,
 
         # Parameters for edit mode
@@ -398,6 +399,10 @@ class PageParameters(object):
             self._params["q_num"] = args["q_num"]
             updated = True
 
+        if ("q_diff" in args.keys()) and (not args["q_diff"] is None) and args["q_diff"]:
+            self._params["q_diff"] = args["q_diff"]
+            updated = True
+
         if "init_code" in args.keys():
             self._params["init_code"] = args["init_code"]
             updated = True
@@ -435,7 +440,7 @@ class PageParameters(object):
     # as they can be JS variables
     def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, 
                    theme=None, subtheme=None, topic=None, period=None, difficulty=None,
-                   q_num=None, language=None, design=None, js=False):
+                   q_num=None, q_diff=None, language=None, design=None, js=False):
         if root is None:
             root = self._params["root"]
             root = encap_str(root) if js else root
@@ -457,19 +462,20 @@ class PageParameters(object):
         period = self._str_to_url(period, self._params["period"], js)
         difficulty = self._str_to_url(difficulty, self._params["difficulty"], js)
         q_num = self._str_to_url(q_num, self._params["q_num"], js)
+        q_diff = self._str_to_url(q_diff, self._params["q_diff"], js)
 
         if js:
             url = ("{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} " \
                   "+ \"&year=\" + {} + \"&theme=\" + {} " \
                   "+ \"&subtheme=\" + {} + \"&topic=\" + {} + \"&period=\" + {} + \"&difficulty=\" + {} " \
-                  "+ \"&q_num=\" + {} + \"&language=\" + {} + \"&design=\" + {} ").format(
-                      root, op, q_id, l_id, year, theme, subtheme, topic, period, difficulty, q_num, language, design
+                  "+ \"&q_num=\" + {} + \"&q_diff=\" + {} + \"&language=\" + {} + \"&design=\" + {} ").format(
+                      root, op, q_id, l_id, year, theme, subtheme, topic, period, difficulty, q_num, q_diff, language, design
                   )
         else:
             url = ("{}?op={}&q_id={}&l_id={}&year={}" \
                   "&theme={}&subtheme={}&topic={}&period={}" \
-                  "&difficulty={}&q_num={}&language={}&design={}").format(
-                      root, op, q_id, l_id, year, theme, subtheme, topic, period, difficulty, q_num, language, design
+                  "&difficulty={}&q_num={}&q_diff={}&language={}&design={}").format(
+                      root, op, q_id, l_id, year, theme, subtheme, topic, period, difficulty, q_num, q_diff, language, design
                   )
 
         return url
