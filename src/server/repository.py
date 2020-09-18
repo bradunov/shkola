@@ -15,10 +15,12 @@ class Repository(object):
 
     questions_path = "questions"
     lists_path = "lists"
+    icons_path = "images/themes"
     
     questions = {}
     lists = {}
     content = {}
+    icons = {}
 
     azure_blob = None
     preload = True
@@ -91,6 +93,16 @@ class Repository(object):
     def get_list_disk(self, l_id):
         local_path = "../../" + self.lists_path + "/" + l_id
         d = json.load(open(local_path, 'r'))
+        return d
+
+
+    def get_icon_disk(self, file_name, is_json=False):
+        local_path = self.icons_path + "/" + file_name
+        logging.debug("PATH: {} - {}".format(local_path, os.getcwd()))
+        if is_json:
+            d = json.load(open(local_path, 'r'))
+        else:
+            d = open(local_path, 'r').read()
         return d
 
 
@@ -359,6 +371,17 @@ class Repository(object):
         
 
 
+    # Load SVG illustrations for all themes
+    def load_icons(self):
+        icon_list = self.get_icon_disk("icons.json", is_json=True)
+        self.icons = {}
+        for icon in icon_list.keys():
+            try:
+                svg = self.get_icon_disk(icon_list[icon])
+                self.icons[icon.strip().lower()] = svg
+            except:
+                self.icons[icon.strip().lower()] = ""
+
 
 
     def load_all(self):
@@ -369,6 +392,10 @@ class Repository(object):
 
         self.create_content()
         #logging.debug("self.content: {}".format(json.dumps(self.content, indent=2)))
+
+        self.load_icons()
+        #logging.debug("self.icons: {}".format(json.dumps(self.icons, indent=2)))
+
 
         
     # def get_config(self):
@@ -464,3 +491,7 @@ class Repository(object):
 
     def get_content(self, language):
         return self.content[language]
+
+
+    def get_icons(self):
+        return self.icons

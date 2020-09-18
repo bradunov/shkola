@@ -427,6 +427,7 @@ class Design_default(object):
 
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
+        icons = page.repository.get_icons()
 
         if content and page.page_params.get_param("year") in content.keys():
             
@@ -455,8 +456,14 @@ class Design_default(object):
                             topic = content[page.page_params.get_param("year")][theme][subclass]["topic"].strip()
                             period = content[page.page_params.get_param("year")][theme][subclass]["period"]
                             if subtheme not in subtheme_dict.keys():
+                                try:
+                                    icon_svg = icons[subtheme.strip().lower()]
+                                except:
+                                    icon_svg = ""
+                                    
                                 subtheme_d = {
                                     'title' : subtheme.capitalize(),
+                                    'icon' : icon_svg, 
                                     'topics' : [],
                                     'topics_dir' : {},
                                     'min_period' : period,

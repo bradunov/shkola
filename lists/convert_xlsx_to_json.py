@@ -17,6 +17,7 @@ TOPIC = 7
 LAST = TOPIC
 
 lists = {}
+themes = {}
 
 language = file_name.split(".")[-2]
 
@@ -81,6 +82,11 @@ for isheet in range(0, book.nsheets):
         "difficulty": difficulty
       })
 
+      themes[subtheme] = ""
+
+
+print("\n\nLista tema:\n")
+print(json.dumps(themes, indent=2))
 
 #print(json.dumps(lists, indent=2))
 for file_name, content in lists.items():
