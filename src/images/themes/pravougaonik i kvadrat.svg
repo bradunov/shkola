@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="79.05" height="76.635" viewBox="0 0 79.05 76.635">
+    <defs>
+        <style>
+            .cls-4{fill:#148f91}
+        </style>
+    </defs>
+    <g id="pravougaonik_i_kvadrat" transform="translate(-239.25 -1121.951)">
+        <g id="Rectangle_211" fill="none" stroke="#f3b051" stroke-width="2px" opacity="0.498">
+            <path stroke="none" d="M0 0H31V31H0z" transform="rotate(36 -1588.516 1014.673)"/>
+            <path d="M1 1H30V30H1z" transform="rotate(36 -1588.516 1014.673)"/>
+        </g>
+        <path id="Rectangle_212" fill="#dc3d39" d="M0 0H15V15H0z" opacity="0.498" transform="translate(250 1177.958)"/>
+        <path id="Rectangle_214" fill="#6ab288" d="M0 0H15V15H0z" opacity="0.498" transform="rotate(-33 2025.846 161.228)"/>
+        <g id="noun_Block_monster_1908932" transform="translate(217.319 1073.805)">
+            <g id="Group_184" transform="translate(44.681 54.3)">
+                <path id="Path_557" d="M148.465 54.3v7.233h-19.373V54.3a12.176 12.176 0 0 0-6.392 10.766v42.278a3.554 3.554 0 0 0 3.532 3.532h1.514v10.373a3.554 3.554 0 0 0 3.532 3.532h.729a3.554 3.554 0 0 0 3.532-3.532v-10.373h6.5v10.373a3.554 3.554 0 0 0 3.532 3.532h.729a3.554 3.554 0 0 0 3.532-3.532v-10.373h1.542a3.554 3.554 0 0 0 3.532-3.532V65.066a12.344 12.344 0 0 0-6.441-10.766zm-16.85 24.419a4.57 4.57 0 1 1 4.57-4.57 4.571 4.571 0 0 1-4.57 4.57zm9.868 5.271h-5.439a1.177 1.177 0 0 1 0-2.355h5.439a1.185 1.185 0 0 1 1.177 1.177 1.2 1.2 0 0 1-1.176 1.178zm4.4-5.271a4.57 4.57 0 1 1 4.57-4.57 4.571 4.571 0 0 1-4.568 4.57z" class="cls-4" transform="translate(-122.7 -54.3)"/>
+                <circle id="Ellipse_35" cx="1.093" cy="1.093" r="1.093" class="cls-4" transform="translate(7.57 17.943)"/>
+                <circle id="Ellipse_36" cx="1.093" cy="1.093" r="1.093" class="cls-4" transform="translate(23.101 16.821)"/>
+            </g>
+        </g>
+    </g>
+</svg>

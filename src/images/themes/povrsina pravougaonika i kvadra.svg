@@ -1,0 +1,367 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="62.458" height="68.5" viewBox="0 0 62.458 68.5">
+    <defs>
+        <clipPath id="clip-path">
+            <path d="M0 0H54V3H0z" class="cls-1"/>
+        </clipPath>
+        <clipPath id="clip-path-2">
+            <path d="M0 0H57.015V2.106H0z" class="cls-1"/>
+        </clipPath>
+        <clipPath id="clip">
+            <use xlink:href="#fill"/>
+        </clipPath>
+        <clipPath id="clip-2">
+            <use xlink:href="#fill-2"/>
+        </clipPath>
+        <clipPath id="clip-3">
+            <use xlink:href="#fill-3"/>
+        </clipPath>
+        <clipPath id="clip-4">
+            <use xlink:href="#fill-4"/>
+        </clipPath>
+        <clipPath id="clip-5">
+            <use xlink:href="#fill-5"/>
+        </clipPath>
+        <clipPath id="clip-6">
+            <use xlink:href="#fill-6"/>
+        </clipPath>
+        <clipPath id="clip-7">
+            <use xlink:href="#fill-7"/>
+        </clipPath>
+        <clipPath id="clip-8">
+            <use xlink:href="#fill-8"/>
+        </clipPath>
+        <clipPath id="clip-9">
+            <use xlink:href="#fill-9"/>
+        </clipPath>
+        <clipPath id="clip-10">
+            <use xlink:href="#fill-10"/>
+        </clipPath>
+        <clipPath id="clip-11">
+            <use xlink:href="#fill-11"/>
+        </clipPath>
+        <clipPath id="clip-12">
+            <use xlink:href="#fill-12"/>
+        </clipPath>
+        <clipPath id="clip-13">
+            <use xlink:href="#fill-13"/>
+        </clipPath>
+        <clipPath id="clip-14">
+            <use xlink:href="#fill-14"/>
+        </clipPath>
+        <clipPath id="clip-15">
+            <use xlink:href="#fill-15"/>
+        </clipPath>
+        <clipPath id="clip-16">
+            <use xlink:href="#fill-16"/>
+        </clipPath>
+        <clipPath id="clip-17">
+            <use xlink:href="#fill-17"/>
+        </clipPath>
+        <clipPath id="clip-18">
+            <use xlink:href="#fill-18"/>
+        </clipPath>
+        <style>
+            .cls-1{fill:none}.cls-2,.cls-5{fill:#fff}.cls-2{stroke:#148f91}.cls-3{clip-path:url(#clip-path)}.cls-4{clip-path:url(#clip-path-2)}.cls-17,.cls-6{fill:#148f91}.cls-17,.cls-7{stroke:none}
+        </style>
+    </defs>
+    <g id="povrsina_pravougaonika_i_kvadra" transform="translate(-250 -1131.5)">
+        <g id="lenjir" transform="translate(250.203 1191.714)">
+            <g id="Rectangle_187" class="cls-2">
+                <path d="M0 0H61V8H0z" class="cls-7" transform="translate(-.203 .286)"/>
+                <path d="M0.5 0.5H60.5V7.5H0.5z" class="cls-1" transform="translate(-.203 .286)"/>
+            </g>
+            <g id="Repeat_Grid_5" class="cls-3">
+                <g transform="translate(6.797 1.286) translate(-255 -314)">
+                    <g id="Rectangle_188" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Rectangle_189" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-248 -314)">
+                    <g id="Rectangle_188-2" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Rectangle_189-2" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-241 -314)">
+                    <g id="Rectangle_188-3" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Rectangle_189-3" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-234 -314)">
+                    <g id="Rectangle_188-4" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Rectangle_189-4" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-227 -314)">
+                    <g id="Rectangle_188-5" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Rectangle_189-5" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-220 -314)">
+                    <g id="Rectangle_188-6" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Rectangle_189-6" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-213 -314)">
+                    <g id="Rectangle_188-7" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Rectangle_189-7" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-206 -314)">
+                    <g id="Rectangle_188-8" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Rectangle_189-8" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                </g>
+            </g>
+            <g id="Repeat_Grid_6" class="cls-4">
+                <g transform="translate(3.159 1.053) translate(-252 -314)">
+                    <g id="Rectangle_190" class="cls-2" transform="translate(252 314)">
+                        <path id="fill" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-245 -314)">
+                    <g id="Rectangle_190-2" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-2" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-2)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-238 -314)">
+                    <g id="Rectangle_190-3" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-3" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-3)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-231 -314)">
+                    <g id="Rectangle_190-4" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-4" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-4)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-224 -314)">
+                    <g id="Rectangle_190-5" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-5" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-5)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-217 -314)">
+                    <g id="Rectangle_190-6" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-6" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-6)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-210 -314)">
+                    <g id="Rectangle_190-7" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-7" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-7)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-203 -314)">
+                    <g id="Rectangle_190-8" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-8" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-8)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-196 -314)">
+                    <g id="Rectangle_190-9" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-9" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-9)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="lenjir-2" transform="rotate(90 -436.459 695.245)">
+            <g id="Rectangle_187-2" class="cls-2">
+                <path d="M0 0H61V8H0z" class="cls-7" transform="translate(-.203 .286)"/>
+                <path d="M0.5 0.5H60.5V7.5H0.5z" class="cls-1" transform="translate(-.203 .286)"/>
+            </g>
+            <g id="Repeat_Grid_5-2" class="cls-3">
+                <g transform="translate(6.797 1.286) translate(-255 -314)">
+                    <g id="Rectangle_188-9" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Path_623" class="cls-5">
+                        <path d="M.5 2.5v-2 2z" class="cls-7" transform="translate(255 314)"/>
+                        <path d="M0 0h1v3H0V0z" class="cls-17" transform="translate(255 314)"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-248 -314)">
+                    <g id="Rectangle_188-10" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Path_623-2" class="cls-5">
+                        <path d="M.5 2.5v-2 2z" class="cls-7" transform="translate(255 314)"/>
+                        <path d="M0 0h1v3H0V0z" class="cls-17" transform="translate(255 314)"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-241 -314)">
+                    <g id="Rectangle_188-11" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Path_623-3" class="cls-5">
+                        <path d="M.5 2.5v-2 2z" class="cls-7" transform="translate(255 314)"/>
+                        <path d="M0 0h1v3H0V0z" class="cls-17" transform="translate(255 314)"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-234 -314)">
+                    <g id="Rectangle_188-12" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Path_623-4" class="cls-5">
+                        <path d="M.5 2.5v-2 2z" class="cls-7" transform="translate(255 314)"/>
+                        <path d="M0 0h1v3H0V0z" class="cls-17" transform="translate(255 314)"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-227 -314)">
+                    <g id="Rectangle_188-13" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Path_623-5" class="cls-5">
+                        <path d="M.5 2.5v-2 2z" class="cls-7" transform="translate(255 314)"/>
+                        <path d="M0 0h1v3H0V0z" class="cls-17" transform="translate(255 314)"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-220 -314)">
+                    <g id="Rectangle_188-14" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Path_623-6" class="cls-5">
+                        <path d="M.5 2.5v-2 2z" class="cls-7" transform="translate(255 314)"/>
+                        <path d="M0 0h1v3H0V0z" class="cls-17" transform="translate(255 314)"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-213 -314)">
+                    <g id="Rectangle_188-15" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Path_623-7" class="cls-5">
+                        <path d="M.5 2.5v-2 2z" class="cls-7" transform="translate(255 314)"/>
+                        <path d="M0 0h1v3H0V0z" class="cls-17" transform="translate(255 314)"/>
+                    </g>
+                </g>
+                <g transform="translate(6.797 1.286) translate(-206 -314)">
+                    <g id="Rectangle_188-16" class="cls-2" transform="translate(255 314)">
+                        <path d="M0 0H1V3H0z" class="cls-7"/>
+                        <rect height="2" x=".5" y=".5" class="cls-1"/>
+                    </g>
+                    <g id="Path_623-8" class="cls-5">
+                        <path d="M.5 2.5v-2 2z" class="cls-7" transform="translate(255 314)"/>
+                        <path d="M0 0h1v3H0V0z" class="cls-17" transform="translate(255 314)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="Repeat_Grid_6-2" class="cls-4">
+                <g transform="translate(3.159 1.053) translate(-252 -314)">
+                    <g id="Rectangle_190-10" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-10" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-10)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-245 -314)">
+                    <g id="Rectangle_190-11" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-11" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-11)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-238 -314)">
+                    <g id="Rectangle_190-12" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-12" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-12)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-231 -314)">
+                    <g id="Rectangle_190-13" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-13" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-13)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-224 -314)">
+                    <g id="Rectangle_190-14" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-14" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-14)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-217 -314)">
+                    <g id="Rectangle_190-15" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-15" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-15)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-210 -314)">
+                    <g id="Rectangle_190-16" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-16" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-16)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-203 -314)">
+                    <g id="Rectangle_190-17" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-17" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-17)"/>
+                    </g>
+                </g>
+                <g transform="translate(3.159 1.053) translate(-196 -314)">
+                    <g id="Rectangle_190-18" class="cls-2" transform="translate(252 314)">
+                        <path id="fill-18" d="M0 0H0.5V2H0z" class="cls-7"/>
+                        <path fill="none" d="M0 .5h.5m0-.5v2m0-.5H0M0 2V0" clip-path="url(#clip-18)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="noun_Block_monster_1908932" transform="translate(216.291 1097.675)">
+            <g id="Group_184" transform="translate(44.681 54.3)">
+                <path id="Path_557" d="M138.961 54.3v4.069h-12.227V54.3s-4.034 1.719-4.034 6.055v23.78a2.132 2.132 0 0 0 2.229 1.987h.955v5.835a2.132 2.132 0 0 0 2.229 1.987h.46a2.132 2.132 0 0 0 2.229-1.987v-5.834h4.105v5.835a2.132 2.132 0 0 0 2.229 1.987h.46a2.132 2.132 0 0 0 2.229-1.987v-5.835h.973a2.132 2.132 0 0 0 2.229-1.987V60.355a7.01 7.01 0 0 0-4.066-6.055zm-10.634 13.735a2.587 2.587 0 1 1 2.884-2.57 2.741 2.741 0 0 1-2.884 2.57zM134.555 71h-3.433a.667.667 0 1 1 0-1.325h3.433a.711.711 0 0 1 .743.662.721.721 0 0 1-.743.663zm2.778-2.965a2.587 2.587 0 1 1 2.884-2.57 2.741 2.741 0 0 1-2.884 2.57z" class="cls-6" transform="translate(-122.7 -54.3)"/>
+                <path id="Path_724" d="M.865 0A.865.865 0 1 1 0 .865.865.865 0 0 1 .865 0z" class="cls-6" transform="translate(5.845 11.332)"/>
+                <path id="Path_725" d="M.865 0A.865.865 0 1 1 0 .865.865.865 0 0 1 .865 0z" class="cls-6" transform="translate(12.844 11.454)"/>
+            </g>
+        </g>
+        <g id="noun_Monster_1510399" transform="translate(270 1151.4)">
+            <path id="Path_756" d="M37.993 12.37h-1.347l-1.27-2.77-1.27 2.77h-8.08L24.757 9.6l-1.27 2.77H22.14a4.549 4.549 0 0 0-4.54 4.54v14.121a4.549 4.549 0 0 0 4.54 4.54h1.5v4.579a.526.526 0 0 0 .539.539.526.526 0 0 0 .539-.539v-4.617h10.62v4.579a.526.526 0 0 0 .539.539.526.526 0 0 0 .539-.539v-4.579h1.5a4.549 4.549 0 0 0 4.54-4.54V16.872a4.426 4.426 0 0 0-4.463-4.502zm-5.887 3.963a1.462 1.462 0 1 0 2.924 0h1.308a2.77 2.77 0 1 1-5.541 0zm-6.964 0a1.462 1.462 0 0 0 2.924 0h1.308a2.77 2.77 0 1 1-5.541 0zm14.736 13.006a3.445 3.445 0 0 1-1.462 2.847l-.462-1.5-1.539.462.539 1.654a3.31 3.31 0 0 1-.616.038h-1v-2.693h-1.616v2.693h-2.5l.654-2.655-2.193-.5-.808 3.194h-1.964v-1.848H25.3v1.847h-1.5a1.309 1.309 0 0 1-.385-.038l-.616-2.809-1.578.346.385 1.731a3.518 3.518 0 0 1-1.39-2.808v-5.387a3.545 3.545 0 0 1 1.308-2.77v1h1.616v-1.731a3.31 3.31 0 0 1 .616-.038h.423l-.192 1.116 1.578.385.231-1.5h1.654v1.77h2.27v-1.77h3.232l.192 1.654 1.578-.308-.154-1.385h1.654a2.912 2.912 0 0 1 .577.038l-.115 1.154 1.578.231.077-.731a3.517 3.517 0 0 1 1.424 2.847v5.464z" class="cls-6"/>
+        </g>
+    </g>
+</svg>
