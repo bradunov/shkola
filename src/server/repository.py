@@ -373,15 +373,17 @@ class Repository(object):
 
     # Load SVG illustrations for all themes
     def load_icons(self):
-        icon_list = self.get_icon_disk("icons.json", is_json=True)
         self.icons = {}
-        for icon in icon_list.keys():
-            try:
-                svg = self.get_icon_disk(icon_list[icon])
-                self.icons[icon.strip().lower()] = svg
-            except:
-                self.icons[icon.strip().lower()] = ""
-
+        try:
+            icon_list = self.get_icon_disk("icons.json", is_json=True)
+            for icon in icon_list.keys():
+                try:
+                    svg = self.get_icon_disk(icon_list[icon])
+                    self.icons[icon.strip().lower()] = svg
+                except:
+                    self.icons[icon.strip().lower()] = ""
+        except:
+            self.icons = {}
 
 
     def load_all(self):
