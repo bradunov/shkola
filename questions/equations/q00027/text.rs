@@ -3,10 +3,9 @@ Odredi skup rešenja nejednačine.
 
 @repeat(4)@
 @vspace@
- @noneq@,  
+@ITEM@) @hspacept(50)@ @noneq@,  
 @center@ @answ@ 
 @/repeat@
-
 
      
 

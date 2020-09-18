@@ -9,3 +9,5 @@ Obim @fig2[ind]@  je @lib.check_number(circ[ind], 20)@ dužina kvadratića mrež
 @remark@ 
                    
       
+                   
+      

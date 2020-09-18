@@ -1,6 +1,8 @@
                                  
-Estimate the value of the expression by rounding the numbers to the nearest multiple of ten, as in the example:   
-multiple of ten @demo@,  @hspacept(10)@ sum @value1@ + @value2@ is approximately equal to (~) @result1@ + @result2@ = @near@
+Estimate the value of the expression by rounding the numbers to the nearest multiple of ten. 
+Example:@hspacept(10)@   multiple of ten @demo@,   
+@hspacept(50)@ sum  is approximately equal to  (~)
+@hspacept(50)@ @value1@ + @value2@ ~ @result1@ + @result2@ = @near@
 
 @vspace@
 @repeat(4)@ 

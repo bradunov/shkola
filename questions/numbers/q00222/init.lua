@@ -18,7 +18,8 @@ total[2] = math.random(50) + 49;
 quest = {"", ""}
 
 value = total[1] - total[2]
-reply = ime1
+reply = "answer == '" .. ime1 .. "' ";  
+ans = "answer = '" .. ime1 .. "' ";  
 
 if (value == 0) then
     value = 2 + math.random(19)
@@ -27,7 +28,8 @@ end
 
 if (value < 0) then
     value = - value 
-	reply = ime2
+    reply = "answer == '" .. ime2 .. "' ";  
+    ans = "answer = '" .. ime2 .. "' ";  
 end	
 
 for j = 1,2 do
@@ -58,6 +60,6 @@ for j = 1,2 do
         temp = temp - factor * money[i]		
     end
 end
-              
+          
 	
 	

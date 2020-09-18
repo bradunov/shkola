@@ -7,7 +7,7 @@
   "questions": [
     {
       "name": "measures/q00039",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje dužine",
       "topic": "Poređenje mera",
@@ -15,7 +15,7 @@
     },
     {
       "name": "measures/q00040",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje dužine",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -23,7 +23,7 @@
     },
     {
       "name": "measures/q00041",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje dužine",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -31,7 +31,7 @@
     },
     {
       "name": "measures/q00042",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje dužine",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -39,7 +39,7 @@
     },
     {
       "name": "measures/q00043",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje vremena",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -47,7 +47,7 @@
     },
     {
       "name": "measures/q00048",
-      "random": "1",
+      "random": "3",
       "period": "1",
       "subtheme": "Merenje vremena",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -55,7 +55,7 @@
     },
     {
       "name": "measures/q00049",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje vremena",
       "topic": "Računske operacije",
@@ -63,7 +63,7 @@
     },
     {
       "name": "measures/q00050",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje vremena",
       "topic": "Računske operacije",
@@ -71,7 +71,7 @@
     },
     {
       "name": "measures/q00051",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje vremena",
       "topic": "Računske operacije",

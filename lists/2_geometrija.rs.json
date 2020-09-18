@@ -7,50 +7,50 @@
   "questions": [
     {
       "name": "geometry/q00047",
-      "random": "1",
+      "random": "5",
       "period": "1",
-      "subtheme": "Tačka, duž, prava, poluprava",
-      "topic": "Tačka i prava",
+      "subtheme": "Prava linija",
+      "topic": "Tačka, prava, duž, poluprava",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00056",
-      "random": "1",
+      "random": "6",
       "period": "1",
       "subtheme": "Izlomljena linija",
-      "topic": "Otvorena I zatvorena",
+      "topic": "Otvorena i zatvorena",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00057",
-      "random": "1",
+      "random": "8",
       "period": "1",
-      "subtheme": "Tačka, duž, prava, poluprava",
-      "topic": "Duž, prava, poluprava",
+      "subtheme": "Prava linija",
+      "topic": "Tačka, prava, duž, poluprava",
       "difficulty": "2"
     },
     {
       "name": "geometry/q00058",
-      "random": "1",
+      "random": "4",
       "period": "1",
-      "subtheme": "Tačka, duž, prava, poluprava",
-      "topic": "Duž, prava, poluprava",
+      "subtheme": "Izlomljena linija",
+      "topic": "Otvorena i zatvorena",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00059",
       "random": "0",
       "period": "1",
-      "subtheme": "Tačka, duž, prava, poluprava",
-      "topic": "Duž, prava, poluprava",
+      "subtheme": "Prava linija",
+      "topic": "Tačka, prava, duž, poluprava",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00068",
       "random": "0",
       "period": "1",
-      "subtheme": "Tačka, duž, prava, poluprava",
-      "topic": "Duž, prava, poluprava",
+      "subtheme": "Prava linija",
+      "topic": "Tačka, prava, duž, poluprava",
       "difficulty": "1"
     },
     {
@@ -63,15 +63,15 @@
     },
     {
       "name": "geometry/q00070",
-      "random": "1",
+      "random": "5",
       "period": "1",
       "subtheme": "Figure",
-      "topic": "Obim geometrijskih figura",
+      "topic": "Obim ",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00071",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Izlomljena linija",
       "topic": "Dužina izlomljene linije",
@@ -79,42 +79,42 @@
     },
     {
       "name": "geometry/q00072",
-      "random": "1",
+      "random": "5",
       "period": "2",
       "subtheme": "Figure",
-      "topic": "Podudarnost figura",
+      "topic": "Podudarnost ",
       "difficulty": "2"
     },
     {
       "name": "geometry/q00073",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Figure",
-      "topic": "Simetrične figure",
+      "topic": "Simetrija",
       "difficulty": "2"
     },
     {
       "name": "geometry/q00074",
-      "random": "1",
+      "random": "8",
       "period": "2",
       "subtheme": "Figure",
-      "topic": "Simetrične figure",
+      "topic": "Simetrija",
       "difficulty": "2"
     },
     {
       "name": "geometry/q00075",
-      "random": "1",
+      "random": "8",
       "period": "2",
       "subtheme": "Figure",
-      "topic": "Simetrične figure",
+      "topic": "Simetrija",
       "difficulty": "2"
     },
     {
       "name": "geometry/q00076",
-      "random": "1",
+      "random": "8",
       "period": "2",
       "subtheme": "Figure",
-      "topic": "Podudarnost figura",
+      "topic": "Podudarnost ",
       "difficulty": "2"
     }
   ]

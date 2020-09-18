@@ -27,19 +27,27 @@ addition_table = function()
       text = text .. lib.add_cell(q1[i], style)
 	  indb = math.random(2)	
       if (indb == 1) then
-	      text = text .. lib.add_cell(lib.check_number(q2[i]), style)
+          replyb = "answer == '" .. q2[i] .. "' ";  
+          ansb = "answer = '" .. q2[i] .. "' ";  	  
+	      text = text .. lib.add_cell(lib.check_number(replyb,30,ansb), style)
           text = text .. lib.add_cell(q3[i], style)	  
       else
+          replyb = "answer == '" .. q3[i] .. "' ";  
+          ansb = "answer = '" .. q3[i] .. "' ";  	  
           text = text .. lib.add_cell(tostring(q2[i]), style)		  
-        text = text .. lib.add_cell(lib.check_string(q3[i],70), style)
+        text = text .. lib.add_cell(lib.check_string(replyb,70,ansb), style)
       end
       inda = math.random(2)	
       if (inda == 1) then
-	      text = text .. lib.add_cell(lib.check_number(q4[i]), style)
+          replya = "answer == '" .. q4[i] .. "' ";  
+          ansa = "answer = '" .. q4[i] .. "' ";  		  
+	      text = text .. lib.add_cell(lib.check_number(replya,30,ansa), style)
           text = text .. lib.add_cell(q5[i], style)	  
       else
+          replya = "answer == '" .. q5[i] .. "' ";  
+          ansa = "answer = '" .. q5[i] .. "' ";  		  
           text = text .. lib.add_cell(tostring(q4[i]), style)		  
-          text = text .. lib.add_cell(lib.check_string(q5[i],70), style)
+          text = text .. lib.add_cell(lib.check_string(replya,70,ansa), style)
       end	  
       text = text .. lib.end_row()
   end
@@ -47,4 +55,4 @@ addition_table = function()
 
   return text
 end
-    
+ 

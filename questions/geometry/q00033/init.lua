@@ -10,6 +10,10 @@ dot_style = {["font_size"] = "40"}
 
 test = {"pripada", "ne pripada"}
 
+ang = "aOb"
+reply = "answer == '" .. ang .. "' ";
+ans = "answer = '" .. ang .. "' ";
+
 ow = 10
 ov = 100
 w = 200

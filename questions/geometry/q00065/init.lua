@@ -13,6 +13,8 @@ text_style = {["font_size"] = "16"}
 
 reply = "answer == '" .. "ostra" .. "' "  ..
         "|| answer == '" .. "oštra" .. "'" ;
+ans = "answer = '" .. "oštra" .. "' ";
+		
   w = 5
   ow = 20
   wy = 70
@@ -33,7 +35,7 @@ mycanvas = function()
        
   lib.end_canvas()
 end   
-    
+      
 			    
 
   

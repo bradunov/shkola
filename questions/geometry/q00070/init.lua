@@ -20,8 +20,12 @@ circ = {22, 16, 24}
 out = {}
 reply = {}
 
-line = {}
+sol = {}
+sol[1] = {""}
+sol[2] = {""}
+sol[3] = {""}
 
+line = {}
 line[1] = {""}
 line[2] = {""}
 line[3] = {""}
@@ -43,6 +47,10 @@ for i = 1,2 do
            "|| answer == '" .. line[i][6] .. "'" ..
            "|| answer == '" .. line[i][7] .. "'" ..			   
            "|| answer == '" .. line[i][8] .. "'" ; 
+   for j = 1,4 do
+       jj = 2*j-1
+       sol[i][j] = "answer = '" .. line[i][jj] .. "' " 
+   end 
 end
 
 reply[3] = "answer == '" .. line[3][1] .. "' "  ..
@@ -51,12 +59,16 @@ reply[3] = "answer == '" .. line[3][1] .. "' "  ..
            "|| answer == '" .. line[3][4] .. "'" ..	
            "|| answer == '" .. line[3][5] .. "'" ..
            "|| answer == '" .. line[3][6] .. "'" ;
+for j = 1,3 do
+    jj = 2*j-1
+    sol[3][j] = "answer = '" .. line[3][jj] .. "' " 
+end 
    
 if (ind == 3) then
-    ans = lib.check_string(reply[ind], 20) .. ", " .. lib.check_string(reply[ind], 20) .. ", " .. lib.check_string(reply[ind], 20) 
+    ans = lib.check_string(reply[ind], 20, sol[3][1]) .. ", " .. lib.check_string(reply[ind], 20, sol[3][2]) .. ", " .. lib.check_string(reply[ind], 20, sol[3][3]) 
     remark = "(Pomoć: dužina stranice NP je 10 dužina kvadratića mreže.)" 
 else
-    ans = lib.check_string(reply[ind], 20) .. ", " .. lib.check_string(reply[ind], 20) .. ", " .. lib.check_string(reply[ind], 20) .. ", " .. lib.check_string(reply[ind], 20)
+    ans = lib.check_string(reply[ind], 20, sol[ind][1]) .. ", " .. lib.check_string(reply[ind], 20, sol[ind][2]) .. ", " .. lib.check_string(reply[ind], 20, sol[ind][3]) .. ", " .. lib.check_string(reply[ind], 20, sol[ind][4])
 	remark = " "
 end	
 

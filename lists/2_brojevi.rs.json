@@ -15,7 +15,7 @@
     },
     {
       "name": "fractions/q00002",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Računanje dela",
@@ -23,7 +23,7 @@
     },
     {
       "name": "fractions/q00005",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
@@ -55,7 +55,7 @@
     },
     {
       "name": "fractions/q00010",
-      "random": "1",
+      "random": "6",
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
@@ -79,7 +79,7 @@
     },
     {
       "name": "fractions/q00013",
-      "random": "1",
+      "random": "3",
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
@@ -95,7 +95,7 @@
     },
     {
       "name": "fractions/q00015",
-      "random": "1",
+      "random": "5",
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
@@ -103,7 +103,7 @@
     },
     {
       "name": "fractions/q00016",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Računanje dela",
@@ -111,7 +111,7 @@
     },
     {
       "name": "fractions/q00017",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Tekstualni zadatak",
@@ -119,7 +119,7 @@
     },
     {
       "name": "fractions/q00044",
-      "random": "1",
+      "random": "6",
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
@@ -135,7 +135,7 @@
     },
     {
       "name": "numbers/q00012",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Brojevi do 100",
       "topic": "Brojevni niz ",
@@ -143,7 +143,7 @@
     },
     {
       "name": "numbers/q00021",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje ",
@@ -151,7 +151,7 @@
     },
     {
       "name": "numbers/q00022",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje ",
@@ -159,7 +159,7 @@
     },
     {
       "name": "numbers/q00023",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Brojevi do 100",
       "topic": "Brojevni niz ",
@@ -167,7 +167,7 @@
     },
     {
       "name": "numbers/q00033",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje do 100",
@@ -175,7 +175,7 @@
     },
     {
       "name": "numbers/q00034",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Oduzimanje do 100",
@@ -183,7 +183,7 @@
     },
     {
       "name": "numbers/q00035",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje do 100",
@@ -191,7 +191,7 @@
     },
     {
       "name": "numbers/q00036",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje do 100",
@@ -199,7 +199,7 @@
     },
     {
       "name": "numbers/q00037",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje do 100",
@@ -207,7 +207,7 @@
     },
     {
       "name": "numbers/q00038",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje do 100",
@@ -215,7 +215,7 @@
     },
     {
       "name": "numbers/q00039",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje do 100",
@@ -223,7 +223,7 @@
     },
     {
       "name": "numbers/q00040",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje do 100",
@@ -231,7 +231,7 @@
     },
     {
       "name": "numbers/q00041",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje do 100",
@@ -239,7 +239,7 @@
     },
     {
       "name": "numbers/q00042",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje do 100",
@@ -247,7 +247,7 @@
     },
     {
       "name": "numbers/q00043",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
       "topic": "Množenje i deljenje do 100",
@@ -255,7 +255,7 @@
     },
     {
       "name": "numbers/q00044",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
       "topic": "Množenje i deljenje do 100",
@@ -263,7 +263,7 @@
     },
     {
       "name": "numbers/q00045",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Brojevni izraz",
       "topic": "Sve računske operacije",
@@ -271,7 +271,7 @@
     },
     {
       "name": "numbers/q00049",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
       "topic": "Množenje i deljenje do 100",
@@ -279,7 +279,7 @@
     },
     {
       "name": "numbers/q00050",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje do 100",
@@ -287,7 +287,7 @@
     },
     {
       "name": "numbers/q00096",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Brojevni izraz",
       "topic": "Tekstualni zadatak",
@@ -295,7 +295,7 @@
     },
     {
       "name": "numbers/q00097",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Brojevni izraz",
       "topic": "Tekstualni zadatak",
@@ -303,7 +303,7 @@
     },
     {
       "name": "numbers/q00122",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
       "topic": "Množenje i deljenje do 100",
@@ -311,7 +311,7 @@
     },
     {
       "name": "numbers/q00140",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 100",
       "topic": "Rimski brojevi",
@@ -319,7 +319,7 @@
     },
     {
       "name": "numbers/q00156",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 100",
       "topic": "Poređenje brojeva",
@@ -327,7 +327,7 @@
     },
     {
       "name": "numbers/q00157",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 100",
       "topic": "Rimski brojevi",
@@ -335,7 +335,7 @@
     },
     {
       "name": "numbers/q00158",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Brojevni izraz",
       "topic": "Redosled računskih operacija",
@@ -343,7 +343,7 @@
     },
     {
       "name": "numbers/q00159",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje do 100",
@@ -351,7 +351,7 @@
     },
     {
       "name": "numbers/q00160",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
       "topic": "Sabiranje i oduzimanje do 100",
@@ -359,7 +359,7 @@
     },
     {
       "name": "numbers/q00161",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Brojevni izraz",
       "topic": "Sve računske operacije do 100",
@@ -367,7 +367,7 @@
     },
     {
       "name": "numbers/q00163",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
       "topic": "Množenje i deljenje do 100",
@@ -375,7 +375,7 @@
     },
     {
       "name": "numbers/q00164",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
       "topic": "Sve računske operacije do 100",
@@ -383,7 +383,7 @@
     },
     {
       "name": "numbers/q00165",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Računske operacije",
       "topic": "Množenje do 100",
@@ -391,7 +391,7 @@
     },
     {
       "name": "numbers/q00166",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Računske operacije",
       "topic": "Računske operacije do 100",
@@ -399,7 +399,7 @@
     },
     {
       "name": "numbers/q00172",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 100",
       "topic": "Brojevni niz",
@@ -407,7 +407,7 @@
     },
     {
       "name": "numbers/q00220",
-      "random": "1",
+      "random": "8",
       "period": "3",
       "subtheme": "Podaci",
       "topic": "Tabela i stubičasti dijagram",
@@ -415,7 +415,7 @@
     },
     {
       "name": "numbers/q00221",
-      "random": "1",
+      "random": "8",
       "period": "1",
       "subtheme": "Brojevni izraz",
       "topic": "Sve računske operacije",
@@ -423,7 +423,7 @@
     },
     {
       "name": "numbers/q00223",
-      "random": "1",
+      "random": "8",
       "period": "3",
       "subtheme": "Podaci",
       "topic": "Tabela i stubičasti dijagram",
@@ -431,7 +431,7 @@
     },
     {
       "name": "equations/q00013",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Jednačine",
       "topic": "Zbir/razlika do 100",
@@ -439,7 +439,7 @@
     },
     {
       "name": "equations/q00014",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Jednačine",
       "topic": "Zbir/razlika do 100",
@@ -447,7 +447,7 @@
     },
     {
       "name": "equations/q00015",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Jednačine",
       "topic": "Zbir/razlika do 100",
@@ -455,7 +455,7 @@
     },
     {
       "name": "equations/q00016",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Jednačine",
       "topic": "Zbir/razlika do 100",
@@ -463,7 +463,7 @@
     },
     {
       "name": "equations/q00017",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Jednačine",
       "topic": "Proizvod/količnik do 100",
@@ -471,7 +471,7 @@
     },
     {
       "name": "equations/q00018",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Jednačine",
       "topic": "Proizvod/količnik do 100",
@@ -479,7 +479,7 @@
     },
     {
       "name": "equations/q00019",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Jednačine",
       "topic": "Proizvod/količnik do 100",

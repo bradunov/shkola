@@ -1,9 +1,12 @@
                                 
-Solve the following inequalities. 
+Solve the following inequalities.
+@repeat(3)@
+@vspace@
+@ITEM@) @hspacept(30)@ x  @sign@  @term2@  @relat@  @result@,  @hspacept(20)@ x @lib.check_string(relat,10)@ @lib.check_number(solution,20)@, 
+@hspacept(50)@ @answ@
 
-@repeat(4)@
-x  @sign@  @term2@  @relat@  @result@,  @hspacept(8)@ x @lib.check_string(relat,10)@ @lib.check_number(solution,20)@,  @hspacept(5)@ @answ@
-@/repeat@        
+@/repeat@    
+ 
 
 
 

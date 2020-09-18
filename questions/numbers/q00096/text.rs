@@ -1,4 +1,4 @@
-Stambena zgrada ima @number@ spratova. 
+Stanbena zgrada ima @number@ spratova. 
 U prizemlju zgrade nalaze se @ground@ stana, a na svakom spratu po @floor@ stanova. 
 U potkrovlju zgrade su još @attic@ stana.
 

@@ -1,12 +1,7 @@
                                 
-Round the given numbers to the nearest multiple of ten, like in the example:   
-multiple of ten: @demo@,  @hspacept(10)@ the given number: @value@, @hspacept(10)@ the rounded number: @result@ 
+Round the given numbers to the nearest multiple of ten, like in the example.   
 
 @vspace@
-@repeat(4)@ 
-@center@ @decade@ @hspacept(50)@ @number1@ @hspacept(30)@ @lib.check_number(number2,60)@
-@/repeat@
-  
-
+@center@ @mycanvas()@  
             
             

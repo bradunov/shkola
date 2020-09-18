@@ -1,13 +1,14 @@
                                                                                                                                        
-@repeat(2)@
-
-The smallest three-digit number written with the digits @array_print[1]@, @array_print[2]@ and @array_print[3]@ is @lib.check_number(value_min,30)@,  the biggest number is @lib.check_number(value_max,30)@. 
-@center@ The sum of these numbers is @lib.check_number(summ,30)@, the difference between them is @lib.check_number(diff,30)@.
+With the digits @array_print[1]@, @array_print[2]@ and @array_print[3]@ write the three-digit number  which is 
+@center@ the smallest @hspacept(5)@ @lib.check_number(value_min,30)@,  
+@center@ the biggest  @hspacept(5)@ @lib.check_number(value_max,30)@. 
 
 @vspace@ 
-@/repeat@
-                                 
-                  
+@vspace@ 
+The sum of these numbers is @hspacept(5)@ @lib.check_number(summ,30)@.
+The difference between them is @hspacept(5)@ @lib.check_number(diff,30)@.
+    
+    
                   
                   
                   

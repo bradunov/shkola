@@ -1,16 +1,11 @@
 
 place = {"zatvorene", "otvorene"}
 
-style = {["off_color"] = "fff",
-        ["on_color"] = "f30",
-        ["line_color"] = "000",
-        ["line_width"] = "2"};
-
 line_style = {["off_color"] = "fff",
         ["on_color"] = "fff",
         ["line_color"] = "f30",
         ["off_line_color"] = "000",
-        ["line_width"] = "2"}; 
+        ["line_width"] = "3"}; 
 
 		
 include("shapes")
@@ -43,21 +38,21 @@ scale = 2
 if(index == 1) then
 
   lib.add_straight_path(20, 40, {{20, -20}, {20, 20}, {20, -20}, {20, 20}, {20, -20}, {20, 20}, {20, -20}}, line_style, false, true)
-  lib.add_triangle(230, 70, 70, 50, style, false, true)
-  diamond(lib, 45, 160, scale, style, false, true)
+  lib.add_triangle(230, 70, 70, 50, line_style, false, true)
+  diamond(lib, 45, 160, scale, line_style, false, true)
   lib.add_straight_path(220, 240, {{-30, -50}, {80, 0}, {-30, 50}}, line_style, false, true)
   
 else 
 
-  lib.add_rectangle(40, 30, 90, 40, style, false, true)
+  lib.add_rectangle(40, 30, 90, 40, line_style, false, true)
   lib.add_straight_path(260, 40, {{-70, 30}, {70, 30}}, line_style, false, true)
   lib.add_straight_path(45, 150, {{0, 60}, {100, 0}, {0,-60}, {-80,0}, {0,40}, {60,0}, {0, -20}, {-40,0}}, line_style, false, true)  
-  cross(lib, 190, 230, scale, style, false, true)  
+  cross(lib, 190, 230, scale, line_style, false, true)  
 
 end
 
   lib.end_canvas()
 end  
-         
+          
                 
             

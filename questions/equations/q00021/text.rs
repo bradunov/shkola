@@ -2,9 +2,11 @@
 Odredi skup rešenja nejednačine.
 
 @repeat(3)@
-@term@ @sign@ x  @relat1@  @value@,  @hspacept(20)@ x @lib.check_string(relat2,10)@ @lib.check_number(solution,20)@,
+@vspace@
+@ITEM@) @hspacept(30)@@term@ @sign@ x  @relat1@  @value@,  @hspacept(20)@ x @lib.check_string(relat2,10)@ @lib.check_number(solution,20)@,
  @hspacept(50)@ @answ@
 @/repeat@
+
 
 
 

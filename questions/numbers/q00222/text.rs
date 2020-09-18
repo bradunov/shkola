@@ -7,7 +7,7 @@
 Ko ima više novca i za koliko?
 
 @vspace@
-@lib.check_string(reply,50)@ ima vise novca za @lib.check_number(value,20)@ dinara.
+@lib.check_string(reply,50, ans)@ ima više novca za @lib.check_number(value,20)@ dinara.
 
 
 

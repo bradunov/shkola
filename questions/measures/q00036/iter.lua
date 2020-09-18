@@ -1,10 +1,11 @@
+
 measure = {"m", "dm", "cm","mm"}
 measure2 = {"m\(^2\)", "dm\(^2\)", "cm\(^2\)","mm\(^2\)"}
 
 ind = math.random(4)
 
 min = 2;
-max = 20;
+max = 15;
 
 side = min + math.random(max - min);
 factor = min + math.random(5);
@@ -19,7 +20,10 @@ else
 	surface = side^2 * factor
     answ = msg3 .. tostring(math.floor(circ)) .. measure[ind] .. msg4 .. tostring(math.floor(factor)) .. msg5
 end            
+            
+  
      
+                  
              	
     
 

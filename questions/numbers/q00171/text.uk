@@ -1,12 +1,15 @@
                                 
 What are the smallest and biggest numbers that you can write in Roman numerals?
 
-Write them as numbers: @hspacept(5)@ @lib.check_number(numbmin,15)@ @hspacept(5)@ @lib.check_number(numbmax,40)@
-Write them as Roman numerals: @hspacept(5)@ @lib.check_string(replymin,15)@ @hspacept(5)@ @lib.check_string(replymax,100)@
+Write them as numbers: 
+@center@ @lib.check_number(numbmin,15)@ @hspacept(20)@ @lib.check_number(numbmax,40)@
 
+Write them as Roman numerals: 
+@center@ @lib.check_string(reply[1],15, ans[1])@ @hspacept(20)@ @lib.check_string(reply[2],100, ans[2])@
+@vspace@
 @vspace@
 Can you write the largest number that exists? @hspacept(5)@ @lib.check_string("no",30)@
-            
+                       
 
               
 

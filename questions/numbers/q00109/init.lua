@@ -5,64 +5,63 @@ style =
         ["line_color"] = "000",
         ["line_width"] = "2"};
 
-different_style = 
-	{["off_color"] = "fff",
-        ["on_color"] = "faf",
-        ["line_color"] = "000",
-        ["line_width"] = "1"};
+text_style = {["font_size"] = "14"}
+
+number = {}
+
+term = (math.random(10) - 1) * 1000
+add = math.random(9) * 1000
 
 
-red_line = 
-	{["off_color"] = "fff",
-        ["on_color"] = "fff",
-        ["line_color"] = "f00",
-        ["line_width"] = "3"};
+number[1] = term 
+for i = 1, 9 do
+    number[i+1] = (term + i*add)  
+end	
 
+first = tostring(math.floor(number[1]))
+midl = tostring(math.floor(number[3]))
+midr = tostring(math.floor(number[7]))
+last = tostring(math.floor(number[10]))
 
-text_style = {["font_size"] = "16"}
 
 mycanvas = function(no)
-  lib.start_canvas(500, 100, "center")
+  lib.start_canvas(480, 150, "center")
 
-hscale = 1.2
+hscale = 1.3
 vscale = 5
 
-  lib.add_straight_path(15*hscale, 9*vscale, {{270*hscale, 0}}, style, false, true)
+  lib.add_straight_path(15*hscale, 15*vscale, {{245*hscale, 0}}, style, false, true)
   
-  lib.add_straight_path(20*hscale, 8*vscale, {{0, 10}}, style, false, true)
-lib.add_text(20*hscale, 6*vscale, 0, text_style) 
+  lib.add_straight_path(20*hscale, 14*vscale, {{0, 10}}, style, false, true)
+  lib.add_text(18*hscale, 11*vscale, first, text_style) 
 
-  lib.add_straight_path(45*hscale, 8*vscale, {{0, 10}}, style, false, true)
-  lib.add_text(45*hscale, 13*vscale, 1000, text_style)
-
-  lib.add_straight_path(70*hscale, 8*vscale, {{0, 10}}, style, false, true)
-  lib.add_text(70*hscale, 5*vscale, 2000, text_style)
-
-  lib.add_straight_path(95*hscale, 8*vscale, {{0, 10}}, style, false, true) 
-  lib.add_input(75*hscale, 11*vscale, 50, 33, lib.check_number(3000,30))
-
-  lib.add_straight_path(120*hscale, 8*vscale, {{0, 10}}, style, false, true)  
-  lib.add_text(120*hscale, 5*vscale, 4000, text_style)
-
-  lib.add_straight_path(145*hscale, 8*vscale, {{0, 10}}, style, false, true)  
-  lib.add_input(125*hscale, 11*vscale, 50, 33, lib.check_number(5000,30))
-
-  lib.add_straight_path(170*hscale, 8*vscale, {{0, 10}}, style, false, true)  
-  lib.add_input(150*hscale, 2*vscale, 50, 33, lib.check_number(6000,30))
-
-  lib.add_straight_path(195*hscale, 8*vscale, {{0, 10}}, style, false, true)
-  lib.add_text(195*hscale, 13*vscale, 7000, text_style)
-
-  lib.add_straight_path(220*hscale, 8*vscale, {{0, 10}}, style, false, true)
-  lib.add_input(200*hscale, 2*vscale, 50, 33, lib.check_number(8000,30))
-
-  lib.add_straight_path(245*hscale, 8*vscale, {{0, 10}}, style, false, true) 
-  lib.add_input(225*hscale, 11*vscale, 50, 33, lib.check_number(9000,30))
-
-  lib.add_straight_path(270*hscale, 8*vscale, {{0, 10}}, style, false, true)  
-  lib.add_input(250*hscale, 2*vscale, 50, 33, lib.check_number(10000,35))
+  lib.add_straight_path(45*hscale, 14*vscale, {{0, 10}}, style, false, true)
+  lib.add_input(25*hscale, 17*vscale, 50, 33, lib.check_number(number[2],35))  
   
+  lib.add_straight_path(70*hscale, 14*vscale, {{0, 10}}, style, false, true)
+  lib.add_text(68*hscale, 11*vscale, midl, text_style)
+
+  lib.add_straight_path(95*hscale, 14*vscale, {{0, 10}}, style, false, true) 
+  lib.add_input(68*hscale, 17*vscale, 50, 33, lib.check_number(number[4],35))
+
+  lib.add_straight_path(120*hscale, 14*vscale, {{0, 10}}, style, false, true)  
+  lib.add_input(100*hscale, 17*vscale, 50, 33, lib.check_number(number[5],35))  
+
+  lib.add_straight_path(145*hscale, 14*vscale, {{0, 10}}, style, false, true)  
+  lib.add_input(135*hscale, 17*vscale, 50, 33, lib.check_number(number[6],35))
+
+  lib.add_straight_path(170*hscale, 14*vscale, {{0, 10}}, style, false, true)
+  lib.add_text(170*hscale, 11*vscale, midr, text_style)  
+
+  lib.add_straight_path(195*hscale, 14*vscale, {{0, 10}}, style, false, true)
+  lib.add_input(175*hscale, 17*vscale, 50, 33, lib.check_number(number[8],35))
+
+  lib.add_straight_path(220*hscale, 14*vscale, {{0, 10}}, style, false, true)
+  lib.add_input(210*hscale, 17*vscale, 50, 33, lib.check_number(number[9],35))
+
+  lib.add_straight_path(245*hscale, 14*vscale, {{0, 10}}, style, false, true) 
+  lib.add_text(245*hscale, 11*vscale, last, text_style)
+ 
   lib.end_canvas()
-end
-   
+end 
    

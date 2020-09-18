@@ -7,8 +7,9 @@ Kojom jednačinom ćeš izračunati traženi broj? Oboj kružić pored tačnog o
 @center@ @lib.check_one_option(answ,ind-1,true)@ 
 @vspace@
 Reši jednačinu.
-@center@   x = @lib.check_number(solution)@
+@center@   x = @lib.check_number(solution,40)@
 
+     
         
 
 

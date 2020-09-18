@@ -1,12 +1,11 @@
                                 
-Solve the following inequalities. 
+Solve the following inequalities.  
 
 @repeat(4)@
 @vspace@
- @noneq@,  
+@ITEM@) @hspacept(50)@ @noneq@,  
 @center@ @answ@ 
 @/repeat@
-
 
 
             

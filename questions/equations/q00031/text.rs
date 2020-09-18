@@ -1,7 +1,7 @@
 
 @repeat(2)@
 @vspace@ 
-@ITEM@.) U silosu je @total@kg pšenice. Koliko kilograma pšenice može da se @quest@ @number@t pšenice?        
+@ITEM@) U silosu je @total@kg pšenice. Koliko kilograma pšenice može da se @quest@ @number@t pšenice?        
             
 Postavi nejednačinu i reši je.            
             

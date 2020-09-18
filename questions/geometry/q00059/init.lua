@@ -18,15 +18,19 @@ name = {"prava", "poluprava", "pocetak poluprave", "duz", "krajevi duzi"}
 name2 = {"prava", "poluprava", "početak poluprave", "duž", "krajevi duži"}
 
 reply = {}
+ans = {}
 
-reply[3] = "answer == '" .. name[3] .. "' "  ..
+reply[1] = "answer == '" .. name[3] .. "' "  ..
         "|| answer == '" .. name2[3] .. "'" ;
+ans[1] = "answer = '" .. name2[3] .. "' ";
 
-reply[4] = "answer == '" .. name[4] .. "' "  ..
+reply[2] = "answer == '" .. name[4] .. "' "  ..
         "|| answer == '" .. name2[4] .. "'" ;
+ans[2] = "answer = '" .. name2[4] .. "' ";
 		
-reply[5] = "answer == '" .. name[5] .. "' "  ..
+reply[3] = "answer == '" .. name[5] .. "' "  ..
         "|| answer == '" .. name2[5] .. "'" ;
+ans[3] = "answer = '" .. name2[5] .. "' "
 		
 numb1 = 2
 numb2 = 3
@@ -53,4 +57,4 @@ mycanvas = function(no)
     
   lib.end_canvas()
 end
-       
+   

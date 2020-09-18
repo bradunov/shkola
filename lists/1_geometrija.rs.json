@@ -7,7 +7,7 @@
   "questions": [
     {
       "name": "geometry/q00001",
-      "random": "1",
+      "random": "3",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
@@ -15,7 +15,7 @@
     },
     {
       "name": "geometry/q00002",
-      "random": "1",
+      "random": "2",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
@@ -23,7 +23,7 @@
     },
     {
       "name": "geometry/q00003",
-      "random": "1",
+      "random": "2",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Veličina predmeta i bića",
@@ -31,15 +31,15 @@
     },
     {
       "name": "geometry/q00004",
-      "random": "1",
+      "random": "4",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
-      "topic": "Geometrijske figure",
+      "topic": "Geometrijske figure i tela",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00005",
-      "random": "1",
+      "random": "2",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Veličina predmeta i bića",
@@ -47,7 +47,7 @@
     },
     {
       "name": "geometry/q00006",
-      "random": "1",
+      "random": "4",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
@@ -71,39 +71,39 @@
     },
     {
       "name": "geometry/q00009",
-      "random": "1",
+      "random": "5",
       "period": "2",
       "subtheme": "Linija",
-      "topic": "Prava, kriva, izlomljena, otvorena, zatvorena",
+      "topic": "Prava, kriva, izlomljena,  otvorena, zatvorena",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00010",
-      "random": "1",
+      "random": "6",
       "period": "2",
       "subtheme": "Linija",
-      "topic": "Prava i kriva linija",
+      "topic": "Prava, kriva, izlomljena,  otvorena, zatvorena",
       "difficulty": "2"
     },
     {
       "name": "geometry/q00011",
-      "random": "1",
+      "random": "2",
       "period": "2",
       "subtheme": "Linija",
-      "topic": "Izlomljena i kriva otvorena linija",
+      "topic": "Prava, kriva, izlomljena,  otvorena, zatvorena",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00012",
-      "random": "1",
+      "random": "6",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
-      "topic": "Geometrijske figure",
+      "topic": "Geometrijske figure i tela",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00013",
-      "random": "1",
+      "random": "3",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Geometrijske figure i tela",
@@ -111,7 +111,7 @@
     },
     {
       "name": "geometry/q00014",
-      "random": "1",
+      "random": "6",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
@@ -119,7 +119,7 @@
     },
     {
       "name": "geometry/q00015",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
@@ -130,7 +130,7 @@
       "random": "0",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
-      "topic": "Geometrijska tela",
+      "topic": "Geometrijske figure i tela",
       "difficulty": "1"
     },
     {
@@ -138,23 +138,23 @@
       "random": "0",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
-      "topic": "Geometrijske figure",
+      "topic": "Geometrijske figure i tela",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00045",
-      "random": "1",
+      "random": "8",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
-      "topic": "Geometrijske figure, spoljasnja/unutrasnja oblast",
+      "topic": "Geometrijske figure i tela",
       "difficulty": "2"
     },
     {
       "name": "geometry/q00046",
-      "random": "1",
+      "random": "3",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
-      "topic": "Geometrijske figure, spoljasnja/unutrasnja oblast",
+      "topic": "Geometrijske figure i tela",
       "difficulty": "1"
     },
     {

@@ -1,9 +1,9 @@
                                 
-Write the given numbers as Roman numerals: 
+Write the given numbers as Roman numerals:  
 
 @repeat(5)@
 
-@center@ @value@  @hspacept(30)@ @lib.check_string(reply,100)@ 
+@center@ @value@  @hspacept(30)@ @lib.check_string(reply,100,ans)@ 
 @/repeat@                 
 
             

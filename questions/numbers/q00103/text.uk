@@ -1,7 +1,8 @@
                                                                
 In @part1@ classrooms, there are @number@ benches. 
 
-How many benches are there in @part2@ classrooms? @hspace@ @lib.check_number(rezult)@ 
+How many benches are there in @part2@ classrooms? 
+@center@ @lib.check_number(rezult)@ 
 
             
             

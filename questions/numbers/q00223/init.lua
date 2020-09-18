@@ -53,6 +53,12 @@ mycanvas = function()
   short = ime[ind[1]]
 
 
+  reply1 = "answer == '" .. tall .. "' ";  
+  ans1 = "answer = '" .. tall .. "' ";  
+  reply2 = "answer == '" .. short .. "' ";  
+  ans2 = "answer = '" .. short .. "' ";  
+
+
   lib.start_canvas(380, 250, "center", results)
 
   w = 20

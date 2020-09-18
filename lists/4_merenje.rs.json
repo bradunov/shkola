@@ -7,7 +7,7 @@
   "questions": [
     {
       "name": "measures/q00001",
-      "random": "1",
+      "random": "5",
       "period": "1",
       "subtheme": "Površina kvadrata i pravougaonika",
       "topic": "Površina pravougaonika",
@@ -15,7 +15,7 @@
     },
     {
       "name": "measures/q00002",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kvadrata i pravougaonika",
       "topic": "Površina kvadrata",
@@ -23,7 +23,7 @@
     },
     {
       "name": "measures/q00003",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kvadrata i pravougaonika",
       "topic": "Površina pravougaonika",
@@ -31,7 +31,7 @@
     },
     {
       "name": "measures/q00004",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kocke i kvadra",
       "topic": "Površina kocke",
@@ -39,7 +39,7 @@
     },
     {
       "name": "measures/q00005",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kocke i kvadra",
       "topic": "Površina kvadra",
@@ -47,7 +47,7 @@
     },
     {
       "name": "measures/q00006",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kocke i kvadra",
       "topic": "Površina kocke",
@@ -55,7 +55,7 @@
     },
     {
       "name": "measures/q00007",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kocke i kvadra",
       "topic": "Površina kocke",
@@ -63,7 +63,7 @@
     },
     {
       "name": "measures/q00008",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kocke i kvadra",
       "topic": "Površina kocke",
@@ -71,7 +71,7 @@
     },
     {
       "name": "measures/q00009",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kocke i kvadra",
       "topic": "Površina kvadra",
@@ -79,7 +79,7 @@
     },
     {
       "name": "measures/q00010",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kocke i kvadra",
       "topic": "Površina kvadra",
@@ -87,7 +87,7 @@
     },
     {
       "name": "measures/q00011",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kocke i kvadra",
       "topic": "Površina kvadra",
@@ -95,7 +95,7 @@
     },
     {
       "name": "measures/q00012",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kocke i kvadra",
       "topic": "Površina kvadra",
@@ -103,7 +103,7 @@
     },
     {
       "name": "measures/q00013",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kocke i kvadra",
       "topic": "Površina kvadra",
@@ -111,7 +111,7 @@
     },
     {
       "name": "measures/q00014",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kocke i kvadra",
       "topic": "Površina kvadra",
@@ -119,7 +119,7 @@
     },
     {
       "name": "measures/q00015",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje zapremine",
       "topic": "Računske operacije ",
@@ -127,7 +127,7 @@
     },
     {
       "name": "measures/q00017",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Merenje zapremine",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -135,7 +135,7 @@
     },
     {
       "name": "measures/q00018",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Merenje zapremine",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -143,7 +143,7 @@
     },
     {
       "name": "measures/q00019",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Merenje zapremine",
       "topic": "Poređenje mera",
@@ -151,7 +151,7 @@
     },
     {
       "name": "measures/q00020",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Merenje zapremine",
       "topic": "Poređenje mera",
@@ -159,7 +159,7 @@
     },
     {
       "name": "measures/q00021",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Merenje zapremine",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -167,7 +167,7 @@
     },
     {
       "name": "measures/q00022",
-      "random": "1",
+      "random": "10",
       "period": "3",
       "subtheme": "Merenje zapremine",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -175,7 +175,7 @@
     },
     {
       "name": "measures/q00023",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje površine",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -183,7 +183,7 @@
     },
     {
       "name": "measures/q00024",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje površine",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -191,7 +191,7 @@
     },
     {
       "name": "measures/q00025",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje površine",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -199,7 +199,7 @@
     },
     {
       "name": "measures/q00026",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje površine",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -207,7 +207,7 @@
     },
     {
       "name": "measures/q00027",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje površine",
       "topic": "Poređenje mera",
@@ -215,7 +215,7 @@
     },
     {
       "name": "measures/q00028",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje površine",
       "topic": "Poređenje mera",
@@ -223,7 +223,7 @@
     },
     {
       "name": "measures/q00029",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje površine",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -231,7 +231,7 @@
     },
     {
       "name": "measures/q00030",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje površine",
       "topic": "Poređenje mera",
@@ -239,7 +239,7 @@
     },
     {
       "name": "measures/q00031",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje površine",
       "topic": "Računske operacije ",
@@ -247,7 +247,7 @@
     },
     {
       "name": "measures/q00032",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje površine",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -255,7 +255,7 @@
     },
     {
       "name": "measures/q00033",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje površine",
       "topic": "Računske operacije ",
@@ -263,7 +263,7 @@
     },
     {
       "name": "measures/q00034",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kvadrata i pravougaonika",
       "topic": "Površina pravougaonika",
@@ -271,7 +271,7 @@
     },
     {
       "name": "measures/q00035",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kvadrata i pravougaonika",
       "topic": "Površina pravougaonika",
@@ -279,7 +279,7 @@
     },
     {
       "name": "measures/q00036",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kvadrata i pravougaonika",
       "topic": "Površina kvadrata",
@@ -287,7 +287,7 @@
     },
     {
       "name": "measures/q00037",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kvadrata i pravougaonika",
       "topic": "Površina kvadrata",
@@ -295,7 +295,7 @@
     },
     {
       "name": "measures/q00038",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kvadrata i pravougaonika",
       "topic": "Površina pravougaonika",
@@ -303,7 +303,7 @@
     },
     {
       "name": "measures/q00077",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kocke",
@@ -311,7 +311,7 @@
     },
     {
       "name": "measures/q00078",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kocke",
@@ -319,7 +319,7 @@
     },
     {
       "name": "measures/q00079",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",
@@ -327,7 +327,7 @@
     },
     {
       "name": "measures/q00080",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",
@@ -335,7 +335,7 @@
     },
     {
       "name": "measures/q00081",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",
@@ -343,7 +343,7 @@
     },
     {
       "name": "measures/q00082",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",
@@ -351,7 +351,7 @@
     },
     {
       "name": "measures/q00083",
-      "random": "1",
+      "random": "10",
       "period": "1",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",

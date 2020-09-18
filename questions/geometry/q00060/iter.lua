@@ -14,9 +14,11 @@ if (number > 4) then
     name = "časova"
 end	
 
+ans = {""}
 if (number < 3  or number > 9) then
     reply = "answer == '" .. "ostar" .. "' "  ..
         "|| answer == '" .. "oštar" .. "'" ;
+    ans = "answer = '" .. "oštar" .. "' "		
 else
     reply = "tup"
 end  
@@ -24,4 +26,4 @@ end
 if (number == 3 or number == 9) then
     reply = "prav"
 end	
-                                                     
+                                                      

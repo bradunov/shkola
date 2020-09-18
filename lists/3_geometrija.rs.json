@@ -7,7 +7,7 @@
   "questions": [
     {
       "name": "geometry/q00016",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Pravougaonik, kvadrat",
       "topic": "Pojam, elementi ",
@@ -15,26 +15,26 @@
     },
     {
       "name": "geometry/q00017",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
-      "topic": "Obim trougla, kvadrata i pravougaonika",
+      "topic": "Trougao",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00018",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
-      "topic": "Obim kvadrata i pravougaonika",
+      "topic": "Kvadrat",
       "difficulty": "3"
     },
     {
       "name": "geometry/q00019",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
-      "topic": "Obim trougla",
+      "topic": "Trougao",
       "difficulty": "1"
     },
     {
@@ -42,7 +42,7 @@
       "random": "0",
       "period": "2",
       "subtheme": "Površina figure",
-      "topic": "Merenje površine figure zadatom merom",
+      "topic": "Merenje površine zadatom merom",
       "difficulty": "1"
     },
     {
@@ -50,7 +50,7 @@
       "random": "0",
       "period": "2",
       "subtheme": "Površina figure",
-      "topic": "Merenje površine figure zadatom merom",
+      "topic": "Merenje površine zadatom merom",
       "difficulty": "1"
     },
     {
@@ -58,12 +58,12 @@
       "random": "0",
       "period": "2",
       "subtheme": "Površina figure",
-      "topic": "Merenje površine figure zadatom merom",
+      "topic": "Merenje površine zadatom merom",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00030",
-      "random": "1",
+      "random": "4",
       "period": "1",
       "subtheme": "Prava",
       "topic": "Uzajamni položaj pravih",
@@ -71,7 +71,7 @@
     },
     {
       "name": "geometry/q00031",
-      "random": "1",
+      "random": "8",
       "period": "1",
       "subtheme": "Prava",
       "topic": "Uzajamni položaj pravih",
@@ -95,7 +95,7 @@
     },
     {
       "name": "geometry/q00034",
-      "random": "0",
+      "random": "2",
       "period": "1",
       "subtheme": "Ugao",
       "topic": "Pojam, elementi ",
@@ -103,7 +103,7 @@
     },
     {
       "name": "geometry/q00035",
-      "random": "1",
+      "random": "5",
       "period": "1",
       "subtheme": "Ugao",
       "topic": "Pojam, elementi ",
@@ -111,7 +111,7 @@
     },
     {
       "name": "geometry/q00036",
-      "random": "1",
+      "random": "5",
       "period": "1",
       "subtheme": "Ugao",
       "topic": "Vrste uglova",
@@ -119,7 +119,7 @@
     },
     {
       "name": "geometry/q00037",
-      "random": "1",
+      "random": "4",
       "period": "1",
       "subtheme": "Ugao",
       "topic": "Vrste uglova",
@@ -135,7 +135,7 @@
     },
     {
       "name": "geometry/q00039",
-      "random": "1",
+      "random": "4",
       "period": "2",
       "subtheme": "Kružnica i krug",
       "topic": "Pojam, elementi ",
@@ -143,7 +143,7 @@
     },
     {
       "name": "geometry/q00040",
-      "random": "1",
+      "random": "6",
       "period": "2",
       "subtheme": "Kružnica i krug",
       "topic": "Pojam, elementi ",
@@ -159,7 +159,7 @@
     },
     {
       "name": "geometry/q00042",
-      "random": "1",
+      "random": "8",
       "period": "2",
       "subtheme": "Pravougaonik, kvadrat",
       "topic": "Pojam, elementi ",
@@ -167,39 +167,39 @@
     },
     {
       "name": "geometry/q00048",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
-      "topic": "Obim pravougaonika",
+      "topic": "Pravougaonik",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00049",
-      "random": "1",
+      "random": "3",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
-      "topic": "Obim kvadrata i pravougaonika",
+      "topic": "Kvadrat",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00050",
-      "random": "1",
+      "random": "3",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
-      "topic": "Obim kvadrata",
+      "topic": "Kvadrat",
       "difficulty": "2"
     },
     {
       "name": "geometry/q00051",
-      "random": "1",
+      "random": "9",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
-      "topic": "Obim kvadrata",
+      "topic": "Kvadrat",
       "difficulty": "3"
     },
     {
       "name": "geometry/q00052",
-      "random": "1",
+      "random": "4",
       "period": "2",
       "subtheme": "Trougao",
       "topic": "Pojam, elementi I  vrste",
@@ -207,7 +207,7 @@
     },
     {
       "name": "geometry/q00053",
-      "random": "1",
+      "random": "9",
       "period": "2",
       "subtheme": "Trougao",
       "topic": "Pojam, elementi I  vrste",
@@ -215,23 +215,23 @@
     },
     {
       "name": "geometry/q00054",
-      "random": "1",
+      "random": "9",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
-      "topic": "Obim trougla",
+      "topic": "Trougao",
       "difficulty": "2"
     },
     {
       "name": "geometry/q00055",
-      "random": "1",
+      "random": "9",
       "period": "1",
       "subtheme": "Obim geometrijskih figura",
-      "topic": "Obim trougla",
+      "topic": "Trougao",
       "difficulty": "2"
     },
     {
       "name": "geometry/q00060",
-      "random": "1",
+      "random": "4",
       "period": "1",
       "subtheme": "Ugao",
       "topic": "Vrste uglova",
@@ -239,23 +239,23 @@
     },
     {
       "name": "geometry/q00061",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
-      "topic": "Obim pravougaonika",
+      "topic": "Pravougaonik",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00062",
-      "random": "1",
+      "random": "10",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
-      "topic": "Obim pravougaonika",
+      "topic": "Pravougaonik",
       "difficulty": "3"
     },
     {
       "name": "geometry/q00063",
-      "random": "1",
+      "random": "6",
       "period": "1",
       "subtheme": "Ugao",
       "topic": "Vrste uglova",

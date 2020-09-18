@@ -15,7 +15,7 @@
     },
     {
       "name": "geometry/q00024",
-      "random": "1",
+      "random": "3",
       "period": "2",
       "subtheme": "Geometrijska tela",
       "topic": "Rogljasta i obla tela",
@@ -23,7 +23,7 @@
     },
     {
       "name": "geometry/q00025",
-      "random": "1",
+      "random": "3",
       "period": "2",
       "subtheme": "Geometrijska tela",
       "topic": "Rogljasta i obla tela",
@@ -31,7 +31,7 @@
     },
     {
       "name": "geometry/q00026",
-      "random": "1",
+      "random": "8",
       "period": "2",
       "subtheme": "Geometrijska tela",
       "topic": "Rogljasta i obla tela",
@@ -39,7 +39,7 @@
     },
     {
       "name": "geometry/q00027",
-      "random": "1",
+      "random": "6",
       "period": "2",
       "subtheme": "Kvadar i kocka",
       "topic": "Mreža",
@@ -47,7 +47,7 @@
     },
     {
       "name": "geometry/q00028",
-      "random": "1",
+      "random": "8",
       "period": "2",
       "subtheme": "Kvadar i kocka",
       "topic": "Elementi i osobine",
@@ -63,7 +63,7 @@
     },
     {
       "name": "geometry/q00078",
-      "random": "1",
+      "random": "6",
       "period": "2",
       "subtheme": "Kvadar i kocka",
       "topic": "Mreža",
