@@ -382,8 +382,14 @@
                           background-color: #eeeeee; 
                           height: 90px;
                           width: 90px;">
-                {{test_icon()}}
-                {# {{ st['icon'] }} #}
+
+                <div style="display: table-cell;background-color: #eeeeee; height: 90px;
+                            width: 90px; vertical-align: middle; text-align: center;"> 
+                  <div style="display: inline-block;">
+                    {# {{test_icon()}} #}
+                    {{ st['icon'] }}
+                  </div>
+                </div>
               </div>
 
             </div>

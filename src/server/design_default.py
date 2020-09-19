@@ -2,6 +2,7 @@
 
 # from server.helpers import encap_str
 
+import re
 from server.types import PageLanguage
 from server.types import PageOperation
 # from server.types import ResponseOperation
@@ -429,6 +430,8 @@ class Design_default(object):
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
         icons = page.repository.get_icons()
 
+        icon_cnt = 0
+
         if content and page.page_params.get_param("year") in content.keys():
             
             page.template_params["template_name"] = "theme.html.j2"
@@ -458,9 +461,15 @@ class Design_default(object):
                             if subtheme not in subtheme_dict.keys():
                                 try:
                                     icon_svg = icons[subtheme.strip().lower()]
+                                    # Different SVGs can have same path IDs (e.g. created in the same program)
+                                    # So we change names here
+                                    
+                                    #icon_svg = re.sub(r'id="(.*?)"', 'id="\\1_R_{}"'.format(icon_cnt), icon_svg)
+                                    icon_svg = re.sub(r'cls-(.)', 'cld-\\1_R_{}'.format(icon_cnt), icon_svg)
+                                    icon_cnt = icon_cnt + 1
                                 except:
                                     icon_svg = ""
-                                    
+
                                 subtheme_d = {
                                     'title' : subtheme.capitalize(),
                                     'icon' : icon_svg, 
