@@ -10,11 +10,11 @@ import json
 #url = "http://shkola.vladap.com:7071/main"
 url = 'https://www.tatamata.org'
 
-number_of_runs_per_user = 2
+number_of_runs_per_user = 1
 number_of_users = 10
 
 
-DEBUG = True
+DEBUG = False
 
 
 http_timeout_s = 10
@@ -28,9 +28,13 @@ test_params = {
   "theme" : {"op" : "menu_theme", "year" : "2", "language" : "rs"},
   "intro" : {"op" : "intro", "year" : "2", "language" : "rs", \
     "l_id":"2_brojevi.rs", "theme":"Brojevi", "subtheme":"*", "period":"*", "difficulty":"*"},
-  "question" : {"op" : "test", "year" : "2", "language" : "rs", \
-    "l_id":"2_brojevi.rs", "theme":"Brojevi", "subtheme":"*", "period":"*", "difficulty":"*"}
+  "question" : {"op" : "test", "year" : "2", "language" : "rs", "q_id":"numbers/q00157", \
+    "l_id":"2_brojevi.rs", "theme":"Brojevi", "subtheme":"brojevi%20do%20100", "period":"*", "difficulty":"*",
+    "q_num":"1", "q_diff":"1", "language":"rs", "design":"dev"}
+  #"question" : {"op" : "test", "year" : "2", "language" : "rs", \
+  #  "l_id":"2_brojevi.rs", "theme":"Brojevi", "subtheme":"*", "period":"*", "difficulty":"*"}
 }
+
 
 
 
@@ -103,7 +107,7 @@ class HTTPError(Exception):
   pass
 
 
-async def session_op(id, samples, get_method, op, jar=None, page_name=None):
+async def session_op(id, samples, get_method, op, jar=None, page_name=None, iter=1):
   if (op == "final"):
     # Last page is also question, but generates final result instead
     # The caller needs to know when is the last question
@@ -114,14 +118,18 @@ async def session_op(id, samples, get_method, op, jar=None, page_name=None):
   if not page_name:
     page_name = op
 
+  params=test_params[pop]
+  if pop == "question":
+    params["q_num"] = iter
+
   if DEBUG:
-    print(f"#{id} Requestion URL: {url}")
+    print(f"\n#{id} Requesting URL: {url}")
   start_time = time.time()
-  r = await get_method(url, params=test_params[pop], cookies=jar, timeout=http_timeout_s)
+  r = await get_method(url, params=params, cookies=jar, timeout=http_timeout_s)
   end_time = time.time()
 
   if DEBUG:
-    print(f"#{id} Requested url: {r.url}\n")
+    print(f"#{id} Requested url: {r.url}")
     print(f"#{id} Obtained page name: {get_page_name(r.text)}")
     #print(f"#{id} Received header: {r.headers}\n")
     #print(f"#{id} Received cookies: {r.cookies['shkola_session_id']}\n")
@@ -175,7 +183,7 @@ async def test_session(id, no, samples, get_method):
     await session_op(id, samples, get_method, "theme", jar)
     await session_op(id, samples, get_method, "intro", jar)
     for i in range(0, number_of_question_in_test):
-      await session_op(id, samples, get_method, "question", jar)
+      await session_op(id, samples, get_method, "question", jar, iter=i+1)
     await session_op(id, samples, get_method, "final", jar, "summary")
   except Exception as e:
     print(f"#{id} EXCEPTION: {e}")
