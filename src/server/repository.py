@@ -251,11 +251,11 @@ class Repository(object):
                     if self.check_extension(file, ".json"):
                         try:
                             key = file[:len(file)-len(".json")]
-                            d[key] = json.load(open(dirpath + "/" + file, 'r'))
-                        except:
+                            d[key] = json.load(open(dirpath + "/" + file, 'r', encoding='utf-8'))
+                        except Exception as e:
                             logging.warn( \
                                 "\n\n**********************************************\n" + \
-                                "Error parsing JSON file: {}\n".format(file) + \
+                                "Error parsing JSON file {}: {}\n".format(file, e) + \
                                 "**********************************************\n"\
                                 )
                             pass
@@ -388,7 +388,14 @@ class Repository(object):
 
     def load_all(self):
         self.load_dir(self.questions, self.questions_path)
+        if not self.questions:
+            logging.error("No questions found - did you set SHKOLA_REL_PATH correctly?")
+            raise Exception("No questions found")
+
         self.load_dir(self.lists, self.lists_path)
+        if not self.lists:
+            logging.error("No lists found - did you set SHKOLA_REL_PATH correctly?")
+            raise Exception("No lists found")
 
         #logging.debug("self.lists: {}".format(self.lists))
 

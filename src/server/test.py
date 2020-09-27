@@ -1,5 +1,6 @@
 import random
 import time
+import json
 
 # from server.question import Question
 from server.types import PageOperation
@@ -25,7 +26,11 @@ class Test(object):
 
     def load_list(self):
         self.list = self.page.repository.get_list(self.page.page_params.get_param("l_id"))
-
+        if not self.list:
+            logging.error("List {} not found - did you set SHKOLA_REL_PATH correctly?".format( 
+                            self.page.page_params.get_param("l_id")))
+            raise Exception("List {} not found".format(self.page.page_params.get_param("l_id")))
+            
 
     def _make_topic(self, q):
         return q["subtheme"] + "|" + q["topic"]
@@ -57,10 +62,25 @@ class Test(object):
         }
         potential_questions_w_repeat = []
 
-        if context.c.session.get("history") is None:
-            asked_questions = []
-        else:
-            asked_questions = list(map(lambda hist: hist["q_id"], context.c.session.get("history")))
+        past_questions = {}
+
+        last_question = None
+        if context.c.session.get("history"):
+            for hist in context.c.session.get("history"):
+                last_question = hist["q_id"]
+                if not hist["q_id"] in past_questions.keys():
+                    past_questions[hist["q_id"]] = {
+                        "number" : 1,
+                        "correct" : 1 if hist["incorrect"] == 0 else 0,
+                        "skipped" : ("skipped" in hist.keys() and hist["skipped"])
+                    }
+                else:
+                    past_questions[hist["q_id"]]["number"] = past_questions[hist["q_id"]]["number"] + 1
+                    if hist["incorrect"] == 0:
+                        past_questions[hist["q_id"]]["correct"] = past_questions[hist["q_id"]]["correct"] + 1
+                    if "skipped" in hist.keys() and hist["skipped"]:
+                        past_questions[hist["q_id"]]["skipped"] = True
+
 
         prev_question = None
 
@@ -95,18 +115,13 @@ class Test(object):
                     "topic" : q["topic"].strip() if "topic" in q.keys() else "",
                     "period" : q["period"].strip() if "period" in q.keys() else "", 
                     "difficulty" : q["difficulty"].strip() if "difficulty" in q.keys() else "",
-                    "random" : not (q["random"] == 0) if "random" in q.keys() else False
+                    "random" : int(q["random"]) if "random" in q.keys() else 0
                 }
-
-                # DEBUG
-                #logging.debug("\n\nNNNNN: {}\n\n".format(next_q))
     
-                if next_q["random"]:
-                    randomized_questions = True
-                    potential_questions_w_repeat.append(next_q)
-                    remaining_question = remaining_question + 1
+                add_in_random = True
+                diff = 0
 
-                if not q["name"] in asked_questions:
+                if not next_q["q_id"] in past_questions.keys():
                     potential_questions["all"].append(next_q)
                     topic = self._make_topic(q)
                     if topic not in potential_questions["topics"].keys():
@@ -117,13 +132,50 @@ class Test(object):
                     if q["difficulty"] not in potential_questions["difficulty"].keys():
                         potential_questions["difficulty"][q["difficulty"]] = []
                     potential_questions["difficulty"][q["difficulty"]].append(next_q)
-                    if not next_q["random"]:
-                        # We already counted the randomized ones above
-                        remaining_question = remaining_question + 1
+                    if next_q["random"] >= 10 or remaining_question >= 100:
+                        diff = 100
+                        remaining_question = 100
+                    else:
+                        diff = next_q["random"]
+                        remaining_question = remaining_question + next_q["random"]
 
-                elif q["name"] == asked_questions[-1]:
-                    prev_question = next_q
-                
+                else:
+                    if next_q["q_id"] == last_question:
+                        prev_question = next_q
+
+                    ask_again = not past_questions[next_q["q_id"]]["skipped"]
+                    ask_again = ask_again and not (\
+                        (past_questions[next_q["q_id"]]["correct"] >= 1 and next_q["random"] < 5) or \
+                        (past_questions[next_q["q_id"]]["correct"] >= 2 and next_q["random"] >= 5 and next_q["random"] < 10) or \
+                        (past_questions[next_q["q_id"]]["correct"] >= 3 and next_q["random"] >= 10) \
+                    )
+                    ask_again = ask_again and not \
+                        (next_q["random"] < 10 and next_q["random"] <= past_questions[next_q["q_id"]]["number"])
+
+                    if not ask_again:
+                        add_in_random = False
+                    else:
+                        if next_q["random"] >= 10 or remaining_question >= 100:
+                            diff = 100
+                            remaining_question = 100
+                        else:
+                            diff = next_q["random"] - past_questions[next_q["q_id"]]["number"]
+                            remaining_question = remaining_question + next_q["random"] - past_questions[next_q["q_id"]]["number"]
+
+
+                print("Q: {} ({}) - {} {}".format(next_q["q_id"], add_in_random, diff, remaining_question))
+
+                if add_in_random:
+                    randomized_questions = True
+                    potential_questions_w_repeat.append(next_q)
+
+
+        # if not potential_questions_w_repeat:
+        #     total = len(all_potential_questions_w_repeat)
+        #     index = random.randrange(total)
+        #     potential_questions_w_repeat.append(all_potential_questions_w_repeat[index])
+
+
         next_question = {
             "q_id" : "",
             "subtheme" : "",
@@ -215,14 +267,14 @@ class Test(object):
 
         logging.info("\n\n ************ " + log_str + "\n\n")
 
-        logging.info("\n\nNEXT Q: {}\n\n {}\n\n {}\n\n {}\n\n".format(
-             potential_questions_w_repeat, potential_questions, next_question, remaining_question))
+        # logging.info("\n\nNEXT Q: {}\n\n {}\n\n {}\n\n {}\n\n".format(
+        #      potential_questions_w_repeat, potential_questions, next_question, remaining_question))
  
         # Serve at most remaining_question
-        remaining_question = (remaining_question - 1) if remaining_question > 0 else remaining_question
+        #remaining_question = (remaining_question - 1) if remaining_question > 0 else remaining_question
         logging.info("Remaining questions: {}".format(remaining_question))
 
-        if remaining_question == 0 and not randomized_questions:
+        if remaining_question == 0:
             more_questions = False
         else:
             more_questions = True

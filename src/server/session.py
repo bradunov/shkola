@@ -218,3 +218,34 @@ class SessionDB:
             return None, None
 
         return values
+
+
+
+
+    # Create test session for testing without HTTP requests
+    @contextmanager
+    def init_test_session(self):
+        sid = uuid.uuid4().hex
+
+        session_data = {
+            "data": dict(),
+            "user_id": None,
+            'state_id': None
+        }
+
+        session = Session(
+            sid,
+            session_data['user_id'],
+            session_data['data'],
+            session_data['state_id']
+        )
+
+        logging.debug("Session: setup: ID={}, USER={}, DATA={}, state_id={}\n\n".format(
+            session.session_id(), session.user_id(), session.data(), session.state_id()
+        ))
+
+        try:
+            yield session
+
+        finally:
+            logging.debug("Session: cleanup: sid=%s, state=%s", session.session_id(), session.state_id())
