@@ -307,6 +307,7 @@ class Test(object):
             url_next = self.page.page_params.create_url( 
                 op=PageOperation.toStr(PageOperation.SUMMARY),
                 js=False)
+            url_skip = url_next
         else:
             url_next = self.page.page_params.create_url( 
                 op=PageOperation.toStr(PageOperation.TEST),
@@ -314,8 +315,15 @@ class Test(object):
                 q_diff=next_question["difficulty"], 
                 q_num=str(q_number+1),
                 js=False)
+            url_skip = self.page.page_params.create_url( 
+                op=PageOperation.toStr(PageOperation.TEST),
+                q_id=next_question["q_id"], 
+                q_diff=next_question["difficulty"], 
+                q_num=str(q_number+1),
+                skipped="true",
+                js=False)
 
-        return url_next
+        return url_next, url_skip
 
 
 

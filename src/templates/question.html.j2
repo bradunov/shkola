@@ -169,7 +169,7 @@
         if (document.getElementById("popup_skip").style.visibility == "visible") {
           checkAll("SKIP", "{{template_params["root"]}}",
                               "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}");
-          location.href = "{{template_params["next"]}}";
+          location.href = "{{template_params["skip"]}}";
           return;
         }
         if (check) {
@@ -486,7 +486,7 @@
           </div>
 
           {{elements.scooter_back_fwd('skip_but_prev', 'popup_toggle_skip()', 
-            'skip_but_next', 'location.href = "' ~ template_params["next"] ~ '"')}}
+            'skip_but_next', 'location.href = "' ~ template_params["skip"] ~ '"')}}
 
         </div>
       </div>

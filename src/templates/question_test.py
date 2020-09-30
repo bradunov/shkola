@@ -44,6 +44,7 @@ page["subtheme"] = "Operacije"
 page["difficulty"] = 1
 
 page["next"] = "NEXT"
+page["skip"] = "SKIP"
 page["back"] = "PREV"
 
 page["question"] = "TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>TEXT<br>" \

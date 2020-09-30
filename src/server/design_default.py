@@ -661,8 +661,9 @@ class Design_default(object):
         page.template_params["difficulty"] = page.page_params.get_param("difficulty").title()
 
         test = Test(page)
-        url_next = test.get_next_question_url(Design_default.total_questions)
+        url_next, url_skip = test.get_next_question_url(Design_default.total_questions)
         page.template_params["next"] = url_next
+        page.template_params["skip"] = url_skip
 
         # page.template_params["back"] = page.page_params.create_url(
         #             op = PageOperation.toStr(PageOperation.MENU_THEME),                         
@@ -718,21 +719,61 @@ class Design_default(object):
     def _render_result_bar_and_get_last_difficulty(page):
         difficulty = "0"
         page.template_params["bar"] = {"star1": 0, "star2": 0, "star3": 0, "missed": 0}
+
+        # Count only the best asnwer to each question        
+        questions = {}
         if context.c.session.get("history"):
             for r in context.c.session.get("history"):
-                if "difficulty" in r.keys():
+                if "difficulty" in r.keys() and (r["difficulty"] == "1" or r["difficulty"] == "2" or r["difficulty"] == "3"):
                     difficulty = r["difficulty"]
-                    if r["difficulty"] == "1":
-                        page.template_params["bar"]["star1"] = page.template_params["bar"]["star1"] + r["correct"]
-                        page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
-                    elif r["difficulty"] == "2":
-                        page.template_params["bar"]["star2"] = page.template_params["bar"]["star2"] + r["correct"]
-                        page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
-                    elif r["difficulty"] == "3":
-                        page.template_params["bar"]["star3"] = page.template_params["bar"]["star3"] + r["correct"]
-                        page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+                    if not r["q_id"] in questions.keys():
+                        questions[r["q_id"]] = r
                     else:
-                        difficulty = "0"
+                        if r["incorrect"] < questions[r["q_id"]]["incorrect"]:
+                            questions[r["q_id"]]["incorrect"] = r["incorrect"]
+                            questions[r["q_id"]]["correct"] = r["correct"]
+
+        # A question is correct if all subquestions are correct
+        for k, r in questions.items():
+            if r["difficulty"] == "1":
+                if r["incorrect"] == 0:
+                    page.template_params["bar"]["star1"] = page.template_params["bar"]["star1"] + 1
+                else:
+                    page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + 1
+                # page.template_params["bar"]["star1"] = page.template_params["bar"]["star1"] + r["correct"]
+                # page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+            elif r["difficulty"] == "2":
+                if r["incorrect"] == 0:
+                    page.template_params["bar"]["star2"] = page.template_params["bar"]["star2"] + 1
+                else:
+                    page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + 1
+                # page.template_params["bar"]["star2"] = page.template_params["bar"]["star2"] + r["correct"]
+                # page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+            elif r["difficulty"] == "3":
+                if r["incorrect"] == 0:
+                    page.template_params["bar"]["star3"] = page.template_params["bar"]["star3"] + 1
+                else:
+                    page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + 1
+                # page.template_params["bar"]["star3"] = page.template_params["bar"]["star3"] + r["correct"]
+                # page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+
+
+        # OLD: make stats from all questions and answers
+        # if context.c.session.get("history"):
+        #     for r in context.c.session.get("history"):
+        #         if "difficulty" in r.keys():
+        #             difficulty = r["difficulty"]
+        #             if r["difficulty"] == "1":
+        #                 page.template_params["bar"]["star1"] = page.template_params["bar"]["star1"] + r["correct"]
+        #                 page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+        #             elif r["difficulty"] == "2":
+        #                 page.template_params["bar"]["star2"] = page.template_params["bar"]["star2"] + r["correct"]
+        #                 page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+        #             elif r["difficulty"] == "3":
+        #                 page.template_params["bar"]["star3"] = page.template_params["bar"]["star3"] + r["correct"]
+        #                 page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+        #             else:
+        #                 difficulty = "0"
 
         return difficulty
 
@@ -752,13 +793,23 @@ class Design_default(object):
 
         q_id = page.page_params.get_param("q_id")
 
+
         q_number = page.page_params.get_param("q_num")
         try:
             q_number = int(q_number) if not q_number is None else 0
         except ValueError as ex:
             logging.error("Incorrect q_num={}".format(q_number))
             q_number = 0
-            
+
+
+        skipped = page.page_params.get_param("skipped")
+        if skipped.lower() == "true":
+            try:
+                context.c.session.get("history")[-1]["skipped"] = True
+            except:
+                logging.error("Cannot mark last question as skipped (hist={})".format(context.c.session.get("history")))
+
+
         hist = None
         if page.page_params.get_param("op") == PageOperation.TEST_PREV:
             context.c.session.list_delete("history", -1)
@@ -771,11 +822,12 @@ class Design_default(object):
         else:
             if q_number == test.get_q_number() + 1:
                 # New question - add to history
+                # Apriory set to incorrect so that we have matching history on skip
                 hist = {
                     "q_id" : q_id, 
                     "url" : page.page_params.get_url(),
                     "correct" : 0, 
-                    "incorrect" : 0
+                    "incorrect" : 1
                 }
                 #hist.update(next_question)
                 context.c.session.list_append("history", hist)
@@ -804,8 +856,9 @@ class Design_default(object):
 
 
 
-        url_next = test.get_next_question_url(Design_default.total_questions)
+        url_next, url_skip = test.get_next_question_url(Design_default.total_questions)
         page.template_params["next"] = url_next
+        page.template_params["skip"] = url_skip
 
         #url_prev = test.get_prev_question_url()
         #page.template_params["back"] = url_prev
