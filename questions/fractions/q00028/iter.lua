@@ -1,6 +1,6 @@
 
 measure1 = {"m", "kg" , "h", "km", "t"}
-measure2 = {"mm", "g", "min.", "m", "kg"}
+measure2 = {"mm", "g", "min", "m", "kg"}
 
 denom = {2,4,5,10}
 index = math.random(4)

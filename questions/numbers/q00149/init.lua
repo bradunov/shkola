@@ -1,3 +1,6 @@
+
+prib = "\(\approx\)" 
+
 cifre = {}
 
 demo = 100   
@@ -15,5 +18,5 @@ end
 value2 = 3 + math.random(6) 
 
 near = result1 * value2          
-                       
+                                             
  

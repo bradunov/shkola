@@ -2,9 +2,9 @@
 Uporedi zbirove. Upiši znak <, > ili  = .
 
 @repeat(6)@
-@center@ @lnumber1@ @hspacept(8)@ + @hspacept(8)@ @lnumber2@ @hspace@ @lib.check_string(sign, 25)@ @hspace@ @rnumber1@ @hspacept(8)@ + @hspacept(8)@ @rnumber2@ 
+@center@ @lnumber1@  +  @lnumber2@ @hspacept(3)@ @lib.check_string(sign, 25)@ @hspacept(3)@ @rnumber1@  +  @rnumber2@ 
 @/repeat@
-         
+             
          
 
   

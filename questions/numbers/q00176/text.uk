@@ -1,13 +1,14 @@
                                  
 Estimate the value of the expression by rounding the numbers to the nearest multiple of ten. 
 Example:@hspacept(10)@   multiple of ten @demo@,   
-@hspacept(50)@ sum  is approximately equal to  (~)
-@hspacept(50)@ @value1@ + @value2@ ~ @result1@ + @result2@ = @near@
+@hspacept(50)@ sum  is approximately equal to  (@prib@)
+@hspacept(50)@ @value1@ + @value2@ @prib@ @result1@ + @result2@ = @near@
 
 @vspace@
 @repeat(4)@ 
-@decade@ @hspacept(20)@ @numb1[1]@  @sign@  @numb2[1]@  ~  @lib.check_number(numb1[2],30)@ @sign@ @lib.check_number(numb2[2],30)@ =  @lib.check_number(summ,30)@
+@decade@ @hspacept(20)@ @numb1[1]@  @sign@  @numb2[1]@  @prib@  @lib.check_number(numb1[2],30)@ @sign@ @lib.check_number(numb2[2],30)@ =  @lib.check_number(summ,30)@
 @/repeat@  
+   
    
   
 

@@ -1,3 +1,4 @@
+
 include("names")
 r1 = math.random(#musko_ime_nom)
 r2 = math.random(#musko_ime_nom-1)
@@ -56,4 +57,10 @@ else
 	ime_UK = ime1
 end
 
+reply = {}
+ans = {}
 
+reply[1] = "answer == '" .. ime .. "' ";
+ans[1] = "answer = '" .. ime .. "' ";
+reply[2] = "answer == '" .. padezg .. "' ";
+ans[2] = "answer = '" .. padezg .. "' ";

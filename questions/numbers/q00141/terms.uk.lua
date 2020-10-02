@@ -1,3 +1,6 @@
+
+q1 = {"Lincoln", "Shakespeare", "Newton", "da Vinci", "Mirzahani", "Chaplin"}
+
 msg_birth_a = "birth (arab)"
 msg_birth_r = "birth (Roman numerals)"
 msg_year_a = "age (arab)"

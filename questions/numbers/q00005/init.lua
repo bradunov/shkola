@@ -61,6 +61,5 @@ lib.add_text(20*hscale, 6*vscale, 0, text_style)
   
   lib.end_canvas()
 end
-   
-  
           
+            

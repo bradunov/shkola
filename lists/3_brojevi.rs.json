@@ -10,7 +10,7 @@
       "random": "0",
       "period": "3",
       "subtheme": "Razlomci",
-      "topic": "Računanje dela",
+      "topic": "Računske operacije",
       "difficulty": "2"
     },
     {
@@ -18,7 +18,15 @@
       "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
-      "topic": "Grafičko poređenje",
+      "topic": "Pojam",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00019",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": "Upoređivanje razlomaka ",
       "difficulty": "2"
     },
     {
@@ -50,7 +58,7 @@
       "random": "6",
       "period": "3",
       "subtheme": "Razlomci",
-      "topic": "Mere",
+      "topic": "Računske operacije",
       "difficulty": "2"
     },
     {
@@ -66,7 +74,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
-      "topic": "Računanje dela",
+      "topic": "Računske operacije",
       "difficulty": "2"
     },
     {
@@ -82,7 +90,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
-      "topic": "Mere-poređenje",
+      "topic": "Računske operacije",
       "difficulty": "2"
     },
     {
@@ -90,12 +98,12 @@
       "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
-      "topic": "Poređenje razlomaka sa jednakim imeniocima",
+      "topic": "Upoređivanje razlomaka ",
       "difficulty": "1"
     },
     {
       "name": "fractions/q00033",
-      "random": "6",
+      "random": "8",
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
@@ -103,7 +111,7 @@
     },
     {
       "name": "fractions/q00034",
-      "random": "3",
+      "random": "4",
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
@@ -114,7 +122,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
-      "topic": " Decimalni broj",
+      "topic": "Decimalni zapis broja",
       "difficulty": "2"
     },
     {
@@ -167,7 +175,7 @@
     },
     {
       "name": "fractions/q00059",
-      "random": "6",
+      "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Tekstualni zadatak",
@@ -175,7 +183,7 @@
     },
     {
       "name": "fractions/q00060",
-      "random": "4",
+      "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Tekstualni zadatak",
@@ -183,7 +191,7 @@
     },
     {
       "name": "fractions/q00061",
-      "random": "6",
+      "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Tekstualni zadatak",
@@ -194,7 +202,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
-      "topic": " Decimalni broj",
+      "topic": "Decimalni zapis broja",
       "difficulty": "3"
     },
     {
@@ -210,7 +218,15 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Poređenje brojeva, sabiranje i oduzimanje",
+      "topic": "Upoređivanje brojeva",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00048",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje",
       "difficulty": "2"
     },
     {
@@ -218,7 +234,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje",
+      "topic": "Sabiranje",
       "difficulty": "1"
     },
     {
@@ -226,7 +242,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje",
+      "topic": "Oduzimanje",
       "difficulty": "1"
     },
     {
@@ -234,7 +250,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje",
+      "topic": "Sabiranje",
       "difficulty": "1"
     },
     {
@@ -242,7 +258,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje",
+      "topic": "Oduzimanje",
       "difficulty": "1"
     },
     {
@@ -250,7 +266,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje",
+      "topic": "Sabiranje",
       "difficulty": "1"
     },
     {
@@ -258,7 +274,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje",
+      "topic": "Oduzimanje",
       "difficulty": "1"
     },
     {
@@ -266,7 +282,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje",
+      "topic": "Sabiranje",
       "difficulty": "1"
     },
     {
@@ -274,7 +290,15 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje",
+      "topic": "Oduzimanje",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00059",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Brojevi do 1000",
+      "topic": "Upoređivanje brojeva",
       "difficulty": "1"
     },
     {
@@ -297,8 +321,16 @@
       "name": "numbers/q00061",
       "random": "10",
       "period": "1",
+      "subtheme": "Brojevi do 1000",
+      "topic": "Upoređivanje brojeva",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00061",
+      "random": "10",
+      "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje",
+      "topic": "Sabiranje",
       "difficulty": "2"
     },
     {
@@ -306,7 +338,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje",
+      "topic": "Sabiranje",
       "difficulty": "1"
     },
     {
@@ -322,7 +354,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Zapis broja",
+      "topic": "Zapis broja, brojevna poluprava",
       "difficulty": "1"
     },
     {
@@ -330,7 +362,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Čitanje broja",
+      "topic": "Zapis broja, brojevna poluprava",
       "difficulty": "1"
     },
     {
@@ -338,7 +370,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Brojevni niz",
+      "topic": "Upoređivanje brojeva",
       "difficulty": "1"
     },
     {
@@ -354,7 +386,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Par/nepar, najveći/najmanji",
+      "topic": "Upoređivanje brojeva",
       "difficulty": "1"
     },
     {
@@ -370,7 +402,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Prethodnik/sledbenik",
+      "topic": "Zapis broja, brojevna poluprava",
       "difficulty": "1"
     },
     {
@@ -394,7 +426,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Par/nepar, najveći/najmanji",
+      "topic": "Upoređivanje brojeva",
       "difficulty": "1"
     },
     {
@@ -402,7 +434,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje do 1000",
+      "topic": "Sabiranje",
       "difficulty": "2"
     },
     {
@@ -410,7 +442,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje do 1000",
+      "topic": "Sabiranje i oduzimanje",
       "difficulty": "2"
     },
     {
@@ -418,7 +450,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Brojevni izraz",
-      "topic": "Sabiranje i oduzimanje do 1000",
+      "topic": "Tekstualni zadatak",
       "difficulty": "2"
     },
     {
@@ -426,99 +458,11 @@
       "random": "10",
       "period": "2",
       "subtheme": "Brojevni izraz",
-      "topic": "Sabiranje i oduzimanje do 1000",
+      "topic": "Tekstualni zadatak",
       "difficulty": "2"
     },
     {
       "name": "numbers/q00078",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje do 1000",
-      "difficulty": "2"
-    },
-    {
-      "name": "numbers/q00079",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje do 1000",
-      "difficulty": "2"
-    },
-    {
-      "name": "numbers/q00080",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Brojevni izraz",
-      "topic": "Sabiranje i oduzimanje do 1000",
-      "difficulty": "2"
-    },
-    {
-      "name": "numbers/q00081",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje do 1000",
-      "difficulty": "2"
-    },
-    {
-      "name": "numbers/q00082",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje do 1000",
-      "difficulty": "2"
-    },
-    {
-      "name": "numbers/q00083",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje do 1000",
-      "difficulty": "2"
-    },
-    {
-      "name": "numbers/q00084",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Računske operacije",
-      "topic": "Množenje i deljenje do 1000",
-      "difficulty": "2"
-    },
-    {
-      "name": "numbers/q00085",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Računske operacije",
-      "topic": "Množenje i deljenje do 1000",
-      "difficulty": "2"
-    },
-    {
-      "name": "numbers/q00086",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje do 1000",
-      "difficulty": "2"
-    },
-    {
-      "name": "numbers/q00087",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Računske operacije",
-      "topic": "Množenje i deljenje do 1000",
-      "difficulty": "2"
-    },
-    {
-      "name": "numbers/q00088",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Računske operacije",
-      "topic": "Množenje i deljenje do 1000",
-      "difficulty": "3"
-    },
-    {
-      "name": "numbers/q00089",
       "random": "10",
       "period": "2",
       "subtheme": "Brojevni izraz",
@@ -526,11 +470,99 @@
       "difficulty": "2"
     },
     {
+      "name": "numbers/q00079",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00080",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Brojevni izraz",
+      "topic": "Tekstualni zadatak",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00081",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00082",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00083",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00084",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Množenje i deljenje",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00085",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Množenje i deljenje",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00086",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00087",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Množenje i deljenje",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00088",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Množenje i deljenje",
+      "difficulty": "3"
+    },
+    {
+      "name": "numbers/q00089",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Brojevni izraz",
+      "topic": "Tekstualni zadatak",
+      "difficulty": "2"
+    },
+    {
       "name": "numbers/q00090",
       "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
-      "topic": "Množenje i deljenje do 1000",
+      "topic": "Množenje",
       "difficulty": "2"
     },
     {
@@ -538,7 +570,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
-      "topic": "Množenje i deljenje do 1000",
+      "topic": "Deljenje",
       "difficulty": "2"
     },
     {
@@ -578,7 +610,7 @@
       "random": "0",
       "period": "2",
       "subtheme": "Računske operacije",
-      "topic": "Tekstualni zadatak",
+      "topic": "Oduzimanje",
       "difficulty": "3"
     },
     {
@@ -586,7 +618,7 @@
       "random": "0",
       "period": "2",
       "subtheme": "Računske operacije",
-      "topic": "Tekstualni zadatak",
+      "topic": "Sabiranje i oduzimanje",
       "difficulty": "3"
     },
     {
@@ -594,23 +626,23 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Množenje i deljenje do 1000",
+      "topic": "Množenje i deljenje",
       "difficulty": "2"
     },
     {
       "name": "numbers/q00101",
       "random": "10",
       "period": "1",
-      "subtheme": "Računske operacije",
-      "topic": "Sve računske operacije do 1000",
+      "subtheme": "Brojevni izraz",
+      "topic": "Redosled računskih operacija",
       "difficulty": "2"
     },
     {
       "name": "numbers/q00102",
       "random": "10",
       "period": "1",
-      "subtheme": "Računske operacije",
-      "topic": "Sve računske operacije do 1000",
+      "subtheme": "Brojevni izraz",
+      "topic": "Redosled računskih operacija",
       "difficulty": "3"
     },
     {
@@ -618,7 +650,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Tekstualni zadatak",
+      "topic": "Množenje i deljenje",
       "difficulty": "2"
     },
     {
@@ -642,7 +674,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Tekstualni zadatak",
+      "topic": "Sabiranje i oduzimanje",
       "difficulty": "2"
     },
     {
@@ -650,7 +682,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Tekstualni zadatak",
+      "topic": "Množenje i deljenje",
       "difficulty": "2"
     },
     {
@@ -658,7 +690,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Tekstualni zadatak",
+      "topic": "Sabiranje i oduzimanje",
       "difficulty": "2"
     },
     {
@@ -666,7 +698,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Zapis broja",
+      "topic": "Zapis broja, brojevna poluprava",
       "difficulty": "1"
     },
     {
@@ -674,7 +706,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Zapis broja",
+      "topic": "Rimski brojevi ",
       "difficulty": "1"
     },
     {
@@ -682,7 +714,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje",
+      "topic": "Sabiranje",
       "difficulty": "2"
     },
     {
@@ -690,7 +722,7 @@
       "random": "5",
       "period": "3",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje",
+      "topic": "Sabiranje",
       "difficulty": "2"
     },
     {
@@ -698,7 +730,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevni izraz",
-      "topic": "Sve računske operacije",
+      "topic": "Tekstualni zadatak",
       "difficulty": "2"
     },
     {
@@ -714,7 +746,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Brojevna prava",
+      "topic": "Zapis broja, brojevna poluprava",
       "difficulty": "1"
     },
     {
@@ -722,7 +754,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Zapis broja",
+      "topic": "Rimski brojevi ",
       "difficulty": "1"
     },
     {
@@ -730,7 +762,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Deljenje do 1000",
+      "topic": "Deljenje",
       "difficulty": "1"
     },
     {
@@ -738,7 +770,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Deljenje do 1000",
+      "topic": "Deljenje",
       "difficulty": "1"
     },
     {
@@ -746,7 +778,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Brojevi do 1000",
-      "topic": "Zaokrugljivanje brojeva",
+      "topic": "Upoređivanje brojeva",
       "difficulty": "1"
     },
     {
@@ -754,7 +786,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
-      "topic": "Sabiranje i oduzimanje do 1000",
+      "topic": "Sabiranje i oduzimanje",
       "difficulty": "2"
     },
     {
@@ -762,7 +794,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Poređenje brojeva",
+      "topic": "Upoređivanje brojeva",
       "difficulty": "1"
     },
     {
@@ -770,7 +802,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
-      "topic": "Računske operacije do 1000",
+      "topic": "Množenje",
       "difficulty": "1"
     },
     {
@@ -778,15 +810,47 @@
       "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
-      "topic": "Računske operacije do 1000",
+      "topic": "Deljenje",
       "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00234",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Oduzimanje",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00234",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Brojevi do 1000",
+      "topic": "Upoređivanje brojeva",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00235",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Oduzimanje",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00236",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Množenje",
+      "difficulty": "1"
     },
     {
       "name": "equations/q00001",
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine ",
-      "topic": "Zbir/razlika",
+      "topic": "Sabiranje i oduzimanje ",
       "difficulty": "1"
     },
     {
@@ -794,7 +858,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine ",
-      "topic": "Zbir/razlika",
+      "topic": "Sabiranje i oduzimanje ",
       "difficulty": "1"
     },
     {
@@ -802,7 +866,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine ",
-      "topic": "Zbir/razlika",
+      "topic": "Sabiranje i oduzimanje ",
       "difficulty": "1"
     },
     {
@@ -810,7 +874,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine ",
-      "topic": "Zbir/razlika",
+      "topic": "Sabiranje i oduzimanje ",
       "difficulty": "1"
     },
     {
@@ -818,7 +882,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine ",
-      "topic": "Proizvod/količnik",
+      "topic": "Množenje i deljenje ",
       "difficulty": "2"
     },
     {
@@ -826,7 +890,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine",
-      "topic": "Zbir/razlika",
+      "topic": "Sabiranje i oduzimanje ",
       "difficulty": "1"
     },
     {
@@ -834,7 +898,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine",
-      "topic": "Proizvod/količnik",
+      "topic": "Množenje i deljenje ",
       "difficulty": "1"
     },
     {
@@ -842,7 +906,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine",
-      "topic": "Proizvod/količnik",
+      "topic": "Množenje i deljenje ",
       "difficulty": "2"
     },
     {
@@ -866,7 +930,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine",
-      "topic": "Proizvod/količnik",
+      "topic": "Množenje i deljenje ",
       "difficulty": "2"
     },
     {
@@ -874,7 +938,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine",
-      "topic": "Proizvod/količnik",
+      "topic": "Množenje i deljenje ",
       "difficulty": "3"
     },
     {
@@ -882,7 +946,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Nejednačine",
-      "topic": "Zbir/razlika",
+      "topic": "Sabiranje i oduzimanje ",
       "difficulty": "1"
     },
     {
@@ -890,7 +954,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Nejednačine",
-      "topic": "Zbir/razlika",
+      "topic": "Sabiranje i oduzimanje ",
       "difficulty": "2"
     }
   ]

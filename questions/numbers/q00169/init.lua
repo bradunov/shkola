@@ -11,7 +11,7 @@ text_style = {["font_size"] = "16"}
 number = {}
 
 term = math.random(9)
-add = math.random(9)
+add = math.random(5)
 
 
 number[1] = term 
@@ -67,5 +67,4 @@ vscale = 5
  
   lib.end_canvas()
 end                
-   
-   
+  

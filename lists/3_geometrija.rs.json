@@ -22,11 +22,35 @@
       "difficulty": "1"
     },
     {
+      "name": "geometry/q00017",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Obim geometrijskih figura",
+      "topic": "Kvadrat",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00017",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Obim geometrijskih figura",
+      "topic": "Pravougaonik",
+      "difficulty": "1"
+    },
+    {
       "name": "geometry/q00018",
       "random": "10",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
       "topic": "Kvadrat",
+      "difficulty": "3"
+    },
+    {
+      "name": "geometry/q00018",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Obim geometrijskih figura",
+      "topic": "Pravougaonik",
       "difficulty": "3"
     },
     {
@@ -95,7 +119,7 @@
     },
     {
       "name": "geometry/q00034",
-      "random": "2",
+      "random": "3",
       "period": "1",
       "subtheme": "Ugao",
       "topic": "Pojam, elementi ",
@@ -119,7 +143,7 @@
     },
     {
       "name": "geometry/q00037",
-      "random": "4",
+      "random": "5",
       "period": "1",
       "subtheme": "Ugao",
       "topic": "Vrste uglova",
@@ -175,15 +199,23 @@
     },
     {
       "name": "geometry/q00049",
-      "random": "3",
+      "random": "10",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
       "topic": "Kvadrat",
       "difficulty": "1"
     },
     {
+      "name": "geometry/q00049",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Obim geometrijskih figura",
+      "topic": "Pravougaonik",
+      "difficulty": "1"
+    },
+    {
       "name": "geometry/q00050",
-      "random": "3",
+      "random": "10",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
       "topic": "Kvadrat",
@@ -191,7 +223,7 @@
     },
     {
       "name": "geometry/q00051",
-      "random": "9",
+      "random": "10",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
       "topic": "Kvadrat",
@@ -199,10 +231,10 @@
     },
     {
       "name": "geometry/q00052",
-      "random": "4",
+      "random": "5",
       "period": "2",
       "subtheme": "Trougao",
-      "topic": "Pojam, elementi I  vrste",
+      "topic": "Pojam, elementi, vrste",
       "difficulty": "1"
     },
     {
@@ -210,12 +242,12 @@
       "random": "9",
       "period": "2",
       "subtheme": "Trougao",
-      "topic": "Pojam, elementi I  vrste",
+      "topic": "Pojam, elementi, vrste",
       "difficulty": "2"
     },
     {
       "name": "geometry/q00054",
-      "random": "9",
+      "random": "10",
       "period": "2",
       "subtheme": "Obim geometrijskih figura",
       "topic": "Trougao",
@@ -223,7 +255,7 @@
     },
     {
       "name": "geometry/q00055",
-      "random": "9",
+      "random": "10",
       "period": "1",
       "subtheme": "Obim geometrijskih figura",
       "topic": "Trougao",
@@ -231,7 +263,7 @@
     },
     {
       "name": "geometry/q00060",
-      "random": "4",
+      "random": "6",
       "period": "1",
       "subtheme": "Ugao",
       "topic": "Vrste uglova",
@@ -273,8 +305,16 @@
       "name": "geometry/q00065",
       "random": "0",
       "period": "1",
+      "subtheme": "Ugao",
+      "topic": "Vrste uglova",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00065",
+      "random": "0",
+      "period": "1",
       "subtheme": "Trougao",
-      "topic": "Pojam, elementi I  vrste",
+      "topic": "Pojam, elementi, vrste",
       "difficulty": "1"
     },
     {

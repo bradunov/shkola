@@ -1,4 +1,6 @@
 
+prib = "\(\approx\)"
+
 cifre = {}
 numb1 = {}
 numb2 = {}
@@ -29,3 +31,4 @@ end
 
 near = result1 + result2          
                   
+     

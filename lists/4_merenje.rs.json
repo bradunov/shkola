@@ -7,7 +7,7 @@
   "questions": [
     {
       "name": "measures/q00001",
-      "random": "5",
+      "random": "10",
       "period": "1",
       "subtheme": "Površina kvadrata i pravougaonika",
       "topic": "Površina pravougaonika",
@@ -106,6 +106,14 @@
       "random": "10",
       "period": "1",
       "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kocke",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00013",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
       "topic": "Površina kvadra",
       "difficulty": "2"
     },
@@ -115,6 +123,14 @@
       "period": "1",
       "subtheme": "Površina kocke i kvadra",
       "topic": "Površina kvadra",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00014",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Merenje zapremine",
+      "topic": "Računske operacije ",
       "difficulty": "3"
     },
     {
@@ -171,7 +187,7 @@
       "period": "3",
       "subtheme": "Merenje zapremine",
       "topic": "Pretvaranje jedne mere u drugu",
-      "difficulty": "2"
+      "difficulty": "1"
     },
     {
       "name": "measures/q00023",
@@ -286,11 +302,27 @@
       "difficulty": "2"
     },
     {
+      "name": "measures/q00036",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Površina kvadrata i pravougaonika",
+      "topic": "Površina pravougaonika",
+      "difficulty": "2"
+    },
+    {
       "name": "measures/q00037",
       "random": "10",
       "period": "1",
       "subtheme": "Površina kvadrata i pravougaonika",
       "topic": "Površina kvadrata",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00037",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Površina kvadrata i pravougaonika",
+      "topic": "Površina pravougaonika",
       "difficulty": "3"
     },
     {
@@ -332,6 +364,14 @@
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",
       "difficulty": "2"
+    },
+    {
+      "name": "measures/q00081",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Zapremina kocke i kvadra",
+      "topic": "Zapremina kocke",
+      "difficulty": "1"
     },
     {
       "name": "measures/q00081",

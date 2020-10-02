@@ -10,7 +10,7 @@
       "random": "5",
       "period": "1",
       "subtheme": "Prava linija",
-      "topic": "Tačka, prava, duž, poluprava",
+      "topic": "Tačka, prava, poluprava, duž",
       "difficulty": "1"
     },
     {
@@ -18,7 +18,7 @@
       "random": "6",
       "period": "1",
       "subtheme": "Izlomljena linija",
-      "topic": "Otvorena i zatvorena",
+      "topic": "Otvorena, zatvorena",
       "difficulty": "1"
     },
     {
@@ -26,7 +26,7 @@
       "random": "8",
       "period": "1",
       "subtheme": "Prava linija",
-      "topic": "Tačka, prava, duž, poluprava",
+      "topic": "Tačka, prava, poluprava, duž",
       "difficulty": "2"
     },
     {
@@ -34,7 +34,7 @@
       "random": "4",
       "period": "1",
       "subtheme": "Izlomljena linija",
-      "topic": "Otvorena i zatvorena",
+      "topic": "Otvorena, zatvorena",
       "difficulty": "1"
     },
     {
@@ -42,7 +42,7 @@
       "random": "0",
       "period": "1",
       "subtheme": "Prava linija",
-      "topic": "Tačka, prava, duž, poluprava",
+      "topic": "Tačka, prava, poluprava, duž",
       "difficulty": "1"
     },
     {
@@ -50,7 +50,7 @@
       "random": "0",
       "period": "1",
       "subtheme": "Prava linija",
-      "topic": "Tačka, prava, duž, poluprava",
+      "topic": "Tačka, prava, poluprava, duž",
       "difficulty": "1"
     },
     {
@@ -116,6 +116,14 @@
       "subtheme": "Figure",
       "topic": "Podudarnost ",
       "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00079",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Figure",
+      "topic": "Obim ",
+      "difficulty": "1"
     }
   ]
 }

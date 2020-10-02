@@ -15,7 +15,7 @@
     },
     {
       "name": "measures/q00044",
-      "random": "6",
+      "random": "8",
       "period": "2",
       "subtheme": "Merenje vremena",
       "topic": "Računske operacije",
@@ -31,7 +31,7 @@
     },
     {
       "name": "measures/q00053",
-      "random": "2",
+      "random": "4",
       "period": "2",
       "subtheme": "Merenje vremena",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -66,7 +66,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Merenje vremena",
-      "topic": "Računske operacije",
+      "topic": "Pretvaranje jedne mere u drugu",
       "difficulty": "2"
     },
     {
@@ -92,6 +92,22 @@
       "subtheme": "Merenje dužine",
       "topic": "Računske operacije",
       "difficulty": "2"
+    },
+    {
+      "name": "measures/q00061",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Merenje dužine",
+      "topic": "Računske operacije",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00062",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Merenje dužine",
+      "topic": "Računske operacije",
+      "difficulty": "3"
     },
     {
       "name": "measures/q00063",
@@ -153,16 +169,64 @@
       "name": "measures/q00070",
       "random": "2",
       "period": "2",
-      "subtheme": "Mere za dužinu, masu, zapreminu tečnosti i vreme",
-      "topic": "Izbor mere",
+      "subtheme": "Merenje mase",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00070",
+      "random": "2",
+      "period": "2",
+      "subtheme": "Merenje vremena",
+      "topic": "Poređenje mera",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00070",
+      "random": "2",
+      "period": "2",
+      "subtheme": "Merenje dužine",
+      "topic": "Poređenje mera",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00070",
+      "random": "2",
+      "period": "2",
+      "subtheme": "Merenje zapremine tečnosti",
+      "topic": "Poređenje mera",
       "difficulty": "1"
     },
     {
       "name": "measures/q00071",
-      "random": "6",
+      "random": "5",
       "period": "2",
-      "subtheme": "Mere za dužinu, masu, zapreminu tečnosti i vreme",
-      "topic": "Izbor mere",
+      "subtheme": "Merenje mase",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00071",
+      "random": "5",
+      "period": "2",
+      "subtheme": "Merenje vremena",
+      "topic": "Poređenje mera",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00071",
+      "random": "5",
+      "period": "2",
+      "subtheme": "Merenje dužine",
+      "topic": "Poređenje mera",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00071",
+      "random": "5",
+      "period": "2",
+      "subtheme": "Merenje zapremine tečnosti",
+      "topic": "Poređenje mera",
       "difficulty": "1"
     },
     {
@@ -178,6 +242,14 @@
       "random": "10",
       "period": "2",
       "subtheme": "Merenje zapremine tečnosti",
+      "topic": "Računske operacije",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00073",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Merenje vremena",
       "topic": "Računske operacije",
       "difficulty": "1"
     },
@@ -204,6 +276,14 @@
       "subtheme": "Merenje vremena",
       "topic": "Računske operacije",
       "difficulty": "2"
+    },
+    {
+      "name": "measures/q00084",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Merenje mase",
+      "topic": "Računske operacije",
+      "difficulty": "1"
     }
   ]
 }

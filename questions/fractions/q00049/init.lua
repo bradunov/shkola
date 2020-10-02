@@ -1,3 +1,4 @@
+
 include("names")
 r1 = math.random(#musko_ime_nom)
 r2 = math.random(#musko_ime_nom-1)
@@ -13,9 +14,7 @@ imenilac1 = math.random(5) + 1;
 imenilac2 = imenilac1 + math.random(4);
 brojilac = math.random(imenilac1-1);
 	
--- padezd2_low = string.lower(padezd2)
--- reply = "answer == '" .. padezd2 .. "' "  .. "|| answer == '" .. padezd2_low .. "'" ;
-           
-reply = padezd2;
- 
+reply = "answer == '" .. padezd2 .. "' ";
+ans = "answer = '" .. padezd2 .. "' "; 
              
+  

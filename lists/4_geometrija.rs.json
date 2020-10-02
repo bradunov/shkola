@@ -10,15 +10,15 @@
       "random": "0",
       "period": "2",
       "subtheme": "Geometrijska tela",
-      "topic": "Rogljasta i obla tela",
+      "topic": "Rogljasta, obla",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00024",
-      "random": "3",
+      "random": "4",
       "period": "2",
       "subtheme": "Geometrijska tela",
-      "topic": "Rogljasta i obla tela",
+      "topic": "Rogljasta, obla",
       "difficulty": "1"
     },
     {
@@ -26,15 +26,15 @@
       "random": "3",
       "period": "2",
       "subtheme": "Geometrijska tela",
-      "topic": "Rogljasta i obla tela",
+      "topic": "Rogljasta, obla",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00026",
-      "random": "8",
+      "random": "9",
       "period": "2",
       "subtheme": "Geometrijska tela",
-      "topic": "Rogljasta i obla tela",
+      "topic": "Rogljasta, obla",
       "difficulty": "1"
     },
     {
@@ -50,7 +50,7 @@
       "random": "8",
       "period": "2",
       "subtheme": "Kvadar i kocka",
-      "topic": "Elementi i osobine",
+      "topic": "Elementi, osobine",
       "difficulty": "1"
     },
     {
@@ -68,6 +68,14 @@
       "subtheme": "Kvadar i kocka",
       "topic": "Mreža",
       "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00080",
+      "random": "3",
+      "period": "2",
+      "subtheme": "Kvadar i kocka",
+      "topic": "Elementi, osobine",
+      "difficulty": "1"
     }
   ]
 }

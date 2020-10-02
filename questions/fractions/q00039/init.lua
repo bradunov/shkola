@@ -1,3 +1,4 @@
+
 include("names")
 r1 = math.random(#musko_ime_nom)
 r2 = math.random(#musko_ime_nom-1)
@@ -35,5 +36,7 @@ else
    ime = ime1;
 end                 
 
+reply = "answer == '" .. ime .. "' ";
+ans = "answer = '" .. ime .. "' ";
 
                   

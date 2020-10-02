@@ -1,0 +1,6 @@
+                                Compare the surfaces of the figures in the picture. Mark the figures with numbers from 1 to 6, starting with the one with the smallest surface area.
+
+@vspace@
+@center@ @mycanvas()@                  
+            
+            

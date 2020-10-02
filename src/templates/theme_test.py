@@ -41,7 +41,7 @@ page['themes'].append({
         ]
       },
       {
-        'title' : 'Poredjenje',
+        'title' : 'Merenje nestandardnim jedinicama mere',
         'topics' : [
           {
             'title' : 'Tema 1',

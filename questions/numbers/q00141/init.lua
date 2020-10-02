@@ -1,6 +1,5 @@
 include("terms")
 
-q1 = {"Abraham Lincoln", "William Shakespeare", "Isaac Newton", "Leonardo da Vinci", "Marjam Mirzahani", "Charlie Chaplin"}
 q2 = {1809, 1564, 1642, 1452, 1977, 1889}
 q3 = {"MDCCCIX", "MDLXIV", "MDCXLII", "MCDLII", "MCMLXXVII", "MDCCCLXXXIX"}
 q4 = {56, 52, 84, 67, 40, 88}

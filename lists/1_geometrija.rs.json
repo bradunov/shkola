@@ -15,7 +15,7 @@
     },
     {
       "name": "geometry/q00002",
-      "random": "2",
+      "random": "3",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
@@ -23,7 +23,7 @@
     },
     {
       "name": "geometry/q00003",
-      "random": "2",
+      "random": "3",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Veličina predmeta i bića",
@@ -39,7 +39,7 @@
     },
     {
       "name": "geometry/q00005",
-      "random": "2",
+      "random": "3",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Veličina predmeta i bića",
@@ -47,7 +47,7 @@
     },
     {
       "name": "geometry/q00006",
-      "random": "4",
+      "random": "6",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
@@ -71,31 +71,39 @@
     },
     {
       "name": "geometry/q00009",
-      "random": "5",
+      "random": "8",
       "period": "2",
       "subtheme": "Linija",
-      "topic": "Prava, kriva, izlomljena,  otvorena, zatvorena",
+      "topic": "Prava, kriva, izlomljena linija",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00009",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Linija",
+      "topic": "Otvorena, zatvorena linija",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00010",
-      "random": "6",
+      "random": "3",
       "period": "2",
       "subtheme": "Linija",
-      "topic": "Prava, kriva, izlomljena,  otvorena, zatvorena",
-      "difficulty": "2"
+      "topic": "Prava, kriva, izlomljena linija",
+      "difficulty": "1"
     },
     {
       "name": "geometry/q00011",
-      "random": "2",
+      "random": "3",
       "period": "2",
       "subtheme": "Linija",
-      "topic": "Prava, kriva, izlomljena,  otvorena, zatvorena",
+      "topic": "Prava, kriva, izlomljena linija",
       "difficulty": "1"
     },
     {
       "name": "geometry/q00012",
-      "random": "6",
+      "random": "10",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Geometrijske figure i tela",
@@ -146,15 +154,31 @@
       "random": "8",
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
-      "topic": "Geometrijske figure i tela",
+      "topic": "Prostorne relacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00045",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Linija",
+      "topic": "Spoljašnja, unutrašnja oblast",
       "difficulty": "2"
     },
     {
       "name": "geometry/q00046",
       "random": "3",
-      "period": "1",
-      "subtheme": "Položaj, veličina i oblik",
-      "topic": "Geometrijske figure i tela",
+      "period": "2",
+      "subtheme": "Linija",
+      "topic": "Spoljašnja, unutrašnja oblast",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00056",
+      "random": "6",
+      "period": "2",
+      "subtheme": "Linija",
+      "topic": "Otvorena, zatvorena linija",
       "difficulty": "1"
     },
     {
@@ -163,6 +187,14 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00081",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Linija",
+      "topic": "Spoljašnja, unutrašnja oblast",
       "difficulty": "2"
     }
   ]

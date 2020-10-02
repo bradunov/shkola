@@ -1,0 +1,1 @@
+place = {"inside the blue", "inside the blue and outside the red", "inside the red", "inside the red and outside the blue", "inside the red and the blue", "outside the red and the blue"}
