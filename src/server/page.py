@@ -480,7 +480,8 @@ class Page(object):
                 logging.error("Register operation with incomplete parameters: {}".format(args))
 
         else:
-            logging.error("Unknown register operation: {}".format(args["response_type"]))
+            # This is often hit by crawlers, so ignore
+            logging.debug("Unknown register operation: {}".format(args["response_type"]))
 
         return "ABC"
 
@@ -559,7 +560,8 @@ class Page(object):
             except Exception as err:
                 logging.error("Error submitting record response (user_id={}): {}".format(user_id, str(err)))
         else:
-            logging.error("Register operation with incomplete parameters (user_id={}): {}".format(user_id, args))
+            # This is often hit by crawlers, so ignore
+            logging.debug("Register operation with incomplete parameters (user_id={}): {}".format(user_id, args))
 
         return "ABC"
 
