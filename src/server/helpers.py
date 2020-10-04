@@ -4,6 +4,16 @@ import re
 import pickle
 import urllib
 import base64
+import inspect
+
+
+def get_stack_trace():
+  output = "Stack trace:\n"
+  for l in inspect.stack():
+    output = output + "  Filename: {}, Line: {}, Function: {}, Code:\n    ".format(l.filename, l.lineno, l.function)
+    for h in l.code_context:
+      output = output + h
+  return output
 
 
 def encap_str(s : str):

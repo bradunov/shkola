@@ -14,6 +14,7 @@ from server.question import Question
 
 from server.stat_charts import prepare_user_stats_chart
 
+import server.helpers as helpers
 import server.context as context
 from server.timers import timer_section
 
@@ -798,16 +799,17 @@ class Design_default(object):
         try:
             q_number = int(q_number) if not q_number is None else 0
         except ValueError as ex:
-            logging.error("Incorrect q_num={}".format(q_number))
+            logging.error("Incorrect q_num={}\n{}".format(q_number, helpers.get_stack_trace()))
             q_number = 0
-
 
         skipped = page.page_params.get_param("skipped")
         if skipped.lower() == "true":
             try:
                 context.c.session.get("history")[-1]["skipped"] = True
             except:
-                logging.error("Cannot mark last question as skipped (hist={})".format(context.c.session.get("history")))
+                logging.error("Cannot mark last question as skipped\nhist={}\n{}".format(
+                    context.c.session.get("history"), helpers.get_stack_trace()
+                    ))
 
 
         hist = None
@@ -816,8 +818,8 @@ class Design_default(object):
             # At this point current q_id should match the last one in history,
             # otherwise there was an error creating TEST_PREV link
             if not q_id == context.c.session.get("history")[-1]["q_id"]:
-                logging.error("Error getting back in questions: q_id={}, q_num={}\nHist={}".format(
-                    q_id, q_number, context.c.session.get("history")
+                logging.error("Error getting back in questions: q_id={}, q_num={}\nHist={}\n{}".format(
+                    q_id, q_number, context.c.session.get("history"), helpers.get_stack_trace()
                 ))
         else:
             if q_number == test.get_q_number() + 1:
@@ -834,13 +836,13 @@ class Design_default(object):
             elif q_number == test.get_q_number():
                 # The same question - probably a refresh
                 if not q_id == context.c.session.get("history")[-1]["q_id"]:
-                    logging.error("Error in history: q_id={}, q_num={}\nHist={}".format(
-                        q_id, q_number, context.c.session.get("history")
+                    logging.error("Error in history: q_id={}, q_num={}\nHist={}\n{}".format(
+                        q_id, q_number, context.c.session.get("history"), helpers.get_stack_trace()
                     ))
             else:
                 # Likely wrong
-                logging.error("Error in question numbering: q_id={}, q_num={}/{}\nHist={}".format(
-                    q_id, q_number, test.get_q_number(), context.c.session.get("history")
+                logging.error("Error in question numbering: q_id={}, q_num={}/{}\nHist={}\n{}".format(
+                    q_id, q_number, test.get_q_number(), context.c.session.get("history"), helpers.get_stack_trace()
                 ))
 
 

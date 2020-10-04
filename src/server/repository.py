@@ -2,6 +2,7 @@ import os
 import json
 import logging
 
+import server.helpers as helpers
 from server.azure_blob import Azure_blob
 
 
@@ -447,7 +448,9 @@ class Repository(object):
                             all_keys.append(l[k])
                             paths.append(((p + "/") if p else "") + k)
                 except:
-                    logging.error("Error processing a question in path {}".format(p))
+                    logging.error("Error processing a question in path {}\n{}".format(
+                        p, helpers.get_stack_trace()
+                        ))
             return q_ids
         else:
             if self.azure_blob is None:

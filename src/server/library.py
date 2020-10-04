@@ -3,6 +3,7 @@ import numpy
 import random
 import lupa
 import logging
+import server.helpers as helpers
 #from server.helpers import *
 
 
@@ -252,7 +253,9 @@ class Library(object):
         else:
             str_condition = "is_ok = (" + condition.replace("answer", v_answer) + ");"
             if solution is None:
-                logging.error("Free form condition in question {} but no solution given.".format(self.question_url))
+                logging.error("Free form condition in question {} but no solution given.\n{}".format(
+                    self.question_url, helpers.get_stack_trace()
+                    ))
             else:
                 str_solution = solution.replace("answer", s_answer) + ";"
 
@@ -340,7 +343,9 @@ class Library(object):
             input_numerator = "<input " + self.input_style + "type='text' size='1' id='" + n_answer_numerator + "' />"
             clear_str = clear_str + "document.getElementById('{}').value = '';".format(n_answer_numerator)
             if solution is None or not "numerator" in solution:
-                logging.error("Free form fractional condition in question {} but no solution given.".format(self.question_url))
+                logging.error("Free form fractional condition in question {} but no solution given.\n{}".format(
+                    self.question_url, helpers.get_stack_trace()
+                    ))
 
             
         if known is not None and "denominator" in known.keys():
@@ -351,7 +356,9 @@ class Library(object):
             input_denominator = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_denominator + "' />"
             clear_str = clear_str + "document.getElementById('{}').value = '';".format(n_answer_denominator)
             if solution is None or not "denominator" in solution:
-                logging.error("Free form fractional condition in question {} but no solution given.".format(self.question_url))
+                logging.error("Free form fractional condition in question {} but no solution given.\n{}".format(
+                    self.question_url, helpers.get_stack_trace()
+                    ))
 
 
         input_whole = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_whole + "' />"
@@ -365,7 +372,9 @@ class Library(object):
                 input_frac = input_frac + "<td rowspan=\"2\">" + input_whole + "</td>\n"
                 clear_str = clear_str + "document.getElementById('{}').value = '';".format(n_answer_whole)
                 if solution is None or not "whole" in solution:
-                    logging.error("Free form fractional condition in question {} but no solution given.".format(self.question_url))
+                    logging.error("Free form fractional condition in question {} but no solution given.\n{}".format(
+                        self.question_url, helpers.get_stack_trace()
+                        ))
 
 
         input_frac = input_frac + "<td style=\"border-bottom:solid 1px;text-align:center\">" + input_numerator + "</td>\n"

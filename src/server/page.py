@@ -12,6 +12,7 @@ from server.types import PageDesign
 import server.context as context
 
 import server.storage
+import server.helpers as helpers
 from server.repository import Repository
 from server.user_db import UserDB, GOOGLE_CLIENT_ID, GOOGLE_SITE_VERIFICATION
 from server.design import Design
@@ -475,9 +476,13 @@ class Page(object):
                 try:
                     self.storage.record_response(response)
                 except Exception as err:
-                    logging.error("Error submitting record response: {}".format(err))
+                    logging.error("Error submitting record response: {}\n{}".format(
+                        err, helpers.get_stack_trace()
+                        ))
             else:
-                logging.error("Register operation with incomplete parameters: {}".format(args))
+                logging.error("Register operation with incomplete parameters: {}\n{}".format(
+                    args, helpers.get_stack_trace()
+                    ))
 
         else:
             # This is often hit by crawlers, so ignore
@@ -558,7 +563,9 @@ class Page(object):
             try:
                 self.storage.record_feedback(response)
             except Exception as err:
-                logging.error("Error submitting record response (user_id={}): {}".format(user_id, str(err)))
+                logging.error("Error submitting record response (user_id={}): {}\n{}".format(
+                    user_id, str(err), helpers.get_stack_trace()
+                    ))
         else:
             # This is often hit by crawlers, so ignore
             logging.debug("Register operation with incomplete parameters (user_id={}): {}".format(user_id, args))
