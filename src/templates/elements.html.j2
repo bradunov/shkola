@@ -442,8 +442,8 @@
               transform="translate({{d1_x}} {{r_y_start}})" style="fill:#f3b051"/>
         <path id="rect_2_{{name}}" d="M0 0H{{d2_w+1}}V{{r_height}}H0z" data-name="Rectangle 108" 
               transform="translate({{d2_x}} {{r_y_start}})" style="fill:#6ab288"/>
-        <path id="rect_2_{{name}}" d="M0 0H{{d3_w}}V{{r_height}}H0z" data-name="Rectangle 109" 
-              transform="translate({{d3_x}} {{r_y_start}})" style="fill:#489cba"/>
+        <path id="rect_3_{{name}}" d="M0 0H{{d3_w}}V{{r_height}}H0z" data-name="Rectangle 109" 
+              transform="translate({{d3_x}} {{r_y_start}})" style="fill:#dc3d39"/>
         {% if t_w < d1_w %}
           <text id="text_1_{{name}}" class="stats__cls-6 sh_lato_font" data-name="d1" transform="translate({{d1_t_x}} {{t_y_start}})">
               <tspan x="-3.48" y="0">{{d1}}</tspan>
@@ -485,7 +485,8 @@
   {% elif number == 2 %}
     {% set on_color = "#6ab288" %}
   {% elif number == 3 %}
-    {% set on_color = "#489cba" %}
+    {# {% set on_color = "#489cba" %} #}
+    {% set on_color = "#dc3d39" %}
   {% endif %}
 
 

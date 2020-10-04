@@ -344,7 +344,8 @@ class Question(object):
 
 
         self.page.add_lines("\n\n<!-- QUESTIONS START -->\n\n")
-        self.page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
+        #self.page.add_lines("<div id='question' style='display:table; margin:0 auto;'>\n")
+        self.page.add_lines("<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>\n")
 
         self.page.add_lines("<script>var test_id = {}; var test_order = {};</script>\n".format(
             self.test_id, self.test_order))
