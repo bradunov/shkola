@@ -1,5 +1,5 @@
 include("terms")
-sign = {"m", "kg", "l", "s"}
+sign = {"m", "g", "l", "s"}
 
 out = {1, 2, 3, 4}
 

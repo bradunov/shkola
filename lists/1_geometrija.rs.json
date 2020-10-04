@@ -123,7 +123,7 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
-      "difficulty": "1"
+      "difficulty": "2"
     },
     {
       "name": "geometry/q00015",
@@ -152,7 +152,7 @@
     {
       "name": "geometry/q00045",
       "random": "8",
-      "period": "1",
+      "period": "2",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
       "difficulty": "2"

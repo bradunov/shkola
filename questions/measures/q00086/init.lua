@@ -26,6 +26,11 @@ rubber = ind_rub * step
 ind_pen = math.random(3) + 2
 pencil = ind_pen * rubber
 
+length = "dužine"
+if (ind_pen == 5) then
+    length = "dužina"
+end	
+
 mycanvas = function(no)
 
   lib.start_canvas(350, 150, "center")
@@ -37,7 +42,7 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end                
-                  
+               
                
             
                                

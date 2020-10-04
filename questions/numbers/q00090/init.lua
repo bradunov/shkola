@@ -1,6 +1,6 @@
 
 addition_table = function()
-  columns = 8
+  columns = 7
   min_range = 101
 
   q = {}
@@ -16,12 +16,12 @@ addition_table = function()
 
   style = {}
   style["text-align"] = "center"
-  style["width"] = "40px"
+  style["width"] = "50px"
   text = lib.start_table()
   text = text .. lib.start_row()
   text = text .. lib.add_cell("A", style)
   text = text .. lib.add_cell("B", style)
-  text = text .. lib.add_cell("A &middot; B", style)
+  text = text .. lib.add_cell("A · B", style)
   text = text .. lib.end_row()
   for c=0,columns-1 do
     text = text .. lib.start_row()

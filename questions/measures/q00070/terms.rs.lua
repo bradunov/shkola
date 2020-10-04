@@ -1,2 +1,2 @@
 measure = {"dužine", "mase", "zapremine tečnosti", "vremena"}
-name = {"metar", "kilogram", "litar", "sekund"}
+name = {"metar", "gram", "litar", "sekund"}

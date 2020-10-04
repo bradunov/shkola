@@ -42,7 +42,7 @@ else
 	out2 = prod2
 end	  	
             
-answ = tostring(math.floor(term1)) .. " " .. sign[1] .. " " .. tostring(math.floor(term2)) .. " " .. sign[3] .. " " .. tostring(math.floor(term3)) .. sign[2] .. " " .. tostring(math.floor(term4)) .." = " ..lib.check_number(out1,20) .. " " .. sign[3] .. " " .. lib.check_number(out2,20) .. " = "
+answ = tostring(math.floor(term1)) .. " " .. sign[1] .. " " .. tostring(math.floor(term2)) .. " " .. sign[3] .. " " .. tostring(math.floor(term3)) .. " " .. sign[2] .. " " .. tostring(math.floor(term4)) .." = " .. lib.check_number(out1,20) .. " " .. sign[3] .. " " .. lib.check_number(out2,20) .. " = "
 	
 			  
 		  

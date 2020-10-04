@@ -243,7 +243,7 @@
       "period": "1",
       "subtheme": "Brojevi do 100",
       "topic": "Upoređivanje brojeva",
-      "difficulty": "2"
+      "difficulty": "3"
     },
     {
       "name": "numbers/q00039",
@@ -394,7 +394,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Računske operacije",
-      "topic": "Množenje i deljenje do 100",
+      "topic": "Množenje i deljenje",
       "difficulty": "3"
     },
     {
@@ -402,7 +402,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Računske operacije",
-      "topic": "Množenje i deljenje do 100",
+      "topic": "Množenje i deljenje ",
       "difficulty": "1"
     },
     {
@@ -459,7 +459,7 @@
       "period": "1",
       "subtheme": "Brojevni izraz",
       "topic": "Tekstualni zadatak",
-      "difficulty": "2"
+      "difficulty": "3"
     },
     {
       "name": "numbers/q00223",
