@@ -89,7 +89,7 @@ class Page(object):
             template_path = os.getenv("SHKOLA_TEMPLATES")
 
         if template_path is None:
-            template_path = os.path.join(self.rel_path, 'templates')
+            template_path = os.path.join(self.rel_path, 'src/templates')
 
         self.template_path = os.path.abspath(template_path)
 

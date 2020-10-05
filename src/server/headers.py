@@ -15,6 +15,10 @@ class Headers:
             self._cookies[name][k] = v
 
 
+    def get_cookies(self):
+        return self._cookies
+
+
     def set_content_type(self, ctype):
         self._content_type = ctype
 
@@ -40,14 +44,14 @@ class Headers:
         self._headers[name] = value
 
 
-    def get_headers(self):
+    def get_headers(self, with_cookies = True):
         headers = self._headers.copy()
 
         cookies = list(self._cookies.items())
         if len(cookies) > 1:
             raise Exception("Cannot set multiple cookies")
 
-        if cookies:
+        if cookies and with_cookies:
             n, v = cookies[0]
             headers['Set-Cookie'] = "{}={}".format(n, v.coded_value)
 
