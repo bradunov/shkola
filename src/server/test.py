@@ -136,8 +136,8 @@ class Test(object):
                         diff = 100
                         remaining_question = 100
                     else:
-                        diff = next_q["random"]
-                        remaining_question = remaining_question + next_q["random"]
+                        diff = next_q["random"] if next_q["random"] > 0 else 1
+                        remaining_question = remaining_question + diff
 
                 else:
                     if next_q["q_id"] == last_question:
@@ -159,8 +159,9 @@ class Test(object):
                             diff = 100
                             remaining_question = 100
                         else:
-                            diff = next_q["random"] - past_questions[next_q["q_id"]]["number"]
-                            remaining_question = remaining_question + next_q["random"] - past_questions[next_q["q_id"]]["number"]
+                            diff = next_q["random"] - past_questions[next_q["q_id"]]["number"] \
+                                if next_q["random"] - past_questions[next_q["q_id"]]["number"] >= 0 else 0
+                            remaining_question = remaining_question + diff
 
 
                 print("Q: {} ({}) - {} {}".format(next_q["q_id"], add_in_random, diff, remaining_question))
@@ -168,6 +169,10 @@ class Test(object):
                 if add_in_random:
                     randomized_questions = True
                     potential_questions_w_repeat.append(next_q)
+
+        print("remaining_question={}\npotential_questions={}\npotential_questions_w_repeat={}".format(
+            remaining_question, json.dumps(potential_questions, indent=2), json.dumps(potential_questions_w_repeat, indent=2)
+            ))
 
 
         # if not potential_questions_w_repeat:
