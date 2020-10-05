@@ -11,6 +11,8 @@
       "period": "1",
       "subtheme": "Prava linija",
       "topic": "Tačka, prava, poluprava, duž",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -19,6 +21,8 @@
       "period": "1",
       "subtheme": "Izlomljena linija",
       "topic": "Otvorena, zatvorena",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -27,6 +31,8 @@
       "period": "1",
       "subtheme": "Prava linija",
       "topic": "Tačka, prava, poluprava, duž",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
       "difficulty": "2"
     },
     {
@@ -35,6 +41,8 @@
       "period": "1",
       "subtheme": "Izlomljena linija",
       "topic": "Otvorena, zatvorena",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -43,6 +51,8 @@
       "period": "1",
       "subtheme": "Prava linija",
       "topic": "Tačka, prava, poluprava, duž",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -51,6 +61,8 @@
       "period": "1",
       "subtheme": "Prava linija",
       "topic": "Tačka, prava, poluprava, duž",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -59,6 +71,8 @@
       "period": "1",
       "subtheme": "Izlomljena linija",
       "topic": "Dužina izlomljene linije",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
       "difficulty": "1"
     },
     {
@@ -67,6 +81,8 @@
       "period": "1",
       "subtheme": "Figure",
       "topic": "Obim ",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -75,6 +91,8 @@
       "period": "1",
       "subtheme": "Izlomljena linija",
       "topic": "Dužina izlomljene linije",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
       "difficulty": "2"
     },
     {
@@ -83,6 +101,8 @@
       "period": "2",
       "subtheme": "Figure",
       "topic": "Podudarnost ",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
       "difficulty": "2"
     },
     {
@@ -91,6 +111,8 @@
       "period": "2",
       "subtheme": "Figure",
       "topic": "Simetrija",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
       "difficulty": "2"
     },
     {
@@ -99,6 +121,8 @@
       "period": "2",
       "subtheme": "Figure",
       "topic": "Simetrija",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
       "difficulty": "2"
     },
     {
@@ -107,6 +131,8 @@
       "period": "2",
       "subtheme": "Figure",
       "topic": "Simetrija",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
       "difficulty": "2"
     },
     {
@@ -115,6 +141,8 @@
       "period": "2",
       "subtheme": "Figure",
       "topic": "Podudarnost ",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
       "difficulty": "2"
     },
     {
@@ -123,6 +151,8 @@
       "period": "1",
       "subtheme": "Figure",
       "topic": "Obim ",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
       "difficulty": "1"
     }
   ]

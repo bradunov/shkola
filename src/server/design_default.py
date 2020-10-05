@@ -458,6 +458,8 @@ class Design_default(object):
                         if not subclass == "name":
                             subtheme = content[page.page_params.get_param("year")][theme][subclass]["subtheme"].strip()
                             topic = content[page.page_params.get_param("year")][theme][subclass]["topic"].strip()
+                            rank_subtheme = content[page.page_params.get_param("year")][theme][subclass]["rank_subtheme"].strip()
+                            rank_topic = content[page.page_params.get_param("year")][theme][subclass]["rank_topic"].strip()
                             period = content[page.page_params.get_param("year")][theme][subclass]["period"]
                             if subtheme not in subtheme_dict.keys():
                                 try:
@@ -474,6 +476,7 @@ class Design_default(object):
                                 subtheme_d = {
                                     'title' : subtheme.capitalize(),
                                     'icon' : icon_svg, 
+                                    'rank_subtheme' : rank_subtheme,
                                     'topics' : [],
                                     'topics_dir' : {},
                                     'min_period' : period,
@@ -492,6 +495,7 @@ class Design_default(object):
 
                                 topic_d = {
                                     'title' : "Sve teme",
+                                    'rank_topic' : "0",
                                     'min_period' : "0",
                                     'link' : page.page_params.create_url(
                                             op = PageOperation.toStr(PageOperation.INTRO), 
@@ -513,6 +517,7 @@ class Design_default(object):
                             if topic not in subtheme_d['topics_dir'].keys():
                                 topic_d = {
                                     'title' : topic.capitalize(),
+                                    'rank_topic' : rank_topic,
                                     'min_period' : period,
                                     'link' : page.page_params.create_url(
                                             op = PageOperation.toStr(PageOperation.INTRO), 
@@ -545,11 +550,13 @@ class Design_default(object):
                             # page.add_lines("</div>\n")
 
                     # Sort first by period and then alphabetically
-                    subtheme_list.sort(key=lambda x:x['min_period'] + x['title'])
+                    #subtheme_list.sort(key=lambda x:x['min_period'] + x['title'])
+                    subtheme_list.sort(key=lambda x:x['rank_subtheme'] + x['title'])
                     #logging.debug("THEME {}: \n{}\n\n".format(
                     #    theme, [[x['title'], x['min_period']] for x in subtheme_list] ))
                     for st in subtheme_list:
-                        st['topics'].sort(key=lambda x:x['min_period'] + x['title'])
+                        #st['topics'].sort(key=lambda x:x['min_period'] + x['title'])
+                        st['topics'].sort(key=lambda x:x['rank_topic'] + x['title'])
                         #logging.debug("SUBTHEME {}: \n{}\n\n".format(
                         #    st['title'], [[x['title'], x['min_period']] for x in st['topics']] ))
 

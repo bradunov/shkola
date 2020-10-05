@@ -350,6 +350,8 @@ class Repository(object):
                                 "subtheme" : st.lower(),
                                 "topic" : q["topic"].lower(),
                                 "period" : q["period"].lower(),
+                                "rank_subtheme" : q["rank_subtheme"].lower() if "rank_subtheme" in q.keys() else "100",
+                                "rank_topic" : q["rank_topic"].lower() if "rank_topic" in q.keys() else "100",
                                 "difficulty" : q["difficulty"].lower(),
                                 "questions" : []
                             }
@@ -363,6 +365,8 @@ class Repository(object):
                             "subtheme" : q["subtheme"].lower(),
                             "topic" : q["topic"].lower(),
                             "period" : q["period"].lower(),
+                            "rank_subtheme" : q["rank_subtheme"].lower() if "rank_subtheme" in q.keys() else "100",
+                            "rank_topic" : q["rank_topic"].lower() if "rank_topic" in q.keys() else "100",
                             "difficulty" : q["difficulty"].lower(),
                             "questions" : []
                         }
