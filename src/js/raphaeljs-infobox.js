@@ -24,7 +24,7 @@
     this.div = jQuery('<div style="position: absolute; overflow: auto; width: 0; height: 0;"></div>').insertAfter(this.raph_container);
     jQuery(document).bind('ready', this, function(event) { event.data.update(); });
     jQuery(window).bind('resize', this, function(event) { event.data.update(); });
-
+    jQuery(document).on('load', function(event) { event.data.update(); });
 
     // Make sure you update coordinate if anything is scrolled
     obj = this.container.node;
