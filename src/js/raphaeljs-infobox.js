@@ -25,6 +25,18 @@
     jQuery(document).bind('ready', this, function(event) { event.data.update(); });
     jQuery(window).bind('resize', this, function(event) { event.data.update(); });
 
+
+    // Make sure you update coordinate if anything is scrolled
+    obj = this.container.node;
+    while(obj != document) {
+      try {
+        jQuery(obj).bind('scroll', this, function(event) { event.data.update(); });
+      } catch (e) {
+        // Just ignore
+      }
+      obj = obj.parentNode;
+    }
+
     this.update();
   }
 
