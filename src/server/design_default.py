@@ -820,7 +820,7 @@ class Design_default(object):
 
 
         hist = None
-        if page.page_params.get_param("op") == PageOperation.TEST_PREV:
+        if page.page_params.get_param("op") == PageOperation.TEST_PREV or q_number == test.get_q_number() - 1:
             context.c.session.list_delete("history", -1)
             # At this point current q_id should match the last one in history,
             # otherwise there was an error creating TEST_PREV link
