@@ -87,6 +87,7 @@
         feedback['language'] = language;
         feedback['l_id'] = l_id;
         feedback['comment'] = error_msg;
+        feedback['href'] = window.location.href;
         xhr.open('POST', url);
         xhr.onreadystatechange = function() {
             console.log("Received");
