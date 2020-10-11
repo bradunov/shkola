@@ -12,8 +12,10 @@ from server.request import Request, RequestType
 from server.timers import TimerControl
 
 import logging
+from server.logging_azure import Logging_handler_azure
 
 logging.basicConfig(level=logging.DEBUG)
+
 
 
 class Site:
@@ -22,7 +24,14 @@ class Site:
     preload = True
 
     def __init__(self):
-        self.page = Page(use_azure_blob=self.use_azure_blob, preload=self.preload)
+        workspace_id = os.getenv('SHKOLA_LA_WORKSPACE_ID')                    
+        primary_key = os.getenv('SHKOLA_LA_PRIMARY_KEY')
+        if workspace_id or primary_key:
+            log_handler = Logging_handler_azure(workspace_id, primary_key)
+        else:
+            log_handler = None
+
+        self.page = Page(use_azure_blob=self.use_azure_blob, preload=self.preload, external_log_handler=log_handler)
 
 
     @cherrypy.expose

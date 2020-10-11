@@ -50,7 +50,8 @@ class Page(object):
 
     # use_azure_blob = True: use blob for question storage rather than the local disk
     # preload = True: fetch all questions in memory at start time (may be slow for a blob)
-    def __init__(self, title="tatamata.org", rel_path=None, template_path=None, use_azure_blob=False, preload=True):
+    def __init__(self, title="tatamata.org", rel_path=None, template_path=None, \
+        use_azure_blob=False, preload=True, external_log_handler=None):
 
         # Set logging formater
         # See this for attributes: https://docs.python.org/3/library/logging.html#logrecord-attributes
@@ -68,6 +69,12 @@ class Page(object):
                 logger = None    #break out
             else:
                 logger = logger.parent
+
+
+        # Any additional handler (e.g. to Azure Log Analytics)
+        if external_log_handler:
+            logger = logging.Logger.root
+            logger.addHandler(external_log_handler)
 
 
         if rel_path:
