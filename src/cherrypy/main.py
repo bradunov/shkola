@@ -14,7 +14,9 @@ from server.timers import TimerControl
 import logging
 from server.logging_azure import Logging_handler_azure
 
-logging.basicConfig(level=logging.DEBUG)
+
+from server.helpers import set_log_level
+set_log_level()
 
 
 

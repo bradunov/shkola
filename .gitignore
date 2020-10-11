@@ -3,6 +3,8 @@
 src/server/*.sql
 tmp
 exports.sh
+exports.ps1
+exports.bat 
 
 
 # Excel tmp files

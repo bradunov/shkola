@@ -77,7 +77,7 @@ class Logging_handler_azure(logging.StreamHandler):
     def emit(self, record):
         json_body = self.format(record)
         self._post_data(self.workspace_id, self.primary_key, json_body, self.log_type)
-        print("\n\n{}\n\n".format(json_body))
+        #print("\n\n{}\n\n".format(json_body))
 
 
 

@@ -164,15 +164,15 @@ class Test(object):
                             remaining_question = remaining_question + diff
 
 
-                print("Q: {} ({}) - {} {}".format(next_q["q_id"], add_in_random, diff, remaining_question))
+                #print("Q: {} ({}) - {} {}".format(next_q["q_id"], add_in_random, diff, remaining_question))
 
                 if add_in_random:
                     randomized_questions = True
                     potential_questions_w_repeat.append(next_q)
 
-        print("remaining_question={}\npotential_questions={}\npotential_questions_w_repeat={}".format(
-            remaining_question, json.dumps(potential_questions, indent=2), json.dumps(potential_questions_w_repeat, indent=2)
-            ))
+        # print("remaining_question={}\npotential_questions={}\npotential_questions_w_repeat={}".format(
+        #     remaining_question, json.dumps(potential_questions, indent=2), json.dumps(potential_questions_w_repeat, indent=2)
+        #     ))
 
 
         # if not potential_questions_w_repeat:

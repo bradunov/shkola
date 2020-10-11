@@ -1,10 +1,35 @@
 #import cherrypy
 import re
 
+import os
 import pickle
 import urllib
 import base64
 import inspect
+import logging
+
+
+
+def set_log_level():
+    logging.basicConfig(level=logging.ERROR)
+    # https://stackoverflow.com/a/57896847
+    logging.Logger.root.level = logging.ERROR
+
+    log_level = os.getenv('SHKOLA_LOG_LEVEL')
+
+    if log_level:
+        log_level = log_level.upper().strip()
+        if log_level == "DEBUG":
+            logging.basicConfig(level=logging.DEBUG)
+            logging.Logger.root.level = logging.DEBUG
+        elif log_level == "INFO":
+            logging.basicConfig(level=logging.INFO)
+            logging.Logger.root.level = logging.INFO
+        elif log_level == "INFO":
+            logging.basicConfig(level=logging.WARNING)
+            logging.Logger.root.level = logging.WARNING
+
+    
 
 
 def get_stack_trace():

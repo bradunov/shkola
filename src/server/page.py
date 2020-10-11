@@ -60,7 +60,7 @@ class Page(object):
         # The loop is taken from Logger.callHandlers() implementation
         # Note: logging.Logger.root should be the root (no parent) but I leave the loop just in case AF change
         #formatter    = logging.Formatter('%(pathname)s:%(funcName)s(%(lineno)d) : %(message)s\n')
-        formatter    = logging.Formatter('%(filename)s:%(funcName)s(%(lineno)d) : %(message)s\n')
+        formatter    = logging.Formatter('%(levelname)s %(filename)s:%(funcName)s(%(lineno)d) : %(message)s\n')
         logger = logging.Logger.root
         while logger:
             for hdlr in logger.handlers:
@@ -116,7 +116,8 @@ class Page(object):
         self.template_params = self._default_template_params
         self.template_params["title"] = self.title
 
-
+        print("**** Page loaded.\n")
+        
 
     def clear(self):
         self.page_params = PageParameters()

@@ -11,7 +11,8 @@ from timers import TimerControl
 
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
+from server.helpers import set_log_level
+set_log_level()
 
 
 

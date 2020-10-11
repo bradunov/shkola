@@ -5,11 +5,8 @@ import os
 import azure.functions as func
 
 
-#logging.basicConfig(level=logging.INFO)
-logging.basicConfig(level=logging.DEBUG)
-
-# https://stackoverflow.com/a/57896847
-logging.Logger.root.level = logging.DEBUG
+from server.helpers import set_log_level
+set_log_level()
 
 
 
