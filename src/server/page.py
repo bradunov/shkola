@@ -72,6 +72,7 @@ class Page(object):
 
 
         # Any additional handler (e.g. to Azure Log Analytics)
+        self.external_log_handler = external_log_handler
         if external_log_handler:
             logger = logging.Logger.root
             logger.addHandler(external_log_handler)
@@ -117,7 +118,15 @@ class Page(object):
         self.template_params["title"] = self.title
 
         print("**** Page loaded.\n")
-        
+        self.log_json({"msg":"Page loaded"}, True)
+
+
+    # Send structured log to the log store (if defined)
+    # If not upload_immediately, buffer as required
+    def log_json(self, json_dict, upload_immediately=False):
+        if self.external_log_handler:
+            self.external_log_handler.log_json(json_dict, upload_immediately)
+
 
     def clear(self):
         self.page_params = PageParameters()
