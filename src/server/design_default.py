@@ -847,10 +847,13 @@ class Design_default(object):
                         q_id, q_number, context.c.session.get("history"), helpers.get_stack_trace()
                     ))
             else:
+                # This happens too often - for now just correct the number
                 # Likely wrong
-                logging.error("Error in question numbering: q_id={}, q_num={}/{}\nHist={}\n{}".format(
+                logging.debug("Error in question numbering: q_id={}, q_num={}/{}\nHist={}\n{}".format(
                     q_id, q_number, test.get_q_number(), context.c.session.get("history"), helpers.get_stack_trace()
                 ))
+                q_number = test.get_q_number()
+                page.page_params.set_param("q_num", q_number)
 
 
 
