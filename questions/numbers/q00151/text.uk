@@ -1,8 +1,0 @@
-                                Write from smallest to largest, the common factors of the pairs of given numbers: 
-
-@repeat(5)@
-@number1@ @hspace@ @number2@ @hspace@ @answ@        
-@/repeat@   
-                  
-            
-            

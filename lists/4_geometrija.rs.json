@@ -11,8 +11,6 @@
       "period": "2",
       "subtheme": "Geometrijska tela",
       "topic": "Rogljasta, obla",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -21,8 +19,6 @@
       "period": "2",
       "subtheme": "Geometrijska tela",
       "topic": "Rogljasta, obla",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -31,8 +27,6 @@
       "period": "2",
       "subtheme": "Geometrijska tela",
       "topic": "Rogljasta, obla",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -41,8 +35,6 @@
       "period": "2",
       "subtheme": "Geometrijska tela",
       "topic": "Rogljasta, obla",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -51,8 +43,6 @@
       "period": "2",
       "subtheme": "Kvadar i kocka",
       "topic": "Mreža",
-      "rank_subtheme": "2",
-      "rank_topic": "2",
       "difficulty": "1"
     },
     {
@@ -61,8 +51,6 @@
       "period": "2",
       "subtheme": "Kvadar i kocka",
       "topic": "Elementi, osobine",
-      "rank_subtheme": "2",
-      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -71,8 +59,6 @@
       "period": "2",
       "subtheme": "Kvadar i kocka",
       "topic": "Mreža",
-      "rank_subtheme": "2",
-      "rank_topic": "2",
       "difficulty": "1"
     },
     {
@@ -81,8 +67,6 @@
       "period": "2",
       "subtheme": "Kvadar i kocka",
       "topic": "Mreža",
-      "rank_subtheme": "2",
-      "rank_topic": "2",
       "difficulty": "2"
     },
     {
@@ -91,8 +75,6 @@
       "period": "2",
       "subtheme": "Kvadar i kocka",
       "topic": "Elementi, osobine",
-      "rank_subtheme": "2",
-      "rank_topic": "1",
       "difficulty": "1"
     }
   ]

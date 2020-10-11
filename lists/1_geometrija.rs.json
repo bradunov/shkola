@@ -11,8 +11,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -21,8 +19,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -31,8 +27,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Veličina predmeta i bića",
-      "rank_subtheme": "1",
-      "rank_topic": "2",
       "difficulty": "1"
     },
     {
@@ -41,8 +35,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Geometrijske figure i tela",
-      "rank_subtheme": "1",
-      "rank_topic": "3",
       "difficulty": "1"
     },
     {
@@ -51,8 +43,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Veličina predmeta i bića",
-      "rank_subtheme": "1",
-      "rank_topic": "2",
       "difficulty": "1"
     },
     {
@@ -61,8 +51,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -71,8 +59,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -81,8 +67,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "2"
     },
     {
@@ -91,8 +75,6 @@
       "period": "2",
       "subtheme": "Linija",
       "topic": "Prava, kriva, izlomljena linija",
-      "rank_subtheme": "2",
-      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -101,8 +83,6 @@
       "period": "2",
       "subtheme": "Linija",
       "topic": "Otvorena, zatvorena linija",
-      "rank_subtheme": "2",
-      "rank_topic": "2",
       "difficulty": "1"
     },
     {
@@ -111,8 +91,6 @@
       "period": "2",
       "subtheme": "Linija",
       "topic": "Prava, kriva, izlomljena linija",
-      "rank_subtheme": "2",
-      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -121,8 +99,6 @@
       "period": "2",
       "subtheme": "Linija",
       "topic": "Prava, kriva, izlomljena linija",
-      "rank_subtheme": "2",
-      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -131,8 +107,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Geometrijske figure i tela",
-      "rank_subtheme": "1",
-      "rank_topic": "3",
       "difficulty": "1"
     },
     {
@@ -141,8 +115,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Geometrijske figure i tela",
-      "rank_subtheme": "1",
-      "rank_topic": "3",
       "difficulty": "2"
     },
     {
@@ -151,8 +123,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "2"
     },
     {
@@ -161,8 +131,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "2"
     },
     {
@@ -171,8 +139,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Geometrijske figure i tela",
-      "rank_subtheme": "1",
-      "rank_topic": "3",
       "difficulty": "1"
     },
     {
@@ -181,8 +147,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Geometrijske figure i tela",
-      "rank_subtheme": "1",
-      "rank_topic": "3",
       "difficulty": "1"
     },
     {
@@ -191,8 +155,6 @@
       "period": "2",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "2"
     },
     {
@@ -201,8 +163,6 @@
       "period": "2",
       "subtheme": "Linija",
       "topic": "Spoljašnja, unutrašnja oblast",
-      "rank_subtheme": "2",
-      "rank_topic": "3",
       "difficulty": "2"
     },
     {
@@ -211,8 +171,6 @@
       "period": "2",
       "subtheme": "Linija",
       "topic": "Spoljašnja, unutrašnja oblast",
-      "rank_subtheme": "2",
-      "rank_topic": "3",
       "difficulty": "1"
     },
     {
@@ -221,8 +179,6 @@
       "period": "2",
       "subtheme": "Linija",
       "topic": "Otvorena, zatvorena linija",
-      "rank_subtheme": "2",
-      "rank_topic": "2",
       "difficulty": "1"
     },
     {
@@ -231,8 +187,6 @@
       "period": "1",
       "subtheme": "Položaj, veličina i oblik",
       "topic": "Prostorne relacije",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "2"
     },
     {
@@ -241,8 +195,6 @@
       "period": "2",
       "subtheme": "Linija",
       "topic": "Spoljašnja, unutrašnja oblast",
-      "rank_subtheme": "2",
-      "rank_topic": "3",
       "difficulty": "2"
     }
   ]

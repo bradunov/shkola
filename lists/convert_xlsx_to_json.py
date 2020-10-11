@@ -14,9 +14,7 @@ DIFFICULTY = 4
 THEME = 5
 SUBTHEME = 6
 TOPIC = 7
-RANK_SUBTHEME = 8
-RANK_TOPIC = 9
-LAST = RANK_TOPIC
+LAST = TOPIC
 
 lists = {}
 themes = {}
@@ -61,8 +59,6 @@ for isheet in range(0, book.nsheets):
       theme = sheet.cell(y,THEME).value
       subtheme = sheet.cell(y,SUBTHEME).value
       topic = sheet.cell(y,TOPIC).value
-      rank_subtheme = str(int(sheet.cell(y,RANK_SUBTHEME).value))
-      rank_topic = str(int(sheet.cell(y,RANK_TOPIC).value))
 
       list_file_name = str(level) + "_" + theme.split(" ")[0].lower() + "." + language + ".json"
       list_name = str(level) + " " + theme
@@ -83,8 +79,6 @@ for isheet in range(0, book.nsheets):
         "period": period, 
         "subtheme": subtheme, 
         "topic": topic, 
-        "rank_subtheme": rank_subtheme, 
-        "rank_topic": rank_topic, 
         "difficulty": difficulty
       })
 

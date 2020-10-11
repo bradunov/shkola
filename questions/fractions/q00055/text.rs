@@ -1,12 +1,20 @@
-@ime@ trči na stazi dugoj @put@ km. Pretrčao je \(\frac{1}{@deo@}\) staze. 
 
-Koliko mu je vremena potrebno da pretrči ostatak staze, ako za @3@ minuta pretrči @500@ metara? 
+@ime@ je pošao kod bake. Prešao je \(\frac{1}{@deo@}\) puta. Ostalo mu je \
+da pređe još @put2@ metara.  
 
 @vspace@
 
-Potrebno mu je  @lib.check_number(vreme)@ minuta, a to je \
-@hspace@@lib.check_fraction_condition(condition, true, nil, sln)@ časova. 
+@ime@ je prešao @lib.check_number(put1,40)@  metara.
+
+@padez@ kuća  je od bakine kuće udaljena @lib.check_number(put)@ metara, \
+a to je @lib.check_number(putkm, 40)@ km.
+
+
+
+
+
+
 
                   
 
-                  
+

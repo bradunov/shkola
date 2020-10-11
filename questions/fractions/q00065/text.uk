@@ -1,6 +1,8 @@
-Add the fractions and simplify the results.
+
+Subtract the fractions.
 
 @repeat(4)@
-@center@ \(\frac{@broj1@}{@imenilac1@}\) @hspacept(3)@ + @hspacept(3)@ \(\frac{@broj2@}{@imenilac2@}\) @hspacept(3)@ =   @lib.check_fraction_simple(brojilac1, imenilac2)@  +  @lib.check_fraction_simple(broj2, imenilac2)@ =  @lib.check_fraction_simple(broj, imen)@
+@center@ \(\frac{@summ@}{@imenilac@}\) @hspacept(3)@ - @hspacept(3)@ \(\frac{@broj2@}{@imenilac@}\) @hspacept(3)@ = @hspacept(3)@  @lib.check_fraction_simple(broj1, imenilac)@ 
 @/repeat@
-              
+             
+             

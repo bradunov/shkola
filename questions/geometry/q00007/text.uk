@@ -1,13 +1,13 @@
-                                Where is the figure in relation to the box? Write the number next to the correct word, like in the example. 
 
-@vspace@
+Where is the figure in relation to the box? Write the number next to the correct word, like in the example. 
 
 @center@ @mycanvas()@
 
-@center@ under @hspace@  @4@ @hspace@@hspace@ above @lib.check_number(5)@ @hspace@@hspace@ in front of @lib.check_number(3)@  
+@center@ under @hspacept(2)@ @4@ @hspacept(10)@ above @lib.check_number(5,10)@ @hspacept(10)@ in front of @lib.check_number(3,10)@  
 
-@center@ in between @lib.check_number(6)@ @hspace@@hspace@ behind @lib.check_number(1)@ @hspace@@hspace@ next to @lib.check_number(2)@ 
-                  
+@center@ in between @lib.check_number(6,10)@ @hspacept(10)@ behind @lib.check_number(1,10)@ @hspacept(10)@ next to @lib.check_number(2,10)@ 
+   
+               
                   
 
 

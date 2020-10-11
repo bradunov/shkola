@@ -1,8 +1,8 @@
 Letele su vrane, spazile su grane.
 
-@3@ vrane, grana više,
+po @3@ vrane, grana više,
 
-@2@ vrane, vrana više.
+po @2@ vrane, vrana više.
 
 @vspace@
 @vspace@

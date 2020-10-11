@@ -1,15 +1,25 @@
-                                @ime@ is running on a @put@ km track. He has already run \(\frac{1}{@deo@}\) of the track. 
 
-How long does it take him to finish the track, if it takes him @3@ minutes to run @500@ meters? 
+@ime@ went to visit his grandma. He walked \(\frac{1}{@deo@}\) of the way. He still had to go \
+ @put2@ meters.  
 
 @vspace@
 
-It takes him  @lib.check_number(vreme)@ minutes, which is \
-@hspace@@lib.check_fraction_condition(condition, true, nil, sln)@ hours. 
+@ime@ walked @lib.check_number(put1)@  meters.
+
+@ime@'s house is @lib.check_number(put)@ meters from his grandma's house, \
+which is @lib.check_number(putkm, 40)@  km.
+        
+        
+
+
+
+
+
 
                   
 
-                  
 
+
+            
             
             

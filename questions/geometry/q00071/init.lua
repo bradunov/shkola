@@ -46,20 +46,20 @@ xs = {start[1]*w-ow, start[2]*w-ow, start[3]*w-ow}
 ys = {ow, ow, ow}
 
 min = ow
-max = 14*w - ow
+max = 15*w - ow
 stampa = 15
 step = 4
 
 mycanvas = function()
 
-  lib.start_canvas(280, 280, "center")
+  lib.start_canvas(280, 290, "center")
   
-  for i = 1,15 do
-    lib.add_line(ow, ow+(i-1)*w, 14*w, 0, style, false, false)
+  for i = 1,14 do
+    lib.add_line(ow, 3*ow+(i-1)*w, 14*w, 0, style, false, false)
   end
 
   for i = 1,15 do
-    lib.add_line(ow+(i-1)*w, ow, 0, 14*w, style, false, false)
+    lib.add_line(ow+(i-1)*w, 3*ow, 0, 13*w, style, false, false)
   end
 
 --[[ red ]]--
@@ -191,7 +191,7 @@ mycanvas = function()
 	  end
   end
 
-  lib.add_text(7*w+ow, 14*w, "C I LJ", text_style, false, false)
+  lib.add_text(7*w+ow, 2*ow+14*w, "C I LJ", text_style, false, false)
 
   out = {}
   index = {} 
@@ -209,7 +209,9 @@ mycanvas = function()
           second = fig[out[2]] 
 	      reply = "answer == '" .. first .. "' "  ..
                   "|| answer == '" .. second .. "'" ;
-	      answ = "Na cilj će prve stići " .. lib.check_string(reply, 40) .. " i " .. lib.check_string(reply, 40) .. " figura."	   
+		  an1 = "answer = '" .. first .. "' "	
+		  an2 = "answer = '" .. second .. "' "		  
+	      answ = "Na cilj će prve stići " .. lib.check_string(reply, 40, an1) .. " i " .. lib.check_string(reply, 40, an2) .. " figura."	   
       else	
           answ = "Na cilj će istovremeno stići sve tri figure." 
       end	  
@@ -218,3 +220,4 @@ mycanvas = function()
   lib.end_canvas()
 end   		               
   
+        
