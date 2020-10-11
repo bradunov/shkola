@@ -62,7 +62,7 @@ class Request:
         assert self.method() == 'POST'
 
         if self._rtype == RequestType.CHERRY_PY:
-            return self._request.body_params
+            return self._request.body.params
 
         else:
             if not self._post:
