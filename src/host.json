@@ -17,8 +17,8 @@
       "Host.Aggregator": "Information",
       "Microsoft.AspNetCore.Mvc.StatusCodeResult": "Error",
       "Host": "Information", 
-      "Function.main": "Debug",
-      "Function.edit": "Debug",
+      "Function.main": "Information",
+      "Function.edit": "Information",
       "Function.item": "Error"
     }
   } 
