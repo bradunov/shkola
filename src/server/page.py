@@ -1,8 +1,3 @@
-import os
-import os.path
-import json
-import jinja2
-
 from server.types import PageParameters
 from server.types import ResponseOperation
 from server.types import PageOperation
@@ -11,9 +6,7 @@ from server.types import PageDesign
 
 import server.context as context
 
-import server.storage
 import server.helpers as helpers
-from server.repository import Repository
 from server.user_db import UserDB, GOOGLE_CLIENT_ID, GOOGLE_SITE_VERIFICATION
 from server.design import Design
 from server.session import SessionDB
@@ -24,21 +17,6 @@ import logging
 
 
 class Page(object):
-    page_params = None
-
-    question = None
-    storage = None
-    userdb = None
-
-    messages = {}                   # GUI messages in different languages
-
-
-    object_id = 0                   # Unique ID counter for all HTML objects on the page
-    lines = []                      # HTML body lines
-    script_lines = []               # HTML header lines
-    on_loaded_script = ""           # JS code to be run on page load
-    title = ""                      # Web site title in the HTML header
-
 
     _default_template_params = {
         'title' : 'Shkola',
@@ -47,121 +25,33 @@ class Page(object):
     }
 
 
-
-    # use_azure_blob = True: use blob for question storage rather than the local disk
-    # preload = True: fetch all questions in memory at start time (may be slow for a blob)
-    def __init__(self, title="tatamata.org", rel_path=None, template_path=None, \
-        use_azure_blob=False, preload=True, external_log_handler=None):
-
-        # Set logging formater
-        # See this for attributes: https://docs.python.org/3/library/logging.html#logrecord-attributes
-        # Note: the usual python way through basicConfig won't work as Azure Functions mess up with it
-        # This is a possible way. See: https://stackoverflow.com/a/57896847
-        # The loop is taken from Logger.callHandlers() implementation
-        # Note: logging.Logger.root should be the root (no parent) but I leave the loop just in case AF change
-        #formatter    = logging.Formatter('%(pathname)s:%(funcName)s(%(lineno)d) : %(message)s\n')
-        formatter    = logging.Formatter('%(levelname)s %(filename)s:%(funcName)s(%(lineno)d) : %(message)s\n')
-        logger = logging.Logger.root
-        while logger:
-            for hdlr in logger.handlers:
-                hdlr.setFormatter(formatter)
-            if not logger.propagate:
-                logger = None    #break out
-            else:
-                logger = logger.parent
-
-
-        # Any additional handler (e.g. to Azure Log Analytics)
-        self.external_log_handler = external_log_handler
-        if external_log_handler:
-            logger = logging.Logger.root
-            logger.addHandler(external_log_handler)
-
-
-        if rel_path:
-            self.rel_path = rel_path
-        else:
-            self.rel_path = os.getenv('SHKOLA_REL_PATH')                    
-
-            if not self.rel_path:
-                self.rel_path = "../.."
-
-        assert self.rel_path
-
-        logging.info("Paths: initial rel_path: {}".format(self.rel_path))
-
-        self.rel_path = os.path.abspath(self.rel_path)
-        logging.info("Paths: rel_path: {}".format(self.rel_path))
-
-        if template_path is None:
-            template_path = os.getenv("SHKOLA_TEMPLATES")
-
-        if template_path is None:
-            template_path = os.path.join(self.rel_path, 'src/templates')
-
-        self.template_path = os.path.abspath(template_path)
-
-        logging.info("Paths: template_path: {}".format(self.template_path))
-        logging.info("Paths: working dir: {}".format(os.getcwd()))
-
-        self.page_params = PageParameters()
-        self.repository = Repository(self.rel_path, use_azure_blob, preload)
-        self.storage = server.storage.get_storage()
-        self.title = title
-        self.userdb = UserDB(self.storage)
-        self.sessiondb = SessionDB(self.storage)
-        self.load_languages()
-
-        file_loader = jinja2.FileSystemLoader(self.template_path)
-        self.templates = jinja2.Environment(loader=file_loader)
-        self.template_params = self._default_template_params
-        self.template_params["title"] = self.title
-
-        print("**** Page loaded.\n")
-        self.log_json({"msg":"Page loaded"}, True)
-
-
-    # Send structured log to the log store (if defined)
-    # If not upload_immediately, buffer as required
-    def log_json(self, json_dict, upload_immediately=False):
-        if self.external_log_handler:
-            self.external_log_handler.log_json(json_dict, upload_immediately)
-
-
+    # Explicitly called from edit mode
     def clear(self):
         self.page_params = PageParameters()
         self.question = None
         self.lines = []
         self.script_lines = []
-        self.clear_template_params()
-
-
-    def clear_template_params(self):
         self.template_params = self._default_template_params
-        self.template_params["title"] = self.title
+        self.template_params["title"] = self.app_data.title
 
+
+
+    def __init__(self, app_data):
+        self.app_data = app_data
+        self.clear()
+
+        self.userdb = UserDB(self.app_data.storage)
+        self.sessiondb = SessionDB(self.app_data.storage)
+
+        # compatibility
+        self.repository = app_data.repository
 
     def add_code(self, init_code = "", iter_code = "", text = ""):
         self.page_params.add_code(init_code, iter_code, text)
-            
 
         
     def add_question(self, question):
         self.question = question
-
-
-
-    def get_all_questions(self, language):
-        l = self.repository.get_all_question_ids("", language)
-        l.sort()
-        return l
-
-    def get_all_lists(self, language=None):
-        l = self.repository.get_all_lists_ids("", language)
-        l.sort()
-        return l
-
-
 
 
     #################################################
@@ -187,7 +77,7 @@ class Page(object):
     #@timer_section("page.render")
     def render(self):
         logging.debug("Render: loading template: '{}'".format(self.template_params["template_name"]))
-        template = self.templates.get_template(self.template_params["template_name"])
+        template = self.app_data.templates.get_template(self.template_params["template_name"])
 
         # Add question as a form parameter
         self.template_params["question"] = ""
@@ -210,53 +100,51 @@ class Page(object):
         # return ret
 
 
-
-
-
-
-
     #################################################
     # Language support
 
-    def load_languages(self):
-        local_path = self.rel_path + "/messages/"
-        self.messages = dict()
+    def get_all_questions(self, language):
+        l = self.app_data.repository.get_all_question_ids("", language)
+        l.sort()
+        return l
 
-        for (dirpath, dirnames, filenames) in os.walk(local_path):
-            for f in filenames:
-                if f[len(f)-5:len(f)] == ".json":
-                    lang = json.load(open(dirpath + f, 'r', encoding='utf-8'))
-                    if lang["key"] in self.messages.keys():
-                        logging.error("Language with key {} defined twice!".format(lang["key"]))
-                    self.messages[lang["key"].lower()] = lang
+
+    def get_all_lists(self, language=None):
+        l = self.app_data.repository.get_all_lists_ids("", language)
+        l.sort()
+        return l
+
 
     def get_language_list(self):
-        return self.messages.keys()
+        return self.app_data.messages.keys()
+
 
     def get_messages(self, language=None):
         if language is None:
             language = PageLanguage.toStr(self.page_params.get_param("language"))
-        if language in self.messages.keys():
-            return self.messages[language]["messages"]
-        return self.messages["rs"]["messages"]
+        if language in self.app_data.messages.keys():
+            return self.app_data.messages[language]["messages"]
+        return self.app_data.messages["rs"]["messages"]
+
 
     def get_language_details(self, language=None):
         if language is None:
             language = PageLanguage.toStr(self.page_params.get_param("language"))
-        if language in self.messages.keys():
-            return self.messages[language]
-        return self.messages["rs"]
+        if language in self.app_data.messages.keys():
+            return self.app_data.messages[language]
+        return self.app_data.messages["rs"]
+
 
     def get_file_url(self, file):
         return "item?url={}".format(file)
 
+
     def get_default_question(self):
         return self.get_all_questions(PageLanguage.toStr(self.page_params.get_param("language")))[0]
 
+
     def get_default_list(self):
         return self.get_all_lists(PageLanguage.toStr(self.page_params.get_param("language")))[0]
-
-
 
 
 
@@ -321,8 +209,6 @@ class Page(object):
         
         
     def main(self, req, headers, timers, args):
-        self.clear()
-
         logging.debug("\n\nMAIN ARGS: {}\n\n".format(args))        
 
         if headers is None or req is None:
@@ -508,10 +394,6 @@ class Page(object):
         return "ABC"
 
 
-
-
-
-
     # args is in format returned by urllib.parse.parse_qs
     def feedback(self, args):
 
@@ -590,9 +472,6 @@ class Page(object):
         return "ABC"
 
 
-
-
-
     def login_google(self):
         id_token = None
         ok = False
@@ -659,8 +538,6 @@ class Page(object):
     #         "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
 
     #     return url
-
-
 
 
     def login_anon(self) -> str:

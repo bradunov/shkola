@@ -237,8 +237,7 @@ class Design_default(object):
         menu_id = menu_id + 1
 
         for level in sorted(content.keys()):
-            options = []
-
+            # options = []
             # for theme in sorted(content[level].keys()):
             #     if not theme == "level_short":
             #         options.append({

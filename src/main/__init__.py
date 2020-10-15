@@ -20,6 +20,7 @@ from server.page import Page
 from server.headers import Headers
 from server.request import Request
 from server.timers import TimerControl
+from server.app_data import AppData
 
 #DEBUG
 #from pprint import pprint
@@ -27,7 +28,7 @@ from server.timers import TimerControl
 
 # Cached page object, to speed up load time
 # as advised by: https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python
-PAGE = None
+APP_DATA = None
 
 
 import azure.functions as func
@@ -57,11 +58,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 
 def main_work(req: func.HttpRequest, tc: TimerControl) -> func.HttpResponse:
-    global PAGE
-    if PAGE is None:
+    global APP_DATA
+    if APP_DATA is None:
         logging.info("Reloading page (%s, %s)", str(use_azure_blob), str(preload))
-        PAGE = Page(use_azure_blob=use_azure_blob, preload=preload)
+        APP_DATA = AppData(use_azure_blob=use_azure_blob, preload=preload)
 
+    page = Page(APP_DATA)
 
     if False:
         logging.debug("METHOD: " + str(req.method))
@@ -107,7 +109,7 @@ def main_work(req: func.HttpRequest, tc: TimerControl) -> func.HttpResponse:
         args["language"] = "rs"
 
     with tc.new_section("page_main"):
-        page_body = PAGE.main(request, headers, tc, args)
+        page_body = page.main(request, headers, tc, args)
 
     return func.HttpResponse(
         page_body,

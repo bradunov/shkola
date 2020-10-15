@@ -1,6 +1,5 @@
 import random
 import time
-import json
 
 # from server.question import Question
 from server.types import PageOperation
@@ -49,10 +48,6 @@ class Test(object):
 
         # Total number of unique questions (including previously asked ones)
         remaining_question = 0
-
-        # At least one eligible question has random values
-        # (i.e. can be asked meaningully several times)
-        randomized_questions = False
 
 
         potential_questions = {
@@ -167,7 +162,6 @@ class Test(object):
                 #print("Q: {} ({}) - {} {}".format(next_q["q_id"], add_in_random, diff, remaining_question))
 
                 if add_in_random:
-                    randomized_questions = True
                     potential_questions_w_repeat.append(next_q)
 
         # print("remaining_question={}\npotential_questions={}\npotential_questions_w_repeat={}".format(

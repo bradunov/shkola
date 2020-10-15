@@ -79,6 +79,7 @@ class Question(object):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.page = page
         self.repository = page.repository
+        self.rel_path = page.app_data.rel_path
 
         # If we have more questions on the same page make sure all use pseudo-random thus unique IDs
         self.q_unique_id = str(int(random.random() * 1000000000))
@@ -122,7 +123,7 @@ class Question(object):
         self.lib = Library(self)
         logging.debug("Rendering question %s, language=%s", 
             self.question_url(), PageLanguage.toStr(self.language))
-        self.questions_root_path = self.page.rel_path + "/" + self.questions_rel_path
+        self.questions_root_path = self.rel_path + "/" + self.questions_rel_path
 
 
     def question_url(self):
