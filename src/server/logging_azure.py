@@ -7,6 +7,7 @@ import hashlib
 import hmac
 import base64
 import os
+import threading
 
 
 # Built from the following examples:
@@ -56,6 +57,10 @@ class Logging_handler_azure(logging.StreamHandler):
     # - log_level_trigger: message of this level triggers immediate report to the server
     # - log_buffer_size: max number of messages buffered at the logger
     # - log_stale: max delay before reporting the logs
+    # 
+    # For extra elements in log use:
+    # logging.info("msg", extra={'shk_type': 'runtime'})
+    # where keys in extra have to start with shk_
     def __init__(self, workspace_id, primary_key, log_type="Logger", log_level=logging.INFO, \
                 log_level_trigger=logging.ERROR, log_buffer_size=20, log_stale=datetime.timedelta(seconds=60)):
         logging.StreamHandler.__init__(self)
@@ -75,6 +80,8 @@ class Logging_handler_azure(logging.StreamHandler):
         self.log_buffer_size=log_buffer_size
         self.log_stale=log_stale
 
+        self._lock = threading.Lock()
+
         self.setLevel(log_level)
 
 
@@ -90,19 +97,10 @@ class Logging_handler_azure(logging.StreamHandler):
           self.last_log_update = now
 
 
-
-    def log_json(self, json_dict, upload_immediately=False):
-        now = datetime.datetime.now()
-        json_dict["type"] = "Custom"
-        json_dict["time"] = str(now)
-        json_dict["node_name"] = self.node_name
-        self.log_msgs.append(json_dict)
-
-        self._upload(upload_immediately)
-
-
     def emit(self, record):
         now = datetime.datetime.now()
+
+
         json_body = {
           "type" : "Logger", 
           "node_name" : self.node_name,
@@ -111,12 +109,49 @@ class Logging_handler_azure(logging.StreamHandler):
           "function" : record.funcName,
           "line" : record.lineno,
           "time" : str(now), 
-          "message" : record.message
+          "message" : record.msg
         }
-        self.log_msgs.append(json_body)
-        #print("\n\nONE: {}\n\n".format(json.dumps(json_body)))
-
-        self._upload(record.levelno >= self.log_level_trigger)
 
 
+        for k, v in record.__dict__.items():
+            if k[0:len("shk_")] == "shk_":
+                json_body[k] = v
 
+
+        with self._lock:
+            self.log_msgs.append(json_body)
+            #print("\n\nONE: {}\n\n".format(json.dumps(json_body)))
+
+            self._upload(record.levelno >= self.log_level_trigger)
+
+
+
+
+if __name__ == '__main__':
+    # Simple log tests
+
+    workspace_id = os.getenv('SHKOLA_LA_WORKSPACE_ID')                    
+    primary_key = os.getenv('SHKOLA_LA_PRIMARY_KEY')
+    if workspace_id or primary_key:
+        log_handler = Logging_handler_azure(workspace_id, primary_key)
+    else:
+        log_handler = None
+
+
+
+    #formatter    = logging.Formatter('%(pathname)s:%(funcName)s(%(lineno)d) : %(message)s\n')
+    formatter    = logging.Formatter('%(levelname)s %(filename)s:%(funcName)s(%(lineno)d) : %(message)s\n')
+    rootLogger = logging.getLogger()
+
+    for hdlr in rootLogger.handlers:
+        hdlr.setFormatter(formatter)
+
+    # Any additional handler (e.g. to Azure Log Analytics)
+    if log_handler:
+        rootLogger.addHandler(log_handler)
+    
+    logging.basicConfig(level=logging.DEBUG)
+    # https://stackoverflow.com/a/57896847
+    logging.Logger.root.level = logging.DEBUG
+
+    logging.error("TEST", extra={"shk_a":"a", "shk_b":"b"})
