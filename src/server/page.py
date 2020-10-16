@@ -24,18 +24,24 @@ class Page(object):
         'google_site_verification' : GOOGLE_SITE_VERIFICATION
     }
 
-    def __init__(self, app_data):
-        self.app_data = app_data
-        self.page_params = PageParameters()
-        self.userdb = UserDB(self.app_data.storage)
-        self.sessiondb = SessionDB(self.app_data.storage)
 
+    # Explicitly called from edit mode
+    def clear(self):
+        self.page_params = PageParameters()
         self.question = None
         self.lines = []
         self.script_lines = []
-
         self.template_params = self._default_template_params
         self.template_params["title"] = self.app_data.title
+
+
+
+    def __init__(self, app_data):
+        self.app_data = app_data
+        self.clear()
+
+        self.userdb = UserDB(self.app_data.storage)
+        self.sessiondb = SessionDB(self.app_data.storage)
 
         # compatibility
         self.repository = app_data.repository
@@ -134,11 +140,12 @@ class Page(object):
 
 
     def get_default_question(self):
-        return self.app_data.get_all_questions(PageLanguage.toStr(self.page_params.get_param("language")))[0]
+        return self.get_all_questions(PageLanguage.toStr(self.page_params.get_param("language")))[0]
 
 
     def get_default_list(self):
-        return self.app_data.get_all_lists(PageLanguage.toStr(self.page_params.get_param("language")))[0]
+        return self.get_all_lists(PageLanguage.toStr(self.page_params.get_param("language")))[0]
+
 
 
     #################################################

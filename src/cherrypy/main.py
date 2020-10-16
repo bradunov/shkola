@@ -37,6 +37,28 @@ class Site:
         self._app_data = AppData(use_azure_blob=self.use_azure_blob, preload=self.preload, external_log_handler=log_handler)
 
 
+
+    @cherrypy.expose
+    def edit(self, **args):
+        req = cherrypy.request
+        args = req.params
+
+        args["root"] = "edit"
+        args["design"] = "dev"
+
+        tc = TimerControl()
+        with tc.new_section("request cherrpy"):
+            ret = self._main("edit", req, tc, args)
+
+        d = tc.dump()
+        logging.debug("TIMERS (%s):\n%s", str(cherrypy.url()), d)
+
+        return ret
+
+
+
+
+
     @cherrypy.expose
     def main(self, **args_p):
         req = cherrypy.request
@@ -44,7 +66,7 @@ class Site:
 
         tc = TimerControl()
         with tc.new_section("request cherrpy"):
-            ret = self._main(req, tc, args)
+            ret = self._main("main", req, tc, args)
 
         d = tc.dump()
         logging.debug("TIMERS (%s):\n%s", str(cherrypy.url()), d)
@@ -52,7 +74,7 @@ class Site:
         return ret
     
 
-    def _main(self, req, tc, args):
+    def _main(self, handle, req, tc, args):
         headers = Headers()
         request = Request(req, RequestType.CHERRY_PY)
 
@@ -66,7 +88,7 @@ class Site:
             except json.JSONDecodeError:
                 pass
 
-        args["root"] = "main"
+        args["root"] = handle
         if "language" not in args.keys():
             args["language"] = "rs"
 
