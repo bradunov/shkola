@@ -39,6 +39,26 @@ class Site:
 
 
     @cherrypy.expose
+    def index(self, **args):
+        req = cherrypy.request
+        args = req.params
+
+        args["root"] = "edit"
+        args["design"] = "dev"
+
+        tc = TimerControl()
+        with tc.new_section("request cherrpy"):
+            ret = self._main("edit", req, tc, args)
+
+        d = tc.dump()
+        logging.debug("TIMERS (%s):\n%s", str(cherrypy.url()), d)
+
+        return ret
+
+
+
+
+    @cherrypy.expose
     def edit(self, **args):
         req = cherrypy.request
         args = req.params
@@ -83,7 +103,7 @@ class Site:
             # TODO: We cannot assume POST will only send json.
             # We should check content type of the POST request.
             try:
-                json_args = json.loads(req.body.read())
+                json_args = json.loads(req.body.read().decode('utf-8'))
                 args.update(**json_args)
             except json.JSONDecodeError:
                 pass
