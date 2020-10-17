@@ -1,0 +1,14 @@
+[Unit]
+Description=Shkolski server
+After=network.target
+
+[Service]
+User=bozidar
+Environment="SHKOLA_REL_PATH=/home/azureuser/shkola"
+Type=simple
+Restart=always
+WorkingDirectory=/home/azureuser/shkola/src
+ExecStart=/usr/bin/python3.8 /home/azureuser/shkola/src/cherrypy/main.py
+
+[Install]
+WantedBy=multi-user.target
