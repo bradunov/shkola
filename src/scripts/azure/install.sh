@@ -22,13 +22,19 @@ python3.8 -m pip install -r /home/azureuser/shkola/src/requirements.txt >> log.t
 #sed 's/include \/etc\/nginx\/sites-enabled\/\*;/#include \/etc\/nginx\/sites-enabled\/\*;\nserver {\n  listen 80;\n  location \/images\/ {\n    root \/home\/azureuser\/shkola\/src\/images\/;\n  }\n  location \/ {\n    proxy_pass      http:\/\/localhost:8080;\n  }\n}/' -i /etc/nginx/nginx.conf
 
 # Set up systemd service
+echo "AAA1: $SHKOLA_AZ_TABLE_CONN_STR" >> log.txt
+echo "AAA2: $GOOGLE_CLIENT_ID" >> log.txt
+echo "AAA3: $GOOGLE_SITE_VERIFICATION" >> log.txt
+echo "AAA4: $SHKOLA_LA_WORKSPACE_ID" >> log.txt
+echo "AAA5: $SHKOLA_LA_PRIMARY_KEY" >> log.txt
+echo "AAA6: $SHKOLA_NODE_NAME" >> log.txt
 cp shkola.service /lib/systemd/system/ >> log.txt
-sed "s/%SHKOLA_AZ_TABLE_CONN_STR%/$SHKOLA_AZ_TABLE_CONN_STR/" -i scripts/azure/shkola.service
-sed "s/%GOOGLE_CLIENT_ID%/$GOOGLE_CLIENT_ID/" -i scripts/azure/shkola.service
-sed "s/%GOOGLE_SITE_VERIFICATION%/$GOOGLE_SITE_VERIFICATION/" -i scripts/azure/shkola.service
-sed "s/%SHKOLA_LA_WORKSPACE_ID%/$SHKOLA_LA_WORKSPACE_ID/" -i scripts/azure/shkola.service
-sed "s/%SHKOLA_LA_PRIMARY_KEY%/$SHKOLA_LA_PRIMARY_KEY/" -i scripts/azure/shkola.service
-sed "s/%SHKOLA_NODE_NAME%/$SHKOLA_NODE_NAME/" -i scripts/azure/shkola.service
+sed "s/%SHKOLA_AZ_TABLE_CONN_STR%/$SHKOLA_AZ_TABLE_CONN_STR/" -i /lib/systemd/system/shkola.service
+sed "s/%GOOGLE_CLIENT_ID%/$GOOGLE_CLIENT_ID/" -i /lib/systemd/system/shkola.service
+sed "s/%GOOGLE_SITE_VERIFICATION%/$GOOGLE_SITE_VERIFICATION/" -i /lib/systemd/system/shkola.service
+sed "s/%SHKOLA_LA_WORKSPACE_ID%/$SHKOLA_LA_WORKSPACE_ID/" -i /lib/systemd/system/shkola.service
+sed "s/%SHKOLA_LA_PRIMARY_KEY%/$SHKOLA_LA_PRIMARY_KEY/" -i /lib/systemd/system/shkola.service
+sed "s/%SHKOLA_NODE_NAME%/$SHKOLA_NODE_NAME/" -i /lib/systemd/system/shkola.service
 sudo systemctl daemon-reload >> log.txt
 sudo systemctl enable shkola.service >> log.txt
 sudo systemctl start shkola.service >> log.txt
