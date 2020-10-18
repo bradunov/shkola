@@ -5,6 +5,12 @@ After=network.target
 [Service]
 User=azureuser
 Environment="SHKOLA_REL_PATH=/home/azureuser/shkola"
+Environment="SHKOLA_AZ_TABLE_CONN_STR=%SHKOLA_AZ_TABLE_CONN_STR%"
+Environment="GOOGLE_CLIENT_ID=%GOOGLE_CLIENT_ID%"
+Environment="GOOGLE_SITE_VERIFICATION=%GOOGLE_SITE_VERIFICATION%"
+Environment="SHKOLA_LA_WORKSPACE_ID=%SHKOLA_LA_WORKSPACE_ID%"
+Environment="SHKOLA_LA_PRIMARY_KEY=%SHKOLA_LA_PRIMARY_KEY%"
+Environment="SHKOLA_NODE_NAME=%SHKOLA_NODE_NAME%"
 Type=simple
 Restart=always
 WorkingDirectory=/home/azureuser/shkola/src

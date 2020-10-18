@@ -14,7 +14,7 @@ sudo apt install -y python3.8 >> log.txt
 sudo apt install -y python3-pip >> log.txt
 
 git clone https://github.com/bradunov/shkola.git /home/azureuser/shkola >> log.txt
-chown azureuser /home/azureuser/shkola >> log.txt
+chown -R azureuser /home/azureuser/shkola >> log.txt
 python3.8 -m pip install -r /home/azureuser/shkola/src/requirements.txt >> log.txt
 #SHKOLA_REL_PATH=/home/azureuser/shkola python /home/azureuser/shkola/src/cherrypy/main.py
 
@@ -23,6 +23,17 @@ python3.8 -m pip install -r /home/azureuser/shkola/src/requirements.txt >> log.t
 
 # Set up systemd service
 cp shkola.service /lib/systemd/system/ >> log.txt
+sed "s/%SHKOLA_AZ_TABLE_CONN_STR%/$SHKOLA_AZ_TABLE_CONN_STR/" -i scripts/azure/shkola.service
+sed "s/%GOOGLE_CLIENT_ID%/$GOOGLE_CLIENT_ID/" -i scripts/azure/shkola.service
+sed "s/%GOOGLE_SITE_VERIFICATION%/$GOOGLE_SITE_VERIFICATION/" -i scripts/azure/shkola.service
+sed "s/%SHKOLA_LA_WORKSPACE_ID%/$SHKOLA_LA_WORKSPACE_ID/" -i scripts/azure/shkola.service
+sed "s/%SHKOLA_LA_PRIMARY_KEY%/$SHKOLA_LA_PRIMARY_KEY/" -i scripts/azure/shkola.service
+sed "s/%SHKOLA_NODE_NAME%/$SHKOLA_NODE_NAME/" -i scripts/azure/shkola.service
 sudo systemctl daemon-reload >> log.txt
 sudo systemctl enable shkola.service >> log.txt
 sudo systemctl start shkola.service >> log.txt
+
+
+# Check status/restart: 
+#sudo systemctl status shkola.service
+#sudo systemctl restart shkola.service
