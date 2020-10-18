@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Log is in /var/lib/waagent/custom-script/download/0
 sudo apt update >> log.txt
 
@@ -15,7 +17,7 @@ sudo apt install -y python3-pip >> log.txt
 
 git clone https://github.com/bradunov/shkola.git /home/azureuser/shkola >> log.txt
 chown -R azureuser /home/azureuser/shkola >> log.txt
-python3.8 -m pip install -r /home/azureuser/shkola/src/requirements.txt >> log.txt
+runuser -l azureuser -c "python3.8 -m pip install -r /home/azureuser/shkola/src/requirements.txt" >> log.txt
 #SHKOLA_REL_PATH=/home/azureuser/shkola python /home/azureuser/shkola/src/cherrypy/main.py
 
 # Enable local host on port 8080 
