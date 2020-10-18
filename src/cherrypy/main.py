@@ -121,7 +121,7 @@ class Site:
         response.headers['Content-Type'] = headers.content_type()
         response.status = headers.status_code()
 
-        logging.debug(f"_main finished: op={args.get('op')}")
+        logging.debug("_main finished: op={}".format(args.get('op')))
 
         return page_body
 
