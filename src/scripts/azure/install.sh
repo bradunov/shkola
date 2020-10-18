@@ -21,7 +21,29 @@ python3.8 -m pip install -r /home/azureuser/shkola/src/requirements.txt >> log.t
 # Enable local host on port 8080 
 #sed 's/include \/etc\/nginx\/sites-enabled\/\*;/#include \/etc\/nginx\/sites-enabled\/\*;\nserver {\n  listen 80;\n  location \/images\/ {\n    root \/home\/azureuser\/shkola\/src\/images\/;\n  }\n  location \/ {\n    proxy_pass      http:\/\/localhost:8080;\n  }\n}/' -i /etc/nginx/nginx.conf
 
+
+# Argument processing as explained here: 
+# http://blog.turtlesystems.co.uk/2018/11/25/Passing-Mutliple-Arguments-to-Custom-Script-in-an-ARM-Template/
+sudo apt-get install -y jq
+# Get the base64 encoded string
+BASE64_ENCODED=$1
+
+# Decode the encoded string into a JSON string
+echo $BASE64_ENCODED | base64 --decode | jq . > args.json
+
+# Read the args file in and set the script variables
+VARS=`cat args.json | jq -r '. | keys[] as $k | "\"($k)=\"\(.[$k])\""'`
+
+# Evaluate all the vars
+for VAR in "$VARS"
+do
+    eval "$VAR"
+    echo "BBB: $VAR" >> log.txt
+done
+
+
 # Set up systemd service
+echo "AAA0: $VARS" >> log.txt
 echo "AAA1: $SHKOLA_AZ_TABLE_CONN_STR" >> log.txt
 echo "AAA2: $GOOGLE_CLIENT_ID" >> log.txt
 echo "AAA3: $GOOGLE_SITE_VERIFICATION" >> log.txt
