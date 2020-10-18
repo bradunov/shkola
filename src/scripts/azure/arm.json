@@ -139,7 +139,10 @@
             "createOption": "FromImage",
             "caching": "ReadWrite",
             "managedDisk": {
+              /* Premium version
               "storageAccountType": "Premium_LRS"
+              */
+              "storageAccountType": "Standard_LRS"
             }
           },
           "dataDisks": []
@@ -363,8 +366,12 @@
       "name": "[concat(parameters('shkola_deployment'), '-disk')]",
       "location": "[parameters('shkola_region')]",
       "sku": {
+          /* Premium version
           "name": "Premium_LRS",
           "tier": "Premium"
+          */
+          "name": "Standard_LRS",
+          "tier": "Standard"
       },
       "properties": {
         "osType": "Linux",
@@ -380,9 +387,14 @@
                   '/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/18.04-LTS/Versions/18.04.202009220')]"
             }
         },
+        /* Premium version
         "diskSizeGB": 30,
         "diskIOPSReadWrite": 120,
         "diskMBpsReadWrite": 25,
+        */
+        "diskSizeGB": 30,
+        "diskIOPSReadWrite": 500,
+        "diskMBpsReadWrite": 60,
         "encryption": {
             "type": "EncryptionAtRestWithPlatformKey"
         }
