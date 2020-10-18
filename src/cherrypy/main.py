@@ -37,7 +37,6 @@ class Site:
         self._app_data = AppData(use_azure_blob=self.use_azure_blob, preload=self.preload, external_log_handler=log_handler)
 
 
-
     @cherrypy.expose
     def index(self, **args):
         req = cherrypy.request
@@ -56,8 +55,6 @@ class Site:
         return ret
 
 
-
-
     @cherrypy.expose
     def edit(self, **args):
         req = cherrypy.request
@@ -74,9 +71,6 @@ class Site:
         logging.debug("TIMERS (%s):\n%s", str(cherrypy.url()), d)
 
         return ret
-
-
-
 
 
     @cherrypy.expose
@@ -126,6 +120,8 @@ class Site:
 
         response.headers['Content-Type'] = headers.content_type()
         response.status = headers.status_code()
+
+        logging.debug(f"_main finished: op={args.get('op')}")
 
         return page_body
 

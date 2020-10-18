@@ -129,8 +129,10 @@ class Storage_az_table():
             'valid': data['valid']
         }
 
+        logging.debug(f"storage: updating session: {session_id}, valid={data['valid']}, state_id={data['state_id']}")
+
         try:
-            self.table_service.insert_or_merge_entity(self.sessions_table_name, properties)
+            self.table_service.insert_or_replace_entity(self.sessions_table_name, properties)
         except Exception:
             logging.exception('Error adding to table ' + self.sessions_table_name + ' record: {}'.format(properties))
 
@@ -145,6 +147,8 @@ class Storage_az_table():
         # Azurite simulator returns an empty entity instead of exception, so check here
         if "user_id" not in entity.keys():
             return None
+
+        logging.debug(f"storage: loaded session: {session_id}, valid={entity.get('valid')}, state_id={entity.get('state_id')}")
 
         # Compatibility: old records don't have state_id, valid
         if not "state_id" in entity:

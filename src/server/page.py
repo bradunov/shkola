@@ -505,6 +505,7 @@ class Page(object):
 
 
     def logout(self):
+        logging.info("logout: closing session")
         context.c.user = None
         context.c.session.close()
 
