@@ -36,23 +36,14 @@ echo $BASE64_ENCODED | base64 --decode | jq . > args.json
 # Read the args file in and set the script variables
 VARS=( `cat args.json | jq -r '. | keys[] as $k | "\($k)=\"\(.[$k])\""'` )
 
-echo "AAA0: $VARS" >> log.txt
-
 # Evaluate all the vars
 for VAR in "${VARS[@]}"
 do
-    echo "BBB: $VAR" >> log.txt
     eval "export $VAR"
 done
 
 
 # Set up systemd service
-echo "AAA1: $SHKOLA_AZ_TABLE_CONN_STR" >> log.txt
-echo "AAA2: $GOOGLE_CLIENT_ID" >> log.txt
-echo "AAA3: $GOOGLE_SITE_VERIFICATION" >> log.txt
-echo "AAA4: $SHKOLA_LA_WORKSPACE_ID" >> log.txt
-echo "AAA5: $SHKOLA_LA_PRIMARY_KEY" >> log.txt
-echo "AAA6: $SHKOLA_NODE_NAME" >> log.txt
 cp shkola.service /lib/systemd/system/ >> log.txt
 sed "s#%SHKOLA_AZ_TABLE_CONN_STR%#$SHKOLA_AZ_TABLE_CONN_STR#" -i /lib/systemd/system/shkola.service
 sed "s#%GOOGLE_CLIENT_ID%#$GOOGLE_CLIENT_ID#" -i /lib/systemd/system/shkola.service
