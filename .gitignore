@@ -2,10 +2,8 @@
 **/__pycache__/*
 src/server/*.sql
 tmp
-exports.sh
-exports.ps1
-exports.bat 
 
+**/secrets.*
 
 # Excel tmp files
 **/~$*.xlsx
