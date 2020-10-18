@@ -1,0 +1,421 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "shkola_subscription": {
+      "defaultValue": "",
+      "type": "String"
+    },
+    "shkola_resource_group": {
+      "defaultValue": "shkola",
+      "type": "String"
+    },
+    "shkola_region": {
+      "defaultValue": "westeurope",
+      "type": "String"
+    },
+    "shkola_deployment": {
+      "defaultValue": "shkola",
+      "type": "String"
+    },
+    "shkola_ssh_key": {
+      "defaultValue": "",
+      "type": "String"
+    },
+    "SHKOLA_AZ_TABLE_CONN_STR": {
+      "defaultValue": "",
+      "type": "String"
+    },
+    "GOOGLE_CLIENT_ID": {
+      "defaultValue": "",
+      "type": "String"
+    },
+    "GOOGLE_SITE_VERIFICATION": {
+      "defaultValue": "",
+      "type": "String"
+    },
+    "SHKOLA_LA_WORKSPACE_ID": {
+      "defaultValue": "",
+      "type": "String"
+    },
+    "SHKOLA_LA_PRIMARY_KEY": {
+      "defaultValue": "",
+      "type": "String"
+    },
+    "SHKOLA_NODE_NAME": {
+      "defaultValue": "",
+      "type": "String"
+    },
+    "shkola_public_ip_externalid": {
+      "defaultValue": "[
+        concat('/subscriptions/', 
+        parameters('shkola_subscription'), 
+        '/resourceGroups/', 
+        parameters('shkola_resource_group'), 
+        '/providers/Microsoft.Network/publicIPAddresses/',
+        parameters('shkola_deployment'),
+        '-public-ip')]",
+      "type": "String"
+    },
+    "shkola_vnet_externalid": {
+      "defaultValue": "[
+        concat('/subscriptions/', 
+        parameters('shkola_subscription'), 
+        '/resourceGroups/', 
+        parameters('shkola_resource_group'), 
+        '/providers/Microsoft.Network/virtualNetworks/',
+        parameters('shkola_deployment'),
+        '-vnet')]",
+      "type": "String"
+    },
+    "shkola_nsg_externalid": {
+      "defaultValue": "[
+        concat('/subscriptions/', 
+        parameters('shkola_subscription'), 
+        '/resourceGroups/', 
+        parameters('shkola_resource_group'), 
+        '/providers/Microsoft.Network/networkSecurityGroups/',
+        parameters('shkola_deployment'),
+        '-nsg')]",
+      "type": "String"
+    },
+    "shkola_disk_externalid": {
+      "defaultValue": "[
+        concat('/subscriptions/', 
+        parameters('shkola_subscription'), 
+        '/resourceGroups/', 
+        parameters('shkola_resource_group'), 
+        '/providers/Microsoft.Compute/disks/',
+        parameters('shkola_deployment'),
+        '-disk')]",
+      "type": "String"
+    },
+    "shkola_network_externalid": {
+      "defaultValue": "[
+        concat('/subscriptions/', 
+        parameters('shkola_subscription'), 
+        '/resourceGroups/', 
+        parameters('shkola_resource_group'), 
+        '/providers/Microsoft.Network/networkInterfaces/',
+        parameters('shkola_deployment'),
+        '-nic')]",
+      "type": "String"
+    }
+  },
+  "variables": {
+    "arguments": {
+        "SHKOLA_AZ_TABLE_CONN_STR": "[parameters('SHKOLA_AZ_TABLE_CONN_STR')]",
+        "GOOGLE_CLIENT_ID": "[parameters('GOOGLE_CLIENT_ID')]",
+        "GOOGLE_SITE_VERIFICATION": "[parameters('GOOGLE_SITE_VERIFICATION')]",
+        "SHKOLA_LA_WORKSPACE_ID": "[parameters('SHKOLA_LA_WORKSPACE_ID')]",
+        "SHKOLA_LA_PRIMARY_KEY": "[parameters('SHKOLA_LA_PRIMARY_KEY')]",
+        "SHKOLA_NODE_NAME": "[parameters('SHKOLA_NODE_NAME')]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2019-07-01",
+      "name": "[concat(parameters('shkola_deployment'), '-vm')]",
+      "location": "[parameters('shkola_region')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('shkola_deployment'), '-nic'))]",
+        "[resourceId('Microsoft.Compute/disks', concat(parameters('shkola_deployment'), '-disk'))]"
+      ],
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "Standard_B1s"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "Canonical",
+            "offer": "UbuntuServer",
+            "sku": "18.04-LTS",
+            "version": "latest"
+          },
+          "osDisk": {
+            "osType": "Linux",
+            "name": "[concat(parameters('shkola_deployment'), '_disk')]",
+            "createOption": "FromImage",
+            "caching": "ReadWrite",
+            "managedDisk": {
+              "storageAccountType": "Premium_LRS"
+            }
+          },
+          "dataDisks": []
+        },
+        "osProfile": {
+          "computerName": "[concat(parameters('shkola_deployment'), '-vm')]",
+          "adminUsername": "azureuser",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "ssh": {
+              "publicKeys": [
+                {
+                  "path": "/home/azureuser/.ssh/authorized_keys",
+                  "keyData": "[parameters('shkola_ssh_key')]"
+                }
+              ]
+            },
+            "provisionVMAgent": true
+          },
+          "secrets": [],
+          "allowExtensionOperations": true
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[parameters('shkola_network_externalid')]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2020-05-01",
+      "name": "[concat(parameters('shkola_deployment'), '-public-ip')]",
+      "location": "[parameters('shkola_region')]",
+      "sku": {
+          "name": "Basic"
+      },
+      "properties": {
+          "publicIPAddressVersion": "IPv4",
+          "publicIPAllocationMethod": "Dynamic",
+          "idleTimeoutInMinutes": 4,
+          "dnsSettings": {
+              "domainNameLabel": "[parameters('shkola_deployment')]",
+              "fqdn": "[concat(parameters('shkola_deployment'), '.', parameters('shkola_region'), '.cloudapp.azure.com')]"
+          },
+          "ipTags": []
+      }      
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2020-05-01",
+      "name": "[concat(parameters('shkola_deployment'), '-nic')]",
+      "location": "[parameters('shkola_region')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('shkola_deployment'), '-nsg'))]",
+        "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('shkola_deployment'), '-public-ip'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', concat(parameters('shkola_deployment'), '-vnet'))]"
+      ],
+      "properties": {
+          "ipConfigurations": [
+              {
+                  "name": "ipconfig1",
+                  "properties": {
+                      "privateIPAddress": "10.0.0.4",
+                      "privateIPAllocationMethod": "Dynamic",
+                      "publicIPAddress": {
+                          "id": "[parameters('shkola_public_ip_externalid')]"
+                      },
+                      "subnet": {
+                          "id": "[concat(parameters('shkola_vnet_externalid'), '/subnets/default')]"
+                      },
+                      "primary": true,
+                      "privateIPAddressVersion": "IPv4"
+                  }
+              }
+          ],
+          "dnsSettings": {
+              "dnsServers": []
+          },
+          "enableAcceleratedNetworking": false,
+          "enableIPForwarding": false,
+          "networkSecurityGroup": {
+              "id": "[parameters('shkola_nsg_externalid')]"
+          }
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-05-01",
+      "name": "[concat(parameters('shkola_deployment'), '-vnet')]",
+      "location": "[parameters('shkola_region')]",
+      "properties": {
+          "addressSpace": {
+              "addressPrefixes": [
+                  "10.0.0.0/24"
+              ]
+          },
+          "subnets": [
+              {
+                  "name": "default",
+                  "properties": {
+                      "addressPrefix": "10.0.0.0/24",
+                      "delegations": [],
+                      "privateEndpointNetworkPolicies": "Enabled",
+                      "privateLinkServiceNetworkPolicies": "Enabled"
+                  }
+              }
+          ],
+          "virtualNetworkPeerings": [],
+          "enableDdosProtection": false,
+          "enableVmProtection": false
+      }
+    },
+    {
+        "type": "Microsoft.Network/virtualNetworks/subnets",
+        "apiVersion": "2020-05-01",
+        "name": "[concat(parameters('shkola_deployment'), '-vnet', '/default')]",  
+        "dependsOn": [
+            "[resourceId('Microsoft.Network/virtualNetworks', concat(parameters('shkola_deployment'), '-vnet'))]"
+        ],
+        "properties": {
+            "addressPrefix": "10.0.0.0/24",
+            "delegations": [],
+            "privateEndpointNetworkPolicies": "Enabled",
+            "privateLinkServiceNetworkPolicies": "Enabled"
+        }
+    },
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2020-05-01",
+      "name": "[concat(parameters('shkola_deployment'), '-nsg')]",
+      "location": "[parameters('shkola_region')]",
+      "properties": {
+          "securityRules": [
+              {
+                  "name": "SSH",
+                  "properties": {
+                      "protocol": "TCP",
+                      "sourcePortRange": "*",
+                      "destinationPortRange": "22",
+                      "sourceAddressPrefix": "*",
+                      "destinationAddressPrefix": "*",
+                      "access": "Allow",
+                      "priority": 300,
+                      "direction": "Inbound",
+                      "sourcePortRanges": [],
+                      "destinationPortRanges": [],
+                      "sourceAddressPrefixes": [],
+                      "destinationAddressPrefixes": []
+                  }
+              },
+              {
+                  "name": "Port_80",
+                  "properties": {
+                      "protocol": "TCP",
+                      "sourcePortRange": "*",
+                      "destinationPortRange": "80",
+                      "sourceAddressPrefix": "*",
+                      "destinationAddressPrefix": "*",
+                      "access": "Allow",
+                      "priority": 310,
+                      "direction": "Inbound",
+                      "sourcePortRanges": [],
+                      "destinationPortRanges": [],
+                      "sourceAddressPrefixes": [],
+                      "destinationAddressPrefixes": []
+                  }
+              }
+          ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "apiVersion": "2020-05-01",
+      "name": "[concat(parameters('shkola_deployment'), '-nsg', '/Port_80')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('shkola_deployment'), '-nsg'))]"
+      ],
+      "properties": {
+        "protocol": "TCP",
+        "sourcePortRange": "*",
+        "destinationPortRange": "80",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "*",
+        "access": "Allow",
+        "priority": 310,
+        "direction": "Inbound",
+        "sourcePortRanges": [],
+        "destinationPortRanges": [],
+        "sourceAddressPrefixes": [],
+        "destinationAddressPrefixes": []
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "apiVersion": "2020-05-01",
+      "name": "[concat(parameters('shkola_deployment'), '-nsg', '/SSH')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('shkola_deployment'), '-nsg'))]"
+      ],
+      "properties": {
+        "protocol": "TCP",
+        "sourcePortRange": "*",
+        "destinationPortRange": "22",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "*",
+        "access": "Allow",
+        "priority": 300,
+        "direction": "Inbound",
+        "sourcePortRanges": [],
+        "destinationPortRanges": [],
+        "sourceAddressPrefixes": [],
+        "destinationAddressPrefixes": []
+      }
+    },
+    {
+      "type": "Microsoft.Compute/disks",
+      "apiVersion": "2019-07-01",
+      "name": "[concat(parameters('shkola_deployment'), '-disk')]",
+      "location": "[parameters('shkola_region')]",
+      "sku": {
+          "name": "Premium_LRS",
+          "tier": "Premium"
+      },
+      "properties": {
+        "osType": "Linux",
+        "hyperVGeneration": "V1",
+        "creationData": {
+            "createOption": "FromImage",
+            "imageReference": {
+                "id": "[
+                  concat('/Subscriptions/', 
+                  parameters('shkola_subscription'),
+                  '/Providers/Microsoft.Compute/Locations/',
+                  parameters('shkola_region'),
+                  '/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/18.04-LTS/Versions/18.04.202009220')]"
+            }
+        },
+        "diskSizeGB": 30,
+        "diskIOPSReadWrite": 120,
+        "diskMBpsReadWrite": 25,
+        "encryption": {
+            "type": "EncryptionAtRestWithPlatformKey"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2015-06-15",
+      "name": "[concat(parameters('shkola_deployment'), '-vm/', parameters('shkola_deployment'), '-ext')]",
+      "location": "[parameters('shkola_region')]",
+      "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "fileUris": [
+            "https://raw.githubusercontent.com/bradunov/shkola/master/src/scripts/azure/install.sh",
+            "https://raw.githubusercontent.com/bradunov/shkola/master/src/scripts/azure/nginx.conf",
+            "https://raw.githubusercontent.com/bradunov/shkola/master/src/scripts/azure/shkola.service"
+          ],
+          "commandToExecute": "[concat('./install.sh ', base64(string(variables('arguments'))))]"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/virtualMachines', concat(parameters('shkola_deployment'), '-vm'))]"
+      ]
+    }
+  ]
+}
+
+
+
+
+
+
