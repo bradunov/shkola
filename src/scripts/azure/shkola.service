@@ -3,7 +3,7 @@ Description=Shkolski server
 After=network.target
 
 [Service]
-User=bozidar
+User=azureuser
 Environment="SHKOLA_REL_PATH=/home/azureuser/shkola"
 Type=simple
 Restart=always
