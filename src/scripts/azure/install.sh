@@ -29,12 +29,12 @@ echo "AAA4: $SHKOLA_LA_WORKSPACE_ID" >> log.txt
 echo "AAA5: $SHKOLA_LA_PRIMARY_KEY" >> log.txt
 echo "AAA6: $SHKOLA_NODE_NAME" >> log.txt
 cp shkola.service /lib/systemd/system/ >> log.txt
-sed "s/%SHKOLA_AZ_TABLE_CONN_STR%/$SHKOLA_AZ_TABLE_CONN_STR/" -i /lib/systemd/system/shkola.service
-sed "s/%GOOGLE_CLIENT_ID%/$GOOGLE_CLIENT_ID/" -i /lib/systemd/system/shkola.service
-sed "s/%GOOGLE_SITE_VERIFICATION%/$GOOGLE_SITE_VERIFICATION/" -i /lib/systemd/system/shkola.service
-sed "s/%SHKOLA_LA_WORKSPACE_ID%/$SHKOLA_LA_WORKSPACE_ID/" -i /lib/systemd/system/shkola.service
-sed "s/%SHKOLA_LA_PRIMARY_KEY%/$SHKOLA_LA_PRIMARY_KEY/" -i /lib/systemd/system/shkola.service
-sed "s/%SHKOLA_NODE_NAME%/$SHKOLA_NODE_NAME/" -i /lib/systemd/system/shkola.service
+sed "s#%SHKOLA_AZ_TABLE_CONN_STR%#$SHKOLA_AZ_TABLE_CONN_STR#" -i /lib/systemd/system/shkola.service
+sed "s#%GOOGLE_CLIENT_ID%#$GOOGLE_CLIENT_ID#" -i /lib/systemd/system/shkola.service
+sed "s#%GOOGLE_SITE_VERIFICATION%#$GOOGLE_SITE_VERIFICATION#" -i /lib/systemd/system/shkola.service
+sed "s#%SHKOLA_LA_WORKSPACE_ID%#$SHKOLA_LA_WORKSPACE_ID#" -i /lib/systemd/system/shkola.service
+sed "s#%SHKOLA_LA_PRIMARY_KEY%#$SHKOLA_LA_PRIMARY_KEY#" -i /lib/systemd/system/shkola.service
+sed "s#%SHKOLA_NODE_NAME%#$SHKOLA_NODE_NAME#" -i /lib/systemd/system/shkola.service
 sudo systemctl daemon-reload >> log.txt
 sudo systemctl enable shkola.service >> log.txt
 sudo systemctl start shkola.service >> log.txt
