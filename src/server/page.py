@@ -31,7 +31,7 @@ class Page(object):
         self.question = None
         self.lines = []
         self.script_lines = []
-        self.template_params = self._default_template_params
+        self.template_params = self._default_template_params.copy()
         self.template_params["title"] = self.app_data.title
 
 
@@ -377,7 +377,7 @@ class Page(object):
                             str(correct), str(incorrect), str(questions))
 
                 try:
-                    self.storage.record_response(response)
+                    self.app_data.storage.record_response(response)
                 except Exception as err:
                     logging.error("Error submitting record response: {}\n{}".format(
                         err, helpers.get_stack_trace()
@@ -418,7 +418,7 @@ class Page(object):
             logging.error("GOOGLE_ERROR feedback: user_id=%s, error=%s", str(user_id), str(args["comment"]))
 
             try:
-                self.storage.record_feedback(response)
+                self.app_data.storage.record_feedback(response)
             except Exception as err:
                 logging.error("Error submitting google error feedback (user_id={}): {}".format(user_id, str(err)))
 
@@ -460,7 +460,7 @@ class Page(object):
                             str(language), str(args["type"]), str(args["comment"]), random_vals)
 
             try:
-                self.storage.record_feedback(response)
+                self.app_data.storage.record_feedback(response)
             except Exception as err:
                 logging.error("Error submitting record response (user_id={}): {}\n{}".format(
                     user_id, str(err), helpers.get_stack_trace()
