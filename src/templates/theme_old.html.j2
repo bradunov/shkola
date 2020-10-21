@@ -157,13 +157,13 @@
                       text-align: left;"
                       onclick="el_select_list('{{theme_button}}', next_callback)">                      
               {{ elements.color_string(t['title'], -6) }}
-              <img id="{{theme_tick}}" src="item?url=images/checkbox.svg" 
+              <img id="{{theme_tick}}" src="{{ template_params['item_path'] }}images/checkbox.svg" 
                     style="display:none; width: 18px; height: 18px; margin-left: 18px"> 
             </div>
               <div style="display:inline-block; text-align: right;" onclick="roll('{{theme_roll}}')">                      
-                <img id="{{theme_roll + "_off" }}" src="item?url=images/arrow_down_closed.svg" 
+                <img id="{{theme_roll + "_off" }}" src="{{ template_params['item_path'] }}images/arrow_down_closed.svg" 
                     style="display:inline; width: 27px; height: 30px;"> 
-                <img id="{{theme_roll + "_on"}}" src="item?url=images/arrow_down_open.svg" 
+                <img id="{{theme_roll + "_on"}}" src="{{ template_params['item_path'] }}images/arrow_down_open.svg" 
                     style="display:none; width: 27px; height: 30px;"> 
               </div>
           </div>
@@ -202,11 +202,11 @@
                         color: #148f91;
                         text-align: left;">                      
                 {{ st['title'] }}
-                <img id="{{subtheme_tick}}" src="item?url=images/checkbox.svg" 
+                <img id="{{subtheme_tick}}" src="{{ template_params['item_path'] }}images/checkbox.svg" 
                       style="display:none; width: 18px; height: 18px; margin-left: 18px"> 
               </div>
               <div style="display:inline-block; margin-right: 25px; text-align: right;">                      
-                <img src="item?url=images/theme_numbers.svg" style="width: 32px; height: 32px;"> 
+                <img src="{{ template_params['item_path'] }}images/theme_numbers.svg" style="width: 32px; height: 32px;"> 
               </div>
             </div>
           </div>

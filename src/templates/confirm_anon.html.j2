@@ -33,7 +33,7 @@
             Ako ti je to ok, <br>
             klikni na nastavi ili idi nazad <br>
             da se uloguješ preko 
-            <div style="display:inline-block"> <img src="item?url=images/google.png" alt="Google" height="20px" width="20px"> </div>
+            <div style="display:inline-block"> <img src="{{ template_params['item_path'] }}images/google.png" alt="Google" height="20px" width="20px"> </div>
         </div>
 
         {{elements.scooter_back_fwd('bt_prev', 'location.href = "' ~ template_params["back"] ~ '"', 

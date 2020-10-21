@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src='item?url=js/raphaeljs-infobox.js'></script>
+    <script src='{{ template_params["item_path"] }}js/raphaeljs-infobox.js'></script>
 
     <!-- MathJax with large fonts -->
     <script type="text/x-mathjax-config">
@@ -110,27 +110,27 @@
     <style type="text/css">
       @font-face {
           font-family: 'ChalkboardSE-Bold';
-          src: url('item?url=fonts/ChalkboardSE-Bold.ttf') format('truetype');
+          src: url('{{ template_params["item_path"] }}fonts/ChalkboardSE-Bold.ttf') format('truetype');
       }
       @font-face {
           font-family: 'ChalkboardSE-Regular';
-          src: url('item?url=fonts/ChalkboardSE-Regular.ttf') format('truetype');
+          src: url('{{ template_params["item_path"] }}fonts/ChalkboardSE-Regular.ttf') format('truetype');
       }
       @font-face {
           font-family: 'ChalkboardSE-Light';
-          src: url('item?url=fonts/ChalkboardSE-Light.ttf') format('truetype');
+          src: url('{{ template_params["item_path"] }}fonts/ChalkboardSE-Light.ttf') format('truetype');
       }
       @font-face {
           font-family: 'Lato-Bold';
-          src: url('item?url=fonts/Lato-Bold.ttf') format('truetype');
+          src: url('{{ template_params["item_path"] }}fonts/Lato-Bold.ttf') format('truetype');
       }
       @font-face {
           font-family: 'Lato-Regular';
-          src: url('item?url=fonts/Lato-Regular.ttf') format('truetype');
+          src: url('{{ template_params["item_path"] }}fonts/Lato-Regular.ttf') format('truetype');
       }
       @font-face {
           font-family: 'Lato-Light';
-          src: url('item?url=fonts/Lato-Light.ttf') format('truetype');
+          src: url('{{ template_params["item_path"] }}fonts/Lato-Light.ttf') format('truetype');
       }
       .sh_chalk_font {
           font-family: 'ChalkboardSE-Regular';
@@ -211,29 +211,29 @@
               background-color: white; box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);">
     <div style="display: table-cell; vertical-align: middle; text-align: center;">
       {% if level == 0 %}
-        <img src="item?url=images/footer_razred_on.svg" style="width: 38px; height: 38px; object-fit: contain;">
+        <img src="{{ template_params['item_path'] }}images/footer_razred_on.svg" style="width: 38px; height: 38px; object-fit: contain;">
       {% else %}
-        <img src="item?url=images/footer_razred_off.svg" 
+        <img src="{{ template_params['item_path'] }}images/footer_razred_off.svg" 
              style="width: 38px; height: 38px; object-fit: contain; cursor: pointer;"
              onclick='location.href = "{{url_year}}"'>
       {% endif %}
     </div>
     <div style="display: table-cell; vertical-align: middle; text-align: center; ">
       {% if level == 1 %}
-        <img src="item?url=images/footer_tema_on.svg" style="width: 38px; height: 38px; object-fit: contain;">
+        <img src="{{ template_params['item_path'] }}images/footer_tema_on.svg" style="width: 38px; height: 38px; object-fit: contain;">
       {% elif level > 1 %}
-        <img src="item?url=images/footer_tema_off.svg" 
+        <img src="{{ template_params['item_path'] }}images/footer_tema_off.svg" 
              style="width: 38px; height: 38px; object-fit: contain; cursor: pointer;"
              onclick='location.href = "{{url_theme}}"'>
       {% else %}
-        <img src="item?url=images/footer_tema_off.svg" style="width: 38px; height: 38px; object-fit: contain;">
+        <img src="{{ template_params['item_path'] }}images/footer_tema_off.svg" style="width: 38px; height: 38px; object-fit: contain;">
       {% endif %}
     </div>
     <div style="display: table-cell; vertical-align: middle; text-align: center;">
       {% if level == 2 %}
-        <img src="item?url=images/footer_uspeh_on.svg" style="width: 38px; height: 38px; object-fit: contain;">
+        <img src="{{ template_params['item_path'] }}images/footer_uspeh_on.svg" style="width: 38px; height: 38px; object-fit: contain;">
       {% else %}
-        <img src="item?url=images/footer_uspeh_off.svg" style="width: 38px; height: 38px; object-fit: contain;">
+        <img src="{{ template_params['item_path'] }}images/footer_uspeh_off.svg" style="width: 38px; height: 38px; object-fit: contain;">
       {% endif %}
     </div>
   </div>

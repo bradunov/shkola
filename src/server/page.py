@@ -79,6 +79,8 @@ class Page(object):
         logging.debug("Render: loading template: '{}'".format(self.template_params["template_name"]))
         template = self.app_data.templates.get_template(self.template_params["template_name"])
 
+        self.template_params["item_path"] = self.app_data.items_path
+
         # Add question as a form parameter
         self.template_params["question"] = ""
 
@@ -136,7 +138,8 @@ class Page(object):
 
 
     def get_file_url(self, file):
-        return "item?url={}".format(file)
+        #return "item?url={}".format(file)
+        return self.app_data.items_path + file
 
 
     def get_default_question(self):

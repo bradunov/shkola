@@ -16,6 +16,7 @@ class AppData:
                  title="tatamata.org",
                  rel_path=None,
                  template_path=None,
+                 items_path=None,
                  use_azure_blob=False,
                  preload=True,
                  external_log_handler=None):
@@ -57,6 +58,16 @@ class AppData:
 
         logging.info("Paths: template_path: {}".format(self.template_path))
         logging.info("Paths: working dir: {}".format(os.getcwd()))
+
+
+        if items_path is None:
+            items_path = os.getenv("SHKOLA_ITEMS")
+
+            if items_path is None:
+                items_path = "item?url="
+
+        self.items_path = items_path
+
 
         self.repository = Repository(self.rel_path, use_azure_blob, preload)
         self.storage = server.storage.get_storage()

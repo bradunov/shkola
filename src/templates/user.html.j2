@@ -33,9 +33,9 @@
                 vertical-align: middle; text-align: right; 
                 margin-top: 11px; margin-right: 30px;" 
                 onclick="lang_toggle()"> {{template_params["current_lang"]}}
-          <img id="lang_roll_off" src="item?url=images/arrow_down_closed.svg" 
+          <img id="lang_roll_off" src="{{ template_params['item_path'] }}images/arrow_down_closed.svg" 
                 style="display:inline; width: 20px; height: 14px;"> 
-          <img id="lang_roll_on" src="item?url=images/arrow_down_open.svg" 
+          <img id="lang_roll_on" src="{{ template_params['item_path'] }}images/arrow_down_open.svg" 
                 style="display:none; width: 20px; height: 14px;">                
         </button>
     </div>
@@ -53,7 +53,7 @@
 
 
     <div align="center" style="display:content; margin-top:15px;">
-      <img src='item?url=images/home_page_img.svg' width='360'>
+      <img src='{{ template_params["item_path"] }}images/home_page_img.svg' width='360'>
     </div>
     <div align="center" class="sh_chalk_bold_font" style="display:content; margin-top:36px; font-weight: 400; font-size: 55px; color: #029194">
     TATA MATA
@@ -256,7 +256,7 @@
                         margin-top: 0px; 
                         height: 22px; 
                         vertical-align: middle">
-              <img src="item?url=images/google.png" alt="G" height="22px" width="22px">
+              <img src="{{ template_params['item_path'] }}images/google.png" alt="G" height="22px" width="22px">
             </div>
           </div>
         </div>
