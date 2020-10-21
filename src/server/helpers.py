@@ -10,12 +10,13 @@ import logging
 
 
 
-def set_log_level():
+def set_log_level(log_level=None):
     logging.basicConfig(level=logging.ERROR)
     # https://stackoverflow.com/a/57896847
     logging.Logger.root.level = logging.ERROR
 
-    log_level = os.getenv('SHKOLA_LOG_LEVEL')
+    if not log_level:
+        log_level = os.getenv('SHKOLA_LOG_LEVEL')
 
     if log_level:
         log_level = log_level.upper().strip()

@@ -24,14 +24,25 @@ class Section:
         self._children.append(child)
 
 
-    def dump(self, lvl):
+    def dump(self, lvl, json=False):
         assert self._stop is not None
         assert self._stop >= self._start
 
-        ret = " " * (4 * lvl)
-        ret += "{:.3f}s - {:.3f} {} ({:.3f}s)\n".format(self._start, self._stop, self._name, self._stop - self._start)
-        for c in self._children:
-            ret += c.dump(lvl + 1)
+        if json:
+            ret = [{
+                "level": lvl,
+                "start": self._start, 
+                "stop": self._stop, 
+                "name": self._name, 
+                "duration": self._stop - self._start
+            }]
+            for c in self._children:
+                ret += c.dump(lvl + 1, json=json)
+        else:
+            ret = " " * (4 * lvl)
+            ret += "{:.3f}s - {:.3f} {} ({:.3f}s)\n".format(self._start, self._stop, self._name, self._stop - self._start)
+            for c in self._children:
+                ret += c.dump(lvl + 1, json=json)
 
         return ret
 
@@ -68,11 +79,11 @@ class TimerControl:
         return time.time() - self._start
 
 
-    def dump(self):
+    def dump(self, json=False):
         assert not self._stack
         assert self._root
 
-        return self._root.dump(0)
+        return self._root.dump(0, json)
 
 
     def close(self):

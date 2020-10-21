@@ -15,6 +15,7 @@ import threading
 # https://operatingops.org/2019/09/30/python-json-structured-logging/
 # https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collector-api
 
+
 class Logging_handler_azure(logging.StreamHandler):
 
 
@@ -97,6 +98,25 @@ class Logging_handler_azure(logging.StreamHandler):
           self.last_log_update = now
 
 
+
+    def log_json(self, type, json_body):
+        if not isinstance(json_body, list):
+            json_body = [json_body]
+        
+        now = datetime.datetime.now()
+        for i in json_body:
+            i["type"] = type        
+            i["node_name"] = self.node_name
+            i["time"] = str(now) 
+
+        with self._lock:
+            self.log_msgs += json_body
+            #print("\n\nONE: {}\n\n".format(json.dumps(json_body)))
+
+            self._upload()
+
+
+
     def emit(self, record):
         now = datetime.datetime.now()
 
@@ -113,9 +133,11 @@ class Logging_handler_azure(logging.StreamHandler):
         }
 
 
-        for k, v in record.__dict__.items():
-            if k[0:len("shk_")] == "shk_":
-                json_body[k] = v
+        # Support for logging(..., extra)
+        # Removed as not needed for now and slows things down
+        # for k, v in record.__dict__.items():
+        #     if k[0:len("shk_")] == "shk_":
+        #         json_body[k] = v
 
 
         with self._lock:
@@ -155,3 +177,6 @@ if __name__ == '__main__':
     logging.Logger.root.level = logging.DEBUG
 
     logging.error("TEST", extra={"shk_a":"a", "shk_b":"b"})
+
+
+    log_handler.log_json("Timing", [{"a": "a1"}, {"a": "a2"}])

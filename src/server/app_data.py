@@ -28,6 +28,7 @@ class AppData:
             hdlr.setFormatter(formatter)
 
         # Any additional handler (e.g. to Azure Log Analytics)
+        self.external_log_handler = external_log_handler
         if external_log_handler:
             rootLogger.addHandler(external_log_handler)
 
@@ -81,4 +82,6 @@ class AppData:
                     self.messages[lang["key"].lower()] = lang
 
 
-
+    def log_timing(self, json_body):
+        if self.external_log_handler:
+            self.external_log_handler.log_json("Timing", json_body)

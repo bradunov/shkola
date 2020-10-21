@@ -37,6 +37,12 @@ class Site:
         self._app_data = AppData(use_azure_blob=self.use_azure_blob, preload=self.preload, external_log_handler=log_handler)
 
 
+    def log_timing(self, json_body, op):        
+        for i in json_body:
+            i["op"] = op
+        self._app_data.log_timing(json_body)
+
+
     @cherrypy.expose
     def index(self, **args):
         req = cherrypy.request
@@ -84,6 +90,9 @@ class Site:
 
         d = tc.dump()
         logging.debug("TIMERS (%s):\n%s", str(cherrypy.url()), d)
+
+        if "op" in args.keys():
+            self.log_timing(tc.dump(json=True), args["op"])
 
         return ret
     
