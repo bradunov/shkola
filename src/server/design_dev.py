@@ -277,8 +277,10 @@ class Design_dev(object):
                 q["text"] = q["text"] + l + "\n"
             for l in page.lines:
                 q["text"] = q["text"] + str(l)
-            page.clear()
 
+            previous_params = page.template_params
+            page.clear()
+            page.template_params = previous_params
             page.template_params["questions"].append(q)
 
 
