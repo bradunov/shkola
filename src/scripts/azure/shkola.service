@@ -11,6 +11,7 @@ Environment="GOOGLE_SITE_VERIFICATION=%GOOGLE_SITE_VERIFICATION%"
 Environment="SHKOLA_LA_WORKSPACE_ID=%SHKOLA_LA_WORKSPACE_ID%"
 Environment="SHKOLA_LA_PRIMARY_KEY=%SHKOLA_LA_PRIMARY_KEY%"
 Environment="SHKOLA_NODE_NAME=%SHKOLA_NODE_NAME%"
+Environment="SHKOLA_ITEMS="
 Type=simple
 Restart=always
 WorkingDirectory=/home/azureuser/shkola/src
