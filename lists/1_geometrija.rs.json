@@ -196,6 +196,30 @@
       "subtheme": "Linija",
       "topic": "Spoljašnja, unutrašnja oblast",
       "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00082",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Položaj, veličina i oblik",
+      "topic": "Veličina predmeta i bića",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00083",
+      "random": "6",
+      "period": "1",
+      "subtheme": "Položaj, veličina i oblik",
+      "topic": "Prostorne relacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00084",
+      "random": "3",
+      "period": "2",
+      "subtheme": "Linija",
+      "topic": "Prava, kriva, izlomljena linija",
+      "difficulty": "1"
     }
   ]
 }

@@ -342,6 +342,22 @@
       "difficulty": "2"
     },
     {
+      "name": "numbers/q00135",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00136",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Oduzimanje ",
+      "difficulty": "1"
+    },
+    {
       "name": "numbers/q00140",
       "random": "10",
       "period": "1",

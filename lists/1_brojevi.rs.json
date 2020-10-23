@@ -254,6 +254,22 @@
       "difficulty": "1"
     },
     {
+      "name": "numbers/q00132",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Dinar, novčanice do 100 dinara",
+      "topic": "Izražavanje različitim apoenima",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00133",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Dinar, novčanice do 100 dinara",
+      "topic": "Izražavanje različitim apoenima",
+      "difficulty": "2"
+    },
+    {
       "name": "numbers/q00169",
       "random": "10",
       "period": "3",

@@ -6,20 +6,28 @@
   "language": "rs",
   "questions": [
     {
-      "name": "measures/q00085",
+      "name": "measures/q00045",
       "random": "5",
       "period": "2",
       "subtheme": "Merenje nestandardnim jedinicama mere",
-      "topic": "Merenje dužine",
+      "topic": "Merenje dužine i težine",
       "difficulty": "1"
     },
     {
-      "name": "measures/q00086",
+      "name": "measures/q00046",
       "random": "5",
       "period": "2",
       "subtheme": "Merenje nestandardnim jedinicama mere",
-      "topic": "Merenje dužine",
+      "topic": "Merenje dužine i težine",
       "difficulty": "1"
+    },
+    {
+      "name": "measures/q00047",
+      "random": "0",
+      "period": "2",
+      "subtheme": "Merenje nestandardnim jedinicama mere",
+      "topic": "Merenje dužine i težine",
+      "difficulty": "2"
     }
   ]
 }

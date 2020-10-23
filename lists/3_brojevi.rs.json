@@ -702,6 +702,22 @@
       "difficulty": "1"
     },
     {
+      "name": "numbers/q00137",
+      "random": "5",
+      "period": "1",
+      "subtheme": "Brojevni izraz",
+      "topic": "Tekstualni zadatak",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00138",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Brojevni izraz",
+      "topic": "Tekstualni zadatak",
+      "difficulty": "1"
+    },
+    {
       "name": "numbers/q00139",
       "random": "10",
       "period": "1",

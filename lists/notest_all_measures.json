@@ -43,7 +43,10 @@
     {"name" : "measures/q00041"},
     {"name" : "measures/q00042"},
     {"name" : "measures/q00043"},	
-    {"name" : "measures/q00044"},		
+    {"name" : "measures/q00044"},
+    {"name" : "measures/q00045"},
+    {"name" : "measures/q00046"},
+    {"name" : "measures/q00047"},		
     {"name" : "measures/q00048"},
     {"name" : "measures/q00049"},
     {"name" : "measures/q00050"},
@@ -80,8 +83,6 @@
     {"name" : "measures/q00081"},
     {"name" : "measures/q00082"},
     {"name" : "measures/q00083"},
-    {"name" : "measures/q00084"},
-    {"name" : "measures/q00085"},
-    {"name" : "measures/q00086"}		
+    {"name" : "measures/q00084"}
     ]
 }
