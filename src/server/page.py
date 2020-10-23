@@ -7,9 +7,8 @@ from server.types import PageDesign
 import server.context as context
 
 import server.helpers as helpers
-from server.user_db import UserDB, GOOGLE_CLIENT_ID, GOOGLE_SITE_VERIFICATION
+from server.user_db import GOOGLE_CLIENT_ID, GOOGLE_SITE_VERIFICATION
 from server.design import Design
-from server.session import SessionDB
 
 #from server.timers import timer_section
 
@@ -40,8 +39,8 @@ class Page(object):
         self.app_data = app_data
         self.clear()
 
-        self.userdb = UserDB(self.app_data.storage)
-        self.sessiondb = SessionDB(self.app_data.storage)
+        self.userdb = app_data.userdb
+        self.sessiondb = app_data.sessiondb
 
         # compatibility
         self.repository = app_data.repository

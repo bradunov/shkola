@@ -1,5 +1,7 @@
 from server.repository import Repository
 import server.storage
+from server.user_db import UserDB
+from server.session import SessionDB
 
 import jinja2
 
@@ -70,7 +72,11 @@ class AppData:
 
 
         self.repository = Repository(self.rel_path, use_azure_blob, preload)
+
         self.storage = server.storage.get_storage()
+        self.userdb = UserDB(self.storage)
+        self.sessiondb = SessionDB(self.storage)
+
         self.title = title
         self.load_languages()
 
