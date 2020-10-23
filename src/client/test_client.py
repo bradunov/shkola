@@ -9,6 +9,8 @@ import json
 
 #url = "http://shkola.vladap.com:7071/main"
 url = 'https://www.tatamata.org'
+#url = 'http://tatamata-test1.westeurope.cloudapp.azure.com/main'
+#url = "http://shkola.vladap.com:8080/main"
 
 number_of_runs_per_user = 1
 number_of_users = 10
@@ -140,7 +142,7 @@ async def session_op(id, samples, get_method, op, jar=None, page_name=None, iter
     raise HTTPError
     return False, r
   elif not page_name == get_page_name(r.text):
-    print(f"#{id} Wrong page, expecting {page_name}, got {get_page_name(r.text)}")
+    print(f"#{id}/#{iter} Wrong page, expecting {page_name}, got {get_page_name(r.text)}")
     add_stats(samples, "wrong_page", start_time, end_time)
     raise WrongPageError
     return False, r
@@ -225,11 +227,24 @@ async def async_test():
     for i in range(0,number_of_users):
       nursery.start_soon(get_page, i, list_of_samples[i])
 
-  print("", flush=True)
+  # Aggregage samples from all users
+  list_of_all_samples = {}
   for i in range(0,number_of_users):
-    print(f"Samples user {i+1}:")
-    print_stats(list_of_samples[i])
+    for k, v in list_of_samples[i].items():
+      if k in list_of_all_samples.keys():
+        list_of_all_samples[k] += v
+      else:
+        list_of_all_samples[k] = v
 
+  print("", flush=True)
+
+  # No need to print per user
+  # for i in range(0,number_of_users):
+  #   print(f"Samples user {i+1}:")
+  #   print_stats(list_of_samples[i])
+
+  print(f"Aggregate samples:")
+  print_stats(list_of_all_samples)
   #print(json.dumps(list_of_samples, indent=2))
 
 
