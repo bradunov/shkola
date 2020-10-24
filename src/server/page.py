@@ -292,12 +292,21 @@ class Page(object):
 
 
                     log_json = {
-                        "op": PageOperation.toStr(self.page_params.get_param("op")), 
-                        "q_id": self.page_params.get_param("q_id"), 
-                        "l_id": self.page_params.get_param("l_id"),
-                        "url": req.get_url(),
-                        "user": context.c.user
+                        "url": req.get_url()
                     }
+
+                    if self.page_params.get_param("op"):
+                        log_json["op"] = PageOperation.toStr(self.page_params.get_param("op"))
+
+                    if self.page_params.get_param("q_id"):
+                        log_json["q_id"] = self.page_params.get_param("q_id")
+
+                    if self.page_params.get_param("l_id"):
+                        log_json["l_id"] = self.page_params.get_param("l_id")
+
+                    if context.c.user:
+                        log_json["user"] = context.c.user
+
                     self.app_data.log_json("Access", log_json)
 
 
