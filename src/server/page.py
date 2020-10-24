@@ -290,6 +290,17 @@ class Page(object):
                                         self.page_params.get_param("text"),
                                     ))
 
+
+                    log_json = {
+                        "op": PageOperation.toStr(self.page_params.get_param("op")), 
+                        "q_id": self.page_params.get_param("q_id"), 
+                        "l_id": self.page_params.get_param("l_id"),
+                        "url": req.get_url(),
+                        "user": context.c.user
+                    }
+                    self.app_data.log_json("Access", log_json)
+
+
                     with context.c.timers.new_section("design.main"):
                         return Design.main(self)
 
