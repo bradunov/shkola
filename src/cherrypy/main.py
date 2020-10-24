@@ -40,7 +40,7 @@ class Site:
     def log_timing(self, json_body, op):        
         for i in json_body:
             i["op"] = op
-        self._app_data.log_timing(json_body)
+        self._app_data.log_json("Timing", json_body)
 
 
     @cherrypy.expose
@@ -96,6 +96,13 @@ class Site:
 
         return ret
     
+
+    @cherrypy.expose
+    def reload(self):
+        # Reload all questions
+        logging.info("Reloading questions...")
+        self._app_data.reload_repository()
+
 
     def _main(self, handle, req, tc, args):
         headers = Headers()

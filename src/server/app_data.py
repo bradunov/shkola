@@ -70,6 +70,8 @@ class AppData:
 
         self.items_path = items_path
 
+        self.use_azure_blob = use_azure_blob
+        self.preload = preload
 
         self.repository = Repository(self.rel_path, use_azure_blob, preload)
 
@@ -86,6 +88,12 @@ class AppData:
         logging.info("App data loaded")
 
 
+
+    def reload_repository(self):
+        self.repository = Repository(self.rel_path, self.use_azure_blob, self.preload)
+
+
+
     def load_languages(self):
         local_path = self.rel_path + "/messages/"
         self.messages = dict()
@@ -99,6 +107,6 @@ class AppData:
                     self.messages[lang["key"].lower()] = lang
 
 
-    def log_timing(self, json_body):
+    def log_json(self, mode, json_body):
         if self.external_log_handler:
-            self.external_log_handler.log_json("Timing", json_body)
+            self.external_log_handler.log_json(mode, json_body)
