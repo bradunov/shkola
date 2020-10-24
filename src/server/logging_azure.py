@@ -9,6 +9,8 @@ import base64
 import os
 import threading
 
+import server.helpers as helpers
+
 
 # Built from the following examples:
 # https://dzone.com/articles/python-custom-logging-handler-example
@@ -131,6 +133,10 @@ class Logging_handler_azure(logging.StreamHandler):
           "time" : str(now), 
           "message" : record.msg
         }
+
+
+        if record.levelno >= logging.ERROR:
+            json_body["trace"] = helpers.get_stack_trace()
 
 
         # Support for logging(..., extra)
