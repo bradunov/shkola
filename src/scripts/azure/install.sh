@@ -8,6 +8,9 @@ sudo apt install -y nginx >> log.txt
 cp nginx.conf /etc/nginx >> log.txt
 sudo nginx -s reload >> log.txt
 
+# Install CPU perf monitor
+sudo apt install -y sysstat >> log.txt
+
 # Install python3.8
 sudo apt update >> log.txt
 sudo apt install -y software-properties-common >> log.txt
@@ -43,7 +46,7 @@ do
 done
 
 
-# Set up systemd service
+# Set up shkola systemd service
 cp shkola.service /lib/systemd/system/ >> log.txt
 sed "s#%SHKOLA_AZ_TABLE_CONN_STR%#$SHKOLA_AZ_TABLE_CONN_STR#" -i /lib/systemd/system/shkola.service
 sed "s#%GOOGLE_CLIENT_ID%#$GOOGLE_CLIENT_ID#" -i /lib/systemd/system/shkola.service
@@ -54,6 +57,20 @@ sed "s#%SHKOLA_NODE_NAME%#$SHKOLA_NODE_NAME#" -i /lib/systemd/system/shkola.serv
 sudo systemctl daemon-reload >> log.txt
 sudo systemctl enable shkola.service >> log.txt
 sudo systemctl start shkola.service >> log.txt
+
+
+# Set up vm_status systemd service
+cp vm_status.service /lib/systemd/system/ >> log.txt
+sed "s#%SHKOLA_AZ_TABLE_CONN_STR%#$SHKOLA_AZ_TABLE_CONN_STR#" -i /lib/systemd/system/vm_status.service
+sed "s#%GOOGLE_CLIENT_ID%#$GOOGLE_CLIENT_ID#" -i /lib/systemd/system/vm_status.service
+sed "s#%GOOGLE_SITE_VERIFICATION%#$GOOGLE_SITE_VERIFICATION#" -i /lib/systemd/system/vm_status.service
+sed "s#%SHKOLA_LA_WORKSPACE_ID%#$SHKOLA_LA_WORKSPACE_ID#" -i /lib/systemd/system/vm_status.service
+sed "s#%SHKOLA_LA_PRIMARY_KEY%#$SHKOLA_LA_PRIMARY_KEY#" -i /lib/systemd/system/vm_status.service
+sed "s#%SHKOLA_NODE_NAME%#$SHKOLA_NODE_NAME#" -i /lib/systemd/system/vm_status.service
+sudo systemctl daemon-reload >> log.txt
+sudo systemctl enable vm_status.service >> log.txt
+sudo systemctl start vm_status.service >> log.txt
+
 
 
 # Check status/restart: 
