@@ -414,6 +414,7 @@
           "fileUris": [
             "https://raw.githubusercontent.com/bradunov/shkola/master/src/scripts/azure/install.sh",
             "https://raw.githubusercontent.com/bradunov/shkola/master/src/scripts/azure/nginx.conf",
+            "https://raw.githubusercontent.com/bradunov/shkola/master/src/scripts/azure/vm_status.service",
             "https://raw.githubusercontent.com/bradunov/shkola/master/src/scripts/azure/shkola.service"
           ],
           "commandToExecute": "[concat('./install.sh ', base64(string(variables('arguments'))))]"

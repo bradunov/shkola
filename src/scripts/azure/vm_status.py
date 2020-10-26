@@ -65,8 +65,8 @@ while True:
         #print(cpu_usage)
 
         # Send all to log_analytics
-        print(str(datetime.datetime.now()))
-        print(json_data)
+        #print(str(datetime.datetime.now()))
+        #print(json_data)
         log_handler.log_json('VMStatus', json_data, upload_immediately=True)
         
     except Exception as e:
@@ -75,4 +75,4 @@ while True:
         ))
 
 
-    time.sleep(3)
+    time.sleep(300)
