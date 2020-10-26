@@ -101,26 +101,26 @@ class Logging_handler_azure(logging.StreamHandler):
 
 
 
-    def log_json(self, type, json_body):
+    def log_json(self, type, json_body, upload_immediately=False):
         if not isinstance(json_body, list):
             json_body = [json_body]
         
-        now = datetime.datetime.now()
+        now = datetime.datetime.utcnow().isoformat()
         for i in json_body:
             i["type"] = type        
             i["node_name"] = self.node_name
-            i["time"] = str(now) 
+            i["time"] = now 
 
         with self._lock:
             self.log_msgs += json_body
             #print("\n\nONE: {}\n\n".format(json.dumps(json_body)))
 
-            self._upload()
+            self._upload(upload_immediately)
 
 
 
     def emit(self, record):
-        now = datetime.datetime.now()
+        now = datetime.datetime.utcnow().isoformat()
 
 
         json_body = {
@@ -130,7 +130,7 @@ class Logging_handler_azure(logging.StreamHandler):
           "filename" : record.filename,
           "function" : record.funcName,
           "line" : record.lineno,
-          "time" : str(now), 
+          "time" : now, 
           "message" : record.msg
         }
 
