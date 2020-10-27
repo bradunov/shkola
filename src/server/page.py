@@ -304,8 +304,8 @@ class Page(object):
                     if self.page_params.get_param("l_id"):
                         log_json["l_id"] = self.page_params.get_param("l_id")
 
-                    if context.c.user:
-                        log_json["user"] = context.c.user
+                    if context.c.user and context.c.user.user_id:
+                        log_json["user"] = context.c.user.user_id
 
                     self.app_data.log_json("Access", log_json)
 
