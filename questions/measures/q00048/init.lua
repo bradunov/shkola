@@ -1,7 +1,6 @@
 include("terms")
 
-number = {60, 24, 12}
+number = {60, 24, 7, 12, 12}
 
-value = {}
-value = lib.math.random_shuffle(number)
+
                   

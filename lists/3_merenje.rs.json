@@ -19,7 +19,7 @@
       "period": "2",
       "subtheme": "Merenje vremena",
       "topic": "Računske operacije",
-      "difficulty": "2"
+      "difficulty": "3"
     },
     {
       "name": "measures/q00052",
@@ -283,6 +283,38 @@
       "period": "2",
       "subtheme": "Merenje mase",
       "topic": "Računske operacije",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00087",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00091",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00092",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00099",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Merenje mase",
+      "topic": "Pretvaranje jedne mere u drugu",
       "difficulty": "1"
     }
   ]

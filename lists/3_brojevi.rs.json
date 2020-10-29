@@ -78,14 +78,6 @@
       "difficulty": "2"
     },
     {
-      "name": "fractions/q00027",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Razlomci",
-      "topic": "Tekstualni zadatak",
-      "difficulty": "3"
-    },
-    {
       "name": "fractions/q00028",
       "random": "10",
       "period": "3",
@@ -140,6 +132,22 @@
       "subtheme": "Razlomci",
       "topic": "Tekstualni zadatak",
       "difficulty": "3"
+    },
+    {
+      "name": "fractions/q00047",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": "Tekstualni zadatak",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00048",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": "Tekstualni zadatak",
+      "difficulty": "1"
     },
     {
       "name": "fractions/q00052",
@@ -700,6 +708,14 @@
       "subtheme": "Brojevi do 1000",
       "topic": "Zapis broja, brojevna poluprava",
       "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00134",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Množenje",
+      "difficulty": "2"
     },
     {
       "name": "numbers/q00137",

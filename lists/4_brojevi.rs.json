@@ -22,6 +22,14 @@
       "difficulty": "2"
     },
     {
+      "name": "fractions/q00027",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": "Tekstualni zadatak",
+      "difficulty": "3"
+    },
+    {
       "name": "fractions/q00031",
       "random": "10",
       "period": "3",

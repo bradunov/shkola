@@ -1,8 +1,10 @@
-Izrazi dužinu u naznačenoj jedinici. 
+
+Izrazi dužinu u naznačenim jedinicama. 
  
-@repeat(5)@ 
+@repeat(4)@ 
 
-@center@ @answ@ @hspacept(3)@ = @hspacept(3)@ @lib.check_number(value,30)@ @measure[indr]@
+@center@ @answ@ 
 
-@/repeat@       
+@/repeat@         
+            
        

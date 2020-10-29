@@ -1,35 +1,34 @@
+
 measure = {"m","dm","cm"}
-numb = {0, 0, 0}
+numb = {}
 
 indr = 1 + math.random(2)
-indl = math.random(indr-1)
+indl = indr-1
 
-ind = indr - indl
-
-if (indl == 1) then
-    numb[indl] = math.random(5) 
-else	
-    numb[indl] = math.random(9)  
-end   	
-
-value = numb[indl]
-
-factor = 1 + math.random(2)
-
-
-for i = indl+1,indr do
-    numb[i] = math.random(9)
-    if (i == factor) then
-        numb[i] = 0 
-    end 
-    value = value * 10 + numb[i]	
-end
-
+numb[1] = math.random(9) 
+numb[2] = math.random(10) - 1 	
+value = numb[1] * 10 + numb[2]
     
 answ = ""
-for i = 1,3 do
-    if (numb[i] ~= 0) then    
-        answ = answ .. " " .. tostring(math.floor(numb[i])) .. measure[i]
-    end
-end	                              
-                          
+
+index = math.random(2)
+
+if (index == 1) then
+    mes = measure[indl]
+    for i = 1,2 do
+        if (numb[i] ~= 0) then    
+            answ = answ .. " " .. tostring(math.floor(numb[i])) .. mes
+        end
+	    mes = measure[indr]
+    end	                                                       
+    answ = answ .. " = " .. lib.check_number(value,20) .. measure[indr]
+else
+    mes = measure[indl]
+    for i = 1,2 do
+        if (numb[i] ~= 0) then    
+            answ = answ .. " " .. lib.check_number(numb[i],15) .. mes
+        end
+     	mes = measure[indr]
+    end	                                                       
+    answ = answ .. " = " .. tostring(math.floor(value)) .. measure[indr]
+end   

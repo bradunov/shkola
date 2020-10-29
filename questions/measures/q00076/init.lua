@@ -6,7 +6,7 @@ start_h = 8 + math.random(4)
 start_m = 10 * math.random(5)
 
 hour = 2 + math.random(2);
-minute = math.random(59);
+minute = 1 + math.random(58);
 second = 11 * math.random(5) + 4;
 
 

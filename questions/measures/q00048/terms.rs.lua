@@ -1,3 +1,6 @@
-measure1 = {"minutu", "času", "danu", "mesecu", "godini"}
-measure2 = {"minuta", "časova", "dana", "meseci", "godina"}
+
+measure1 = {"minut", "čas", "dan", "sedmica", "mesec", "godina"}
+measure2 = {"minuta", "časa", "dana", "sedmice", "meseca", "godine"}
+measure3 = {"minuta", "časova", "dana", "sedmica", "meseci", "godina"}
+
 

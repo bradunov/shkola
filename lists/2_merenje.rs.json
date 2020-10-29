@@ -47,7 +47,7 @@
     },
     {
       "name": "measures/q00048",
-      "random": "3",
+      "random": "10",
       "period": "1",
       "subtheme": "Merenje vremena",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -76,6 +76,94 @@
       "subtheme": "Merenje vremena",
       "topic": "Računske operacije",
       "difficulty": "3"
+    },
+    {
+      "name": "measures/q00085",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Merenje vremena",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00086",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00088",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00089",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00090",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00093",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00094",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00095",
+      "random": "6",
+      "period": "1",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00096",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Merenje vremena",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00097",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Merenje vremena",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00098",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Merenje dužine",
+      "topic": "Poređenje mera",
+      "difficulty": "1"
     }
   ]
 }
