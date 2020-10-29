@@ -8,6 +8,7 @@ import traceback
 import time
 import socket
 import logging
+import requests
 
 sys.path.append('../..')
 from server.logging_azure import Logging_handler_azure
@@ -64,11 +65,26 @@ while True:
         json_data["CpuUtilization"] = cpu_usagen
         #print(cpu_usage)
 
+
+
+        # Heartbeat
+        r = requests.get('http://127.0.0.1')
+        if r.status_code == 200:
+            json_data["Heartbeat"] = 'OK'
+        else:
+            json_data["Heartbeat"] = 'ERROR'
+
+
+
         # Send all to log_analytics
         #print(str(datetime.datetime.now()))
         #print(json_data)
         log_handler.log_json('VMStatus', json_data, upload_immediately=True)
         
+
+        
+
+
     except Exception as e:
         logging.error("Exception: {}\n{}".format(
             e, helpers.get_stack_trace()
