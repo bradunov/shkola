@@ -11,6 +11,13 @@ sudo nginx -s reload >> log.txt
 # Install CPU perf monitor
 sudo apt install -y sysstat >> log.txt
 
+# Instal certbot to autogenerate SSL keys: 
+# https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx
+sudo snap install core >> log.txt
+sudo snap refresh core >> log.txt
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+
 # Install python3.8
 sudo apt update >> log.txt
 sudo apt install -y software-properties-common >> log.txt
