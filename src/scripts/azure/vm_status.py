@@ -33,6 +33,7 @@ while True:
         # Log_analytics data
         json_data = {}
 
+
         # Filesystem usage
         stdout = subprocess.check_output('df | grep " /$"', shell=True).strip().decode('utf-8')
         filesystem_fullnesses = {}
@@ -41,6 +42,7 @@ while True:
             filesystem_fullnesses['DiskUtilization'] = int(tokens[4][:-1])
             json_data['DiskUtilization'] = int(tokens[4][:-1])
             #print(filesystem_fullnesses)
+
 
         # Memory usage
         stdout = subprocess.check_output('free -m | grep -v total', shell=True).strip().decode('utf-8')
@@ -58,6 +60,7 @@ while True:
             mem_usage[mem_type] = mem_percent_used
             json_data[mem_type] = mem_percent_used
 
+
         # CPU time
         stdout = subprocess.check_output('mpstat 5 1 | grep Average | awk \'{ print $12 }\'', shell=True).strip()
         cpu_usagen = 100 - int(float(stdout.strip()))
@@ -65,6 +68,15 @@ while True:
         json_data["CpuUtilization"] = cpu_usagen
         #print(cpu_usage)
 
+
+        # SSL certificate
+        try:
+            stdout = subprocess.check_output('certbot certificates | grep "Expiry Date"', shell=True).strip()
+            a = stdout.split(" ")
+            expiry_days = int(a[5])
+        except Exception as e:
+            expiry_days = 0
+        json_data["SSLExpiry"] = expiry_days
 
 
         # Heartbeat
