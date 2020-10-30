@@ -62,7 +62,7 @@ while True:
 
 
         # CPU time
-        stdout = subprocess.check_output('mpstat 5 1 | grep Average | awk \'{ print $12 }\'', shell=True).strip()
+        stdout = subprocess.check_output('mpstat 5 1 | grep Average | awk \'{ print $12 }\'', shell=True).strip().decode('utf-8')
         cpu_usagen = 100 - int(float(stdout.strip()))
         cpu_usage = { "CpuUtilization" : cpu_usagen }
         json_data["CpuUtilization"] = cpu_usagen
@@ -71,7 +71,7 @@ while True:
 
         # SSL certificate
         try:
-            stdout = subprocess.check_output('certbot certificates | grep "Expiry Date"', shell=True).strip()
+            stdout = subprocess.check_output('certbot certificates | grep "Expiry Date"', shell=True).strip().decode('utf-8')
             a = stdout.split(" ")
             expiry_days = int(a[5])
         except Exception as e:
@@ -80,7 +80,7 @@ while True:
 
 
         # Heartbeat
-        r = requests.get('http://127.0.0.1')
+        r = requests.get('https://www.tatamata.org/')
         if r.status_code == 200:
             json_data["Heartbeat"] = 'OK'
         else:
