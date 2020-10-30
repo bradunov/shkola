@@ -113,3 +113,28 @@ Useful google related links:
 - Site verification: https://support.google.com/webmasters/answer/9008080?ref_topic=7440006
 - OAuth2 config: https://support.google.com/webmasters/answer/9008080?ref_topic=7440006
 
+
+
+
+### SSL Certificate
+
+To get an initial certificate, use the following command:
+```
+sudo certbot --nginx -m <email> --agree-tos -d <web_site_domain>
+```
+For testing, use:
+```
+sudo certbot --test-cert --nginx -m <email> --agree-tos -d <web_site_domain>
+```
+For full docs, please check:
+- https://letsencrypt.org/getting-started/
+- https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx
+
+
+NOTE: Our ARM scripts do not automatically generate certificate. Either re-generate or copy from an existing deployment.
+
+NOTE: Default ARM script opens port 80 (HTTP). For SSL this needs to be changed to 443 (HTTPS).
+
+NOTE: Certbot automatically renews certificate through systemd daemon. However, this daemon is installed only on the VM where certbot is run. If you create a replica of the production VM and copy over the certificate, this will not automatically renew it.
+
+
