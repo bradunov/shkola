@@ -3,7 +3,7 @@ Description=VM Status logging
 After=network.target
 
 [Service]
-User=azureuser
+User=root
 Environment="SHKOLA_REL_PATH=/home/azureuser/shkola"
 Environment="SHKOLA_AZ_TABLE_CONN_STR=%SHKOLA_AZ_TABLE_CONN_STR%"
 Environment="GOOGLE_CLIENT_ID=%GOOGLE_CLIENT_ID%"
