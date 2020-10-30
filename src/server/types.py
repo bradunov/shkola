@@ -172,7 +172,7 @@ class PageParameters(object):
         "url" : None
     }
 
-    _params = _default_params
+    _params = _default_params.copy()
 
 
     # Raise exception on any error - useful for testing
@@ -199,7 +199,7 @@ class PageParameters(object):
         return decode_dict(args["state"])
 
     def __init__(self, args : dict = None):
-        self._params = self._default_params
+        self._params = self._default_params.copy()
         if not args is None:
             self.parse(args)
 
@@ -227,7 +227,7 @@ class PageParameters(object):
         self.save_params()
 
     def delete_params(self):
-        self._params = self._default_params
+        self._params = self._default_params.copy()
         self.save_params()
 
     def copy_to_serializible_state(self):
@@ -242,7 +242,7 @@ class PageParameters(object):
 
     def load_from_serializible_state(self, params):
         if params is None:
-            self._params = self._default_params
+            self._params = self._default_params.copy()
         else:
             self._params = copy.deepcopy(params)
             if "op" in params.keys():
@@ -318,7 +318,7 @@ class PageParameters(object):
 
 
         if self._params == None:
-            self._params = self._default_params
+            self._params = self._default_params.copy()
 
 
         if "root" in args.keys():
