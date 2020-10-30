@@ -36,6 +36,17 @@ class Site:
 
         self._app_data = AppData(use_azure_blob=self.use_azure_blob, preload=self.preload, external_log_handler=log_handler)
 
+        if os.getenv('SHKOLA_ROOT'):
+            self.root = os.getenv('SHKOLA_ROOT')
+        else:
+            self.root = 'main'
+
+        if self.root == 'edit':
+            self.design = 'dev'
+        else:
+            self.design = None
+
+
 
     def log_timing(self, json_body, op):        
         for i in json_body:
@@ -48,12 +59,13 @@ class Site:
         req = cherrypy.request
         args = req.params
 
-        args["root"] = "edit"
-        args["design"] = "dev"
+        args["root"] = self.root
+        if self.design:
+            args["design"] = self.design
 
         tc = TimerControl()
         with tc.new_section("request cherrpy"):
-            ret = self._main("edit", req, tc, args)
+            ret = self._main(self.root, req, tc, args)
 
         d = tc.dump()
         logging.debug("TIMERS (%s):\n%s", str(cherrypy.url()), d)
