@@ -34,12 +34,16 @@ def set_log_level(log_level=None):
 
 
 def get_stack_trace():
-  output = "Stack trace:\n"
-  for l in inspect.stack():
-    output = output + "  Filename: {}, Line: {}, Function: {}, Code:\n    ".format(l.filename, l.lineno, l.function)
-    for h in l.code_context:
-      output = output + h
-  return output
+    output = "Stack trace:\n"
+    cnt = 0
+    for l in inspect.stack():
+        # Skip the first two because they are inside get_stack_trace() and can confuse
+        if cnt >= 2:
+            output = output + "  Filename: {}, Line: {}, Function: {}, Code:\n    ".format(l.filename, l.lineno, l.function)
+            for h in l.code_context:
+                output = output + h
+        cnt += 1
+    return output
 
 
 def encap_str(s : str):
