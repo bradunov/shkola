@@ -341,6 +341,28 @@
     {
       "type": "Microsoft.Network/networkSecurityGroups/securityRules",
       "apiVersion": "2020-05-01",
+      "name": "[concat(parameters('shkola_deployment'), '-nsg', '/Port_443')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('shkola_deployment'), '-nsg'))]"
+      ],
+      "properties": {
+        "protocol": "TCP",
+        "sourcePortRange": "*",
+        "destinationPortRange": "443",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "*",
+        "access": "Allow",
+        "priority": 310,
+        "direction": "Inbound",
+        "sourcePortRanges": [],
+        "destinationPortRanges": [],
+        "sourceAddressPrefixes": [],
+        "destinationAddressPrefixes": []
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "apiVersion": "2020-05-01",
       "name": "[concat(parameters('shkola_deployment'), '-nsg', '/SSH')]",
       "dependsOn": [
         "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('shkola_deployment'), '-nsg'))]"
