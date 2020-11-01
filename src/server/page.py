@@ -410,12 +410,12 @@ class Page(object):
                             "incorrect": incorrect,
                             "questions": questions}
 
-                logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, lang=%s, response_type=%s, " +
-                            "attempt=%s, start=%s, duration=%s, correct=%s, incorrect=%s, questions=\"%s\"", 
-                            str(user_id), str(args["q_id"]), str(l_id), 
-                            str(language), str(args["response_type"]), str(args["attempt"]),
-                            str(args["start"]), str(int(args["now"]) - int(args["start"])),
-                            str(correct), str(incorrect), str(questions))
+                # logging.debug("Register results: user_id={}, q_id={}, l_id={}, lang={}, response_type={}, " +
+                #             "attempt={}, start={}, duration={}, correct={}, incorrect={}, questions=\"{}\"".format( 
+                #             str(user_id), str(args["q_id"]), str(l_id), 
+                #             str(language), str(args["response_type"]), str(args["attempt"]),
+                #             str(args["start"]), str(int(args["now"]) - int(args["start"])),
+                #             str(correct), str(incorrect), str(questions)))
 
                 try:
                     self.app_data.storage.record_response(response)
@@ -456,7 +456,7 @@ class Page(object):
                         "shown_solutions": "",
                         "random_vals": ""}
 
-            logging.error("GOOGLE_ERROR feedback: user_id=%s, error=%s", str(user_id), str(args["comment"]))
+            logging.error("GOOGLE_ERROR feedback: user_id={}, error={}".format(user_id, args["comment"]))
 
             try:
                 self.app_data.storage.record_feedback(response)
@@ -492,13 +492,13 @@ class Page(object):
                         "random_vals": random_vals}
 
             if 'type' in args.keys() and args["type"] == "JS_ERROR":
-                logging.error("JS_ERROR feedback: user_id=%s, q_id=%s, l_id=%s, language=%s, type=%s, comment=%s, random_vals=%s", 
+                logging.error("JS_ERROR feedback: user_id={}, q_id={}, l_id={}, language={}, type={}, comment={}, random_vals={}".format( 
                             str(user_id), str(args["q_id"]), str(l_id), 
-                            str(language), str(args["type"]), str(args["comment"]), random_vals)
+                            str(language), str(args["type"]), str(args["comment"]), random_vals))
             else:
-                logging.debug("Register results: user_id=%s, q_id=%s, l_id=%s, language=%s, type=%s, comment=%s, random_vals=%s", 
+                logging.debug("Register results: user_id={}, q_id={}, l_id={}, language={}, type={}, comment={}, random_vals={}".format( 
                             str(user_id), str(args["q_id"]), str(l_id), 
-                            str(language), str(args["type"]), str(args["comment"]), random_vals)
+                            str(language), str(args["type"]), str(args["comment"]), random_vals))
 
             try:
                 self.app_data.storage.record_feedback(response)
