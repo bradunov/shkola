@@ -8,12 +8,17 @@ page['item_path'] = 'item?url='
 page['google_signin_client_id'] = ""
 page['google_site_verification'] = ""
 
-page["bar"] = {}
-page["bar"]["star1"] = 2
-page["bar"]["star2"] = 2
-page["bar"]["star3"] = 2
-page["bar"]["missed"] = 2
+page["total_bar"] = {}
+page["total_bar"]["star1"] = 2
+page["total_bar"]["star2"] = 2
+page["total_bar"]["star3"] = 2
+page["total_bar"]["missed"] = 2
 
+page["type_bar"] = {}
+page["type_bar"]["star1"] = 2
+page["type_bar"]["star2"] = 2
+page["type_bar"]["star3"] = 2
+page["type_bar"]["missed"] = 2
 
 
 file_loader = jinja2.FileSystemLoader("../templates")
