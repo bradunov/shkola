@@ -613,7 +613,8 @@ class Design_default(object):
     @staticmethod
     def _render_result_bar_and_get_last_difficulty(page):
         difficulty = "0"
-        page.template_params["bar"] = {"star1": 0, "star2": 0, "star3": 0, "missed": 0}
+        page.template_params["total_bar"] = {"star1": 0, "star2": 0, "star3": 0, "missed": 0}
+        page.template_params["type_bar"] = {"star1": 0, "star2": 0, "star3": 0, "missed": 0}
 
         # Count only the best asnwer to each question        
         questions = {}
@@ -632,25 +633,25 @@ class Design_default(object):
         for k, r in questions.items():
             if r["difficulty"] == "1":
                 if r["incorrect"] == 0:
-                    page.template_params["bar"]["star1"] = page.template_params["bar"]["star1"] + 1
+                    page.template_params["type_bar"]["star1"] = page.template_params["type_bar"]["star1"] + 1
                 else:
-                    page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + 1
-                # page.template_params["bar"]["star1"] = page.template_params["bar"]["star1"] + r["correct"]
-                # page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+                    page.template_params["type_bar"]["missed"] = page.template_params["type_bar"]["missed"] + 1
+                page.template_params["total_bar"]["star1"] = page.template_params["total_bar"]["star1"] + r["correct"]
+                page.template_params["total_bar"]["missed"] = page.template_params["total_bar"]["missed"] + r["incorrect"]
             elif r["difficulty"] == "2":
                 if r["incorrect"] == 0:
-                    page.template_params["bar"]["star2"] = page.template_params["bar"]["star2"] + 1
+                    page.template_params["type_bar"]["star2"] = page.template_params["type_bar"]["star2"] + 1
                 else:
-                    page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + 1
-                # page.template_params["bar"]["star2"] = page.template_params["bar"]["star2"] + r["correct"]
-                # page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+                    page.template_params["type_bar"]["missed"] = page.template_params["type_bar"]["missed"] + 1
+                page.template_params["total_bar"]["star2"] = page.template_params["total_bar"]["star2"] + r["correct"]
+                page.template_params["total_bar"]["missed"] = page.template_params["total_bar"]["missed"] + r["incorrect"]
             elif r["difficulty"] == "3":
                 if r["incorrect"] == 0:
-                    page.template_params["bar"]["star3"] = page.template_params["bar"]["star3"] + 1
+                    page.template_params["type_bar"]["star3"] = page.template_params["type_bar"]["star3"] + 1
                 else:
-                    page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + 1
-                # page.template_params["bar"]["star3"] = page.template_params["bar"]["star3"] + r["correct"]
-                # page.template_params["bar"]["missed"] = page.template_params["bar"]["missed"] + r["incorrect"]
+                    page.template_params["type_bar"]["missed"] = page.template_params["type_bar"]["missed"] + 1
+                page.template_params["total_bar"]["star3"] = page.template_params["total_bar"]["star3"] + r["correct"]
+                page.template_params["total_bar"]["missed"] = page.template_params["total_bar"]["missed"] + r["incorrect"]
 
 
         return difficulty
