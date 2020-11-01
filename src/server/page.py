@@ -295,6 +295,9 @@ class Page(object):
                         "url": req.get_url()
                     }
 
+                    if context.c.user and context.c.user.user_id:
+                        log_json["user"] = context.c.user.user_id
+
                     if self.page_params.get_param("op"):
                         log_json["op"] = PageOperation.toStr(self.page_params.get_param("op"))
 
@@ -304,8 +307,24 @@ class Page(object):
                     if self.page_params.get_param("l_id"):
                         log_json["l_id"] = self.page_params.get_param("l_id")
 
-                    if context.c.user and context.c.user.user_id:
-                        log_json["user"] = context.c.user.user_id
+
+                    if self.page_params.get_param("year"):
+                        log_json["year"] = self.page_params.get_param("year")
+                    if self.page_params.get_param("theme"):
+                        log_json["theme"] = self.page_params.get_param("theme")
+                    if self.page_params.get_param("subtheme"):
+                        log_json["subtheme"] = self.page_params.get_param("subtheme")
+                    if self.page_params.get_param("topic"):
+                        log_json["topic"] = self.page_params.get_param("topic")
+                    if self.page_params.get_param("period"):
+                        log_json["period"] = self.page_params.get_param("period")
+                    if self.page_params.get_param("difficulty"):
+                        log_json["difficulty"] = self.page_params.get_param("difficulty")
+                    if self.page_params.get_param("skipped"):
+                        log_json["skipped"] = self.page_params.get_param("skipped")
+                    if self.page_params.get_param("language"):
+                        log_json["language"] = PageLanguage.toStr(self.page_params.get_param("language"))
+
 
                     self.app_data.log_json("Access", log_json)
 
