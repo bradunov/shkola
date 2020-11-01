@@ -148,7 +148,7 @@ class Logging_handler_azure(logging.StreamHandler):
 
         with self._lock:
             self.log_msgs.append(json_body)
-            #print("\n\nONE: {}\n\n".format(json.dumps(json_body)))
+            #print("\n\nONE: {}\n\n".format(json.dumps(json_body, indent=2)))
 
             self._upload(record.levelno >= self.log_level_trigger)
 

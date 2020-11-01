@@ -1,5 +1,6 @@
 import os
 import json
+import traceback
 
 import sys
 sys.path.append(".")
@@ -135,8 +136,13 @@ class Site:
             args["language"] = "rs"
 
         with tc.new_section("page_main"):
-            page = Page(self._app_data)
-            page_body = page.main(request, headers, tc, args)
+            try:
+                page = Page(self._app_data)
+                page_body = page.main(request, headers, tc, args)
+            except Exception as error:
+                trace_str = traceback.format_exc()
+                logging.error("Error: {}\n{}".format(error, trace_str))
+                raise error
 
         response = cherrypy.response
 
