@@ -11,6 +11,8 @@
       "period": "2",
       "subtheme": "Merenje nestandardnim jedinicama mere",
       "topic": "Merenje dužine i težine",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -19,6 +21,8 @@
       "period": "2",
       "subtheme": "Merenje nestandardnim jedinicama mere",
       "topic": "Merenje dužine i težine",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
       "difficulty": "1"
     },
     {
@@ -27,6 +31,8 @@
       "period": "2",
       "subtheme": "Merenje nestandardnim jedinicama mere",
       "topic": "Merenje dužine i težine",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
       "difficulty": "2"
     }
   ]
