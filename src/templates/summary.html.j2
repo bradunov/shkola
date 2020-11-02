@@ -95,7 +95,7 @@
 
           <div style="display: table-cell; cursor: pointer; vertical-align: center; text-align: right; width: 84px">
 
-          {{ elements.scooter_forward("sc_fwd", '{{template_params["next"]}}') }}
+          {{ elements.scooter_forward("sc_fwd", 'location.href = "' ~ template_params["next"] ~ '"') }}
 
           </div>
         </div>

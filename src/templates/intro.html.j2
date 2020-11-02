@@ -128,7 +128,8 @@
           </div>
         </div>
 
-        {{ elements.scooter_back_fwd("sc_back", '{{template_params["back"]}}', "sc_fwd", '{{template_params["next"]}}') }}
+        {{ elements.scooter_back_fwd("sc_back", 'location.href = "' ~ template_params["back"] ~ '"', 
+              "sc_fwd", 'location.href = "' ~ template_params["next"] ~ '"') }}
 
       </div>
       
