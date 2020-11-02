@@ -830,7 +830,7 @@
   <script>
       document.getElementById("{{id}}_1").style.opacity = 0.4;
       document.getElementById("{{id}}_2").style.opacity = 1;
-      let next_timer_fwd = setInterval(function() {
+      let next_timer_{{id}}_fwd = setInterval(function() {
         let toggle = function(obj) {
           if (obj.style.opacity == 1) obj.style.opacity = 0.4;
           else obj.style.opacity = 1;
@@ -871,7 +871,7 @@
   <script>
       document.getElementById("{{id}}_1").style.opacity = 1;
       document.getElementById("{{id}}_2").style.opacity = 0.4;
-      let next_timer_bck = setInterval(function() {
+      let next_timer_{{id}}_bck = setInterval(function() {
         let toggle = function(obj) {
           if (obj.style.opacity == 1) obj.style.opacity = 0.4;
           else obj.style.opacity = 1;
