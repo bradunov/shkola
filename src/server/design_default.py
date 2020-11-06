@@ -86,6 +86,7 @@ class Design_default(object):
         elif page.page_params.get_param("op") == PageOperation.INTRO:
             # Intro
             logging.debug("PageOperation.INTRO")
+            context.c.session.set("showed_intro", True)
             Design_default.render_select_get_started_page(page)
             return page.render()
 
@@ -377,6 +378,32 @@ class Design_default(object):
 
 
 
+    @staticmethod
+    def _next_theme_url(page, theme, subtheme, topic, period, difficulty, l_id):
+        # Only show intro once per login 
+        if context.c.session.get("showed_intro"):
+            page.page_params.set_param("theme", theme)
+            page.page_params.set_param("subtheme", subtheme)
+            page.page_params.set_param("topic", topic)
+            page.page_params.set_param("period", period)
+            page.page_params.set_param("difficulty", difficulty)
+            page.page_params.set_param("l_id", l_id)
+
+            test = Test(page)
+            url_next, url_skip = test.get_next_question_url(Design_default.total_questions)
+
+        else:
+            url_next = page.page_params.create_url(
+                    op = PageOperation.toStr(PageOperation.INTRO), 
+                    theme = theme, 
+                    subtheme = subtheme, 
+                    topic = topic, 
+                    period = period, 
+                    difficulty = difficulty, 
+                    l_id = l_id)
+
+        return url_next
+
 
 
 
@@ -446,15 +473,14 @@ class Design_default(object):
                                     'topics' : [],
                                     'topics_dir' : {},
                                     'min_period' : period,
-                                    'link' : page.page_params.create_url(
-                                            op = PageOperation.toStr(PageOperation.INTRO), 
+                                    'link' : Design_default._next_theme_url(
+                                            page = page, 
                                             theme = theme.title().strip(), 
                                             subtheme = subtheme, 
                                             topic = "*", 
                                             period = "*", 
                                             difficulty = "*", 
-                                            l_id = content[page.page_params.get_param("year")][theme]["name"], 
-                                            js = False)
+                                            l_id = content[page.page_params.get_param("year")][theme]["name"])
                                 }
                                 subtheme_dict[subtheme] = subtheme_d
                                 subtheme_list.append(subtheme_d)
@@ -463,15 +489,14 @@ class Design_default(object):
                                     'title' : "Sve teme",
                                     'rank_topic' : "0",
                                     'min_period' : "0",
-                                    'link' : page.page_params.create_url(
-                                            op = PageOperation.toStr(PageOperation.INTRO), 
+                                    'link' : Design_default._next_theme_url(
+                                            page = page, 
                                             theme = theme.title().strip(), 
                                             subtheme = subtheme, 
                                             topic = "*", 
                                             period = "*", 
                                             difficulty = "*", 
-                                            l_id = content[page.page_params.get_param("year")][theme]["name"], 
-                                            js = False)
+                                            l_id = content[page.page_params.get_param("year")][theme]["name"])
                                 }
                                 subtheme_d['topics_dir']["all"] = topic_d
                                 subtheme_d['topics'].append(topic_d)
@@ -485,15 +510,14 @@ class Design_default(object):
                                     'title' : topic.capitalize(),
                                     'rank_topic' : rank_topic,
                                     'min_period' : period,
-                                    'link' : page.page_params.create_url(
-                                            op = PageOperation.toStr(PageOperation.INTRO), 
+                                    'link' : Design_default._next_theme_url(
+                                            page = page, 
                                             theme = theme.title().strip(), 
                                             subtheme = subtheme, 
                                             topic = topic, 
                                             period = "*", 
                                             difficulty = "*", 
-                                            l_id = content[page.page_params.get_param("year")][theme]["name"], 
-                                            js = False)
+                                            l_id = content[page.page_params.get_param("year")][theme]["name"])
                                 }
                                 subtheme_d['topics_dir'][topic] = topic_d
                                 subtheme_d['topics'].append(topic_d)
@@ -529,15 +553,14 @@ class Design_default(object):
 
                     page.template_params['themes'].append({
                         'title' : theme.capitalize().strip(),
-                        'link' : page.page_params.create_url(
-                                op = PageOperation.toStr(PageOperation.INTRO), 
+                        'link' : Design_default._next_theme_url(
+                                page = page, 
                                 theme = theme.title().strip(), \
                                 subtheme = "*", \
                                 topic = "*", \
                                 period = "*", \
                                 difficulty = "*", \
-                                l_id = content[page.page_params.get_param("year")][theme]["name"], \
-                                js = False),
+                                l_id = content[page.page_params.get_param("year")][theme]["name"]),
                         'subthemes' : subtheme_list
                     })
 

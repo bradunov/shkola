@@ -22,17 +22,17 @@ page["stats"] = {
 }
 
 
-page["bar"] = {"star1": 0, "star2": 0, "star3": 0, "missed": 0}
+page["total_bar"] = {"star1": 0, "star2": 0, "star3": 0, "missed": 0}
 for k, v in page["stats"].items():
   if k == "1":
-    page["bar"]["star1"] = page["bar"]["star1"] + v["correct"]
-    page["bar"]["missed"] = page["bar"]["missed"] + v["incorrect"]
+    page["total_bar"]["star1"] = page["total_bar"]["star1"] + v["correct"]
+    page["total_bar"]["missed"] = page["total_bar"]["missed"] + v["incorrect"]
   elif k == "2":
-    page["bar"]["star2"] = page["bar"]["star2"] + v["correct"]
-    page["bar"]["missed"] = page["bar"]["missed"] + v["incorrect"]
+    page["total_bar"]["star2"] = page["total_bar"]["star2"] + v["correct"]
+    page["total_bar"]["missed"] = page["total_bar"]["missed"] + v["incorrect"]
   elif k == "3":
-    page["bar"]["star3"] = page["bar"]["star3"] + v["correct"]
-    page["bar"]["missed"] = page["bar"]["missed"] + v["incorrect"]
+    page["total_bar"]["star3"] = page["total_bar"]["star3"] + v["correct"]
+    page["total_bar"]["missed"] = page["total_bar"]["missed"] + v["incorrect"]
 
 
 page["root"] = "ROOT"

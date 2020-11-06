@@ -941,3 +941,18 @@
 
 
 
+{% macro feedback_icon() %}
+  <div id="ic_problem" title="Prijavi problem" 
+      style="display:inline-block; cursor: pointer; "
+      onclick="popup_toggle_report_problem()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12.371" height="19.026" viewBox="0 0 12.371 19.026">
+        <g>
+            <g>
+                <path fill="#148f91" stroke="#148f91" d="M21.673 957.862a.593.593 0 0 0-.577.608.6.6 0 0 0 .192.443v16.165h-.421a.414.414 0 0 0-.367.424.409.409 0 0 0 .4.386h1.539a.405.405 0 0 0 0-.81h-.385v-9.247c6.417-2.11 3.587 2.516 9.812.133v-6.481c-6.389 2.374-4.525-2.208-9.812-.158v-.411a.6.6 0 0 0 .192-.443.593.593 0 0 0-.577-.608z" transform="translate(-19.999 -5) translate(20.5 5.5) translate(-20.5 -957.862)"/>
+            </g>
+        </g>
+    </svg>
+  </div>
+{% endmacro %}
+
+

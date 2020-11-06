@@ -8,7 +8,8 @@ page['item_path'] = 'item?url='
 page['google_signin_client_id'] = ""
 page['google_site_verification'] = ""
 
-
+page["back"] = "back"
+page["next"] = "next"
 
 
 

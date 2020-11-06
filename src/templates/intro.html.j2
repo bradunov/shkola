@@ -27,14 +27,34 @@
     <script>
       function popup_toggle_skip() {}
       function popup_toggle_reveal() {}
+
+      function second_popup() {
+        document.getElementById('prvi').style.display = "none";
+        document.getElementById('drugi').style.display = "block";
+      }
+
+      function first_popup() {
+        document.getElementById('drugi').style.display = "none";
+        document.getElementById('prvi').style.display = "block";
+      }
     </script>
 
 
     {% set width=4 %}
 
-    <div style="display:block; width: 100%; text-align: center; margin-top: 50px; overflow-x: hidden;">
+
+    <!-- Prvi prozor -->
+
+    <div id="prvi" style="display:block; width: 100%; text-align: center; margin-top: 50px; overflow-x: hidden;">
       <div style="display: inline-block; text-align: center; 
                   width: calc(100% - 70px); margin: 0 35px 0 35px; min-height: 433px; border: 3px solid #148f91">
+
+        <div style="display: inline-block; text-align: center; width: 100%; height: 28px; margin-top: 25px">
+          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
+            Samo da znaš…..
+          </div>
+        </div>
+
         <div style="display: inline-block; text-align: center; width: 100%; height: 28px; margin-top: 18px">
           <div class="sh_lato_font" style="display: inline-block; margin-left: 25px; margin-right: 7px; 
                       color: #636661; font-size: 18px;">
@@ -117,23 +137,85 @@
         </div>
 
 
-        <div style="display: inline-block; text-align: center; width: 100%-50px; margin: 21px 25px 32px 25px">
+        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); margin: 21px 25px 32px 25px">
           <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
               TATA MATA ti predlaže da probaš da uradiš svaki zadatak. <br> <br>
 
               Ovde <b>NEMA</b> ocena! <br> <br>
 
-              A ako ti je baš mnogo teško, preskoči taj zadatak (pritisni {{ elements.skip_icon() }} ) 
-              ili pogledaj rešenje (pritisni {{ elements.help_icon() }}) pa probaj kasnije. 
+              A ako ti je baš mnogo teško, preskoči taj zadatak  
+              ili pogledaj rešenje pa probaj kasnije. 
           </div>
         </div>
 
-        {{ elements.scooter_back_fwd("sc_back", 'location.href = "' ~ template_params["back"] ~ '"', 
-              "sc_fwd", 'location.href = "' ~ template_params["next"] ~ '"') }}
+        {{ elements.scooter_back_fwd("sc_back_1", 'location.href = "' ~ template_params["back"] ~ '"', 
+              "sc_fwd_1", 'second_popup()') }}
 
       </div>
       
     </div>
+
+
+
+
+    <!-- Drugi prozor -->
+
+    <div id="drugi" style="display:none; width: 100%; text-align: center; margin-top: 50px; overflow-x: hidden;">
+      <div style="display: inline-block; text-align: center; 
+                  width: calc(100% - 70px); margin: 0 35px 0 35px; min-height: 433px; border: 3px solid #148f91">
+
+        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); height: 28px; margin: 25px 25px 0px 25px">
+          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
+            Ok, ako ti je zadatak bas težak, možeš da ga: 
+          </div>
+        </div>
+
+
+        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); margin: 12px 25px 0px 25px">
+          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
+              preskočiš………………………{{ elements.skip_icon() }}
+          </div>
+        </div>
+
+        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); height: 28px; margin: 25px 25px 0px 25px">
+          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
+            ako te baš mnogo muči, a ti onda:
+          </div>
+        </div>
+
+        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); margin: 12px 25px 32px 25px">
+          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
+              vidi rešenje……………………{{ elements.help_icon() }}
+          </div>
+        </div>
+
+        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); height: 28px; margin: 45px 25px 0px 25px">
+          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
+            A ako primetiš da zadatak nije jasan ili da ima grešku, onda samo
+          </div>
+        </div>
+
+        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); margin: 12px 25px 32px 25px">
+          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
+              prijavi problem………………{{ elements.feedback_icon() }}
+          </div>
+        </div>
+
+
+
+
+        {{ elements.scooter_back_fwd("sc_back_2", 'first_popup()', 
+              "sc_fwd_2", 'location.href = "' ~ template_params["next"] ~ '"') }}
+
+      </div>
+      
+    </div>
+
+
+
+
+
+
 
 
     <div style="display:block; width: 100%; text-align: center; margin-top: -3px; overflow-x: hidden;">
