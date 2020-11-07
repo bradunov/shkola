@@ -124,9 +124,13 @@
                         vertical-align: middle;
                         font-size: {{ template_params['button']['font_size'] }};"
                         onclick="button_onclick('{{ button_id }}', '{{ button_color }}')">
+
+              <!-- margin-top below doesn't behave the same way on desktops and mobiles
+                   this is now optimized for mobile, so not well centered on desktops (Windows Chrome)
+               -->
               <div id="{{ "text_{}".format(loop.index) }}",  
                   style="vertical-align: middle;
-                        margin-top: -15px;
+                        margin-top: -25px;
                         height: 130px;">
                   {{ b['title'] }}
               </div>                
