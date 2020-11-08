@@ -66,6 +66,7 @@ class Qlist(object):
                 self.page.page_params.create_url( \
                                     op = PageOperation.toStr(PageOperation.VIEW), \
                                     q_id = q_id, \
+                                    beta = True if self.page.page_params.get_param("beta") else None, 
                                     js = False), \
                 q_id, title))
             self.page.add_lines("</div>\n")
