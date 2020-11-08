@@ -49,6 +49,10 @@
 
 
     <script>
+      window.onbeforeunload = function() {
+          return "Reloading will erase all your answers!";
+      }
+
       var solved = false;
       var showed_sol = false;
       //var showed_wrong = false;
