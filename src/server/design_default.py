@@ -222,19 +222,21 @@ class Design_default(object):
             #                 js = False)
             #         })
 
-            lists['submenu']['options'].append({
-                "name" : level.upper(),
-                "link" : new_page_params.create_url( \
-                        op = PageOperation.toStr(PageOperation.MENU_THEME), \
-                        year = level, 
-                        js = False)
-                #         js = False),
-                # "submenu" : {
-                #     "id" : "zadaci_{}".format(menu_id),
-                #     "options" : options
-                # }
-            })
-            menu_id = menu_id + 1
+            # Year 5+ are not complete so we only show in beta mode
+            if int(level) <= 4 or page.page_params.get_param("beta"): 
+                lists['submenu']['options'].append({
+                    "name" : level.upper(),
+                    "link" : new_page_params.create_url( \
+                            op = PageOperation.toStr(PageOperation.MENU_THEME), \
+                            year = level, 
+                            js = False)
+                    #         js = False),
+                    # "submenu" : {
+                    #     "id" : "zadaci_{}".format(menu_id),
+                    #     "options" : options
+                    # }
+                })
+                menu_id = menu_id + 1
 
         page.template_params['menu'].append(lists)
 
@@ -352,24 +354,27 @@ class Design_default(object):
 
             i = 0
             for ynumber in sorted(ordered.keys()):
-                year = ordered[ynumber]
 
-                page.template_params['button']['choices'].append({
-                    'title' : ynumber,
-                    'front_color' : color_list[i % len(color_list)],
-                    #'back_color' : '#f9f9f9',
-                    'back_color' : '#ffffff',
-                    'link' : page.page_params.create_url(
-                        op = PageOperation.toStr(PageOperation.MENU_THEME),                         
-                        year = year, \
-                        theme = "", \
-                        subtheme = "", \
-                        topic = "", \
-                        period = "", \
-                        difficulty = "", \
-                        js = False)
-                })
-                i = i+1
+                # Year 5+ are not complete so we only show in beta mode
+                if int(ordered[ynumber]) <= 4 or page.page_params.get_param("beta"): 
+                    year = ordered[ynumber]
+
+                    page.template_params['button']['choices'].append({
+                        'title' : ynumber,
+                        'front_color' : color_list[i % len(color_list)],
+                        #'back_color' : '#f9f9f9',
+                        'back_color' : '#ffffff',
+                        'link' : page.page_params.create_url(
+                            op = PageOperation.toStr(PageOperation.MENU_THEME),                         
+                            year = year, \
+                            theme = "", \
+                            subtheme = "", \
+                            topic = "", \
+                            period = "", \
+                            difficulty = "", \
+                            js = False)
+                    })
+                    i = i+1
 
         else:
             page.template_params["template_name"] = "error.html.j2"

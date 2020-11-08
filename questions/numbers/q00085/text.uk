@@ -1,7 +1,8 @@
                                                                   
 @ime@ paid @book@ pounds for a book and @factor@ times less for a notebook. 
 
-How many pounds did @ime@ spend altogether? @hspacept(5)@ @lib.check_number(result)@
+How many pounds did @ime@ spend altogether? 
+@center@ @lib.check_number(result)@
 
 
 

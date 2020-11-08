@@ -1,8 +1,10 @@
-                                                                @ime1@ has @value[1]@ marbles, @ime2@ has @add[1]@ @oper1@ marbles than @ime1@, and @ime3@ has @add[2]@ @oper2@ than @ime2@. 
+
+@ime1@ has @value[1]@ marbles, @ime2@ has @add[1]@ @oper1@ marbles than @ime1@, and @ime3@ has @add[2]@ @oper2@ than @ime2@. 
 
 @vspace@
 
-How many marbles do they have altogether? @hspace@  @lib.check_number(result)@ 
+How many marbles do they have altogether? 
+@center@  @lib.check_number(result)@ 
 
         
    

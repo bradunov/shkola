@@ -1,8 +1,9 @@
-                                                                                Write the digit that,  
+
+Write the digit that,  
 
 @repeat(4)@
-
-is in the @value[index]@ of the number @number@ @hspace@ @lib.check_number(result,20)@ 
+is in the @value[index]@ of the number @number@ 
+@center@ @lib.check_number(result,20)@ 
 
 @/repeat@
 

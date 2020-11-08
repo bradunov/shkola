@@ -3,9 +3,9 @@
 
 @vspace@
 
-Cena knjige je @hspacept(3)@ @lib.check_number(book)@ dinara.
-Cena sveske je @hspacept(3)@ @lib.check_number(notebook)@ dinara.
-Cena olovke je @hspacept(3)@ @lib.check_number(pencil)@ dinara.
+@center@ Cena knjige je @hspacept(3)@ @lib.check_number(book)@ dinara.
+@center@ Cena sveske je @hspacept(3)@ @lib.check_number(notebook)@ dinara.
+@center@ Cena olovke je @hspacept(3)@ @lib.check_number(pencil)@ dinara.
 
      
 

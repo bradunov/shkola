@@ -1,6 +1,7 @@
-                                                @total@ kg of flour were equally distributed into @number@ bags. 
-How many kilograms of flour are in @part@ bags? @hspacept(5)@ @lib.check_number(rezult)@kg
-                  
+
+@total@ kg of flour were equally distributed into @number@ bags. 
+How many kilograms of flour are in @part@ bags?
+@center@ @lib.check_number(rezult)@kg                
 
 
 

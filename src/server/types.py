@@ -168,6 +168,9 @@ class PageParameters(object):
         # Is user on a mobile device
         "mobile" : True,
 
+        # Enable to get features in beta
+        "beta" : False,
+
         # Current URL in the full form
         "url" : None
     }
@@ -420,6 +423,10 @@ class PageParameters(object):
             self._params["text"] = args["text"]
             updated = True
 
+        if "beta" in args.keys():
+            self._params["beta"] = True
+            updated = True
+
         if "user_agent" in args.keys():
             self._params["mobile"] = is_user_on_mobile(args["user_agent"])
             updated = True
@@ -445,7 +452,7 @@ class PageParameters(object):
     # as they can be JS variables
     def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, 
                    theme=None, subtheme=None, topic=None, period=None, difficulty=None,
-                   q_num=None, q_diff=None, skipped=None, language=None, design=None, js=False):
+                   q_num=None, q_diff=None, skipped=None, language=None, beta=None, design=None, js=False):
         if root is None:
             root = self._params["root"]
             root = encap_str(root) if js else root
@@ -468,6 +475,7 @@ class PageParameters(object):
         difficulty = self._str_to_url(difficulty, self._params["difficulty"], js)
         q_num = self._str_to_url(q_num, self._params["q_num"], js)
         q_diff = self._str_to_url(q_diff, self._params["q_diff"], js)
+        beta = self._str_to_url(beta, self._params["beta"], js)
         if skipped is None:
             skipped = "false"
         else:
@@ -480,11 +488,15 @@ class PageParameters(object):
                   "+ \"&q_num=\" + {} + \"&q_diff=\" + {} + \"&skipped=\" + {} + \"&language=\" + {} + \"&design=\" + {} ").format(
                       root, op, q_id, l_id, year, theme, subtheme, topic, period, difficulty, q_num, q_diff, skipped, language, design
                   )
+            if beta:
+                url += " + \"&beta\" "
         else:
             url = ("{}?op={}&q_id={}&l_id={}&year={}" \
                   "&theme={}&subtheme={}&topic={}&period={}" \
                   "&difficulty={}&q_num={}&q_diff={}&skipped={}&language={}&design={}").format(
                       root, op, q_id, l_id, year, theme, subtheme, topic, period, difficulty, q_num, q_diff, skipped, language, design
                   )
+            if beta:
+                url += "&beta"
 
         return url

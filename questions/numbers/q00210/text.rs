@@ -3,7 +3,6 @@
 (Ne zaboravi da se na jednom listu štampaju dve strane.)
 
 @vspace@
-Upotrebljeno je @hspacept(3)@ @lib.check_number(result,60)@ @hspacept(3)@ listova papira.
-  
+@center@ Upotrebljeno je @hspacept(3)@ @lib.check_number(result,60)@ @hspacept(3)@ listova papira.
             
 

@@ -4,7 +4,7 @@ Koliko @ime@ ima novca na računu na kraju meseca?
   
 @vspace@
 
-@ime@ ima na računu @lib.check_number(rest, 60)@ dinara.
+@center@ @ime@ ima na računu @lib.check_number(rest, 60)@ dinara.
  
                 
 

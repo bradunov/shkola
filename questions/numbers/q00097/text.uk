@@ -1,6 +1,8 @@
-                                            @ime@ has @bluemarble@ blue marbles, @greenfactor@ times more green marbles than blue ones, and @term@ times less red marbles than blue.
 
-How many marbles does @ime@ have altogether? @hspacept(5)@ @lib.check_number(result)@
+@ime@ has @bluemarble@ blue marbles, @greenfactor@ times more green marbles than blue ones, and @term@ times less red marbles than blue.
+
+How many marbles does @ime@ have altogether? 
+@center@ @lib.check_number(result)@
 
                   
                   

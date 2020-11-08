@@ -1,9 +1,11 @@
-                                            An apartment building has @number@ floors. 
+
+An apartment building has @number@ floors. 
 On the ground floor of the building there are @ground@ apartments, and on every level there are @floor@ apartments. 
 In the attic of the building, there are @attic@ more apartments.
 
 @vspace@
-How many apartments does the building have altogether? @hspacept(8)@ @lib.check_number(result)@ 
+How many apartments does the building have altogether? 
+@center@ @lib.check_number(result)@ 
 
                   
                   

@@ -1,0 +1,11 @@
+
+Write all the factors of the given numbers from smallest to largest. 
+
+@repeat(5)@
+
+@number@ @hspace@ @answ@        
+@/repeat@    
+                  
+                  
+            
+            

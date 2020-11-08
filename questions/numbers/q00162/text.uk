@@ -1,6 +1,8 @@
-                                @ime@ has @blue@ blue lego blocks, @greenfactor@ times more green blocks than blue ones, and @redfactor@ times less red blocks than blue.
 
-How many lego blocks does @ime@ have altogether? @hspacept(5)@ @lib.check_number(result)@            
+@ime@ has @blue@ blue lego blocks, @greenfactor@ times more green blocks than blue ones, and @redfactor@ times less red blocks than blue.
+
+How many lego blocks does @ime@ have altogether? 
+@center@ @lib.check_number(result)@            
 
  
             

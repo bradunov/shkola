@@ -1,10 +1,11 @@
-                                A @length@ cm long strip is divided into two parts, so that one part is @factor@ times longer than the other. 
+
+A @length@ cm long strip is divided into two parts, so that one part is @factor@ times longer than the other. 
 
 How long is each section?
 
 @vspace@
-The shorter part is @hspace@ @lib.check_number(short)@ cm long,
-and the longer part is @hspace@ @lib.check_number(long)@ cm long.
+@center@ The shorter part is  @lib.check_number(short)@ cm long.
+@center@ The longer part is @lib.check_number(long)@ cm long.
 
 
                   
