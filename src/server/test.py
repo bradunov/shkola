@@ -305,6 +305,7 @@ class Test(object):
         if q_number >= total_questions or not more_questions:
             url_next = self.page.page_params.create_url( 
                 op=PageOperation.toStr(PageOperation.SUMMARY),
+                beta=True if self.page.page_params.get_param("beta") else None, 
                 js=False)
             url_skip = url_next
         else:
@@ -313,6 +314,7 @@ class Test(object):
                 q_id=next_question["q_id"], 
                 q_diff=next_question["difficulty"], 
                 q_num=str(q_number+1),
+                beta=True if self.page.page_params.get_param("beta") else None, 
                 js=False)
             url_skip = self.page.page_params.create_url( 
                 op=PageOperation.toStr(PageOperation.TEST),
@@ -320,6 +322,7 @@ class Test(object):
                 q_diff=next_question["difficulty"], 
                 q_num=str(q_number+1),
                 skipped="true",
+                beta=True if self.page.page_params.get_param("beta") else None, 
                 js=False)
 
         return url_next, url_skip
@@ -330,6 +333,7 @@ class Test(object):
         if len(context.c.session.get("history")) <= 1:
             url_prev = self.page.page_params.create_url(\
                         op = PageOperation.toStr(PageOperation.MENU_THEME), 
+                        beta=True if self.page.page_params.get_param("beta") else None, 
                         js = False)
         else:
             q_id = context.c.session.get("history")[-2]["q_id"]
@@ -340,6 +344,7 @@ class Test(object):
                         q_id = q_id, 
                         q_diff = q_diff,             
                         q_num = str(q_number-1),
+                        beta=True if self.page.page_params.get_param("beta") else None, 
                         js = False)
 
         return url_prev

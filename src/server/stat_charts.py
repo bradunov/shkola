@@ -211,6 +211,7 @@ def prepare_user_stats_chart(pg, u_ID):
                                     topic = "", \
                                     difficulty = "", \
                                     period = "", \
+                                    beta = True if pg.page_params.get_param("beta") else None, 
                                     js=False)
 
     pg.template_params["url_theme"] = pg.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_THEME), \
@@ -220,6 +221,7 @@ def prepare_user_stats_chart(pg, u_ID):
                                     topic = "", \
                                     difficulty = "", \
                                     period = "", \
+                                    beta = True if pg.page_params.get_param("beta") else None, 
                                     js=False)
 
 

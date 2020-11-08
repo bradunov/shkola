@@ -173,7 +173,9 @@ class Design_default(object):
                                   page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
                                   page.get_language_details(lang)["country"],
                 "link" : page.page_params.create_url( \
-                            op = PageOperation.toStr(PageOperation.MENU_YEAR), language = lang, js = False)
+                            op = PageOperation.toStr(PageOperation.MENU_YEAR), 
+                            beta = True if page.page_params.get_param("beta") else None, 
+                            language = lang, js = False)
             })            
 
         # Jezik: &nbsp; 
@@ -196,6 +198,7 @@ class Design_default(object):
             "name" : "Razred".upper(),
             "link" : new_page_params.create_url(\
                     op = PageOperation.toStr(PageOperation.MENU_YEAR), \
+                    beta = True if page.page_params.get_param("beta") else None, 
                     js = False),
             "submenu" : {
                 "id" : "zadaci_{}".format(menu_id),
@@ -229,6 +232,7 @@ class Design_default(object):
                     "link" : new_page_params.create_url( \
                             op = PageOperation.toStr(PageOperation.MENU_THEME), \
                             year = level, 
+                            beta = True if page.page_params.get_param("beta") else None, 
                             js = False)
                     #         js = False),
                     # "submenu" : {
@@ -244,13 +248,21 @@ class Design_default(object):
         if not user_picture is None:
             page.template_params['menu'].append({
                 "name" : "Moj uspeh".upper(),
-                "link" : new_page_params.create_url(op = PageOperation.toStr(PageOperation.STATS), js = False)
+                "link" : new_page_params.create_url(
+                    op = PageOperation.toStr(PageOperation.STATS), 
+                    beta = True if page.page_params.get_param("beta") else None, 
+                    js = False
+                )
             })
 
         # "name" : "Izloguj se (" + context.c.user.name + ")",
         page.template_params['menu'].append({
             "name" : "Izloguj se".upper(),
-            "link" : new_page_params.create_url(op = PageOperation.LOGOUT.value, js = False)
+            "link" : new_page_params.create_url(
+                op = PageOperation.LOGOUT.value, 
+                beta = True if page.page_params.get_param("beta") else None, 
+                js = False
+            )
         })
 
 
@@ -287,8 +299,12 @@ class Design_default(object):
                     "\" src=\"" + page.get_file_url("images/" + 
                                   page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
                                   page.get_language_details(lang)["country"],
-                "link" : page.page_params.create_url( \
-                            op = PageOperation.toStr(PageOperation.MENU_USER), language = lang, js = False)
+                "link" : page.page_params.create_url(
+                    op = PageOperation.toStr(PageOperation.MENU_USER), 
+                    language = lang, 
+                    beta = True if page.page_params.get_param("beta") else None, 
+                    js = False
+                )
             })            
 
         page.template_params['menu_lang'] = sublang
@@ -298,8 +314,9 @@ class Design_default(object):
         page.template_params["google_link"] = "/main?op={}".format(PageOperation['LOGIN_GOOGLE'].value)
 
         page.template_params["guest_link"] = page.page_params.create_url(
-                                      op = PageOperation.toStr(PageOperation.LOGIN_ANON), 
-                                      js = False)
+                                    op = PageOperation.toStr(PageOperation.LOGIN_ANON), 
+                                    beta = True if page.page_params.get_param("beta") else None, 
+                                    js = False)
 
 
 
@@ -372,6 +389,7 @@ class Design_default(object):
                             topic = "", \
                             period = "", \
                             difficulty = "", \
+                            beta = True if page.page_params.get_param("beta") else None, 
                             js = False)
                     })
                     i = i+1
@@ -405,6 +423,7 @@ class Design_default(object):
                     topic = topic, 
                     period = period, 
                     difficulty = difficulty, 
+                    beta = True if page.page_params.get_param("beta") else None, 
                     l_id = l_id)
 
         return url_next
@@ -437,7 +456,9 @@ class Design_default(object):
 
             page.template_params['year'] = page.page_params.get_param("year").upper().strip()
             page.template_params['url_year'] = page.page_params.create_url(
-                                            op = PageOperation.toStr(PageOperation.MENU_YEAR), js = False)
+                                            op = PageOperation.toStr(PageOperation.MENU_YEAR), 
+                                            beta = True if page.page_params.get_param("beta") else None, 
+                                            js = False)
 
             page.template_params['themes'] = []
 
@@ -587,9 +608,15 @@ class Design_default(object):
         page.template_params["template_name"] = "confirm_anon.html.j2"
 
         page.template_params["next"] = page.page_params.create_url(\
-                    op = PageOperation.toStr(PageOperation.MENU_YEAR), js = False)
+                    op = PageOperation.toStr(PageOperation.MENU_YEAR), 
+                    beta = True if page.page_params.get_param("beta") else None, 
+                    js = False
+                )
         page.template_params["back"] = page.page_params.create_url(\
-                    op = PageOperation.toStr(PageOperation.LOGOUT), js = False)
+                    op = PageOperation.toStr(PageOperation.LOGOUT), 
+                    beta = True if page.page_params.get_param("beta") else None, 
+                    js = False
+                )
 
 #                    op = PageOperation.toStr(PageOperation.MENU_USER), js = False)
 
@@ -634,7 +661,10 @@ class Design_default(object):
                     topic = "", 
                     period = "", 
                     difficulty = "", 
-                    l_id = "", js = False)
+                    l_id = "", 
+                    beta = True if page.page_params.get_param("beta") else None, 
+                    js = False
+        )
         
         
 
@@ -863,6 +893,7 @@ class Design_default(object):
                                         topic = "", \
                                         difficulty = "", \
                                         period = "", \
+                                        beta = True if page.page_params.get_param("beta") else None, 
                                         js=False)
 
 

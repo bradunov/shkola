@@ -536,7 +536,9 @@ class Page(object):
         #     "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
 
         url = self.page_params.create_url( \
-            op = PageOperation.toStr(PageOperation.MENU_YEAR), js = False)
+            op = PageOperation.toStr(PageOperation.MENU_YEAR), 
+            beta = True if self.page_params.get_param("beta") else None, 
+            js = False)
 
         if not ok:
             # If error, pass error message as url (to be printed for debug)
@@ -553,7 +555,10 @@ class Page(object):
         # url = self.page_params.get_param("root") + "?op={}".format(PageOperation.MENU_USER.value)
 
         url = self.page_params.create_url( \
-            op = PageOperation.toStr(PageOperation.MENU_USER), js = False)
+            op = PageOperation.toStr(PageOperation.MENU_USER), 
+            beta = True if self.page_params.get_param("beta") else None, 
+            js = False
+        )
 
         return url
 
@@ -598,6 +603,9 @@ class Page(object):
         #     "?op={}".format(PageOperation.toStr(PageOperation.CONFIRM_ANON))
 
         url = self.page_params.create_url( \
-            op = PageOperation.toStr(PageOperation.CONFIRM_ANON), js = False)
+            op = PageOperation.toStr(PageOperation.CONFIRM_ANON), 
+            beta = True if self.page_params.get_param("beta") else None, 
+            js = False
+        )
 
         return url
