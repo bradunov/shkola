@@ -18,7 +18,7 @@
 
   </head>
 
-  <body>
+  <body style="overscroll-behavior: none">
 
     <!-- MOBILE MENU START -->
     {% import 'menu.html.j2' as menu %}
@@ -49,11 +49,6 @@
 
 
     <script>
-      /*
-      window.onbeforeunload = function() {
-          return "Reloading will erase all your answers!";
-      }
-      */
 
       var solved = false;
       var showed_sol = false;
