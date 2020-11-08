@@ -1,0 +1,473 @@
+{
+  "version": "Notebook/1.0",
+  "items": [
+    {
+      "type": 9,
+      "content": {
+        "version": "KqlParameterItem/1.0",
+        "parameters": [
+          {
+            "id": "15f2854a-2073-482b-b59f-6a8085a9d2f0",
+            "version": "KqlParameterItem/1.0",
+            "name": "TimeRange",
+            "type": 4,
+            "isRequired": true,
+            "value": {
+              "durationMs": 86400000
+            },
+            "typeSettings": {
+              "selectableValues": [
+                {
+                  "durationMs": 300000
+                },
+                {
+                  "durationMs": 900000
+                },
+                {
+                  "durationMs": 1800000
+                },
+                {
+                  "durationMs": 3600000
+                },
+                {
+                  "durationMs": 14400000
+                },
+                {
+                  "durationMs": 43200000
+                },
+                {
+                  "durationMs": 86400000
+                },
+                {
+                  "durationMs": 172800000
+                },
+                {
+                  "durationMs": 259200000
+                },
+                {
+                  "durationMs": 604800000
+                },
+                {
+                  "durationMs": 1209600000
+                },
+                {
+                  "durationMs": 2419200000
+                },
+                {
+                  "durationMs": 2592000000
+                },
+                {
+                  "durationMs": 5184000000
+                },
+                {
+                  "durationMs": 7776000000
+                }
+              ],
+              "allowCustom": true
+            },
+            "timeContext": {
+              "durationMs": 86400000
+            }
+          }
+        ],
+        "style": "pills",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces"
+      },
+      "name": "parameters - 3"
+    },
+    {
+      "type": 11,
+      "content": {
+        "version": "LinkItem/1.0",
+        "style": "tabs",
+        "links": [
+          {
+            "id": "f3486a1c-5f8d-4900-8eac-90d5f21801db",
+            "cellValue": "selectedTab",
+            "linkTarget": "parameter",
+            "linkLabel": "Access logs",
+            "subTarget": "Access",
+            "style": "link"
+          },
+          {
+            "id": "a76e9c76-841d-42cb-a61e-2625bad46059",
+            "cellValue": "selectedTab",
+            "linkTarget": "parameter",
+            "linkLabel": "VM Health",
+            "subTarget": "VMHealth",
+            "style": "link"
+          },
+          {
+            "id": "e9d441d7-2ddf-4c25-a262-608bc4f83d2f",
+            "cellValue": "selectedTab",
+            "linkTarget": "parameter",
+            "linkLabel": "Shkola stats",
+            "subTarget": "ShkolaStats",
+            "style": "link"
+          }
+        ]
+      },
+      "name": "links - 3"
+    },
+    {
+      "type": 12,
+      "content": {
+        "version": "NotebookGroup/1.0",
+        "groupType": "editable",
+        "loadType": "always",
+        "items": [
+          {
+            "type": 1,
+            "content": {
+              "json": "## VM Health"
+            },
+            "name": "text - 3"
+          },
+          {
+            "type": 12,
+            "content": {
+              "version": "NotebookGroup/1.0",
+              "groupType": "editable",
+              "items": [
+                {
+                  "type": 3,
+                  "content": {
+                    "version": "KqlItem/1.0",
+                    "query": "Logger_CL \r\n| where type_s == \"VMStatus\" and node_name_s contains \"tatamata-prod\"\r\n| project TimeGenerated, CpuUtilization_d\r\n| summarize cpu_utilization=avg(CpuUtilization_d) by bin(TimeGenerated, 5m)\r\n| sort by TimeGenerated desc\r\n| render timechart \r\n",
+                    "size": 1,
+                    "timeContext": {
+                      "durationMs": 3600000
+                    },
+                    "queryType": 0,
+                    "resourceType": "microsoft.operationalinsights/workspaces"
+                  },
+                  "name": "query - 0"
+                }
+              ]
+            },
+            "customWidth": "33",
+            "name": "group - 1"
+          },
+          {
+            "type": 3,
+            "content": {
+              "version": "KqlItem/1.0",
+              "query": "Logger_CL \r\n| where type_s == \"VMStatus\" and node_name_s contains \"tatamata-prod\"\r\n| project TimeGenerated, Mem_d, Swap_d\r\n| summarize memory=avg(Mem_d), swap=avg(Swap_d) by bin(TimeGenerated, 5m)\r\n| sort by TimeGenerated desc\r\n| render timechart ",
+              "size": 1,
+              "timeContext": {
+                "durationMs": 86400000
+              },
+              "queryType": 0,
+              "resourceType": "microsoft.operationalinsights/workspaces"
+            },
+            "customWidth": "33",
+            "name": "query - 0"
+          },
+          {
+            "type": 3,
+            "content": {
+              "version": "KqlItem/1.0",
+              "query": "Logger_CL \r\n| where type_s == \"VMStatus\" and node_name_s contains \"tatamata-prod\"\r\n| project TimeGenerated, DiskUtilization_d\r\n| summarize disk_utilization=avg(DiskUtilization_d) by bin(TimeGenerated, 5m)\r\n| sort by TimeGenerated desc\r\n| render timechart \r\n",
+              "size": 1,
+              "timeContext": {
+                "durationMs": 86400000
+              },
+              "queryType": 0,
+              "resourceType": "microsoft.operationalinsights/workspaces"
+            },
+            "customWidth": "33",
+            "name": "query - 2"
+          },
+          {
+            "type": 3,
+            "content": {
+              "version": "KqlItem/1.0",
+              "query": "Logger_CL \r\n| where type_s == \"VMStatus\" and node_name_s contains \"tatamata-prod\"\r\n| project TimeGenerated, last_heartbeat = Heartbeat_s, SSL_expiry_in_days = SSLExpiry_d\r\n| top 5 by TimeGenerated",
+              "size": 1,
+              "timeContext": {
+                "durationMs": 86400000
+              },
+              "queryType": 0,
+              "resourceType": "microsoft.operationalinsights/workspaces"
+            },
+            "name": "query - 4"
+          }
+        ]
+      },
+      "conditionalVisibility": {
+        "parameterName": "selectedTab",
+        "comparison": "isEqualTo",
+        "value": "VMHealth"
+      },
+      "name": "VM Health"
+    },
+    {
+      "type": 12,
+      "content": {
+        "version": "NotebookGroup/1.0",
+        "groupType": "editable",
+        "items": [
+          {
+            "type": 1,
+            "content": {
+              "json": "## Access statistics\n"
+            },
+            "name": "text - 2"
+          },
+          {
+            "type": 3,
+            "content": {
+              "version": "KqlItem/1.0",
+              "query": "Logger_CL \r\n| where type_s == \"Access\" and node_name_s contains \"tatamata-prod\"\r\n| project TimeGenerated, node_name_s, user_s, op_s, url_s\r\n| summarize no_accesses_in_5_min=count(user_s) by bin(TimeGenerated, 5m)\r\n| sort by TimeGenerated desc\r\n| render timechart ",
+              "size": 1,
+              "title": "Number of accesses per 5 min interval",
+              "timeContext": {
+                "durationMs": 86400000
+              },
+              "timeContextFromParameter": "TimeRange",
+              "queryType": 0,
+              "resourceType": "microsoft.operationalinsights/workspaces"
+            },
+            "customWidth": "25",
+            "name": "query - 2"
+          },
+          {
+            "type": 3,
+            "content": {
+              "version": "KqlItem/1.0",
+              "query": "Logger_CL \r\n| where type_s == \"Access\" and node_name_s contains \"tatamata-prod\"\r\n| project TimeGenerated, node_name_s, user_s, op_s, url_s\r\n| summarize no_unique_users_in_5_min=dcount(user_s) by bin(TimeGenerated, 5m)\r\n| sort by TimeGenerated desc\r\n| render timechart ",
+              "size": 1,
+              "title": "Number of users per 5 min interval",
+              "timeContext": {
+                "durationMs": 86400000
+              },
+              "timeContextFromParameter": "TimeRange",
+              "queryType": 0,
+              "resourceType": "microsoft.operationalinsights/workspaces"
+            },
+            "customWidth": "25",
+            "name": "query - 3"
+          },
+          {
+            "type": 3,
+            "content": {
+              "version": "KqlItem/1.0",
+              "query": "Logger_CL \n| where type_s == \"Timing\" and level_d == 0 and node_name_s contains \"tatamata-prod\"\n| project TimeGenerated, duration_d\n| summarize min_time=min(duration_d), avg_time=avg(duration_d), max_time=max(duration_d) by bin(TimeGenerated, 5m)\n| sort by TimeGenerated desc\n| render timechart",
+              "size": 1,
+              "title": "Min, average and max response times per 5 min intervals",
+              "timeContext": {
+                "durationMs": 86400000
+              },
+              "timeContextFromParameter": "TimeRange",
+              "queryType": 0,
+              "resourceType": "microsoft.operationalinsights/workspaces"
+            },
+            "customWidth": "50",
+            "name": "query - 2"
+          },
+          {
+            "type": 3,
+            "content": {
+              "version": "KqlItem/1.0",
+              "query": "Logger_CL \r\n| where type_s == \"Logger\" and Level == \"ERROR\" and node_name_s contains \"tatamata-prod\"\r\n| project todatetime(time_t), function_s, line_d, filename_s, trace_s, Message \r\n| top 10 by todatetime(time_t)",
+              "size": 0,
+              "timeContext": {
+                "durationMs": 86400000
+              },
+              "timeContextFromParameter": "TimeRange",
+              "queryType": 0,
+              "resourceType": "microsoft.operationalinsights/workspaces"
+            },
+            "name": "query - 4"
+          }
+        ]
+      },
+      "conditionalVisibility": {
+        "parameterName": "selectedTab",
+        "comparison": "isEqualTo",
+        "value": "Access"
+      },
+      "name": "Access stats"
+    },
+    {
+      "type": 12,
+      "content": {
+        "version": "NotebookGroup/1.0",
+        "groupType": "editable",
+        "items": [
+          {
+            "type": 12,
+            "content": {
+              "version": "NotebookGroup/1.0",
+              "groupType": "editable",
+              "items": [
+                {
+                  "type": 3,
+                  "content": {
+                    "version": "KqlItem/1.0",
+                    "query": "Logger_CL \r\n| where type_s == \"Access\" and node_name_s contains \"tatamata-prod\" and url_s != \"http://localhost:8080/\" and user_s contains \"google:\"\r\n| project TimeGenerated, node_name_s, user_s, op_s, url_s\r\n| summarize daily_active_users=dcount(user_s) by bin(TimeGenerated, 24h)\r\n| render barchart with (ytitle = \"Daily active users\")",
+                    "size": 1,
+                    "title": "Dnevno aktivni korisnici",
+                    "timeContext": {
+                      "durationMs": 2592000000
+                    },
+                    "queryType": 0,
+                    "resourceType": "microsoft.operationalinsights/workspaces"
+                  },
+                  "customWidth": "33",
+                  "name": "query - 0"
+                },
+                {
+                  "type": 3,
+                  "content": {
+                    "version": "KqlItem/1.0",
+                    "query": "Logger_CL \r\n| where type_s == \"Access\" and node_name_s contains \"tatamata-prod\" and url_s != \"http://localhost:8080/\" and user_s contains \"google:\" and q_id_s != \"\" and op_s == \"test\"\r\n| project TimeGenerated, year_s\r\n| summarize count() by year_s, bin(TimeGenerated, 24h)\r\n| render barchart",
+                    "size": 1,
+                    "title": "Broj upita po godini",
+                    "timeContext": {
+                      "durationMs": 2592000000
+                    },
+                    "queryType": 0,
+                    "resourceType": "microsoft.operationalinsights/workspaces"
+                  },
+                  "customWidth": "33",
+                  "name": "query - 5"
+                },
+                {
+                  "type": 3,
+                  "content": {
+                    "version": "KqlItem/1.0",
+                    "query": "Logger_CL \r\n| where type_s == \"Access\" and node_name_s contains \"tatamata-prod\" and url_s != \"http://localhost:8080/\" and user_s contains \"google:\" and q_id_s != \"\" and op_s == \"test\"\r\n| project TimeGenerated, theme_s\r\n| summarize count() by theme_s, bin(TimeGenerated, 24h)\r\n| render barchart",
+                    "size": 1,
+                    "title": "Broj upita po temi",
+                    "timeContext": {
+                      "durationMs": 2592000000
+                    },
+                    "queryType": 0,
+                    "resourceType": "microsoft.operationalinsights/workspaces"
+                  },
+                  "customWidth": "33",
+                  "name": "query - 2"
+                }
+              ]
+            },
+            "name": "group - 6"
+          },
+          {
+            "type": 12,
+            "content": {
+              "version": "NotebookGroup/1.0",
+              "groupType": "editable",
+              "items": [
+                {
+                  "type": 3,
+                  "content": {
+                    "version": "KqlItem/1.0",
+                    "query": "Logger_CL \r\n| where type_s == \"Access\" and node_name_s contains \"tatamata-prod\" and url_s != \"http://localhost:8080/\" and user_s contains \"google:\" and q_id_s != \"\" and op_s == \"test\"\r\n| summarize count() by year_s\r\n| render piechart ",
+                    "size": 1,
+                    "title": "Broj upita po godini",
+                    "timeContext": {
+                      "durationMs": 0
+                    },
+                    "timeContextFromParameter": "TimeRange",
+                    "queryType": 0,
+                    "resourceType": "microsoft.operationalinsights/workspaces"
+                  },
+                  "customWidth": "50",
+                  "name": "query - 1"
+                },
+                {
+                  "type": 3,
+                  "content": {
+                    "version": "KqlItem/1.0",
+                    "query": "Logger_CL \r\n| where type_s == \"Access\" and node_name_s contains \"tatamata-prod\" and url_s != \"http://localhost:8080/\" and user_s contains \"google:\" and q_id_s != \"\" and op_s == \"test\"\r\n| summarize count() by theme_s\r\n| render piechart ",
+                    "size": 1,
+                    "title": "Broj upita po temi",
+                    "timeContext": {
+                      "durationMs": 0
+                    },
+                    "timeContextFromParameter": "TimeRange",
+                    "queryType": 0,
+                    "resourceType": "microsoft.operationalinsights/workspaces"
+                  },
+                  "customWidth": "50",
+                  "name": "query - 3"
+                }
+              ]
+            },
+            "name": "group - 4"
+          },
+          {
+            "type": 12,
+            "content": {
+              "version": "NotebookGroup/1.0",
+              "groupType": "editable",
+              "items": [
+                {
+                  "type": 3,
+                  "content": {
+                    "version": "KqlItem/1.0",
+                    "query": "Logger_CL \r\n| where type_s == \"Access\" and node_name_s contains \"tatamata-prod\" and url_s != \"http://localhost:8080/\" and user_s contains \"google:\" and q_id_s != \"\" and op_s == \"test\" and theme_s == \"Brojevi\"\r\n| summarize count() by subtheme_s\r\n| render piechart ",
+                    "size": 1,
+                    "title": "Brojevi po podoblastima",
+                    "timeContext": {
+                      "durationMs": 0
+                    },
+                    "timeContextFromParameter": "TimeRange",
+                    "queryType": 0,
+                    "resourceType": "microsoft.operationalinsights/workspaces"
+                  },
+                  "customWidth": "33",
+                  "name": "query - 1"
+                },
+                {
+                  "type": 3,
+                  "content": {
+                    "version": "KqlItem/1.0",
+                    "query": "Logger_CL \r\n| where type_s == \"Access\" and node_name_s contains \"tatamata-prod\" and url_s != \"http://localhost:8080/\" and user_s contains \"google:\" and q_id_s != \"\" and op_s == \"test\" and theme_s == \"Geometrija\"\r\n| summarize count() by subtheme_s\r\n| render piechart ",
+                    "size": 1,
+                    "title": "Geometrija po podoblastima",
+                    "timeContext": {
+                      "durationMs": 86400000
+                    },
+                    "timeContextFromParameter": "TimeRange",
+                    "queryType": 0,
+                    "resourceType": "microsoft.operationalinsights/workspaces"
+                  },
+                  "customWidth": "33",
+                  "name": "query - 5"
+                },
+                {
+                  "type": 3,
+                  "content": {
+                    "version": "KqlItem/1.0",
+                    "query": "Logger_CL \r\n| where type_s == \"Access\" and node_name_s contains \"tatamata-prod\" and url_s != \"http://localhost:8080/\" and user_s contains \"google:\" and q_id_s != \"\" and op_s == \"test\" and theme_s == \"Merenje I Mere\"\r\n| summarize count() by subtheme_s\r\n| render piechart ",
+                    "size": 1,
+                    "title": "Merenja i mere po podoblastima",
+                    "timeContext": {
+                      "durationMs": 0
+                    },
+                    "timeContextFromParameter": "TimeRange",
+                    "queryType": 0,
+                    "resourceType": "microsoft.operationalinsights/workspaces"
+                  },
+                  "customWidth": "33",
+                  "name": "query - 2"
+                }
+              ]
+            },
+            "name": "group - 5"
+          }
+        ]
+      },
+      "conditionalVisibility": {
+        "parameterName": "selectedTab",
+        "comparison": "isEqualTo",
+        "value": "ShkolaStats"
+      },
+      "name": "group - 4"
+    }
+  ],
+  "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
+}

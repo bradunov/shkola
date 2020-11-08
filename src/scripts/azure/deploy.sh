@@ -1,8 +1,16 @@
 #!/bin/bash
 source ./secrets.sh
 
-export DEPLOYMENT="tatamata-test2"
-export LOCATION="westeurope"
+if [ $# -lt 2 ]
+  then
+    echo "Usage: ./deploy.sh <deployment-name> <region>"
+    echo ""
+    echo "       Example: ./deploy.sh shkola_test1 westeurope"
+    exit 1
+fi
+
+export DEPLOYMENT=$1
+export LOCATION=$2
 
 
 az group create --name $DEPLOYMENT --location $LOCATION
