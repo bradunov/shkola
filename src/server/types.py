@@ -475,7 +475,7 @@ class PageParameters(object):
         difficulty = self._str_to_url(difficulty, self._params["difficulty"], js)
         q_num = self._str_to_url(q_num, self._params["q_num"], js)
         q_diff = self._str_to_url(q_diff, self._params["q_diff"], js)
-        beta = self._str_to_url(beta, self._params["beta"], js)
+        beta = not (beta is None)
         if skipped is None:
             skipped = "false"
         else:
