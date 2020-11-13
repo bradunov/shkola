@@ -1,140 +1,94 @@
 # Shkola
 
-Shkola is a web framework for testing math.
-
-
-### Environment
-
-Shkola is built to be agnostic to the choice of a web server. 
-We currently run on Azure functions and CherryPy (tested on Linux and Windows).
+Shkola is a web framework for exercising math for primary school kids.
+It is used to run [tatamata.org](https://www.tatamata.org/) web site. 
+Its current focus is on Serbian language and curriculum, but it can be easily extended to other countries and languages (please reach out if you are interested in helping).
 
 
 
-### Local install
+## Structure
 
-The prefer install is as an Azure function. For local testing, in shkola root type:
+Shkola has five main parts:
+- A simple language to express math questions and an "engine" that can visualise questions expressed in the language.
+- A test framework that groups questions into lists, select random questions from the list according to certain criteria, and logs the results per user. 
+- A web app with a child-friendly design that runs on a web server and presents questions to kids in a browser.   
+- A dev web app that allows users to try and test new questions (but not to store them).
+- A large list of carefully curated math questions for primary school kids. 
 
-* Install: `docker build -f src/Dockerfile --tag <username>/shkola:v0.0.1 .`
-
-	* NOTE: This will create the dockerfile from the entire python project in shkola root dir. Every time you change the python files, this has to be done to update the docker container
-
-* Install Azure emulator called [Azurite](https://github.com/Azure/Azurite/tree/legacy-master). 
-  **IMPORTANT:** install version the old version (v2), not the new one (v3) as the new one doesn't emulate Azure tables. This is done by follwing the instructions in the link, with one important DIFFERENCE:
-  type npm install -g azurite@2.7.1, instead of npm install -g azurite, as stated in the instructions, which will the latest version
-
-+ starting Azurite by typing azurite in PowerShell
-
-* Deploy docker with result logging in Azure table by running in a new PowerShell: `docker run -p 8080:80 --name shkola -e SHKOLA_AZ_TABLE_CONN_STR="<connection_str>" -it <username>/shkola:v0.0.1`. Use the following [test](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string) connection string for Azurite emulator: `DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=http://XX.XX.XX.XX:10002/devstoreaccount1`, where XX.XX.XX.XX is your IP address. 
-
-*NOTE: <username> should be the same as in docker build above
-
-
-* Local web access: `http://127.0.0.1:8080/main`
-
-
-**NOTE:** shkola can still be deploy with result logging in local sqlite suing the following command:
-`docker run -p 8080:80 --name shkola -v <local_sql_file_path>:/var/log/sql -e SHKOLA_SQL_PATH="/var/log/sql" -it <username>/shkola:v0.0.1`
-However, this mode only offers browsing through questions using `http://127.0.0.1:8080/edit` URL that doesn't store any session state. 
-For full access using `http://127.0.0.1:8080/main` one needs to follow the instructions above. 
-
-
-
-### Azure install
-
-This documentation is derived from the following [page](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=portal%2Cbash&pivots=programming-language-python).
-
-Runes to deploy on Azure (change westeurope for preferred Azure location):
-```
-az group create --name <resource_group_name> --location westeurope
-az storage account create --name <storage_name> --location westeurope --resource-group <resource_group_name> --sku Standard_LRS
-az functionapp plan create --resource-group <resource_group_name> --name <plan_name> --location westeurope --number-of-workers 1 --sku B1 --is-linux
-az functionapp create --name <function_name> --storage-account <storage_name> --resource-group <resource_group_name> --plan <plan_name> --deployment-container-image-name <username>/shkola:v0.0.1
-```
-
-NOTE: Azure currently only supports deploying function containers as web app, not as a proper scalable functions (consumption plan). For a proper functional deployment one needs to fix the runtime environment and deploy as python. See https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=bash%2Cportal&pivots=programming-language-python. To be done.
-
-https://azure.microsoft.com/en-us/pricing/details/functions/
-
-
-To register continuous integration and get your function deployed every time it is pushed to a Docker hub, first obtain a web hook:
-```
-az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name <function_name> --resource-group <resource_group_name>
-```
-Then log on to Docker hub and copy paste the link obtained above into the webhook tab. 
-Every time you commit and push an image to Docker hub, it will get updated in the function.
-More details [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=portal%2Cbash&pivots=programming-language-python#enable-continuous-deployment-to-azure).
-
-
-To connect Azure function to the table, first go to the storage account `<storage_name>` that hosts the table and get a connection string (starting with DefaultEndpointsProtocol). Then go to the Azure function portal page, select Cofiguration from Configuration features tab and add new Application setting with name `SHKOLA_AZ_TABLE_CONN_STR` and value being the table connection string. 
-
-For different pricing options check this [link](https://azure.microsoft.com/en-gb/pricing/details/app-service/windows/).
-
-To buy a custom domain for your web site, check this [link](https://docs.microsoft.com/en-us/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain). To add SSL certificate, check [this](https://docs.microsoft.com/en-us/azure/app-service/configure-ssl-certificate#create-a-free-certificate-preview) and [this](https://docs.microsoft.com/en-us/azure/app-service/configure-ssl-bindings) links.
-
-
-
-### Local install with CherryPy
-
-It is also possible to run Shkola on Linux and Windows (and possibly other OSs) with CherryPy. To do so:
-
-* Install the same requirements as for Azure functions: `python -m pip install -r src/requirements.txt`
-
-* Install CherryPy: `python -m pip install cherrypy`
-
-* Run: `python src/server/www.py`
-
-* Local web access: `http://127.0.0.1:8080/main`
+Shkola supports multiple languages. It is designed so that the layout for each language is expressed in a separate file, and the scripts are shared among languages. 
 
 
 
 
-### Logging
 
-To change the logging level, change `logging.Logger.root.level = logging.DEBUG` to something else in `__init__.py`, 
-and also change `"logging"` key in host.json. For Azure, TBD.
+## Shkola language
 
-To see the logs on Azure, go to the function page on the portal, select Application Insight, and then Logs. 
-To see requests, search for `requests` in the log query. To see logs, search for `traces`. One useful query to see logs is
-```
-union traces| union exceptions| where timestamp > ago(1d) | order by timestamp desc | project timestamp, message = iff(message != '', message, iff(innermostMessage != '', innermostMessage, customDimensions.['prop__{OriginalFormat}'])), logLevel = customDimensions.['LogLevel']
-```
+Shkola language is desinged as a mix of [Lua](https://www.lua.org/) scripts used to create randomized questions and a very simple layout language that can output text and simple vector graphic and provide basic inputs.
 
+Each question is expressed through several files:
+- `text.<language>` expresses the layout of the question. This file is mandatory. It can include simple vector graphics and input fields. It can also include inlined lua script commands. Finally, it can include a single loop which is used to create a several instances on the same template question on one page. There could be several `text.<langauge>` files, one for each supported language. 
+- `init.lua` is the Lua script that executes at the beginning of parsing question. It is used to set variables that will be used within `text.<language>` to display the question. 
+- `iter.lua` is the Lua scripts that executes at the beginning of each iteration of the loop in `text.<langauge>`, if such a loop exists.
+See the following [directory](questions/numbers/q00001) for an example of a question.
 
+In addition to this, there are global Lua scripts that are placed in the [global](questions/global) directory. These are executed at the beginning of every questions. Script files with name `<name>.<language>.lua` are executed only when `<language>` is selected. 
 
+The layout language is a simple markup language that encapsulate special commands and Lua scripts inside @@ quotes. 
+There is a [library module](src/server/library.py) that implements Lua wrappers for many basic visualisation elements, such as HTML inputs and SVG vector elements. 
+Vector graphics can be displayed by creating a canvas and adding basic elements (squares, triangles, etc) onto the canvas. 
+The following [document](docs/language_help.md) has a brief summary of supported quotes, library functions and other useful elements. 
 
-### Various notes
-
-The code is stored in `/home/site/wwwroot/` inside the container. To access it, use `docker exec -it shkola bash`.
-
-Root access is defined through `proxies.json` file, which redirects to `main` function.
-
-
-Useful google related links:
-- Site verification: https://support.google.com/webmasters/answer/9008080?ref_topic=7440006
-- OAuth2 config: https://support.google.com/webmasters/answer/9008080?ref_topic=7440006
+Each question is rendered as a HTML with some JavaScript. The JavaScript is most notably used to clear inputs or to submit them to the web site for checking. 
 
 
 
 
-### SSL Certificate
+## Testing framework
 
-To get an initial certificate, use the following command:
-```
-sudo certbot --nginx -m <email> --agree-tos -d <web_site_domain>
-```
-For testing, use:
-```
-sudo certbot --test-cert --nginx -m <email> --agree-tos -d <web_site_domain>
-```
-For full docs, please check:
-- https://letsencrypt.org/getting-started/
-- https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx
+Questions can be organized in lists according to years and themes. 
+These lists are stored as JSON files in [lists](lists) directory. 
+One question can be placed into multiple lists and assigned different attributes, such as subtheme, topic, and difficulty. 
+There are a few special question attributes. Attributes `rank_*` define question ordering within `*` category.
+Different questions have different level of randomness and attribute `random` defines up to how many times should a question appear in a test before repeating itself. 
+
+It is also possible to define lists in an XLS file, and use the [following script](lists/convert_xlsx_to_json.py) to convert it into JSON lists. 
+
+The testing framework also provides a basic [logic](src/server/test.py) for selecting questions from a list. It can randomly select questions from a given theme, subtheme or topic, with different difficulties. 
+It also consider previously asked questions and takes care to repeat questions according to the value of `random` attribute. 
 
 
-NOTE: Our ARM scripts do not automatically generate certificate. Either re-generate or copy from an existing deployment.
 
-NOTE: Default ARM script opens port 80 (HTTP). For SSL this needs to be changed to 443 (HTTPS).
 
-NOTE: Certbot automatically renews certificate through systemd daemon. However, this daemon is installed only on the VM where certbot is run. If you create a replica of the production VM and copy over the certificate, this will not automatically renew it.
+## Web apps
+
+The above frameworks can be used in any Python based web app. However, Shkola provides its own web app. This is a web app that can be exposed to children to practice math. It includes  Google authentication, basic session management, and logging of responses. To learn how to install it, please check [Install](docs/install.md) document.
+
+The web app also has a developer mode. In this mode the app lists all the questions and lists. It can be used to visualise all questions, and also to try out new questions. However, it does not provide online question management system - it does not store new or modified questions. These should be copied to an editor and manually stored locally. 
+
+
+
+
+## Math questions
+
+Probably the most valuable part of Shkola is a large list of curated and tested [math questions](questions) for primary school kids, [listed](lists) according to years and themes. 
+
+
+
+
+
+## Contributions
+
+Shkola is an open source project released under [MIT](LICENSE) license and open to contributions. 
+
+
+
+
+
+
+
+
+
+
+
 
 
