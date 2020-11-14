@@ -1,7 +1,8 @@
+
 Calculate: 
 
 @repeat(5)@
-@center@ \(\frac{@brojilac@}{@imenilac@}\) @hspace@ of @hspace@ @broj@ @hspace@ is @hspace@ @lib.check_number(rezultat)@
+@center@ \(\frac{@brojilac@}{@imenilac@}\) @hspacept(3)@ of @hspacept(3)@ @broj@ @hspacept(3)@ is @hspacept(3)@ @lib.check_number(rezultat)@
 @/repeat@
 
                   

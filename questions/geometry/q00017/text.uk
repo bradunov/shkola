@@ -2,7 +2,7 @@
 Calculate the circumference of a
 
 @repeat(3)@
-@ITEM@) @answ@ 
+@answ@ 
 @center@ @lib.check_number(result)@ cm 
 @vspace@
 @/repeat@

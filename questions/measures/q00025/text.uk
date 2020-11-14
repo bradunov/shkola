@@ -1,10 +1,10 @@
-                                Express the area in the indicated units. 
+
+Express the area in the indicated units. 
  
 @repeat(5)@ 
 
-@value@ @measure[ind]@ @hspacept(3)@ = @hspacept(3)@ @answ@
+@center@ @value@ @measure[ind]@  =  @answ@
 
-@/repeat@    
-
+@/repeat@
             
             

@@ -12,11 +12,11 @@ surface = edge * edge * 6
 	
 if (ITEM == 1) then
     circ = edge * 4
-    quest = tostring(ITEM) .. ") obim jedne strane kocke jednak " .. tostring(math.floor(circ)) .. measure[ind] .. "."
+    quest =  "obim jedne strane kocke jednak " .. tostring(math.floor(circ)) .. measure[ind] .. "."
 else
     circ = edge * 12
-    quest = tostring(ITEM) .. ") zbir dužina ivica kocke jednak " .. tostring(math.floor(circ)) .. measure[ind] .. "."
-end        
+    quest = "zbir dužina ivica kocke jednak " .. tostring(math.floor(circ)) .. measure[ind] .. "."
+end            
              	
     
 

@@ -4,10 +4,9 @@ da pređe još @put2@ metara.
 
 @vspace@
 
-@ime@ je prešao @lib.check_number(put1,40)@  metara.
+@center@ @ime@ je prešao @lib.check_number(put1,40)@  metara.
 
-@padez@ kuća je od bakine kuće udaljena @lib.check_number(put)@ metara.                                                                                                                                                                                                                                                                                                                                                               
-    
+@center@ @padez@ kuća je od bakine kuće udaljena @lib.check_number(put)@ metara.                                                             
 
 
 

@@ -3,7 +3,8 @@ One participant of the Belgrade marathon ran the race in @hour@ hours @minute@ m
 If the race started at @start_h@ hours and @start_m@ minutes, when did the participant reach the finish?
 
 @vspace@
-The runner reached the end at @hspacept(3)@ @answ@
+@center@ The runner reached the end at 
+@center@  @answ@
                   
  
             

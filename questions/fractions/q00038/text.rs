@@ -5,7 +5,6 @@ Koliko mu je vremena potrebno da pretrči ostatak staze, ako za jedan čas pretr
 
 @vspace@
 
-Potrebno mu je @lib.check_number(sat,20)@ @meas@ i @lib.check_number(minut,20)@ minuta.  
- 
+@center@ Potrebno mu je @lib.check_number(sat,20)@ @meas@ i @lib.check_number(minut,20)@ minuta.  
                                  
                   

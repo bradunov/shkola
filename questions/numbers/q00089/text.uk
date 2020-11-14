@@ -1,13 +1,11 @@
                                                                 @ime1@ has @term@ pounds, and @ime2@ @add@ pounds @comp[ind]@ than her.
+@ime1@ has @term@ pounds, and @ime2@ @add@ pounds @comp[ind]@ than her.
 What calculation should you use to find out how much money they have together?
 Select the circle next to the correct answer.
 
-@vspace@
-
 @center@ @lib.check_one_option(answ,ind,true)@ 
 
-@vspace@
-@ime1@ and @ime2@ have @lib.check_number(result)@ pounds altogether.
+@center@ @ime1@ and @ime2@ have @lib.check_number(result)@ pounds altogether.
 
                
     

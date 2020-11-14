@@ -1,4 +1,5 @@
 
 @ime@ has read @factor@ pages, which is @deo[ind - 1]@ of a book he reads. 
 
-How many pages does the book have? @hspacept(3)@ @lib.check_number(rezult)@      
+How many pages does the book have? 
+@center@ @lib.check_number(rezult)@  

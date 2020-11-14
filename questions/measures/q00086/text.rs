@@ -4,5 +4,5 @@ U koliko sati se završio?
 
 @vspace@ 
 
-Teniski meč se završio u @lib.check_number(finish_h,20)@ h@answ[2]@.
-                            
+@center@ Teniski meč se završio u 
+@center@ @lib.check_number(finish_h,20)@ h@answ[2]@.    

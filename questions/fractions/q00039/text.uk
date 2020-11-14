@@ -5,8 +5,7 @@ it took @ime2@ \(\frac{@brojilac2@}{@imenilac2@}\) of an hour to drive @put2@km.
 Who drove faster, and by how much?
 
 @vspace@
-@lib.check_string(reply, 50, ans)@ @hspacept(3)@ drove faster, @hspacept(3)@ by @lib.check_number(brzina)@ km/h.                
-   
+@center@ @lib.check_string(reply, 50, ans)@ @hspacept(3)@ drove faster, @hspacept(3)@ by @lib.check_number(brzina)@ km/h.     
                             
           
         

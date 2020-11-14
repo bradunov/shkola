@@ -2,9 +2,7 @@
 Decrease the sum of the given numbers by the difference between them.
                             
 @repeat(4)@
-
 @center@ The numbers are @term1@ i @term2@.  @hspacept(3)@ The answer is @lib.check_number(result)@ 
-
 @/repeat@   
                              
                

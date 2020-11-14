@@ -3,8 +3,8 @@
 
 @vspace@
 
-Koliko kajsija je @ime@ prodala? @hspacept(5)@ @lib.check_number(brojp,30)@kg   
-
+@center@ Koliko kajsija je @ime@ prodala? 
+@center@ @lib.check_number(brojp,30)@kg
 
 
                  

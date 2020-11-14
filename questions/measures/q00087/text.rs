@@ -4,5 +4,5 @@ Kada je koncert trebalo da počne?
 
 @vspace@ 
 
-Koncert je trebalo da počne u @lib.check_number(start_h,20)@ h @answ[1]@.
-                            
+@center@ Koncert je trebalo da počne u 
+@center@  @lib.check_number(start_h,20)@ h @answ[1]@. 

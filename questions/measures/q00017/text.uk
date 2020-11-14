@@ -3,8 +3,8 @@ Express the volume in the indicated units.
  
 @repeat(5)@ 
 @vspace@ 
-@value@ @measure[ind2]@ = @answ@
+@center@ @value@ @measure[ind2]@ = @answ@
 
-@/repeat@    
+@/repeat@     
             
             

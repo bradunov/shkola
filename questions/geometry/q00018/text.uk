@@ -1,6 +1,6 @@
                                                 
 @repeat(2)@
-@ITEM@ @answ@ 
+@answ@ 
 @center@ @lib.check_number(side)@ cm 
 @vspace@
 @/repeat@

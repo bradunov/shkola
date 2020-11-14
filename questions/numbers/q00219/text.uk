@@ -1,10 +1,11 @@
 
 Write the expression shown on the tree and find the answer. 
 
-@mycanvas()@
-@hspacept(20)@ @answ1@
- @hspacept(70)@ @answ2@
+@center@ @mycanvas()@
+@center@ @answ1@
+@center@ @answ2@
 @vspace@
+            
 
             
             

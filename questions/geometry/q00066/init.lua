@@ -33,7 +33,7 @@ w = 220
 ov = 120
 
 mycanvas = function(no)
-  lib.start_canvas(300, 170, "center")
+  lib.start_canvas(250, 150, "center")
   
   lib.add_straight_path(ow, 2*ow, {{w, 0}}, style, true, false)
   lib.add_input(w-ow, 5*ow/2, 30, 30, lib.check_string(reply[1], 15, ans[1])) 

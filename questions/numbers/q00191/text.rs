@@ -2,7 +2,7 @@
 Ako je @hspacept(3)@ x + y = @summ@, izračunaj:
 
 @vspace@
-@hspacept(20)@ (x + @term[1]@) + y  =  (x + y) + @term[1]@  
+@center@ (x + @term[1]@) + y  =  (x + y) + @term[1]@  
 @center@ = @lib.check_number(summ,30)@ @lib.check_string(sign[1],15)@ @lib.check_number(term[1],30)@ = @lib.check_number(value[1],30)@ 
 
 @vspace@

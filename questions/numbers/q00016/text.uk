@@ -1,10 +1,11 @@
-                                                Enter:
+
+Enter:
 
 @repeat(4)@
 
-the @izbor@ number of the @name@ ten @hspace@ @lib.check_number(value)@ 
-@/repeat@           
-          
+@center@ the @izbor@ number of the @name@ ten 
+@center@ @lib.check_number(value)@ 
+@/repeat@     
 
 
                   

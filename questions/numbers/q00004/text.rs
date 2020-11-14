@@ -2,7 +2,6 @@
 Uporedi brojeve. Upiši znak < , > ili = .
 
 @repeat(5)@
-@vspace@
 @center@ @broj1@ @hspace@ @lib.check_string(znak, 15)@ @hspace@ @broj2@
 @/repeat@
 

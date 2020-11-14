@@ -1,3 +1,4 @@
+
 Dopuni:  
 
 
@@ -12,11 +13,8 @@ Dopuni:
   @lib.end_row()@
 @lib.end_table()@
 
-
-Obojena je @lib.check_number(1)@ četvrtina.
-
-Zapisujemo razlomkom @lib.check_fraction_simple(1, 4)@
-
+@center@ Obojena je @lib.check_number(1)@ četvrtina.
+@center@ Zapisujemo razlomkom @lib.check_fraction_simple(1, 4)@
 
 
 @lib.start_table({["text-align"] = "center"})@
@@ -30,9 +28,7 @@ Zapisujemo razlomkom @lib.check_fraction_simple(1, 4)@
   @lib.end_row()@
 @lib.end_table()@
 
-
-Obojene su @lib.check_number('answer == 2', nil, 'answer = 2')@ četvrtine.
-
-Zapisujemo razlomkom @lib.check_fraction_condition("is_ok = (numerator/denominator == 0.5)", nil, nil, "numerator=2;denominator=4;")@
+@center@Obojene su @lib.check_number('answer == 2', nil, 'answer = 2')@ četvrtine.
+@center@ Zapisujemo razlomkom @lib.check_fraction_condition("is_ok = (numerator/denominator == 0.5)", nil, nil, "numerator=2;denominator=4;")@
 
 

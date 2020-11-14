@@ -4,10 +4,9 @@ With the digits @array_print[1]@, @array_print[2]@ and @array_print[3]@ write th
 @center@ the biggest  @hspacept(5)@ @lib.check_number(value_max,30)@. 
 
 @vspace@ 
-@vspace@ 
-The sum of these numbers is @hspacept(5)@ @lib.check_number(summ,30)@.
-The difference between them is @hspacept(5)@ @lib.check_number(diff,30)@.
-    
+@center@The sum of these numbers is @hspacept(3)@ @lib.check_number(summ,30)@.
+@center@The difference between them is @hspacept(3)@ @lib.check_number(diff,30)@.
+           
     
                   
                   

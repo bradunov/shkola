@@ -1,17 +1,11 @@
-                                                                                        Write the answer you get when:
+
+Write the answer you get when the number:
 
 @vspace@ 
-
-the number @term1@ is increased by @term2@ @hspacept(8)@ @lib.check_number(summ)@
-
-@vspace@ 
-the number @term1@ is multiplied by @term2@ @hspacept(8)@ @lib.check_number(prod)@
-
-@vspace@ 
-the number @term1@ is decreased by @term2@  @hspacept(8)@ @lib.check_number(diff)@
-
-@vspace@
-the number @term1@ is divided by @term2@ @hspacept(8)@ @lib.check_number(div)@
+@center@ @term1@ is increased by @term2@ @hspacept(8)@ @lib.check_number(summ)@
+@center@ @term1@ is multiplied by @term2@ @hspacept(8)@ @lib.check_number(prod)@
+@center@ @term1@ is decreased by @term2@  @hspacept(8)@ @lib.check_number(diff)@
+@center@ @term1@ is divided by @term2@ @hspacept(8)@ @lib.check_number(div)@
 
 
 

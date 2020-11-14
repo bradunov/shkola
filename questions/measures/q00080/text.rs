@@ -1,10 +1,10 @@
 
+Izračunaj zapreminu kvadra čija je:
 @repeat(2)@
-@request@
-@hspacept(30)@ @quest[1]@, 
-@hspacept(30)@ @quest[2]@, 
-@hspacept(30)@ @quest[3]@.
-@hspacept(15)@ @answ@.
+@center@ @quest[1]@, 
+@center@ @quest[2]@, 
+@center@ @quest[3]@.
+@center@ Zapremina je @answ@.
 @vspace@
 @/repeat@  
    

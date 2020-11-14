@@ -4,7 +4,7 @@
 @vspace@ 
 Koliko dana je @ime@  boravio kod bake? 
 @vspace@ 
-@ime@ je boravio kod bake @lib.check_number(last,20)@ @week@? 
+@center@ @ime@ je boravio kod bake @lib.check_number(last,20)@ @week@. 
 
 @vspace@  
 @remark@

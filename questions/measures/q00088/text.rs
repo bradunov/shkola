@@ -4,6 +4,5 @@ Koliko traje projekcija?
 
 @vspace@ 
 
-Projekcija filma traje @lib.check_number(last_h,20)@ sata i @lib.check_number(last_m,20)@ minuta.
-                            
-                           
+@center@ Projekcija filma traje 
+@center@ @lib.check_number(last_h,20)@ sata i @lib.check_number(last_m,20)@ minuta.                          

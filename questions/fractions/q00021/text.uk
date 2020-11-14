@@ -1,10 +1,10 @@
-@ime@ was reading a book that has @strane@ pages.
-The first day she read \(\frac{1}{@imenilac1@}\) and the second day she read \(\frac{1}{@imenilac2@}\) of the book.
+
+@ime@ was reading a book that has @strane@ pages. The first day she read \(\frac{1}{@imenilac1@}\) and the second day she read \(\frac{1}{@imenilac2@}\) of the book.
 How much longer does @ime@ need to finish the book?
 
 @vspace@
   
-@padez@ has @lib.check_number(ostalo)@ more pages to read.
+@center@ @padez@ has @lib.check_number(ostalo,30)@ more pages to read.
 
                                
                   

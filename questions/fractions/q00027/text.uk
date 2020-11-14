@@ -1,13 +1,10 @@
+
 A package has @total@ marbles. \(\frac{1}{@blue@}\) of them are blue \
-and \(\frac{1}{@yellow@}\) are yellow.
-
-If there are any marbles of another color, then they are red. 
+and \(\frac{1}{@yellow@}\) are yellow. If there are any marbles of another color, then they are red. 
 
 @vspace@
 
-@vspace@
-
-How many red marbles are there?   @lib.check_number(red)@
+@center@ How many red marbles are there?  @hspacept(10)@ @lib.check_number(red)@
 
                   
 

@@ -4,11 +4,11 @@
 
 @vspace@
 
-@ime@ walked @lib.check_number(put1)@  meters.
+@center@ @ime@ walked @lib.check_number(put1)@  meters.
+@vspace@
 
-@ime@'s house is @lib.check_number(put)@ meters from his grandma's house, \
-which is @lib.check_number(putkm, 40)@  km.
-        
+@center@ @ime@'s house is @lib.check_number(put)@ meters from his grandma's house, \
+which is @lib.check_number(putkm, 40)@  km.       
         
 
 

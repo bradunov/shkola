@@ -5,6 +5,5 @@
 
 Kog dana u nedelji je @ime@ rođendan?
 @vspace@
-@ime@ je rođendan u @hspacept(3)@  @lib.check_string(reply, 70, ans)@.  
- 
+@center@ @ime@ je rođendan u @hspacept(3)@  @lib.check_string(reply, 70, ans)@. 
      

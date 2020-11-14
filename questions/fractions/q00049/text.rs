@@ -5,8 +5,7 @@ Kome je ostalo više novca posle kupovine slatkiša?
 
 @vspace@
 
-Više novca posle kupovine slatkiša ostalo je @lib.check_string(reply,50,ans)@.
-           
+@center@ Više novca posle kupovine slatkiša ostalo je @lib.check_string(reply,50,ans)@.          
                   
                    
                   

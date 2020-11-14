@@ -3,6 +3,7 @@
 Koliko vremena provede @imez@ na dodatnoj nastavi? 
 @vspace@ 
 
-@imez@ na dodatnoj nastavi provede ukupno
+@center@ @imez@ na dodatnoj nastavi provede ukupno
 @center@ @answ@
+                
                   

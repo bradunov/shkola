@@ -1,11 +1,11 @@
 
 Enter the number that gives you the correct equation.
 
-@repeat(5)@ 
+@repeat(4)@ 
  
-@answ@ 
+@center@ @answ@ 
 @vspace@
-@/repeat@       
+@/repeat@           
         
       
             

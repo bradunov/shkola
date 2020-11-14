@@ -5,7 +5,7 @@ How long will it take him to finish the track, if it took him one hour to run  1
 
 @vspace@
 
-It takes him @lib.check_number(sat,20)@ @meas@ i @lib.check_number(minut,20)@ minutes.  
+@center@ It takes him @lib.check_number(sat,20)@ @meas@ i @lib.check_number(minut,20)@ minutes.  
 
                           
 

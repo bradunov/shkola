@@ -32,7 +32,7 @@ tempAr = tempA + 6
 tempHf = tempH - 5
 
 mycanvas = function(no)
-  lib.start_canvas(350, 80, "center")
+  lib.start_canvas(350, 60, "center")
 
 hscale = 1.2
 vscale = 5
@@ -75,6 +75,7 @@ vscale = 5
   
   lib.end_canvas()
 end
+         
          
              
                   

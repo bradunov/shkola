@@ -1,8 +1,10 @@
-                                            Fill in: 
+
+Fill in: 
 
 @repeat(4)@
-@center@ @rezultat@ @hspace@ is @hspace@ @lib.check_fraction_simple(1, imenilac)@ @hspace@ of @hspace@ @broj@   
+@center@ @rezultat@ @hspacept(3)@ is @hspacept(3)@ @lib.check_fraction_simple(1, imenilac)@ @hspacept(3)@ of @hspacept(3)@ @broj@   
 @/repeat@
+
 
 
 

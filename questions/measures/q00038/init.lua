@@ -1,3 +1,4 @@
+
 style = {["off_color"] = "fff",
         ["on_color"] = "fff",
         ["line_color"] = "000",
@@ -56,7 +57,7 @@ differ = tostring(dif) .. " cm"
 
 mycanvas = function()
 
-  lib.start_canvas(300, 200, "center")
+  lib.start_canvas(250, 200, "center")
   
   lib.add_rectangle (10, 10, 200, 150, yelow_style, false, false)
   lib.add_rectangle (50, 50, 120, 70, style, false, false)

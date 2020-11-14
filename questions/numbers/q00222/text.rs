@@ -4,9 +4,7 @@
 @ime2@ ima @quest[2]@
 
 @vspace@
-Ko ima više novca i za koliko?
-
-@vspace@
+@center@ Ko ima više novca i za koliko?
 @center@ @lib.check_string(reply,50, ans)@ ima više novca za @lib.check_number(value,20)@ dinara.
 
 

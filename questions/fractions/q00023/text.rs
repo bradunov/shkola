@@ -3,15 +3,12 @@
 
 @vspace@
 
-a) Ko je potrošio više novca i za koliko?
-
-@lib.check_string(reply[1],60, ans[1])@ je potrošio za @lib.check_number(cost,25)@ dinara više od @lib.check_string(reply[2],60, ans[2])@ .
+Ko je potrošio više novca i za koliko?
+@center@ @lib.check_string(reply[1],60, ans[1])@ je potrošio za @lib.check_number(cost,25)@ dinara više od @lib.check_string(reply[2],60, ans[2])@.
 
 @vspace@
 
-b)Koliko dinara je ostalo @padezd1@, a koliko @padezd2@?
-         
-@padezd1@ je ostalo @lib.check_number(rest1,25)@ dinara, a @padezd2@ @lib.check_number(rest2,25)@ . 
-                               
+Koliko dinara je ostalo @padezd1@, a koliko @padezd2@?       
+@center@ @padezd1@ je ostalo @lib.check_number(rest1,25)@ dinara, a @padezd2@ @lib.check_number(rest2,25)@.                                
                 
 

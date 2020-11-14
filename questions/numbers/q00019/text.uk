@@ -1,13 +1,10 @@
-                                                                                                              @imem@ is @godm@ years old. @imez@ is @factor@ years younger than @imem@. 
+
+@imem@ is @godm@ years old. @imez@ is @factor@ years younger than @imem@. 
 
 @vspace@
 
-How old is @imez@? @hspace@ @lib.check_number(godz)@ 
-
-@vspace@
-
-How old are they together? @hspace@ @lib.check_number(ukupno)@ 
-            
+@center@ How old is @imez@? @hspace@ @lib.check_number(godz)@ 
+@center@ How old are they together? @hspace@ @lib.check_number(ukupno)@         
    
 
                   

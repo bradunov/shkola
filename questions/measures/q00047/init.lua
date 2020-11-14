@@ -31,10 +31,10 @@ name2 = { "teza", "teža"}
 
 reply1 = "answer == '" .. name1[1] .. "' "  ..
         "|| answer == '" .. name1[2] .. "'" ;
-ans1 = "answer = '" .. name1[1] .. "' ";
+ans1 = "answer = '" .. name1[2] .. "' ";
 reply2 = "answer == '" .. name2[1] .. "' "  ..
         "|| answer == '" .. name2[2] .. "'" ;
-ans2 = "answer = '" .. name2[1] .. "' ";
+ans2 = "answer = '" .. name2[2] .. "' ";
 
 	
 mycanvas = function()

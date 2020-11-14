@@ -3,9 +3,9 @@ Enter the number so that you make the equation correct.
  
 @repeat(5)@ 
  
-@answ@ 
+@center@ @answ@ 
 
-@/repeat@          
+@/repeat@           
       
             
             

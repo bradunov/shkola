@@ -4,17 +4,8 @@ Napiši redom od najmanjeg do najvećeg  sve dvocifrene brojeve u kojima se cifa
 @vspace@
 
 @center@ @lib.check_number(array_value[indices[1]])@  @lib.check_number(array_value[indices[2]])@  @lib.check_number(array_value[indices[3]])@  @lib.check_number(array_value[indices[4]])@ @lib.check_number(array_value[indices[5]])@ 
-
-@vspace@
-
 @center@ @lib.check_number(array_value[indices[6]])@  @lib.check_number(array_value[indices[7]])@  @lib.check_number(array_value[indices[8]])@  @lib.check_number(array_value[indices[9]])@ @lib.check_number(array_value[indices[10]])@ 
-
-@vspace@
-
 @center@ @lib.check_number(array_value[indices[11]])@  @lib.check_number(array_value[indices[12]])@  @lib.check_number(array_value[indices[13]])@  @lib.check_number(array_value[indices[14]])@ @lib.check_number(array_value[indices[15]])@
-
-@vspace@
-
 @center@ @lib.check_number(array_value[indices[16]])@  @lib.check_number(array_value[indices[17]])@ 
 
        

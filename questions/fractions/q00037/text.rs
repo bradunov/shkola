@@ -1,6 +1,7 @@
+
 Dopuni: 
 
 @repeat(5)@
-@center@ @rezultat@ @hspace@ je @hspace@\(\frac{@brojilac@}{@imenilac@}\) @hspace@ od @hspace@ @lib.check_number(broj)@   
+@center@ @rezultat@ @hspacept(3)@ je @hspacept(3)@\(\frac{@brojilac@}{@imenilac@}\) @hspacept(3)@ od @hspacept(3)@ @lib.check_number(broj)@   
 @/repeat@
            

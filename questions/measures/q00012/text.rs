@@ -3,6 +3,5 @@
 Izračunaj površinu kartona koji je potreban @padez@ da napravi @number@ ovakvih kutija.   
 
 @vspace@
-@padez@ je potrebno @lib.check_number(result,40)@@measure2[ind]@ kartona. 
-          
+@center@ @padez@ je potrebno @lib.check_number(result,40)@@measure2[ind]@ kartona.          
                    

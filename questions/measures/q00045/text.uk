@@ -1,8 +1,8 @@
 
 @center@ @mycanvas()@      
 
-How long is the pencil? @hspacept(5)@   @lib.check_number(ind, 15)@
-@vspace@      
+@center@ How long is the pencil? @hspacept(5)@   @lib.check_number(ind, 15)@
+@vspace@   
                         
                           
 

@@ -1,12 +1,14 @@
 
+Izračunaj površinu kvadra čija je 
+
 @repeat(2)@
-@request@
-@hspacept(30)@ @quest[1]@, 
-@hspacept(30)@ @quest[2]@, 
-@hspacept(30)@ @quest[3]@.
-@hspacept(15)@ @answ@.
+@center@ dužina @hspacept(3)@ @quest[1]@ 
+@center@ širina @hspacept(3)@ @quest[2]@
+@center@ visina @hspacept(3)@ @quest[3]@
+@center@ Površina je @answ@.
 @vspace@
 @/repeat@ 
+   
              
    
                   

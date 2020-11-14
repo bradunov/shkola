@@ -29,7 +29,7 @@ end
 	
 
 mycanvas = function(no)
-  lib.start_canvas(350, 200, "center")
+  lib.start_canvas(350, 170, "center")
 
 hscale = 1.5
 vscale = 5
@@ -55,7 +55,7 @@ pencil = ind * step
   end
 
   lib.end_canvas()
-end                
+end                 
             
                
             

@@ -1,6 +1,6 @@
 
 @repeat(2)@
-@ITEM@) @answ@ 
-@center@ @lib.check_number(surface)@ @measure2[ind]@ 
+@answ@ 
+@center@ Površina je @lib.check_number(surface)@@measure2[ind]@. 
 @vspace@
 @/repeat@

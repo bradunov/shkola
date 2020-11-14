@@ -3,6 +3,5 @@ Koliko trouglova ima na slici?
 
 @center@ @mycanvas()@
 
-Označi kružić ispred tačnog odgovora.
-       
-@lib.check_one_option(answ,index)@  
+@center@ Označi kružić ispred tačnog odgovora.      
+@center@ @lib.check_one_option(answ,index)@    

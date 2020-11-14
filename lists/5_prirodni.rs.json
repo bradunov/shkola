@@ -176,6 +176,16 @@
       "difficulty": "1"
     },
     {
+      "name": "fract_2/q00018",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Računske operacije    ",
+      "rank_subtheme": "4",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
       "name": "numb_2/q00009",
       "random": "10",
       "period": "1",
@@ -204,6 +214,16 @@
       "rank_subtheme": "1",
       "rank_topic": "4",
       "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00012",
+      "random": "0",
+      "period": "2",
+      "subtheme": "Prosti i složeni brojevi",
+      "topic": "Rastavljanje na proste činioce",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
     }
   ]
 }

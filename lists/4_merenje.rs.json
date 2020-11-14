@@ -494,6 +494,36 @@
       "rank_subtheme": "5",
       "rank_topic": "2",
       "difficulty": "2"
+    },
+    {
+      "name": "measures/q00100",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kvadra",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00101",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Površina kocke i kvadra",
+      "topic": "Površina kvadra",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00102",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Zapremina kocke i kvadra",
+      "topic": "Zapremina kvadra",
+      "rank_subtheme": "5",
+      "rank_topic": "2",
+      "difficulty": "2"
     }
   ]
 }

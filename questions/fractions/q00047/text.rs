@@ -4,7 +4,7 @@
 Na koliko parčića je @ime@ isekla tortu?
 
 @vspace@
-@ime@ je isekla tortu na @hspacept(3)@  @lib.check_number(imenilac,20)@ @part[ind]@.
+@center@ @ime@ je isekla tortu na  @lib.check_number(imenilac,20)@ @part[ind]@.
 
 
 

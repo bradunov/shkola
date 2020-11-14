@@ -1,10 +1,10 @@
-                                @repeat(3)@
+
+@repeat(3)@
 
 To the @name@ of the numbers @term1@ and @term2@ add the number @term3@.
 
-The answer is  @lib.check_number(rezultat)@ 
+@center@ The answer is  @lib.check_number(rezultat)@ 
 
 @vspace@
-@/repeat@     
-            
+@/repeat@    
             

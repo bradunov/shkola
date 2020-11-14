@@ -2,9 +2,8 @@
 Kolika je zapremina kocke ako je:
 
 @repeat(3)@
-@vspace@
 @quest@ 
-@answ@
+@center@ @answ@
 @vspace@
 @/repeat@
             

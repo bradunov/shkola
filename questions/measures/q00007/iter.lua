@@ -12,8 +12,6 @@ max = 20;
 edge = min + math.random(max - min);
 dif = math.random(min-1)
 surface = 6 * edge * edge 
-	
-quest = tostring(ITEM) .. ") ivica dužine " .. tostring(edge) .. measure[ind] .. " " .. change[ind] .. " za " .. tostring(dif) .. measure[ind] .. "?"
 
 if (ind == 1) then
     surface_new = 6 * (edge + dif)^2 
@@ -22,9 +20,7 @@ else
     surface_new = 6 * (edge - dif)^2 
 	result = surface - surface_new
 end    
-       
-answ = "Površina kocke bi se " .. change[ind] .. " za " .. lib.check_number(result,30) .. measure2[ind] .. "."	             	
-       
+              
 
 
      

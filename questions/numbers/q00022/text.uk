@@ -1,5 +1,7 @@
-                                                                  @ime@ had @pre@ toy cars. His grandmother gifted him @dobio@   cars. He gave his friend @dao@ cars.  
-How many toy cars did @ime@ have left? @hspace@  @lib.check_number(ostalo)@ 
+
+@ime@ had @pre@ toy cars. His grandmother gifted him @dobio@   cars. He gave his friend @dao@ cars. 
+@vspace@ 
+@center@ How many toy cars did @ime@ have left? @hspace@  @lib.check_number(ostalo)@ 
 
    
 

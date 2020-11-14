@@ -1,13 +1,10 @@
-                                                                                        @ime@ brought eggs to the market. 
 
-She sold \(\frac{1}{@imenilac1@}\) of the eggs on the first day, and \(\frac{1}{@imenilac2@}\) on the second day. 
-
-On the third day she sold the leftover @brojo@ eggs.
+@ime@ brought eggs to the market. She sold \(\frac{1}{@imenilac1@}\) of the eggs on the first day, and \(\frac{1}{@imenilac2@}\) on the second day. On the third day she sold the leftover @brojo@ eggs.
 
 @vspace@
 
-How many eggs did @ime@ bring to the market? @hspace@ @lib.check_number(rezultat)@   
-                  
+How many eggs did @ime@ bring to the market? 
+@center@ @lib.check_number(rezultat)@                    
                
                   
                   

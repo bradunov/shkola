@@ -1,6 +1,6 @@
                                 
 @answ@ of flour in bags of @part@kg each arrived at a warehouse. 
-
-How many bags arrived at the warehouse? @hspacept(5)@ @lib.check_number(number)@
-            
+@vspace@
+How many bags arrived at the warehouse? 
+@center@ @lib.check_number(number)@            
             

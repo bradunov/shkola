@@ -1,7 +1,8 @@
+
 Upiši broj tako da dobiješ tačnu jednakost.
  
-@repeat(5)@ 
+@repeat(4)@ 
  
-@answ@ 
+@center@ @answ@ 
 @vspace@
-@/repeat@  
+@/repeat@    

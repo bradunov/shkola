@@ -1,9 +1,10 @@
 
-Compare the numbers. Use the sign @hspacept(8)@<@hspacept(4)@, @hspacept(8)@> @hspacept(8)@ or @hspacept(8)@ =@hspacept(4)@.
+Compare the numbers. Use the sign <, > or =.
 
 @repeat(6)@ 
-@center@ @number2@ @hspace@ @operation@  @hspace@ @number1@ @hspace@ @lib.check_string(sign)@  @hspace@ @value@
+@center@ @number2@ @operation@   @number1@ @hspacept(3)@ @lib.check_string(sign,15)@  @hspacept(3)@ @value@
 @/repeat@
+  
   
   
   

@@ -1,10 +1,9 @@
-                                                @repeat(4)@
+
+@repeat(3)@
 
 @namesecond@ the @namefirst@ of the numbers @term1@ and @term2@ by @term3@.
-The answer is  @lib.check_number(result)@ 
-
-@vspace@
-@/repeat@     
+@center@ The answer is  @lib.check_number(result)@ 
+@/repeat@    
                
               
                   

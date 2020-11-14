@@ -1,8 +1,8 @@
+
 @ime@ je dobio od mame  @mama@ dinara i od tate @tata@ dinara.  
 U knjižari je kupio blok za @blok@ dinara i gumicu za @gumica@ dinara.  
 
 @vspace@
-Koliko dinara je ostalo @imed@? @hspace@  @lib.check_number(ostalo)@ 
-   
+@center@ Koliko dinara je ostalo @imed@? @hspace@  @lib.check_number(ostalo)@   
 
                                  

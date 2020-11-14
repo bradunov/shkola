@@ -1,10 +1,9 @@
 
-What is the number that when 
+What is the number that when you 
 
-@repeat(4)@
-@vspace@
-@ITEM@) you @sign1@ @number1@ and @sign2@ @number2@ makes the number @value@? @hspacept(80)@ @lib.check_number(result,40)@
-
+@repeat(3)@
+@center@ @sign1@ @number1@ and @sign2@ @number2@ makes @value@? 
+@center@ @lib.check_number(result,40)@
 @/repeat@
 
 

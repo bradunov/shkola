@@ -3,8 +3,9 @@
 Koliko ima plavih, koliko zelenih, a koliko crvenih klikera?
 
 @vspace@
-Plavih klikera ima @lib.check_number(bluevalue)@, zelenih @lib.check_number(grinvalue)@, a crvenih @lib.check_number(redvalue)@.
-
+@center@ Plavih klikera ima @lib.check_number(bluevalue)@. 
+@center@ Zelenih klikera ima @lib.check_number(grinvalue)@.
+@center@ Crvenih klikera ima @lib.check_number(redvalue)@.
 
 
 

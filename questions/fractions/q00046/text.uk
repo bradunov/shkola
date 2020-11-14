@@ -1,12 +1,13 @@
-@name@ has picked @rezultat@ apples. In the morning she sold \(\frac{1}{@imenilac1@}\) of the apples, in the afternoon she sold \(\frac{1}{@imenilac2@}\) of the apples.
+
+@ime@ picked @rezultat@ kg of apricots.  First day she sold  \(\frac{1}{@imenilac1@}\), and the second day she sold \(\frac{1}{@imenilac2@}\) of apricots. 
 
 @vspace@
-@vspace@
-
-a) How many apples did @name@ sell? @lib.check_number(brojp)@
-
-@vspace@
-
-b) What part of the apples did she not sell? @lib.check_fraction_condition(is_ok, nil, nil, sln)@ 
+@center@ How many kg of apricots did she sell? 
+@center@  @lib.check_number(brojp,30)@ kg
 
 
+
+            
+            
+            
+            

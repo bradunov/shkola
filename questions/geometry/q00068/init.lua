@@ -51,7 +51,7 @@ ans[4] = "answer = '" .. tacka[1] .. "' ";
 		
 
 mycanvas = function(no)
-  lib.start_canvas(310, 160, "center")
+  lib.start_canvas(330, 160, "center")
   
   lib.add_straight_path(40, 40, {{250, 100}}, line_style, true, false)
   lib.add_text(270, 140, "a", text_style, false, false)
@@ -72,4 +72,5 @@ mycanvas = function(no)
    
   lib.end_canvas()
 end
+          
                    

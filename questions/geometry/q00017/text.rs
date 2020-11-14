@@ -1,8 +1,10 @@
+
 Izračunaj obim 
 
 @repeat(3)@
-@ITEM@) @answ@ 
+@answ@ 
 @center@ @lib.check_number(result)@ cm 
 @vspace@
 @/repeat@
+   
    

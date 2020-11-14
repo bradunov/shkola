@@ -4,7 +4,7 @@ Ciframa @array_print[1]@, @array_print[2]@  i @array_print[3]@ napiši  trocifre
 @center@ najveći  @hspacept(5)@  @lib.check_number(value_max,30)@. 
 
 @vspace@ 
-@vspace@ 
-Zbir ovih brojeva je @hspacept(5)@ @lib.check_number(summ,30)@. 
-Razlika ovih brojeva je @hspacept(5)@ @lib.check_number(diff,30)@.
-                     
+
+@center@ Zbir ovih brojeva je @hspacept(5)@ @lib.check_number(summ,30)@. 
+@center@ Razlika ovih brojeva je @hspacept(5)@ @lib.check_number(diff,30)@.
+                           

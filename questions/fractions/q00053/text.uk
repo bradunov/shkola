@@ -4,8 +4,7 @@
 
 @vspace@
 
-@ime@ walked @lib.check_number(put1)@  meters.
-        
+@center@ @ime@ walked @lib.check_number(put1)@  meters.       
         
 
 

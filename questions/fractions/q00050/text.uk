@@ -1,6 +1,6 @@
+
 What lasts longer: @hspace@  \(\frac{@brojilac@}{@imenilac1@}\) or \(\frac{@brojilac@}{@imenilac2@}\) of a day? 
 
 @vspace@
 
-@lib.check_fraction_simple(brojilac,imenilac1)@ of a day lasts longer.
-
+@center@ @lib.check_fraction_simple(brojilac,imenilac1)@ of a day lasts longer.

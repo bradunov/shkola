@@ -3,5 +3,6 @@
 Kada najkasnije  @imez@ treba da krene od kuće? 
 @vspace@ 
 
-@imez@ treba da krene od kuće u @lib.check_number(time_hour,20)@ časova i @lib.check_number(time_minute,20)@ minuta.
-                            
+@center@ @imez@ treba da krene od kuće u
+@center@  @lib.check_number(time_hour,20)@ časova i @lib.check_number(time_minute,20)@ minuta.
+                                                        

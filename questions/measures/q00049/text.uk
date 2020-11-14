@@ -3,8 +3,8 @@
 What is the latest time that @imez@ can leave her house? 
 @vspace@ 
 
-@imez@ needs to leave her house in @lib.check_number(time_hour,20)@ hours and @lib.check_number(time_minute,20)@ minutes.
-                            
+@center@ @imez@ needs to leave her house in 
+@center@ @lib.check_number(time_hour,20)@ hours and @lib.check_number(time_minute,20)@ minutes.                           
 
             
             

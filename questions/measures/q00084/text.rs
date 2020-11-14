@@ -3,5 +3,5 @@
 Kolika je težina testa? 
 @vspace@ 
 
-Težina testa je @reply@.
+@center@ Težina testa je @reply@.
                             

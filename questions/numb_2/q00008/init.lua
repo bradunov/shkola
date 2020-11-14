@@ -31,7 +31,7 @@ ind = math.random(5)
 
 mycanvas = function()
 
-  lib.start_canvas(300, 200, "center")
+  lib.start_canvas(200, 200, "center")
 
   w = 60
   ow = 10

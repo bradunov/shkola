@@ -1,12 +1,9 @@
-                                            @ime@ made a barbecue for her friends. She cooked @ukupno@ hamburgers. 
-On @majon@ hamburgers she added mayonnaise, and on the rest she put mustard. 
 
-
+@name@ made a barbecue for her friends. She cooked @ukupno@ hamburgers. On @majon@ hamburgers she added mayonnaise, and on the rest she put mustard. 
 How many of the hamburgers had mustard added?
 
 @vspace@
-@lib.check_fraction_condition(is_ok, nil, nil, sln)@ of the hamburgers had mustard on them.
-
+@center@ @lib.check_fraction_condition(is_ok, nil, nil, sln)@ of the hamburgers had mustard on them.
     
 
                   

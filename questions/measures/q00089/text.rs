@@ -5,7 +5,7 @@ Kada je predstava počela?
 
 @vspace@ 
 
-Pozorišna predstava je počela u @lib.check_number(start_h,20)@ h @answ[1]@.
-       
+@center@ Pozorišna predstava je počela u 
+@center@ @lib.check_number(start_h,20)@ h @answ[1]@.      
                             
                            

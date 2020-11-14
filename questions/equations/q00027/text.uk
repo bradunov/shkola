@@ -1,10 +1,10 @@
                                 
-Solve the following inequalities.  
+Solve the following inequalities.
 
 @repeat(4)@
-@vspace@
-@ITEM@) @hspacept(50)@ @noneq@,  
+@center@  @noneq@,  
 @center@ @answ@ 
+@vspace@
 @/repeat@
 
 

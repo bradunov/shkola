@@ -3,7 +3,7 @@
 Koliko vremena provede @imez@ na probi hora? 
 @vspace@ 
 
-@imez@ na probi hora provede ukupno
+@center@ @imez@ na probi hora provede ukupno
 @center@ @answ@
                   
                   

@@ -4,7 +4,7 @@ Izračunaj korišćenjem pravila za množenje zbira. Primer:
 
 @repeat(3)@
 @vspace@
-@ITEM@)@hspacept(50)@ @factor1@  · @factor2@  = @lib.check_number(term1,20)@ · @factor2@ + @lib.check_number(rest,20)@ · @factor2@  
+@hspacept(70)@ @factor1@  · @factor2@  = @lib.check_number(term1,20)@ · @factor2@ + @lib.check_number(rest,20)@ · @factor2@  
 @center@ @hspacept(45)@ = @lib.check_number(term2,20)@  +   @lib.check_number(term3,20)@    =  @lib.check_number(result,20)@ 
 
 @/repeat@  

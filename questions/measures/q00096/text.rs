@@ -5,7 +5,7 @@
 
 Kog datuma @ime@ slavi rođendan?
 
-@ime@ slavi rođendan @hspacept(3)@  @lib.check_number(finish_d,20)@. @finish_m@. 
+@center@ @ime@ slavi rođendan @hspacept(3)@  @lib.check_number(finish_d,20)@. @finish_m@. 
 
             
  
