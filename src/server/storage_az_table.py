@@ -76,7 +76,49 @@ class Storage_az_table():
     def insert_user_id(self, user_id):
         self.update_user(user_id)
         return user_id
-            
+
+
+    # Get all user responses from the response table
+    def get_all_user_results(self, u_id, from_date=None):
+
+        req = "(PartitionKey eq '{}')".format(u_id) 
+
+        if from_date:
+            if len(req) > 0:
+                req = req + " and "
+            req = req + "(Timestamp ge datetime'{}')".format(from_date)
+
+        entries = self.table_service.query_entities(self.responses_table_name, req)
+
+        result = []
+        for row in entries:
+            result.append(row)
+
+        return result
+
+        
+
+
+    # Update user info with the latest <stats>, and with 
+    # <stats_time> being the time of the latest stats 
+    def update_user_stats(self, user_id, stats, stats_time):
+        properties = dict()
+    
+        # Nothing better at the moment:
+        properties['PartitionKey'] = self.default_partition_key
+        properties['RowKey'] = user_id
+        properties['user_id'] = user_id
+        properties['stats'] = encode_dict(stats)
+        properties['stats_time'] = stats_time
+
+        try:
+            self.table_service.merge_entity(self.users_table_name, properties)
+        except Exception:
+            logging.exception('Error updating results for user ' + user_id + ' record: {}'.format(properties))
+
+
+
+
 
     @timer_section("storage.record_response")
     def record_response(self, response):
@@ -275,7 +317,8 @@ class Storage_az_table():
 
         if q_id:
             # Remove / from q_id
-            mq_id = ("".join("fractions/q00022".split("/")))
+            # mq_id = ("".join("fractions/q00022".split("/")))
+            mq_id = ("".join(q_id.split("/")))
             req = req + "((RowKey ge '{}|') and (RowKey lt '{}{}'))".format(mq_id, mq_id, chr(255)) 
 
         if from_date:
@@ -283,17 +326,12 @@ class Storage_az_table():
                 req = req + " and "
             req = req + "(Timestamp ge datetime'{}')".format(from_date)
 
-        #print(req)
-
         entries = self.table_service.query_entities(self.responses_table_name, req)
 
         result = []
         for row in entries:
-            # TBD DEBUG: temporary cleanup foer various user names we used over time
             if "user_id" not in row.keys() or \
-                "local:Korisnik" in row["user_id"] or \
-                "UNKNOWN" in row["user_id"] or \
-                "Zomebody" in row["user_id"]:
+                "UNKNOWN" in row["user_id"]:
                 continue
 
             result.append(row)
@@ -302,28 +340,6 @@ class Storage_az_table():
 
 
 
-
-    def get_user_stats(self, u_id, from_date=None):
-
-        # TBD DEBUG: temporary cleanup for various user names we used over time
-        # Remove (PartitionKey eq 'local:{}') in future
-        req = "((PartitionKey eq '{}') or (PartitionKey eq 'local:{}'))".format(u_id, u_id) 
-
-        if from_date:
-            if len(req) > 0:
-                req = req + " and "
-            req = req + "(Timestamp ge datetime'{}')".format(from_date)
-
-        #print(req)
-        logging.info("\n\nBBBBBBBB: {}\n\n".format(req))
-
-        entries = self.table_service.query_entities(self.responses_table_name, req)
-
-        result = []
-        for row in entries:
-            result.append(row)
-
-        return result
 
 
         
@@ -386,7 +402,7 @@ if __name__ == '__main__':
 
     print_user_stats = False
     if print_user_stats:
-        print(storage.get_user_stats("Petar"))
+        print(storage.get_all_user_results("Petar"))
         #print(storage.get_question_stats("fractions/q00022", "2020-03-01T00:00:00.000Z"))
 
 

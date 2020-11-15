@@ -37,7 +37,7 @@ class Stats(object):
 
 
     @staticmethod
-    def render_question_stats(l_id=None, q_id=None, from_date=None):
+    def calc_question_stats(l_id=None, q_id=None, from_date=None):
         storage = server.storage.get_storage()
         if not from_date:
             from_date = "2020-03-15T00:00:00.000Z"
@@ -118,15 +118,31 @@ class Stats(object):
 
 
 
+
+    # Query the results table for a user and create aggregate statistics.
+    # 
+    # Input:
+    # - from_date: only include responses after <from_date>
+    # 
+    # Output: 
+    # - <stats>: aggregated stats
+    # - <stats_time>: time of the last update
+    #
+    # The <stats> is a JSON with aggregate results across years, themes, etc.
+    # The deepest leaf is this:
+    # - stats["level"][<year>]["theme"][<theme>]["subtheme"][<subtheme>]["difficulty"][<difficulty>]
+    # Each intermediate step has a leaf ["all"] with aggregate results. 
+    # 
+    # Each leaf contains the following outputs:
+    # - "total": Total number of question pages (e.g. numbers/q00001 is one question) 
+    # - "subtotal": Total number of subquestions/inputs (one page can have multiple inputs)
+    # - "questions": Fraction of questions that are correctly answered in its entirety
+    # - "subquestions": Fractions of subquestions/inputs that are correctly answered 
     @staticmethod
-    def render_user_stats(page, u_id, from_date=None):
+    def calc_user_stats(page, u_id, from_date=None):
         storage = server.storage.get_storage()
-        if not from_date:
-            from_date = "2020-03-15T00:00:00.000Z"
-        results = storage.get_user_stats(u_id=u_id, from_date=from_date)
-
-
-
+        results = storage.get_all_user_results(u_id=u_id, from_date=from_date)
+        stats_time = None
 
         # Classify in categories
         stats = { 
@@ -138,6 +154,9 @@ class Stats(object):
         for r in results:
             q_id = r["question_id"]
             l_id = r["list_id"]
+
+            if not stats_time or r["Timestamp"] > stats_time:
+                stats_time = r["Timestamp"]
 
             if l_id not in page.repository.lists.keys():
                 logging.warning("List {} from result ({}) not in the list of lists!".format(l_id, r))
@@ -254,4 +273,34 @@ class Stats(object):
         # pp = pprint.PrettyPrinter(indent=4)
         # pp.pprint(stats)
 
-        return stats
+        return stats, stats_time
+
+
+
+
+    @staticmethod
+    def update_user_stats(page, user_id, from_date=None):
+        stats, stats_time = Stats.calc_user_stats(page, user_id, from_date)
+        page.app_data.storage.update_user_stats(user_id, stats, stats_time)
+
+
+
+
+if __name__ == '__main__':
+    from server.page import Page
+    from server.app_data import AppData
+
+    use_azure_blob = False
+    preload = True
+    rel_path = "../.."
+
+    print("Loading questions...")
+    app_data = AppData(use_azure_blob=use_azure_blob, preload=preload, rel_path=rel_path)
+    page = Page(app_data)
+    print("Loaded questions.")
+    res, _ = Stats.calc_user_stats(page, "google:100168932003331800480")
+    print("\n\n\n")
+    print(json.dumps(res, indent=2))
+
+    Stats.update_user_stats(page, "google:100168932003331800480")
+

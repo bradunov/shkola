@@ -360,7 +360,7 @@ class Design_dev(object):
         Design_dev.render_menu(page)
 
         try:
-            stats = Stats.render_question_stats()
+            stats = Stats.calc_question_stats()
 
             for folder in stats.keys():            
                 page.add_lines("<h2> {} </h2><br>\n".format(folder))
@@ -444,7 +444,7 @@ class Design_dev(object):
     @staticmethod
     def render_user_stats(page, u_id):
         Design_dev.render_menu(page)
-        stats = Stats.render_user_stats(page, u_id)
+        stats, _ = Stats.calc_user_stats(page, u_id)
 
         hspace = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
         page.add_lines("<table style='border: none; border-collapse: collapse;'>")

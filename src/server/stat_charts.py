@@ -16,7 +16,7 @@ from server.types import PageOperation
 
 def render_stats_data(pg, u_ID):
     #pg = page.Page()
-    stats_for_user=stats.Stats.render_user_stats(pg, u_ID) #get stats from render_user_stats
+    stats_for_user, _ = stats.Stats.calc_user_stats(pg, u_ID) #get stats from calc_user_stats
     #create values of user_stats dictionary
     user_stats={'level':{}}
     for level_key, level_val in stats_for_user['level'].items():

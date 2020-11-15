@@ -317,7 +317,7 @@ class Storage_sql:
 
 
 
-    def get_user_stats(self, u_id, from_date=None):
+    def get_all_user_results(self, u_id, from_date=None):
 
         # TBD DEBUG: temporary cleanup foer various user names we used over time
         req = " USER_ID = '{}' OR USER_ID = 'local:{}'".format(u_id, u_id) 
@@ -444,15 +444,15 @@ if __name__ == '__main__':
 
     if print_question_stats:
         pp = pprint.PrettyPrinter(indent=2)
-        pp.pprint(stats.Stats.render_question_stats())
+        pp.pprint(stats.Stats.calc_question_stats())
 
 
 
     if print_user_stats:
         pg = page.Page()
         pp = pprint.PrettyPrinter(indent=2)
-        pp.pprint(stats.Stats.render_user_stats(pg, "Petar"))
-        #pp.pprint(stats.Stats.render_user_stats(pg, "UNKNOWN"))
+        pp.pprint(stats.Stats.calc_user_stats(pg, "Petar"))
+        #pp.pprint(stats.Stats.calc_user_stats(pg, "UNKNOWN"))
 
 
 
