@@ -10,6 +10,7 @@ import os
 import threading
 
 import server.helpers as helpers
+import server.context as context
 
 
 # Built from the following examples:
@@ -100,16 +101,36 @@ class Logging_handler_azure(logging.StreamHandler):
           self.last_log_update = now
 
 
+    def _get_user_info(self):
+        user = ""
+        session_id = ""
+
+        try:
+            user = context.c.user
+        except:
+            pass
+
+        try:
+            session_id = context.c.session.session_id()
+        except:
+            pass
+
+        return user, session_id
+
 
     def log_json(self, type, json_body, upload_immediately=False):
         if not isinstance(json_body, list):
             json_body = [json_body]
         
         now = datetime.datetime.utcnow().isoformat()
+        user, session_id = self._get_user_info()
+
         for i in json_body:
             i["type"] = type        
             i["node_name"] = self.node_name
             i["time"] = now 
+            i["user"] = user
+            i["session_id"] = session_id
 
         with self._lock:
             self.log_msgs += json_body
@@ -121,7 +142,7 @@ class Logging_handler_azure(logging.StreamHandler):
 
     def emit(self, record):
         now = datetime.datetime.utcnow().isoformat()
-
+        user, session_id = self._get_user_info()
 
         json_body = {
           "type" : "Logger", 
@@ -131,6 +152,8 @@ class Logging_handler_azure(logging.StreamHandler):
           "function" : record.funcName,
           "line" : record.lineno,
           "time" : now, 
+          "user" : user,
+          "session_id" : session_id,
           "message" : record.msg
         }
 
