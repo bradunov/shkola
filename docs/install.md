@@ -1,8 +1,8 @@
 # Installing and running Shkola
 
-This document describes how install and run Shkola as a web server. 
+This document describes how to install and run Shkola as a web server. 
 Although Shkola design is largely framework agnostic, the supported web framework currently is [CherryPy](https://cherrypy.org/).
-Similarly, Shkola design is largely cloud provided agnostic but currently the supported cloud is Azure.  
+Similarly, Shkola design is largely cloud provider agnostic but currently supported cloud is Azure.  
 We have previously ran Shkola as Azure App Service but it was much slower than a VM so we have given up on it (see [Azure App Service](azure_app_service.md) for a description).
 
 
