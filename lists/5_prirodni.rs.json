@@ -193,37 +193,217 @@
       "topic": "Svojstva deljivosti",
       "rank_subtheme": "1",
       "rank_topic": "2",
-      "difficulty": "2"
+      "difficulty": "1"
     },
     {
       "name": "numb_2/q00010",
       "random": "10",
-      "period": "1",
+      "period": "2",
       "subtheme": "Deljivost brojeva",
-      "topic": "Svojstva deljivosti",
+      "topic": "Zajednički delilac i sadržalac",
       "rank_subtheme": "1",
-      "rank_topic": "2",
-      "difficulty": "2"
+      "rank_topic": "5",
+      "difficulty": "1"
     },
     {
       "name": "numb_2/q00011",
       "random": "10",
       "period": "1",
       "subtheme": "Deljivost brojeva",
-      "topic": "Deljivost sa 3 i 9",
+      "topic": "Deljivost sa 2, 3, 4, 5, 9, 10   ",
       "rank_subtheme": "1",
-      "rank_topic": "4",
-      "difficulty": "3"
+      "rank_topic": "3",
+      "difficulty": "2"
     },
     {
       "name": "numb_2/q00012",
       "random": "0",
       "period": "2",
-      "subtheme": "Prosti i složeni brojevi",
-      "topic": "Rastavljanje na proste činioce",
-      "rank_subtheme": "3",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Prosti i složeni brojevi",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00013",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Svojstva deljivosti",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00014",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Brojevni izrazi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00015",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Brojevni izrazi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00016",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Brojevni izrazi",
+      "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00017",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Brojevni izrazi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00018",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Svojstva deljivosti",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00019",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Svojstva deljivosti",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00020",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Zajednički delilac i sadržalac",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00021",
+      "random": "4",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Deljivost sa 2, 3, 4, 5, 9, 10   ",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00022",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Brojevni izrazi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00023",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Deljivost sa 2, 3, 4, 5, 9, 10   ",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00024",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Prosti i složeni brojevi",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00025",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Zajednički delilac i sadržalac",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00026",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Zajednički delilac i sadržalac",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00027",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Prosti i složeni brojevi",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00028",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Zajednički delilac i sadržalac",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00029",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Zajednički delilac i sadržalac",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00030",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Prosti i složeni brojevi",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "3"
     }
   ]
 }

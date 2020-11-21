@@ -966,6 +966,26 @@
       "difficulty": "2"
     },
     {
+      "name": "numbers/q00238",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Množenje",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00240",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Brojevni izraz",
+      "topic": "Redosled računskih operacija",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
       "name": "equations/q00022",
       "random": "10",
       "period": "2",

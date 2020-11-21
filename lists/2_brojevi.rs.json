@@ -676,6 +676,16 @@
       "difficulty": "1"
     },
     {
+      "name": "numbers/q00239",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Računske operacije",
+      "topic": "Množenje",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
       "name": "equations/q00013",
       "random": "10",
       "period": "1",
