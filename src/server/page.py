@@ -12,6 +12,7 @@ from server.design import Design
 
 #from server.timers import timer_section
 
+import json
 import logging
 
 
@@ -456,7 +457,17 @@ class Page(object):
                         "shown_solutions": "",
                         "random_vals": ""}
 
-            logging.error("GOOGLE_ERROR feedback: user_id={}, error={}".format(user_id, args["comment"]))
+            print_error = True
+            # Do not alert about error "popup_closed_by_user" because we cannot do much about it
+            try:
+                error_msg_json = json.loads(args["comment"])
+                if error_msg_json["error"].strip() == "popup_closed_by_user":
+                    print_error = False
+            except:
+                pass
+
+            if print_error:
+                logging.error("GOOGLE_ERROR feedback: user_id={}, error={}".format(user_id, args["comment"]))
 
             try:
                 self.app_data.storage.record_feedback(response)
@@ -465,6 +476,11 @@ class Page(object):
 
 
         elif "q_id" in args.keys():
+            if "href" not in args.keys() or not args["href"] or args["href"] is None:
+                href = ""
+            else:
+                href = args["href"]
+
             if "l_id" not in args.keys() or not args["l_id"] or args["l_id"] is None:
                 l_id = ""
             else:
@@ -492,12 +508,12 @@ class Page(object):
                         "random_vals": random_vals}
 
             if 'type' in args.keys() and args["type"] == "JS_ERROR":
-                logging.error("JS_ERROR feedback: user_id={}, q_id={}, l_id={}, language={}, type={}, comment={}, random_vals={}".format( 
-                            str(user_id), str(args["q_id"]), str(l_id), 
+                logging.error("JS_ERROR feedback: user_id={}, href={}, q_id={}, l_id={}, language={}, type={}, comment={}, random_vals={}".format( 
+                            str(user_id), str(href), str(args["q_id"]), str(l_id), 
                             str(language), str(args["type"]), str(args["comment"]), random_vals))
             else:
-                logging.debug("Register results: user_id={}, q_id={}, l_id={}, language={}, type={}, comment={}, random_vals={}".format( 
-                            str(user_id), str(args["q_id"]), str(l_id), 
+                logging.debug("Register results: user_id={}, href={}, q_id={}, l_id={}, language={}, type={}, comment={}, random_vals={}".format( 
+                            str(user_id), str(href), str(args["q_id"]), str(l_id), 
                             str(language), str(args["type"]), str(args["comment"]), random_vals))
 
             try:
