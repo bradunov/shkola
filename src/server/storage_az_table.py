@@ -134,7 +134,7 @@ class Storage_az_table():
         try:
             self.table_service.insert_entity(self.responses_table_name, response)
         except Exception as err:
-            logging.exception('Error adding response: {}\n\n{}' + str(response, err))
+            logging.exception('Error adding response: {}\n\n{}'.format(response, err))
 
 
     @timer_section("storage.record_feedback")
