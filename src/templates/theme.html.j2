@@ -82,19 +82,30 @@
       function tab_select(tab) {
         var ks = Object.keys(tab_ids);
         for (var i=0; i<ks.length; i++) {
-          var tab_id = document.getElementById(tab_ids[ks[i]]);
-          var tab_title = document.getElementById(tab_titles[ks[i]]);
-          var tab_und = document.getElementById(tab_unds[ks[i]]);
-          if (ks[i] == tab) {
-            tab_id.style.display = "block";
-            tab_und.style.display = "inline-block";
-            tab_title.style.fontWeight = 'bold';
-            if (i == 0) tab_set_line(tab, 0);
-            else tab_set_line(tab, 5);
-          } else {
-            tab_id.style.display = "none";
-            tab_und.style.display = "none";
-            tab_title.style.fontWeight = 'normal';
+          try { 
+            var tab_id = document.getElementById(tab_ids[ks[i]]);
+            var tab_title = document.getElementById(tab_titles[ks[i]]);
+            var tab_und = document.getElementById(tab_unds[ks[i]]);
+            if (ks[i] == tab) {
+              tab_id.style.display = "block";
+              tab_und.style.display = "inline-block";
+              tab_title.style.fontWeight = 'bold';
+              if (i == 0) tab_set_line(tab, 0);
+              else tab_set_line(tab, 5);
+            } else {
+              tab_id.style.display = "none";
+              tab_und.style.display = "none";
+              tab_title.style.fontWeight = 'normal';
+            }
+          } catch(err) {
+            // Custom error handler as it sometimes happens that tab_ids, ... are not well set.
+            let type = "JS_ERROR";
+            var feedback = {};
+            feedback['type'] = type;
+            feedback['href'] = window.location.href;
+            feedback['q_id'] = "themes";
+            feedback['comment'] = JSON.stringify({"i": i, "tab_ids": tab_ids, "tab_titles": tab_titles, "tab_unds": tab_unds});
+            sendHTTPFeedback(feedback);
           }
         }
       }

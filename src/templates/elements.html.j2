@@ -66,28 +66,11 @@
 
 
     <script>
-    window.onerror = function (msg, url, lineNo, columnNo, error) {
-      let q_id = (typeof global_q_id === "undefined")?"":global_q_id;
-      let l_id = (typeof global_l_id === "undefined")?"":global_l_id;
-      let language = (typeof global_language === "undefined")?"":global_language;
-      let root = (typeof global_root === "undefined")?"main":global_root;
-      let error_msg = 'msg: ' + msg + ', url: ' + url + ', lineNo: ' + lineNo + 
-                      ', columnNo: ' + columnNo + ', error: ' + error;
-      let type = "JS_ERROR";
 
-      if (typeof sendFeedbackToServer === "function") {
-        // If a feedback function exists, use it as it will also record question state
-        sendFeedbackToServer(root, type, q_id, l_id, language, error_msg);
-      } else {
+    function sendHTTPFeedback(feedback){
+        let root = (typeof global_root === "undefined")?"main":global_root;
         var xhr = new XMLHttpRequest();
         var url = '/' + root + '?op=feedback'
-        var feedback = {};
-        feedback['type'] = type;
-        feedback['q_id'] = q_id;
-        feedback['language'] = language;
-        feedback['l_id'] = l_id;
-        feedback['comment'] = error_msg;
-        feedback['href'] = window.location.href;
         xhr.open('POST', url);
         xhr.onreadystatechange = function() {
             console.log("Received");
@@ -97,6 +80,29 @@
         xhr.setRequestHeader('Content-Type', 'application/json');
         console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
         xhr.send(JSON.stringify(feedback));
+    }
+
+    window.onerror = function (msg, url, lineNo, columnNo, error) {
+      let q_id = (typeof global_q_id === "undefined")?"":global_q_id;
+      let l_id = (typeof global_l_id === "undefined")?"":global_l_id;
+      let language = (typeof global_language === "undefined")?"":global_language;
+      let error_msg = 'msg: ' + msg + ', url: ' + url + ', lineNo: ' + lineNo + 
+                      ', columnNo: ' + columnNo + ', error: ' + error;
+      let type = "JS_ERROR";
+
+      if (typeof sendFeedbackToServer === "function") {
+        // If a feedback function exists, use it as it will also record question state
+        let root = (typeof global_root === "undefined")?"main":global_root;
+        sendFeedbackToServer(root, type, q_id, l_id, language, error_msg);
+      } else {
+        var feedback = {};
+        feedback['type'] = type;
+        feedback['q_id'] = q_id;
+        feedback['language'] = language;
+        feedback['l_id'] = l_id;
+        feedback['comment'] = error_msg;
+        feedback['href'] = window.location.href;
+        sendHTTPFeedback(feedback);
       }
       return false;
     }
