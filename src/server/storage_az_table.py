@@ -122,8 +122,13 @@ class Storage_az_table():
 
     @timer_section("storage.record_response")
     def record_response(self, response):
+        fb_time = int(time.time() * 1000)
+
         response['PartitionKey'] = response['user_id']
-        response['RowKey'] = response['question_id'] + "|" + str(response['time']) + "|" + str(response['duration'])
+        response['RowKey'] = response['question_id'] + "|" + \
+                            str(response['attempt']) + "|" + \
+                            str(fb_time) + "|" + \
+                            str(response['duration'])
 
         # Remove special characters not allowed in Azure PartitionKey and RowKey
         response['PartitionKey'] = re.sub("[\ /?#]", "_", response['PartitionKey'])
@@ -154,7 +159,7 @@ class Storage_az_table():
         try:
             self.table_service.insert_entity(self.feedbacks_table_name, response)
         except Exception as err:
-            logging.exception('Error adding response: ' + str(err))
+            logging.exception('Error adding feedback: ' + str(err))
 
 
     @timer_section("storage.update_session")
