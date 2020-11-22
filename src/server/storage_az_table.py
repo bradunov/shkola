@@ -169,7 +169,7 @@ class Storage_az_table():
 
         properties = {
             'PartitionKey': session_id,
-            'RowKey': "",
+            'RowKey': data['user_id'],
             'data': encode_dict(data['data']),
             'user_id': data['user_id'],
             'state_id': data['state_id'],
