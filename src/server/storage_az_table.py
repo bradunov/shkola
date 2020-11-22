@@ -218,6 +218,30 @@ class Storage_az_table():
         }
 
 
+
+
+    # Get all user responses from the response table
+    def get_all_user_sessions(self, u_id, from_date=None):
+
+        req = "(user_id eq '{}')".format(u_id) 
+
+        if from_date:
+            if len(req) > 0:
+                req = req + " and "
+            req = req + "(Timestamp ge datetime'{}')".format(from_date)
+
+        entries = self.table_service.query_entities(self.sessions_table_name, req)
+
+        result = []
+        for row in entries:
+            row["data"] = decode_dict(row["data"])
+            result.append(row)
+
+        return result
+
+
+
+
     # END - Common methods to implement storage interface
     ##################################################################
 
