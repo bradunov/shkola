@@ -7,7 +7,7 @@ from server.types import PageDesign
 import server.context as context
 
 import server.helpers as helpers
-from server.user_db import GOOGLE_CLIENT_ID, GOOGLE_SITE_VERIFICATION
+from server.user_db import GOOGLE_CLIENT_ID, GOOGLE_SITE_VERIFICATION, GOOGLE_TAG_MANAGER
 from server.design import Design
 
 #from server.timers import timer_section
@@ -21,7 +21,8 @@ class Page(object):
     _default_template_params = {
         'title' : 'Shkola',
         'google_signin_client_id' : GOOGLE_CLIENT_ID,
-        'google_site_verification' : GOOGLE_SITE_VERIFICATION
+        'google_site_verification' : GOOGLE_SITE_VERIFICATION,
+        'google_tag_manager' : GOOGLE_TAG_MANAGER
     }
 
 

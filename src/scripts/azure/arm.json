@@ -34,6 +34,10 @@
       "defaultValue": "",
       "type": "String"
     },
+    "GOOGLE_TAG_MANAGER": {
+      "defaultValue": "",
+      "type": "String"
+    },
     "SHKOLA_LA_WORKSPACE_ID": {
       "defaultValue": "",
       "type": "String"
@@ -107,6 +111,7 @@
         "SHKOLA_AZ_TABLE_CONN_STR": "[parameters('SHKOLA_AZ_TABLE_CONN_STR')]",
         "GOOGLE_CLIENT_ID": "[parameters('GOOGLE_CLIENT_ID')]",
         "GOOGLE_SITE_VERIFICATION": "[parameters('GOOGLE_SITE_VERIFICATION')]",
+        "GOOGLE_TAG_MANAGER": "[parameters('GOOGLE_TAG_MANAGER')]",
         "SHKOLA_LA_WORKSPACE_ID": "[parameters('SHKOLA_LA_WORKSPACE_ID')]",
         "SHKOLA_LA_PRIMARY_KEY": "[parameters('SHKOLA_LA_PRIMARY_KEY')]",
         "SHKOLA_NODE_NAME": "[parameters('SHKOLA_NODE_NAME')]"

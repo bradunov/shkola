@@ -58,6 +58,7 @@ cp shkola.service /lib/systemd/system/ >> log.txt
 sed "s#%SHKOLA_AZ_TABLE_CONN_STR%#$SHKOLA_AZ_TABLE_CONN_STR#" -i /lib/systemd/system/shkola.service
 sed "s#%GOOGLE_CLIENT_ID%#$GOOGLE_CLIENT_ID#" -i /lib/systemd/system/shkola.service
 sed "s#%GOOGLE_SITE_VERIFICATION%#$GOOGLE_SITE_VERIFICATION#" -i /lib/systemd/system/shkola.service
+sed "s#%GOOGLE_TAG_MANAGER%#$GOOGLE_TAG_MANAGER#" -i /lib/systemd/system/shkola.service
 sed "s#%SHKOLA_LA_WORKSPACE_ID%#$SHKOLA_LA_WORKSPACE_ID#" -i /lib/systemd/system/shkola.service
 sed "s#%SHKOLA_LA_PRIMARY_KEY%#$SHKOLA_LA_PRIMARY_KEY#" -i /lib/systemd/system/shkola.service
 sed "s#%SHKOLA_NODE_NAME%#$SHKOLA_NODE_NAME#" -i /lib/systemd/system/shkola.service
@@ -71,6 +72,7 @@ cp vm_status.service /lib/systemd/system/ >> log.txt
 sed "s#%SHKOLA_AZ_TABLE_CONN_STR%#$SHKOLA_AZ_TABLE_CONN_STR#" -i /lib/systemd/system/vm_status.service
 sed "s#%GOOGLE_CLIENT_ID%#$GOOGLE_CLIENT_ID#" -i /lib/systemd/system/vm_status.service
 sed "s#%GOOGLE_SITE_VERIFICATION%#$GOOGLE_SITE_VERIFICATION#" -i /lib/systemd/system/vm_status.service
+sed "s#%GOOGLE_TAG_MANAGER%#$GOOGLE_TAG_MANAGER#" -i /lib/systemd/system/vm_status.service
 sed "s#%SHKOLA_LA_WORKSPACE_ID%#$SHKOLA_LA_WORKSPACE_ID#" -i /lib/systemd/system/vm_status.service
 sed "s#%SHKOLA_LA_PRIMARY_KEY%#$SHKOLA_LA_PRIMARY_KEY#" -i /lib/systemd/system/vm_status.service
 sed "s#%SHKOLA_NODE_NAME%#$SHKOLA_NODE_NAME#" -i /lib/systemd/system/vm_status.service

@@ -13,6 +13,7 @@ from server.data_cache import DataCache
 
 GOOGLE_CLIENT_ID = os.environ['GOOGLE_CLIENT_ID'] if 'GOOGLE_CLIENT_ID' in os.environ.keys() else ""
 GOOGLE_SITE_VERIFICATION = os.environ['GOOGLE_SITE_VERIFICATION'] if 'GOOGLE_SITE_VERIFICATION' in os.environ.keys() else ""
+GOOGLE_TAG_MANAGER = os.environ['GOOGLE_TAG_MANAGER'] if 'GOOGLE_TAG_MANAGER' in os.environ.keys() else ""
 
 DOMAINS = ["local", "google"]
 
