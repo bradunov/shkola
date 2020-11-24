@@ -284,6 +284,7 @@ class Design_default(object):
 
         page.template_params["template_name"] = "user.html.j2"
 
+        page.template_params["h1"] = "Login"
 
         page.template_params['current_lang'] = \
             "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" " \
@@ -337,6 +338,7 @@ class Design_default(object):
 
         page.template_params["template_name"] = "year.html.j2"
 
+        page.template_params["h1"] = "Izaberi godinu"
 
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
@@ -462,6 +464,8 @@ class Design_default(object):
 
             page.template_params['themes'] = []
 
+            page.template_params["h1"] = page.template_params['year']
+            page.template_params["h2"] = "Izaberi temu"
 
             # page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
             # page.add_lines("<h3> {} razred - izaberi oblast</h3>\n".format(page.page_params.get_param("year").title()))
@@ -640,6 +644,12 @@ class Design_default(object):
         page.template_params["topic"] = page.page_params.get_param("topic").title()
         page.template_params["period"] = page.page_params.get_param("period").title()
         page.template_params["difficulty"] = page.page_params.get_param("difficulty").title()
+
+
+        page.template_params["h1"] = page.template_params['year']
+        page.template_params["h2"] = page.template_params["theme"]
+        page.template_params["h3"] = "Start"
+
 
         test = Test(page)
         url_next, url_skip = test.get_next_question_url(Design_default.total_questions)
@@ -832,8 +842,9 @@ class Design_default(object):
         page.template_params["topic"] = page.page_params.get_param("topic")
         page.template_params["difficulty"] = int(difficulty)
 
-
-
+        page.template_params["h1"] = page.template_params['year']
+        page.template_params["h2"] = page.template_params["theme"]
+        page.template_params["h3"] = "Pitanje"
 
 
         return
@@ -901,6 +912,9 @@ class Design_default(object):
         page.page_params.set_param("q_id", "")
         page.page_params.set_param("l_id", "")
 
+        page.template_params["h1"] = page.page_params.get_param("year").upper()
+        page.template_params["h2"] = page.page_params.get_param("theme").upper()
+        page.template_params["h3"] = "Rezultat"
 
         return
 
@@ -969,6 +983,8 @@ class Design_default(object):
 
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
+
+        page.template_params["h1"] = "Rezultat"
 
         #prepare_user_stats_chart(page, 'Petar')
         prepare_user_stats_chart(page, u_id)
