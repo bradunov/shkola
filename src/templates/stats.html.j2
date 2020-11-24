@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='{{template_params["lang"]}}'>
   <head>
 
     {% import 'elements.html.j2' as elements %}
@@ -12,6 +12,7 @@
   </head>
 
   <body style="overscroll-behavior: none">
+    {{ elements.standard_body(template_params) }}
 
     <!-- MOBILE MENU START -->
     {% import 'menu.html.j2' as menu %}
