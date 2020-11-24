@@ -20,6 +20,7 @@ class Page(object):
 
     _default_template_params = {
         'title' : 'Shkola',
+        'lang' : 'sr',
         'google_signin_client_id' : GOOGLE_CLIENT_ID,
         'google_site_verification' : GOOGLE_SITE_VERIFICATION,
         'google_tag_manager' : GOOGLE_TAG_MANAGER
