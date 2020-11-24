@@ -35,7 +35,9 @@ class Site:
         else:
             log_handler = None
 
-        self._app_data = AppData(use_azure_blob=self.use_azure_blob, preload=self.preload, external_log_handler=log_handler)
+        title = "TATAMATA - Vežbaonica matematike za osnovnu školu"
+
+        self._app_data = AppData(title=title, use_azure_blob=self.use_azure_blob, preload=self.preload, external_log_handler=log_handler)
 
         if os.getenv('SHKOLA_ROOT'):
             self.root = os.getenv('SHKOLA_ROOT')
