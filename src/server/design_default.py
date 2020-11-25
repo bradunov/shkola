@@ -127,6 +127,10 @@ class Design_default(object):
                 Design_default.render_select_year_page(page)
             return page.render()
 
+        elif page.page_params.get_param("op") == PageOperation.ABOUT:
+            Design_default.render_about(page)
+            return page.render()
+
         else:
             # Something mesed up the state - clean up the state and go to the intro
             logging.info("PageOperation.MENU - wrong parameters - select year")
@@ -988,4 +992,18 @@ class Design_default(object):
 
         #prepare_user_stats_chart(page, 'Petar')
         prepare_user_stats_chart(page, u_id)
+
+
+
+    @staticmethod
+    @timer_section("render_about")
+    def render_about(page):
+
+        # Create dictionary entries that define menu
+        Design_default.add_menu(page)
+
+        page.template_params["template_name"] = "about.html.j2"
+
+        page.template_params["h1"] = "O name"
+
 
