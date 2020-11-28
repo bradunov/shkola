@@ -104,8 +104,10 @@ class PageOperation(Enum):
     TEST_PREV = "test_prev"
     # Report an issue in question
     FEEDBACK = "feedback"
-    # Report an issue in question
+    # About the site
     ABOUT = "about"
+    # About the authors
+    ABOUT_US = "about_us"
 
     # TODO: remove this method
     @classmethod

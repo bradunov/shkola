@@ -131,6 +131,10 @@ class Design_default(object):
             Design_default.render_about(page)
             return page.render()
 
+        elif page.page_params.get_param("op") == PageOperation.ABOUT_US:
+            Design_default.render_about_us(page)
+            return page.render()
+
         else:
             # Something mesed up the state - clean up the state and go to the intro
             logging.info("PageOperation.MENU - wrong parameters - select year")
@@ -1003,6 +1007,19 @@ class Design_default(object):
         Design_default.add_menu(page)
 
         page.template_params["template_name"] = "about.html.j2"
+
+        page.template_params["h1"] = "O name"
+
+
+
+    @staticmethod
+    @timer_section("render_about_us")
+    def render_about_us(page):
+
+        # Create dictionary entries that define menu
+        Design_default.add_menu(page)
+
+        page.template_params["template_name"] = "about_us.html.j2"
 
         page.template_params["h1"] = "O name"
 
