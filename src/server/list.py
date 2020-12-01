@@ -3,11 +3,12 @@ import time
 
 # from server.question import Question
 from server.types import PageOperation
+from server.types import PageLanguage
 import server.context as context
 
 import logging
 
-class Test(object):
+class List(object):
     page = None
     mobile = False
 
@@ -16,29 +17,128 @@ class Test(object):
 
     def __init__(self, page):
         self.page = page
-        self.load_list()
-
-        #if self.page.page_params.get_param("q_id") is None or not self.page.page_params.get_param("q_id"):
-        #    self.page.page_params.set_param("q_id", self.choose_next_question())
-
-
-
-    def load_list(self):
-        self.list = self.page.repository.get_list(self.page.page_params.get_param("l_id"))
-        if not self.list:
-            logging.error("List {} not found - did you set SHKOLA_REL_PATH correctly?".format( 
-                            self.page.page_params.get_param("l_id")))
-            raise Exception("List {} not found".format(self.page.page_params.get_param("l_id")))
             
+
 
     def _make_topic(self, q):
         return q["subtheme"] + "|" + q["topic"]
 
 
-    # Choose the next question, preferrably without repeat, and return it
+
+    def _get_page_params(self):
+        subtheme = self.page.page_params.get_param("subtheme").lower().strip() \
+            if self.page.page_params.get_param("subtheme") and self.page.page_params.get_param("subtheme") != "*" else None
+
+        topic = self.page.page_params.get_param("topic").lower().strip() \
+            if self.page.page_params.get_param("topic") and self.page.page_params.get_param("topic") != "*" else None
+
+        period = self.page.page_params.get_param("period").lower().strip() \
+            if self.page.page_params.get_param("period") and self.page.page_params.get_param("period") != "*" else None
+
+        difficulty = self.page.page_params.get_param("difficulty").lower().strip() \
+            if self.page.page_params.get_param("difficulty") and self.page.page_params.get_param("difficulty") != "*" else None
+
+        return subtheme, topic, period, difficulty
+
+
+
+
+
+    ###############################################
+    # BROWSE mode
+    #
+    # Choose the next question in the order for a given list and return it.
+    # Test mode is the mode where we give questions from a theme/subtheme/topic in the order they are listed
+    def choose_next_question_browse(self, last_question_id=None):
+        log_str = "Next question for browse in {}/{}/{}/{}/{}/{} - ".format(
+            self.page.page_params.get_param("year"), 
+            self.page.page_params.get_param("theme"), 
+            self.page.page_params.get_param("subtheme"),
+            self.page.page_params.get_param("topic"),
+            self.page.page_params.get_param("period"),
+            self.page.page_params.get_param("difficulty")
+        )
+
+        if not last_question_id:
+            if context.c.session.get("history"):
+                last_question_id = context.c.session.get("history")[-1]["q_id"]
+
+        subtheme, topic, period, difficulty = self._get_page_params()
+
+        questions = list(self.page.repository.get_content_questions(
+            PageLanguage.toStr(self.page.page_params.get_param("language")), 
+            self.page.page_params.get_param("year"), 
+            self.page.page_params.get_param("theme"), 
+            subtheme=subtheme, topic=topic, period=period, difficulty=difficulty).values())
+
+        questions.sort(key=lambda x:[x["rank_subtheme"], x["rank_topic"], x["period"], x["difficulty"]])
+
+        next_q = None
+        prev_q = None
+
+        if not last_question_id: 
+            next_q = questions[0]
+            prev_q = None
+        else:
+            for idx, q in enumerate(questions):
+                if last_question_id == q["name"].strip():
+                    if idx + 1 < len(questions):
+                        next_q = questions[idx+1]
+                    if idx - 1 >= 0:
+                        prev_q = questions[idx-1]
+                    break
+
+        return prev_q, next_q
+
+
+
+    def get_prev_next_questions_browse_url(self, total_questions):
+
+        prev_question, next_question = self.choose_next_question_browse()
+
+        if prev_question:
+            url_prev = self.page.page_params.create_url( 
+                op=PageOperation.toStr(PageOperation.TEST),
+                q_id=prev_question["name"], 
+                q_diff=prev_question["difficulty"], 
+                q_num="0",
+                beta=True if self.page.page_params.get_param("beta") else None, 
+                js=False)
+        else:
+            url_prev = None
+
+        if next_question:
+            url_next = self.page.page_params.create_url( 
+                op=PageOperation.toStr(PageOperation.TEST),
+                q_id=next_question["name"], 
+                q_diff=next_question["difficulty"], 
+                q_num="0",
+                beta=True if self.page.page_params.get_param("beta") else None, 
+                js=False)
+        else:
+            url_next = None
+
+        return url_prev, url_next
+
+
+
+
+
+
+
+
+    ###############################################
+    # TEST mode
+    #
+    # Choose the next question for the test and return it.
+    # Test mode is the mode where shkola selects questions from a theme/subtheme/topic
+    # based on previous answers, difficulties, etc. 
+    # Questions are preferrably selected without repeat. 
     # Also return the number of possible remaining questions without repeat
-    def choose_next_question(self):
-        log_str = "Next question for {}/{}/{}/{} - ".format(
+    def choose_next_question_test(self):
+        log_str = "Next question for test in {}/{}/{}/{}/{}/{} - ".format(
+            self.page.page_params.get_param("year"), 
+            self.page.page_params.get_param("theme"), 
             self.page.page_params.get_param("subtheme"),
             self.page.page_params.get_param("topic"),
             self.page.page_params.get_param("period"),
@@ -79,54 +179,32 @@ class Test(object):
 
         prev_question = None
 
-        # logging.debug("\n\nQ {}\n\n{}\n{}\n{}\n\n".format(self.list["questions"], 
-        #     self.page.page_params.get_param("subtheme"), self.page.page_params.get_param("period"),
-        #     self.page.page_params.get_param("difficulty") ))
 
         # Find the list of all question in the subtopic (potential_questions_w_repeat), 
         # and also those among them that haven't been already asked in this session (potential_questions)
-        for q in self.list["questions"]:
-            if self.page.page_params.get_param("subtheme") and \
-                    (self.page.page_params.get_param("subtheme") == "*" or \
-                    q["subtheme"].lower().strip() == self.page.page_params.get_param("subtheme").lower().strip()) and \
-               self.page.page_params.get_param("topic") and \
-                    (self.page.page_params.get_param("topic") == "*" or \
-                    q["topic"].lower().strip() == self.page.page_params.get_param("topic").lower().strip()) and \
-               self.page.page_params.get_param("period") and \
-                    (self.page.page_params.get_param("period") == "*" or \
-                    q["period"].lower().strip() == self.page.page_params.get_param("period").lower().strip()) and \
-               self.page.page_params.get_param("difficulty") and \
-                    (self.page.page_params.get_param("difficulty") == "*" or \
-                    q["difficulty"].lower().strip() == self.page.page_params.get_param("difficulty").lower().strip()):
 
-                if "subtheme" not in q.keys() or "topic" not in q.keys() or \
-                   "period" not in q.keys() or "difficulty" not in q.keys() or "random" not in q.keys():
-                    logging.error("Problem with question {} in list {}.".format(
-                        q,self.page.page_params.get_param("l_id")))
+        subtheme, topic, period, difficulty = self._get_page_params()
 
-                next_q = {
-                    "q_id" : q["name"].strip(),
-                    "subtheme" : q["subtheme"].strip() if "subtheme" in q.keys() else "",
-                    "topic" : q["topic"].strip() if "topic" in q.keys() else "",
-                    "period" : q["period"].strip() if "period" in q.keys() else "", 
-                    "difficulty" : q["difficulty"].strip() if "difficulty" in q.keys() else "",
-                    "random" : int(q["random"]) if "random" in q.keys() else 0
-                }
-    
+        for _, next_q in self.page.repository.get_content_questions(
+            PageLanguage.toStr(self.page.page_params.get_param("language")), 
+            self.page.page_params.get_param("year"), 
+            self.page.page_params.get_param("theme"), 
+            subtheme=subtheme, topic=topic, period=period, difficulty=difficulty).items():
+
                 add_in_random = True
                 diff = 0
 
-                if not next_q["q_id"] in past_questions.keys():
+                if not next_q["name"] in past_questions.keys():
                     potential_questions["all"].append(next_q)
-                    topic = self._make_topic(q)
+                    topic = self._make_topic(next_q)
                     if topic not in potential_questions["topics"].keys():
                         potential_questions["topics"][topic] = {}
-                    if q["difficulty"] not in potential_questions["topics"][topic].keys():
-                        potential_questions["topics"][topic][q["difficulty"]] = []
-                    potential_questions["topics"][topic][q["difficulty"]].append(next_q)
-                    if q["difficulty"] not in potential_questions["difficulty"].keys():
-                        potential_questions["difficulty"][q["difficulty"]] = []
-                    potential_questions["difficulty"][q["difficulty"]].append(next_q)
+                    if next_q["difficulty"] not in potential_questions["topics"][topic].keys():
+                        potential_questions["topics"][topic][next_q["difficulty"]] = []
+                    potential_questions["topics"][topic][next_q["difficulty"]].append(next_q)
+                    if next_q["difficulty"] not in potential_questions["difficulty"].keys():
+                        potential_questions["difficulty"][next_q["difficulty"]] = []
+                    potential_questions["difficulty"][next_q["difficulty"]].append(next_q)
                     if next_q["random"] >= 10 or remaining_question >= 100:
                         diff = 100
                         remaining_question = 100
@@ -135,17 +213,17 @@ class Test(object):
                         remaining_question = remaining_question + diff
 
                 else:
-                    if next_q["q_id"] == last_question:
+                    if next_q["name"] == last_question:
                         prev_question = next_q
 
-                    ask_again = not past_questions[next_q["q_id"]]["skipped"]
+                    ask_again = not past_questions[next_q["name"]]["skipped"]
                     ask_again = ask_again and not (\
-                        (past_questions[next_q["q_id"]]["correct"] >= 1 and next_q["random"] < 5) or \
-                        (past_questions[next_q["q_id"]]["correct"] >= 2 and next_q["random"] >= 5 and next_q["random"] < 10) or \
-                        (past_questions[next_q["q_id"]]["correct"] >= 3 and next_q["random"] >= 10) \
+                        (past_questions[next_q["name"]]["correct"] >= 1 and next_q["random"] < 5) or \
+                        (past_questions[next_q["name"]]["correct"] >= 2 and next_q["random"] >= 5 and next_q["random"] < 10) or \
+                        (past_questions[next_q["name"]]["correct"] >= 3 and next_q["random"] >= 10) \
                     )
                     ask_again = ask_again and not \
-                        (next_q["random"] < 10 and next_q["random"] <= past_questions[next_q["q_id"]]["number"])
+                        (next_q["random"] < 10 and next_q["random"] <= past_questions[next_q["name"]]["number"])
 
                     if not ask_again:
                         add_in_random = False
@@ -154,12 +232,12 @@ class Test(object):
                             diff = 100
                             remaining_question = 100
                         else:
-                            diff = next_q["random"] - past_questions[next_q["q_id"]]["number"] \
-                                if next_q["random"] - past_questions[next_q["q_id"]]["number"] >= 0 else 0
+                            diff = next_q["random"] - past_questions[next_q["name"]]["number"] \
+                                if next_q["random"] - past_questions[next_q["name"]]["number"] >= 0 else 0
                             remaining_question = remaining_question + diff
 
 
-                #print("Q: {} ({}) - {} {}".format(next_q["q_id"], add_in_random, diff, remaining_question))
+                #print("Q: {} ({}) - {} {}".format(next_q["name"], add_in_random, diff, remaining_question))
 
                 if add_in_random:
                     potential_questions_w_repeat.append(next_q)
@@ -176,7 +254,7 @@ class Test(object):
 
 
         next_question = {
-            "q_id" : "",
+            "name" : "",
             "subtheme" : "",
             "topic" : "",
             "period" : "", 
@@ -225,10 +303,10 @@ class Test(object):
                     total = len(candidates)
                     index = random.randrange(total)
                     next_question = candidates[index]
-                    log_str = log_str + "selected new question: {}".format(next_question["q_id"])
+                    log_str = log_str + "selected new question: {}".format(next_question["name"])
 
 
-        if not next_question["q_id"]:
+        if not next_question["name"]:
 
             # A suitable question from the same topic not found, find an easy one from a new topic 
             # (if new topic allowed, otherwise potential_questions will be empty)
@@ -252,16 +330,16 @@ class Test(object):
                 index = random.randrange(total)
                 next_question = candidates[index]
                 log_str = log_str + "selected: {}- {}".format(
-                    self._make_topic(next_question), next_question["q_id"])
+                    self._make_topic(next_question), next_question["name"])
 
 
-        if not next_question["q_id"] and potential_questions_w_repeat:
+        if not next_question["name"] and potential_questions_w_repeat:
             # Otherwise give randomly any previously asked randomizable question
             total = len(potential_questions_w_repeat)
             index = random.randrange(total)
             next_question = potential_questions_w_repeat[index]
-            log_str = log_str + "no new topics - selected previous q: {}".format(next_question["q_id"])
-        elif not next_question["q_id"]:
+            log_str = log_str + "no new topics - selected previous q: {}".format(next_question["name"])
+        elif not next_question["name"]:
             log_str = log_str + "no new topics - no question selected!"
 
         logging.info("\n\n ************ " + log_str + "\n\n")
@@ -281,6 +359,7 @@ class Test(object):
         return next_question, more_questions
         
 
+
     # Return question number in the test (starting from 1)
     def get_q_number(self):
         if context.c.session.get("history"):
@@ -291,7 +370,7 @@ class Test(object):
 
 
 
-    def get_next_question_url(self, total_questions):
+    def get_next_question_test_url(self, total_questions):
         # We may choose to offer fewer questions if there aren't enough available
         more_questions = False
 
@@ -299,7 +378,7 @@ class Test(object):
             # Starting a new test, record the start time in epoch seconds
             context.c.session.set("test_id", int(time.time()*1000))
 
-        next_question, more_questions = self.choose_next_question()
+        next_question, more_questions = self.choose_next_question_test()
 
         q_number = self.get_q_number()
         if q_number >= total_questions or not more_questions:
@@ -311,14 +390,14 @@ class Test(object):
         else:
             url_next = self.page.page_params.create_url( 
                 op=PageOperation.toStr(PageOperation.TEST),
-                q_id=next_question["q_id"], 
+                q_id=next_question["name"], 
                 q_diff=next_question["difficulty"], 
                 q_num=str(q_number+1),
                 beta=True if self.page.page_params.get_param("beta") else None, 
                 js=False)
             url_skip = self.page.page_params.create_url( 
                 op=PageOperation.toStr(PageOperation.TEST),
-                q_id=next_question["q_id"], 
+                q_id=next_question["name"], 
                 q_diff=next_question["difficulty"], 
                 q_num=str(q_number+1),
                 skipped="true",
@@ -329,7 +408,7 @@ class Test(object):
 
 
 
-    def get_prev_question_url(self):
+    def get_prev_question_test_url(self):
         if len(context.c.session.get("history")) <= 1:
             url_prev = self.page.page_params.create_url(\
                         op = PageOperation.toStr(PageOperation.MENU_THEME), 
@@ -351,20 +430,6 @@ class Test(object):
 
 
 
-    # def render_next_questions(self, next_question=None):  
-    #     if not next_question:
-    #         next_question = self.choose_next_question()
-    #     next_question_url = self.page.page_params.create_url(\
-    #         op = PageOperation.toStr(PageOperation.TEST), \
-    #         q_id = next_question, \
-    #         js = False)
-
-        
-    #     q = Question(self.page)
-    #     q.set_from_file_with_exception()
-    #     q.eval_with_exception()
-
-    #     return next_question_url
 
 
 

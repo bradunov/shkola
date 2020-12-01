@@ -8,7 +8,7 @@ from server.types import PageOperation
 # from server.types import ResponseOperation
 from server.types import PageParameters
 
-from server.test import Test
+from server.list import List
 from server.question import Question
 # from server.stats import Stats
 
@@ -422,8 +422,8 @@ class Design_default(object):
             page.page_params.set_param("difficulty", difficulty)
             page.page_params.set_param("l_id", l_id)
 
-            test = Test(page)
-            url_next, url_skip = test.get_next_question_url(Design_default.total_questions)
+            test = List(page)
+            url_next, url_skip = test.get_next_question_test_url(Design_default.total_questions)
 
         else:
             url_next = page.page_params.create_url(
@@ -659,8 +659,8 @@ class Design_default(object):
         page.template_params["h3"] = "Start"
 
 
-        test = Test(page)
-        url_next, url_skip = test.get_next_question_url(Design_default.total_questions)
+        test = List(page)
+        url_next, url_skip = test.get_next_question_test_url(Design_default.total_questions)
         page.template_params["next"] = url_next
         page.template_params["skip"] = url_skip
 
@@ -739,7 +739,7 @@ class Design_default(object):
     @timer_section("render_question_page")
     def render_question_page(page):
 
-        test = Test(page)
+        test = List(page)
 
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
@@ -815,11 +815,11 @@ class Design_default(object):
 
 
 
-        url_next, url_skip = test.get_next_question_url(Design_default.total_questions)
+        url_next, url_skip = test.get_next_question_test_url(Design_default.total_questions)
         page.template_params["next"] = url_next
         page.template_params["skip"] = url_skip
 
-        #url_prev = test.get_prev_question_url()
+        #url_prev = test.get_prev_question_test_url()
         #page.template_params["back"] = url_prev
         
 

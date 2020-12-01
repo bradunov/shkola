@@ -306,6 +306,13 @@ class Repository(object):
 
         
 
+    def _check_exists(self, qlist, qcheck):
+        for q in qlist:
+            if q["name"] == qcheck["name"] and q["subtheme"] == qcheck["subtheme"]:
+                return True
+        return False
+
+
     # Create separate lists for each theme, subtheme, level, etc.
     def create_content(self, language=None):
         self.content = {}
@@ -341,39 +348,108 @@ class Repository(object):
                         q["name"], list_name)
                     continue
 
+                # One question can belong to multiple subthemes
                 if isinstance(q["subtheme"], list): 
+
                     for st in q["subtheme"]:
                         label = "{}|{}|{}|{}".format(st.lower(), q["topic"].lower(), q["period"].lower(), q["difficulty"].lower())
 
                         if label not in self.content[language][level][theme].keys():
                             self.content[language][level][theme][label] = {
-                                "subtheme" : st.lower(),
-                                "topic" : q["topic"].lower(),
-                                "period" : q["period"].lower(),
-                                "rank_subtheme" : q["rank_subtheme"].lower() if "rank_subtheme" in q.keys() else "100",
-                                "rank_topic" : q["rank_topic"].lower() if "rank_topic" in q.keys() else "100",
-                                "difficulty" : q["difficulty"].lower(),
+                                "subtheme" : st.lower().strip(),
+                                "topic" : q["topic"].lower().strip(),
+                                "period" : q["period"].lower().strip(),
+                                "rank_subtheme" : q["rank_subtheme"].lower().strip() if "rank_subtheme" in q.keys() else "100",
+                                "rank_topic" : q["rank_topic"].lower().strip() if "rank_topic" in q.keys() else "100",
+                                "difficulty" : q["difficulty"].lower().strip(),
                                 "questions" : []
                             }
 
-                        self.content[language][level][theme][label]["questions"].append(q)
+                        next_q = {
+                            "name" : q["name"].strip(),
+                            "subtheme" : st.lower().strip(),
+                            "topic" : q["topic"].strip() if "topic" in q.keys() else "",
+                            "period" : q["period"].strip() if "period" in q.keys() else "", 
+                            "rank_subtheme" : q["rank_subtheme"].lower().strip() if "rank_subtheme" in q.keys() else "100",
+                            "rank_topic" : q["rank_topic"].lower().strip() if "rank_topic" in q.keys() else "100",
+                            "difficulty" : q["difficulty"].strip() if "difficulty" in q.keys() else "",
+                            "random" : int(q["random"]) if "random" in q.keys() else 0
+                        }
+
+                        if self._check_exists(self.content[language][level][theme][label]["questions"], next_q):
+                            logging.error("Question {} appears multiple times in list {}/{}/{}/{}/{}".format(
+                                next_q["name"], language, level, theme, label, st
+                            ))
+                        else:
+                            self.content[language][level][theme][label]["questions"].append(next_q)
                 else:
                     label = "{}|{}|{}|{}".format(q["subtheme"].lower(), q["topic"].lower(), q["period"].lower(), q["difficulty"].lower())
 
                     if label not in self.content[language][level][theme].keys():
                         self.content[language][level][theme][label] = {
-                            "subtheme" : q["subtheme"].lower(),
-                            "topic" : q["topic"].lower(),
-                            "period" : q["period"].lower(),
-                            "rank_subtheme" : q["rank_subtheme"].lower() if "rank_subtheme" in q.keys() else "100",
-                            "rank_topic" : q["rank_topic"].lower() if "rank_topic" in q.keys() else "100",
-                            "difficulty" : q["difficulty"].lower(),
+                            "subtheme" : q["subtheme"].lower().strip(),
+                            "topic" : q["topic"].lower().strip(),
+                            "period" : q["period"].lower().strip(),
+                            "rank_subtheme" : q["rank_subtheme"].lower().strip() if "rank_subtheme" in q.keys() else "100",
+                            "rank_topic" : q["rank_topic"].lower().strip() if "rank_topic" in q.keys() else "100",
+                            "difficulty" : q["difficulty"].lower().strip(),
                             "questions" : []
                         }
 
-                    self.content[language][level][theme][label]["questions"].append(q)
+                    next_q = {
+                        "name" : q["name"].strip(),
+                        "subtheme" : q["subtheme"].strip() if "subtheme" in q.keys() else "",
+                        "topic" : q["topic"].strip() if "topic" in q.keys() else "",
+                        "period" : q["period"].strip() if "period" in q.keys() else "", 
+                        "rank_subtheme" : q["rank_subtheme"].lower().strip() if "rank_subtheme" in q.keys() else "100",
+                        "rank_topic" : q["rank_topic"].lower().strip() if "rank_topic" in q.keys() else "100",
+                        "difficulty" : q["difficulty"].strip() if "difficulty" in q.keys() else "",
+                        "random" : int(q["random"]) if "random" in q.keys() else 0
+                    }
 
-        
+                    if self._check_exists(self.content[language][level][theme][label]["questions"], next_q):
+                        logging.error("Question {} appears multiple times in list {}/{}/{}/{}".format(
+                            next_q["name"], language, level, theme, label
+                        ))
+                    else:
+                        self.content[language][level][theme][label]["questions"].append(next_q)
+
+
+
+    def get_content(self, language):
+        return self.content[language]
+
+
+
+    def get_content_questions(self, language, level, theme, subtheme=None, topic=None, period=None, difficulty=None):
+        language = language.lower().strip()
+        level = level.lower().strip()
+        theme = theme.lower().strip()
+
+        if language not in self.content.keys() or \
+            level not in self.content[language].keys() or \
+            theme not in self.content[language][level].keys():
+            return []
+
+        questions = {}
+
+        for k,v in self.content[language][level][theme].items():
+            if k == "name":
+                continue
+
+            if (not subtheme or subtheme == v["subtheme"]) and \
+                (not topic or topic == v["topic"]) and \
+                (not period or period == v["period"]) and \
+                (not difficulty or difficulty == v["difficulty"]):
+
+                # Add once questions that appear in multiple subthemes/topics/etc
+                for q in v["questions"]:
+                    if q["name"] not in questions.keys():
+                        questions[q["name"]] = q
+
+        return questions
+
+
 
 
     # Load SVG illustrations for all themes
@@ -503,10 +579,6 @@ class Repository(object):
                 return self.get_all_lists_disk()
             else:
                 return self.get_all_lists_blob()
-
-
-    def get_content(self, language):
-        return self.content[language]
 
 
     def get_icons(self):
