@@ -9,7 +9,7 @@ import json
 
 #url = "http://shkola.vladap.com:7071/main"
 url = 'https://www.tatamata.org'
-#url = 'http://tatamata-test1.westeurope.cloudapp.azure.com/main'
+#url = 'http://tatamata-test2.westeurope.cloudapp.azure.com/main'
 #url = "http://shkola.vladap.com:8080/main"
 
 number_of_runs_per_user = 1
@@ -123,6 +123,9 @@ async def session_op(id, samples, get_method, op, jar=None, page_name=None, iter
   params=test_params[pop]
   if pop == "question":
     params["q_num"] = iter
+
+  # For tracking users in the server log for debugging 
+  params["user_id"] = id
 
   if DEBUG:
     print(f"\n#{id} Requesting URL: {url}")
