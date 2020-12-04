@@ -181,7 +181,7 @@ class Design_default(object):
                                   page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
                                   page.get_language_details(lang)["country"],
                 "link" : page.page_params.create_url( \
-                            op = PageOperation.toStr(PageOperation.MENU_YEAR), 
+                            op = PageOperation.MENU_YEAR, 
                             beta = True if page.page_params.get_param("beta") else None, 
                             language = lang, js = False)
             })            
@@ -205,7 +205,7 @@ class Design_default(object):
         lists = {
             "name" : "Razred".upper(),
             "link" : new_page_params.create_url(\
-                    op = PageOperation.toStr(PageOperation.MENU_YEAR), \
+                    op = PageOperation.MENU_YEAR, \
                     beta = True if page.page_params.get_param("beta") else None, 
                     js = False),
             "submenu" : {
@@ -238,7 +238,7 @@ class Design_default(object):
                 lists['submenu']['options'].append({
                     "name" : level.upper(),
                     "link" : new_page_params.create_url( \
-                            op = PageOperation.toStr(PageOperation.MENU_THEME), \
+                            op = PageOperation.MENU_THEME, \
                             year = level, 
                             beta = True if page.page_params.get_param("beta") else None, 
                             js = False)
@@ -257,7 +257,7 @@ class Design_default(object):
             page.template_params['menu'].append({
                 "name" : "Moj uspeh".upper(),
                 "link" : new_page_params.create_url(
-                    op = PageOperation.toStr(PageOperation.STATS), 
+                    op = PageOperation.STATS, 
                     beta = True if page.page_params.get_param("beta") else None, 
                     js = False
                 )
@@ -267,7 +267,7 @@ class Design_default(object):
         page.template_params['menu'].append({
             "name" : "Izloguj se".upper(),
             "link" : new_page_params.create_url(
-                op = PageOperation.LOGOUT.value, 
+                op = PageOperation.LOGOUT, 
                 beta = True if page.page_params.get_param("beta") else None, 
                 js = False
             )
@@ -309,7 +309,7 @@ class Design_default(object):
                                   page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
                                   page.get_language_details(lang)["country"],
                 "link" : page.page_params.create_url(
-                    op = PageOperation.toStr(PageOperation.MENU_USER), 
+                    op = PageOperation.MENU_USER, 
                     language = lang, 
                     beta = True if page.page_params.get_param("beta") else None, 
                     js = False
@@ -320,10 +320,13 @@ class Design_default(object):
 
 
 
-        page.template_params["google_link"] = "/main?op={}".format(PageOperation['LOGIN_GOOGLE'].value)
+        page.template_params["google_link"] = "{}?op={}".format(
+            page.template_params["root"],
+            PageOperation['LOGIN_GOOGLE'].value
+        )
 
         page.template_params["guest_link"] = page.page_params.create_url(
-                                    op = PageOperation.toStr(PageOperation.LOGIN_ANON), 
+                                    op = PageOperation.LOGIN_ANON, 
                                     beta = True if page.page_params.get_param("beta") else None, 
                                     js = False)
 
@@ -392,7 +395,7 @@ class Design_default(object):
                         #'back_color' : '#f9f9f9',
                         'back_color' : '#ffffff',
                         'link' : page.page_params.create_url(
-                            op = PageOperation.toStr(PageOperation.MENU_THEME),                         
+                            op = PageOperation.MENU_THEME,                         
                             year = year, \
                             theme = "", \
                             subtheme = "", \
@@ -427,7 +430,7 @@ class Design_default(object):
 
         else:
             url_next = page.page_params.create_url(
-                    op = PageOperation.toStr(PageOperation.INTRO), 
+                    op = PageOperation.INTRO, 
                     theme = theme, 
                     subtheme = subtheme, 
                     topic = topic, 
@@ -466,7 +469,7 @@ class Design_default(object):
 
             page.template_params['year'] = page.page_params.get_param("year").upper().strip()
             page.template_params['url_year'] = page.page_params.create_url(
-                                            op = PageOperation.toStr(PageOperation.MENU_YEAR), 
+                                            op = PageOperation.MENU_YEAR, 
                                             beta = True if page.page_params.get_param("beta") else None, 
                                             js = False)
 
@@ -566,17 +569,6 @@ class Design_default(object):
                             topic_d['min_period'] = period if period < topic_d['min_period'] else topic_d['min_period']
 
 
-                            # page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-                            # page.add_lines("<a href='" + \
-                            #         page.page_params.create_url(
-                            #             op = PageOperation.toStr(PageOperation.INTRO), 
-                            #             subtheme = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["subtheme"], 
-                            #             period = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["period"], 
-                            #             difficulty = content[page.page_params.get_param("year")][page.page_params.get_param("theme")][subclass]["difficulty"], 
-                            #             l_id = content[page.page_params.get_param("year")][page.page_params.get_param("theme")]["name"], js = False) + \
-                            #         "'> " + subclass.capitalize() + "</a>\n")
-                            # page.add_lines("</div>\n")
-
                     # Sort first by period and then alphabetically
                     #subtheme_list.sort(key=lambda x:x['min_period'] + x['title'])
                     subtheme_list.sort(key=lambda x:x['rank_subtheme'] + x['title'])
@@ -620,17 +612,15 @@ class Design_default(object):
         page.template_params["template_name"] = "confirm_anon.html.j2"
 
         page.template_params["next"] = page.page_params.create_url(\
-                    op = PageOperation.toStr(PageOperation.MENU_YEAR), 
+                    op = PageOperation.MENU_YEAR, 
                     beta = True if page.page_params.get_param("beta") else None, 
                     js = False
                 )
         page.template_params["back"] = page.page_params.create_url(\
-                    op = PageOperation.toStr(PageOperation.LOGOUT), 
+                    op = PageOperation.LOGOUT, 
                     beta = True if page.page_params.get_param("beta") else None, 
                     js = False
                 )
-
-#                    op = PageOperation.toStr(PageOperation.MENU_USER), js = False)
 
 
 
@@ -664,17 +654,8 @@ class Design_default(object):
         page.template_params["next"] = url_next
         page.template_params["skip"] = url_skip
 
-        # page.template_params["back"] = page.page_params.create_url(
-        #             op = PageOperation.toStr(PageOperation.MENU_THEME),                         
-        #             year = page.page_params.get_param("year"), \
-        #             theme = "", \
-        #             subtheme = "", \
-        #             topic = "", \
-        #             period = "", \
-        #             difficulty = "", \
-        #             js = False)
         page.template_params["back"] = page.page_params.create_url(\
-                    op = PageOperation.toStr(PageOperation.MENU_THEME), 
+                    op = PageOperation.MENU_THEME, 
                     subtheme = "", 
                     topic = "", 
                     period = "", 
@@ -751,7 +732,7 @@ class Design_default(object):
 
         q_number = page.page_params.get_param("q_num")
         try:
-            q_number = int(q_number) if not q_number is None else 0
+            q_number = int(q_number) if q_number else 0
         except ValueError as ex:
             logging.error("Incorrect q_num={}\n{}".format(q_number, helpers.get_stack_trace()))
             q_number = 0
@@ -787,7 +768,7 @@ class Design_default(object):
                 }
                 #hist.update(next_question)
                 context.c.session.list_append("history", hist)
-            elif q_number == test.get_q_number():
+            elif q_number > 0 and q_number == test.get_q_number():
                 # The same question - probably a refresh
                 if not q_id == context.c.session.get("history")[-1]["q_id"]:
                     logging.error("Error in history: q_id={}, q_num={}\nHist={}\n{}".format(
@@ -848,7 +829,7 @@ class Design_default(object):
         page.template_params["theme"] = page.page_params.get_param("theme").upper()
         page.template_params["subtheme"] = page.page_params.get_param("subtheme")
         page.template_params["topic"] = page.page_params.get_param("topic")
-        page.template_params["difficulty"] = int(difficulty)
+        page.template_params["difficulty"] = int(difficulty) if difficulty else 1
 
         page.template_params["h1"] = page.template_params['year']
         page.template_params["h2"] = page.template_params["theme"]
@@ -887,25 +868,8 @@ class Design_default(object):
         Design_default._render_result_bar_and_get_last_difficulty(page)
 
 
-        # page.template_params["url_year"] = page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_YEAR), \
-        #                                 year = "", \
-        #                                 theme = "", \
-        #                                 subtheme = "", \
-        #                                 topic = "", \
-        #                                 difficulty = "", \
-        #                                 period = "", \
-        #                                 js=False)
-
-        # page.template_params["url_theme"] = page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_THEME), \
-        #                                 year=page.page_params.get_param("year"), \
-        #                                 theme = "", \
-        #                                 subtheme = "", \
-        #                                 topic = "", \
-        #                                 difficulty = "", \
-        #                                 period = "", \
-        #                                 js=False)
-
-        page.template_params["next"] = page.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_THEME), \
+        page.template_params["next"] = page.page_params.create_url(
+                                        op=PageOperation.MENU_THEME, \
                                         year=page.page_params.get_param("year"), \
                                         theme = "", \
                                         subtheme = "", \

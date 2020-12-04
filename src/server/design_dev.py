@@ -255,7 +255,7 @@ class Design_dev(object):
                 if key != "name" :
                     q["attributes"][key] = [value]
             q["link"] = page.page_params.create_url( \
-                                    op = PageOperation.toStr(PageOperation.VIEW), \
+                                    op = PageOperation.VIEW, \
                                     q_id = q_id, \
                                     js = False)
 

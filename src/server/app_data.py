@@ -66,7 +66,7 @@ class AppData:
             items_path = os.getenv("SHKOLA_ITEMS")
 
             if items_path is None:
-                items_path = "item?url="
+                items_path = "/item?url="
 
         self.items_path = items_path
 

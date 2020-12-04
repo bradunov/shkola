@@ -554,7 +554,7 @@ class Page(object):
         #     "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
 
         url = self.page_params.create_url( \
-            op = PageOperation.toStr(PageOperation.MENU_YEAR), 
+            op = PageOperation.MENU_YEAR, 
             beta = True if self.page_params.get_param("beta") else None, 
             js = False)
 
@@ -573,7 +573,7 @@ class Page(object):
         # url = self.page_params.get_param("root") + "?op={}".format(PageOperation.MENU_USER.value)
 
         url = self.page_params.create_url( \
-            op = PageOperation.toStr(PageOperation.MENU_USER), 
+            op = PageOperation.MENU_USER, 
             beta = True if self.page_params.get_param("beta") else None, 
             js = False
         )
@@ -621,7 +621,7 @@ class Page(object):
         #     "?op={}".format(PageOperation.toStr(PageOperation.CONFIRM_ANON))
 
         url = self.page_params.create_url( \
-            op = PageOperation.toStr(PageOperation.CONFIRM_ANON), 
+            op = PageOperation.CONFIRM_ANON, 
             beta = True if self.page_params.get_param("beta") else None, 
             js = False
         )

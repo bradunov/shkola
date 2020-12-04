@@ -204,7 +204,8 @@ def prepare_user_stats_chart(pg, u_ID):
         for theme_key, theme_val in level_val['theme'].items():
             pg.template_params["stats"][level_key][theme_key] = draw_chart(theme_val['subtheme'], pg)
 
-    pg.template_params["url_year"] = pg.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_YEAR), \
+    pg.template_params["url_year"] = pg.page_params.create_url(
+                                    op=PageOperation.MENU_YEAR, \
                                     year = "", \
                                     theme = "", \
                                     subtheme = "", \
@@ -214,7 +215,8 @@ def prepare_user_stats_chart(pg, u_ID):
                                     beta = True if pg.page_params.get_param("beta") else None, 
                                     js=False)
 
-    pg.template_params["url_theme"] = pg.page_params.create_url(op=PageOperation.toStr(PageOperation.MENU_THEME), \
+    pg.template_params["url_theme"] = pg.page_params.create_url(
+                                    op=PageOperation.MENU_THEME, \
                                     year=pg.page_params.get_param("year"), \
                                     theme = "", \
                                     subtheme = "", \

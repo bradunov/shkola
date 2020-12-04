@@ -95,7 +95,7 @@ class Site:
 
 
     @cherrypy.expose
-    def main(self, **args_p):
+    def main(self, *args_p, **kwargs):
         req = cherrypy.request
         args = req.params
 

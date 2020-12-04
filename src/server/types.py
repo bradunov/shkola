@@ -90,8 +90,6 @@ class PageOperation(Enum):
     MENU_YEAR = "menu_year"
     # Menu - select theme
     MENU_THEME = "menu_theme"
-    # Menu - select subtheme
-    MENU_SUBTHEME = "menu_subtheme"
     # Set this when not specified, so each menu can decide
     DEFAULT = "default"
     # Stats
@@ -335,42 +333,95 @@ class PageParameters(object):
             if not update_only:
                 self._params["root"] = ""
 
-        if "op" in args.keys():
-            updated = True
-            try:
-                self._params["op"] = PageOperation(args["op"])
-            except ValueError:
-                if self.with_exception:
-                    raise PageParameterParsingError()
 
-                self._params["op"] = PageOperation.DEFAULT
+        if "permalink" in args.keys():
+            self._params["op"] = PageOperation.MENU_YEAR
+            if len(args["permalink"]) > 1 and args["permalink"][0] == "language":
+                self._params["op"] = PageOperation.MENU_YEAR
+                self._params["language"] = PageLanguage.fromStr(args["permalink"][1], self.with_exception)
+                updated = True
+                if len(args["permalink"]) > 3 and args["permalink"][2] == "year":
+                    self._params["op"] = PageOperation.MENU_THEME
+                    self._params["year"] = args["permalink"][3]
+                    updated = True
+                    if len(args["permalink"]) > 5 and args["permalink"][4] == "theme":
+                        self._params["op"] = PageOperation.TEST
+                        self._params["theme"] = args["permalink"][5]
+                        ind = 6
+                        while ind < len(args["permalink"]):
+                            if args["permalink"][ind] == "subtheme":
+                                self._params["subtheme"] = args["permalink"][ind+1]
+                                ind += 2
+                            elif args["permalink"][ind] == "topic":
+                                self._params["topic"] = args["permalink"][ind+1]
+                                ind += 2
+                            elif args["permalink"][ind] == "question":
+                                self._params["q_id"] = args["permalink"][ind+1] + "/" + args["permalink"][ind+2]
+                                ind += 3
+                            else:
+                                break
+                elif len(args["permalink"]) > 2:
+                    updated = True
+                    try:
+                        self._params["op"] = PageOperation(args["permalink"][2])
+                    except ValueError:
+                        if self.with_exception:
+                            raise PageParameterParsingError()
+                        self._params["op"] = PageOperation.DEFAULT
+
+
+                
+
+        # if "op" in args.keys():
+        #     updated = True
+        #     try:
+        #         self._params["op"] = PageOperation(args["op"])
+        #     except ValueError:
+        #         if self.with_exception:
+        #             raise PageParameterParsingError()
+
+        #         self._params["op"] = PageOperation.DEFAULT
+
+
         # Else do not set, use whatever is in the state
         # Otherwise use the menu (that shows on any page) to go wherever.
         # else:
         #     self._params["op"] = PageOperation.DEFAULT
         #     updated = True
 
-        if "design" in args.keys():
-            self._params["design"] = PageDesign.fromStr(args["design"])
-            updated = True
+        # if "mobile" in args.keys():
+        #     self._params["mobile"] = args["mobile"]
+        #     updated = True
+        # else:
+        #     if not update_only:
+        #         self._params["mobile"] = True
 
-        if "mobile" in args.keys():
-            self._params["mobile"] = args["mobile"]
-            updated = True
-        else:
-            if not update_only:
-                self._params["mobile"] = True
+        # if "language" in args.keys():
+        #     self._params["language"] = PageLanguage.fromStr(args["language"], self.with_exception)
+        #     updated = True
 
-        if "language" in args.keys():
-            self._params["language"] = PageLanguage.fromStr(args["language"], self.with_exception)
-            updated = True
+        # if ("q_id" in args.keys()) and (not args["q_id"] is None) and args["q_id"]:
+        #     self._params["q_id"] = args["q_id"]
+        #     updated = True
+        # else:
+        #     if not update_only:
+        #         self._params["q_id"] = ""
 
-        if ("q_id" in args.keys()) and (not args["q_id"] is None) and args["q_id"]:
-            self._params["q_id"] = args["q_id"]
-            updated = True
-        else:
-            if not update_only:
-                self._params["q_id"] = ""
+        # if ("year" in args.keys()) and (not args["year"] is None) and args["year"]:
+        #     self._params["year"] = args["year"]
+        #     updated = True
+
+        # if ("theme" in args.keys()) and (not args["theme"] is None) and args["theme"]:
+        #     self._params["theme"] = args["theme"]
+        #     updated = True
+
+        # if ("subtheme" in args.keys()) and (not args["subtheme"] is None) and args["subtheme"]:
+        #     self._params["subtheme"] = args["subtheme"]
+        #     updated = True
+
+        # if ("topic" in args.keys()) and (not args["topic"] is None) and args["topic"]:
+        #     self._params["topic"] = args["topic"]
+        #     updated = True
 
         if ("l_id" in args.keys()) and (not args["l_id"] is None) and args["l_id"]:
             self._params["l_id"] = args["l_id"]
@@ -379,20 +430,8 @@ class PageParameters(object):
             if not update_only:
                 self._params["l_id"] = ""
 
-        if ("year" in args.keys()) and (not args["year"] is None) and args["year"]:
-            self._params["year"] = args["year"]
-            updated = True
-
-        if ("theme" in args.keys()) and (not args["theme"] is None) and args["theme"]:
-            self._params["theme"] = args["theme"]
-            updated = True
-
-        if ("subtheme" in args.keys()) and (not args["subtheme"] is None) and args["subtheme"]:
-            self._params["subtheme"] = args["subtheme"]
-            updated = True
-
-        if ("topic" in args.keys()) and (not args["topic"] is None) and args["topic"]:
-            self._params["topic"] = args["topic"]
+        if "design" in args.keys():
+            self._params["design"] = PageDesign.fromStr(args["design"])
             updated = True
 
         if ("period" in args.keys()) and (not args["period"] is None) and args["period"]:
@@ -450,6 +489,39 @@ class PageParameters(object):
         self._params["text"] = text
 
 
+    def _add_path_to_url(self, url, js, key, val=None):
+        if js:
+            if val:
+                url += " + \"/" + key + "/\" + " + val
+            else:
+                url += " + \"/" + key + "\""
+        else:
+            if val:
+                url += "/" + key + "/" + val
+            else:
+                url += "/" + key
+        return url
+
+    def _add_val_to_url(self, url, first, js, key, val=None):
+        if js:
+            if val:
+                if first:
+                    url += "+ \"?{}=\" + {} ".format(key, val)
+                else:
+                    url += "+ \"&{}=\" + {} ".format(key, val)
+                return url, False
+        else:
+            if val:
+                if first:
+                    url += "?{}={}".format(key, val)
+                else:
+                    url += "&{}={}".format(key, val)
+                return url, False
+
+        return url, first
+
+
+
 
 
     # These parameters have to be strings (even op, language, design, user_id)
@@ -457,12 +529,13 @@ class PageParameters(object):
     def create_url(self, root=None, op=None, q_id=None, l_id=None, year=None, 
                    theme=None, subtheme=None, topic=None, period=None, difficulty=None,
                    q_num=None, q_diff=None, skipped=None, language=None, beta=None, design=None, js=False):
+
         if root is None:
-            root = self._params["root"]
+            root = "/" + self._params["root"]
             root = encap_str(root) if js else root
+
         if op is None:
-            op = PageOperation.toStr(self._params["op"])
-            op = encap_str(op) if js else op
+            op = self._params["op"]
         q_id = self._str_to_url(q_id, self._params["q_id"], js)
         l_id = self._str_to_url(l_id, self._params["l_id"], js)
         if language is None:
@@ -480,27 +553,54 @@ class PageParameters(object):
         q_num = self._str_to_url(q_num, self._params["q_num"], js)
         q_diff = self._str_to_url(q_diff, self._params["q_diff"], js)
         beta = not (beta is None)
-        if skipped is None:
-            skipped = "false"
-        else:
+        if skipped:
             skipped = self._str_to_url(skipped, self._params["skipped"], js)
 
-        if js:
-            url = ("{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} " \
-                  "+ \"&year=\" + {} + \"&theme=\" + {} " \
-                  "+ \"&subtheme=\" + {} + \"&topic=\" + {} + \"&period=\" + {} + \"&difficulty=\" + {} " \
-                  "+ \"&q_num=\" + {} + \"&q_diff=\" + {} + \"&skipped=\" + {} + \"&language=\" + {} + \"&design=\" + {} ").format(
-                      root, op, q_id, l_id, year, theme, subtheme, topic, period, difficulty, q_num, q_diff, skipped, language, design
-                  )
-            if beta:
-                url += " + \"&beta\" "
+
+        url = self._add_path_to_url(root, js, "language", language)
+
+        if op == PageOperation.MENU_YEAR or op == PageOperation.DEFAULT:
+            pass
+        elif op == PageOperation.MENU_THEME:
+            url = self._add_path_to_url(url, js, "year", year)
+        elif op == PageOperation.TEST or op == PageOperation.INTRO or op == PageOperation.SUMMARY:
+            url = self._add_path_to_url(url, js, "year", year)
+            url = self._add_path_to_url(url, js, "theme", theme)
+            if subtheme:
+                url = self._add_path_to_url(url, js, "subtheme", subtheme)
+                if topic:
+                    url = self._add_path_to_url(url, js, "topic", topic)
+            if op == PageOperation.TEST:
+                url = self._add_path_to_url(url, js, "question", q_id)
+            else:
+                str_op = encap_str(op.value) if js else op.value
+                url = self._add_path_to_url(url, js, str_op)
         else:
-            url = ("{}?op={}&q_id={}&l_id={}&year={}" \
-                  "&theme={}&subtheme={}&topic={}&period={}" \
-                  "&difficulty={}&q_num={}&q_diff={}&skipped={}&language={}&design={}").format(
-                      root, op, q_id, l_id, year, theme, subtheme, topic, period, difficulty, q_num, q_diff, skipped, language, design
-                  )
-            if beta:
-                url += "&beta"
+            str_op = encap_str(op.value) if js else op.value
+            url = self._add_path_to_url(url, js, str_op)
+
+        first = True
+        url, first = self._add_val_to_url(url, first, js, "l_id", l_id)
+        url, first = self._add_val_to_url(url, first, js, "period", period)
+        url, first = self._add_val_to_url(url, first, js, "difficulty", difficulty)
+        url, first = self._add_val_to_url(url, first, js, "q_num", q_num)
+        url, first = self._add_val_to_url(url, first, js, "q_diff", q_diff)
+        url, first = self._add_val_to_url(url, first, js, "skipped", skipped)
+        url, first = self._add_val_to_url(url, first, js, "design", design)
+        url, first = self._add_val_to_url(url, first, js, "beta", "")
+
+        # if js:
+        #     url += (" + \"?l_id=\" + {} + \"&period=\" + {} + \"&difficulty=\" + {} " \
+        #           "+ \"&q_num=\" + {} + \"&q_diff=\" + {} + \"&skipped=\" + {} + \"&design=\" + {} ").format(
+        #               l_id, period, difficulty, q_num, q_diff, skipped, design
+        #           )
+        #     if beta:
+        #         url += " + \"&beta\" "
+        # else:
+        #     url += ("?l_id={}&period={}&difficulty={}&q_num={}&q_diff={}&skipped={}&design={}").format(
+        #               l_id, period, difficulty, q_num, q_diff, skipped, design
+        #           )
+        #     if beta:
+        #         url += "&beta"
 
         return url

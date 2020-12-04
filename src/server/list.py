@@ -98,7 +98,7 @@ class List(object):
 
         if prev_question:
             url_prev = self.page.page_params.create_url( 
-                op=PageOperation.toStr(PageOperation.TEST),
+                op=PageOperation.TEST,
                 q_id=prev_question["name"], 
                 q_diff=prev_question["difficulty"], 
                 q_num="0",
@@ -109,7 +109,7 @@ class List(object):
 
         if next_question:
             url_next = self.page.page_params.create_url( 
-                op=PageOperation.toStr(PageOperation.TEST),
+                op=PageOperation.TEST,
                 q_id=next_question["name"], 
                 q_diff=next_question["difficulty"], 
                 q_num="0",
@@ -383,20 +383,20 @@ class List(object):
         q_number = self.get_q_number()
         if q_number >= total_questions or not more_questions:
             url_next = self.page.page_params.create_url( 
-                op=PageOperation.toStr(PageOperation.SUMMARY),
+                op=PageOperation.SUMMARY,
                 beta=True if self.page.page_params.get_param("beta") else None, 
                 js=False)
             url_skip = url_next
         else:
             url_next = self.page.page_params.create_url( 
-                op=PageOperation.toStr(PageOperation.TEST),
+                op=PageOperation.TEST,
                 q_id=next_question["name"], 
                 q_diff=next_question["difficulty"], 
                 q_num=str(q_number+1),
                 beta=True if self.page.page_params.get_param("beta") else None, 
                 js=False)
             url_skip = self.page.page_params.create_url( 
-                op=PageOperation.toStr(PageOperation.TEST),
+                op=PageOperation.TEST,
                 q_id=next_question["name"], 
                 q_diff=next_question["difficulty"], 
                 q_num=str(q_number+1),
@@ -411,7 +411,7 @@ class List(object):
     def get_prev_question_test_url(self):
         if len(context.c.session.get("history")) <= 1:
             url_prev = self.page.page_params.create_url(\
-                        op = PageOperation.toStr(PageOperation.MENU_THEME), 
+                        op = PageOperation.MENU_THEME, 
                         beta=True if self.page.page_params.get_param("beta") else None, 
                         js = False)
         else:
@@ -419,7 +419,7 @@ class List(object):
             q_diff = context.c.session.get("history")[-2]["difficulty"]
             q_number = self.get_q_number()
             url_prev = self.page.page_params.create_url(\
-                        op = PageOperation.toStr(PageOperation.TEST_PREV), 
+                        op = PageOperation.TEST_PREV, 
                         q_id = q_id, 
                         q_diff = q_diff,             
                         q_num = str(q_number-1),
