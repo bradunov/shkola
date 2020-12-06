@@ -28,7 +28,7 @@ class Site:
     preload = True
 
     def __init__(self):
-        workspace_id = os.getenv('SHKOLA_LA_WORKSPACE_ID')                    
+        workspace_id = os.getenv('SHKOLA_LA_WORKSPACE_ID')
         primary_key = os.getenv('SHKOLA_LA_PRIMARY_KEY')
         if workspace_id or primary_key:
             log_handler = Logging_handler_azure(workspace_id, primary_key)
@@ -44,14 +44,14 @@ class Site:
         else:
             self.root = 'main'
 
-        if self.root == 'edit':
-            self.design = 'dev'
-        else:
-            self.design = None
+        # if self.root == 'edit':
+        #     self.design = 'dev'
+        # else:
+        #     self.design = None
 
 
 
-    def log_timing(self, json_body, op):        
+    def log_timing(self, json_body, op):
         for i in json_body:
             i["op"] = op
         self._app_data.log_json("Timing", json_body)
@@ -63,8 +63,8 @@ class Site:
         args = req.params
 
         args["root"] = self.root
-        if self.design:
-            args["design"] = self.design
+        # if self.design:
+        #     args["design"] = self.design
 
         tc = TimerControl()
         with tc.new_section("request cherrpy"):
@@ -82,7 +82,7 @@ class Site:
         args = req.params
 
         args["root"] = "edit"
-        args["design"] = "dev"
+        # args["design"] = "dev"
 
         tc = TimerControl()
         with tc.new_section("request cherrpy"):
@@ -99,6 +99,9 @@ class Site:
         req = cherrypy.request
         args = req.params
 
+        if args_p:
+            args["permalink"] = args_p
+
         tc = TimerControl()
         with tc.new_section("request cherrpy"):
             ret = self._main("main", req, tc, args)
@@ -110,7 +113,7 @@ class Site:
             self.log_timing(tc.dump(json=True), args["op"])
 
         return ret
-    
+
 
     @cherrypy.expose
     def reload(self):
@@ -184,7 +187,7 @@ class Site:
 
         filename, file_extension = os.path.splitext(url)
         if file_extension == ".svg":
-            # SVG has to be served with this content type, otherwise won't be displayed! 
+            # SVG has to be served with this content type, otherwise won't be displayed!
             # https://css-tricks.com/snippets/htaccess/serve-svg-correct-content-type/
             content_type = "image/svg+xml"
         else:
@@ -196,13 +199,13 @@ class Site:
         return cherrypy.lib.static.serve_file(abs_url, content_type,
                                  'attachment', os.path.basename(abs_url))
 
-        
+
 
 # -------------------------------------------------------------------------------------------------
 
 
 if __name__ == '__main__':
-    
+
     cherrypy.config.update({
         'server.socket_host': os.environ.get('SHKOLA_IP_ADDR', '127.0.0.1'),
         'server.socket_port': int(os.environ.get('SHKOLA_PORT', 8080))

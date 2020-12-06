@@ -31,6 +31,11 @@ class Session:
         self._data[key] = value
         self._set_dirty()
 
+    def delete(self, key):
+        if key in self._data.keys():
+            del self._data[key]
+            self._set_dirty()
+
 
     # For lists
     def list_append(self, key, value):

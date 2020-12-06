@@ -32,11 +32,17 @@ class List(object):
         topic = self.page.page_params.get_param("topic").lower().strip() \
             if self.page.page_params.get_param("topic") and self.page.page_params.get_param("topic") != "*" else None
 
-        period = self.page.page_params.get_param("period").lower().strip() \
-            if self.page.page_params.get_param("period") and self.page.page_params.get_param("period") != "*" else None
+        # period = self.page.page_params.get_param("period").lower().strip() \
+        #     if self.page.page_params.get_param("period") and self.page.page_params.get_param("period") != "*" else None
 
-        difficulty = self.page.page_params.get_param("difficulty").lower().strip() \
-            if self.page.page_params.get_param("difficulty") and self.page.page_params.get_param("difficulty") != "*" else None
+        # difficulty = self.page.page_params.get_param("difficulty").lower().strip() \
+        #     if self.page.page_params.get_param("difficulty") and self.page.page_params.get_param("difficulty") != "*" else None
+
+        period = context.c.session.get("period").lower().strip() \
+            if context.c.session.get("period") and context.c.session.get("period") != "*" else None
+
+        difficulty = context.c.session.get("difficulty").lower().strip() \
+            if context.c.session.get("difficulty") and context.c.session.get("difficulty") != "*" else None
 
         return subtheme, topic, period, difficulty
 
@@ -55,8 +61,8 @@ class List(object):
             self.page.page_params.get_param("theme"), 
             self.page.page_params.get_param("subtheme"),
             self.page.page_params.get_param("topic"),
-            self.page.page_params.get_param("period"),
-            self.page.page_params.get_param("difficulty")
+            context.c.session.get("period"),
+            context.c.session.get("difficulty")
         )
 
         if not last_question_id:
@@ -100,7 +106,6 @@ class List(object):
             url_prev = self.page.page_params.create_url( 
                 op=PageOperation.TEST,
                 q_id=prev_question["name"], 
-                q_diff=prev_question["difficulty"], 
                 q_num="0",
                 beta=True if self.page.page_params.get_param("beta") else None, 
                 js=False)
@@ -111,7 +116,6 @@ class List(object):
             url_next = self.page.page_params.create_url( 
                 op=PageOperation.TEST,
                 q_id=next_question["name"], 
-                q_diff=next_question["difficulty"], 
                 q_num="0",
                 beta=True if self.page.page_params.get_param("beta") else None, 
                 js=False)
@@ -141,8 +145,8 @@ class List(object):
             self.page.page_params.get_param("theme"), 
             self.page.page_params.get_param("subtheme"),
             self.page.page_params.get_param("topic"),
-            self.page.page_params.get_param("period"),
-            self.page.page_params.get_param("difficulty")
+            context.c.session.get("period"),
+            context.c.session.get("difficulty")
         )
 
 
@@ -279,10 +283,10 @@ class List(object):
 
                 if prev_question:
                     candidate_difficulty = prev_question["difficulty"]
-                elif self.page.page_params.get_param("difficulty") == "*":
+                elif context.c.session.get("difficulty") == "*":
                     candidate_difficulty = "1"
                 else:
-                    candidate_difficulty = self.page.page_params.get_param("difficulty")
+                    candidate_difficulty = context.c.session.get("difficulty")
 
                 log_str = log_str + "found topic {} ".format(topic)
                 if candidate_difficulty in potential_questions["topics"][topic].keys():
@@ -391,14 +395,12 @@ class List(object):
             url_next = self.page.page_params.create_url( 
                 op=PageOperation.TEST,
                 q_id=next_question["name"], 
-                q_diff=next_question["difficulty"], 
                 q_num=str(q_number+1),
                 beta=True if self.page.page_params.get_param("beta") else None, 
                 js=False)
             url_skip = self.page.page_params.create_url( 
                 op=PageOperation.TEST,
                 q_id=next_question["name"], 
-                q_diff=next_question["difficulty"], 
                 q_num=str(q_number+1),
                 skipped="true",
                 beta=True if self.page.page_params.get_param("beta") else None, 
@@ -416,12 +418,10 @@ class List(object):
                         js = False)
         else:
             q_id = context.c.session.get("history")[-2]["q_id"]
-            q_diff = context.c.session.get("history")[-2]["difficulty"]
             q_number = self.get_q_number()
             url_prev = self.page.page_params.create_url(\
                         op = PageOperation.TEST_PREV, 
                         q_id = q_id, 
-                        q_diff = q_diff,             
                         q_num = str(q_number-1),
                         beta=True if self.page.page_params.get_param("beta") else None, 
                         js = False)

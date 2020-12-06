@@ -258,8 +258,6 @@ class Page(object):
                 if False:
                     session.print()
 
-                # Page counter (for testing)
-                session.set('page_counter', session.get('page_counter', 0) + 1)
 
                 # Special ops to register results
                 if "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.REGISTER):
@@ -272,20 +270,18 @@ class Page(object):
                 else:
                     self.page_params.set_url(req.get_url())
 
-                    # Parameters stored in a session,
-                    # only updates passed in URL
-                    self.page_params.load_params()
-                    self.page_params.parse(in_args=args)
+                    # # Parameters stored in a session,
+                    # # only updates passed in URL
+                    # self.page_params.load_params()
+                    self.page_params.parse(in_args=args, session=session)
 
                     logging.debug("=== New /main request, op = {}".format(self.page_params.get_param('op')))
                     if False:
                         self.page_params.print_params()
-                        logging.info("\n\n === New request: op={} <design={}, mobile={}> - "
+                        logging.info("\n\n === New request: op={} - "
                                     "q_id={}, l_id={}, language={}, "
                                     "init_code={}, iter_code={}, text={}.\n\n".format(
                                         PageOperation.toStr(self.page_params.get_param("op")), 
-                                        PageDesign.toStr(self.page_params.get_param("design")),
-                                        self.page_params.get_param("mobile"), 
                                         self.page_params.get_param("q_id"), self.page_params.get_param("l_id"), 
                                         PageLanguage.toStr(self.page_params.get_param("language")), 
                                         self.page_params.get_param("init_code"), 
@@ -311,6 +307,8 @@ class Page(object):
                         log_json["l_id"] = self.page_params.get_param("l_id")
 
 
+                    if self.page_params.get_param("language"):
+                        log_json["language"] = PageLanguage.toStr(self.page_params.get_param("language"))
                     if self.page_params.get_param("year"):
                         log_json["year"] = self.page_params.get_param("year")
                     if self.page_params.get_param("theme"):
@@ -319,14 +317,12 @@ class Page(object):
                         log_json["subtheme"] = self.page_params.get_param("subtheme")
                     if self.page_params.get_param("topic"):
                         log_json["topic"] = self.page_params.get_param("topic")
-                    if self.page_params.get_param("period"):
-                        log_json["period"] = self.page_params.get_param("period")
-                    if self.page_params.get_param("difficulty"):
-                        log_json["difficulty"] = self.page_params.get_param("difficulty")
+                    if context.c.session.get("period"):
+                        log_json["period"] = context.c.session.get("period")
+                    if context.c.session.get("difficulty"):
+                        log_json["difficulty"] = context.c.session.get("difficulty")
                     if self.page_params.get_param("skipped"):
                         log_json["skipped"] = self.page_params.get_param("skipped")
-                    if self.page_params.get_param("language"):
-                        log_json["language"] = PageLanguage.toStr(self.page_params.get_param("language"))
 
 
                     self.app_data.log_json("Access", log_json)

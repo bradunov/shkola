@@ -319,9 +319,10 @@ class Design_default(object):
         page.template_params['menu_lang'] = sublang
 
 
+        root = page.page_params.get_param("root")
 
         page.template_params["google_link"] = "{}?op={}".format(
-            page.template_params["root"],
+            root,
             PageOperation['LOGIN_GOOGLE'].value
         )
 
@@ -640,8 +641,8 @@ class Design_default(object):
         page.template_params["theme"] = page.page_params.get_param("theme").title()
         page.template_params["subtheme"] = page.page_params.get_param("subtheme").title()
         page.template_params["topic"] = page.page_params.get_param("topic").title()
-        page.template_params["period"] = page.page_params.get_param("period").title()
-        page.template_params["difficulty"] = page.page_params.get_param("difficulty").title()
+        page.template_params["period"] = context.c.session.get("period").title()
+        page.template_params["difficulty"] = context.c.session.get("difficulty").title()
 
 
         page.template_params["h1"] = page.template_params['year']
@@ -738,7 +739,7 @@ class Design_default(object):
             q_number = 0
 
         skipped = page.page_params.get_param("skipped")
-        if skipped.lower() == "true":
+        if skipped and isinstance(skipped, str) and skipped.lower() == "true":
             try:
                 context.c.session.get("history")[-1]["skipped"] = True
             except:
@@ -806,8 +807,17 @@ class Design_default(object):
 
 
         Design_default._render_result_bar_and_get_last_difficulty(page)
-        difficulty = page.page_params.get_param("q_diff")
-        if hist:
+
+        all_questions = page.repository.get_content_questions(
+            PageLanguage.toStr(page.page_params.get_param("language")), 
+            page.page_params.get_param("year"), 
+            page.page_params.get_param("theme"))
+
+        if page.page_params.get_param("q_id") in all_questions.keys():
+            difficulty = all_questions[page.page_params.get_param("q_id")]["difficulty"]
+        else:
+            difficulty = None
+        if hist and page.page_params.get_param("q_id") in all_questions.keys():
             hist["difficulty"] = difficulty
 
         page.template_params["q_number"] = str(q_number)
@@ -815,8 +825,8 @@ class Design_default(object):
         page.template_params["debug"] = "DEBUG: {} / {} / {} / {} - {}".format(
             page.page_params.get_param("subtheme"), 
             page.page_params.get_param("topic"), 
-            page.page_params.get_param("period"), 
-            page.page_params.get_param("q_diff"), 
+            context.c.session.get("period"), 
+            difficulty, 
             page.page_params.get_param("q_id")
         )
 
@@ -881,7 +891,7 @@ class Design_default(object):
 
 
         page.page_params.delete_history()
-        page.page_params.set_param("q_id", "")
+        #page.page_params.set_param("q_id", "")
         page.page_params.set_param("l_id", "")
 
         page.template_params["h1"] = page.page_params.get_param("year").upper()
