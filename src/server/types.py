@@ -540,7 +540,7 @@ class PageParameters(object):
 
 
 
-    # These parameters have to be strings (even op, language, design, user_id)
+    # These parameters have to be strings (even op, language, user_id)
     # as they can be JS variables
     def create_url(self, root=None, op=None, q_id=None, year=None, theme=None, 
         subtheme=None, topic=None, language=None, beta=None, js=False, **kwargs):
@@ -566,7 +566,7 @@ class PageParameters(object):
 
         url = self._add_path_to_url(root, js, "language", language)
 
-        str_op = encap_str(op.value) if js else op.value
+        str_op = encap_str(op) if js else op.value
         url = self._add_path_to_url(url, js, str_op)
 
         if op == PageOperation.MENU_YEAR or op == PageOperation.DEFAULT:
@@ -638,5 +638,109 @@ class PageParameters(object):
         #           )
         #     if beta:
         #         url += "&beta"
+
+        return url
+
+
+
+
+
+
+
+
+
+    
+    # URL parse for EDIT mode
+    def parse_edit(self, in_args : dict):
+
+        # First check if there are any parameters packet encoded in "state" variable
+        if "state" in in_args.keys():
+            # Decode "state" and add to other parameters
+            args = {**in_args, **PageParameters.decode_params(in_args, self.with_exception)}
+        else:
+            args = in_args
+
+        if "raise_exception" in args.keys() and args["raise_exception"] == 1:
+            self.with_exception = True
+
+
+        if self._params == None:
+            self._params = self._default_params.copy()
+
+
+        if "root" in args.keys():
+            self._params["root"] = args["root"]
+        else:
+            self._params["root"] = ""
+
+        if "op" in args.keys():
+            try:
+                self._params["op"] = PageOperation(args["op"])
+            except ValueError:
+                if self.with_exception:
+                    raise PageParameterParsingError()
+
+                self._params["op"] = PageOperation.DEFAULT
+
+        if "language" in args.keys():
+            self._params["language"] = PageLanguage.fromStr(args["language"], self.with_exception)
+
+        if ("q_id" in args.keys()) and (not args["q_id"] is None) and args["q_id"]:
+            self._params["q_id"] = args["q_id"]
+        else:
+            self._params["q_id"] = ""
+
+        if ("l_id" in args.keys()) and (not args["l_id"] is None) and args["l_id"]:
+            self._params["l_id"] = args["l_id"]
+        else:
+            self._params["l_id"] = ""
+
+        if "init_code" in args.keys():
+            self._params["init_code"] = args["init_code"]
+
+        if "iter_code" in args.keys():
+            self._params["iter_code"] = args["iter_code"]
+
+        if "text" in args.keys():
+            self._params["text"] = args["text"]
+
+        if "beta" in args.keys():
+            self._params["beta"] = True
+
+        if "user_agent" in args.keys():
+            self._params["mobile"] = is_user_on_mobile(args["user_agent"])
+        else:
+            self._params["mobile"] = False
+
+
+    # These parameters have to be strings (even op, language, design, user_id)
+    # as they can be JS variables
+    def create_url_edit(self, root=None, op=None, q_id=None, l_id=None, 
+                   language=None, beta=None, js=False):
+        if root is None:
+            root = self._params["root"]
+            root = encap_str(root) if js else root
+        if op is None:
+            op = PageOperation.toStr(self._params["op"])
+            op = encap_str(op) if js else op
+        q_id = self._str_to_url(q_id, self._params["q_id"], js)
+        l_id = self._str_to_url(l_id, self._params["l_id"], js)
+        if language is None:
+            language = PageLanguage.toStr(self._params["language"])
+            language = encap_str(language) if js else language
+        beta = not (beta is None)
+
+        if js:
+            url = ("{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} + \"&language=\" + {}").format(
+                      root, op, q_id, l_id, language
+                  )
+            if beta:
+                url += " + \"&beta\" "
+        else:
+            url = ("{}?op={}&q_id={}&l_id={}&language={}").format(
+                      root, op, q_id, l_id, language
+                  )
+            if beta:
+                url += "&beta"
 
         return url

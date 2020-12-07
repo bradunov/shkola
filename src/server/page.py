@@ -242,7 +242,7 @@ class Page(object):
             elif "op" in args.keys() and args["op"] == PageOperation.toStr(PageOperation.FEEDBACK):
                 return self.feedback(args)
 
-            self.page_params.parse(in_args=args, legacy=True)
+            self.page_params.parse_edit(in_args=args)
             # self.page_params.print_params()
             return Design.main(self)
 

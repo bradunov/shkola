@@ -95,7 +95,7 @@ class Design_dev(object):
 
             page.template_params["menu"]["current_choice"] = page.page_params.get_param("q_id")
             page.template_params["menu"]["choices"] = page.get_all_questions(PageLanguage.toStr(page.page_params.get_param("language")))
-            page.template_params["menu"]["choice_action"] = page.page_params.create_url( \
+            page.template_params["menu"]["choice_action"] = page.page_params.create_url_edit( \
                                     op = encap_str(page_name), \
                                     q_id = "this.value", \
                                     language = "sel_lang.value", \
@@ -105,7 +105,7 @@ class Design_dev(object):
         elif page.page_params.get_param("op") == PageOperation.LIST or page.page_params.get_param("op") == PageOperation.TEST:
             page.template_params["menu"]["current_choice"] = page.page_params.get_param("l_id")
             page.template_params["menu"]["choices"] = page.get_all_lists()
-            page.template_params["menu"]["choice_action"] = page.page_params.create_url(\
+            page.template_params["menu"]["choice_action"] = page.page_params.create_url_edit(\
                                     l_id = "this.value", \
                                     language = "sel_lang.value", \
                                     js = True)
@@ -116,17 +116,20 @@ class Design_dev(object):
         page.template_params["menu"]["languages"] = page.get_language_list()
         page.template_params["menu"]["current_language"] = PageLanguage.toStr(page.page_params.get_param("language"))
         if page.page_params.get_param("op") == PageOperation.EDIT or page.page_params.get_param("op") == PageOperation.VIEW:
-            page.template_params["menu"]["language_action"] = page.page_params.create_url(q_id = "choice_id.value", \
+            page.template_params["menu"]["language_action"] = page.page_params.create_url_edit( \
+                                                        q_id = "choice_id.value", \
                                                         language = "this.value", \
                                                         js = True)
         # View list
         elif page.page_params.get_param("op") == PageOperation.LIST or page.page_params.get_param("op") == PageOperation.TEST:
-            page.template_params["menu"]["language_action"] = page.page_params.create_url(l_id = "choice_id.value", \
-                                                        language = "this.value",
+            page.template_params["menu"]["language_action"] = page.page_params.create_url_edit( \
+                                                        l_id = "choice_id.value", \
+                                                        language = "this.value", \
                                                         js = True)
         # Generate? 
         else:
-            page.template_params["menu"]["language_action"] = page.page_params.create_url(q_id = "choice_id.value", \
+            page.template_params["menu"]["language_action"] = page.page_params.create_url_edit( \
+                                                        q_id = "choice_id.value", \
                                                         language = "this.value", \
                                                         js = True)
         
@@ -142,7 +145,8 @@ class Design_dev(object):
             ]
         page.template_params["menu"]["operations"] = options
         page.template_params["menu"]["current_operation"] = PageOperation.toStr(page.page_params.get_param("op"))
-        page.template_params["menu"]["operation_action"] = page.page_params.create_url(op = "sel_op.value", \
+        page.template_params["menu"]["operation_action"] = page.page_params.create_url_edit( \
+                                                            op = "sel_op.value", \
                                                             js = True)
 
 
@@ -254,7 +258,7 @@ class Design_dev(object):
             for key, value in i.items():
                 if key != "name" :
                     q["attributes"][key] = [value]
-            q["link"] = page.page_params.create_url( \
+            q["link"] = page.page_params.create_url_edit( \
                                     op = PageOperation.VIEW, \
                                     q_id = q_id, \
                                     js = False)
