@@ -270,10 +270,21 @@ class Page(object):
                 else:
                     self.page_params.set_url(req.get_url())
 
+                    #DEBUG
+                    # print("\n\nPRE PARSING:\n")
+                    # #print("\n\nARGS: \n{}\n".format(json.dumps(args, indent=2)))
+                    # print("\n\nARGS: \n{}\n".format(args))
+                    # session.print()
+
                     # # Parameters stored in a session,
                     # # only updates passed in URL
                     # self.page_params.load_params()
                     self.page_params.parse(in_args=args, session=session)
+
+                    # #DEBUG
+                    # print("\n\nPOST PARSING:\n")
+                    # self.page_params.print_params()
+                    # session.print()
 
                     logging.debug("=== New /main request, op = {}".format(self.page_params.get_param('op')))
                     if False:
@@ -391,7 +402,7 @@ class Page(object):
                 if (len(hist) > 0 and (hist[-1]["correct"] == 0 or correct > hist[-1]["correct"])) and not shown_solution:
                     hist[-1]["correct"] = correct
                     hist[-1]["incorrect"] = incorrect
-                context.c.session.set("history", hist)
+                    context.c.session.set("history", hist)
 
 
                 response = {"user_id" : user_id,
@@ -551,8 +562,7 @@ class Page(object):
 
         url = self.page_params.create_url( \
             op = PageOperation.MENU_YEAR, 
-            beta = True if self.page_params.get_param("beta") else None, 
-            js = False)
+            beta = True if self.page_params.get_param("beta") else None)
 
         if not ok:
             # If error, pass error message as url (to be printed for debug)
@@ -570,8 +580,7 @@ class Page(object):
 
         url = self.page_params.create_url( \
             op = PageOperation.MENU_USER, 
-            beta = True if self.page_params.get_param("beta") else None, 
-            js = False
+            beta = True if self.page_params.get_param("beta") else None
         )
 
         return url
@@ -618,8 +627,7 @@ class Page(object):
 
         url = self.page_params.create_url( \
             op = PageOperation.CONFIRM_ANON, 
-            beta = True if self.page_params.get_param("beta") else None, 
-            js = False
+            beta = True if self.page_params.get_param("beta") else None
         )
 
         return url

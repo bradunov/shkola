@@ -237,9 +237,11 @@ class PageParameters(object):
         context.c.session.set("history", [])
         context.c.session.set("test_id", 0)
 
-        context.c.session.delete("period")
-        context.c.session.delete("difficulty")
-        context.c.session.delete("q_num")
+        # Do not delete here as we call this after the start of the test
+        # No need to delete, we'll just set to new
+        # context.c.session.delete("period")
+        # context.c.session.delete("difficulty")
+        # context.c.session.delete("q_num")
 
 
 
@@ -250,11 +252,9 @@ class PageParameters(object):
 
     def set_param(self, key, val):
         self._params[key] = val
-        # self.save_params()
 
     def delete_params(self):
         self._params = self._default_params.copy()
-        # self.save_params()
 
     def copy_to_serializible_state(self):
         new_dict = copy.deepcopy(self._params)
@@ -262,8 +262,6 @@ class PageParameters(object):
             new_dict["op"] = PageOperation.toStr(self._params["op"])
         if "language" in self._params.keys():
             new_dict["language"] = PageLanguage.toStr(self._params["language"])
-        # if "design" in self._params.keys():
-        #     new_dict["design"] = PageDesign.toStr(self._params["design"])
         return new_dict
 
     def load_from_serializible_state(self, params):
@@ -279,33 +277,13 @@ class PageParameters(object):
 
             if "language" in params.keys():
                 self._params["language"] = PageLanguage.fromStr(params["language"])
-            # if "design" in params.keys():
-            #     self._params["design"] = PageDesign.fromStr(params["design"])
 
-    # def save_params(self):
-    #     try:
-    #         context.c.session.set("params", self.copy_to_serializible_state())
-    #     except:
-    #         # Temporary hack for edit menus that don't have context
-    #         pass
-    #     # logging.debug("\n\n Saving parameters: {}\n\n".format(context.c.session.get("params")))
-
-    # def load_params(self):
-    #     try:
-    #         self.load_from_serializible_state(context.c.session.get("params"))
-    #         # Do not load op from state. See https://github.com/bradunov/shkola/issues/23
-    #         if "op" in self._params.keys():
-    #             del self._params["op"]
-    #         # logging.debug("\n\n Loading parameters: {}\n\n".format(context.c.session.get("params")))
-    #     except:
-    #         # Temporary hack for edit menus that don't have context
-    #         pass
 
 
     def print_params(self):
         logging.debug("\n\n Printing parameters: {}\n\n".format(json.dumps(self.copy_to_serializible_state(), indent=2)))
 
-    def _str_to_url(self, s, default, js):
+    def _str_to_url(self, s, default, js=False):
         if s is None:
             s = default
             s = "" if s is None else s
@@ -313,7 +291,7 @@ class PageParameters(object):
         return s
 
 
-    def _dict_to_url(self, s, default, js):
+    def _dict_to_url(self, s, default, js=False):
         if s is None:
             s = default
             s = {} if s is None else s
@@ -324,12 +302,8 @@ class PageParameters(object):
 
 
 
-    # legacy = True for pre-session design (used in EDIT mode)
 
-    def parse(self, in_args : dict, session=None): #, legacy=False):
-
-        # update_only = not legacy
-        # updated = False
+    def parse(self, in_args : dict, session=None): 
 
         # First check if there are any parameters packet encoded in "state" variable
         if "state" in in_args.keys():
@@ -342,17 +316,12 @@ class PageParameters(object):
             self.with_exception = True
 
 
-
         if self._params == None:
             self._params = self._default_params.copy()
 
 
         if "root" in args.keys():
             self._params["root"] = args["root"]
-        #     updated = True
-        # else:
-        #     if not update_only:
-        #         self._params["root"] = ""
 
 
         if "permalink" in args.keys():
@@ -394,145 +363,31 @@ class PageParameters(object):
                                 break
 
 
-
-
-        # if "op" in args.keys():
-        #     updated = True
-        #     try:
-        #         self._params["op"] = PageOperation(args["op"])
-        #     except ValueError:
-        #         if self.with_exception:
-        #             raise PageParameterParsingError()
-
-        #         self._params["op"] = PageOperation.DEFAULT
-
-
-        # Else do not set, use whatever is in the state
-        # Otherwise use the menu (that shows on any page) to go wherever.
-        # else:
-        #     self._params["op"] = PageOperation.DEFAULT
-        #     updated = True
-
-        # if "language" in args.keys():
-        #     self._params["language"] = PageLanguage.fromStr(args["language"], self.with_exception)
-        #     updated = True
-
-        # if ("q_id" in args.keys()) and (not args["q_id"] is None) and args["q_id"]:
-        #     self._params["q_id"] = args["q_id"]
-        #     updated = True
-        # else:
-        #     if not update_only:
-        #         self._params["q_id"] = ""
-
-        # if ("year" in args.keys()) and (not args["year"] is None) and args["year"]:
-        #     self._params["year"] = args["year"]
-        #     updated = True
-
-        # if ("theme" in args.keys()) and (not args["theme"] is None) and args["theme"]:
-        #     self._params["theme"] = args["theme"]
-        #     updated = True
-
-        # if ("subtheme" in args.keys()) and (not args["subtheme"] is None) and args["subtheme"]:
-        #     self._params["subtheme"] = args["subtheme"]
-        #     updated = True
-
-        # if ("topic" in args.keys()) and (not args["topic"] is None) and args["topic"]:
-        #     self._params["topic"] = args["topic"]
-        #     updated = True
-
-
         # Process actions from GET parameters
         for k,v in args.items():
             if k in self._default_actions.keys() or k in self._default_states.keys():
                 self._params[k] = v
                 if session and k in self._default_states.keys():
                     session.set(k, v)
-                # updated = True
-
-
-        # if ("l_id" in args.keys()) and (not args["l_id"] is None) and args["l_id"]:
-        #     self._params["l_id"] = args["l_id"]
-        #     updated = True
-        # else:
-        #     if not update_only:
-        #         self._params["l_id"] = ""
-
-        # if ("period" in args.keys()) and (not args["period"] is None) and args["period"]:
-        #     self._params["period"] = args["period"]
-        #     updated = True
-
-        # if ("difficulty" in args.keys()) and (not args["difficulty"] is None) and args["difficulty"]:
-        #     self._params["difficulty"] = args["difficulty"]
-        #     updated = True
-
-        # if ("q_num" in args.keys()) and (not args["q_num"] is None) and args["q_num"]:
-        #     self._params["q_num"] = args["q_num"]
-        #     updated = True
-
-        # if ("q_diff" in args.keys()) and (not args["q_diff"] is None) and args["q_diff"]:
-        #     self._params["q_diff"] = args["q_diff"]
-        #     updated = True
-
-        # if ("skipped" in args.keys()) and (not args["skipped"] is None) and args["skipped"]:
-        #     self._params["skipped"] = args["skipped"]
-        #     updated = True
-
-        # if "init_code" in args.keys():
-        #     self._params["init_code"] = args["init_code"]
-        #     updated = True
-
-        # if "iter_code" in args.keys():
-        #     self._params["iter_code"] = args["iter_code"]
-        #     updated = True
-
-        # if "text" in args.keys():
-        #     self._params["text"] = args["text"]
-        #     updated = True
-
-        # if "beta" in args.keys():
-        #     self._params["beta"] = True
-        #     updated = True
-
-        # if not legacy:
-        #     if updated:
-        #         self.save_params()
 
 
 
-    def add_code(self, init_code : str = "", iter_code : str = "", text : str = ""):
-        self._params["init_code"] = init_code
-        self._params["iter_code"] = iter_code
-        self._params["text"] = text
 
 
-    def _add_path_to_url(self, url, js, key, val=None):
-        if js:
-            if val:
-                url += " + \"/" + key + "/\" + " + val
-            else:
-                url += " + \"/" + key + "\""
+    def _add_path_to_url(self, url, key, val=None):
+        if val:
+            url += "/" + key + "/" + val
         else:
-            if val:
-                url += "/" + key + "/" + val
-            else:
-                url += "/" + key
+            url += "/" + key
         return url
 
-    def _add_val_to_url(self, url, first, js, key, val=None):
-        if js:
-            if val:
-                if first:
-                    url += "+ \"?{}=\" + {} ".format(key, val)
-                else:
-                    url += "+ \"&{}=\" + {} ".format(key, val)
-                return url, False
-        else:
-            if val:
-                if first:
-                    url += "?{}={}".format(key, val)
-                else:
-                    url += "&{}={}".format(key, val)
-                return url, False
+    def _add_val_to_url(self, url, first, key, val=None):
+        if val:
+            if first:
+                url += "?{}={}".format(key, val)
+            else:
+                url += "&{}={}".format(key, val)
+            return url, False
 
         return url, first
 
@@ -540,51 +395,42 @@ class PageParameters(object):
 
 
 
-    # These parameters have to be strings (even op, language, user_id)
-    # as they can be JS variables
     def create_url(self, root=None, op=None, q_id=None, year=None, theme=None, 
-        subtheme=None, topic=None, language=None, beta=None, js=False, **kwargs):
+        subtheme=None, topic=None, language=None, beta=None, **kwargs):
 
         if root is None:
             root = "/" + self._params["root"]
-            root = encap_str(root) if js else root
 
         if op is None:
             op = self._params["op"]
-        q_id = self._str_to_url(q_id, self._params["q_id"], js)
+        q_id = self._str_to_url(q_id, self._params["q_id"])
         if language is None:
             language = PageLanguage.toStr(self._params["language"])
-            language = encap_str(language) if js else language
-        # if design is None:
-        #     design = PageDesign.toStr(self._params["design"])
-        #     design = encap_str(design) if js else design
-        year = self._str_to_url(year, self._params["year"], js)
-        theme = self._str_to_url(theme, self._params["theme"], js)
-        subtheme = self._str_to_url(subtheme, self._params["subtheme"], js)
-        topic = self._str_to_url(topic, self._params["topic"], js)
+        year = self._str_to_url(year, self._params["year"])
+        theme = self._str_to_url(theme, self._params["theme"])
+        subtheme = self._str_to_url(subtheme, self._params["subtheme"])
+        topic = self._str_to_url(topic, self._params["topic"])
 
 
-        url = self._add_path_to_url(root, js, "language", language)
+        url = self._add_path_to_url(root, "language", language)
 
-        str_op = encap_str(op) if js else op.value
-        url = self._add_path_to_url(url, js, str_op)
+        url = self._add_path_to_url(url, op.value)
 
         if op == PageOperation.MENU_YEAR or op == PageOperation.DEFAULT:
             pass
         elif op == PageOperation.MENU_THEME:
-            url = self._add_path_to_url(url, js, "year", year)
+            url = self._add_path_to_url(url, "year", year)
         elif op == PageOperation.TEST or op == PageOperation.INTRO or op == PageOperation.SUMMARY:
-            url = self._add_path_to_url(url, js, "year", year)
-            url = self._add_path_to_url(url, js, "theme", theme)
+            url = self._add_path_to_url(url, "year", year)
+            url = self._add_path_to_url(url, "theme", theme)
             if subtheme:
-                url = self._add_path_to_url(url, js, "subtheme", subtheme)
+                url = self._add_path_to_url(url, "subtheme", subtheme)
                 if topic:
-                    url = self._add_path_to_url(url, js, "topic", topic)
+                    url = self._add_path_to_url(url, "topic", topic)
             if op == PageOperation.TEST:
-                url = self._add_path_to_url(url, js, "question", q_id)
+                url = self._add_path_to_url(url, "question", q_id)
             else:
-                str_op = encap_str(op.value) if js else op.value
-                url = self._add_path_to_url(url, js, str_op)
+                url = self._add_path_to_url(url, op.value)
 
 
         session = None
@@ -600,44 +446,11 @@ class PageParameters(object):
             if v is None:
                 v = False
             if isinstance(v, str):
-                #val = self._str_to_url(v, self._params[k], js)
-                val = self._str_to_url(v, self._default_params[k], js)
+                val = self._str_to_url(v, self._default_params[k])
             elif isinstance(v, bool):
                 val = "true" if v else ""
-            url, first = self._add_val_to_url(url, first, js, k, v)
+            url, first = self._add_val_to_url(url, first, k, v)
 
-
-        # period = self._str_to_url(period, self._params["period"], js)
-        # difficulty = self._str_to_url(difficulty, self._params["difficulty"], js)
-        # q_num = self._str_to_url(q_num, self._params["q_num"], js)
-        # q_diff = self._str_to_url(q_diff, self._params["q_diff"], js)
-        # beta = not (beta is None)
-        # if skipped:
-        #     skipped = self._str_to_url(skipped, self._params["skipped"], js)
-
-        # url, first = self._add_val_to_url(url, first, js, "l_id", l_id)
-        # url, first = self._add_val_to_url(url, first, js, "period", period)
-        # url, first = self._add_val_to_url(url, first, js, "difficulty", difficulty)
-        # url, first = self._add_val_to_url(url, first, js, "q_num", q_num)
-        # url, first = self._add_val_to_url(url, first, js, "q_diff", q_diff)
-        # url, first = self._add_val_to_url(url, first, js, "skipped", skipped)
-        # url, first = self._add_val_to_url(url, first, js, "beta", "")
-
-
-
-        # if js:
-        #     url += (" + \"?l_id=\" + {} + \"&period=\" + {} + \"&difficulty=\" + {} " \
-        #           "+ \"&q_num=\" + {} + \"&q_diff=\" + {} + \"&skipped=\" + {} + \"&design=\" + {} ").format(
-        #               l_id, period, difficulty, q_num, q_diff, skipped, design
-        #           )
-        #     if beta:
-        #         url += " + \"&beta\" "
-        # else:
-        #     url += ("?l_id={}&period={}&difficulty={}&q_num={}&q_diff={}&skipped={}&design={}").format(
-        #               l_id, period, difficulty, q_num, q_diff, skipped, design
-        #           )
-        #     if beta:
-        #         url += "&beta"
 
         return url
 
@@ -648,6 +461,10 @@ class PageParameters(object):
 
 
 
+    def add_code(self, init_code : str = "", iter_code : str = "", text : str = ""):
+        self._params["init_code"] = init_code
+        self._params["iter_code"] = iter_code
+        self._params["text"] = text
 
     
     # URL parse for EDIT mode

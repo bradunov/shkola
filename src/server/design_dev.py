@@ -260,8 +260,7 @@ class Design_dev(object):
                     q["attributes"][key] = [value]
             q["link"] = page.page_params.create_url_edit( \
                                     op = PageOperation.VIEW, \
-                                    q_id = q_id, \
-                                    js = False)
+                                    q_id = q_id)
 
             # Generate question and paste it into the list 
             page.page_params.set_param("q_id", q_id)

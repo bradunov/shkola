@@ -183,7 +183,7 @@ class Design_default(object):
                 "link" : page.page_params.create_url( \
                             op = PageOperation.MENU_YEAR, 
                             beta = True if page.page_params.get_param("beta") else None, 
-                            language = lang, js = False)
+                            language = lang)
             })            
 
         # Jezik: &nbsp; 
@@ -206,8 +206,7 @@ class Design_default(object):
             "name" : "Razred".upper(),
             "link" : new_page_params.create_url(\
                     op = PageOperation.MENU_YEAR, \
-                    beta = True if page.page_params.get_param("beta") else None, 
-                    js = False),
+                    beta = True if page.page_params.get_param("beta") else None),
             "submenu" : {
                 "id" : "zadaci_{}".format(menu_id),
                 "options" : []
@@ -240,8 +239,7 @@ class Design_default(object):
                     "link" : new_page_params.create_url( \
                             op = PageOperation.MENU_THEME, \
                             year = level, 
-                            beta = True if page.page_params.get_param("beta") else None, 
-                            js = False)
+                            beta = True if page.page_params.get_param("beta") else None)
                     #         js = False),
                     # "submenu" : {
                     #     "id" : "zadaci_{}".format(menu_id),
@@ -258,8 +256,7 @@ class Design_default(object):
                 "name" : "Moj uspeh".upper(),
                 "link" : new_page_params.create_url(
                     op = PageOperation.STATS, 
-                    beta = True if page.page_params.get_param("beta") else None, 
-                    js = False
+                    beta = True if page.page_params.get_param("beta") else None 
                 )
             })
 
@@ -268,8 +265,7 @@ class Design_default(object):
             "name" : "Izloguj se".upper(),
             "link" : new_page_params.create_url(
                 op = PageOperation.LOGOUT, 
-                beta = True if page.page_params.get_param("beta") else None, 
-                js = False
+                beta = True if page.page_params.get_param("beta") else None
             )
         })
 
@@ -311,8 +307,7 @@ class Design_default(object):
                 "link" : page.page_params.create_url(
                     op = PageOperation.MENU_USER, 
                     language = lang, 
-                    beta = True if page.page_params.get_param("beta") else None, 
-                    js = False
+                    beta = True if page.page_params.get_param("beta") else None 
                 )
             })            
 
@@ -328,8 +323,7 @@ class Design_default(object):
 
         page.template_params["guest_link"] = page.page_params.create_url(
                                     op = PageOperation.LOGIN_ANON, 
-                                    beta = True if page.page_params.get_param("beta") else None, 
-                                    js = False)
+                                    beta = True if page.page_params.get_param("beta") else None)
 
 
 
@@ -403,8 +397,7 @@ class Design_default(object):
                             topic = "", \
                             period = "", \
                             difficulty = "", \
-                            beta = True if page.page_params.get_param("beta") else None, 
-                            js = False)
+                            beta = True if page.page_params.get_param("beta") else None)
                     })
                     i = i+1
 
@@ -471,8 +464,7 @@ class Design_default(object):
             page.template_params['year'] = page.page_params.get_param("year").upper().strip()
             page.template_params['url_year'] = page.page_params.create_url(
                                             op = PageOperation.MENU_YEAR, 
-                                            beta = True if page.page_params.get_param("beta") else None, 
-                                            js = False)
+                                            beta = True if page.page_params.get_param("beta") else None)
 
             page.template_params['themes'] = []
 
@@ -614,13 +606,11 @@ class Design_default(object):
 
         page.template_params["next"] = page.page_params.create_url(\
                     op = PageOperation.MENU_YEAR, 
-                    beta = True if page.page_params.get_param("beta") else None, 
-                    js = False
+                    beta = True if page.page_params.get_param("beta") else None
                 )
         page.template_params["back"] = page.page_params.create_url(\
                     op = PageOperation.LOGOUT, 
-                    beta = True if page.page_params.get_param("beta") else None, 
-                    js = False
+                    beta = True if page.page_params.get_param("beta") else None
                 )
 
 
@@ -662,8 +652,7 @@ class Design_default(object):
                     period = "", 
                     difficulty = "", 
                     l_id = "", 
-                    beta = True if page.page_params.get_param("beta") else None, 
-                    js = False
+                    beta = True if page.page_params.get_param("beta") else None
         )
         
         
@@ -731,7 +720,7 @@ class Design_default(object):
         q_id = page.page_params.get_param("q_id")
 
 
-        q_number = page.page_params.get_param("q_num")
+        q_number = context.c.session.get("q_num")
         try:
             q_number = int(q_number) if q_number else 0
         except ValueError as ex:
@@ -886,8 +875,7 @@ class Design_default(object):
                                         topic = "", \
                                         difficulty = "", \
                                         period = "", \
-                                        beta = True if page.page_params.get_param("beta") else None, 
-                                        js=False)
+                                        beta = True if page.page_params.get_param("beta") else None)
 
 
         page.page_params.delete_history()

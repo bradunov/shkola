@@ -107,8 +107,7 @@ class List(object):
                 op=PageOperation.TEST,
                 q_id=prev_question["name"], 
                 q_num="0",
-                beta=True if self.page.page_params.get_param("beta") else None, 
-                js=False)
+                beta=True if self.page.page_params.get_param("beta") else None)
         else:
             url_prev = None
 
@@ -117,8 +116,7 @@ class List(object):
                 op=PageOperation.TEST,
                 q_id=next_question["name"], 
                 q_num="0",
-                beta=True if self.page.page_params.get_param("beta") else None, 
-                js=False)
+                beta=True if self.page.page_params.get_param("beta") else None)
         else:
             url_next = None
 
@@ -388,23 +386,20 @@ class List(object):
         if q_number >= total_questions or not more_questions:
             url_next = self.page.page_params.create_url( 
                 op=PageOperation.SUMMARY,
-                beta=True if self.page.page_params.get_param("beta") else None, 
-                js=False)
+                beta=True if self.page.page_params.get_param("beta") else None)
             url_skip = url_next
         else:
             url_next = self.page.page_params.create_url( 
                 op=PageOperation.TEST,
                 q_id=next_question["name"], 
                 q_num=str(q_number+1),
-                beta=True if self.page.page_params.get_param("beta") else None, 
-                js=False)
+                beta=True if self.page.page_params.get_param("beta") else None)
             url_skip = self.page.page_params.create_url( 
                 op=PageOperation.TEST,
                 q_id=next_question["name"], 
                 q_num=str(q_number+1),
                 skipped="true",
-                beta=True if self.page.page_params.get_param("beta") else None, 
-                js=False)
+                beta=True if self.page.page_params.get_param("beta") else None)
 
         return url_next, url_skip
 
@@ -414,8 +409,7 @@ class List(object):
         if len(context.c.session.get("history")) <= 1:
             url_prev = self.page.page_params.create_url(\
                         op = PageOperation.MENU_THEME, 
-                        beta=True if self.page.page_params.get_param("beta") else None, 
-                        js = False)
+                        beta=True if self.page.page_params.get_param("beta") else None)
         else:
             q_id = context.c.session.get("history")[-2]["q_id"]
             q_number = self.get_q_number()
@@ -423,8 +417,7 @@ class List(object):
                         op = PageOperation.TEST_PREV, 
                         q_id = q_id, 
                         q_num = str(q_number-1),
-                        beta=True if self.page.page_params.get_param("beta") else None, 
-                        js = False)
+                        beta=True if self.page.page_params.get_param("beta") else None)
 
         return url_prev
 
