@@ -316,10 +316,15 @@ class Design_default(object):
 
         root = page.page_params.get_param("root")
 
-        page.template_params["google_link"] = "{}?op={}".format(
-            root,
-            PageOperation['LOGIN_GOOGLE'].value
-        )
+        #page.template_params["google_link"] = "{}?op={}".format(
+        #    root,
+        #    PageOperation['LOGIN_GOOGLE'].value
+        #)
+
+        page.template_params["google_link"] = page.page_params.create_url(
+                                    op = PageOperation.LOGIN_GOOGLE, 
+                                    beta = True if page.page_params.get_param("beta") else None)
+
 
         page.template_params["guest_link"] = page.page_params.create_url(
                                     op = PageOperation.LOGIN_ANON, 

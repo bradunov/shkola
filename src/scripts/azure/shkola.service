@@ -12,7 +12,7 @@ Environment="GOOGLE_TAG_MANAGER=%GOOGLE_TAG_MANAGER%"
 Environment="SHKOLA_LA_WORKSPACE_ID=%SHKOLA_LA_WORKSPACE_ID%"
 Environment="SHKOLA_LA_PRIMARY_KEY=%SHKOLA_LA_PRIMARY_KEY%"
 Environment="SHKOLA_NODE_NAME=%SHKOLA_NODE_NAME%"
-Environment="SHKOLA_ITEMS="
+Environment="SHKOLA_ITEMS=/"
 Type=simple
 Restart=always
 WorkingDirectory=/home/azureuser/shkola/src

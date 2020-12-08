@@ -116,22 +116,6 @@ class UserDB(object):
             auth_user_id = idinfo['sub']
             logging.info("Google validation success: {}".format(idinfo))
 
-            # Example my user info: 
-            # {'iss': 'accounts.google.com', 
-            # 'azp': '345432061367-f37577gsljsanetog1b0f2i2hmu3ji38.apps.googleusercontent.com', 
-            # 'aud': '345432061367-f37577gsljsanetog1b0f2i2hmu3ji38.apps.googleusercontent.com', 
-            # 'sub': '100168932003331800480', 
-            # 'email': 'bozidar.radunovic@gmail.com', 
-            # 'email_verified': True, 
-            # 'at_hash': 'dbcN3WCTS4w_hUmOCCzv0Q', 
-            # 'name': 'Bozidar Radunovic', 
-            # 'picture': 'https://lh5.googleusercontent.com/-3VJ2UlD0Y3U/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnCsCk0v-JmKlQX7QXTrFI--Y_WXA/s96-c/photo.jpg', 
-            # 'given_name': 'Bozidar', 'family_name': 'Radunovic', 
-            # 'locale': 'en', 
-            # 'iat': 1589737766, 
-            # 'exp': 1589741366, 
-            # 'jti': '1dce94a20bd47b3acb8719e36825b1f5223bc1ae'}
-
             if 'email' in idinfo:
                 logging.info("Google login user: {}".format(idinfo["email"]))
 
