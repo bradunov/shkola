@@ -353,7 +353,7 @@
       "topic": "Zajednički delilac i sadržalac",
       "rank_subtheme": "1",
       "rank_topic": "5",
-      "difficulty": "2"
+      "difficulty": "1"
     },
     {
       "name": "numb_2/q00026",
@@ -363,7 +363,7 @@
       "topic": "Zajednički delilac i sadržalac",
       "rank_subtheme": "1",
       "rank_topic": "5",
-      "difficulty": "3"
+      "difficulty": "2"
     },
     {
       "name": "numb_2/q00027",
@@ -383,7 +383,7 @@
       "topic": "Zajednički delilac i sadržalac",
       "rank_subtheme": "1",
       "rank_topic": "5",
-      "difficulty": "2"
+      "difficulty": "1"
     },
     {
       "name": "numb_2/q00029",
@@ -393,7 +393,7 @@
       "topic": "Zajednički delilac i sadržalac",
       "rank_subtheme": "1",
       "rank_topic": "5",
-      "difficulty": "3"
+      "difficulty": "2"
     },
     {
       "name": "numb_2/q00030",
@@ -404,6 +404,126 @@
       "rank_subtheme": "1",
       "rank_topic": "4",
       "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00031",
+      "random": "6",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Svojstva deljivosti",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00032",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Zajednički delilac i sadržalac",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00033",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Svojstva deljivosti",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00034",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Zajednički delilac i sadržalac",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00035",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Zajednički delilac i sadržalac",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00036",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Zajednički delilac i sadržalac",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00037",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Pojam",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00038",
+      "random": "6",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Pojam",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00039",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Pojam",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00040",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Pojam",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00041",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Pojam",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00042",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Pojam",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
     }
   ]
 }

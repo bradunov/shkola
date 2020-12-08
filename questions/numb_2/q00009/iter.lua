@@ -10,9 +10,10 @@ for i = 2,max do
     factor = math.floor(number/j) 
 	rest = number - factor*j
 	if (rest == 0) then
-		answ = answ .. ", " .. lib.check_number(factor,20)
+		answ = answ .. " " .. lib.check_number(factor,20)
 	end		   
 end
 
-answ = answ .. ", " .. lib.check_number(number,20)     
+answ = answ .. " " .. lib.check_number(number,20)     
      
+         

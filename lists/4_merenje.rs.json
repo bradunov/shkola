@@ -524,6 +524,16 @@
       "rank_subtheme": "5",
       "rank_topic": "2",
       "difficulty": "2"
+    },
+    {
+      "name": "measures/q00104",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Površina kvadrata i pravougaonika",
+      "topic": "Površina pravougaonika",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
     }
   ]
 }
