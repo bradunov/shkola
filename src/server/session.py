@@ -203,7 +203,7 @@ class SessionDB:
     def _set_cookie(self, session, headers):
         cookie = "{}:{}".format(session.session_id(), session.state_id())
 
-        headers.set_cookie(SESSION_COOKIE, cookie)
+        headers.set_cookie(SESSION_COOKIE, cookie, {"path" : "/"})
         headers.set_no_store()
 
 
