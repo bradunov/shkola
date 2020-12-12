@@ -10,6 +10,8 @@ page['google_site_verification'] = ""
 
 page['year'] = "1"
 
+page['year_color'] = "#dc3d39"
+
 page['themes'] = []
 
 page['themes'].append({

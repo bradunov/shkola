@@ -27,6 +27,12 @@ class Design_default(object):
     total_questions = 5
 
     @staticmethod
+    def _get_color(year):
+        color_list = ["#ff6956", "#489cba", "#f7b500", "#6ab288"]
+        return color_list[(year - 1) % len(color_list)]
+
+
+    @staticmethod
     @timer_section("render_main_page")
     def render_main_page(page):
 
@@ -356,8 +362,6 @@ class Design_default(object):
 
         if content :
 
-            color_list = ["#ff6956", "#489cba", "#f7b500", "#6ab288"]
-
 
             #ordered = collections.OrderedDict()
             ordered = {}
@@ -391,7 +395,7 @@ class Design_default(object):
 
                     page.template_params['button']['choices'].append({
                         'title' : ynumber,
-                        'front_color' : color_list[i % len(color_list)],
+                        'front_color' : Design_default._get_color(i+1),
                         #'back_color' : '#f9f9f9',
                         'back_color' : '#ffffff',
                         'link' : page.page_params.create_url(
@@ -467,6 +471,15 @@ class Design_default(object):
             page.template_params["template_name"] = "theme.html.j2"
 
             page.template_params['year'] = page.page_params.get_param("year").upper().strip()
+
+            try:
+                int_year = int(page.page_params.get_param("year"))
+            except:
+                int_year = 1
+                pass
+
+            page.template_params['year_color'] = Design_default._get_color(int_year)
+
             page.template_params['url_year'] = page.page_params.create_url(
                                             op = PageOperation.MENU_YEAR, 
                                             beta = True if page.page_params.get_param("beta") else None)
