@@ -99,7 +99,7 @@ page['menu'] = [
 file_loader = jinja2.FileSystemLoader("../templates")
 env = jinja2.Environment(loader=file_loader)
 
-template = env.get_template("question.html.j2")
+template = env.get_template("test.html.j2")
 print(template.render(template_params=page))
 
 

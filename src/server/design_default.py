@@ -738,7 +738,7 @@ class Design_default(object):
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
 
-        page.template_params["template_name"] = "question.html.j2"
+        page.template_params["template_name"] = "test.html.j2"
 
         q_id = page.page_params.get_param("q_id")
 
