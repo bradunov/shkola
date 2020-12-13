@@ -104,7 +104,7 @@ class List(object):
 
         if prev_question:
             url_prev = self.page.page_params.create_url( 
-                op=PageOperation.TEST,
+                op=PageOperation.BROWSE,
                 q_id=prev_question["name"], 
                 q_num="0",
                 beta=True if self.page.page_params.get_param("beta") else None)
@@ -113,7 +113,7 @@ class List(object):
 
         if next_question:
             url_next = self.page.page_params.create_url( 
-                op=PageOperation.TEST,
+                op=PageOperation.BROWSE,
                 q_id=next_question["name"], 
                 q_num="0",
                 beta=True if self.page.page_params.get_param("beta") else None)

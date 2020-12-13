@@ -70,6 +70,8 @@ class PageOperation(Enum):
     EDIT = "edit"
     # View all questions in a list (DEV mode)
     LIST = "list"
+    # Browse through questions
+    BROWSE = "browse"
     # Generate modified question in editor mode (DEV mode)
     GENERATE = "generate"
     # Register new a result in the table
@@ -94,8 +96,10 @@ class PageOperation(Enum):
     DEFAULT = "default"
     # Stats
     STATS = "stats"
-    # Intro
+    # Intro into test
     TEST_INTRO = "test_intro"
+    # Intro into browse
+    BROWSE_INTRO = "browse_intro"
     # Summary
     SUMMARY = "summary"
     # Previous question in test
@@ -345,7 +349,13 @@ class PageParameters(object):
                         self._params["theme"] = args["permalink"][ind+4]
                         ind = 7
                         while ind < len(args["permalink"]):
-                            if args["permalink"][ind] == "subtheme":
+                            if args["permalink"][ind] == PageOperation.TEST.value:
+                                self._params["op"] = PageOperation.TEST
+                                ind += 1
+                            elif args["permalink"][ind] == PageOperation.BROWSE.value:
+                                self._params["op"] = PageOperation.BROWSE
+                                ind += 1
+                            elif args["permalink"][ind] == "subtheme":
                                 self._params["subtheme"] = args["permalink"][ind+1]
                                 ind += 2
                             elif args["permalink"][ind] == "topic":
@@ -418,7 +428,9 @@ class PageParameters(object):
             pass
         elif op == PageOperation.MENU_THEME:
             url = self._add_path_to_url(url, "year", year)
-        elif op == PageOperation.TEST or op == PageOperation.TEST_INTRO or op == PageOperation.SUMMARY:
+        elif op == PageOperation.TEST or op == PageOperation.TEST_INTRO or \
+             op == PageOperation.BROWSE or op == PageOperation.BROWSE_INTRO or \
+             op == PageOperation.SUMMARY:
             url = self._add_path_to_url(url, "year", year)
             url = self._add_path_to_url(url, "theme", theme)
             if subtheme:
@@ -426,6 +438,10 @@ class PageParameters(object):
                 if topic:
                     url = self._add_path_to_url(url, "topic", topic)
             if op == PageOperation.TEST:
+                url = self._add_path_to_url(url, "test")
+                url = self._add_path_to_url(url, "question", q_id)
+            elif op == PageOperation.BROWSE:
+                url = self._add_path_to_url(url, "browse")
                 url = self._add_path_to_url(url, "question", q_id)
             else:
                 url = self._add_path_to_url(url, op.value)
