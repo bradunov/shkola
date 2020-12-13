@@ -1,3 +1,3 @@
 User-agent: * 
-Disallow: /main?op=test* 
+Disallow: /edit/ 
 Sitemap: https://www.tatamata.org/sitemap.xml

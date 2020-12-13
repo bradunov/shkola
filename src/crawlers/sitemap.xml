@@ -6,49 +6,37 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.tatamata.org/main?op=menu_user</loc>
+    <loc>https://www.tatamata.org/main/language/rs</loc>
     <lastmod>2020-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.tatamata.org/main?op=confirm_anon</loc>
+    <loc>https://www.tatamata.org/main/language/rs/menu_year</loc>
     <lastmod>2020-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.tatamata.org/main?op=menu_year</loc>
+    <loc>https://www.tatamata.org/main/language/rs/menu_theme/year/1</loc>
     <lastmod>2020-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.tatamata.org/main?op=menu_theme</loc>
+    <loc>https://www.tatamata.org/main/language/rs/menu_theme/year/2</loc>
     <lastmod>2020-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.tatamata.org/main?op=intro</loc>
+    <loc>https://www.tatamata.org/main/language/rs/menu_theme/year/3</loc>
     <lastmod>2020-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.tatamata.org/main?op=test</loc>
-    <lastmod>2020-11-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.tatamata.org/main?op=summary</loc>
-    <lastmod>2020-11-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.tatamata.org/main?op=stats</loc>
+    <loc>https://www.tatamata.org/main/language/rs/menu_theme/year/4</loc>
     <lastmod>2020-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
