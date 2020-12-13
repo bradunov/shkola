@@ -95,7 +95,7 @@ class PageOperation(Enum):
     # Stats
     STATS = "stats"
     # Intro
-    INTRO = "intro"
+    TEST_INTRO = "test_intro"
     # Summary
     SUMMARY = "summary"
     # Previous question in test
@@ -418,7 +418,7 @@ class PageParameters(object):
             pass
         elif op == PageOperation.MENU_THEME:
             url = self._add_path_to_url(url, "year", year)
-        elif op == PageOperation.TEST or op == PageOperation.INTRO or op == PageOperation.SUMMARY:
+        elif op == PageOperation.TEST or op == PageOperation.TEST_INTRO or op == PageOperation.SUMMARY:
             url = self._add_path_to_url(url, "year", year)
             url = self._add_path_to_url(url, "theme", theme)
             if subtheme:

@@ -89,10 +89,10 @@ class Design_default(object):
             Design_default.render_confirm_anon_page(page)
             return page.render()
 
-        elif page.page_params.get_param("op") == PageOperation.INTRO:
+        elif page.page_params.get_param("op") == PageOperation.TEST_INTRO:
             # Intro
-            logging.debug("PageOperation.INTRO")
-            context.c.session.set("showed_intro", True)
+            logging.debug("PageOperation.TEST_INTRO")
+            context.c.session.set("showed_test_intro", True)
             Design_default.render_select_get_started_page(page)
             return page.render()
 
@@ -223,7 +223,7 @@ class Design_default(object):
             #         options.append({
             #             "name" : theme.upper(),
             #             "link" : new_page_params.create_url(\
-            #                 op = PageOperation.toStr(PageOperation.INTRO), \
+            #                 op = PageOperation.toStr(PageOperation.TEST_INTRO), \
             #                 year = level, \
             #                 theme = theme, \
             #                 subtheme = "*", \
@@ -425,7 +425,7 @@ class Design_default(object):
     @staticmethod
     def _next_theme_url(page, theme, subtheme, topic, period, difficulty, l_id):
         # Only show intro once per login 
-        if context.c.session.get("showed_intro"):
+        if context.c.session.get("showed_test_intro"):
             page.page_params.set_param("theme", theme)
             page.page_params.set_param("subtheme", subtheme)
             page.page_params.set_param("topic", topic)
@@ -438,7 +438,7 @@ class Design_default(object):
 
         else:
             url_next = page.page_params.create_url(
-                    op = PageOperation.INTRO, 
+                    op = PageOperation.TEST_INTRO, 
                     theme = theme, 
                     subtheme = subtheme, 
                     topic = topic, 
@@ -648,7 +648,7 @@ class Design_default(object):
         Design_default.add_menu(page)
 
 
-        page.template_params["template_name"] = "intro.html.j2"
+        page.template_params["template_name"] = "test_intro.html.j2"
 
         page.template_params["year"] = page.page_params.get_param("year").title()
         page.template_params["theme"] = page.page_params.get_param("theme").title()
