@@ -104,8 +104,6 @@ class PageOperation(Enum):
     FEEDBACK = "feedback"
     # About the site
     ABOUT = "about"
-    # About the authors
-    ABOUT_US = "about_us"
 
     # TODO: remove this method
     @classmethod

@@ -137,10 +137,6 @@ class Design_default(object):
             Design_default.render_about(page)
             return page.render()
 
-        elif page.page_params.get_param("op") == PageOperation.ABOUT_US:
-            Design_default.render_about_us(page)
-            return page.render()
-
         else:
             # Something mesed up the state - clean up the state and go to the intro
             logging.info("PageOperation.MENU - wrong parameters - select year")
@@ -265,6 +261,15 @@ class Design_default(object):
                     beta = True if page.page_params.get_param("beta") else None 
                 )
             })
+
+        # "name" : "Izloguj se (" + context.c.user.name + ")",
+        page.template_params['menu'].append({
+            "name" : "O Tatamati".upper(),
+            "link" : new_page_params.create_url(
+                op = PageOperation.ABOUT, 
+                beta = True if page.page_params.get_param("beta") else None
+            )
+        })
 
         # "name" : "Izloguj se (" + context.c.user.name + ")",
         page.template_params['menu'].append({

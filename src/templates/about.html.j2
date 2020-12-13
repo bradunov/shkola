@@ -21,6 +21,45 @@
     {{ menu.dropdowns(template_params) }}
     <!-- MENU END -->
 
+
+    <script>
+      tab_ids = {};
+      tab_titles = {};
+      tab_unds = {};
+
+      function tab_set_line(tab, inc) {
+        // Set the length based on the actual text
+        var tab_title = document.getElementById(tab_titles[tab]);
+        var tab_und = document.getElementById(tab_unds[tab]);
+        var tab_width = tab_title.clientWidth;
+        var tab_offset = (parseInt(tab_title.clientWidth) + inc).toString();
+        //console.log("D:", tab_title.clientWidth, parseInt(tab_title.clientWidth), toString(parseInt(tab_title.clientWidth)))
+        tab_und.style.width = tab_width + "px";
+        tab_und.style.marginLeft = "-" + tab_offset + "px";
+      }
+
+      function tab_select(tab) {
+        var ks = Object.keys(tab_ids);
+        for (var i=0; i<ks.length; i++) {
+          var tab_id = document.getElementById(tab_ids[ks[i]]);
+          var tab_title = document.getElementById(tab_titles[ks[i]]);
+          var tab_und = document.getElementById(tab_unds[ks[i]]);
+          if (ks[i] == tab) {
+            tab_id.style.display = "block";
+            tab_und.style.display = "inline-block";
+            tab_title.style.fontWeight = 'bold';
+            if (i == 0) tab_set_line(tab, 0);
+            else tab_set_line(tab, 5);
+          } else {
+            tab_id.style.display = "none";
+            tab_und.style.display = "none";
+            tab_title.style.fontWeight = 'normal';
+          }
+        }
+      }
+
+    </script>
+
     
 
     <div style="display:block; position:fixed; top: 50px; left: 0px; z-index: 0; height: calc(100% - 50px); width:100%; overflow-y: auto; overflow-x: auto; ">
@@ -35,7 +74,7 @@
                   vertical-align: top;
                   margin-top: 25px; margin-bottom: 10px; margin-left: 20px;
                   font-size: 18px; color: #ffffff">
-          Upoznaj tim koji je napravio TATA MATU 
+          Upoznaj TATA MATU 
         </div>
 
         <div style="display:inline-block; 
@@ -59,7 +98,72 @@
       </div>
 
 
-      <div style="display:block; 
+      <div style="display:block; margin:auto; text-align: center; width: 290px; margin-top: 35px; margin-bottom: 4px; ">
+
+        <!-- Site -->
+        <script>
+          tab_ids[ "tab_site" ] = 'tab_id_site';
+          tab_titles[ "tab_site" ] = 'tab_name_site';
+          tab_unds[ "tab_site" ] = 'tab_und_site';
+        </script>
+
+        <div id="tab_name_site" class="sh_lato_font" 
+            style="display:inline-block; font-weight: bold; cursor: pointer; font-size: 14px; margin-left: 3px; margin-right: 3px; color: #148f91"
+            onclick="tab_select('tab_site')">
+          O Tatamati
+          <div id="tab_und_site" style="display:inline-block; margin-left:-20px; width:20px; overflow:hidden; vertical-align:middle">
+            <svg width="200px" height="5px">
+              <rect width="200px" height="5px" style="
+                opacity: 0.52;
+                -webkit-filter: blur(1.2px);
+                filter: blur(1.2px);
+                fill:#f3b051;
+                " />
+            </svg>
+          </div>
+        </div>
+
+        <script>
+          // Set the length based on the actual text
+          tab_set_line('tab_site', 0);
+        </script>
+
+
+        <!-- Us -->
+
+        <script>
+          tab_ids[ "tab_us" ] = 'tab_id_us';
+          tab_titles[ "tab_us" ] = 'tab_name_us';
+          tab_unds[ "tab_us" ] = 'tab_und_us';
+        </script>
+
+        <div id="tab_name_us" class="sh_lato_font" 
+            style="display:inline-block; font-weight: normal; cursor: pointer; font-size: 14px; margin-left: 3px; margin-right: 3px; color: #148f91"
+            onclick="tab_select('tab_us')">
+          O Nama
+        </div>
+        <div id="tab_und_us" style="display:none; margin-left:-20px; width:20px;overflow:hidden; vertical-align:middle">
+          <svg width="200px" height="5px">
+            <rect width="200px" height="5px" style="
+              opacity: 0.52;
+              -webkit-filter: blur(1.2px);
+              filter: blur(1.2px);
+              fill:#f3b051;
+              " />
+          </svg>
+        </div>
+
+        <script>
+          // Set the length based on the actual text
+          tab_set_line('tab_us', 0);
+        </script>
+
+      </div>
+
+
+
+      <div id="tab_id_site"
+           style="display:block; 
                   width: 290px; 
                   margin:auto; margin-top: 30px; margin-bottom: 4px">
 
@@ -71,8 +175,10 @@
           težini, da nas korak po korak uvlače u ovaj zanimljivi svet...
         </div>
 
-        <div class="sh_lato_font" style="display:block; margin-top: 12px; margin-bottom: 12px;">
-          Dobrodošli kod TATA-MATE!
+        <div class="sh_chalk_bold_font" 
+             style="display:block; width: 290px; text-align: center; font-size:100%; margin-top: 24px; margin-bottom: 24px;">
+          Dobrodošli kod 
+          {{ elements.color_string("TATA-MATE!") }}
         </div>
 
         <div class="sh_lato_font" style="display:block; margin-top: 12px; margin-bottom: 12px;">
@@ -111,6 +217,121 @@
         </div>
               
       </div>
+
+
+      <div id="tab_id_us"
+           style="display:none; 
+                  width: 290px; 
+                  margin:auto; margin-top: 30px; margin-bottom: 4px">
+        <div style="display:table;border-collapse:separate;border-spacing:5px;">
+
+          <div style="display:table-row;">
+            <div style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              <img src='{{ template_params["item_path"] }}images/us/desa.jpg' width='90'>
+            </div>
+            <div class="sh_lato_font"
+                 style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              <a href="http://poincare.matf.bg.ac.rs/~dradun/"> Desanka Radunović </a> <br> 
+              profesor matematike, izmišlja zadatke.               
+            </div>
+          </div>
+
+          <div style="display:table-row;">
+            <div style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              <img src='{{ template_params["item_path"] }}images/us/boki.jpg' width='90'>
+            </div>
+            <div class="sh_lato_font"
+                 style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              <a href="https://github.com/bradunov"> Božidar Radunović </a> <br>
+              programer, prikazuje zadatke
+            </div>
+          </div>
+
+          <div style="display:table-row;">
+            <div style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              <img src='{{ template_params["item_path"] }}images/us/vladap.png' width='90'>
+            </div>
+            <div class="sh_lato_font"
+                 style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              <a href="https://github.com/vladap2013"> Vladimir Petrović </a> <br>
+              programer, prikazuje zadatke
+            </div>
+          </div>
+
+          <div style="display:table-row;">
+            <div style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              <img src='{{ template_params["item_path"] }}images/us/madza.jpg' width='90'>
+            </div>
+            <div class="sh_lato_font"
+                 style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              Marija Kisa-Minić <br>
+              dizajner, crta mala slatka čudovišta
+            </div>
+          </div>
+
+          <div style="display:table-row;">
+            <div style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              <img src='{{ template_params["item_path"] }}images/us/emi.jpg' width='90'>
+            </div>
+            <div class="sh_lato_font"
+                 style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              Emi <br> 
+              Prevela sve zadatke na Engleski.
+            </div>
+          </div>
+
+          <div style="display:table-row;">
+            <div style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              <img src='{{ template_params["item_path"] }}images/us/JelenaR.png' width='90'>
+            </div>
+            <div class="sh_lato_font"
+                 style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              Jelena Rusić <br>
+              Učiteljica, izmišlja zadatke 
+            </div>
+          </div>
+
+          <div style="display:table-row;">
+            <div style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              <img src='{{ template_params["item_path"] }}images/us/ivan.jpg' width='90'>
+            </div>
+            <div class="sh_lato_font"
+                 style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              Ivan Minić <br>
+              Statističar, prati rezultate
+            </div>
+          </div>
+
+          <div style="display:table-row;">
+            <div style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              <img src='{{ template_params["item_path"] }}images/us/nebojsa.jpg' width='90'>
+            </div>
+            <div class="sh_lato_font"
+                 style="display:table-cell; 
+                        vertical-align: top; padding:5px;">
+              Nebojša Petković <br> 
+              Reklamira sajt.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
 
 
       <div style="display:block; 
