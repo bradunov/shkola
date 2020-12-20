@@ -470,7 +470,7 @@
       "random": "8",
       "period": "1",
       "subtheme": "Skupovi",
-      "topic": "Pojam",
+      "topic": "Zapis",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -480,7 +480,7 @@
       "random": "6",
       "period": "1",
       "subtheme": "Skupovi",
-      "topic": "Pojam",
+      "topic": "Zapis",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -490,17 +490,17 @@
       "random": "8",
       "period": "1",
       "subtheme": "Skupovi",
-      "topic": "Pojam",
+      "topic": "Zapis",
       "rank_subtheme": "2",
       "rank_topic": "1",
-      "difficulty": "1"
+      "difficulty": "2"
     },
     {
       "name": "numb_2/q00040",
       "random": "0",
       "period": "1",
       "subtheme": "Skupovi",
-      "topic": "Pojam",
+      "topic": "Zapis",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -510,9 +510,9 @@
       "random": "8",
       "period": "1",
       "subtheme": "Skupovi",
-      "topic": "Pojam",
+      "topic": "Podskup, jednaki skupovi",
       "rank_subtheme": "2",
-      "rank_topic": "1",
+      "rank_topic": "2",
       "difficulty": "2"
     },
     {
@@ -520,10 +520,150 @@
       "random": "8",
       "period": "1",
       "subtheme": "Skupovi",
-      "topic": "Pojam",
+      "topic": "Podskup, jednaki skupovi",
       "rank_subtheme": "2",
-      "rank_topic": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00043",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Podskup, jednaki skupovi",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
       "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00044",
+      "random": "6",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Unija, presek",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00045",
+      "random": "6",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Razlika",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00046",
+      "random": "6",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Unija, presek",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00047",
+      "random": "6",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Unija, presek",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00048",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Razlika",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00049",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Unija, presek, razlika",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00050",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Unija, presek, razlika",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00051",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Unija, presek, razlika",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00052",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Unija, presek, razlika",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00053",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Unija, presek, razlika",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00054",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Unija, presek, razlika",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00055",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Unija, presek, razlika",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00056",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Skupovi",
+      "topic": "Unija, presek, razlika",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "3"
     }
   ]
 }

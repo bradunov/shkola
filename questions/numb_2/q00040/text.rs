@@ -19,12 +19,3 @@ Skup parnih brojeva manjih od 100
 
 
 
-
-
- 
- 
-
-                       
-                                 
-             
-                  @
