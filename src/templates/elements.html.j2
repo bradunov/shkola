@@ -634,27 +634,31 @@
   </div>
 
   <script>
-    var cup_{{name}} = document.getElementById("svg_{{name}}");
-    var new_transform_{{name}} = cup_{{name}}.createSVGMatrix();
+    try {
+      var cup_{{name}} = document.getElementById("svg_{{name}}");
+      var new_transform_{{name}} = cup_{{name}}.createSVGMatrix();
 
-    //var new_transform_{{name}} = cup_{{name}}.createSVGTransformFromMatrix(cup_{{name}}.createSVGMatrix())
-    cup_{{name}}.transform.baseVal.appendItem(
-      cup_{{name}}.createSVGTransformFromMatrix(new_transform_{{name}})
-    );
-    var transform_{{name}} = cup_{{name}}.transform.baseVal.getItem(0);
-    var scale_{{name}} = 1;
-    var sc_dir_{{name}} = 0;
-    var sc_speed_{{name}} = Math.random() / 11 + 0.05;
+      //var new_transform_{{name}} = cup_{{name}}.createSVGTransformFromMatrix(cup_{{name}}.createSVGMatrix())
+      cup_{{name}}.transform.baseVal.appendItem(
+        cup_{{name}}.createSVGTransformFromMatrix(new_transform_{{name}})
+      );
+      var transform_{{name}} = cup_{{name}}.transform.baseVal.getItem(0);
+      var scale_{{name}} = 1;
+      var sc_dir_{{name}} = 0;
+      var sc_speed_{{name}} = Math.random() / 11 + 0.05;
 
-    let change_cup_{{name}} = setInterval(function() {
-      if (document.getElementById("{{name}}").style.visibility == "visible") {
-        transform_{{name}}.setMatrix(new_transform_{{name}}.scale(scale_{{name}}));
-        if (scale_{{name}} < 0.7) sc_dir_{{name}} = 1;
-        else if (scale_{{name}} > 1) sc_dir_{{name}} = 0;
-        if (sc_dir_{{name}} == 1) scale_{{name}} = scale_{{name}} * (1.0 + sc_speed_{{name}});
-        else scale_{{name}} = scale_{{name}} * (1.0 - sc_speed_{{name}});
-      }
-    }, 100); // change colors every 500ms
+      let change_cup_{{name}} = setInterval(function() {
+        if (document.getElementById("{{name}}").style.visibility == "visible") {
+          transform_{{name}}.setMatrix(new_transform_{{name}}.scale(scale_{{name}}));
+          if (scale_{{name}} < 0.7) sc_dir_{{name}} = 1;
+          else if (scale_{{name}} > 1) sc_dir_{{name}} = 0;
+          if (sc_dir_{{name}} == 1) scale_{{name}} = scale_{{name}} * (1.0 + sc_speed_{{name}});
+          else scale_{{name}} = scale_{{name}} * (1.0 - sc_speed_{{name}});
+        }
+      }, 100); // change colors every 500ms
+    } catch (e) {
+      // Some browsers seem to have an issue with transform.baseVal so don't do animation
+    }
   </script>
 
 {% endmacro %}
@@ -782,26 +786,30 @@
       next_emphasize();
     }
 
-    var cup_monster = document.getElementById("svg_monster");
-    var new_transform_monster = cup_monster.createSVGMatrix();
+    try{
+      var cup_monster = document.getElementById("svg_monster");
+      var new_transform_monster = cup_monster.createSVGMatrix();
 
-    cup_monster.transform.baseVal.appendItem(
-      cup_monster.createSVGTransformFromMatrix(new_transform_monster)
-    );
-    var transform_monster = cup_monster.transform.baseVal.getItem(0);
-    var x_monster = 0;
-    var y_monster = 0;
-    var dir_monster = 0;
+      cup_monster.transform.baseVal.appendItem(
+        cup_monster.createSVGTransformFromMatrix(new_transform_monster)
+      );
+      var transform_monster = cup_monster.transform.baseVal.getItem(0);
+      var x_monster = 0;
+      var y_monster = 0;
+      var dir_monster = 0;
 
-    let change_cup_monster = setInterval(function() {
-      if (document.getElementById("monster").style.visibility == "visible") {
-        transform_monster.setMatrix(new_transform_monster.translate(x_monster, y_monster));
-        if (y_monster < -20) dir_monster = 0;
-        else if (y_monster > 0) dir_monster = 1;
-        if (dir_monster == 1) y_monster = y_monster - 5;
-        else y_monster = y_monster + 5;
-      }
-    }, 100); // change colors every 500ms
+      let change_cup_monster = setInterval(function() {
+        if (document.getElementById("monster").style.visibility == "visible") {
+          transform_monster.setMatrix(new_transform_monster.translate(x_monster, y_monster));
+          if (y_monster < -20) dir_monster = 0;
+          else if (y_monster > 0) dir_monster = 1;
+          if (dir_monster == 1) y_monster = y_monster - 5;
+          else y_monster = y_monster + 5;
+        }
+      }, 100); // change colors every 500ms
+    } catch (e) {
+      // Some browsers seem to have an issue with transform.baseVal so don't do animation
+    }
   </script>
 
 {% endmacro %}

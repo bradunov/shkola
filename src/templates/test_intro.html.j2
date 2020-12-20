@@ -234,23 +234,26 @@
 
 
     <script>
-      var monster = document.getElementById("monster");
-      var monster_eye = document.getElementById("monster_eye");
-      var transform = monster.createSVGMatrix();
-      var m_x = 18.686;
-      var m_y = 14.0;
-      transform = transform.translate(m_x,m_y);
-      monster_eye.transform.baseVal.getItem(0).setMatrix(transform);
-      var m_r = (22.0-14.0);
-      var m_a = 0.0;
-
-      let monster_timer = setInterval(function() {
-        var old_a = m_a;
-        m_a = m_a + 0.2;
-        transform = transform.translate(- m_r * (Math.sin(m_a) - Math.sin(old_a)), - m_r * (Math.cos(m_a) - Math.cos(old_a)));
+      try{
+        var monster = document.getElementById("monster");
+        var monster_eye = document.getElementById("monster_eye");
+        var transform = monster.createSVGMatrix();
+        var m_x = 18.686;
+        var m_y = 14.0;
+        transform = transform.translate(m_x,m_y);
         monster_eye.transform.baseVal.getItem(0).setMatrix(transform);
-      }, 100); // change colors every 500ms
+        var m_r = (22.0-14.0);
+        var m_a = 0.0;
 
+        let monster_timer = setInterval(function() {
+          var old_a = m_a;
+          m_a = m_a + 0.2;
+          transform = transform.translate(- m_r * (Math.sin(m_a) - Math.sin(old_a)), - m_r * (Math.cos(m_a) - Math.cos(old_a)));
+          monster_eye.transform.baseVal.getItem(0).setMatrix(transform);
+        }, 100); // change colors every 500ms
+      } catch (e) {
+        // Some browsers seem to have an issue with transform.baseVal so don't do animation
+      }
     </script>
 
   </body>

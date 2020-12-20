@@ -62,38 +62,41 @@
 
 
     <script>
-      var monster = document.getElementById("monster");
-      var monster_eye = document.getElementById("monster_eye");
-      var transform = monster.createSVGMatrix();
-      var m_x = 8.17;
-      var m_y = -8.755;
-      transform = transform.translate(m_x,m_y);
-      monster_eye.transform.baseVal.getItem(0).setMatrix(transform);
-      var m_r = (22.0-14.0);
-      var m_a = 0.0;
-      var m_dir = 0;
-
-      let monster_timer = setInterval(function() {
-        let circ = false;
-        if (circ) {
-          var old_a = m_a;
-          m_a = m_a + 0.2;
-          transform = transform.translate(- m_r * (Math.sin(m_a) - Math.sin(old_a)), - m_r * (Math.cos(m_a) - Math.cos(old_a)));
-        } else {
-          let inc=2;
-          if (m_dir == 0) {
-            m_a = m_a + inc;
-            if (m_a >= 2*m_r) m_dir = 1;
-            transform = transform.translate(0, inc);          
-          } else {
-            m_a = m_a - inc;
-            if (m_a <= 0) m_dir = 0;
-            transform = transform.translate(0, -inc);          
-          }
-        }
+      try{
+        var monster = document.getElementById("monster");
+        var monster_eye = document.getElementById("monster_eye");
+        var transform = monster.createSVGMatrix();
+        var m_x = 8.17;
+        var m_y = -8.755;
+        transform = transform.translate(m_x,m_y);
         monster_eye.transform.baseVal.getItem(0).setMatrix(transform);
-      }, 100); 
+        var m_r = (22.0-14.0);
+        var m_a = 0.0;
+        var m_dir = 0;
 
+        let monster_timer = setInterval(function() {
+          let circ = false;
+          if (circ) {
+            var old_a = m_a;
+            m_a = m_a + 0.2;
+            transform = transform.translate(- m_r * (Math.sin(m_a) - Math.sin(old_a)), - m_r * (Math.cos(m_a) - Math.cos(old_a)));
+          } else {
+            let inc=2;
+            if (m_dir == 0) {
+              m_a = m_a + inc;
+              if (m_a >= 2*m_r) m_dir = 1;
+              transform = transform.translate(0, inc);          
+            } else {
+              m_a = m_a - inc;
+              if (m_a <= 0) m_dir = 0;
+              transform = transform.translate(0, -inc);          
+            }
+          }
+          monster_eye.transform.baseVal.getItem(0).setMatrix(transform);
+        }, 100); 
+      } catch (e) {
+        // Some browsers seem to have an issue with transform.baseVal so don't do animation
+      }
     </script>
 
   </body>
