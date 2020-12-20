@@ -837,8 +837,9 @@ class Design_default(object):
                 context.c.session.list_append("history", hist)
             elif q_number > 0 and q_number == test.get_q_number():
                 # The same question - probably a refresh
+                # Happens too often, not sure why (refreshes, clicks on history?) so just ignoring
                 if not q_id == context.c.session.get("history")[-1]["q_id"]:
-                    logging.error("Error in history: q_id={}, q_num={}\nHist={}\n{}".format(
+                    logging.debug("Error in history: q_id={}, q_num={}\nHist={}\n{}".format(
                         q_id, q_number, context.c.session.get("history"), helpers.get_stack_trace()
                     ))
             else:
