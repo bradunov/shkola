@@ -248,20 +248,29 @@ class Design_default(object):
             #         })
 
             # Year 5+ are not complete so we only show in beta mode
-            if int(level) <= 4 or page.page_params.get_param("beta"): 
-                lists['submenu']['options'].append({
-                    "name" : level.upper(),
-                    "link" : new_page_params.create_url( \
-                            op = PageOperation.MENU_THEME, \
-                            year = level, 
-                            beta = True if page.page_params.get_param("beta") else None)
-                    #         js = False),
-                    # "submenu" : {
-                    #     "id" : "zadaci_{}".format(menu_id),
-                    #     "options" : options
-                    # }
-                })
-                menu_id = menu_id + 1
+            # I had an error in logs, not sure why (some inconsistency in input data):
+            #   File "./server/design_default.py", line 238, in add_menu
+            #   if int(level) <= 4 or page.page_params.get_param("beta"):
+            #   ValueError: invalid literal for int() with base 10: 'first'
+            # so added exception handling for ValueError
+            try:
+                if int(level) <= 4 or page.page_params.get_param("beta"): 
+                    lists['submenu']['options'].append({
+                        "name" : level.upper(),
+                        "link" : new_page_params.create_url( \
+                                op = PageOperation.MENU_THEME, \
+                                year = level, 
+                                beta = True if page.page_params.get_param("beta") else None)
+                        #         js = False),
+                        # "submenu" : {
+                        #     "id" : "zadaci_{}".format(menu_id),
+                        #     "options" : options
+                        # }
+                    })
+                    menu_id = menu_id + 1
+            except ValueError:
+                pass
+
 
         page.template_params['menu'].append(lists)
 
