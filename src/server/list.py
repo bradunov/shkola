@@ -66,8 +66,7 @@ class List(object):
         )
 
         if not last_question_id:
-            if context.c.session.get("history"):
-                last_question_id = context.c.session.get("history")[-1]["q_id"]
+            last_question_id = context.c.session.get("browse_last_q")
 
         subtheme, topic, period, difficulty = self._get_page_params()
 
@@ -94,11 +93,14 @@ class List(object):
                         prev_q = questions[idx-1]
                     break
 
+        log_str += "next_q: {}, prev_q: {}".format(next_q, prev_q)
+        print("\n\n\n", log_str, "\n\n\n")
+
         return prev_q, next_q
 
 
 
-    def get_prev_next_questions_browse_url(self, total_questions):
+    def get_prev_next_questions_browse_url(self):
 
         prev_question, next_question = self.choose_next_question_browse()
 

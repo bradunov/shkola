@@ -270,7 +270,7 @@ class Page(object):
                 else:
                     self.page_params.set_url(req.get_url())
 
-                    #DEBUG
+                    # DEBUG (log.debug level required for the below to work)
                     # print("\n\nPRE PARSING:\n")
                     # #print("\n\nARGS: \n{}\n".format(json.dumps(args, indent=2)))
                     # print("\n\nARGS: \n{}\n".format(args))
@@ -281,7 +281,7 @@ class Page(object):
                     # self.page_params.load_params()
                     self.page_params.parse(in_args=args, session=session)
 
-                    # #DEBUG
+                    # DEBUG (log.debug level required for the below to work)
                     # print("\n\nPOST PARSING:\n")
                     # self.page_params.print_params()
                     # session.print()

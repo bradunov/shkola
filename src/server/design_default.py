@@ -90,10 +90,23 @@ class Design_default(object):
             return page.render()
 
         elif page.page_params.get_param("op") == PageOperation.TEST_INTRO:
-            # Intro
+            # Test intro
             logging.debug("PageOperation.TEST_INTRO")
             context.c.session.set("showed_test_intro", True)
             Design_default.render_select_get_test_started_page(page)
+            return page.render()
+
+        if page.page_params.get_param("op") == PageOperation.BROWSE:
+            # Browse
+            logging.debug("PageOperation.BROWSE - {}".format(page.page_params.get_param("root")))
+            Design_default.render_browse_page(page)
+            return page.render()
+
+        elif page.page_params.get_param("op") == PageOperation.BROWSE_INTRO:
+            # Browse intro
+            logging.debug("PageOperation.BROWSE_INTRO")
+            context.c.session.set("showed_browse_intro", True)
+            Design_default.render_select_get_browse_started_page(page)
             return page.render()
 
         elif page.page_params.get_param("op") == PageOperation.MENU_USER and not context.c.user:
@@ -423,7 +436,8 @@ class Design_default(object):
 
 
     @staticmethod
-    def _next_theme_url(page, theme, subtheme, topic, period, difficulty, l_id):
+    def _next_theme_test_url(page, theme, subtheme, topic, period, difficulty, l_id):
+
         # Only show intro once per login 
         if context.c.session.get("showed_test_intro"):
             page.page_params.set_param("theme", theme)
@@ -448,6 +462,45 @@ class Design_default(object):
                     l_id = l_id)
 
         return url_next
+
+
+
+
+    @staticmethod
+    def _next_theme_browse_url(page, theme, subtheme, topic, period, difficulty, l_id):
+
+        # Only show intro once per login 
+        if context.c.session.get("showed_browse_intro"):
+            page.page_params.set_param("theme", theme)
+            page.page_params.set_param("subtheme", subtheme)
+            page.page_params.set_param("topic", topic)
+            page.page_params.set_param("period", period)
+            page.page_params.set_param("difficulty", difficulty)
+            page.page_params.set_param("l_id", l_id)
+
+            test = List(page)
+            _, url_next = test.get_prev_next_questions_browse_url()
+
+        else:
+            url_next = page.page_params.create_url(
+                    op = PageOperation.BROWSE_INTRO, 
+                    theme = theme, 
+                    subtheme = subtheme, 
+                    topic = topic, 
+                    period = period, 
+                    difficulty = difficulty, 
+                    beta = True if page.page_params.get_param("beta") else None, 
+                    l_id = l_id)
+
+        return url_next
+
+
+
+
+    #DEBUG TMP
+    @staticmethod
+    def _next_theme_url(page, theme, subtheme, topic, period, difficulty, l_id):
+        return Design_default._next_theme_test_url(page, theme, subtheme, topic, period, difficulty, l_id)
 
 
 
@@ -660,7 +713,8 @@ class Design_default(object):
 
         page.template_params["h1"] = page.template_params['year']
         page.template_params["h2"] = page.template_params["theme"]
-        page.template_params["h3"] = "Start"
+        page.template_params["h3"] = page.template_params["topic"]
+        page.template_params["h4"] = "Start test"
 
 
         test = List(page)
@@ -855,7 +909,8 @@ class Design_default(object):
 
         page.template_params["h1"] = page.template_params['year']
         page.template_params["h2"] = page.template_params["theme"]
-        page.template_params["h3"] = "Pitanje"
+        page.template_params["h3"] = page.template_params["topic"]
+        page.template_params["h4"] = "Test"
 
 
         return
@@ -907,7 +962,8 @@ class Design_default(object):
 
         page.template_params["h1"] = page.page_params.get_param("year").upper()
         page.template_params["h2"] = page.page_params.get_param("theme").upper()
-        page.template_params["h3"] = "Rezultat"
+        page.template_params["h3"] = page.page_params.get_param("topic").upper()
+        page.template_params["h4"] = "Rezultat"
 
         return
 
@@ -939,14 +995,14 @@ class Design_default(object):
 
         page.template_params["h1"] = page.template_params['year']
         page.template_params["h2"] = page.template_params["theme"]
-        page.template_params["h3"] = "Start"
+        page.template_params["h3"] = page.template_params["topic"]
+        page.template_params["h4"] = "Start browse"
 
 
         test = List(page)
-        url_next, url_skip = test.get_next_question_test_url(Design_default.total_questions)
-        page.template_params["next"] = url_next
-        page.template_params["skip"] = url_skip
+        _, url_next = test.get_prev_next_questions_browse_url()
 
+        page.template_params["next"] = url_next
         page.template_params["back"] = page.page_params.create_url(\
                     op = PageOperation.MENU_THEME, 
                     subtheme = "", 
@@ -974,102 +1030,33 @@ class Design_default(object):
         q_id = page.page_params.get_param("q_id")
 
 
-        q_number = context.c.session.get("q_num")
-        try:
-            q_number = int(q_number) if q_number else 0
-        except ValueError as ex:
-            logging.error("Incorrect q_num={}\n{}".format(q_number, helpers.get_stack_trace()))
-            q_number = 0
-
-        skipped = page.page_params.get_param("skipped")
-        if skipped and isinstance(skipped, str) and skipped.lower() == "true":
-            try:
-                context.c.session.get("history")[-1]["skipped"] = True
-            except:
-                logging.error("Cannot mark last question as skipped\nhist={}\n{}".format(
-                    context.c.session.get("history"), helpers.get_stack_trace()
-                    ))
-
-
         hist = None
-        if page.page_params.get_param("op") == PageOperation.TEST_PREV or q_number == test.get_q_number() - 1:
-            context.c.session.list_delete("history", -1)
-            # At this point current q_id should match the last one in history,
-            # otherwise there was an error creating TEST_PREV link
-            if not q_id == context.c.session.get("history")[-1]["q_id"]:
-                logging.error("Error getting back in questions: q_id={}, q_num={}\nHist={}\n{}".format(
-                    q_id, q_number, context.c.session.get("history"), helpers.get_stack_trace()
-                ))
-        else:
-            if q_number == test.get_q_number() + 1:
-                # New question - add to history
-                # Apriory set to incorrect so that we have matching history on skip
-                hist = {
-                    "q_id" : q_id, 
-                    "url" : page.page_params.get_url(),
-                    "correct" : 0, 
-                    "incorrect" : 1
-                }
-                #hist.update(next_question)
-                context.c.session.list_append("history", hist)
-            elif q_number > 0 and q_number == test.get_q_number():
-                # The same question - probably a refresh
-                if not q_id == context.c.session.get("history")[-1]["q_id"]:
-                    logging.error("Error in history: q_id={}, q_num={}\nHist={}\n{}".format(
-                        q_id, q_number, context.c.session.get("history"), helpers.get_stack_trace()
-                    ))
-            else:
-                # This happens too often - for now just correct the number
-                # Likely wrong
-                logging.debug("Error in question numbering: q_id={}, q_num={}/{}\nHist={}\n{}".format(
-                    q_id, q_number, test.get_q_number(), context.c.session.get("history"), helpers.get_stack_trace()
-                ))
-                q_number = test.get_q_number()
-                page.page_params.set_param("q_num", q_number)
-
-
+        context.c.session.set("browse_last_q", q_id)
 
         # DEBUG
         # context.c.session.print()
 
 
-        test_id = context.c.session.get("test_id")
-        q = Question(page=page, q_id=q_id, test_id=test_id, test_order=q_number)
+        test_id = 0
+        q = Question(page=page, q_id=q_id)
         q.set_from_file_with_exception()
         q.eval_with_exception()
 
 
 
-        url_next, url_skip = test.get_next_question_test_url(Design_default.total_questions)
+        url_prev, url_next = test.get_prev_next_questions_browse_url()
+
         page.template_params["next"] = url_next
-        page.template_params["skip"] = url_skip
+        page.template_params["prev"] = url_prev
 
-        #url_prev = test.get_prev_question_test_url()
-        #page.template_params["back"] = url_prev
         
-
 
         Design_default._render_result_bar_and_get_last_difficulty(page)
 
-        all_questions = page.repository.get_content_questions(
-            PageLanguage.toStr(page.page_params.get_param("language")), 
-            page.page_params.get_param("year"), 
-            page.page_params.get_param("theme"))
-
-        if page.page_params.get_param("q_id") in all_questions.keys():
-            difficulty = all_questions[page.page_params.get_param("q_id")]["difficulty"]
-        else:
-            difficulty = None
-        if hist and page.page_params.get_param("q_id") in all_questions.keys():
-            hist["difficulty"] = difficulty
-
-        page.template_params["q_number"] = str(q_number)
-
-        page.template_params["debug"] = "DEBUG: {} / {} / {} / {} - {}".format(
+        page.template_params["debug"] = "DEBUG: {} / {} / {} - {}".format(
             page.page_params.get_param("subtheme"), 
             page.page_params.get_param("topic"), 
             context.c.session.get("period"), 
-            difficulty, 
             page.page_params.get_param("q_id")
         )
 
@@ -1082,11 +1069,11 @@ class Design_default(object):
         page.template_params["theme"] = page.page_params.get_param("theme").upper()
         page.template_params["subtheme"] = page.page_params.get_param("subtheme")
         page.template_params["topic"] = page.page_params.get_param("topic")
-        page.template_params["difficulty"] = int(difficulty) if difficulty else 1
 
         page.template_params["h1"] = page.template_params['year']
         page.template_params["h2"] = page.template_params["theme"]
-        page.template_params["h3"] = "Pitanje"
+        page.template_params["h3"] = page.template_params["topic"]
+        page.template_params["h4"] = "Browse"
 
 
         return
@@ -1179,17 +1166,5 @@ class Design_default(object):
 
         page.template_params["h1"] = "O name"
 
-
-
-    @staticmethod
-    @timer_section("render_about_us")
-    def render_about_us(page):
-
-        # Create dictionary entries that define menu
-        Design_default.add_menu(page)
-
-        page.template_params["template_name"] = "about_us.html.j2"
-
-        page.template_params["h1"] = "O name"
 
 

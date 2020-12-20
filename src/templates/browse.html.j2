@@ -228,10 +228,6 @@
 
     <!-- QUESTION START -->
     <div style="height: calc(100% - 90px); width:100%; overflow-y: auto; overflow-x: auto; ">
-      <div style="display:inline-block; width: 100%; text-align: center; margin-top: 30px; ">
-        {{ elements.stats("bar", template_params["total_bar"]["star1"], template_params["total_bar"]["star2"],
-                                template_params["total_bar"]["star3"], template_params["total_bar"]["missed"]) }}
-      </div>
 
       <div style="display:inline-block; width: 100%; text-align: center; margin-top: 12px; background: white; overflow-x: auto; ">
         {# DEBUG #}
@@ -243,14 +239,12 @@
 
         <div style="display:inline-block; width: 25%; text-align: left; margin-top: 10px; ">
           <div style="display:inline-block; margin-left: 20px; ">
-            {{elements.stars(template_params["difficulty"])}}
+            {# elements.stars(template_params["difficulty"]) #}
+            {{ elements.exit_icon("") }}
           </div>
         </div>
         <div style="display:inline-block; width: 73%; text-align: right; margin-top: 10px; ">
           <div style="display:inline-block; margin-right: 20px; ">
-
-            <!-- Preskoči zadatak -->
-            {{ elements.skip_icon() }}
 
             <!-- Pomoć -->
             {{ elements.help_icon() }}
@@ -271,7 +265,27 @@
     </div>
     <!-- QUESTION END -->
 
-    {{ elements.next("question_onnext()") }}
+    {# elements.next("question_onnext()") #}
+
+    <div class="" align="center" style="display:inline-block; width:100%; border:0px; padding:0px; margin: {{top_margin}}px 0 0 0">
+
+      <div id="next_button" class="sh-std-button" style="display: table; width: 100%; height: 40px; margin: 0; 
+                  background-color: white; " onclick="{{onclick}}">
+        <div style="display: table-cell; vertical-align: middle; text-align: middle; width: 60px">
+          {{ elements.scooter_backward("sc_prev", "") }}
+        </div>
+        <div class="sh_lato_font" style="display: table-cell; vertical-align: middle; 
+                  text-align: middle; width: 181px;">
+            <div id="next_text" style="margin-right:14px; font-size: 18px; color: #148f91; opacity:0.4;">
+              PROVERI
+            </div>
+        </div>
+        <div style="display: table-cell; vertical-align: middle; text-align: middle; width: 60px">
+          {{ elements.scooter_forward("sc_next", "") }}
+        </div>
+      </div>
+    </div>
+
 
     <script>
       {% if template_params["debug_checkall"] %}
@@ -279,10 +293,10 @@
         function sendFeedbackToServer(a,b,c) {};
       {% endif %}
 
-      document.getElementById("next_text").innerHTML = "PROVERI";
+      //document.getElementById("next_text").innerHTML = "PROVERI";
 
       // Immediately enable next
-      next_callback(true, "");
+      //next_callback(true, "");
     </script>
 
 
