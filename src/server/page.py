@@ -467,10 +467,11 @@ class Page(object):
                         "random_vals": ""}
 
             print_error = True
-            # Do not alert about error "popup_closed_by_user" because we cannot do much about it
+            # Do not alert about error "popup_closed_by_user" or "popup_blocked_by_browser" because we cannot do much about it
             try:
                 error_msg_json = json.loads(args["comment"])
-                if error_msg_json["error"].strip() == "popup_closed_by_user":
+                if error_msg_json["error"].strip() == "popup_closed_by_user" or \
+                   error_msg_json["error"].strip() == "popup_blocked_by_browser":
                     print_error = False
             except:
                 pass
