@@ -516,10 +516,23 @@ class Page(object):
                         "shown_solutions": args["shown_solutions"] if "shown_solutions" in args.keys() else "",
                         "random_vals": random_vals}
 
+            appVersion = str(args['appVersion']) if 'appVersion' in args.keys() else ""
+            userAgent = str(args['userAgent']) if 'userAgent' in args.keys() else ""
+            appName = str(args['appName']) if 'appName' in args.keys() else ""
+            cpuClass = str(args['cpuClass']) if 'cpuClass' in args.keys() else ""
+            platform = str(args['platform']) if 'platform' in args.keys() else ""
+            plugins = str(args['plugins']) if 'plugins' in args.keys() else ""
+            systemLanguage = str(args['systemLanguage']) if 'systemLanguage' in args.keys() else ""
+            userLanguage = str(args['userLanguage']) if 'userLanguage' in args.keys() else ""
+
             if 'type' in args.keys() and args["type"] == "JS_ERROR":
-                logging.error("JS_ERROR feedback: user_id={}, href={}, q_id={}, l_id={}, language={}, type={}, comment={}, random_vals={}".format( 
+                logging.error("JS_ERROR feedback: user_id={}, href={}, q_id={}, l_id={}, language={}, "
+                            "type={}, comment={}, random_vals={}, appVersion={}, userAgent={}, appName={}, "
+                            "cpuClass={}, platform={}, plugins={}, systemLanguage={}, userLanguage={}, html={}".format( 
                             str(user_id), str(href), str(args["q_id"]), str(l_id), 
-                            str(language), str(args["type"]), str(args["comment"]), random_vals))
+                            str(language), str(args["type"]), str(args["comment"]), random_vals, 
+                            appVersion, userAgent, appName, cpuClass, platform, plugins, systemLanguage, userLanguage,                            
+                            str(args["html"])))
             else:
                 logging.debug("Register results: user_id={}, href={}, q_id={}, l_id={}, language={}, type={}, comment={}, random_vals={}".format( 
                             str(user_id), str(href), str(args["q_id"]), str(l_id), 
