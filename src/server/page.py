@@ -525,6 +525,7 @@ class Page(object):
             plugins = str(args['plugins']) if 'plugins' in args.keys() else ""
             systemLanguage = str(args['systemLanguage']) if 'systemLanguage' in args.keys() else ""
             userLanguage = str(args['userLanguage']) if 'userLanguage' in args.keys() else ""
+            pageHtml = str(args['html']) if 'html' in args.keys() else ""
 
             if 'type' in args.keys() and args["type"] == "JS_ERROR":
                 logging.error("JS_ERROR feedback: user_id={}, href={}, q_id={}, l_id={}, language={}, "
@@ -532,8 +533,7 @@ class Page(object):
                             "cpuClass={}, platform={}, plugins={}, systemLanguage={}, userLanguage={}, html={}".format( 
                             str(user_id), str(href), str(args["q_id"]), str(l_id), 
                             str(language), str(args["type"]), str(args["comment"]), random_vals, 
-                            appVersion, userAgent, appName, cpuClass, platform, plugins, systemLanguage, userLanguage,                            
-                            str(args["html"])))
+                            appVersion, userAgent, appName, cpuClass, platform, plugins, systemLanguage, userLanguage, pageHtml))
             else:
                 logging.debug("Register results: user_id={}, href={}, q_id={}, l_id={}, language={}, type={}, comment={}, random_vals={}".format( 
                             str(user_id), str(href), str(args["q_id"]), str(l_id), 

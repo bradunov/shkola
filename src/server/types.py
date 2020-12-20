@@ -238,6 +238,7 @@ class PageParameters(object):
     def delete_history(self):
         context.c.session.set("history", [])
         context.c.session.set("test_id", 0)
+        context.c.session.delete("browse_last_q")
 
         # Do not delete here as we call this after the start of the test
         # No need to delete, we'll just set to new

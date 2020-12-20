@@ -510,6 +510,7 @@ class Design_default(object):
     @staticmethod
     def _next_theme_url(page, theme, subtheme, topic, period, difficulty, l_id):
         return Design_default._next_theme_test_url(page, theme, subtheme, topic, period, difficulty, l_id)
+        #return Design_default._next_theme_browse_url(page, theme, subtheme, topic, period, difficulty, l_id)
 
 
 
@@ -1058,6 +1059,16 @@ class Design_default(object):
 
         page.template_params["next"] = url_next
         page.template_params["prev"] = url_prev
+        page.template_params["back"] = page.page_params.create_url(\
+            op = PageOperation.MENU_THEME, 
+            subtheme = "", 
+            topic = "", 
+            period = "", 
+            difficulty = "", 
+            l_id = "", 
+            beta = True if page.page_params.get_param("beta") else None
+        )
+
 
         
 

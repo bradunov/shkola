@@ -97,11 +97,11 @@
         var check = false;
         if (document.getElementById("popup_wrong_answer").style.visibility == "hidden") {
           // No need to (re-)check if the wrong answer form is open as the answers didn't change   
-          check = checkAll("SUBMIT", "{{template_params["root"]}}", 
+          check = checkAll("SUBMIT", "{{template_params["root"]}}", "TEST", 
                               "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}"); 
         }
         if (document.getElementById("popup_skip").style.visibility == "visible") {
-          checkAll("SKIP", "{{template_params["root"]}}", 
+          checkAll("SKIP", "{{template_params["root"]}}", "TEST", 
                               "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}"); 
           location.href = "{{template_params["next"]}}";
           return;

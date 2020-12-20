@@ -1098,6 +1098,7 @@ class Library(object):
 
         report = """
             var report = {};
+            report['mode'] = mode;
             report['q_id'] = q_id;
             report['l_id'] = l_id;
             report['language'] = language;
@@ -1146,7 +1147,7 @@ class Library(object):
 
         // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
         // root == URL root to which to post the results
-        function checkAll_""" + str(self.lib_id) + """(operation, root, q_id, l_id, language) {
+        function checkAll_""" + str(self.lib_id) + """(operation, root, mode, q_id, l_id, language) {
             q_correct=0; q_incorrect=0;
         """ + assign + "\n" \
             + cond + "\n" + """
@@ -1162,9 +1163,9 @@ class Library(object):
         }
 
         var checked_all = false;
-        function checkAll(operation, root, q_id, l_id, language) {
+        function checkAll(operation, root, mode, q_id, l_id, language) {
             checked_all = true;
-            return checkAll_""" + str(self.lib_id) + """(operation, root, q_id, l_id, language);
+            return checkAll_""" + str(self.lib_id) + """(operation, root, mode, q_id, l_id, language);
         }
         </script>
         """
