@@ -104,6 +104,7 @@ class Logging_handler_azure(logging.StreamHandler):
     def _get_user_info(self):
         user = ""
         session_id = ""
+        session_data = ""
 
         try:
             user = context.c.user
@@ -115,7 +116,12 @@ class Logging_handler_azure(logging.StreamHandler):
         except:
             pass
 
-        return user, session_id
+        try:
+            session_data = str(context.c.session.data())
+        except:
+            pass
+
+        return user, session_id, session_data
 
 
     def log_json(self, type, json_body, upload_immediately=False):
@@ -123,7 +129,7 @@ class Logging_handler_azure(logging.StreamHandler):
             json_body = [json_body]
         
         now = datetime.datetime.utcnow().isoformat()
-        user, session_id = self._get_user_info()
+        user, session_id, session_data = self._get_user_info()
 
         for i in json_body:
             i["type"] = type        
@@ -131,6 +137,7 @@ class Logging_handler_azure(logging.StreamHandler):
             i["time"] = now 
             i["user"] = user
             i["session_id"] = session_id
+            i["session_data"] = session_data
 
         with self._lock:
             self.log_msgs += json_body
@@ -142,7 +149,7 @@ class Logging_handler_azure(logging.StreamHandler):
 
     def emit(self, record):
         now = datetime.datetime.utcnow().isoformat()
-        user, session_id = self._get_user_info()
+        user, session_id, session_data = self._get_user_info()
 
         json_body = {
           "type" : "Logger", 
@@ -154,6 +161,7 @@ class Logging_handler_azure(logging.StreamHandler):
           "time" : now, 
           "user" : user,
           "session_id" : session_id,
+          "session_data" : session_data,
           "message" : record.msg
         }
 
