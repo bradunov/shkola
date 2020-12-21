@@ -5,6 +5,7 @@ import random
 import re
 from server.types import PageLanguage
 from server.library import Library
+from server.helpers import Transliterate
 # from server.timers import timer_section
 import logging
 
@@ -212,7 +213,8 @@ class Question(object):
 
         # This seems to work fine for the text. However, it does not 
         # transliterate string variables. We need to instrument the questions.
-        # b = Transliterate.transliterate(b, Transliterate.rs)
+        if False:
+            b = Transliterate.transliterate(b, Transliterate.rs)
 
             
         # Skip prettyfication between special tags that embbed HTML, such as start_table and end_table
