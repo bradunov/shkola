@@ -191,7 +191,7 @@ class PageParameters(object):
         "period" : "",
         "difficulty" : "",
         "q_num" : "",
-        "beta" : ""
+        "beta" : True
     }
 
 
@@ -375,6 +375,12 @@ class PageParameters(object):
         # Process actions from GET parameters
         for k,v in args.items():
             if k in self._default_actions.keys() or k in self._default_states.keys():
+                # If v empty string use the default value
+                if not v:
+                    if k in self._default_actions.keys():
+                        v = self._default_actions[k]
+                    else:
+                        v = self._default_states[k]
                 self._params[k] = v
                 if session and k in self._default_states.keys():
                     session.set(k, v)
