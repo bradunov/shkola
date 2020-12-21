@@ -5,6 +5,8 @@ page = {}
 page['title'] = 'Shkola'
 page['item_path'] = 'item?url='
 
+page['beta'] = True
+
 page['google_signin_client_id'] = ""
 page['google_site_verification'] = ""
 

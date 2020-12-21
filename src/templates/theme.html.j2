@@ -424,7 +424,6 @@
                 {% set topic_space_bottom = 5 %}
               {% endif %}
 
-
               <script>
                 el_list_link[ "{{topic_button}}" ]= '{{tp['link']}}';
                 el_list_state[ "{{topic_button}}" ] = false;
@@ -443,10 +442,21 @@
                             onclick="subtheme_onclick('{{topic_button}}')">
                   <div class="sh_lato_font" style="margin-left: 25px;  
                             width: 100%; 
+              {% if 'font-size' in tp.keys() %}
+                            font-size: {{ tp['font-size'] }};
+              {% else %}
                             font-size: 12px;
+              {% endif %}
+              {% if 'font-weight' in tp.keys() %}
+                            font-weight: {{ tp['font-weight'] }};
+              {% endif %}
                             display: inline-block;
                             margin-top: {{topic_space_top}}px;
+              {% if 'color' in tp.keys() %}
+                            color: {{ tp['color'] }};
+              {% else %}
                             color: #666666;
+              {% endif %}
                             text-align: left;">                      
                     {{ tp['title'] }}
                   </div>

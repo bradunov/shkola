@@ -506,11 +506,13 @@ class Design_default(object):
 
 
 
-    #DEBUG TMP
+    # BROWSE
     @staticmethod
     def _next_theme_url(page, theme, subtheme, topic, period, difficulty, l_id):
-        return Design_default._next_theme_test_url(page, theme, subtheme, topic, period, difficulty, l_id)
-        #return Design_default._next_theme_browse_url(page, theme, subtheme, topic, period, difficulty, l_id)
+        if context.c.session.get("beta"):
+            return Design_default._next_theme_browse_url(page, theme, subtheme, topic, period, difficulty, l_id)
+        else:
+            return Design_default._next_theme_test_url(page, theme, subtheme, topic, period, difficulty, l_id)
 
 
 
@@ -605,19 +607,42 @@ class Design_default(object):
                                 subtheme_dict[subtheme] = subtheme_d
                                 subtheme_list.append(subtheme_d)
 
+
+                                # BROWSE
+                                if context.c.session.get("beta"):
+                                    link = Design_default._next_theme_test_url(
+                                                page = page, 
+                                                theme = theme.title().strip(), 
+                                                subtheme = subtheme, 
+                                                topic = "*", 
+                                                period = "*", 
+                                                difficulty = "*", 
+                                                l_id = content[page.page_params.get_param("year")][theme]["name"])
+                                else:
+                                    link = Design_default._next_theme_url(
+                                                page = page, 
+                                                theme = theme.title().strip(), 
+                                                subtheme = subtheme, 
+                                                topic = "*", 
+                                                period = "*", 
+                                                difficulty = "*", 
+                                                l_id = content[page.page_params.get_param("year")][theme]["name"])
+
                                 topic_d = {
                                     'title' : "Sve teme",
                                     'rank_topic' : "0",
                                     'min_period' : "0",
-                                    'link' : Design_default._next_theme_url(
-                                            page = page, 
-                                            theme = theme.title().strip(), 
-                                            subtheme = subtheme, 
-                                            topic = "*", 
-                                            period = "*", 
-                                            difficulty = "*", 
-                                            l_id = content[page.page_params.get_param("year")][theme]["name"])
+                                    'link' : link
                                 }
+
+                                # BROWSE
+                                if context.c.session.get("beta"):
+                                    topic_d['rank_topic'] = "9999"
+                                    topic_d['title'] = "TATAMATA bira"
+                                    topic_d['color'] = Design_default._get_color(int_year)
+                                    topic_d['font-weight'] = 'bolder'
+                                    topic_d['font-size'] = '12px'                                    
+
                                 subtheme_d['topics_dir']["all"] = topic_d
                                 subtheme_d['topics'].append(topic_d)
 
@@ -725,6 +750,11 @@ class Design_default(object):
         page.template_params["h2"] = page.template_params["theme"]
         page.template_params["h3"] = page.template_params["topic"]
         page.template_params["h4"] = "Start test"
+
+        if context.c.session.get("beta"):
+            page.template_params["beta"] = True
+        else:
+            page.template_params["beta"] = False
 
 
         test = List(page)
