@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang='{{template_params["lang"]}}'>
+  <head>
+
+    {% import 'elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+    {{ elements.init_elements() }}
+    {{ elements.standard_background(template_params) }}
+
+    <meta name="page" content="question">
+
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+
+  </head>
+
+  <body style="overscroll-behavior: none">
+    {{ elements.standard_body(template_params) }}
+
+    <!-- MOBILE MENU START -->
+    {% import 'menu.html.j2' as menu %}
+    {{ menu.include() }}
+    {{ menu.start_head() }}
+
+      <div style="display:inline-block; text-align:left; height: 36px; margin-left: 37px; margin-top: 8px">
+        <div class="sh_lato_font" style="display:inline-block; color: #dc3d39; font-size: 14px;">
+          {{template_params["year"].upper()}}
+        </div>
+        <div class="sh_lato_font" style="display:inline-block; color: #636661; font-size: 14px;">
+          razred
+        </div>
+        <br>
+        <div class="sh_chalk_font" style="display:inline-block;color: #489cba; font-size: 14px;">
+          {{ elements.color_string(template_params["theme"], -4) }}
+        </div>
+        {% if template_params["subtheme"].strip() != "*" %}
+        <div class="sh_lato_font" style="display:inline-block;color: #636661; font-size: 14px;">
+          / {{template_params["subtheme"].capitalize()}}
+        </div>
+        {% endif %}
+      </div>
+
+    {{ menu.end_head(template_params) }}
+    {{ menu.dropdowns(template_params) }}
+    <!-- MENU END -->
+
+
+    <script>
+
+      var solved = false;
+      var showed_sol = false;
+      //var showed_wrong = false;
+
+      /*
+      function toggle_feedback(visible) {
+          var feedback_form = document.getElementById("feedback");
+          var sad_mosnter = document.getElementById("sad_monster");
+          if (visible) {
+            feedback_form.style.display = "inline-block";
+            sad_mosnter.style.display = "none";
+          } else {
+            feedback_form.style.display = "none";
+            sad_mosnter.style.display = "inline-block";
+          }
+      }
+      */
+
+      function next_emphasize() {
+        document.getElementById("next_text").style.color = "white";
+        document.getElementById("next_button").style.background = "#6AB288";
+        document.getElementById("sc_prev_path_1").style.fill = "white";
+        document.getElementById("sc_prev_path_2").style.fill = "white";
+        document.getElementById("sc_next_path_1").style.fill = "white";
+        document.getElementById("sc_next_path_2").style.fill = "white";
+      }
+
+
+      function question_show_solution() {
+        document.getElementById("next_text").innerHTML = "PONOVI";
+        document.getElementById('ic_help').style.display='none';
+        //showed_wrong = false;
+        showed_sol = true;
+        clearAll();
+        addSolutionAll();
+      }
+
+      function question_report_problem() {
+        if (document.getElementById('fb_problem').checked ||
+            document.getElementById('fb_unclear').checked ||
+            document.getElementById('fb_difficult').checked ||
+            document.getElementById('fb_easy').checked ||
+            document.getElementById('fb_other').checked)
+        {
+          sendFeedbackToServer('{{template_params['root']}}',
+              document.getElementById('fb_problem').checked?'problem':(
+                document.getElementById('fb_unclear').checked?'unclear':(
+                document.getElementById('fb_difficult').checked?'unclear':(
+                document.getElementById('fb_easy').checked?'unclear':'other'))),
+              '{{template_params['q_id']}}', '{{template_params['l_id']}}',
+              '{{template_params['language']}}',
+              document.getElementById('fb_komentar').value);
+
+          popup_toggle_report_problem();
+          document.getElementById('ic_problem').style.display='none';
+        } else {
+          popup_toggle_report_problem();
+        }
+      }
+
+
+      function question_wrong_answer() {
+        if (document.getElementById("wr_again").checked) {
+          //document.getElementById("wrong_answer").style.visibility = "hidden";
+          popup_toggle_wrong_answer("hidden");
+          //document.getElementById("next_text").innerHTML = "PROVERI";
+          //showed_wrong = false;
+          // Delete all wrong answers
+          // NB: we decided not to delete wrong answers so that the kids knew what went wrong
+          //clearAll();
+        } else if (document.getElementById("wr_solution").checked) {
+          popup_toggle_wrong_answer("hidden");
+          popup_toggle_reveal("visible");
+        }
+      }
+
+
+      function question_onnext() {
+        console.log("1");
+        if (solved || showed_sol) {
+          if (showed_sol) {
+            checkAll("SHOWED", "{{template_params["root"]}}", "BROWSE", 
+                                "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}");
+          }
+          // Reload with new values
+          location.href = window.location.href;
+          return;
+        }
+        console.log("2");
+        var check = false;
+        if (document.getElementById("popup_wrong_answer").style.visibility == "hidden") {
+          // No need to (re-)check if the wrong answer form is open as the answers didn't change
+          check = checkAll("SUBMIT", "{{template_params["root"]}}", "BROWSE",
+                              "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}");
+        }
+        console.log("3");
+        if (check) {
+          solved = true;
+
+          // Prevent accidental Help after correct solution
+          document.getElementById('ic_help').style.display='none';
+
+          make_monster_visible();
+          document.getElementById("cup1").style.visibility = "visible";
+          document.getElementById("cup2").style.visibility = "visible";
+          document.getElementById("cup3").style.visibility = "visible";
+          document.getElementById("cup4").style.visibility = "visible";
+          document.getElementById("cup5").style.visibility = "visible";
+          document.getElementById("next_text").innerHTML = "PONOVI";
+        } else {
+          console.log("5");
+          //if (!showed_wrong) {
+          if (document.getElementById("popup_wrong_answer").style.visibility == "hidden") {
+            popup_toggle_wrong_answer("visible");
+            console.log("6");
+          } else {
+            console.log("7");
+            if (document.getElementById("wr_again").checked) {
+              //document.getElementById("wrong_answer").style.visibility = "hidden";
+              popup_toggle_wrong_answer("hidden");
+              document.getElementById("next_text").innerHTML = "PROVERI";
+              //showed_wrong = false;
+              // Delete all wrong answers
+              // NB: we decided not to delete wrong answers so that the kids knew what went wrong
+              clearAll();
+              console.log("8");
+            } else if (document.getElementById("wr_solution").checked) {
+              //document.getElementById("wrong_answer").style.visibility = "hidden";
+              popup_toggle_wrong_answer("hidden");
+              popup_toggle_reveal("visible");
+              question_show_solution();
+              console.log("9");
+            } 
+          }
+        }
+      }
+    </script>
+
+
+    <!-- QUESTION START -->
+    <div style="height: calc(100% - 90px); width:100%; overflow-y: auto; overflow-x: auto; ">
+
+      <div style="display:inline-block; width: 100%; text-align: center; margin-top: 12px; background: white; overflow-x: auto; ">
+        {# DEBUG #}
+        {% if "debug" in template_params.keys() %}
+          <div style="display:none; width: 100%; text-align: left; margin-top: 0px">
+            {{template_params["debug"]}}
+          </div>
+        {% endif %}
+
+        <div style="display:inline-block; width: 25%; text-align: left; margin-top: 10px; ">
+          <div style="display:inline-block; margin-left: 20px; ">
+            {# elements.stars(template_params["difficulty"]) #}
+            {{ elements.exit_icon('location.href = "' ~ template_params["back"] ~ '"') }}
+          </div>
+        </div>
+        <div style="display:inline-block; width: 73%; text-align: right; margin-top: 10px; ">
+          <div style="display:inline-block; margin-right: 20px; ">
+
+            <!-- Pomoć -->
+            {{ elements.help_icon() }}
+
+            <!-- Prijavi problem -->
+            {{ elements.feedback_icon() }}
+
+          </div>
+        </div>
+        <div class="sh_chalk_font"
+             style="display:inline-block; width: calc(100% - 16px); text-align: center; margin: 11px 8px 8px 8px; font-size: 18px;">
+
+          {{template_params["question"]}}
+
+        </div>
+
+      </div>
+    </div>
+    <!-- QUESTION END -->
+
+    {# elements.next("question_onnext()") #}
+
+    <div class="" align="center" style="display:inline-block; width:100%; border:0px; padding:0px; margin: {{top_margin}}px 0 0 0">
+
+      <div id="next_button" class="sh-std-button" style="display: table; width: 100%; height: 40px; margin: 0; 
+                  background-color: white; ">
+        <div style="display: table-cell; vertical-align: bottom; text-align: middle; width: 60px">
+          {% if template_params["prev"] %}
+            {{ elements.scooter_backward("sc_prev", 'location.href = "' ~ template_params["prev"] ~ '"') }}
+          {% endif %}
+        </div>
+        <div class="sh_lato_font" style="display: table-cell; vertical-align: middle; 
+                  text-align: middle; width: 181px;" onclick="question_onnext()">
+            <div id="next_text" style="margin-right:14px; font-size: 18px; color: #148f91; ">
+              PROVERI
+            </div>
+        </div>
+        <div style="display: table-cell; vertical-align: bottom; text-align: middle; width: 60px">
+          {% if template_params["next"] %}
+            {{ elements.scooter_forward("sc_next", 'location.href = "' ~ template_params["next"] ~ '"') }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      {% if template_params["debug_checkall"] %}
+        function checkAll(a,b,c,d) {return false;}
+        function sendFeedbackToServer(a,b,c) {};
+      {% endif %}
+    </script>
+
+
+
+
+    {{elements.cup("cup1", 20, 10)}}
+    {{elements.cup("cup2", 80, 50)}}
+    {{elements.cup("cup3", 20, 70)}}
+    {{elements.cup("cup4", 55, 60)}}
+    {{elements.cup("cup5", 70, 30)}}
+
+
+    {% set monster_opt = (range(3) | random) %}
+
+    {% if monster_opt == 0 %}
+      {{elements.bravo()}}
+    {% elif monster_opt == 1 %}
+      {{elements.bravo2()}}
+    {% else %}
+      {{elements.bravo3()}}
+    {% endif %}
+
+
+
+    <!-- WRONG POPUP -->
+    {{elements.start_popup("wrong_answer", "top: 127px; left: 0%;
+         max-height: calc(100% - 127px);
+         margin-left: 35px; margin-right: 35px; 
+         width: calc(100% - 70px); text-align: center; background: white; overflow-y: auto;
+         border: 3px solid #148f91; box-shadow: 0px 5px 5px #dddddd;",
+         "calc(100% - 0px)", "50px")}}
+
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center;
+                  margin-top: 17px; font-size: 18px;'>
+        Ne baš, zadatak nije skroz tačan.
+      </div>
+
+      <div style='display:inline-block; width: 100%; text-align: center; margin-top: 53px'>
+        <svg xmlns="http://www.w3.org/2000/svg" width="131.909" height="120.939" viewBox="0 0 131.909 120.939">
+            <defs>
+                <style>
+                    .cls-1{fill:#148f91}
+                </style>
+            </defs>
+            <g id="noun_Sad_Monster_1925469_1_">
+                <g id="Group_51">
+                    <path id="Path_200" d="M25.9 19.6a2.006 2.006 0 0 0 2-2 1.268 1.268 0 0 0-.1-.6 1.012 1.012 0 0 1-.7.4.9.9 0 0 1-.9-.9.842.842 0 0 1 .4-.7 1.7 1.7 0 0 0-.7-.1 1.951 1.951 0 1 0 0 3.9zm-.6-2.1a.5.5 0 1 1-.5.5.472.472 0 0 1 .5-.5z" class="cls-1" transform="translate(24.789 9.818)"/>
+                    <path id="Path_201" d="M41.3 17.4a.9.9 0 0 1-.9-.9.842.842 0 0 1 .4-.7 1.7 1.7 0 0 0-.7-.1 2 2 0 1 0 2 2 1.268 1.268 0 0 0-.1-.6 1.493 1.493 0 0 1-.7.3zm-1.8 1.1a.5.5 0 1 1 .5-.5.472.472 0 0 1-.5.5z" class="cls-1" transform="translate(40.907 9.842)"/>
+                    <path id="Path_202" d="M131.551 87.829A66.418 66.418 0 0 0 122.675 63c1.651 1.231 3.3 2.257 4.954 3.283a46.99 46.99 0 0 0-19.4-21.135c33.85-3.283 27.245-23.392 14.035-24.623-8.256-.821-14.448 5.951-17.957 13.338a27.954 27.954 0 0 1 .826-7.387 10.339 10.339 0 0 0-4.747 6.156 19.308 19.308 0 0 1 1.651-10.26c-1.445.616-3.1 1.026-4.541 1.642 1.032-2.462 1.858-4.719 2.89-7.182-1.651 1.026-3.509 1.847-5.16 2.873l3.1-4.925c-4.128.616-8.256 1.436-12.178 2.052 1.858-1.231 3.715-2.668 5.573-3.9a34.568 34.568 0 0 0-14.242 4.1c1.238-2.052 2.27-4.309 3.509-6.361a38.633 38.633 0 0 0-6.6 3.078 40 40 0 0 1 5.779-7.387 16.213 16.213 0 0 0-10.32 8 14.172 14.172 0 0 0-4.954-9.028 21.676 21.676 0 0 1 3.1 8.618A32.45 32.45 0 0 1 59.31 3.7a130.856 130.856 0 0 1 4.128 12.722 31.629 31.629 0 0 0-10.526-5.951c1.238 2.052 2.27 4.309 3.509 6.361a39.119 39.119 0 0 0-14.242-4.1c1.858 1.231 3.715 2.668 5.366 3.9-4.128-.616-8.256-1.436-12.178-2.052l3.1 4.925c-1.651-1.026-3.509-2.052-5.16-2.873a74.557 74.557 0 0 1 2.89 7.182 40.3 40.3 0 0 0-4.541-1.642 17.616 17.616 0 0 1 1.858 10.26c-.619-2.668-2.477-4.514-4.541-6.156a30.041 30.041 0 0 1 .826 7.387c-3.715-7.387-9.7-14.158-17.957-13.338-13.21 1.231-19.815 21.34 14.035 24.623a45.009 45.009 0 0 0-19.4 21.135c1.651-1.231 3.3-2.257 4.954-3.283a66.418 66.418 0 0 0-8.882 24.824 16.606 16.606 0 0 1 2.064-3.694c.413 12.722-3.3 26.47 2.89 30.779a5.531 5.531 0 0 0 .413 5.335 8.08 8.08 0 0 0 2.477-4.1 11.931 11.931 0 0 0 3.922.205h.206a5.245 5.245 0 0 0 2.89 4.309 7.527 7.527 0 0 0 .206-4.719 10.814 10.814 0 0 0 3.1-1.436 6.087 6.087 0 0 0 4.541 1.847 7.081 7.081 0 0 0-2.683-4.309c2.89-6.977-4.747-19.493-6.192-26.059l2.477 4.309A30.914 30.914 0 0 1 20.3 78.6a30.438 30.438 0 0 1 .413 4.309 40 40 0 0 1 1.651-11.08.751.751 0 0 1-.206.616 8.168 8.168 0 0 1 3.1-2.052 25.858 25.858 0 0 0-1.858 9.639c0 8.208 4.334 17.441 14.448 23.6 0 5.335-.826 11.286-3.715 13.132-.206.205-13 5.951-.206 7.387a73.972 73.972 0 0 0 15.067-.205c6.811-.821 7.843-3.078 7.018-6.771-.619-2.668-1.445-5.13-2.064-7.592a79.607 79.607 0 0 0 12.8 1.231 80.8 80.8 0 0 0 12.8-1.026 51.868 51.868 0 0 0-2.064 7.592c-.826 3.693.206 5.951 7.018 6.771a73.972 73.972 0 0 0 15.067.205c12.8-1.231 0-7.182-.206-7.387-2.89-1.847-3.715-7.592-3.715-12.722 14.242-8.208 16.719-22.571 12.59-33.652a6.343 6.343 0 0 1 3.1 2.052.751.751 0 0 0-.206-.616 34.786 34.786 0 0 1 1.651 11.286 30.44 30.44 0 0 0 .413-4.309 30.915 30.915 0 0 1 1.43 11.492l2.477-4.309c-1.445 6.566-8.875 19.288-6.192 26.059a8.644 8.644 0 0 0-2.683 4.309 5.415 5.415 0 0 0 4.541-1.847 7.2 7.2 0 0 0 3.1 1.436 7.519 7.519 0 0 0 .206 4.719 5.245 5.245 0 0 0 2.89-4.309h.206a11.931 11.931 0 0 0 3.922-.205 8.08 8.08 0 0 0 2.477 4.1c1.032-1.436 1.445-3.9.413-5.335 6.192-4.514 2.683-18.262 2.89-30.779a7.614 7.614 0 0 1 2.678 3.49zM110.91 39.4c2.27-9.028 11.765-14.569 17.751-10.67l.619.616c.206.205.413.616.619.821.413 1.026 0 2.257-1.032 3.488-3.715 5.13-10.526 8.618-17.957 5.745zM4.82 33.658C3.788 32.427 3.375 31.2 3.788 30.17c.206-.205.413-.616.619-.821l.619-.616c5.986-3.9 15.687 1.642 17.751 10.67-7.224 2.873-14.036-.615-17.957-5.745zm19.2 33.857c.206-.205.206-.616.413-.821h.206a2.834 2.834 0 0 0-.624.821zm26.621-48.836c7.637-.821 13.829 4.309 13.829 11.491s-6.192 13.748-13.829 14.569-13.829-4.309-13.829-11.491S43 19.5 50.641 18.679zM36.606 83.725a31.4 31.4 0 0 1 6.811-11.9c-.826-1.026-2.89-3.9-2.89-5.13.206-3.078 3.922-7.8 7.637-6.361 1.445.616 2.064 4.719 2.27 6.156 1.238-.616 2.683-1.231 3.922-1.847-.413-1.436-1.651-5.54-1.032-6.977 1.858-3.283 8.05-4.925 10.733-2.462 1.238 1.026.826 5.745.619 7.182a35.213 35.213 0 0 1 14.242 2.873c.826-13.543 11.352-3.078 9.494 1.026a17.961 17.961 0 0 1-2.064 3.693 28.97 28.97 0 0 1 8.669 13.542c-13.622-22.571-44.376-22.571-58.411.205zm46.647-38.986c-7.637-.821-13.829-7.387-13.829-14.569s6.192-12.312 13.829-11.491 13.829 7.387 13.829 14.569-6.193 12.311-13.829 11.491zm26.007 21.956a1.552 1.552 0 0 1 .413.821 1.064 1.064 0 0 0-.414-.822z" class="cls-1" transform="translate(-1.096 -3.7)"/>
+                </g>
+            </g>
+        </svg>
+      </div>
+
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;
+                  margin-top: 40px; font-size: 18px;'>
+        <label>
+          <input type='radio' id='wr_again' name="wr_input"
+                style='text-align: left; margin-right: 19px;' checked>
+          Hoću još jednu šansu!
+        </label>
+      </div><br>
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;
+                  margin-top: 15px; font-size: 18px;'>
+        <label>
+          <input type='radio' id='wr_solution' name="wr_input"
+                style='text-align: left; margin-right: 19px;' >
+          Daj da vidim rešenje!
+        </label>
+      </div><br>
+
+      {{elements.scooter_back_fwd('wr_but_prev', 'popup_toggle_wrong_answer()',
+          'wr_but_next', 'question_wrong_answer()')}}
+
+    {{elements.end_popup()}}
+    <!-- END WRONG POPUP -->
+
+
+
+
+
+
+
+    <!-- START REVEAL SOLUTION POPUP -->
+    {{elements.start_popup("reveal", "top: 127px; left: 0%;
+         max-height: calc(100% - 127px);
+         margin-left: 35px; margin-right: 35px; 
+         width: calc(100% - 70px); text-align: center; background: white; overflow-y: auto;
+         border: 3px solid #148f91; box-shadow: 0px 5px 5px #dddddd;",
+         "calc(100% - 0px)", "50px")}}
+
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center;
+                  margin-top: 44px; font-size: 18px; line-height: 1.56;'>
+        A možda i nije tako tako <br>
+        težak zadatak, <br>
+        da pokušaš ipak još jednom?
+      </div>
+
+      <div style='display:inline-block; width: 100%; text-align: center; margin-top: 20px'>
+        <svg width='90px' height='140px' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
+          <path d="M66.5005 0.241882C65.8837 0.240784 65.3828 0.739929 65.3817 1.35669L65.3817 5.8161C65.3817 6.43396 65.8826 6.93494 66.5005 6.93494 67.1184 6.93494 67.6193 6.43396 67.6193 5.8161L67.6193 1.35675C67.6182 0.73999 67.1173 0.240784 66.5005 0.241882ZM50.676 6.77313C50.0603 6.77655 49.564 7.27844 49.5674 7.89417 49.569 8.18518 49.6844 8.46405 49.8888 8.67114L53.0535 11.8238C53.4916 12.2533 54.1949 12.2463 54.6244 11.8083 55.047 11.3773 55.0481 10.6877 54.6269 10.2554L51.4622 7.10272C51.2543 6.89276 50.9715 6.77417 50.676 6.77307ZM82.324 6.77313C82.0281 6.77417 81.7448 6.89319 81.5368 7.10376L78.3721 10.2565C77.934 10.686 77.9271 11.3893 78.3566 11.8273 78.7861 12.2654 79.4894 12.2724 79.9275 11.8429 79.9336 11.8369 79.9396 11.8309 79.9455 11.8248L83.1102 8.67212C83.5427 8.23395 83.5382 7.52814 83.1 7.09552 82.8929 6.89111 82.614 6.77576 82.323 6.77411ZM66.4995 10.2745C59.6756 10.2745 53.0705 15.549 53.0705 23.0092 53.0705 32.1376 59.5378 34.4592 60.274 40.3771L72.725 40.3771C73.4622 34.4583 79.9285 32.1366 79.9285 23.0092 79.9285 15.551 73.3234 10.2764 66.5005 10.2764ZM63.0551 13.6539 63.159 13.6539C63.7747 13.6561 64.272 14.1571 64.2698 14.7728 64.2681 15.2371 63.9788 15.6518 63.5436 15.8137 60.7831 16.8542 58.7726 19.2688 58.2491 22.1721 58.1205 22.777 57.5258 23.1631 56.9209 23.0345 56.3415 22.9113 55.9582 22.3582 56.0464 21.7724 56.7043 18.1022 59.2478 15.0503 62.7394 13.7418 62.8394 13.6974 62.9455 13.6682 63.0541 13.6549ZM44.1188 22.5406C43.5031 22.5406 43.004 23.0398 43.004 23.6555 43.004 24.2712 43.5031 24.7704 44.1188 24.7704L48.5942 24.7703C49.2099 24.7703 49.709 24.2712 49.709 23.6555 49.709 23.0398 49.2099 22.5406 48.5942 22.5406ZM84.4048 22.5406C83.7891 22.5406 83.29 23.0398 83.29 23.6555 83.29 24.2712 83.7891 24.7704 84.4048 24.7704L88.8812 24.7703C89.4969 24.7703 89.996 24.2712 89.996 23.6555 89.996 23.0398 89.4969 22.5406 88.8812 22.5406ZM60.3449 42.6097 60.3449 44.8394 72.6551 44.8394 72.6551 42.6097ZM60.3449 47.069 60.3449 48.1839C60.3493 49.4166 61.3499 50.4136 62.5826 50.4136L64.2608 50.4136 64.2608 51.5284C64.2608 52.7645 65.2629 53.7666 66.499 53.7666 67.7351 53.7666 68.7372 52.7645 68.7372 51.5284L68.7372 50.4136 70.4154 50.4136C71.6481 50.4136 72.6487 49.4166 72.6531 48.1839L72.6531 47.069Z" fill="#148F91"/></g></g></g><g clip-path="url(#clip4)"><g clip-path="url(#clip5)"><g clip-path="url(#clip6)"><path d="M44.4558 77.2066C44.6293 77.7388 44.7734 78.2802 44.8875 78.8283L47.8252 93.2369 47.8062 93.2649C49.27 95.9488 50.6509 98.6896 51.9029 101.467 53.8524 105.809 57.4516 112.758 55.2883 117.609 52.2207 124.492 41.776 117.834 37.7022 116.093 34.8857 114.878 32.0693 113.666 29.2529 112.458 28.4602 114.416 27.6645 116.375 26.8657 118.334 25.8665 120.801 22.1845 120.105 22.1845 117.948 22.1929 117.651 22.2563 117.357 22.3713 117.082 23.4997 114.304 24.6252 111.529 25.7476 108.758 26.1295 107.497 27.4611 106.785 28.7218 107.166 28.8804 107.214 29.0336 107.279 29.1789 107.359 31.1374 108.197 33.0958 109.044 35.0633 109.883 39.2969 111.7 43.5406 113.923 47.9141 115.363 49.8536 116.004 50.7958 116.578 51.1685 114.77 52.0548 110.56 47.988 103.921 46.2264 100.352 45.4271 98.7325 44.5847 97.1318 43.7284 95.5401L43.2618 95.0315 42.0128 98.6896 39.4148 95.7989 38.1648 99.481 35.5819 96.6182 34.3418 100.281 31.7449 97.3906 30.4859 101.082 27.9119 98.21 26.6619 101.873 24.07 98.9893 21.7568 101.503 20.8065 117.862C20.4988 123.07 20.194 128.275 19.8923 133.476 19.8749 134.76 18.8449 135.8 17.5611 135.83L6.8276 135.83C3.82497 135.83 3.82497 131.122 6.8276 131.122L15.3698 131.122 16.1812 117.213C16.489 112.024 16.7937 106.839 17.0955 101.656L15.3419 99.9786 13.4124 90.5051C12.9458 90.7589 11.2021 91.7201 10.9973 91.852 10.7645 92.4515 10.3908 93.142 10.2609 93.4907 8.53558 98.1237 6.81661 102.753 5.10396 107.38L15.0361 115.657C15.5221 116.02 15.8143 116.586 15.8285 117.192 15.7287 118.58 14.5225 119.625 13.1344 119.525 12.6266 119.488 12.1417 119.299 11.7437 118.982 8.05996 115.921 4.37954 112.857 0.702444 109.789 0.0887289 109.195-0.142534 108.309 0.102919 107.491 2.12732 102.032 4.11974 96.5513 6.18411 91.0956 7.23827 88.3078 9.72731 86.783 12.3952 85.483 11.8468 82.703 12.0105 79.8295 12.8708 77.1296L5.85837 67.2375C4.88813 65.8625 5.19589 65.5518 6.54882 66.55L14.9881 72.7751C19.9441 65.3007 29.9955 63.2127 37.5183 68.0948L42.8421 59.021C43.7004 57.5611 44.1011 57.722 43.7464 59.3787L41.1634 71.2573C41.5932 71.7567 41.9919 72.2819 42.3575 72.83L62.9412 54.7773C65.1984 52.7999 68.5088 56.1143 66.2386 58.1017 58.975 64.4766 51.7141 70.8449 44.4558 77.2066ZM37.6202 75.8696C36.7577 71.8905 32.8327 69.364 28.8536 70.2266 24.8745 71.0892 22.348 75.0141 23.2106 78.9932 24.0653 82.9364 27.931 85.4599 31.8848 84.6557 35.8741 83.8446 38.4507 79.9531 37.6396 75.9637 37.6333 75.933 37.6269 75.9023 37.6202 75.8716Z" fill="#148F91"/><path d="M29.051 79.0971C27.3088 79.4552 25.6062 78.3332 25.2481 76.5911 24.8899 74.8489 26.0119 73.1462 27.7541 72.7881 29.4963 72.43 31.1989 73.5519 31.557 75.2941 31.9182 77.0317 30.8024 78.7331 29.0648 79.0943 29.0602 79.0952 29.0556 79.0961 29.051 79.0971ZM28.9961 74.108C28.6066 74.1911 28.3563 74.5719 28.4345 74.9623 28.5104 75.3501 28.8863 75.6029 29.2741 75.527 29.279 75.526 29.2839 75.525 29.2888 75.5239 29.6805 75.4476 29.9361 75.0683 29.8598 74.6767 29.8593 74.6743 29.8589 74.6719 29.8584 74.6696 29.7716 74.279 29.3884 74.0294 28.9961 74.108Z" fill="#148F91"/>
+        </svg>
+      </div>
+
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;
+                  margin-top: 22px; margin-left: 30px; font-size: 18px;'>
+        <label>
+          <input type='radio' id='rev_again' name="wr_input"
+                style='text-align: left; margin-right: 19px;' checked>
+          Hoću još jednu šansu!
+        </label>
+      </div><br>
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;
+                  margin-top: 15px; margin-left: 30px; font-size: 18px;'>
+        <label>
+          <input type='radio' id='rev_solution' name="wr_input"
+                style='text-align: left; margin-right: 19px;' >
+          Daj da vidim rešenje!
+        </label>
+      </div><br>
+
+      {{elements.scooter_back_fwd('rev_but_prev', 'popup_toggle_reveal();', 
+        'rev_but_next', 'popup_toggle_reveal(); if (document.getElementById("rev_solution").checked) question_show_solution();')}}
+
+    {{elements.end_popup()}}
+    <!-- END REVEAL SOLUTION POPUP -->
+
+
+
+    <!-- REPORT PROBLEM POPUP -->
+    {{elements.start_popup("report_problem", "top: 127px; left: 0%;
+         max-height: calc(100% - 127px);
+         margin-left: 35px; margin-right: 35px; 
+         width: calc(100% - 70px); text-align: center; background: white; overflow-y: auto;
+         border: 3px solid #148f91; box-shadow: 0px 5px 5px #dddddd;",
+         "calc(100% - 0px)", "50px")}}
+
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center;
+                  margin-top: 17px; font-size: 20px;'>
+        Prijavi problem!
+      </div><br>
+
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center;
+                  margin-top: 17px; font-size: 14px;'>
+        Klikni na kružić pored problema da bi TataMata što bolje shvatio i ispravio. 
+      </div><br>
+
+      <!-- Feedback form -->
+      {# <div id="feedback" style='display:none; width: 250px; text-align: left; border: 2px solid #148f91; margin-top: 26px; '> #}
+        <div id="feedback" class="sh_chalk_font" style='display:inline-block; text-align: left; margin: 12px 12px 0 25px; font-size: 16px; margin-top: 7px'>
+          <label>
+            <input type='radio' id='fb_problem' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
+            Nemam pojma o čemu se radi <br>
+            <div style="display:inline-block; margin-left: 41px;">u ovom zadatku</div>
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_unclear' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
+            Previše je težak
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_difficult' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
+            Pa ovo je prelako!!
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_easy' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
+            Ovaj zadatak ima grešku!
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_other' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
+            Drugo:
+          </label> <br>
+          <input type='text' id='fb_komentar' placeholder='Opiši problem' style='width: 219px; margin-top: 15px'> <br> <br>
+        </div>
+      {# </div> #}
+
+
+      <div style="display:block; width: 100%; text-align: center; margin-bottom: 15px">
+
+        {{elements.scooter_backward('prob_but_prev', 'popup_toggle_report_problem();')}}
+
+        <!-- Sad monster -->
+        <div style="display:inline-block; width: calc(100% - 174px); text-align: center;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="70.527" height="93.068" viewBox="0 0 70.527 93.068">
+              <defs>
+                  <style>
+                      .cls-2{fill:#148f91}
+                  </style>
+              </defs>
+              <g id="Group_166" transform="translate(-93.871 2.5)">
+                  <g id="noun_Flag_784078" transform="translate(94.371 -2)">
+                      <g id="Group_159">
+                          <path id="Path_498" fill="#148f91" stroke="#148f91" d="M38.342 957.862a1.038 1.038 0 0 1 1.01 1.063 1.055 1.055 0 0 1-.337.775v28.285h.736a.724.724 0 0 1 .642.742.715.715 0 0 1-.7.676H37a.709.709 0 0 1 0-1.417h.673v-16.18c-11.228-3.693-6.276 4.4-17.169.232V960.7c11.179 4.154 7.918-3.863 17.169-.277v-.72a1.055 1.055 0 0 1-.337-.775 1.037 1.037 0 0 1 1.01-1.063z" transform="translate(-20.5 -957.862)"/>
+                      </g>
+                  </g>
+                  <g id="noun_Monster_3288405" transform="translate(108.832 25.202)">
+                      <path id="Path_316" d="M35.332 35.2l-1.619 2.744-1.619-2.728-1.611 2.728-2.374-3.4v-9.869a17.931 17.931 0 0 1-9.588-6.166 12.146 12.146 0 0 1-2.05-4.308c-.478-1.927-.162-4.177-1.2-5.942a3.217 3.217 0 0 0-3.954-1.572c-2.368.778-3.377-2.945-1.027-3.723 4.879-1.6 8.555 2.251 9.426 6.752.856 4.432 1.541 7.4 5.78 9.727a19.92 19.92 0 0 0 2.744 1.218 13.584 13.584 0 0 1 1.634-4.84l-4.046-9.096c-.563-1.264-.262-1.464.671-.432l5.8 6.389a13.615 13.615 0 0 1 19.014 0l5.8-6.389c.933-1.033 1.233-.832.671.432l-4.046 9.095a13.635 13.635 0 0 1 1.657 5.01 14.377 14.377 0 0 1 7.992 9.048c1.888 6.2.832 13.6.832 19.993v11.776c0 2.474-3.854 2.482-3.854 0 0-8.74.285-17.526-.015-26.251-.131-3.969-1.935-7.985-4.848-10.127v9.28l-2.374 3.4-1.611-2.728-1.619 2.728-1.61-2.749-1.018 1.722v27.184h5.241a1.928 1.928 0 0 1 0 3.854h-7.168a1.953 1.953 0 0 1-1.927-1.927V37.916l-1.6-2.713-1.616 2.713v28.116a1.953 1.953 0 0 1-1.927 1.927h-7.165a1.928 1.928 0 0 1 0-3.854h5.241V36.922zm6.482-7.037a6.089 6.089 0 1 0-6.1-6.089 6.087 6.087 0 0 0 6.099 6.092z" class="cls-2" transform="translate(-8.954 -2.593)"/>
+                      <path id="Path_317" d="M37.483 23.8a3.141 3.141 0 1 0 3.145 3.137 3.135 3.135 0 0 0-3.145-3.137zm-.925 2.913a.705.705 0 1 1 .709-.709.707.707 0 0 1-.709.713z" class="cls-2" transform="translate(-4.145 -8.233)"/>
+                  </g>
+              </g>
+          </svg>
+        </div> 
+
+        {{elements.scooter_forward('prob_but_next', 'question_report_problem();')}}
+
+      </div>
+
+    </div>
+
+    {{elements.end_popup()}}
+    <!-- END REPORT PROBLEM POPUP -->
+
+
+
+  </body>
+</html>

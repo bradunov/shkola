@@ -304,7 +304,9 @@ class Design_default(object):
 
 
 
-
+    @staticmethod
+    def _add_language(page, s):
+        return page.page_params.get_param("language").value + "/" + s
 
 
     @staticmethod
@@ -319,7 +321,7 @@ class Design_default(object):
         page.page_params.set_param("q_id", "")
         page.page_params.set_param("l_id", "")
 
-        page.template_params["template_name"] = "user.html.j2"
+        page.template_params["template_name"] = Design_default._add_language(page, "user.html.j2")
 
         page.template_params["h1"] = "Login"
 
@@ -380,7 +382,7 @@ class Design_default(object):
         page.page_params.set_param("q_id", "")
         page.page_params.set_param("l_id", "")
 
-        page.template_params["template_name"] = "year.html.j2"
+        page.template_params["template_name"] = Design_default._add_language(page, "year.html.j2")
 
         page.template_params["h1"] = "Izaberi godinu"
 
@@ -438,7 +440,7 @@ class Design_default(object):
                     i = i+1
 
         else:
-            page.template_params["template_name"] = "error.html.j2"
+            page.template_params["template_name"] = Design_default._add_language(page, "error.html.j2")
             page.template_params["error_msg"] = "No content"
 
 
@@ -538,7 +540,7 @@ class Design_default(object):
 
         if content and page.page_params.get_param("year") in content.keys():
             
-            page.template_params["template_name"] = "theme.html.j2"
+            page.template_params["template_name"] = Design_default._add_language(page, "theme.html.j2")
 
             page.template_params['year'] = page.page_params.get_param("year").upper().strip()
 
@@ -701,7 +703,7 @@ class Design_default(object):
 
 
         else:
-            page.template_params["template_name"] = "error.html.j2"
+            page.template_params["template_name"] = Design_default._add_language(page, "error.html.j2")
             if not page.page_params.get_param("year") in content.keys():
                 page.template_params["error_msg"] = "No year {} in content".format(page.page_params.get_param("year"))
             else:
@@ -713,7 +715,7 @@ class Design_default(object):
     @timer_section("render_confirm_anon_page")
     def render_confirm_anon_page(page):
 
-        page.template_params["template_name"] = "confirm_anon.html.j2"
+        page.template_params["template_name"] = Design_default._add_language(page, "confirm_anon.html.j2")
 
         page.template_params["next"] = page.page_params.create_url(\
                     op = PageOperation.MENU_YEAR, 
@@ -736,7 +738,7 @@ class Design_default(object):
         Design_default.add_menu(page)
 
 
-        page.template_params["template_name"] = "test_intro.html.j2"
+        page.template_params["template_name"] = Design_default._add_language(page, "test_intro.html.j2")
 
         page.template_params["year"] = page.page_params.get_param("year").title()
         page.template_params["theme"] = page.page_params.get_param("theme").title()
@@ -832,7 +834,7 @@ class Design_default(object):
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
 
-        page.template_params["template_name"] = "test.html.j2"
+        page.template_params["template_name"] = Design_default._add_language(page, "test.html.j2")
 
         q_id = page.page_params.get_param("q_id")
 
@@ -967,7 +969,7 @@ class Design_default(object):
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
 
-        page.template_params["template_name"] = "summary.html.j2"
+        page.template_params["template_name"] = Design_default._add_language(page, "summary.html.j2")
 
         # page.template_params["results"] = []
         # page.template_params["correct"] = 0
@@ -1024,7 +1026,7 @@ class Design_default(object):
         Design_default.add_menu(page)
 
 
-        page.template_params["template_name"] = "browse_intro.html.j2"
+        page.template_params["template_name"] = Design_default._add_language(page, "browse_intro.html.j2")
 
         page.template_params["year"] = page.page_params.get_param("year").title()
         page.template_params["theme"] = page.page_params.get_param("theme").title()
@@ -1066,7 +1068,7 @@ class Design_default(object):
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
 
-        page.template_params["template_name"] = "browse.html.j2"
+        page.template_params["template_name"] = Design_default._add_language(page, "browse.html.j2")
 
         q_id = page.page_params.get_param("q_id")
 
@@ -1213,7 +1215,7 @@ class Design_default(object):
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
 
-        page.template_params["template_name"] = "about.html.j2"
+        page.template_params["template_name"] = Design_default._add_language(page, "about.html.j2")
 
         page.template_params["h1"] = "O name"
 

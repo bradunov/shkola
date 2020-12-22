@@ -189,7 +189,7 @@ def prepare_user_stats_chart(pg, u_ID):
 
     user_stats=render_stats_data(pg, u_ID)
 
-    pg.template_params["template_name"] = "stats.html.j2"
+    pg.template_params["template_name"] = pg.page_params.get_param("language").value + "/" + "stats.html.j2"
 
     #pg.template_params["class_gen_str"] = pg.get_messages()['messages']['class']
     pg.template_params["class_gen_str"] = 'Razred'

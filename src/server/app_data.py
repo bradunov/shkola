@@ -2,6 +2,8 @@ from server.repository import Repository
 import server.storage
 from server.user_db import UserDB
 from server.session import SessionDB
+from server.helpers import Transliterate
+from copy import deepcopy
 
 import jinja2
 
@@ -105,6 +107,18 @@ class AppData:
                     if lang["key"] in self.messages.keys():
                         logging.error("Language with key {} defined twice!".format(lang["key"]))
                     self.messages[lang["key"].lower()] = lang
+
+                    # Add cyrillic for Serbian
+                    if lang["key"].lower() == "rs":
+                        lang_c = deepcopy(lang)
+                        lang_c["key"] = "rsc"
+                        lang_c["language"] = Transliterate.rs(lang_c["language"])
+                        lang_c["country"] = Transliterate.rs(lang_c["country"])
+                        for k,v in lang_c["messages"].items():
+                            lang_c["messages"][k] = Transliterate.rs(v)
+                        self.messages["rsc"] = lang_c
+
+
 
 
     def log_json(self, mode, json_body):

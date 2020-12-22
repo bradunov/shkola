@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% import 'dev/elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+
+  </head>
+  <body style="overscroll-behavior: none">
+  {{elements.js_error_block()}}
+
+  {{elements.menu(template_params["menu"]["choices"], template_params["menu"]["current_choice"], template_params["menu"]["choice_action"], 
+                  template_params["menu"]["languages"], template_params["menu"]["current_language"], template_params["menu"]["language_action"], 
+                  template_params["menu"]["operations"], template_params["menu"]["current_operation"], template_params["menu"]["operation_action"])}}
+
+
+
+  <!-- LIST HEADER -->
+  <div style='display:block;width=100%;background-color:#f080f0'>
+    List: <em>{{template_params["name"]}}</em><div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div> - 
+
+    {% for key, value in template_params["attributes"].items() %}
+      <div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>
+      {{key}} = <em> {{value}} </em> 
+    {% endfor %}
+  </div>
+
+  <div style='display:block;width=100%;background-color:#80f0f0'> List summary </div>
+    {% for subtheme, stval in template_params["summary"].items() %}
+      <div style='display:block;width=100%'>
+        <div style='display:inline-block;padding-left:18px;'> {{subtheme}}</div>
+      </div>
+      {% for topic, tval in stval.items() %}
+        <div style='display:block;width=100%'>
+          <div style='display:inline-block;padding-left:36px;'> 
+            {{topic}}: &nbsp; difficulties=[
+            {% for difficulty, dval in tval["difficulty"].items() %}
+              {{difficulty}}:{{dval}}
+            {% endfor %}
+            ] &nbsp; periods=[
+            {% for period, pval in tval["period"].items() %}
+              {{period}}:{{pval}}
+            {% endfor %}
+            ]
+          </div>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+
+  {% for q in template_params["questions"] %}
+    <!-- QUESTION HEADER -->
+    <div style='display:block;width=100%;background-color:#80f0f0'>
+      Question: <a href='{{q["link"]}}'><em>{{q["q_id"]}}</em></a>
+
+      {% for key, value in q["attributes"].items() %}
+        <div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>
+        {{key}} = <em> {{value}} </em> 
+      {% endfor %}
+    </div>
+
+    <div style='border-style:dotted;align-content:center;box-sizing:border-box;background-color:#ffffff'>
+
+      <div id="question" class="sh_mobile_frame sh_chalk_font" style='display: inline-block; border: 1px dotted black'>
+        <div style='display: inline-block; margin: 0 8px 0 8px;'>
+          {{q["text"]}}
+        </div>
+      </div>
+
+                
+      <!-- BUTTONS START -->
+      <div id='question' style='display:table; margin:0 auto;'>
+        <div id='question_buttons' style='display:block;text-align:center;padding-top:20px;padding-bottom:6px'>
+
+          <!-- CHECK BUTTON -->
+          <input type='button' style='font-size: 14px;' onclick='checkAll_{{q["lib_id"]}}()' value='Proveri'/>
+          <!-- END CHECK BUTTONS -->
+
+
+          <div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>
+          
+          <!-- CLEAR BUTTON -->
+          <input type='button' style='font-size: 14px;' onclick='clearAll_{{q["lib_id"]}}()' value='Obrisi' />
+          <!-- END CLEAR BUTTON -->
+
+
+          <div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>
+          
+          <!-- SOLUTION BUTTON -->
+          <input type='button' style='font-size: 14px;' onclick='addSolutionAll_{{q["lib_id"]}}()' value='Resenje' />
+          <!-- END SOLUTION BUTTON -->
+
+        </div>
+      </div>
+      <!-- BUTTONS END -->
+
+
+    </div>
+  {% endfor %}
+
+  </body>
+</html>

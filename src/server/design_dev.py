@@ -152,6 +152,9 @@ class Design_dev(object):
 
 
 
+    @staticmethod
+    def _add_language(page, s):
+        return page.page_params.get_param("language").value + "/" + s
 
 
 
@@ -159,7 +162,7 @@ class Design_dev(object):
     @staticmethod
     def render_edit(page):
 
-        page.template_params["template_name"] = "dev/edit.html.j2"
+        page.template_params["template_name"] = Design_dev._add_language(page, "dev/edit.html.j2")
 
         Design_dev.render_menu(page)
 
@@ -182,7 +185,7 @@ class Design_dev(object):
     @staticmethod
     def render_view(page):
 
-        page.template_params["template_name"] = "dev/view.html.j2"
+        page.template_params["template_name"] = Design_dev._add_language(page, "dev/view.html.j2")
 
         Design_dev.render_menu(page)
         
@@ -198,7 +201,7 @@ class Design_dev(object):
 
         qlist = page.repository.get_list(page.page_params.get_param("l_id"))
 
-        page.template_params["template_name"] = "dev/list.html.j2"
+        page.template_params["template_name"] = Design_dev._add_language(page, "dev/list.html.j2")
 
         Design_dev.render_menu(page)
 

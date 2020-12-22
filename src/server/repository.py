@@ -3,6 +3,7 @@ import json
 import logging
 
 import server.helpers as helpers
+from server.types import PageLanguage
 from server.azure_blob import Azure_blob
 
 
@@ -417,12 +418,23 @@ class Repository(object):
 
 
     def get_content(self, language):
-        return self.content[language]
+        # Special provisioing for Serbian cyrillic
+        if language == PageLanguage.RSC.value:
+            return self.content[PageLanguage.RS.value]
+        else:
+            return self.content[language]
 
 
 
     def get_content_questions(self, language, level, theme, subtheme=None, topic=None, period=None, difficulty=None):
-        language = language.lower().strip()
+        #language = language.lower().strip()
+
+        # Special provisioing for Serbian cyrillic
+        if language.lower().strip() == PageLanguage.RSC.value:
+            language = PageLanguage.RS.value
+        else:
+            language = language.lower().strip()
+
         level = level.lower().strip()
         theme = theme.lower().strip()
 

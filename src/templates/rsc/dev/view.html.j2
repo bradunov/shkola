@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% import 'dev/elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+
+  </head>
+  <body style="overscroll-behavior: none">
+  {{elements.js_error_block()}}
+
+  {{elements.menu(template_params["menu"]["choices"], template_params["menu"]["current_choice"], template_params["menu"]["choice_action"], 
+                  template_params["menu"]["languages"], template_params["menu"]["current_language"], template_params["menu"]["language_action"], 
+                  template_params["menu"]["operations"], template_params["menu"]["current_operation"], template_params["menu"]["operation_action"])}}
+  
+  <div style='display:block; width: 100%; text-align: center; '>
+    <div id="question" class="sh_mobile_frame sh_chalk_font" style='display: inline-block;'>
+      <div style='display: inline-block; margin: 0 8px 0 8px;'>
+        {{template_params["question"]}}
+      </div>
+    </div>
+    {{elements.buttons()}}
+  </div>
+
+  {{ elements.mobile_frame("screen_frame", "question") }}
+
+
+  </body>
+</html>

@@ -57,6 +57,9 @@ class Question(object):
     q_id = None
     language = None
 
+    # Special provisioing for Serbian cyrillic
+    cyrillic = False
+
     questions_rel_path = "questions"
     questions_root_path = None
     
@@ -95,6 +98,12 @@ class Question(object):
             self.language = language
         else:
             self.language = page.page_params.get_param("language")
+
+        # Special provisioing for Serbian cyrillic
+        if self.language == PageLanguage.RSC:
+            self.language = PageLanguage.RS
+            self.cyrillic = True
+
         self.page.add_script_lines("<script> global_language = \"{}\";</script>".format(PageLanguage.toStr(self.language)))
 
         # Parameters useful for error reporting
@@ -213,7 +222,7 @@ class Question(object):
 
         # This seems to work fine for the text. However, it does not 
         # transliterate string variables. We need to instrument the questions.
-        if False:
+        if self.cyrillic:
             b = Transliterate.transliterate(b, Transliterate.rs)
 
             

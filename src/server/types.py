@@ -120,30 +120,39 @@ class PageOperation(Enum):
 
 
 
+
 @unique
 class PageLanguage(Enum):
-    RS = 0
-    UK = 1
+    RS = "rs"
+    RSC = "rsc"             # Serbian cyrillic
+    UK = "uk"
 
+    # TODO: remove this method
     @classmethod
     def toStr(cls, enum) -> str:
-        if enum == PageLanguage.RS:
-            return "rs"
-        elif enum == PageLanguage.UK:
-            return "uk"
+        return enum.value
 
     @classmethod
-    def fromStr(cls, name : str, with_exception : bool = False):
-        if name.lower() == "rs":
-            return PageLanguage.RS
-        elif name.lower() == "uk":
-            return PageLanguage.UK
+    def isValid(cls, val) -> bool:
+        return val in tuple(item.value for item in cls)
+
+    @classmethod
+    def fromStr(cls, lang : str, with_exception : bool = False):
+
+        print("LANG: ", lang)
+
+        for name, member in PageLanguage.__members__.items():
+            print("L: ", name, member)
+            if lang.lower() == name.lower():
+                return member
+
+        if with_exception:
+            raise PageParameterParsingError()
         else:
-            if with_exception:
-                raise PageParameterParsingError()
-            else:
-                # Default language
-                return PageLanguage.RS
+            # Default language
+            return PageLanguage.RS
+
+
 
 
 class PageParameters(object):
