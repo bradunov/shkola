@@ -94,7 +94,7 @@ class List(object):
                     break
 
         log_str += "next_q: {}, prev_q: {}".format(next_q, prev_q)
-        print("\n\n\n", log_str, "\n\n\n")
+        #print("\n\n\n", log_str, "\n\n\n")
 
         return prev_q, next_q
 

@@ -170,9 +170,9 @@ class Transliterate(object):
             end = input.find("@", start+1)
             if end == -1:
                 break
-            print("\nL {}-{}:{}".format(start, end, input[start:end]))
+            #print("\nL {}-{}:{}".format(start, end, input[start:end]))
             input = input[:start] + func(input[start:end]) + input[end:]
-            print("\nO: {}".format(input))
+            #print("\nO: {}".format(input))
             start = input.find("@", end+1)
             cnt = cnt + 1
             if cnt > 10:

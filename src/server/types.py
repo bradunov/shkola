@@ -138,11 +138,7 @@ class PageLanguage(Enum):
 
     @classmethod
     def fromStr(cls, lang : str, with_exception : bool = False):
-
-        print("LANG: ", lang)
-
         for name, member in PageLanguage.__members__.items():
-            print("L: ", name, member)
             if lang.lower() == name.lower():
                 return member
 

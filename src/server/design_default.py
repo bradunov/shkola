@@ -17,6 +17,7 @@ from server.stat_charts import prepare_user_stats_chart
 import server.helpers as helpers
 import server.context as context
 from server.timers import timer_section
+from server.helpers import Transliterate
 
 import logging
 
@@ -532,8 +533,8 @@ class Design_default(object):
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
 
-
-        content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
+        lang = page.page_params.get_param("language")
+        content = page.repository.get_content(PageLanguage.toStr(lang))
         icons = page.repository.get_icons()
 
         icon_cnt = 0
@@ -571,10 +572,23 @@ class Design_default(object):
                     subtheme_list = []
                     subtheme_dict = dict()
 
+                    # Special provisioing for Serbian cyrillic
+                    if lang == PageLanguage.RSC:
+                        theme_o = Transliterate.rs(theme)
+                    else:
+                        theme_o = theme
+
                     for subclass in sorted(content[page.page_params.get_param("year")][theme].keys()):
                         if not subclass == "name":
                             subtheme = content[page.page_params.get_param("year")][theme][subclass]["subtheme"].strip()
                             topic = content[page.page_params.get_param("year")][theme][subclass]["topic"].strip()
+                            # Special provisioing for Serbian cyrillic
+                            if lang == PageLanguage.RSC:
+                                subtheme_o = Transliterate.rs(subtheme)
+                                topic_o = Transliterate.rs(topic)
+                            else:
+                                subtheme_o = subtheme
+                                topic_o = topic
                             rank_subtheme = content[page.page_params.get_param("year")][theme][subclass]["rank_subtheme"].strip()
                             rank_topic = content[page.page_params.get_param("year")][theme][subclass]["rank_topic"].strip()
                             period = content[page.page_params.get_param("year")][theme][subclass]["period"]
@@ -591,7 +605,7 @@ class Design_default(object):
                                     icon_svg = ""
 
                                 subtheme_d = {
-                                    'title' : subtheme.capitalize(),
+                                    'title' : subtheme_o.capitalize(),
                                     'icon' : icon_svg, 
                                     'rank_subtheme' : rank_subtheme,
                                     'topics' : [],
@@ -631,7 +645,8 @@ class Design_default(object):
                                                 l_id = content[page.page_params.get_param("year")][theme]["name"])
 
                                 topic_d = {
-                                    'title' : "Sve teme",
+                                    # Special provisioing for Serbian cyrillic
+                                    'title' : "Sve teme" if not lang == PageLanguage.RSC else "Све теме",
                                     'rank_topic' : "0",
                                     'min_period' : "0",
                                     'link' : link
@@ -640,7 +655,8 @@ class Design_default(object):
                                 # BROWSE
                                 if context.c.session.get("beta"):
                                     topic_d['rank_topic'] = "9999"
-                                    topic_d['title'] = "TATAMATA bira"
+                                    # Special provisioing for Serbian cyrillic
+                                    topic_d['title'] = "TATAMATA bira" if not lang == PageLanguage.RSC else "ТАТАМАТА Бира"
                                     topic_d['color'] = Design_default._get_color(int_year)
                                     topic_d['font-weight'] = 'bolder'
                                     topic_d['font-size'] = '12px'                                    
@@ -654,7 +670,7 @@ class Design_default(object):
 
                             if topic not in subtheme_d['topics_dir'].keys():
                                 topic_d = {
-                                    'title' : topic.capitalize(),
+                                    'title' : topic_o.capitalize(),
                                     'rank_topic' : rank_topic,
                                     'min_period' : period,
                                     'link' : Design_default._next_theme_url(
@@ -688,7 +704,7 @@ class Design_default(object):
 
 
                     page.template_params['themes'].append({
-                        'title' : theme.capitalize().strip(),
+                        'title' : theme_o.capitalize().strip(),
                         'link' : Design_default._next_theme_url(
                                 page = page, 
                                 theme = theme.title().strip(), \
