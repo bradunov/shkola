@@ -365,7 +365,7 @@ class Question(object):
 
         btext = self.make_pretty(self.text)
 
-        
+
         # Identify commands and strings
         while True:
             cstart = btext.find("@", cend + 1)
@@ -427,21 +427,51 @@ class Question(object):
 
         # Define Lua include function with proper paths
         # TBD TODO: This is still reading from a file. Rewrite to use repository
-        code = code + """
-           function require_if_exists(name)
-             local f=io.open(name,"r")
-             if f~=nil then io.close(f); dofile(name) end
-           end
-           function include(name)
-              local root_path = '""" + self.questions_root_path + """';
-              local question_path = '""" + self.q_id + """';
-              local language = '""" + PageLanguage.toStr(self.language) + """';
 
-              require_if_exists(root_path.."/"..question_path.."/"..name.."."..language..".lua");
-              require_if_exists(root_path.."/global/"..name.."."..language..".lua");
-              require_if_exists(root_path.."/global/"..name..".lua");
-           end
-        """
+
+        # Special provisioning for Serbian cyrillic
+        if self.language == PageLanguage.RS and self.cyrillic:
+            lua_lang_t = PageLanguage.RSC.value
+            code = code + """
+            function require_if_exists(name)
+                local f=io.open(name,"r")
+                if f~=nil then io.close(f); dofile(name) end
+            end
+            function require_if_exists_t(name, name_t)
+                local f_t=io.open(name_t,"r")
+                if f_t~=nil then io.close(f_t); dofile(name_t) 
+                else
+                    local f=io.open(name,"r")
+                    if f~=nil then io.close(f); dofile(name) end
+                end
+            end
+            function include(name)
+                local root_path = '""" + self.questions_root_path + """';
+                local question_path = '""" + self.q_id + """';
+                local language = '""" + PageLanguage.toStr(self.language) + """';
+                local language_t = '""" + lua_lang_t + """';
+
+                require_if_exists_t(root_path.."/"..question_path.."/"..name.."."..language..".lua", root_path.."/"..question_path.."/"..name.."."..language_t..".lua");
+                require_if_exists_t(root_path.."/global/"..name.."."..language..".lua", root_path.."/global/"..name.."."..language_t..".lua");
+                require_if_exists(root_path.."/global/"..name..".lua");
+            end
+            """
+        else:
+            code = code + """
+            function require_if_exists(name)
+                local f=io.open(name,"r")
+                if f~=nil then io.close(f); dofile(name) end
+            end
+            function include(name)
+                local root_path = '""" + self.questions_root_path + """';
+                local question_path = '""" + self.q_id + """';
+                local language = '""" + PageLanguage.toStr(self.language) + """';
+
+                require_if_exists(root_path.."/"..question_path.."/"..name.."."..language..".lua");
+                require_if_exists(root_path.."/global/"..name.."."..language..".lua");
+                require_if_exists(root_path.."/global/"..name..".lua");
+            end
+            """
         
         # It seems that Lupa doesn't know about integer type that was new in Lua 5.3
         # Everything Lupa returns is treated as a float, causing bad printout format

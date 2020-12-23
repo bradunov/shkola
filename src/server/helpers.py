@@ -175,6 +175,7 @@ class Transliterate(object):
             #print("\nO: {}".format(input))
             start = input.find("@", end+1)
             cnt = cnt + 1
-            if cnt > 10:
+            # Just in case, do not loop forever
+            if cnt > 500:
                 break
         return input
