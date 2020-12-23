@@ -72,10 +72,14 @@
       function next_emphasize() {
         document.getElementById("next_text").style.color = "white";
         document.getElementById("next_button").style.background = "#6AB288";
-        document.getElementById("sc_prev_path_1").style.fill = "white";
-        document.getElementById("sc_prev_path_2").style.fill = "white";
-        document.getElementById("sc_next_path_1").style.fill = "white";
-        document.getElementById("sc_next_path_2").style.fill = "white";
+        if (document.getElementById("sc_prev_path_1"))
+          document.getElementById("sc_prev_path_1").style.fill = "white";
+        if (document.getElementById("sc_prev_path_2"))
+          document.getElementById("sc_prev_path_2").style.fill = "white";
+        if (document.getElementById("sc_next_path_1"))
+          document.getElementById("sc_next_path_1").style.fill = "white";
+        if (document.getElementById("sc_next_path_2"))
+          document.getElementById("sc_next_path_2").style.fill = "white";
       }
 
 
