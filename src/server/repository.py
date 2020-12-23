@@ -418,7 +418,7 @@ class Repository(object):
 
 
     def get_content(self, language):
-        # Special provisioing for Serbian cyrillic
+        # Special provisioning for Serbian cyrillic
         if language == PageLanguage.RSC.value:
             return self.content[PageLanguage.RS.value]
         else:
@@ -429,7 +429,7 @@ class Repository(object):
     def get_content_questions(self, language, level, theme, subtheme=None, topic=None, period=None, difficulty=None):
         #language = language.lower().strip()
 
-        # Special provisioing for Serbian cyrillic
+        # Special provisioning for Serbian cyrillic
         if language.lower().strip() == PageLanguage.RSC.value:
             language = PageLanguage.RS.value
         else:
@@ -524,6 +524,10 @@ class Repository(object):
 
     
     def get_all_question_ids(self, q_path, language):
+        # Special provisioning for Serbian cyrillic
+        if language == PageLanguage.RSC.value:
+            language = PageLanguage.RS.value
+
         if self.preload:
             q_ids = []
             q = self.find_key(self.questions, q_path)
@@ -579,6 +583,10 @@ class Repository(object):
 
 
     def get_all_lists_ids(self, l_path, language=None):
+        # Special provisioning for Serbian cyrillic
+        if language == PageLanguage.RSC.value:
+            language = PageLanguage.RS.value
+
         if self.preload:
             l_ids = []
             l = self.find_key(self.lists, l_path)

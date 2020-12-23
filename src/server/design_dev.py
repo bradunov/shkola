@@ -199,6 +199,7 @@ class Design_dev(object):
     @staticmethod
     def render_list(page):
 
+        language = page.page_params.get_param("language")
         qlist = page.repository.get_list(page.page_params.get_param("l_id"))
 
         page.template_params["template_name"] = Design_dev._add_language(page, "dev/list.html.j2")
@@ -267,7 +268,7 @@ class Design_dev(object):
 
             # Generate question and paste it into the list 
             page.page_params.set_param("q_id", q_id)
-            gq = question.Question(page)
+            gq = question.Question(page, language=language)
             gq.set_from_file_with_exception()
             try:
                 gq.eval_with_exception()
