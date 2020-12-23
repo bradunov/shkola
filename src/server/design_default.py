@@ -175,6 +175,7 @@ class Design_default(object):
         page.template_params['menu'] = []
 
         #page.page_params.print_params()
+        current_lang = page.page_params.get_param("language")
 
         new_page_params = PageParameters()
         new_page_params.set_param("root", page.page_params.get_param("root"))
@@ -190,17 +191,18 @@ class Design_default(object):
 
         sublang = []
         for lang in page.get_language_list():
-            sublang.append({
-                "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
-                    "height=\"15px\" alt=\"" + page.get_language_details(lang)["country"] + 
-                    "\" src=\"" + page.get_file_url("images/" + 
-                                  page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
-                                  page.get_language_details(lang)["country"],
-                "link" : page.page_params.create_url( \
-                            op = PageOperation.MENU_YEAR, 
-                            beta = True if page.page_params.get_param("beta") else None, 
-                            language = lang)
-            })            
+            if context.c.session.get("beta") or lang == PageLanguage.RS.value:
+                sublang.append({
+                    "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
+                        "height=\"15px\" alt=\"" + page.get_language_details(lang)["country"] + 
+                        "\" src=\"" + page.get_file_url("images/" + 
+                                    page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
+                                    page.get_language_details(lang)["country"],
+                    "link" : page.page_params.create_url( \
+                                op = PageOperation.MENU_YEAR, 
+                                beta = True if page.page_params.get_param("beta") else None, 
+                                language = lang)
+                })            
 
         # Jezik: &nbsp; 
         lang = {
@@ -228,6 +230,11 @@ class Design_default(object):
                 "options" : []
             }
         }
+
+        # Special provisioing for Serbian cyrillic
+        if current_lang == PageLanguage.RSC:
+            lists["name"] = "Разред".upper()
+
         menu_id = menu_id + 1
 
         for level in sorted(content.keys()):
@@ -278,7 +285,8 @@ class Design_default(object):
         # Do not show results to an anonymous user
         if not user_picture is None:
             page.template_params['menu'].append({
-                "name" : "Moj uspeh".upper(),
+                # Special provisioing for Serbian cyrillic
+                "name" : "Moj uspeh".upper() if not current_lang == PageLanguage.RSC else "Мој успех".upper(),
                 "link" : new_page_params.create_url(
                     op = PageOperation.STATS, 
                     beta = True if page.page_params.get_param("beta") else None 
@@ -287,7 +295,8 @@ class Design_default(object):
 
         # "name" : "Izloguj se (" + context.c.user.name + ")",
         page.template_params['menu'].append({
-            "name" : "O Tatamati".upper(),
+            # Special provisioing for Serbian cyrillic
+            "name" : "O Tatamati".upper() if not current_lang == PageLanguage.RSC else "O Татамати".upper(),
             "link" : new_page_params.create_url(
                 op = PageOperation.ABOUT, 
                 beta = True if page.page_params.get_param("beta") else None
@@ -296,7 +305,8 @@ class Design_default(object):
 
         # "name" : "Izloguj se (" + context.c.user.name + ")",
         page.template_params['menu'].append({
-            "name" : "Izloguj se".upper(),
+            # Special provisioing for Serbian cyrillic
+            "name" : "Izloguj se".upper() if not current_lang == PageLanguage.RSC else "Излогуј се".upper(),
             "link" : new_page_params.create_url(
                 op = PageOperation.LOGOUT, 
                 beta = True if page.page_params.get_param("beta") else None
@@ -334,18 +344,19 @@ class Design_default(object):
 
         sublang = []
         for lang in page.get_language_list():
-            sublang.append({
-                "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
-                    "height=\"15px\" alt=\"" + page.get_language_details(lang)["country"] + 
-                    "\" src=\"" + page.get_file_url("images/" + 
-                                  page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
-                                  page.get_language_details(lang)["country"],
-                "link" : page.page_params.create_url(
-                    op = PageOperation.MENU_USER, 
-                    language = lang, 
-                    beta = True if page.page_params.get_param("beta") else None 
-                )
-            })            
+            if context.c.session.get("beta") or lang == PageLanguage.RS.value:
+                sublang.append({
+                    "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
+                        "height=\"15px\" alt=\"" + page.get_language_details(lang)["country"] + 
+                        "\" src=\"" + page.get_file_url("images/" + 
+                                    page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
+                                    page.get_language_details(lang)["country"],
+                    "link" : page.page_params.create_url(
+                        op = PageOperation.MENU_USER, 
+                        language = lang, 
+                        beta = True if page.page_params.get_param("beta") else None 
+                    )
+                })            
 
         page.template_params['menu_lang'] = sublang
 
@@ -961,8 +972,13 @@ class Design_default(object):
         page.template_params["language"] = PageLanguage.toStr(page.page_params.get_param("language"))
 
         page.template_params["year"] = page.page_params.get_param("year").upper()
-        page.template_params["theme"] = page.page_params.get_param("theme").upper()
-        page.template_params["subtheme"] = page.page_params.get_param("subtheme")
+        if page.page_params.get_param("language") == PageLanguage.RSC:
+            page.template_params["theme"] = Transliterate.rs(page.page_params.get_param("theme")).upper()
+            page.template_params["subtheme"] = Transliterate.rs(page.page_params.get_param("subtheme"))
+        else:
+            page.template_params["theme"] = page.page_params.get_param("theme").upper()
+            page.template_params["subtheme"] = page.page_params.get_param("subtheme")
+
         page.template_params["topic"] = page.page_params.get_param("topic")
         page.template_params["difficulty"] = int(difficulty) if difficulty else 1
 
@@ -1135,8 +1151,12 @@ class Design_default(object):
         page.template_params["language"] = PageLanguage.toStr(page.page_params.get_param("language"))
 
         page.template_params["year"] = page.page_params.get_param("year").upper()
-        page.template_params["theme"] = page.page_params.get_param("theme").upper()
-        page.template_params["subtheme"] = page.page_params.get_param("subtheme")
+        if page.page_params.get_param("language") == PageLanguage.RSC:
+            page.template_params["theme"] = Transliterate.rs(page.page_params.get_param("theme")).upper()
+            page.template_params["subtheme"] = Transliterate.rs(page.page_params.get_param("subtheme"))
+        else:
+            page.template_params["theme"] = page.page_params.get_param("theme").upper()
+            page.template_params["subtheme"] = page.page_params.get_param("subtheme")
         page.template_params["topic"] = page.page_params.get_param("topic")
 
         page.template_params["h1"] = page.template_params['year']

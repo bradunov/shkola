@@ -31,7 +31,7 @@
           {{template_params["year"].upper()}}
         </div>
         <div class="sh_lato_font" style="display:inline-block; color: #636661; font-size: 14px;">
-          razred
+          разред
         </div>
         <br>
         <div class="sh_chalk_font" style="display:inline-block;color: #489cba; font-size: 14px;">
@@ -70,7 +70,7 @@
       */
 
       function question_show_solution() {
-        document.getElementById("next_text").innerHTML = "NASTAVI";
+        document.getElementById("next_text").innerHTML = "НАСТАВИ";
         document.getElementById('ic_help').style.display='none';
         //showed_wrong = false;
         showed_sol = true;
@@ -187,7 +187,7 @@
           document.getElementById("cup3").style.visibility = "visible";
           document.getElementById("cup4").style.visibility = "visible";
           document.getElementById("cup5").style.visibility = "visible";
-          document.getElementById("next_text").innerHTML = "NASTAVI";
+          document.getElementById("next_text").innerHTML = "НАСТАВИ";
         } else {
           //if (!showed_wrong) {
           if (document.getElementById("popup_wrong_answer").style.visibility == "hidden") {
@@ -199,7 +199,7 @@
             if (document.getElementById("wr_again").checked) {
               //document.getElementById("wrong_answer").style.visibility = "hidden";
               popup_toggle_wrong_answer("hidden");
-              document.getElementById("next_text").innerHTML = "PROVERI";
+              document.getElementById("next_text").innerHTML = "ПРОВЕРИ";
               //showed_wrong = false;
               // Delete all wrong answers
               // NB: we decided not to delete wrong answers so that the kids knew what went wrong
@@ -217,7 +217,7 @@
             } else if (document.getElementById("wr_skip").checked) {
               popup_toggle_wrong_answer("hidden");
               popup_toggle_skip("visible");
-              document.getElementById("next_text").innerHTML = "NASTAVI";
+              document.getElementById("next_text").innerHTML = "НАСТАВИ";
               return;
             }
           }
@@ -271,7 +271,7 @@
     </div>
     <!-- QUESTION END -->
 
-    {{ elements.next("question_onnext()") }}
+    {{ elements.next("question_onnext()", "НАСТАВИ") }}
 
     <script>
       {% if template_params["debug_checkall"] %}
@@ -279,7 +279,7 @@
         function sendFeedbackToServer(a,b,c) {};
       {% endif %}
 
-      document.getElementById("next_text").innerHTML = "PROVERI";
+      document.getElementById("next_text").innerHTML = "ПРОВЕРИ";
 
       // Immediately enable next
       next_callback(true, "");
@@ -332,7 +332,7 @@
 
       <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center;
                   margin-top: 17px; font-size: 18px;'>
-        Ne baš, zadatak nije skroz tačan.
+        Не баш, задатак није скроз тачан.
       </div>
 
       <div style='display:inline-block; width: 100%; text-align: center; margin-top: 53px'>
@@ -357,7 +357,7 @@
         <label>
           <input type='radio' id='wr_again' name="wr_input"
                 style='text-align: left; margin-right: 19px;' checked>
-          Hoću još jednu šansu!
+          Хоћу још једну шансу!
         </label>
       </div><br>
       <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;
@@ -365,7 +365,7 @@
         <label>
           <input type='radio' id='wr_solution' name="wr_input"
                 style='text-align: left; margin-right: 19px;' >
-          Daj da vidim rešenje!
+          Дај да видим решење!
         </label>
       </div><br>
       <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;
@@ -373,7 +373,7 @@
         <label>
           <input type='radio' id='wr_skip' name="wr_input"
                 style='text-align: left; margin-right: 19px;' >
-          Ja bih da preskočim. 
+          Ја бих да прескочим.
         </label>
       </div><br>
 
@@ -412,7 +412,7 @@
 
           <div style="display: inline-block; text-align: center; width: 100%; margin: 27px 0px 38px 0px">
             <div class="sh_chalk_font" style="color: #636661; font-size: 18px;">
-              Preskoči zadatak!! 
+              Прескочи задатак!! 
             </div>
           </div>
 
@@ -446,9 +446,9 @@
 
           <div style="display: inline-block; text-align: center; width: calc(100% - 50px); margin: 25px 25px 35px 25px">
             <div class="sh_chalk_font" style="color: #636661; font-size: 18px;">
-              Ovaj zadatak ti se neće računati kao urađen. <br>
-              Da li si siguran da nećeš da pokušaš? <br><br>
-              Ako ne, ništa strašno, nastavi i probaj neki drugi zadatak.
+              Овај задатак ти се неће рачунати као урађен. <br>
+              Да ли си сигуран да нећеш да покушаш? <br><br>
+              Ако не, ништа страшно, настави и пробај неки други задатак.
             </div>
           </div>
 
@@ -489,9 +489,9 @@
 
       <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center;
                   margin-top: 44px; font-size: 18px; line-height: 1.56;'>
-        A možda i nije tako tako <br>
-        težak zadatak, <br>
-        da pokušaš ipak još jednom?
+        А можда и није тако тако <br>
+        тежак задатак, <br>
+        да покушаш ипак још једном?
       </div>
 
       <div style='display:inline-block; width: 100%; text-align: center; margin-top: 20px'>
@@ -505,7 +505,7 @@
         <label>
           <input type='radio' id='rev_again' name="wr_input"
                 style='text-align: left; margin-right: 19px;' checked>
-          Hoću još jednu šansu!
+          Хоћу још једну шансу!
         </label>
       </div><br>
       <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;
@@ -513,7 +513,7 @@
         <label>
           <input type='radio' id='rev_solution' name="wr_input"
                 style='text-align: left; margin-right: 19px;' >
-          Daj da vidim rešenje!
+          Дај да видим решење!
         </label>
       </div><br>
 
@@ -535,12 +535,12 @@
 
       <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center;
                   margin-top: 17px; font-size: 20px;'>
-        Prijavi problem!
+        Пријави проблем!
       </div><br>
 
       <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center;
                   margin-top: 17px; font-size: 14px;'>
-        Klikni na kružić pored problema da bi TataMata što bolje shvatio i ispravio. 
+        Кликни на кружић поред проблема да би ТатаМата што боље схватио и исправио.
       </div><br>
 
       <!-- Feedback form -->
@@ -548,26 +548,26 @@
         <div id="feedback" class="sh_chalk_font" style='display:inline-block; text-align: left; margin: 12px 12px 0 25px; font-size: 16px; margin-top: 7px'>
           <label>
             <input type='radio' id='fb_problem' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
-            Nemam pojma o čemu se radi <br>
-            <div style="display:inline-block; margin-left: 41px;">u ovom zadatku</div>
+            Немам појма о чему се ради <br>
+            <div style="display:inline-block; margin-left: 41px;">у овом задатку</div>
           </label> <br>
           <label>
             <input type='radio' id='fb_unclear' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
-            Previše je težak
+            Превише је тежак
           </label> <br>
           <label>
             <input type='radio' id='fb_difficult' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
-            Pa ovo je prelako!!
+            Па ово је прелако!!
           </label> <br>
           <label>
             <input type='radio' id='fb_easy' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
-            Ovaj zadatak ima grešku!
+            Овај задатак има грешку!
           </label> <br>
           <label>
             <input type='radio' id='fb_other' name="fb_input" style='text-align: left; margin-right: 19px; margin-top: 15px'> 
-            Drugo:
+            Друго:
           </label> <br>
-          <input type='text' id='fb_komentar' placeholder='Opiši problem' style='width: 219px; margin-top: 15px'> <br> <br>
+          <input type='text' id='fb_komentar' placeholder='Опиши проблем' style='width: 219px; margin-top: 15px'> <br> <br>
         </div>
       {# </div> #}
 

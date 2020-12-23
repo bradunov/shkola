@@ -211,19 +211,24 @@
 
 
     <div style="display:block; position:fixed; top: 50px; left: 0px; z-index: 0; height: calc(100% - 50px); width:100%; overflow-y: auto; overflow-x: auto; ">
+
       <div style="display:block; 
                   width: 290px; 
                   height: 90px; 
                   margin:auto; margin-top: 30px; margin-bottom: 4px; 
                   background-color: #148f91;">
-        <div class="sh_lato_font" style="
-                  display:inline-block; 
-                  width: 188px; height: 65px; 
-                  vertical-align: top;
-                  margin-top: 25px; margin-bottom: 10px; margin-left: 20px;
-                  font-size: 18px; color: #ffffff">
-          <!-- Odaberi zadatke za <span style="color: #dc3d39"> {{template_params['year'].upper()}} </span> razred -->
-          Kaži TataMati sa kojim zadacima bi da počneš? 
+        <div style="display:inline-block; 
+                  margin-top: 12px; margin-bottom: 10px; margin-left: 20px;
+                  width: 188px; height: 65px; ">
+          <div style="display:table; width: 188px; height: 65px; ">
+            <div class="sh_lato_font" style="
+                      display:table-cell; 
+                      vertical-align: middle;
+                      font-size: 18px; color: #ffffff">
+              <!-- Odaberi zadatke za <span style="color: #dc3d39"> {{template_params['year'].upper()}} </span> razred -->
+              Kaži TataMati sa kojim zadacima bi da počneš? 
+            </div>
+          </div>
         </div>
 
         <div style="display:inline-block; 
@@ -474,7 +479,7 @@
 
     {# <div style="display:block; position: fixed; z-index: 0;  
                 top: calc(100% - 110px); left: 0px; z-index: 0; height: 40px; width:100%; ">
-      {{ elements.next("subtheme_onclick()") }}
+      {{ elements.next("subtheme_onclick()", "NASTAVI") }}
     </div> #}
 
 

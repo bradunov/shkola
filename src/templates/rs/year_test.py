@@ -90,10 +90,10 @@ page['menu'] = [
 
 
 
-file_loader = jinja2.FileSystemLoader("../templates")
+file_loader = jinja2.FileSystemLoader("..")
 env = jinja2.Environment(loader=file_loader)
 
-template = env.get_template("year.html.j2")
+template = env.get_template("rs/year.html.j2")
 print(template.render(template_params=page))
 
 

@@ -15,10 +15,10 @@ page['menu_lang'].append({"name" : "test1", "link": "link1"})
 page['menu_lang'].append({"name" : "test2", "link": "link2"})
 
 
-file_loader = jinja2.FileSystemLoader("../templates")
+file_loader = jinja2.FileSystemLoader("..")
 env = jinja2.Environment(loader=file_loader)
 
-template = env.get_template("user.html.j2")
+template = env.get_template("rsc/user.html.j2")
 print(template.render(template_params=page))
 
 
