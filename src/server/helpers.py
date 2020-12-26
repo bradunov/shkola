@@ -1,5 +1,6 @@
 #import cherrypy
 import re
+import string
 
 import os
 import pickle
@@ -82,102 +83,87 @@ def is_user_on_mobile(user_agent):
 
 
 class Transliterate(object):
-    mapping_rs = [
-        ['А', 'A'], 
-        ['а', 'a'],
-        ['Б', 'B'], 
-        ['б', 'b'],
-        ['В', 'V'], 
-        ['в', 'v'],
-        ['Г', 'G'], 
-        ['г', 'g'],
-        ['Ђ', 'Dj'], 
-        ['ђ', 'dj'],
-        ['Џ', 'Dž'], 
-        ['џ', 'dž'],
-        ['Д', 'D'], 
-        ['д', 'd'],
-        ['Ђ', 'Đ'], 
-        ['ђ', 'đ'],
-        ['Е', 'E'], 
-        ['е', 'e'],
-        ['Ж', 'Ž'], 
-        ['ж', 'ž'],
-        ['З', 'Z'], 
-        ['з', 'z'],
-        ['И', 'I'], 
-        ['и', 'i'],
-        ['К', 'K'], 
-        ['к', 'k'],
-        ['Љ', 'Lj'], 
-        ['љ', 'lj'],
-        ['Л', 'L'], 
-        ['л', 'l'],
-        ['М', 'M'], 
-        ['м', 'm'],
-        ['Њ', 'Nj'], 
-        ['њ', 'nj'],
-        ['Ј', 'J'], 
-        ['ј', 'j'],
-        ['Н', 'N'], 
-        ['н', 'n'],
-        ['О', 'O'], 
-        ['о', 'o'],
-        ['П', 'P'], 
-        ['п', 'p'],
-        ['Р', 'R'], 
-        ['р', 'r'],
-        ['С', 'S'], 
-        ['с', 's'],
-        ['Т', 'T'], 
-        ['т', 't'],
-        ['Ћ', 'Ć'], 
-        ['ћ', 'ć'],
-        ['У', 'U'], 
-        ['у', 'u'],
-        ['Ф', 'F'], 
-        ['ф', 'f'],
-        ['Х', 'H'], 
-        ['х', 'h'],
-        ['Ц', 'C'], 
-        ['ц', 'c'],
-        ['Ч', 'Č'], 
-        ['ч', 'č'],
-        ['Ш', 'Š'], 
-        ['ш', 'š']
+
+    # Fast python 3.5+ transliteration
+    trans_cyr_lat = str.maketrans(
+        "АаБбВвГгДдЂђЕеЖжЗзИиКкЛлМмЈјНнОоПпРрСсТтЋћУуФфХхЦцЧчШш",
+        "AaBbVvGgDdĐđEeŽžZzIiKkLlMmJjNnOoPpRrSsTtĆćUuFfHhCcČčŠš"
+    )
+
+    trans_lat_cyr = str.maketrans(
+        "AaBbVvGgDdĐđEeŽžZzIiKkLlMmJjNnOoPpRrSsTtĆćUuFfHhCcČčŠš",
+        "АаБбВвГгДдЂђЕеЖжЗзИиКкЛлМмЈјНнОоПпРрСсТтЋћУуФфХхЦцЧчШш"
+    )
+
+    # Special case for 2->1 transliteration    
+    mapping_rs_2_1 = [
+        ['Ђ', 'Дј'], 
+        ['ђ', 'дј'],
+        ['Џ', 'Дж'], 
+        ['џ', 'дж'],
+        ['Љ', 'Лј'], 
+        ['љ', 'лј'],
+        ['Њ', 'Нј'], 
+        ['њ', 'нј'],
     ]
 
+    
+    # Match shkola exprepressions ( @blabla@ ), MathJS expressions ( \(blabla\) )
+    # or unicode expressions ( &blabla; )
+    regex_pattern = re.compile(r"@.*?@|[\\][\(].*?[\\][\\)]|&.*?;")
+
+    
+
+    # Return transliterated string and the difference in length due to special characters
     @staticmethod
     def rs(input, lat2cyr=True):
-        output = input
         if lat2cyr:
-            for m in Transliterate.mapping_rs:
+            output = input.translate(Transliterate.trans_lat_cyr)
+            for m in Transliterate.mapping_rs_2_1:
                 output = output.replace(m[1], m[0])
         else:
-            for m in Transliterate.mapping_rs:
+            output = input.translate(Transliterate.trans_cyr_lat)
+            for m in Transliterate.mapping_rs_2_1:
                 output = output.replace(m[0], m[1])
         return output
 
 
+
+
+
     @staticmethod
     def transliterate(input, func):
-        start = 0
-        cnt = 0
-        if input[0] == "@":
-            input = " " + input
+        special_strings = Transliterate.regex_pattern.finditer(input)
 
-        while not start == 1:
-            end = input.find("@", start+1)
-            if end == -1:
-                end = len(input)
-            #print("\nL {}-{}:{}".format(start, end, input[start:end]))
-            input = input[:start] + func(input[start:end]) + input[end:]
-            start = input.find("@", end+1)
-            cnt = cnt + 1
-            #print("\nO {},{}: {}".format(start, cnt, input))
-            if start == -1:
-                break
-            # Just in case, do not loop forever
-            if cnt > 500:
-                break
-        return input
+        if not special_strings:
+            output = func(input)
+            return output
+
+        output = ""
+        start = 0
+
+        for match in special_strings:
+            b, e = match.span()
+            #print(b,e, input[start:b])
+            output += func(input[start:b])
+            output += input[b:e]
+            start = e
+
+        output += func(input[start:len(input)])
+        return output
+
+
+
+if __name__ == "__main__":
+    s = """Koristeći cifre @hspace8pt@ @array_cifre[3]@, @hspace8pt@ @array_cifre[2]@ @hspace8pt@ i @hspace8pt@ @array_cifre[1]@ @hspace8pt@ zapiši sve dvocifrene brojeve redom od najvećeg do najmanjeg. Cifre mogu da se ponavljaju.
+@vspace@
+&middot;
+\\(\\frac{(1-2)}\\{3-4}\\)
+@center@ @hspace@ @lib.check_number(array_value[1])@ @hspace@ @lib.check_number(array_value[2])@ @hspace@ @lib.check_number(array_value[3])@
+@center@ @hspace@ @lib.check_number(array_value[4])@ @hspace@ @lib.check_number(array_value[5])@ @hspace@ @lib.check_number(array_value[6])@
+@center@ @hspace@ @lib.check_number(array_value[7])@ @hspace@ @lib.check_number(array_value[8])@ @hspace@ @lib.check_number(array_value[9])@
+\\(\\frac{(1-2)}\\{3-4}\\)
+&middot;
+"""
+
+    print(Transliterate.transliterate(s, Transliterate.rs))
