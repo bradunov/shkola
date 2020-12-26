@@ -1,3 +1,4 @@
+include("terms")
 
 style = 
 	{["off_color"] = "fff",
@@ -12,9 +13,6 @@ red_style = {["off_color"] = "fff",
 
 text_style = {["font_size"] = "14"}	
 
-fig = {"pravougaonik", "kvadrat", "trougao"}
-fig1 = {"Pravougaonik", "Kvadrat", "Trougao"}
-fig2 = {"pravougaonika", "kvadrata", "trougla"}
 circ = {22, 16, 24}
 
 out = {}
@@ -66,7 +64,7 @@ end
    
 if (ind == 3) then
     ans = lib.check_string(reply[ind], 20, sol[3][1]) .. ", " .. lib.check_string(reply[ind], 20, sol[3][2]) .. ", " .. lib.check_string(reply[ind], 20, sol[3][3]) 
-    remark = "(Pomoć: dužina stranice NP je 10 dužina kvadratića mreže.)" 
+    remark = remark_str 
 else
     ans = lib.check_string(reply[ind], 20, sol[ind][1]) .. ", " .. lib.check_string(reply[ind], 20, sol[ind][2]) .. ", " .. lib.check_string(reply[ind], 20, sol[ind][3]) .. ", " .. lib.check_string(reply[ind], 20, sol[ind][4])
 	remark = " "

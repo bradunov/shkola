@@ -1,7 +1,4 @@
-
-day2 = {"ponedeljak", "utorak", "sredu", "četvrtak", "petak", "subotu", "nedelju"}
-month1 = {"januar", "februar", "mart", "april", "maj", "juni", "juli", "avgust", "septembar", "oktobar", "novembar", "decembar"}
-month2 = {"januara", "februara", "marta", "aprila", "maja", "juna", "jula", "avgusta", "septembra", "oktobra", "novembra", "decembra"}
+include("terms")
 nmb_month = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 
 ind_s = math.random(6)
@@ -21,9 +18,9 @@ max = 3
 last = math.random(max)
 
 if (last == 1) then
-    week = "nedelju"
+    week = week_str[1]
 else    	
-    week = "nedelje"	
+    week = week_str[2]	
 end	
 
 stampa = math.ceil(max/4) + 1

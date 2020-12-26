@@ -1,3 +1,4 @@
+include("trans")
 
 answ = {"", ""}
 
@@ -16,10 +17,10 @@ if( finish_m >= 60) then
 end   
 
 if (finish_m ~= 0) then
-   answ[2] = " i " .. tostring(finish_m) .. " min"  
+   answ[2] = and_str .. tostring(finish_m) .. min_str  
 end 
 
 if (start_m ~= 0) then
-   answ[1] = " i " .. tostring(start_m) .. " min"  
+   answ[1] = and_str .. tostring(start_m) .. min_str  
 end 
          

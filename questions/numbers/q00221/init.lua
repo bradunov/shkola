@@ -1,10 +1,9 @@
-
 include("names")
+include("terms")
 
 r = math.random(#musko_ime_nom)
 ime = musko_ime_nom[r] 
 
-food = {"paradajz", "sir", "masline", "šunku", "pečurke", "salamu"}
 
 ind = 2 + math.random(4)
 

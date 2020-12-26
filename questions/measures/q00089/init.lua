@@ -1,3 +1,4 @@
+include("trans")
 
 answ = {"", ""}
 
@@ -7,9 +8,9 @@ last_h = math.random(2);
 last_m = 5 * math.random(11);
 
 if (last_h == 1) then
-    term = "sat"
+    term = hour_str[1]
 else
-    term = "sata"	
+    term = hour_str[2]
 end	
 
 finish_h = start_h + last_h
@@ -23,10 +24,10 @@ if( finish_m >= 60) then
 end   
 
 if (finish_m ~= 0) then
-   answ[2] = " i " .. tostring(finish_m) .. " min"  
+   answ[2] = and_str .. tostring(finish_m) .. min_str  
 end 
 
 if (start_m ~= 0) then
-   answ[1] = " i " .. lib.check_number(start_m,20) .. " min"  
+   answ[1] = and_str .. lib.check_number(start_m,20) .. min_str  
 end 
      

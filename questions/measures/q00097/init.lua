@@ -10,19 +10,12 @@ text2_style = {["line_color"] = "f30",
               ["line_width"] = "1", 
               ["font_size"] = "16"}
 
+include("terms")
 include("names")
 
 rm = math.random(#musko_ime_dativ); 
 ime = musko_ime_dativ[rm];
 
-day1 = {"ponedeljak", "utorak", "sredu", "četvrtak", "petak", "subotu", "nedelju"}
-day2 = {"ponedeljak", "utorak", "sredu", "cetvrtak", "petak", "subotu", "nedelju"}
-choice1 = {"prvog", "drugog", "trećeg", "četvrtog"}
-choice2 = {"prve", "druge", "treće", "četvrte"}
-
-month_n = {"JANUAR", "FEBRUAR", "MART", "APRIL", "MAJ", "JUN", "JUL", "AVGUST", "SEPTEMBAR", "OKTOBAR", "NOVEMBAR", "DECEMBAR"}
-month_d = {"januaru", "februaru", "martu", "aprilu", "maju", "junu", "julu", "avgustu", "septembru", "oktobru", "novembru", "decembru"}
-month_g = {"januara", "februara", "marta", "aprila", "maja", "juna", "jula", "avgusta", "septembra", "oktobra", "novembra", "decembra"}
 nmb_month = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 numb_position = {3, 6, 7, 3, 5, 1, 3, 6, 2, 4, 7, 2}
 
@@ -73,13 +66,13 @@ mycanvas = function()
 
   lib.add_text(4*ov, ow, month_n[ind_m], text2_style, true, false)
   lib.add_text(7*ov, ow, "2020", text2_style, true, false)  
-  lib.add_text(ow+w, 2*ow, "P", text2_style, true, false)  
-  lib.add_text(3*ow, 2*ow, "U", text2_style, true, false)  
-  lib.add_text(4*ow+w/2, 2*ow, "S", text2_style, true, false) 
-  lib.add_text(5*ow+w, 2*ow, "Č", text2_style, true, false)
-  lib.add_text(7*ow, 2*ow, "P", text2_style, true, false)  
-  lib.add_text(8*ow+w/2, 2*ow, "S", text2_style, true, false) 
-  lib.add_text(9*ow+w, 2*ow, "N", text2_style, true, false)
+  lib.add_text(ow+w, 2*ow, day_str[1], text2_style, true, false)  
+  lib.add_text(3*ow, 2*ow, day_str[2], text2_style, true, false)  
+  lib.add_text(4*ow+w/2, 2*ow, day_str[3], text2_style, true, false) 
+  lib.add_text(5*ow+w, 2*ow, day_str[4], text2_style, true, false)
+  lib.add_text(7*ow, 2*ow, day_str[5], text2_style, true, false)  
+  lib.add_text(8*ow+w/2, 2*ow, day_str[6], text2_style, true, false) 
+  lib.add_text(9*ow+w, 2*ow, day_str[7], text2_style, true, false)
 
   for i =  numb_position[ind_m], 7 do
     temp = i+1-numb_position[ind_m] 

@@ -92,7 +92,7 @@ end
                 
 if (index == 3) then 
    if (ind ~= 3) then
-       leftval = "Pola "
+       leftval = half
        rightval = math.floor(number[ind]/2)
        term1 = measure2[ind+1]
        term2 = measure3[ind]

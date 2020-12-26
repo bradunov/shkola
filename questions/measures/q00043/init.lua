@@ -1,3 +1,4 @@
+include("terms")
 
 style = 
 	{["off_color"] = "fff",
@@ -33,9 +34,6 @@ dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "14"}
 
 
-name = {"čas", "časa", "časova"}
-
-period = {"pre", "posle"}
 index = math.random(2)
 
 ind_h = math.random(12) - 1

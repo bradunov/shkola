@@ -1,8 +1,7 @@
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+include("terms")
 include("names")
 
-month2 = {"januara", "februara", "marta", "aprila", "maja", "juna", "jula", "avgusta", "septembra", "oktobra", "novembra", "decembra"}
 nmb_month = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 
 rm = math.random(#musko_ime_nom); 
@@ -21,9 +20,9 @@ temp = math.floor(last/10)
 rest = last - temp * 10
 
 if (rest == 1 and temp ~=1) then
-    week = "dan"
+    week = day_str[1]
 else    	
-    week = "dana"	
+    week = day_str[2]
 end	
 	
 stampa = math.ceil(max/4) + 1
@@ -45,6 +44,6 @@ end
    
 remark = ""
 if (ind_m <= 2 and q > 2) then
-    remark = "(Napomena: godina nije prestupna.)"
+    remark = remark_str
 end        
    

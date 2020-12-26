@@ -1,4 +1,4 @@
-
+include("trans")
 answ = {"", ""}
 
 start_h = 20 + math.random(3);
@@ -22,9 +22,9 @@ if( finish_h >= 24) then
 end  
 
 if (finish_m ~= 0) then
-   answ[2] = " i " .. lib.check_number(finish_m) .. " min"  
+   answ[2] = and_str .. lib.check_number(finish_m) .. min_str  
 end 
 
 if (start_m ~= 0) then
-   answ[1] = " i " ..  tostring(start_m,20) .. " min"  
+   answ[1] = and_str ..  tostring(start_m,20) .. min_str  
 end 

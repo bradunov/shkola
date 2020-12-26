@@ -1,3 +1,4 @@
+include("terms")
 
 style = {["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -195,14 +196,13 @@ mycanvas = function()
 
   out = {}
   index = {} 
-  fig = {"crvena", "plava", "braon"}    
   number = {numb_red, numb_blue, numb_brown}
 
   out = lib.math.argsort(number)
 
    if (number[out[1]] < number[out[2]]) then  
       first = fig[out[1]]
-      answ = "Na cilj će prva stići " .. lib.check_string(first, 40) .. " figura."  
+      answ = ans[1] .. lib.check_string(first, 40) .. ans[2]  
   else
       if (number[out[1]] < number[out[3]]) then
 	      first = fig[out[1]]
@@ -211,9 +211,9 @@ mycanvas = function()
                   "|| answer == '" .. second .. "'" ;
 		  an1 = "answer = '" .. first .. "' "	
 		  an2 = "answer = '" .. second .. "' "		  
-	      answ = "Na cilj će prve stići " .. lib.check_string(reply, 40, an1) .. " i " .. lib.check_string(reply, 40, an2) .. " figura."	   
+	      answ = ans[1] .. lib.check_string(reply, 40, an1) .. " i " .. lib.check_string(reply, 40, an2) .. ans[2]	   
       else	
-          answ = "Na cilj će istovremeno stići sve tri figure." 
+          answ = ans[3] 
       end	  
   end	
 

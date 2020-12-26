@@ -1,5 +1,4 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-month2 = {"januara", "februara", "marta", "aprila", "maja", "juna", "jula", "avgusta", "septembra", "oktobra", "novembra", "decembra"}
+include("terms") 
 nmb_month = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 
 
@@ -14,12 +13,12 @@ finish_m = month2[ind_f]
 last = 12 - ind_m + ind_f
 
 if (last == 1) then
-    week = "mesec"
+    week = month_str[1]
 else 
-    if (last < 1 and last > 4) then   	
-        week = "meseca"	
+    if (last < 1 or last > 4) then   	
+        week = month_str[2]	
 	else
-        week = "meseci"	
+        week = month_str[3]
     end		
 end	
 	
