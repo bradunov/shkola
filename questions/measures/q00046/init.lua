@@ -1,3 +1,4 @@
+include("terms")
 
 style = 
        {["off_color"] = "000",
@@ -26,9 +27,9 @@ rubber = ind_rub * step
 ind_pen = math.random(3) + 2
 pencil = ind_pen * rubber
 
-length = "dužine"
+length = duzina[1]
 if (ind_pen == 5) then
-    length = "dužina"
+    length = duzina[2]
 end	
 
 mycanvas = function(no)

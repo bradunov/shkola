@@ -1,3 +1,4 @@
+include("terms")
 
 style1 = 
 	{["off_color"] = "fff",
@@ -50,7 +51,6 @@ mycanvas = function(no)
   lib.end_canvas()
 end
 
-type = {"prava", "otvorena izlomljena", "zatvorena izlomljena", "zatvorena kriva","otvorena kriva"}
 index = math.random(5)
 choice = type[index]
 

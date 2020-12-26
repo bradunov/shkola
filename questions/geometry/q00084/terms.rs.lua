@@ -1,0 +1,1 @@
+place = {"pravu", "polupravu", "duž"}

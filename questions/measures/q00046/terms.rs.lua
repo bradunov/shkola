@@ -1,0 +1,1 @@
+duzina = { "dužine", "dužina" }

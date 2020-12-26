@@ -1,5 +1,5 @@
-
 include("names")
+include("terms")
 
 rm = math.random(#musko_ime_nom)
 ime1 = musko_ime_nom[rm] 
@@ -8,8 +8,6 @@ rf = math.random(#zensko_ime_nom)
 ime2 = zensko_ime_nom[rf]
 
 money = {50, 20, 10, 5, 2, 1}
-apoen = {"novčanicu", "kovanicu"}
-plural = {"novčanice", "kovanice"}
 
 total = {}
 total[1] = math.random(60) + 39;
@@ -51,11 +49,11 @@ for j = 1,2 do
                 end		
             end	
             if (i == 6) then
-       			valuta = "dinar. "
+       			valuta = valute[1]
 			else
-			    valuta = "dinara, "
+			    valuta = valute[2]
 			end	
-			quest[j] = quest[j] .. tostring(factor) .. " " .. moneta .. " od " .. tostring(money[i]) .. " " .. valuta  	
+			quest[j] = quest[j] .. tostring(factor) .. " " .. moneta .. od .. tostring(money[i]) .. " " .. valuta  	
 	    end 
         temp = temp - factor * money[i]		
     end

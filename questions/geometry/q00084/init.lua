@@ -1,3 +1,4 @@
+include("terms")
 
 line_style = {["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -7,8 +8,6 @@ line_style = {["off_color"] = "fff",
 
 dot_style = {["font_size"] = "30"}
 	
-place = {"pravu", "polupravu", "duž"}
-
 ind = math.random(3)
 name = place[ind]
 

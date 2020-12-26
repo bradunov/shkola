@@ -1,5 +1,4 @@
-
-place = {"zatvorene", "otvorene"}
+include("terms")
 
 line_style = {["off_color"] = "fff",
         ["on_color"] = "fff",
