@@ -296,7 +296,7 @@ class Design_default(object):
         # "name" : "Izloguj se (" + context.c.user.name + ")",
         page.template_params['menu'].append({
             # Special provisioing for Serbian cyrillic
-            "name" : "O Tatamati".upper() if not current_lang == PageLanguage.RSC else "O Татамати".upper(),
+            "name" : "O TATAMATI".upper() if not current_lang == PageLanguage.RSC else "O ТАТАМАТИ".upper(),
             "link" : new_page_params.create_url(
                 op = PageOperation.ABOUT, 
                 beta = True if page.page_params.get_param("beta") else None
@@ -667,7 +667,7 @@ class Design_default(object):
                                 if context.c.session.get("beta"):
                                     topic_d['rank_topic'] = "9999"
                                     # Special provisioing for Serbian cyrillic
-                                    topic_d['title'] = "TATAMATA bira" if not lang == PageLanguage.RSC else "ТАТАМАТА Бира"
+                                    topic_d['title'] = "TATAMATA bira" if not lang == PageLanguage.RSC else "ТАТАМАТА бира"
                                     topic_d['color'] = Design_default._get_color(int_year)
                                     topic_d['font-weight'] = 'bolder'
                                     topic_d['font-size'] = '12px'                                    
