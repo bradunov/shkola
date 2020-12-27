@@ -1,3 +1,4 @@
+include("terms")
 
 style = 
 	{["off_color"] = "fff",
@@ -9,9 +10,6 @@ text_style = {["font_size"] = "16"}
 
 colour_style = {["off_color"] = "f90",
                 ["font_size"] = "16"}
-
-object = {"Kocka", "Kvadar"}
-title = {" strana." , " ivica.", " temena.", " sve ivice jednake.", " sve strane podudarne.", " naspramne strane podudarne."}
 
 index = {1,2,3,4,5,6}
 out = lib.math.random_shuffle(index)
@@ -44,59 +42,59 @@ for i = 1,7 do
   lib.add_line(2*wh+2*wv+2*ow, ow, 0, 17*wv/2, style, false, false)
   lib.add_line(4*ow+3*wh, ow, 0, 17*wv/2, style, false, false)
   
-  lib.add_text(3*wv, 3*ow, "Tvrđenje", text_style)
-  lib.add_text(2*(wh+wv+2*ow), 3*ow, "t / n", text_style)
+  lib.add_text(3*wv, 3*ow, tvrdjenje_str, text_style)
+  lib.add_text(2*(wh+wv+2*ow), 3*ow, t_str.." / "..n_str, text_style)
   
   for i = 1,dim do
       ind = math.random(2)
-	  reply[i] = " ima " 
+	  reply[i] = ima_str 
 	  x = wv + 2*ow
       if (out[i] == 1) then 
           reply[i] = reply[i] .. tostring(numb_area) .. title[1]
 		  if (numb_area == 6) then
-		      answ = "t"
+		      answ = t_str
 		  else 
-              answ = "n"
+              answ = n_str
           end			  
       end
       if (out[i] == 2) then 
           reply[i] = reply[i] .. tostring(numb_edge) .. title[2]
 		  if (numb_edge == 12) then
-		      answ = "t"
+		      answ = t_str
 		  else 
-              answ = "n"
+              answ = n_str
           end			  
       end	  
       if (out[i] == 3) then 
           reply[i] = reply[i] .. tostring(numb_knot) .. title[3]
 		  if (numb_knot == 8) then
-		      answ = "t"
+		      answ = t_str
 		  else 
-              answ = "n"
+              answ = n_str
           end			  
       end	
       if (out[i] == 4) then 
           reply[i] = reply[i] .. title[4]
 		  x = wv/2
 		  if (ind == 1) then
-		      answ = "t"
+		      answ = t_str
 		  else 
-              answ = "n"
+              answ = n_str
           end			  
       end	  	    	  
       if (out[i] == 5) then 
           reply[i] = reply[i] .. title[5]
 		  x = wv/2
 		  if (ind == 1) then
-		      answ = "t"
+		      answ = t_str
 		  else 
-              answ = "n"
+              answ = n_str
           end			  
       end	  	    
       if (out[i] == 6) then 
           reply[i] = reply[i] .. title[6]
 		  x = 0
-		  answ = "t"		  
+		  answ = t_str		  
       end
       lib.add_text(3*ow, 2*ow+i*(wv+ow), object[ind], colour_style)
    	  lib.add_text(8*ow+wh-x, 2*ow+i*(wv+ow), reply[i], text_style)	  	  

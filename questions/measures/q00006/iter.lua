@@ -1,3 +1,4 @@
+include("terms")
 
 measure = {"m", "dm", "cm","mm"}
 measure2 = {"m\(^2\)", "dm\(^2\)", "cm\(^2\)","mm\(^2\)"}
@@ -12,10 +13,10 @@ surface = edge * edge * 6
 	
 if (ITEM == 1) then
     circ = edge * 4
-    quest =  "obim jedne strane kocke jednak " .. tostring(math.floor(circ)) .. measure[ind] .. "."
+    quest = msg_str[1] .. tostring(math.floor(circ)) .. measure[ind] .. "."
 else
     circ = edge * 12
-    quest = "zbir dužina ivica kocke jednak " .. tostring(math.floor(circ)) .. measure[ind] .. "."
+    quest = msg_str[2] .. tostring(math.floor(circ)) .. measure[ind] .. "."
 end            
              	
     

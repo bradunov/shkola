@@ -1,4 +1,4 @@
-
+include("terms")
 include("names")
 
 r = math.random(#zensko_ime_nom)
@@ -19,14 +19,14 @@ value = number * temp
                   
 q = math.floor(value/10)
 rest = value - 10*q
-mes = "čaša"
+mes = arr_str[1]
 
 if (q ~= 1) then
     if (rest == 1) then
-        mes = "čašu"
+        mes = arr_str[2]
     end  
     if (rest > 1 and rest < 5) then
-        mes = "čaše"
+        mes = arr_str[3]
     end	
 end	
 

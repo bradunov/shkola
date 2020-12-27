@@ -1,3 +1,4 @@
+include("terms")
 
 style = 
 	{["off_color"] = "fff",
@@ -7,10 +8,6 @@ style =
 		
 dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "16"}		
-
-answ = {"Duž AC je prečnik kruga.", "Duž AC je poluprečnik kruga.", "Duž AD je prečnik kruga.", "Duž AD je poluprečnik kruga.", "Duž OA je poluprečnik kruga.", "Duž BO je prečnik kruga.", "Duž DO je poluprečnik kruga.", "Tačka O je centar kruga.", "Tačka A je centar kruga."}
-
-test = {"n", "n", "t", "n", "t", "n", "t", "t", "n"}
 
 index = {1,2,3,4,5,6,7,8,9}
 out = lib.math.random_shuffle(index)

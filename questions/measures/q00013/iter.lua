@@ -1,3 +1,4 @@
+include("terms")
 
 measure = {"m", "dm", "cm"}
 measure2 = {"m\(^2\)", "dm\(^2\)", "cm\(^2\)"}
@@ -17,7 +18,7 @@ base = edge ^ 2
 surface = 4 * number * base + 2 * base
 
 if (ITEM == 1) then
-    answ = "Kvadar se sastoji od " .. tostring(number) .. " takvih kocki nanizanih jedna na drugu."
+    answ = msg_1 .. tostring(number) .. msg_2
 else
-    answ = "Kvadar ima istu dužinu i širinu kao i kocka, a visina mu je " .. tostring(number) ..  " puta duža od ivice kocke." 
+    answ = msg_3 .. tostring(number) ..  msg_4 
 end                

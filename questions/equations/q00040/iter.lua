@@ -1,9 +1,8 @@
+include("terms")
 
-operation = {"uvećan", "umanjen"}
 ind = math.random(2)
 
 compare = {">", "<"}
-comp = {"veći", "manji"}
 index = math.random(2)
 relat = compare[index]
 

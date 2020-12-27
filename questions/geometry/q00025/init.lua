@@ -1,3 +1,4 @@
+include("terms")
 
 style = 
 	{["off_color"] = "fff",
@@ -6,9 +7,6 @@ style =
         ["line_width"] = "1"};
 
 text_style = {["font_size"] = "16"}
-
-title = {"Naziv", "Broj", "tela", "površi", "ravnih", "krivih"}
-object = {"kocka", "kvadar", "valjak", "lopta", "kupa", "piramida"}
 
 out = {}
 out[1] = {6, 6, 2, 0, 1, 5}

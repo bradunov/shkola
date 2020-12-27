@@ -1,5 +1,4 @@
-
-text = {"strana", "strane"}
+include("terms")
                                                                                                                                
 temp = 11 + math.random(18)
 paper = 2 * temp

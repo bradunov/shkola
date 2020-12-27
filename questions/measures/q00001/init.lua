@@ -1,3 +1,4 @@
+include("terms")
 
 green_style = {["off_color"] = "6f6",
                 ["on_color"] = "6f6",

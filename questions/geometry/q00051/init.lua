@@ -1,3 +1,4 @@
+include("terms")
 
 yelow_style = {["off_color"] = "ff0",
         ["on_color"] = "ff0",
@@ -8,8 +9,6 @@ red_style = {["off_color"] = "f30",
         ["on_color"] = "f30",
         ["line_color"] = "000",
         ["line_width"] = "0.5"};		
-
-ime = {"crvenih", "crvena" }
 
 edge = 2 + math.random(7)
 circ = 4 * edge

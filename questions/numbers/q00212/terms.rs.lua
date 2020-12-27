@@ -1,0 +1,1 @@
+valute = {"dinara", "dinar"}

@@ -1,3 +1,4 @@
+include("terms")
 
 style = 
 	{["off_color"] = "fff",
@@ -7,9 +8,6 @@ style =
 		
 dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "16"}		
-
-answ = {"Tačka O pripada kružnici.", "Tačka C pripada kružnici.", "Tačka B pripada kružnici.", "Tačka A pripada krugu.", "Tačka B pripada krugu.", "Tačka O pripada krugu."}
-test = {"n", "t", "n", "t", "t", "t"}
 
 index = {1,2,3,4,5,6}
 out = lib.math.random_shuffle(index)

@@ -1,3 +1,4 @@
+include("terms")
 
 style = 
 	{["off_color"] = "fff",
@@ -23,16 +24,14 @@ blue_style = {["off_color"] = "fff",
 text_style = {["font_size"] = "16"}
 
  
-  name = {"pravim", "oštrim", "tupim"}
-  padez = {"pravih", "oštrih", "tupih"}
-  
-  number = 4
 
-  ind = math.random(3)
+number = 4
 
-  w = 10
-  ow = 20
-  ov = 250
+ind = math.random(3)
+
+w = 10
+ow = 20
+ov = 250
   
  	
 mycanvas = function(result)

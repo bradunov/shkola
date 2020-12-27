@@ -1,7 +1,4 @@
-
-text1 = {"iskrca", "ukrca"}
-text2 = {"ostaje", "će biti"}
-text3 = {"iskrcalo", "ukrcalo"}
+include("terms")
 
 total = (math.random(2990) + 1010) ;
 temp = math.floor(total/2)

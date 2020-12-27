@@ -1,3 +1,4 @@
+include("terms")
 
 style = 
 	{["off_color"] = "fff",
@@ -17,7 +18,6 @@ line_style = {["off_color"] = "fff",
 		
 text_style = {["font_size"] = "16"}	
 
-day = {"utorak", "sreda", "petak", "subota"}
 number = {3, 4, 6, 5}
 
 factor = 5 * math.random(4)
@@ -46,8 +46,8 @@ mycanvas = function()
   lib.add_line(3*ow, ow, 0, 5*w, line_style, false, false)
   lib.add_line(3*ow+3*w, ow, 0, 5*w, line_style, false, false)
   lib.add_line(3*ow+12*w, ow, 0, 5*w, line_style, false, false)  
-  lib.add_text(ow+2*w, 2*ow, "dan", text_style, false, false)
-  lib.add_text(ow+7*w, 2*ow, "broj pogačica", text_style, false, false)
+  lib.add_text(ow+2*w, 2*ow, str1, text_style, false, false)
+  lib.add_text(ow+7*w, 2*ow, str2, text_style, false, false)
 
 
   for j = 1,4 do

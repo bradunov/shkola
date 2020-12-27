@@ -1,3 +1,4 @@
+include("terms")
 
 rect_style = 
 	{["off_color"] = "6f6",
@@ -12,7 +13,6 @@ line_style = {["off_color"] = "none",
 
 text_style = {["font_size"] = "16"}		
 
-name = {"kocka", "kvadar"}
 ind_name = math.random(2)
 ind = ind_name - 1
 
@@ -25,10 +25,6 @@ ind_edge = math.random(12)
 side = {"ABCD", "ABFE", "EFGH", "GHDC", "AEHD", "BFGC"}
 ind_side = math.random(6)
 
-element = {"teme" , "ivica", "strana"}
-
-answ_edge = {"Sve ivice su jednake.", "Samo paralelne ivice su jednake."}
-answ_side = {"Sve strane su podudarne.", "Samo naspramne strane su podudarne."}
 
 
 ow = 10

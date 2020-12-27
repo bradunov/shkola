@@ -1,4 +1,5 @@
-	
+include("terms")
+
 style = 
 	{["off_color"] = "6f6",
         ["on_color"] = "6f6",
@@ -7,9 +8,6 @@ style =
 		
 text_style = {["font_size"] = "16"}		
 
-name = {"jednakokraki", "jednakostranicni", "nejednakostranicni"}
-name2 = {"jednakokraki", "jednakostranični", "nejednakostranični"}
-answr = { "temena", "stranice"}
 reply = {}
 ans = {}
 ind = math.random(3)
@@ -50,9 +48,9 @@ mycanvas = function(no)
   lib.start_canvas(300, 240, "center")
   
   lib.add_straight_path (ov, 2*ow, {{x, v+ow}, {y, 0}, {z, -v-ow}}, style, true, false)
-  lib.add_text(ov+x, v+ov/2, "A", text_style, false, false) 
-  lib.add_text(ov+x+y, v+ov/2, "B", text_style, false, false) 
-  lib.add_text(ov, ow+w, "C", text_style, false, false)    
+  lib.add_text(ov+x, v+ov/2, temena[1], text_style, false, false) 
+  lib.add_text(ov+x+y, v+ov/2, temena[2], text_style, false, false) 
+  lib.add_text(ov, ow+w, temena[3], text_style, false, false)    
   lib.add_input(ov-v+ow, ov+2*ow, 150, 30, lib.check_string(reply[ind], 120, ans[ind]))
   
   lib.end_canvas()

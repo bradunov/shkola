@@ -1,4 +1,4 @@
-
+include("terms")
 red_style = {["off_color"] = "f30",
                 ["on_color"] = "f30",
                 ["line_color"] = "000",
@@ -11,9 +11,9 @@ blue_style = {["off_color"] = "0cf",
 			   
 text_style = {["font_size"] = "16"}		
 
-reply = "answer == '" .. "ostra" .. "' "  ..
-        "|| answer == '" .. "oštra" .. "'" ;
-ans = "answer = '" .. "oštra" .. "' ";
+reply = "answer == '" .. angle_str[1] .. "' "  ..
+        "|| answer == '" .. angle_str[2] .. "'" ;
+ans = "answer = '" .. angle_str[2] .. "' ";
 		
   w = 5
   ow = 20

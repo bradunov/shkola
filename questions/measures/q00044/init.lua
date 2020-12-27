@@ -1,4 +1,4 @@
-
+include("terms")
 include("names")
 
 dimnames = 6
@@ -12,8 +12,6 @@ r = lib.math.random_shuffle(index)
 ime1 = zensko_ime_nom[r[1]]
 ime2 = zensko_ime_nom[r[2]] 
 
-town = {"Sidnej", "Tokio", "Peking", "Toronto", "Sijetl"}
-padez = {"Sidneju", "Tokiju", "Pekingu", "Torontu", "Sijetlu"}
 diff = {8, 7, 6, -6, -9}
 
 ind = math.random(5)

@@ -1,3 +1,4 @@
+include("terms")
 
 style = 
 	{["off_color"] = "fff",
@@ -8,8 +9,7 @@ style =
 dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "16"}		
 
-answ = {"Tačka O pripada pravoj a.", "Tačke O i N pripadaju istoj pravoj.", "Prave a i c se seku.", "Prave b i c nemaju zajedničkih tačaka.", "Tačka O pripada i pravoj a i pravoj b.", "Tačke O i M pripadaju istoj pravoj.", "Prave a i b su paralelne.", "Tačka N pripada pravoj c." }
-test = {"t", "n", "t", "n", "t", "t", "n",  "t"}
+test = {t_str, n_str, t_str, n_str, t_str, t_str, n_str,  t_str}
 
 index = {1,2,3,4,5,6,7,8}
 out = lib.math.random_shuffle(index)

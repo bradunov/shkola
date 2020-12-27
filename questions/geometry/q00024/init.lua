@@ -1,6 +1,4 @@
-
-model = {"kocka", "lopta", "valjak",  "kvadar", "piramida", "kupa"}  
-surf = {"ravnim", "krivim"}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+include("terms")
 
 style = 
 	{["off_color"] = "fff",

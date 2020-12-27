@@ -1,3 +1,4 @@
+include("terms")
 
 style = 
 	{["off_color"] = "fff",
@@ -7,7 +8,7 @@ style =
 		
 text_style = {["font_size"] = "16"}		
 
-test = {"t", "t", "t", "t"}
+test = {t_str, t_str, t_str, t_str}
 
 ow = 20
 w = 250
@@ -24,12 +25,12 @@ gup = -120
 if (y < 71) then 
    g = gdw
    cor = ow
-   test[4] = "n"
+   test[4] = n_str
 else   
    g = gup
    cor = 0
-   test[2] = "n"
-   test[3] = "n"
+   test[2] = n_str
+   test[3] = n_str
 end   
 
 mycanvas = function(no)

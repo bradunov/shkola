@@ -1,6 +1,6 @@
+include("terms")
 
 measure = {"kg", "t"}
-object = {"psa", "čoveka", "slona", "plavog kita"}
 ord = {1,2,3,4}
 
 ind = math.random(4)

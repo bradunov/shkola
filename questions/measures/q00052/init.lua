@@ -36,7 +36,7 @@ else
 	part = padez[2]
 end	
 
-answ = tostring(lib.check_number(total,30)) .. " minuta"
+answ = tostring(lib.check_number(total,30)) .. msg_min
 if (hour == 1) then
     answ = answ .. " = " .. lib.check_number(hour,20) .. msg_hour .. lib.check_number(minute,20) .. msg_min .. "."
 else	

@@ -1,3 +1,4 @@
+include("terms")
 
 style = 
 	{["off_color"] = "fff",
@@ -7,9 +8,6 @@ style =
 		
 dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "16"}	
-
-area_dot = {"O", "M"}
-area_line = {"a", "b", "c", "d"}
 
 reply = {}
 ans = {}

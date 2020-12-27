@@ -1,8 +1,6 @@
+include("terms")
 
-operation = {"zbir", "razliku", "proizvod", "količnik"}
 sign = {"+", "-",  "*" , ":"}
-
-work = {"uvećaj", "umanji"}
 
 quest = " "
 answ = " "
@@ -19,7 +17,7 @@ if (ITEM == 1) then
 	    number1 = number1 * factor
         number2 = number2 * factor
     end	
-    quest = operation[ind1] .. " brojeva " .. tostring(number1) .. " i " .. tostring(number2) .. " " .. work[ind2] .. " " .. tostring(factor) .. " puta" 
+    quest = operation[ind1] .. brojeva_str .. tostring(number1) .. i_str .. tostring(number2) .. " " .. work[ind2] .. " " .. tostring(factor) .. puta_str 
     if (ind1 == 1) then
         value = number1 + number2
     else
@@ -40,7 +38,7 @@ if (ITEM == 2) then
         number2 = factor		
 		factor = temp
     end	
-    quest = operation[2+ind1] .. " brojeva " .. tostring(number1) .. " i " .. tostring(number2) .. " " .. work[ind2] .. " za " .. tostring(factor) 
+    quest = operation[2+ind1] .. brojeva_str .. tostring(number1) .. i_str .. tostring(number2) .. " " .. work[ind2] .. za_str .. tostring(factor) 
     if (ind1 == 1) then
         value = number1 * number2
     else
@@ -60,7 +58,7 @@ if (ITEM == 3) then
     else		
 	    number2 = number2 * factor
     end	
-    quest = "broj " .. tostring(number1) .. " " .. work[ind1] .. " za " .. operation[2+ind2] .. " brojeva " .. tostring(number2) .. " i " .. tostring(factor)  
+    quest = broj_str .. tostring(number1) .. " " .. work[ind1] .. za_str .. operation[2+ind2] .. brojeva_str .. tostring(number2) .. i_str .. tostring(factor)  
     if (ind2 == 1) then
         value = number2 * factor
     else

@@ -1,0 +1,3 @@
+model = {"kocka", "lopta", "valjak",  "kvadar", "piramida", "kupa"}  
+surf = {"ravnim", "krivim"}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+

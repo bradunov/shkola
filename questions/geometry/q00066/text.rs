@@ -9,7 +9,7 @@ U prazne okvire na slici upiši oznake za prave a, b, c i d i tačke O i M tako 
 @center@ @mycanvas()@
             
 @center@  U kakvom su odnosu prave b i d?  
-@center@ Prave b i d su  @lib.check_string("normalne",60)@.            
+@center@ Prave b i d su  @lib.check_string(ans_str,60)@.            
                  
             
 

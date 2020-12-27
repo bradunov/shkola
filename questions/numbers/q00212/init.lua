@@ -1,6 +1,5 @@
+include("terms")
 
-valute = {"dinara", "dinar"}
-                                                                                                                                                                
 result = 11111 + math.random(6889)
 number = 41 + math.random(48)
 value = result * number

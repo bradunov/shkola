@@ -6,7 +6,7 @@ Površina pravougaonika na slici je:
 @center@ @lib.check_one_option(answ,ind)@
 @vspace@
 U kojim jedinicama je izražena površina? Napiši rečima.
-@center@ @lib.check_string("kvadratni centimetar", 130)@
+@center@ @lib.check_string(unit_str, 130)@
 
     
        

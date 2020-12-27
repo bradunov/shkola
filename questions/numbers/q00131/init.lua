@@ -1,3 +1,4 @@
+include("terms")
 
 style = 
 	{["off_color"] = "fff",
@@ -67,12 +68,12 @@ mycanvas = function()
   lib.add_line(v+2*(ow+wh), ow, 0, 3*wh-ow, style, false, false)
   lib.add_line(v+3*(ow+wh), ow, 0, 3*wh-ow, style, false, false)
   
-  lib.add_text(ow+wv, 2*ow, "Dekadna", text_style)
-  lib.add_text(ow+wv, 4*ow, "jedinica", text_style) 
-  lib.add_text(wh+wv+2*ow, 2*ow, "Dati", text_style)
-  lib.add_text(wh+wv+2*ow, 4*ow, "broj", text_style)   
-  lib.add_text(2*(wh+wv), 2*ow, "Zaokrugljeni", text_style)
-  lib.add_text(2*(wh+wv), 4*ow, " broj", text_style)  
+  lib.add_text(ow+wv, 2*ow, header_arr[1], text_style)
+  lib.add_text(ow+wv, 4*ow, header_arr[2], text_style) 
+  lib.add_text(wh+wv+2*ow, 2*ow, header_arr[3], text_style)
+  lib.add_text(wh+wv+2*ow, 4*ow, header_arr[4], text_style)   
+  lib.add_text(2*(wh+wv), 2*ow, header_arr[5], text_style)
+  lib.add_text(2*(wh+wv), 4*ow, header_arr[6], text_style)  
 
   x = wv + 2*ow  
   for i = 1,dim do

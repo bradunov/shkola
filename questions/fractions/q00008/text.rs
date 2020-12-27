@@ -2,12 +2,12 @@ Popuni tabelu:
 
 @lib.start_table()@
   @lib.start_row()@
-    @lib.add_cell("broj a")@
-    @lib.add_cell("\(\frac{1}{"..tostring(denom[1]).."}\) od a")@
-    @lib.add_cell("\(\frac{1}{"..tostring(denom[2]).."}\) od a")@
-    @lib.add_cell("\(\frac{1}{"..tostring(denom[3]).."}\) od a")@
-    @lib.add_cell("\(\frac{1}{"..tostring(denom[4]).."}\) od a")@
-    @lib.add_cell("\(\frac{1}{"..tostring(denom[5]).."}\) od a")@
+    @lib.add_cell(str1)@
+    @lib.add_cell("\(\frac{1}{"..tostring(denom[1]).."}\)"..str2)@
+    @lib.add_cell("\(\frac{1}{"..tostring(denom[2]).."}\)"..str2)@
+    @lib.add_cell("\(\frac{1}{"..tostring(denom[3]).."}\)"..str2)@
+    @lib.add_cell("\(\frac{1}{"..tostring(denom[4]).."}\)"..str2)@
+    @lib.add_cell("\(\frac{1}{"..tostring(denom[5]).."}\)"..str2)@
   @lib.end_row()@
   @repeat(5)@
   @lib.start_row()@

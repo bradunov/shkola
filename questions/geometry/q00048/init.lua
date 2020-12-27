@@ -1,7 +1,6 @@
+include("terms")
 
 addition_table = function()
-
-  measure = {"dužina  cm", "širina cm", "obim \( \) cm"} 
   columns = 6
   min_range = 5
   max_range = 20

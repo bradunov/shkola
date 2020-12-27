@@ -1,3 +1,4 @@
+include("terms")
 
 square_style = 
 	{["off_color"] = "f90",
@@ -13,8 +14,6 @@ rectangle_style =
 		
 dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "16"}		
-
-answ = {"pravougaonik", "kvadrat", "temena", "naspramne", "susedne"}
 
 w = 3
 ow = 10
