@@ -165,6 +165,8 @@ class Question(object):
         text_key = "text." + PageLanguage.toStr(self.language)
         if text_key in q.keys():
             self.text = q[text_key]
+        else:
+            logging.error("Question '{}' not found ({}).".format(self.q_id, text_key))
             
             
     def set_from_file_with_exception(self):
