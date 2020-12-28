@@ -373,10 +373,8 @@ class PageParameters(object):
                     self._params["op"] = PageOperation.DEFAULT
 
                 if len(args["permalink"]) > ind+2 and args["permalink"][ind+1] == "year":
-                    self._params["op"] = PageOperation.MENU_THEME
                     self._params["year"] = args["permalink"][ind+2]
                     if len(args["permalink"]) > ind+4 and args["permalink"][ind+3] == "theme":
-                        self._params["op"] = PageOperation.TEST
                         self._params["theme"] = args["permalink"][ind+4]
                         ind = 7
                         while ind < len(args["permalink"]):
@@ -389,9 +387,6 @@ class PageParameters(object):
                             elif args["permalink"][ind] == "question":
                                 self._params["q_id"] = args["permalink"][ind+1] + "/" + args["permalink"][ind+2]
                                 ind += 3
-                            elif PageOperation.isValid(args["permalink"][ind]):
-                                self._params["op"] = PageOperation(args["permalink"][ind])
-                                break
                             else:
                                 break
 
