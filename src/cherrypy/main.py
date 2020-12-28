@@ -137,8 +137,6 @@ class Site:
                 pass
 
         args["root"] = handle
-        if "language" not in args.keys():
-            args["language"] = "rs"
 
         with tc.new_section("page_main"):
             try:

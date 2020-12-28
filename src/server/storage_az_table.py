@@ -49,20 +49,21 @@ class Storage_az_table():
         
 
     def update_user(self, user_id, name=None, remote_ip=None, 
-                    user_agent=None, picture=None, user_language=None, last_accessed=None):
+                    user_agent=None, picture=None, user_language=None, selected_language=None, last_accessed=None):
         properties = dict()
             
         # Nothing better at the moment:
         properties['PartitionKey'] = self.default_partition_key
         properties['RowKey'] = user_id
         properties['user_id'] = user_id
-        properties['user_language'] = user_language
         
         properties["name"] = name
         properties["remote_ip"] = remote_ip
         properties["user_agent"] = user_agent
         properties["picture"] = picture
         properties["user_language"] = user_language
+        if selected_language:
+            properties["selected_language"] = selected_language
         properties["last_accessed"] = last_accessed
 
         logging.debug("azure table update_user %s: %s", str(name), str(properties))
@@ -72,6 +73,23 @@ class Storage_az_table():
         except Exception:
             logging.exception('Error adding to table ' + self.users_table_name + ' record: {}'.format(properties))
         
+
+    def update_selected_language(self, user_id, selected_language):
+        properties = dict()
+            
+        # Nothing better at the moment:
+        properties['PartitionKey'] = self.default_partition_key
+        properties['RowKey'] = user_id
+        properties['user_id'] = user_id
+        
+        properties["selected_language"] = selected_language
+        logging.debug("azure table update_user_langauge %s: %s", str(user_id), str(properties))
+
+        try:
+            self.table_service.insert_or_merge_entity(self.users_table_name, properties)
+        except Exception:
+            logging.exception('Error adding to table ' + self.users_table_name + ' record: {}'.format(properties))
+
 
     def insert_user_id(self, user_id):
         self.update_user(user_id)

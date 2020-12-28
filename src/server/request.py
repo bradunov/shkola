@@ -38,6 +38,19 @@ class Request:
         return h[header] if header in h else None
 
 
+    def get_preferred_lang(self):
+        try:
+            for e in self._request.headers.elements('Accept-Language'):
+                if e.value and len(e.value) == 2:
+                    return e.value
+        except:
+            h = self._request.headers
+            if 'Accept-Language' in h:
+                logging.error("Unknown language received: {}".format(h['Accept-Language']))
+            pass
+        return None
+
+
     def get_url(self):
         if self._rtype == RequestType.CHERRY_PY:
             import cherrypy

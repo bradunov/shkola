@@ -143,11 +143,11 @@ class Question(object):
     def set_from_file(self):
         self.init_code = ""
         self.iter_code = ""
-        self.text = "\n\n<h3>ERROR: no code exists for question {} for language {}!</h3>".format(
+        self.text = "\n\n<h3>ERROR: no code exists for question '{}' for language '{}'!</h3>".format(
             self.q_id, PageLanguage.toStr(self.language)
         )
         
-        self.page.add_lines("\n<!-- Rendering question {} for language {} -->\n\n".format(
+        self.page.add_lines("\n<!-- Rendering question '{}' for language '{}' -->\n\n".format(
             self.q_id, PageLanguage.toStr(self.language)
         ))
 

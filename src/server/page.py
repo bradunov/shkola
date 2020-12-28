@@ -278,8 +278,17 @@ class Page(object):
 
                     # # Parameters stored in a session,
                     # # only updates passed in URL
-                    # self.page_params.load_params()
                     self.page_params.parse(in_args=args, session=session)
+
+                    if self.page_params.get_param("language"):
+                        #print("\n\n**** DIRECT: ", self.page_params.get_param("language"))
+                        self.userdb.update_selected_language(self.page_params.get_param("language").value)
+                    elif context.c.user and context.c.user.selected_language:
+                        self.page_params.set_param("language", PageLanguage.fromStr(context.c.user.selected_language))
+                        #print("\n\n**** FROM DB: ", self.page_params.get_param("language"))
+                    else:
+                        self.page_params.set_param("language", PageLanguage.get_default(req.get_preferred_lang()))
+                        #print("\n\n**** DEFAULT: ", self.page_params.get_param("language"))
 
                     # DEBUG (log.debug level required for the below to work)
                     # print("\n\nPOST PARSING:\n")
@@ -334,6 +343,13 @@ class Page(object):
                         log_json["difficulty"] = context.c.session.get("difficulty")
                     if self.page_params.get_param("skipped"):
                         log_json["skipped"] = self.page_params.get_param("skipped")
+
+
+                    # HTTP header
+                    log_json["accepted_lang"] = req.get_header('Accept-Language')
+                    log_json["preferred_lang"] = req.get_preferred_lang()
+                    log_json["remote_addr"] = req.get_header('Remote-Addr')
+                    log_json["user_agent"] = req.get_header('User-Agent')
 
 
                     self.app_data.log_json("Access", log_json)
@@ -594,6 +610,7 @@ class Page(object):
 
         url = self.page_params.create_url( \
             op = PageOperation.MENU_USER, 
+            language = PageLanguage.toStr(self.page_params.get_param("language")), 
             beta = True if self.page_params.get_param("beta") else None
         )
 
@@ -641,6 +658,7 @@ class Page(object):
 
         url = self.page_params.create_url( \
             op = PageOperation.CONFIRM_ANON, 
+            language = PageLanguage.toStr(self.page_params.get_param("language")), 
             beta = True if self.page_params.get_param("beta") else None
         )
 

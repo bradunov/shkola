@@ -19,7 +19,7 @@ DOMAINS = ["local", "google"]
 
 CACHE_SIZE = 1000
 
-User = namedtuple("User", "user_id domain domain_user_id picture name")
+User = namedtuple("User", "user_id domain domain_user_id picture selected_language name")
 
 
 class UserDB(object):
@@ -56,6 +56,24 @@ class UserDB(object):
                 user_language=user_language, last_accessed=now)
 
 
+    def update_selected_language(self, lang):
+        if context.c.user and context.c.user.user_id and \
+                    not context.c.user.user_id == "UNKNOWN" and \
+                    context.c.user.selected_language != lang:
+            #print("\n\n**** UPDATING: ", context.c.user, lang)
+            context.c.user = User(
+                user_id = context.c.user.user_id,
+                domain = context.c.user.domain,
+                domain_user_id = context.c.user.domain_user_id,
+                picture = context.c.user.picture,
+                selected_language = lang,
+                name = context.c.user.name
+            )
+
+            self._storage.update_selected_language(context.c.user.user_id, lang)
+            self._cache.set(context.c.user.user_id, DataCache.DEFAULT_STATE, context.c.user)
+
+
     @timer_section("get_user")
     def get_user(self, user_id):
         if not user_id:
@@ -81,6 +99,7 @@ class UserDB(object):
             domain = domain,
             domain_user_id = domain_user_id,
             picture = d['picture'] if 'picture' in d.keys() else "",
+            selected_language = "",
             name = d['name'] if 'name' in d.keys() else ""
         )
 

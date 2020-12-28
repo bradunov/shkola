@@ -133,6 +133,10 @@ class PageLanguage(Enum):
         return enum.value
 
     @classmethod
+    def toJSON(cls, enum):
+        return enum.value
+
+    @classmethod
     def isValid(cls, val) -> bool:
         return val in tuple(item.value for item in cls)
 
@@ -147,6 +151,29 @@ class PageLanguage(Enum):
         else:
             # Default language
             return PageLanguage.RS
+
+    @classmethod
+    def get_default(cls, browser_lang):
+        # Default (for now)
+        default = PageLanguage.RS
+
+        browser_mapping = [
+            ["sr-Latn", PageLanguage.RS], 
+            ["sr", PageLanguage.RSC], 
+            ["hr", PageLanguage.RS], 
+            ["bs", PageLanguage.RS]
+            #["en", PageLanguage.UK]
+        ]
+
+        if not browser_lang:
+            return default
+
+        for map in browser_mapping:            
+            if browser_lang and len(browser_lang) >= len(map[0]) and browser_lang[0:len(map[0])] == map[0]:
+                return map[1]
+
+        return default
+
 
 
 
@@ -168,7 +195,7 @@ class PageParameters(object):
         "difficulty" : "",                                  # Difficulty level for the current test
         "q_num" : "",
         "skipped" : "",
-        "language" : PageLanguage.RS,
+        "language" : None,
 
         # Parameters for edit mode
         "init_code" : "",
@@ -261,9 +288,6 @@ class PageParameters(object):
     def set_param(self, key, val):
         self._params[key] = val
 
-    def delete_params(self):
-        self._params = self._default_params.copy()
-
     def copy_to_serializible_state(self):
         new_dict = copy.deepcopy(self._params)
         if "op" in self._params.keys():
@@ -290,6 +314,7 @@ class PageParameters(object):
 
     def print_params(self):
         logging.debug("\n\n Printing parameters: {}\n\n".format(json.dumps(self.copy_to_serializible_state(), indent=2)))
+        #print("\n\n Printing parameters: {}\n\n".format(json.dumps(self.copy_to_serializible_state(), indent=2)))
 
     def _str_to_url(self, s, default, js=False):
         if s is None:
@@ -355,13 +380,7 @@ class PageParameters(object):
                         self._params["theme"] = args["permalink"][ind+4]
                         ind = 7
                         while ind < len(args["permalink"]):
-                            if args["permalink"][ind] == PageOperation.TEST.value:
-                                self._params["op"] = PageOperation.TEST
-                                ind += 1
-                            elif args["permalink"][ind] == PageOperation.BROWSE.value:
-                                self._params["op"] = PageOperation.BROWSE
-                                ind += 1
-                            elif args["permalink"][ind] == "subtheme":
+                            if args["permalink"][ind] == "subtheme":
                                 self._params["subtheme"] = args["permalink"][ind+1]
                                 ind += 2
                             elif args["permalink"][ind] == "topic":
@@ -424,15 +443,15 @@ class PageParameters(object):
         if op is None:
             op = self._params["op"]
         q_id = self._str_to_url(q_id, self._params["q_id"])
-        if language is None:
-            language = PageLanguage.toStr(self._params["language"])
         year = self._str_to_url(year, self._params["year"])
         theme = self._str_to_url(theme, self._params["theme"])
         subtheme = self._str_to_url(subtheme, self._params["subtheme"])
         topic = self._str_to_url(topic, self._params["topic"])
 
+        url = root
 
-        url = self._add_path_to_url(root, "language", language)
+        if language:
+            url = self._add_path_to_url(url, "language", language)
 
         url = self._add_path_to_url(url, op.value)
 
@@ -449,11 +468,7 @@ class PageParameters(object):
                 url = self._add_path_to_url(url, "subtheme", subtheme)
                 if topic:
                     url = self._add_path_to_url(url, "topic", topic)
-            if op == PageOperation.TEST:
-                url = self._add_path_to_url(url, "test")
-                url = self._add_path_to_url(url, "question", q_id)
-            elif op == PageOperation.BROWSE:
-                url = self._add_path_to_url(url, "browse")
+            if op == PageOperation.TEST or op == PageOperation.BROWSE:
                 url = self._add_path_to_url(url, "question", q_id)
             else:
                 url = self._add_path_to_url(url, op.value)

@@ -116,7 +116,8 @@ class Design_default(object):
             Design_default.render_select_user_page(page)
             return page.render()
 
-        elif page.page_params.get_param("op") == PageOperation.MENU_YEAR:
+        elif page.page_params.get_param("op") == PageOperation.MENU_YEAR or \
+             page.page_params.get_param("op") == PageOperation.DEFAULT:
             # No year selected, select it
             logging.debug("PageOperation.MENU - year")
             Design_default.render_select_year_page(page)
@@ -140,9 +141,6 @@ class Design_default(object):
 
             else:
                 logging.info("PageOperation.STATS - no user - select user")
-                root = page.page_params.get_param("root")
-                page.page_params.delete_params()
-                page.page_params.set_param("root", root)
                 page.page_params.set_param("op", PageOperation.MENU_USER)
                 Design_default.render_select_year_page(page)
             return page.render()
@@ -153,10 +151,7 @@ class Design_default(object):
 
         else:
             # Something mesed up the state - clean up the state and go to the intro
-            logging.info("PageOperation.MENU - wrong parameters - select year")
-            root = page.page_params.get_param("root")
-            page.page_params.delete_params()
-            page.page_params.set_param("root", root)
+            logging.error("PageOperation.MENU - wrong parameters - select year: {}".format(page.page_params.get_param("op")))
             page.page_params.set_param("op", PageOperation.MENU_YEAR)
             Design_default.render_select_year_page(page)
             return page.render()
@@ -224,6 +219,7 @@ class Design_default(object):
             "name" : "Razred".upper(),
             "link" : new_page_params.create_url(\
                     op = PageOperation.MENU_YEAR, \
+                    language = PageLanguage.toStr(page.page_params.get_param("language")), \
                     beta = True if page.page_params.get_param("beta") else None),
             "submenu" : {
                 "id" : "zadaci_{}".format(menu_id),
@@ -267,6 +263,7 @@ class Design_default(object):
                         "name" : level.upper(),
                         "link" : new_page_params.create_url( \
                                 op = PageOperation.MENU_THEME, \
+                                language = PageLanguage.toStr(page.page_params.get_param("language")), \
                                 year = level, 
                                 beta = True if page.page_params.get_param("beta") else None)
                         #         js = False),
@@ -289,6 +286,7 @@ class Design_default(object):
                 "name" : "Moj uspeh".upper() if not current_lang == PageLanguage.RSC else "Мој успех".upper(),
                 "link" : new_page_params.create_url(
                     op = PageOperation.STATS, 
+                    language = PageLanguage.toStr(page.page_params.get_param("language")), \
                     beta = True if page.page_params.get_param("beta") else None 
                 )
             })
@@ -299,6 +297,7 @@ class Design_default(object):
             "name" : "O TATAMATI".upper() if not current_lang == PageLanguage.RSC else "O ТАТАМАТИ".upper(),
             "link" : new_page_params.create_url(
                 op = PageOperation.ABOUT, 
+                language = PageLanguage.toStr(page.page_params.get_param("language")), \
                 beta = True if page.page_params.get_param("beta") else None
             )
         })
@@ -309,6 +308,7 @@ class Design_default(object):
             "name" : "Izloguj se".upper() if not current_lang == PageLanguage.RSC else "Излогуј се".upper(),
             "link" : new_page_params.create_url(
                 op = PageOperation.LOGOUT, 
+                language = PageLanguage.toStr(page.page_params.get_param("language")), \
                 beta = True if page.page_params.get_param("beta") else None
             )
         })
@@ -375,6 +375,7 @@ class Design_default(object):
 
         page.template_params["guest_link"] = page.page_params.create_url(
                                     op = PageOperation.LOGIN_ANON, 
+                                    language = PageLanguage.toStr(page.page_params.get_param("language")), \
                                     beta = True if page.page_params.get_param("beta") else None)
 
 
@@ -441,6 +442,7 @@ class Design_default(object):
                         'back_color' : '#ffffff',
                         'link' : page.page_params.create_url(
                             op = PageOperation.MENU_THEME,                         
+                            language = PageLanguage.toStr(page.page_params.get_param("language")), \
                             year = year, \
                             theme = "", \
                             subtheme = "", \
@@ -476,6 +478,7 @@ class Design_default(object):
         else:
             url_next = page.page_params.create_url(
                     op = PageOperation.TEST_INTRO, 
+                    language = PageLanguage.toStr(page.page_params.get_param("language")), \
                     theme = theme, 
                     subtheme = subtheme, 
                     topic = topic, 
@@ -507,6 +510,7 @@ class Design_default(object):
         else:
             url_next = page.page_params.create_url(
                     op = PageOperation.BROWSE_INTRO, 
+                    language = PageLanguage.toStr(page.page_params.get_param("language")), \
                     theme = theme, 
                     subtheme = subtheme, 
                     topic = topic, 
@@ -565,6 +569,7 @@ class Design_default(object):
             page.template_params['year_color'] = Design_default._get_color(int_year)
 
             page.template_params['url_year'] = page.page_params.create_url(
+                                            language = PageLanguage.toStr(page.page_params.get_param("language")), \
                                             op = PageOperation.MENU_YEAR, 
                                             beta = True if page.page_params.get_param("beta") else None)
 
@@ -746,10 +751,12 @@ class Design_default(object):
 
         page.template_params["next"] = page.page_params.create_url(\
                     op = PageOperation.MENU_YEAR, 
+                    language = PageLanguage.toStr(page.page_params.get_param("language")),
                     beta = True if page.page_params.get_param("beta") else None
                 )
         page.template_params["back"] = page.page_params.create_url(\
                     op = PageOperation.LOGOUT, 
+                    language = PageLanguage.toStr(page.page_params.get_param("language")),
                     beta = True if page.page_params.get_param("beta") else None
                 )
 
@@ -793,6 +800,7 @@ class Design_default(object):
 
         page.template_params["back"] = page.page_params.create_url(\
                     op = PageOperation.MENU_THEME, 
+                    language = PageLanguage.toStr(page.page_params.get_param("language")),
                     subtheme = "", 
                     topic = "", 
                     period = "", 
@@ -1022,6 +1030,7 @@ class Design_default(object):
 
         page.template_params["next"] = page.page_params.create_url(
                                         op=PageOperation.MENU_THEME, \
+                                        language = PageLanguage.toStr(page.page_params.get_param("language")), \
                                         year=page.page_params.get_param("year"), \
                                         theme = "", \
                                         subtheme = "", \
@@ -1080,6 +1089,7 @@ class Design_default(object):
         page.template_params["next"] = url_next
         page.template_params["back"] = page.page_params.create_url(\
                     op = PageOperation.MENU_THEME, 
+                    language = PageLanguage.toStr(page.page_params.get_param("language")), \
                     subtheme = "", 
                     topic = "", 
                     period = "", 
@@ -1125,6 +1135,7 @@ class Design_default(object):
         page.template_params["prev"] = url_prev
         page.template_params["back"] = page.page_params.create_url(\
             op = PageOperation.MENU_THEME, 
+            language = PageLanguage.toStr(page.page_params.get_param("language")), \
             subtheme = "", 
             topic = "", 
             period = "", 

@@ -75,9 +75,10 @@ def extract_dict_from_post(body):
     return args
 
 
+MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
+
 def is_user_on_mobile(user_agent):    
     user_agent = user_agent.lower()        
-    MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
     return MOBILE_AGENT_RE.match(user_agent)
 
 

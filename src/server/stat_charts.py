@@ -12,6 +12,7 @@ if __name__ == '__main__':
     from server import page
 
 from server.types import PageOperation
+from server.types import PageLanguage
 
 
 def render_stats_data(pg, u_ID):
@@ -206,6 +207,7 @@ def prepare_user_stats_chart(pg, u_ID):
 
     pg.template_params["url_year"] = pg.page_params.create_url(
                                     op=PageOperation.MENU_YEAR, \
+                                    language = PageLanguage.toStr(pg.page_params.get_param("language")), 
                                     year = "", \
                                     theme = "", \
                                     subtheme = "", \
@@ -216,6 +218,7 @@ def prepare_user_stats_chart(pg, u_ID):
 
     pg.template_params["url_theme"] = pg.page_params.create_url(
                                     op=PageOperation.MENU_THEME, \
+                                    language = PageLanguage.toStr(pg.page_params.get_param("language")), 
                                     year=pg.page_params.get_param("year"), \
                                     theme = "", \
                                     subtheme = "", \

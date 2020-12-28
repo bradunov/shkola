@@ -107,6 +107,7 @@ class List(object):
         if prev_question:
             url_prev = self.page.page_params.create_url( 
                 op=PageOperation.BROWSE,
+                language = PageLanguage.toStr(self.page.page_params.get_param("language")), 
                 q_id=prev_question["name"], 
                 q_num="0",
                 beta=True if self.page.page_params.get_param("beta") else None)
@@ -116,6 +117,7 @@ class List(object):
         if next_question:
             url_next = self.page.page_params.create_url( 
                 op=PageOperation.BROWSE,
+                language = PageLanguage.toStr(self.page.page_params.get_param("language")), 
                 q_id=next_question["name"], 
                 q_num="0",
                 beta=True if self.page.page_params.get_param("beta") else None)
@@ -388,16 +390,19 @@ class List(object):
         if q_number >= total_questions or not more_questions:
             url_next = self.page.page_params.create_url( 
                 op=PageOperation.SUMMARY,
+                language = PageLanguage.toStr(self.page.page_params.get_param("language")), 
                 beta=True if self.page.page_params.get_param("beta") else None)
             url_skip = url_next
         else:
             url_next = self.page.page_params.create_url( 
                 op=PageOperation.TEST,
+                language = PageLanguage.toStr(self.page.page_params.get_param("language")), 
                 q_id=next_question["name"], 
                 q_num=str(q_number+1),
                 beta=True if self.page.page_params.get_param("beta") else None)
             url_skip = self.page.page_params.create_url( 
                 op=PageOperation.TEST,
+                language = PageLanguage.toStr(self.page.page_params.get_param("language")), 
                 q_id=next_question["name"], 
                 q_num=str(q_number+1),
                 skipped="true",
@@ -411,12 +416,14 @@ class List(object):
         if len(context.c.session.get("history")) <= 1:
             url_prev = self.page.page_params.create_url(\
                         op = PageOperation.MENU_THEME, 
+                        language = PageLanguage.toStr(self.page.page_params.get_param("language")), 
                         beta=True if self.page.page_params.get_param("beta") else None)
         else:
             q_id = context.c.session.get("history")[-2]["q_id"]
             q_number = self.get_q_number()
             url_prev = self.page.page_params.create_url(\
                         op = PageOperation.TEST_PREV, 
+                        language = PageLanguage.toStr(self.page.page_params.get_param("language")), 
                         q_id = q_id, 
                         q_num = str(q_number-1),
                         beta=True if self.page.page_params.get_param("beta") else None)
