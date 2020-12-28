@@ -94,11 +94,18 @@ class Logging_handler_azure(logging.StreamHandler):
         now = datetime.datetime.now()
         if now > self.last_log_update + self.log_stale or \
                 len(self.log_msgs) > self.log_buffer_size or upload_immediately:
-          json_msg = json.dumps(self.log_msgs)
-          #print("\n\n********************\nALL: {}\n\n".format(json_msg))
-          self._post_data(self.workspace_id, self.primary_key, json_msg, self.log_type)
-          self.log_msgs = []
-          self.last_log_update = now
+            try:
+                # If json.dumps fails due to issues with log_msgs serialization, 
+                # we need to stop an infinite loop here 
+                json_msg = json.dumps(self.log_msgs)
+            except:
+                json_msg = None
+                pass
+            #print("\n\n********************\nALL: {}\n\n".format(json_msg))
+            if json_msg:
+                self._post_data(self.workspace_id, self.primary_key, json_msg, self.log_type)
+                self.last_log_update = now
+            self.log_msgs = []
 
 
     def _get_user_info(self):
