@@ -402,13 +402,19 @@ class Page(object):
                 #         else:
                 #             incorrect = incorrect + 1
 
+                questions = ""
                 if 'detailed' in args.keys():
                     for k, v in args['detailed'].items():
                         if v == "true":
                             correct = correct + 1
                         else:
                             incorrect = incorrect + 1
-                questions = str(args['detailed'])
+                    questions = str(args['detailed'])
+
+                values = ""
+                if 'values' in args.keys():
+                    values = str(args['values'])
+
 
                 shown_solution = False
                 if "shown_solutions" in args.keys() and type(args["shown_solutions"]) == bool:
@@ -434,7 +440,8 @@ class Page(object):
                             "duration": int(args["now"]) - int(args["start"]),
                             "correct": correct,
                             "incorrect": incorrect,
-                            "questions": questions}
+                            "questions": questions,
+                            "values" : values}
 
                 # logging.debug("Register results: user_id={}, q_id={}, l_id={}, lang={}, response_type={}, " +
                 #             "attempt={}, start={}, duration={}, correct={}, incorrect={}, questions=\"{}\"".format( 
