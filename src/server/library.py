@@ -257,10 +257,13 @@ class Library(object):
                 str_condition = "is_ok = (" + v_answer + " == \'" + str(condition) + "\');"
                 str_solution = s_answer + " = \'" + str(condition) + "\';"
             else:
-                str_condition = "is_ok = (" + v_answer + ".toLowerCase() == \'" + str(condition) + "\'.toLowerCase());"
-                str_solution = s_answer + " = \'" + str(condition) + "\'.toLowerCase();"
+                str_condition = "is_ok = (" + v_answer + ".toLowerCase().trim() == \'" + str(condition) + "\'.toLowerCase().trim());"
+                str_solution = s_answer + " = \'" + str(condition) + "\'.toLowerCase().trim();"
         else:
-            str_condition = "is_ok = (" + condition.replace("answer", v_answer) + ");"
+            mod_v_answer = v_answer
+            if not number:
+                mod_v_answer += ".toLowerCase().trim()"
+            str_condition = "is_ok = (" + condition.replace("answer", mod_v_answer) + ");"
             if solution is None:
                 logging.error("Free form condition in question {} but no solution given.\n{}".format(
                     self.question_url, helpers.get_stack_trace()
