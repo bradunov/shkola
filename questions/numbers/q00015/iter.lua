@@ -11,12 +11,12 @@ end
 
 indeks = math.random(2)
 if (indeks == 1) then   
-    izbor = "parne"
+    izbor = parne_msg
 	for j = 1,5 do
 	   array_value[j] = array_decade[2*j]
 	end   
 else
-    izbor = "neparne"
+    izbor = neparne_msg
 	for j = 1,5 do
 	   array_value[j] = array_decade[2*j-1]
 	end  

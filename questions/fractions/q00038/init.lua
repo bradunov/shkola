@@ -1,4 +1,4 @@
-
+include("terms")
 include("names")
 
 index_ime = math.random(#musko_ime_nom);    
@@ -15,13 +15,13 @@ vreme = put2 * 6;
 sat = math.floor(vreme/60)
 minut = vreme - sat * 60
 
-meas = "časova"
+meas = meas_arr[1]
 
 if (sat > 0 and sat < 5 ) then
     if (sat == 1) then
-        meas = "čas"
+        meas = meas_arr[2]
     else
-        meas = "časa"
+        meas = meas_arr[3]
     end
 end
       

@@ -1,5 +1,5 @@
 
-Oboj @name@ izlomljene linije
+Oboj @name@ izlomljene linije.
 
 @vspace@
 

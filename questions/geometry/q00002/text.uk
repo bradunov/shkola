@@ -1,4 +1,4 @@
-                                                                Colour the car that is driving @position[ind]@ the blue car 
+Colour the car that is driving @position[ind]@ the blue car.
  
 @center@ @mycanvas()@
 

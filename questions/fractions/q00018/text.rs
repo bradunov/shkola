@@ -1,10 +1,11 @@
 
-@ime@ je nabrala  @rezultat@kg jabuka. Prvog dana je prodala \(\frac{1}{@imenilac1@}\), a drugog dana \(\frac{1}{@imenilac2@}\) jabuka. 
+@ime@ je nabrala  @rezultat@@"kg"@ jabuka. \
+Prvog dana je prodala \(\frac{1}{@imenilac1@}\), a drugog dana \(\frac{1}{@imenilac2@}\) jabuka. 
 
 @vspace@
 
 Koliko jabuka je @ime@ prodala? @hspacept(5)@ 
-@center@ @lib.check_number(brojp)@kg   
+@center@ @lib.check_number(brojp)@@"kg"@   
 
 @vspace@
 

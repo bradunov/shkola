@@ -1,4 +1,4 @@
-Oboj @name@ linije
+Oboj @name@ linije.
 
 @vspace@
 
