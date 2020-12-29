@@ -92,6 +92,7 @@ class Library(object):
     checks = []
     clears = []
     solutions = []
+    values = []
     table_row = 0
     lua = None
     lib_id = None
@@ -126,6 +127,7 @@ class Library(object):
         self.checks = []
         self.clears = []
         self.solutions = []
+        self.values = []
         
 
     def modify_input_style(self, width):
@@ -211,6 +213,13 @@ class Library(object):
         self.checks.append("{}_cond()".format(n_answer))
         
         self.solutions.append("document.getElementById('{}_{}').checked = true;\n".format(n_answer, correct))
+
+        self.values.append("""
+        values = { }
+        for (i = 0; i < """ + str(cnt) + """; i++) {
+            values[i.toString()] = document.getElementById('""" + str(n_answer) + """_' + i.toString()).checked;\n
+        }
+        """)
         
         clear_str = clear_str + "clearAllWBorder('{}');".format(n_answer)
         clear_str = clear_str + "}\n"
@@ -277,6 +286,7 @@ class Library(object):
         self.clears.append(clear_value)
         
         self.solutions.append(str_solution)
+        self.values.append("values = document.getElementById('" + n_answer + "').value.toString();\n")
 
         #self.page.add_lines( line )
         return line
@@ -396,6 +406,12 @@ class Library(object):
             solution_str = solution_str.replace("whole", s_answer_whole)
 
         self.solutions.append(solution_str)
+
+        values = "values = { 'numerator' : " + str(s_answer_numerator) + \
+                 ".toString(), 'denominator' : " + str(s_answer_denominator) + ".toString() };\n"
+        if whole:
+            values += "values['whole'] = " + str(s_answer_whole) + ".toString();\n"
+        self.values.append(values)
 
         #self.page.add_lines( input_frac )
         return input_frac
@@ -617,6 +633,19 @@ class Library(object):
             self.solutions.append("sel_obj_{}_solution();".format(oid))
             code = code + code_solutions
 
+            values = """
+                {
+                    values = { };
+                    var ind = 0;
+                    for (let i=0; i<""" + str(n) + """; i++) {
+                        if (check_""" + oid + """[i]) {
+                            values[ind.toString()] = (state_""" + oid + """[i]).toString();
+                            ind++;
+                        }
+                    }
+                }
+            """
+            self.values.append(values)
 
 
 
@@ -1093,6 +1122,7 @@ class Library(object):
 
     def add_check_button_code(self):        
         cid = 0
+        vid = 0
         cond = "cond = "
         assign = ""
 
@@ -1109,17 +1139,23 @@ class Library(object):
             report['attempt'] = attempt.toString();
             report['shown_solutions'] = alread_shown_solutions;
             report['detailed'] = {};
+            report['values'] = {};
         """
         for c in self.checks:
-            assign = assign + "c" + str(cid) + " = " + c + ";\n" + \
-                "if (operation == 'SUBMIT') {\n" \
-                "c" + str(cid) + " = " + c + ";\n" \
-                "if (c" + str(cid) + ") {q_correct++;} else {q_incorrect++;}\n" \
-                "} else {c" + str(cid) + " = false; q_incorrect++;}\n"
+            assign = assign + "   c" + str(cid) + " = " + c + ";\n" + \
+                "   if (operation == 'SUBMIT') {\n" \
+                "      c" + str(cid) + " = " + c + ";\n" \
+                "      if (c" + str(cid) + ") {q_correct++;} else {q_incorrect++;}\n" \
+                "   } else {c" + str(cid) + " = false; q_incorrect++;}\n\n"
             cond = cond + "c" + str(cid) + " && "
             report = report + "report['detailed']['q_res" + str(cid) + "'] = c" + str(cid) + ".toString();\n"
             cid = cid + 1
         cond = cond + "true;"
+
+        for v in self.values:
+            report += v
+            report += "\n   report['values']['q_val" + str(vid) + "'] = values;\n"
+            vid = vid + 1
 
 
         check_script = """
