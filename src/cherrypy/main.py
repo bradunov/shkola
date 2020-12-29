@@ -84,6 +84,9 @@ class Site:
         args["root"] = "edit"
         # args["design"] = "dev"
 
+        if "language" not in args.keys():
+            args["language"] = "rs"
+
         tc = TimerControl()
         with tc.new_section("request cherrpy"):
             ret = self._main("edit", req, tc, args)
