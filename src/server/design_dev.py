@@ -264,6 +264,7 @@ class Design_dev(object):
                     q["attributes"][key] = [value]
             q["link"] = page.page_params.create_url_edit( \
                                     op = PageOperation.VIEW, \
+                                    language = PageLanguage.toStr(language), 
                                     q_id = q_id)
 
             # Generate question and paste it into the list 
