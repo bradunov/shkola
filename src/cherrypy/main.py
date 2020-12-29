@@ -66,6 +66,10 @@ class Site:
         # if self.design:
         #     args["design"] = self.design
 
+        if args["root"] == "edit":
+            if "language" not in args.keys():
+                args["language"] = "rs"
+
         tc = TimerControl()
         with tc.new_section("request cherrpy"):
             ret = self._main(self.root, req, tc, args)
