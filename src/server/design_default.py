@@ -186,7 +186,7 @@ class Design_default(object):
 
         sublang = []
         for lang in page.get_language_list():
-            if context.c.session.get("beta") or lang == PageLanguage.RS.value:
+            if context.c.session.get("beta") or lang != PageLanguage.UK.value:
                 sublang.append({
                     "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
                         "height=\"15px\" alt=\"" + page.get_language_details(lang)["country"] + 
@@ -344,7 +344,7 @@ class Design_default(object):
 
         sublang = []
         for lang in page.get_language_list():
-            if context.c.session.get("beta") or lang == PageLanguage.RS.value:
+            if context.c.session.get("beta") or lang != PageLanguage.UK.value:
                 sublang.append({
                     "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
                         "height=\"15px\" alt=\"" + page.get_language_details(lang)["country"] + 
@@ -527,10 +527,7 @@ class Design_default(object):
     # BROWSE
     @staticmethod
     def _next_theme_url(page, theme, subtheme, topic, period, difficulty, l_id):
-        if context.c.session.get("beta"):
-            return Design_default._next_theme_browse_url(page, theme, subtheme, topic, period, difficulty, l_id)
-        else:
-            return Design_default._next_theme_test_url(page, theme, subtheme, topic, period, difficulty, l_id)
+        return Design_default._next_theme_browse_url(page, theme, subtheme, topic, period, difficulty, l_id)
 
 
 
@@ -641,24 +638,14 @@ class Design_default(object):
 
 
                                 # BROWSE
-                                if context.c.session.get("beta"):
-                                    link = Design_default._next_theme_test_url(
-                                                page = page, 
-                                                theme = theme.title().strip(), 
-                                                subtheme = subtheme, 
-                                                topic = "*", 
-                                                period = "*", 
-                                                difficulty = "*", 
-                                                l_id = content[page.page_params.get_param("year")][theme]["name"])
-                                else:
-                                    link = Design_default._next_theme_url(
-                                                page = page, 
-                                                theme = theme.title().strip(), 
-                                                subtheme = subtheme, 
-                                                topic = "*", 
-                                                period = "*", 
-                                                difficulty = "*", 
-                                                l_id = content[page.page_params.get_param("year")][theme]["name"])
+                                link = Design_default._next_theme_test_url(
+                                            page = page, 
+                                            theme = theme.title().strip(), 
+                                            subtheme = subtheme, 
+                                            topic = "*", 
+                                            period = "*", 
+                                            difficulty = "*", 
+                                            l_id = content[page.page_params.get_param("year")][theme]["name"])
 
                                 topic_d = {
                                     # Special provisioing for Serbian cyrillic
@@ -669,13 +656,12 @@ class Design_default(object):
                                 }
 
                                 # BROWSE
-                                if context.c.session.get("beta"):
-                                    topic_d['rank_topic'] = "9999"
-                                    # Special provisioing for Serbian cyrillic
-                                    topic_d['title'] = "TATAMATA bira" if not lang == PageLanguage.RSC else "ТАТАМАТА бира"
-                                    topic_d['color'] = Design_default._get_color(int_year)
-                                    topic_d['font-weight'] = 'bolder'
-                                    topic_d['font-size'] = '12px'                                    
+                                topic_d['rank_topic'] = "9999"
+                                # Special provisioing for Serbian cyrillic
+                                topic_d['title'] = "TATAMATA bira" if not lang == PageLanguage.RSC else "ТАТАМАТА бира"
+                                topic_d['color'] = Design_default._get_color(int_year)
+                                topic_d['font-weight'] = 'bolder'
+                                topic_d['font-size'] = '12px'                                    
 
                                 subtheme_d['topics_dir']["all"] = topic_d
                                 subtheme_d['topics'].append(topic_d)
