@@ -151,7 +151,9 @@ class Design_default(object):
 
         else:
             # Something mesed up the state - clean up the state and go to the intro
-            logging.error("PageOperation.MENU - wrong parameters - select year: {}".format(page.page_params.get_param("op")))
+            # We could get PageOperation.MENU_USER with a wrong bookmark, so don't log
+            if page.page_params.get_param("op") != PageOperation.MENU_USER:
+                logging.error("PageOperation.MENU - wrong parameters - select year: {}".format(page.page_params.get_param("op")))
             page.page_params.set_param("op", PageOperation.MENU_YEAR)
             Design_default.render_select_year_page(page)
             return page.render()
@@ -872,7 +874,9 @@ class Design_default(object):
             try:
                 context.c.session.get("history")[-1]["skipped"] = True
             except:
-                logging.error("Cannot mark last question as skipped\nhist={}\n{}".format(
+                # I believe this happens when a link with "skipped" parameteris bookmarked, 
+                # so we don't want alerts on this one. 
+                logging.debug("Cannot mark last question as skipped\nhist={}\n{}".format(
                     context.c.session.get("history"), helpers.get_stack_trace()
                     ))
 
