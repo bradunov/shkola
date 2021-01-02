@@ -456,6 +456,27 @@ class Page(object):
                     logging.error("Error submitting record response: {}\n{}".format(
                         err, helpers.get_stack_trace()
                         ))
+
+
+                # Also register responses to LogAnalytics for better visibility
+
+                log_json = {
+                    "user": user_id,
+                    "q_id" : args["q_id"],
+                    "l_id" : l_id,
+                    "language" : language,
+                    "response_type": args["response_type"],
+                    "attempt": args["attempt"],
+                    "shown_solutions": args["shown_solutions"],
+                    "time": args["start"],
+                    "duration": int(args["now"]) - int(args["start"]),
+                    "correct": correct,
+                    "incorrect": incorrect
+                }
+
+                self.app_data.log_json("Register", log_json)
+
+
             else:
                 logging.error("Register operation with incomplete parameters: {}\n{}".format(
                     args, helpers.get_stack_trace()
