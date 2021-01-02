@@ -232,10 +232,10 @@ class Library(object):
 
     # Inputs string/number and check that it matches <condition>
     # <condition> can be of form:
-    # - answer > <correct_answer>, or any boolean with answer in it, or
-    # - <correct_answer>, in which case the boolean condition is answer == <correct_answer>
+    # - "answer >= <correct_answer>", or any boolean with answer in it, or
+    # - "<correct_answer>", in which case the boolean condition is "answer == <correct_answer>"
     # width: width of the input box in characters
-    def _check_value(self, condition, width=None, number=False, solution=None):
+    def _check_value(self, condition, width=None, number=False, solution=None, case_sensitive=False):
         qid = self.get_object_id()
 
         # We use '' in JS strings so make sure there is no ' character in the condition
@@ -300,6 +300,8 @@ class Library(object):
     def check_string(self, condition, width=None, solution=None):
         return self._check_value(condition, width, False, solution)
 
+    def check_string_case(self, condition, width=None, solution=None):
+        return self._check_value(condition, width, False, solution, True)
 
     
     # Input fraction as whole + numerator / denominator and verifies whether the answer matches
