@@ -1,0 +1,279 @@
+{
+  "name": "4 Measures",
+  "level": "4",
+  "level_short": "4",
+  "theme": "Measures",
+  "language": "uk",
+  "questions": [
+    {
+      "name": "measures/q00001",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Area of square and rectangle",
+      "topic": "Surface of rectangle",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00015",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Volume",
+      "topic": "Arithmetic operation",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00017",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Volume",
+      "topic": "Unit conversion",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00018",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Volume",
+      "topic": "Unit conversion",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00019",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Volume",
+      "topic": "Comparing units",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00020",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Volume",
+      "topic": "Comparing units",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00021",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Volume",
+      "topic": "Unit conversion",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00022",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Volume",
+      "topic": "Unit conversion",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00023",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Surface",
+      "topic": "Unit conversion",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00024",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Surface",
+      "topic": "Unit conversion",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00025",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Surface",
+      "topic": "Unit conversion",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00026",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Surface",
+      "topic": "Unit conversion",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00027",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Surface",
+      "topic": "Comparing units",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00028",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Surface",
+      "topic": "Comparing units",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00029",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Surface",
+      "topic": "Unit conversion",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00030",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Surface",
+      "topic": "Comparing units",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00031",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Surface",
+      "topic": "Arithmetic operation",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00032",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Surface",
+      "topic": "Unit conversion",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00033",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Surface",
+      "topic": "Arithmetic operation",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00034",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Area of square and rectangle",
+      "topic": "Surface of rectangle",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00035",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Area of square and rectangle",
+      "topic": "Surface of rectangle",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00036",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Area of square and rectangle",
+      "topic": "Surface of square",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00036",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Area of square and rectangle",
+      "topic": "Surface of rectangle",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00037",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Area of square and rectangle",
+      "topic": "Surface of square",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00037",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Area of square and rectangle",
+      "topic": "Surface of rectangle",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00038",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Area of square and rectangle",
+      "topic": "Surface of rectangle",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00104",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Area of square and rectangle",
+      "topic": "Surface of rectangle",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    }
+  ]
+}

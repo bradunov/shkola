@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang='{{template_params["lang"]}}'>
+  <head>
+
+    {% import 'elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+    {{ elements.init_elements() }}
+    {{ elements.standard_background(template_params) }}
+
+    <meta name="page" content="confirm_anon">
+
+  </head>
+
+  <body style="overscroll-behavior: none">
+    {{ elements.standard_body(template_params) }}
+
+    {% set width=4 %}
+
+    <div style="display:block; width: 100%; text-align: center; margin-top: 50px; ">
+      <div style="display: inline-block; text-align: center; height: 439px; 
+                  width: calc(100% - 100px); margin: 0 50px 0 50px; border: 3px solid #148f91">
+
+        <div class="sh_lato_font" style="display: inline-block; text-align: center; margin: 33px 19px 0px 19px;
+                    color: #636661; font-size: 18px; line-height: 1.56; letter-spacing: normal;">
+            Hi, just to let you know, <br>
+            if you proceed as a guest <br>
+            TATA MATA will not record <br>
+            all the questions you answer. <br><br>
+
+            When you start next time <br> 
+            you'll have start from the beginning. <br><br>
+
+            If that is fine, scoot forward<br>
+            or scoot backwards to login with  
+            <div style="display:inline-block"> <img src="{{ template_params['item_path'] }}images/google.png" alt="Google" height="20px" width="20px"> </div>
+        </div>
+
+        {{elements.scooter_back_fwd('bt_prev', 'location.href = "' ~ template_params["back"] ~ '"', 
+          'bt_next', 'location.href = "' ~ template_params["next"] ~ '"')}}
+
+      </div>
+    </div>
+
+
+
+    <div style="display:block; width: 100%; text-align: left; margin-top: 29px; margin-left: 15px;">
+      <svg xmlns="http://www.w3.org/2000/svg" id="monster" style="margin-left:34px" width="106.348" height="119.48" viewBox="0 0 106.348 119.48">
+          <defs>
+              <style>
+                  .prefix__cls-1{fill:#148f91}
+              </style>
+          </defs>
+          <g id="prefix__noun_Monster_3288471">
+              <path id="monster_body" d="M111.481 117.982c2.611 4.616 9.751.478 7.123-4.154-4.148-7.352-6.115-16.4-6.974-24.677-.975-9.429-.017-18.644 1.818-27.908 1.091-5.44 2.049-11.111.595-16.6-2.443-9.249-10.743-12.612-19.288-12.562a29.39 29.39 0 0 0-57.514 0c-8.528-.049-16.791 3.33-19.287 12.561-1.487 5.456-.512 11.177.595 16.6a92.8 92.8 0 0 1 1.917 26.771c-.76 8.638-2.744 18.15-7.074 25.815-1.8 3.2 1.041 6.165 3.834 6.165a3.66 3.66 0 0 0 3.289-2.011c9.3-16.468 10.164-37.9 6.644-55.981-1.554-7.946-4.446-19.9 6.594-21.578a18.4 18.4 0 0 1 2.859-.214v23.605l5.107 7.27 3.454-5.836 3.454 5.836L50.6 67.77l-14.18 52.223H23.243a3.767 3.767 0 0 0-3.223 1.583c-1.686 2.407-.595 6.66 3.223 6.66h16.329a4.178 4.178 0 0 0 3.983-3.017Q51.587 95.695 59.6 66.154l2.909 4.929L66 65.215l3.487 5.868 2.909-4.929q8.03 29.546 16.046 59.065a4.178 4.178 0 0 0 3.983 3.017h16.329c5.322 0 5.322-8.242 0-8.242H95.582L81.4 67.77l1.967 3.313 3.454-5.836 3.454 5.836 5.107-7.27V40.241a19.283 19.283 0 0 1 2.4.132c11.437 1.4 8.66 13.418 7.057 21.628-3.522 18.083-2.663 39.513 6.642 55.981zM66 42.895a13.023 13.023 0 1 1 13.055-13.023A13.046 13.046 0 0 1 66 42.895z" class="prefix__cls-1" data-name="Path 217" transform="translate(-12.828 -8.755)"/>
+              <path id="monster_eye" d="M45 17.485a4.08 4.08 0 1 0 4.08 4.08 4.084 4.084 0 0 0-4.08-4.08zm-1.2 3.79a.915.915 0 1 1 .91-.92.918.918 0 0 1-.91.92z" class="prefix__cls-1" data-name="Path 218" transform="translate(8.17 -8.755)"/>
+          </g>
+      </svg>
+
+    </div>
+
+
+    <script>
+      try{
+        var monster = document.getElementById("monster");
+        var monster_eye = document.getElementById("monster_eye");
+        var transform = monster.createSVGMatrix();
+        var m_x = 8.17;
+        var m_y = -8.755;
+        transform = transform.translate(m_x,m_y);
+        monster_eye.transform.baseVal.getItem(0).setMatrix(transform);
+        var m_r = (22.0-14.0);
+        var m_a = 0.0;
+        var m_dir = 0;
+
+        let monster_timer = setInterval(function() {
+          let circ = false;
+          if (circ) {
+            var old_a = m_a;
+            m_a = m_a + 0.2;
+            transform = transform.translate(- m_r * (Math.sin(m_a) - Math.sin(old_a)), - m_r * (Math.cos(m_a) - Math.cos(old_a)));
+          } else {
+            let inc=2;
+            if (m_dir == 0) {
+              m_a = m_a + inc;
+              if (m_a >= 2*m_r) m_dir = 1;
+              transform = transform.translate(0, inc);          
+            } else {
+              m_a = m_a - inc;
+              if (m_a <= 0) m_dir = 0;
+              transform = transform.translate(0, -inc);          
+            }
+          }
+          monster_eye.transform.baseVal.getItem(0).setMatrix(transform);
+        }, 100); 
+      } catch (e) {
+        // Some browsers seem to have an issue with transform.baseVal so don't do animation
+      }
+    </script>
+
+  </body>
+</html>

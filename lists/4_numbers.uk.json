@@ -1,0 +1,809 @@
+{
+  "name": "4 Numbers",
+  "level": "4",
+  "level_short": "4",
+  "theme": "Numbers",
+  "language": "uk",
+  "questions": [
+    {
+      "name": "fractions/q00018",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Word problem",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "fractions/q00021",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Word problem",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00027",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Word problem",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "fractions/q00031",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Upoređivanje razlomaka",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00036",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Word problem",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00037",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "6",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00038",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Word problem",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00039",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Word problem",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "fractions/q00041",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Upoređivanje razlomaka",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00042",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Upoređivanje razlomaka",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00049",
+      "random": "5",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Word problem",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00050",
+      "random": "5",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Upoređivanje razlomaka",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00051",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Word problem",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00053",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Word problem",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "fractions/q00054",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Word problem",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "fractions/q00055",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Decimal representation",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "fractions/q00064",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00065",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00070",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "6",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00071",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Decimal representation",
+      "rank_subtheme": "6",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00072",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Decimal representation",
+      "rank_subtheme": "6",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00073",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Decimal representation",
+      "rank_subtheme": "6",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00074",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Decimal representation",
+      "rank_subtheme": "6",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00075",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Frations",
+      "topic": "Decimal representation",
+      "rank_subtheme": "6",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00109",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Writing numbers on line",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00110",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Number array",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00111",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Comparing numbers",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00112",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Number array",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00113",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Writing numbers on line",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00114",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Writing numbers on line",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00115",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Comparing numbers",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00116",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Writing numbers on line",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00117",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Writing numbers on line",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00119",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Writing numbers on line",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00120",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "numbers/q00123",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Number array",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00124",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00125",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00126",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00127",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Comparing numbers",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00128",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00129",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Writing numbers on line",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00130",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00131",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Integers",
+      "topic": "Writing numbers on line",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00141",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Roman numerals",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00142",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00143",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00146",
+      "random": "5",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00148",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00149",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Arithmetic operations",
+      "topic": "Multiplication",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00153",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00154",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00155",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00171",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Roman numerals",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00180",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Number array",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00181",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00182",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00183",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00184",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00185",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Number expression",
+      "topic": "Word problem",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00186",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00187",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00219",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Number expression",
+      "topic": "Ordering arithmetic operations",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00237",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Arithmetic operations",
+      "topic": "Multiplication and division",
+      "rank_subtheme": "2",
+      "rank_topic": "6",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00022",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Equations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equations/q00026",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Equations",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00027",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Inequalities",
+      "topic": "All arithmetic operations",
+      "rank_subtheme": "5",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "equations/q00028",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Inequalities",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "5",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00029",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Inequalities",
+      "topic": "Addition and subtraction",
+      "rank_subtheme": "5",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00032",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Equations",
+      "topic": "Multiplication and division",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equations/q00033",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Equations",
+      "topic": "All arithmetic operations",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00034",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Equations",
+      "topic": "All arithmetic operations",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00035",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Equations",
+      "topic": "Multiplication and division",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equations/q00036",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Equations",
+      "topic": "All arithmetic operations",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00037",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Equations",
+      "topic": "All arithmetic operations",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00038",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Equations",
+      "topic": "All arithmetic operations",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00039",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Inequalities",
+      "topic": "Multiplication and division",
+      "rank_subtheme": "5",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equations/q00041",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Inequalities",
+      "topic": "All arithmetic operations",
+      "rank_subtheme": "5",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00042",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Inequalities",
+      "topic": "All arithmetic operations",
+      "rank_subtheme": "5",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00043",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Inequalities",
+      "topic": "All arithmetic operations",
+      "rank_subtheme": "5",
+      "rank_topic": "3",
+      "difficulty": "1"
+    }
+  ]
+}

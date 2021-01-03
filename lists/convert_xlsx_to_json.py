@@ -2,8 +2,37 @@
 #from xlrd import open_workbook
 import xlrd
 import json
+import argparse
+import os.path
 
-file_name = 'lists.rs.xlsx'
+defaut_file_name = 'lists.rs.xlsx'
+default_path = "../questions"
+
+parser = argparse.ArgumentParser(description="Create ARM template")
+parser.add_argument("-f", "--file", help="Input XLS file", type=str, default=defaut_file_name)
+parser.add_argument("-p", "--path", help="Path to questions", type=str, default=default_path)
+
+args = parser.parse_args()
+file_name = args.file.strip()
+path = args.path.strip()
+
+if path[-1] != "/":
+  path += "/"
+
+
+known_languages = ["rs", "uk"]
+
+try:
+  language = file_name.split(".")[-2]
+  if not language in known_languages:
+    raise Exception("Unknown language {}".format(language)) 
+except Exception as e:
+  print("Problem with language:", e)
+  exit(0)
+
+print("Processing language: ", language)
+
+
 book = xlrd.open_workbook(file_name)
 
 LEVEL = 0
@@ -21,7 +50,6 @@ LAST = RANK_TOPIC
 lists = {}
 themes = {}
 
-language = file_name.split(".")[-2]
 
 for isheet in range(0, book.nsheets):
   sheet = book.sheet_by_index(isheet)
@@ -67,32 +95,36 @@ for isheet in range(0, book.nsheets):
       list_file_name = str(level) + "_" + theme.split(" ")[0].lower() + "." + language + ".json"
       list_name = str(level) + " " + theme
 
-      if list_file_name not in lists.keys():
-        lists[list_file_name] = {
-          "name" : list_name,
-          "level": str(level), 
-          "level_short": str(level), 
-          "theme" : theme, 
-          "language" : language,
-          "questions":  []
-        }
+      if not os.path.isfile(path + question + "/text." + language): 
+        print("Missing: ", path + question + "/text." + language)
+      else:
+        if list_file_name not in lists.keys():
+          lists[list_file_name] = {
+            "name" : list_name,
+            "level": str(level), 
+            "level_short": str(level), 
+            "theme" : theme, 
+            "language" : language,
+            "questions":  []
+          }
 
-      lists[list_file_name]["questions"].append({
-        "name" : question, 
-        "random": random, 
-        "period": period, 
-        "subtheme": subtheme, 
-        "topic": topic, 
-        "rank_subtheme": rank_subtheme, 
-        "rank_topic": rank_topic, 
-        "difficulty": difficulty
-      })
+        lists[list_file_name]["questions"].append({
+          "name" : question, 
+          "random": random, 
+          "period": period, 
+          "subtheme": subtheme, 
+          "topic": topic, 
+          "rank_subtheme": rank_subtheme, 
+          "rank_topic": rank_topic, 
+          "difficulty": difficulty
+        })
 
-      themes[subtheme] = ""
+        themes[subtheme] = ""
 
 
 print("\n\nLista tema:\n")
 print(json.dumps(themes, indent=2))
+
 
 #print(json.dumps(lists, indent=2))
 for file_name, content in lists.items():

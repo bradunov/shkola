@@ -1,0 +1,329 @@
+{
+  "name": "3 Measures",
+  "level": "3",
+  "level_short": "3",
+  "theme": "Measures",
+  "language": "uk",
+  "questions": [
+    {
+      "name": "measures/q00016",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Length",
+      "topic": "Comparing units",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00052",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Time",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00053",
+      "random": "4",
+      "period": "2",
+      "subtheme": "Time",
+      "topic": "Unit conversion",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00054",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Length",
+      "topic": "Unit conversion",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00055",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Length",
+      "topic": "Unit conversion",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00056",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Length",
+      "topic": "Unit conversion",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00057",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Time",
+      "topic": "Unit conversion",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00058",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Length",
+      "topic": "Unit conversion",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00059",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Length",
+      "topic": "Comparing units",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00060",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Length",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00062",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Length",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00063",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Volume",
+      "topic": "Unit conversion",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00064",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Volume",
+      "topic": "Unit conversion",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00065",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Volume",
+      "topic": "Unit conversion",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00066",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Volume",
+      "topic": "Unit conversion",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00067",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Volume",
+      "topic": "Comparing units",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00068",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Volume",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00069",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Weight",
+      "topic": "Unit conversion",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00070",
+      "random": "2",
+      "period": "2",
+      "subtheme": "Weight",
+      "topic": "Unit conversion",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00070",
+      "random": "2",
+      "period": "2",
+      "subtheme": "Time",
+      "topic": "Comparing units",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00070",
+      "random": "2",
+      "period": "2",
+      "subtheme": "Length",
+      "topic": "Comparing units",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00070",
+      "random": "2",
+      "period": "2",
+      "subtheme": "Volume",
+      "topic": "Comparing units",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00071",
+      "random": "5",
+      "period": "2",
+      "subtheme": "Weight",
+      "topic": "Unit conversion",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00071",
+      "random": "5",
+      "period": "2",
+      "subtheme": "Time",
+      "topic": "Comparing units",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00071",
+      "random": "5",
+      "period": "2",
+      "subtheme": "Length",
+      "topic": "Comparing units",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00071",
+      "random": "5",
+      "period": "2",
+      "subtheme": "Volume",
+      "topic": "Comparing units",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00072",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Weight",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00073",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Volume",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00073",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Time",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00074",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Time",
+      "topic": "Comparing units",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00075",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Volume",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00076",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Time",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    }
+  ]
+}

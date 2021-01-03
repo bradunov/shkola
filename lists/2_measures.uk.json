@@ -1,0 +1,89 @@
+{
+  "name": "2 Measures",
+  "level": "2",
+  "level_short": "2",
+  "theme": "Measures",
+  "language": "uk",
+  "questions": [
+    {
+      "name": "measures/q00039",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Length",
+      "topic": "Comparing units",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00040",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Length",
+      "topic": "Unit conversion",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00041",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Length",
+      "topic": "Unit conversion",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00042",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Length",
+      "topic": "Unit conversion",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00049",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Time",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00050",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Time",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00051",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Time",
+      "topic": "Arithmetic operations",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "measures/q00098",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Length",
+      "topic": "Comparing units",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    }
+  ]
+}

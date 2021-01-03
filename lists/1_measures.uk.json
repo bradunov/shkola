@@ -1,0 +1,19 @@
+{
+  "name": "1 Measures",
+  "level": "1",
+  "level_short": "1",
+  "theme": "Measures",
+  "language": "uk",
+  "questions": [
+    {
+      "name": "measures/q00045",
+      "random": "5",
+      "period": "2",
+      "subtheme": "Relative measurement",
+      "topic": "Weight and length",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    }
+  ]
+}
