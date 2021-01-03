@@ -218,7 +218,7 @@ class Design_default(object):
         menu_id = 0
 
         lists = {
-            "name" : "Razred".upper(),
+            "name" : page.get_messages()["year"].upper(),
             "link" : new_page_params.create_url(\
                     op = PageOperation.MENU_YEAR, \
                     language = PageLanguage.toStr(page.page_params.get_param("language")), \
@@ -228,10 +228,6 @@ class Design_default(object):
                 "options" : []
             }
         }
-
-        # Special provisioing for Serbian cyrillic
-        if current_lang == PageLanguage.RSC:
-            lists["name"] = "Разред".upper()
 
         menu_id = menu_id + 1
 
@@ -285,7 +281,7 @@ class Design_default(object):
         if not user_picture is None:
             page.template_params['menu'].append({
                 # Special provisioing for Serbian cyrillic
-                "name" : "Moj uspeh".upper() if not current_lang == PageLanguage.RSC else "Мој успех".upper(),
+                "name" : page.get_messages()["results"].upper(),
                 "link" : new_page_params.create_url(
                     op = PageOperation.STATS, 
                     language = PageLanguage.toStr(page.page_params.get_param("language")), \
@@ -296,7 +292,7 @@ class Design_default(object):
         # "name" : "Izloguj se (" + context.c.user.name + ")",
         page.template_params['menu'].append({
             # Special provisioing for Serbian cyrillic
-            "name" : "O TATAMATI".upper() if not current_lang == PageLanguage.RSC else "O ТАТАМАТИ".upper(),
+            "name" : page.get_messages()["about"].upper(),
             "link" : new_page_params.create_url(
                 op = PageOperation.ABOUT, 
                 language = PageLanguage.toStr(page.page_params.get_param("language")), \
@@ -307,7 +303,7 @@ class Design_default(object):
         # "name" : "Izloguj se (" + context.c.user.name + ")",
         page.template_params['menu'].append({
             # Special provisioing for Serbian cyrillic
-            "name" : "Izloguj se".upper() if not current_lang == PageLanguage.RSC else "Излогуј се".upper(),
+            "name" : page.get_messages()["logout"].upper(),
             "link" : new_page_params.create_url(
                 op = PageOperation.LOGOUT, 
                 language = PageLanguage.toStr(page.page_params.get_param("language")), \
@@ -659,8 +655,7 @@ class Design_default(object):
 
                                 # BROWSE
                                 topic_d['rank_topic'] = "9999"
-                                # Special provisioing for Serbian cyrillic
-                                topic_d['title'] = "TATAMATA bira" if not lang == PageLanguage.RSC else "ТАТАМАТА бира"
+                                topic_d['title'] = page.get_messages()['test']
                                 topic_d['color'] = Design_default._get_color(int_year)
                                 topic_d['font-weight'] = 'bolder'
                                 topic_d['font-size'] = '12px'                                    

@@ -4,14 +4,13 @@
   "country": "Srbija",
   "image": "flags/rs.png",
   "messages" : {
-    "language": "Jezik",
+    "year": "razred",
+    "tasks": "zadataka",
+    "test": "TATAMATA bira",
+    "results": "Moj uspeh",
+    "about": "O TATAMATI",
+    "logout": "Izloguj se",
     "check": "Proveri",
-    "clear": "Obriši",
-    "skip": "Preskoči",
-    "close": "Zatvori",
-    "questions": "Zadaci",
-    "user": "Korisnik",
-    "class": "razred",
-    "tasks":"zadataka"
+    "clear": "Obriši"
   }
 }

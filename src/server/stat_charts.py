@@ -192,8 +192,8 @@ def prepare_user_stats_chart(pg, u_ID):
 
     pg.template_params["template_name"] = pg.page_params.get_param("language").value + "/" + "stats.html.j2"
 
-    #pg.template_params["class_gen_str"] = pg.get_messages()['messages']['class']
-    pg.template_params["class_gen_str"] = 'Razred'
+    pg.template_params["class_gen_str"] = pg.get_messages()["year"]
+    #pg.template_params["class_gen_str"] = 'Razred'
 
     pg.template_params["stats"] = {}
 
@@ -263,7 +263,7 @@ def prepare_user_stats_chart(pg, u_ID):
     #     for theme_key, theme_val in level_val['theme'].items():
 
     #         # add class in the page
-    #         class_gen_str = pg.get_messages()['class']
+    #         class_gen_str = pg.get_messages()["year"]
     #         class_str = '<span style = "color:' + clr[red] + '" >' + level_key + '</span> <span style = "color:' + clr[medium_grey] + '" >' + class_gen_str + '</span>'
 
     #         #'<span style = "color:' + clr[red] + '" >' + level_key + '</span> <span style = "color:' + clr[medium_grey] + '" >' + class_gen_str + '</span>'

@@ -4,14 +4,13 @@
   "country": "UK",
   "image": "flags/uk.webp",
   "messages" : {
-    "language": "Lang",
+    "year": "Year",
+    "tasks":"tasks",
+    "test": "TATAMATA chooses for you",
+    "results": "My results",
+    "about": "About TATAMATA",
+    "logout": "Log out",
     "check": "Check",
-    "clear": "Clear",
-    "skip": "Skip",
-    "close": "Close",
-    "questions": "Questions",
-    "user": "User",
-    "class": "class",
-    "tasks":"tasks"
+    "clear": "Clear"
   }
 }

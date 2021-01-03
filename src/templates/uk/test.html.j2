@@ -27,11 +27,11 @@
     {{ menu.start_head() }}
 
       <div style="display:inline-block; text-align:left; height: 36px; margin-left: 37px; margin-top: 8px">
+        <div class="sh_lato_font" style="display:inline-block; color: #636661; font-size: 14px;">
+          Year
+        </div>
         <div class="sh_lato_font" style="display:inline-block; color: #dc3d39; font-size: 14px;">
           {{template_params["year"].upper()}}
-        </div>
-        <div class="sh_lato_font" style="display:inline-block; color: #636661; font-size: 14px;">
-          year
         </div>
         <br>
         <div class="sh_chalk_font" style="display:inline-block;color: #489cba; font-size: 14px;">
@@ -106,7 +106,7 @@
         if (document.getElementById("wr_again").checked) {
           //document.getElementById("wrong_answer").style.visibility = "hidden";
           popup_toggle_wrong_answer("hidden");
-          //document.getElementById("next_text").innerHTML = "PROVERI";
+          //document.getElementById("next_text").innerHTML = "CHECK";
           //showed_wrong = false;
           // Delete all wrong answers
           // NB: we decided not to delete wrong answers so that the kids knew what went wrong
@@ -116,7 +116,7 @@
           popup_toggle_wrong_answer("hidden");
           popup_toggle_reveal("visible");
           //question_show_solution();
-          //document.getElementById("next_text").innerHTML = "NASTAVI";
+          //document.getElementById("next_text").innerHTML = "CONTINUE";
           ////showed_wrong = false;
           //clearAll();
           //addSolutionAll();
@@ -199,7 +199,7 @@
             if (document.getElementById("wr_again").checked) {
               //document.getElementById("wrong_answer").style.visibility = "hidden";
               popup_toggle_wrong_answer("hidden");
-              document.getElementById("next_text").innerHTML = "PROVERI";
+              document.getElementById("next_text").innerHTML = "CHECK";
               //showed_wrong = false;
               // Delete all wrong answers
               // NB: we decided not to delete wrong answers so that the kids knew what went wrong
@@ -217,7 +217,7 @@
             } else if (document.getElementById("wr_skip").checked) {
               popup_toggle_wrong_answer("hidden");
               popup_toggle_skip("visible");
-              document.getElementById("next_text").innerHTML = "NASTAVI";
+              document.getElementById("next_text").innerHTML = "CONTINUE";
               return;
             }
           }
@@ -279,7 +279,7 @@
         function sendFeedbackToServer(a,b,c) {};
       {% endif %}
 
-      document.getElementById("next_text").innerHTML = "PROVERI";
+      document.getElementById("next_text").innerHTML = "CHECK";
 
       // Immediately enable next
       next_callback(true, "");
@@ -313,11 +313,11 @@
     {% set monster_opt = (range(3) | random) %}
 
     {% if monster_opt == 0 %}
-      {{elements.bravo()}}
+      {{elements.bravo("Hurray!")}}
     {% elif monster_opt == 1 %}
-      {{elements.bravo2()}}
+      {{elements.bravo2("Correct.", "Amazing!")}}
     {% else %}
-      {{elements.bravo3()}}
+      {{elements.bravo3("Well done.", "Amazing!")}}
     {% endif %}
 
 

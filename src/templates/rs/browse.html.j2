@@ -277,11 +277,11 @@
     {% set monster_opt = (range(3) | random) %}
 
     {% if monster_opt == 0 %}
-      {{elements.bravo()}}
+      {{elements.bravo("Jeeej!")}}
     {% elif monster_opt == 1 %}
-      {{elements.bravo2()}}
+      {{elements.bravo2("Tako je.", "Super si!")}}
     {% else %}
-      {{elements.bravo3()}}
+      {{elements.bravo3("Bravo.", "Super si!")}}
     {% endif %}
 
 
