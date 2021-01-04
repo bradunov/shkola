@@ -211,7 +211,7 @@ mycanvas = function()
                   "|| answer == '" .. second .. "'" ;
 		  an1 = "answer = '" .. first .. "' "	
 		  an2 = "answer = '" .. second .. "' "		  
-	      answ = ans[1] .. lib.check_string(reply, 40, an1) .. " i " .. lib.check_string(reply, 40, an2) .. ans[2]	   
+	      answ = ans[1] .. lib.check_string(reply, 40, an1) .. " " .. vez .. " " .. lib.check_string(reply, 40, an2) .. ans[2]	   
       else	
           answ = ans[3] 
       end	  

@@ -4,6 +4,7 @@
   "level_short": "5",
   "theme": "Prirodni brojevi",
   "language": "uk",
+  "rank_theme": "2",
   "questions": [
     {
       "name": "fract_2/q00001",
@@ -66,16 +67,6 @@
       "difficulty": "2"
     },
     {
-      "name": "fract_2/q00007",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Razlomci",
-      "topic": "Proširivanje, skraćivanje i upoređivanje            ",
-      "rank_subtheme": "4",
-      "rank_topic": "2",
-      "difficulty": "1"
-    },
-    {
       "name": "fract_2/q00008",
       "random": "10",
       "period": "1",
@@ -104,26 +95,6 @@
       "rank_subtheme": "4",
       "rank_topic": "5",
       "difficulty": "3"
-    },
-    {
-      "name": "fract_2/q00011",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
-      "rank_topic": "5",
-      "difficulty": "1"
-    },
-    {
-      "name": "fract_2/q00012",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
-      "rank_topic": "5",
-      "difficulty": "1"
     },
     {
       "name": "fract_2/q00013",

@@ -1,12 +1,15 @@
 
-@ime@ is running on a @put@ km track. He has already run \(\frac{1}{@deo@}\) of the track. 
+@ime@ is running on a @put@ km track. He has already run \(\frac{@deo1@}{@deo@}\) of the track. 
 
 How long does it take him to finish the track, if it takes him an hour to run 10 km? 
 
 @vspace@
 
-@center@ It takes him  @lib.check_number(vreme)@ minutes, which is \
-@lib.check_fraction_condition(condition, true, nil, sln)@ hours. 
+@center@ It takes him  @lib.check_number(vreme)@ minutes, 
+@center@ which is @answ@ hours. 
+
+                  
+
     
                 
 

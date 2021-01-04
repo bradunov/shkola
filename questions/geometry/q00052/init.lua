@@ -8,6 +8,11 @@ style =
 		
 text_style = {["font_size"] = "16"}		
 
+
+teme = {"A", "B", "C"}
+duz = {"AB", "BC", "CA"}
+triang = "ABC"
+
 reply = {}
 ans = {}
 ind = math.random(3)
@@ -48,10 +53,10 @@ mycanvas = function(no)
   lib.start_canvas(300, 240, "center")
   
   lib.add_straight_path (ov, 2*ow, {{x, v+ow}, {y, 0}, {z, -v-ow}}, style, true, false)
-  lib.add_text(ov+x, v+ov/2, temena[1], text_style, false, false) 
-  lib.add_text(ov+x+y, v+ov/2, temena[2], text_style, false, false) 
-  lib.add_text(ov, ow+w, temena[3], text_style, false, false)    
-  lib.add_input(ov-v+ow, ov+2*ow, 150, 30, lib.check_string(reply[ind], 120, ans[ind]))
+  lib.add_text(ov+x, v+ov/2, teme[1], text_style, false, false) 
+  lib.add_text(ov+x+y, v+ov/2, teme[2], text_style, false, false) 
+  lib.add_text(ov, ow+w, teme[3], text_style, false, false)    
+  lib.add_input(ov-v+ow, ov+2*ow, 150, 30, lib.check_string(reply[ind], 140, ans[ind]))
   
   lib.end_canvas()
 end       

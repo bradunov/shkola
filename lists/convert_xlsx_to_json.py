@@ -43,8 +43,9 @@ DIFFICULTY = 4
 THEME = 5
 SUBTHEME = 6
 TOPIC = 7
-RANK_SUBTHEME = 8
-RANK_TOPIC = 9
+RANK_THEME = 8
+RANK_SUBTHEME = 9
+RANK_TOPIC = 10
 LAST = RANK_TOPIC
 
 lists = {}
@@ -89,6 +90,7 @@ for isheet in range(0, book.nsheets):
       theme = sheet.cell(y,THEME).value
       subtheme = sheet.cell(y,SUBTHEME).value
       topic = sheet.cell(y,TOPIC).value
+      rank_theme = str(int(sheet.cell(y,RANK_THEME).value))
       rank_subtheme = str(int(sheet.cell(y,RANK_SUBTHEME).value))
       rank_topic = str(int(sheet.cell(y,RANK_TOPIC).value))
 
@@ -105,6 +107,7 @@ for isheet in range(0, book.nsheets):
             "level_short": str(level), 
             "theme" : theme, 
             "language" : language,
+            "rank_theme": rank_theme, 
             "questions":  []
           }
 

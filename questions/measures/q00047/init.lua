@@ -26,8 +26,7 @@ brown_style = {["off_color"] = "c60",
 
 dot_style = {["font_size"] = "30"}
 
-name1 = { "laksa", "lakša"}
-name2 = { "teza", "teža"}
+include("terms")
 
 reply1 = "answer == '" .. name1[1] .. "' "  ..
         "|| answer == '" .. name1[2] .. "'" ;

@@ -1,7 +1,18 @@
 
-Dopuni jednakosti:
+Proširi razlomke tako da im imenilac bude najmanji zajednički sadržalac imenilaca datih razlomaka.
 
-@repeat(4)@
+@center@ \(\frac{@jbrojilac[1]@}{@number[1]@}\) @hspacept(3)@ = @hspacept(3)@ @lib.check_fraction_simple(brojilac[1],prod)@
 
-@center@ \(\frac{@brojilac@}{@imenilac@}\) @hspacept(3)@ = @hspacept(3)@ @lib.check_fraction_numerator(numer,denom)@
-@/repeat@
+@center@ \(\frac{@jbrojilac[2]@}{@number[2]@}\) @hspacept(3)@ = @hspacept(3)@ @lib.check_fraction_simple(brojilac[2],prod)@
+
+@center@ \(\frac{@jbrojilac[3]@}{@number[3]@}\) @hspacept(3)@ = @hspacept(3)@ @lib.check_fraction_simple(brojilac[3],prod)@
+
+@center@ \(\frac{@jbrojilac[4]@}{@number[4]@}\) @hspacept(3)@ = @hspacept(3)@ @lib.check_fraction_simple(brojilac[4],prod)@
+
+        
+           
+ 
+           
+           
+                  
+                 

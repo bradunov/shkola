@@ -5,10 +5,12 @@ index_ime = math.random(#musko_ime_nom);
 ime = musko_ime_nom[index_ime];                   
 padez = musko_ime_gen[index_ime];
 
-deo = math.random(6) + 3;
-put1 = 2 + math.random(deo - 3);
-put2 = put1 * (deo - 1);
-put = put1 + put2
+deo = 3 + math.random(10);
+deo1 = math.random(deo - 3)
+temp = 2 + math.random(14 - deo);
+put = temp * deo;
+put1 = temp * deo1
+put2 = put - put1
 
 vreme = put2 * 6;
 
@@ -25,15 +27,25 @@ if (sat >= 0 and sat < 5 ) then
     end
 end
 
-
 imenilac = 60
-brojilac = vreme
-vremeh = brojilac/imenilac
-
-condition = "is_ok = math.eq(whole + numerator/denominator, "..tostring(vremeh)..");"                     
-
+vremeh = vreme/imenilac
 swhole = math.floor(vremeh)
-snum = lib.math.round((vremeh - swhole) * imenilac)
-g = lib.math.gcd(snum, imenilac)
-
-sln = "numerator="..tostring(snum/g)..";denominator="..tostring(imenilac/g)..";whole="..tostring(swhole)..";"
+rest = vreme - swhole * imenilac
+if (swhole == 0) then
+    answ = lib.check_fraction_simple(vreme,imenilac)
+else
+    if (rest == 0) then
+	    answ = lib.check_number(swhole,15)
+	else	
+        answ = lib.check_number(swhole,15) .. lib.check_fraction_simple(rest,imenilac)	
+	end	
+--[[ Ako se trazi skracivanje razlomka
+	
+    condition = "is_ok = math.eq(whole + numerator/denominator, "..tostring(vremeh)..");"                     
+    snum = lib.math.round((vremeh - swhole) * imenilac)
+    g = lib.math.gcd(snum, imenilac)
+    sln = "numerator="..tostring(snum/g)..";denominator="..tostring(imenilac/g)..";whole="..tostring(swhole)..";"
+    answ = lib.check_fraction_condition(condition, true, nil, sln)
+]]--	
+end	    	              
+      

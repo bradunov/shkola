@@ -4,6 +4,7 @@
   "level_short": "5",
   "theme": "Prirodni brojevi",
   "language": "rs",
+  "rank_theme": "2",
   "questions": [
     {
       "name": "fract_2/q00001",
@@ -11,7 +12,7 @@
       "period": "1",
       "subtheme": "Razlomci",
       "topic": "Pojam, brojevna prava ",
-      "rank_subtheme": "4",
+      "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -21,7 +22,7 @@
       "period": "1",
       "subtheme": "Razlomci",
       "topic": "Proširivanje, skraćivanje i upoređivanje            ",
-      "rank_subtheme": "4",
+      "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "2"
     },
@@ -31,7 +32,7 @@
       "period": "2",
       "subtheme": "Razlomci",
       "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
+      "rank_subtheme": "3",
       "rank_topic": "5",
       "difficulty": "2"
     },
@@ -41,7 +42,7 @@
       "period": "1",
       "subtheme": "Razlomci",
       "topic": "Proširivanje, skraćivanje i upoređivanje            ",
-      "rank_subtheme": "4",
+      "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "1"
     },
@@ -51,7 +52,7 @@
       "period": "1",
       "subtheme": "Razlomci",
       "topic": "Proširivanje, skraćivanje i upoređivanje            ",
-      "rank_subtheme": "4",
+      "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "1"
     },
@@ -61,7 +62,7 @@
       "period": "1",
       "subtheme": "Razlomci",
       "topic": "Proširivanje, skraćivanje i upoređivanje            ",
-      "rank_subtheme": "4",
+      "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "2"
     },
@@ -71,7 +72,7 @@
       "period": "1",
       "subtheme": "Razlomci",
       "topic": "Proširivanje, skraćivanje i upoređivanje            ",
-      "rank_subtheme": "4",
+      "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "1"
     },
@@ -81,7 +82,7 @@
       "period": "1",
       "subtheme": "Razlomci",
       "topic": "Proširivanje, skraćivanje i upoređivanje            ",
-      "rank_subtheme": "4",
+      "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "1"
     },
@@ -90,9 +91,9 @@
       "random": "10",
       "period": "2",
       "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
-      "rank_topic": "5",
+      "topic": "Pojam, brojevna prava ",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
       "difficulty": "2"
     },
     {
@@ -100,9 +101,9 @@
       "random": "10",
       "period": "2",
       "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
-      "rank_topic": "5",
+      "topic": "Pojam, brojevna prava ",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
       "difficulty": "3"
     },
     {
@@ -110,9 +111,9 @@
       "random": "10",
       "period": "2",
       "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
-      "rank_topic": "5",
+      "topic": "Sabiranje i oduzimanje   ",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
       "difficulty": "1"
     },
     {
@@ -120,29 +121,19 @@
       "random": "10",
       "period": "2",
       "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
-      "rank_topic": "5",
-      "difficulty": "1"
-    },
-    {
-      "name": "fract_2/q00013",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
-      "rank_topic": "5",
-      "difficulty": "1"
+      "topic": "Sabiranje i oduzimanje   ",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
+      "difficulty": "2"
     },
     {
       "name": "fract_2/q00014",
       "random": "10",
       "period": "2",
       "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
-      "rank_topic": "5",
+      "topic": "Sabiranje i oduzimanje   ",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
       "difficulty": "2"
     },
     {
@@ -151,7 +142,7 @@
       "period": "2",
       "subtheme": "Razlomci",
       "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
+      "rank_subtheme": "3",
       "rank_topic": "5",
       "difficulty": "2"
     },
@@ -161,7 +152,7 @@
       "period": "2",
       "subtheme": "Razlomci",
       "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
+      "rank_subtheme": "3",
       "rank_topic": "5",
       "difficulty": "2"
     },
@@ -171,18 +162,208 @@
       "period": "2",
       "subtheme": "Razlomci",
       "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
-      "rank_topic": "5",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
       "difficulty": "1"
     },
     {
-      "name": "fract_2/q00018",
+      "name": "fract_2/q00019",
       "random": "10",
       "period": "2",
       "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
-      "rank_topic": "5",
+      "topic": "Pojam, brojevna prava ",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00020",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Pojam, brojevna prava ",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00021",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Pojam, brojevna prava ",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00022",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Pojam, brojevna prava ",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00023",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Proširivanje, skraćivanje i upoređivanje            ",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00024",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Proširivanje, skraćivanje i upoređivanje            ",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00025",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Proširivanje, skraćivanje i upoređivanje            ",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00026",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Decimalni zapis",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00027",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Decimalni zapis",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00028",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Decimalni zapis",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00029",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Decimalni zapis",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00030",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Decimalni zapis",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00031",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Decimalni zapis",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00032",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Decimalni zapis",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00033",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Decimalni zapis",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00034",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Decimalni zapis",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00035",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Decimalni zapis",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00036",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Decimalni zapis",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00037",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Razlomci",
+      "topic": "Decimalni zapis",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00038",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Sabiranje i oduzimanje   ",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
       "difficulty": "1"
     },
     {

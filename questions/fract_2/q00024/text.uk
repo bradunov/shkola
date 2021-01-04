@@ -1,0 +1,14 @@
+
+Compare fractions. Use the signs @hspacept(3)@<@hspacept(3)@ or @hspacept(3)@> . 
+
+@repeat(5)@
+@center@ \(\frac{@broj@}{@imen_left@}\) @hspacept(3)@ @lib.check_string(sign, 15)@ @hspacept(3)@ \(\frac{@broj@}{@imen_right@}\)
+@/repeat@
+
+
+
+
+
+
+                  
+                  

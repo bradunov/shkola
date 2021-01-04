@@ -5,8 +5,8 @@ Odredi vrstu trougla na slici.
 
 Dopuni rečenice.  
 @vspace@
-@center@ Tačke A, B i C su @lib.check_string(answr[1], 50)@ trougla ABC.
-@center@ Duži AB, BC i CA su @lib.check_string(answr[2], 50)@ trougla ABC.
+@center@ Tačke @teme[1]@, @teme[2]@ i @teme[3]@ su @lib.check_string(answr[1], 60)@ trougla @triang@.
+@center@ Duži @duz[1]@, @duz[2]@ i @duz[3]@ su @lib.check_string(answr[2], 60)@ trougla @triang@.
 
 @vspace@           
          

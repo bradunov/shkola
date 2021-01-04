@@ -1,6 +1,10 @@
 
+include("terms")
+
+oper = {}
+comp = {}
 answ = {""}
-quest = {""}
+
 ind = math.random(4)
 
 term1 = math.random(4990) + 3010;
@@ -16,25 +20,29 @@ summ = term1 + term2
 if (ind == 1) then	
     term3 = 1000 + math.random(summ - 2000) ;
     solution = summ - term3
-    quest[ind] = "Za koliko je zbir brojeva " .. tostring(math.floor(term1)) .. " i " .. tostring(math.floor(term2)) .. " veći od broja " .. tostring(math.floor(term3)) .. "?"
+	oper[ind] = operation[1]
+	comp[ind] = compare[1]
 end	
                    
 if (ind == 2) then	
     term3 = summ + math.random(5000) ;
     solution = term3 - summ
-    quest[ind] = "Za koliko je zbir brojeva " .. tostring(math.floor(term1)) .. " i " .. tostring(math.floor(term2)) .. " manji od broja " .. tostring(math.floor(term3)) .. "?"
+	oper[ind] = operation[1]	
+	comp[ind] = compare[2]	
 end	 
               
 if (ind == 3) then	
     term3 = diff + math.random(5000) ;
     solution = term3 - diff
-    quest[ind] = "Za koliko je razlika brojeva " .. tostring(math.floor(term1)) .. " i " .. tostring(math.floor(term2)) .. " manja od broja " .. tostring(math.floor(term3)) .. "?"
+	oper[ind] = operation[2]	
+	comp[ind] = compare[4]	
 end	
 
 if (ind == 4) then	
     term3 = 1000 + math.random(diff - 2000) ;    
     solution = diff - term3
-    quest[ind] = "Za koliko je razlika brojeva " .. tostring(math.floor(term1)) .. " i " .. tostring(math.floor(term2)) .. " veća od broja " .. tostring(math.floor(term3)) .. "?"
+	oper[ind] = operation[2]	
+	comp[ind] = compare[3]		
 end	
            
 answ[1] = "(" .. tostring(math.floor(term1)) .. " + " .. tostring(math.floor(term2)) .. ") - x = " .. tostring(math.floor(term3))           

@@ -1,0 +1,13 @@
+
+U kvadratić upiši  odgovarajuću cifru tako da dobijeni broj bude najbliži datom i da nejednakost bude tačna. 
+
+@repeat(6)@
+@center@ @answ@ @hspacept(3)@ @znak@ @hspacept(3)@ @number@
+ 
+@/repeat@
+
+
+
+
+
+

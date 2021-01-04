@@ -1,6 +1,18 @@
 
-imenilac = array_imen[ITEM];
-brojilac = array_broj[ITEM];
+gcd = math.random(7) + 2
+jimenilac = math.random(24) + 5
+jbrojilac = math.random(jimenilac - 2) + 1
 
-numer = math.random(9) + 1;
-denom = numer * ITEM;
+
+gcd2 = lib.math.gcd(jimenilac, jbrojilac)
+
+jimen = jimenilac / gcd2
+jbroj = jbrojilac / gcd2
+
+if (gcd == gcd2) then
+    gcd = gcd - 1
+end
+imenilac = jimen * gcd 
+brojilac = jbroj * gcd 
+
+            

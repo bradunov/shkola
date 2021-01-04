@@ -1,3 +1,4 @@
+
 include("terms")
 include("names")
 
@@ -87,20 +88,28 @@ if (d > pmint[1] and d <= pmint[2]) then
 end	
 
 reply = {}
+ans = {}
  
 if (ind == 5) then
     reply[1] = "answer == '" .. tostring(bl[1]) .. "' "  ..
         "|| answer == '" .. tostring( bl[2]) .. "'" ;
+    ans[1] = "answer = '" .. tostring(bl[1]) .. "' ";
     reply[2] = "answer == '" .. tostring(br[1]) .. "' "  ..
-        "|| answer == '" .. tostring( br[2]) .. "'" ;
+        "|| answer == '" .. tostring(br[2]) .. "'" ;
+    ans[2] = "answer = '" .. tostring(br[1]) .. "' ";		
     reply[3] = "answer == '" .. tostring(tl[1]) .. "' "  ..
         "|| answer == '" .. tostring( tl[2]) .. "'" ;
+    ans[3] = "answer = '" .. tostring(tl[1]) .. "' ";		
     reply[4] = "answer == '" .. tostring(tr[1]) .. "' "  ..
-        "|| answer == '" .. tostring( tr[2]) .. "'" ;		
+        "|| answer == '" .. tostring( tr[2]) .. "'" ;
+    ans[4] = "answer = '" .. tostring(tr[1]) .. "' ";		
 else
-    reply[1] = tostring(bl[1]) 
+    reply[1] = tostring(bl[1])
+    ans[1] = tostring(bl[1])	
 	reply[2] = tostring(br[1]) 
+	ans[2] = tostring(br[1]) 	
     reply[3] = tostring(tl[1]) 
+	ans[3] = tostring(tl[1]) 	
 	reply[4] = tostring(tr[1]) 
-end		          
-      
+	ans[4] = tostring(tr[1]) 	
+end

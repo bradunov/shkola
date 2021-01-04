@@ -1,4 +1,5 @@
-gcd = math.random(3) + 2
+
+gcd = math.random(7) + 2
 jimenilac = math.random(9) + 1
 jbrojilac = math.random(jimenilac - 1)
 
@@ -14,4 +15,5 @@ jbrojilac = jbrojilac / gcd2
 imenilac = jimenilac * gcd * gcd2
 brojilac = jbrojilac * gcd * gcd2
 
+       
        

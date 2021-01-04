@@ -1,4 +1,6 @@
-include("operation")
+
+include("terms")
+
 ind = math.random(2)
 
 numb1 = math.random(500)+101

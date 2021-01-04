@@ -8,8 +8,8 @@ Kada @ime1@ i @ime2@ mogu da razgovaraju? Upiši   vremenski interval po lokalno
 
 @vspace@
 
-@center@ Beograd  @hspacept(20)@ od @lib.check_string(reply[1], 20)@@"h"@ do @lib.check_string(reply[2], 20)@@"h"@,
-@center@ @town[ind]@ @hspacept(20)@ od @lib.check_string(reply[3], 20)@@"h"@ do @lib.check_string(reply[4], 20)@@"h"@. 
+@center@ Beograd  @hspacept(20)@ od @lib.check_string(reply[1], 20, ans[1])@@"h"@ do @lib.check_string(reply[2], 20, ans[2])@@"h"@,
+@center@ @town[ind]@ @hspacept(20)@ od @lib.check_string(reply[3], 20, ans[3])@@"h"@ do @lib.check_string(reply[4], 20, ans[4])@@"h"@. 
 
       
       

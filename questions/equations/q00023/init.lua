@@ -1,6 +1,9 @@
 
-answ = {""}
+include("terms")
+
 quest = {""}
+answ = {""}
+
 ind = math.random(4)
 
 term = math.random(8999) + 1001;
@@ -9,8 +12,6 @@ if (solution == term) then
     term = term - 100
 end	                
 
-
-
 if (ind == 1) then	
 	if (solution < term) then 
 	    temp = solution
@@ -18,12 +19,12 @@ if (ind == 1) then
 		term = temp
 	end    
     value = solution - term
-    quest[ind] = "Od kog broja treba oduzeti broj " .. tostring(math.floor(term)) .. " da bi se dobio broj " .. tostring(math.floor(value)) .. "?"
+    quest[ind] = operation[4] 
 end	
                   
 if (ind == 2) then	
     value = term + solution;
-    quest[ind] = "Kom broju treba dodati broj " .. tostring(math.floor(term)) .. " da bi se dobio broj " ..  tostring(math.floor(value)) .. "?"
+    quest[ind] = operation[3]
 end	                  
 
 if (ind == 3) then
@@ -33,12 +34,12 @@ if (ind == 3) then
 		term = temp
 	end    	
     value = term - solution
-    quest[ind] = "Koji broj treba oduzeti od broja " .. tostring(math.floor(term)) .. " da bi se dobio broj " ..  tostring(math.floor(value)) .. "?"
+    quest[ind] = operation[2]
 end	                
 
 if (ind == 4) then	
     value = term + solution;
-    quest[ind] = "Koji broj treba dodati broju " .. tostring(math.floor(term)) .. " da bi se dobio broj " ..  tostring(math.floor(value)) .. "?"
+    quest[ind] = operation[1]
 end	
             
 answ[1] = "x - " .. tostring(math.floor(term)) .. " = " .. tostring(math.floor(value))           

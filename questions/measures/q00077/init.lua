@@ -2,7 +2,7 @@ include("terms")
 
 addition_table = function()
 
-  measure = {measure_str[1].." \( \) cm", measure_str[2].." cm\(^2\)", measure_str[3].."  \(cm^2\)", measure_str[4].." cm\(^3\)"} 
+  measure = {measure_str[1].." \( \) cm", measure_str[2].." \( \) cm\(^2\)", measure_str[3].." \( \)  \( \) cm\(^2\)", measure_str[4].." cm\(^3\)"}
 
   columns = 6
   min_range = 5

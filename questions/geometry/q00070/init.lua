@@ -1,3 +1,4 @@
+
 include("terms")
 
 style = 
@@ -63,10 +64,10 @@ for j = 1,3 do
 end 
    
 if (ind == 3) then
-    ans = lib.check_string(reply[ind], 20, sol[3][1]) .. ", " .. lib.check_string(reply[ind], 20, sol[3][2]) .. ", " .. lib.check_string(reply[ind], 20, sol[3][3]) 
+    ans = lib.check_string_case(reply[ind], 20, sol[3][1]) .. ", " .. lib.check_string_case(reply[ind], 20, sol[3][2]) .. ", " .. lib.check_string_case(reply[ind], 20, sol[3][3]) 
     remark = remark_str 
 else
-    ans = lib.check_string(reply[ind], 20, sol[ind][1]) .. ", " .. lib.check_string(reply[ind], 20, sol[ind][2]) .. ", " .. lib.check_string(reply[ind], 20, sol[ind][3]) .. ", " .. lib.check_string(reply[ind], 20, sol[ind][4])
+    ans = lib.check_string_case(reply[ind], 20, sol[ind][1]) .. ", " .. lib.check_string_case(reply[ind], 20, sol[ind][2]) .. ", " .. lib.check_string_case(reply[ind], 20, sol[ind][3]) .. ", " .. lib.check_string_case(reply[ind], 20, sol[ind][4])
 	remark = " "
 end	
 

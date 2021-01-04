@@ -1,5 +1,5 @@
 
-@quest[ind]@
+Za koliko je @oper[ind]@ brojeva @term1@ i @term2@ @comp[ind]@ od broja @term3@?
 
 @vspace@
 Kojom jednačinom ćeš izračunati traženi broj? Oboj kružić pored tačnog odgovora.

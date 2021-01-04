@@ -1,8 +1,8 @@
 
-Saberi razlomke. Zapiši rezultat u najjednostavnijem obliku.
+Izračunaj svođenjem na zajednički imenilac. Zapiši rezultat u najjednostavnijem obliku.
 
 @repeat(4)@
-@center@ \(\frac{@broj1@}{@imenilac1@}\)  +  \(\frac{@broj2@}{@imenilac2@}\) @hspacept(3)@ =   @lib.check_fraction_simple(brojilac1, imenilac2)@  +  @lib.check_fraction_simple(broj2, imenilac2)@ =  @lib.check_fraction_simple(broj, imen)@
+@center@ \(\frac{@enum[1]@}{@denom[1]@}\) @sign@ \(\frac{@enum[2]@}{@denom[2]@}\) @hspacept(3)@ = @hspacept(3)@  @lib.check_fraction_simple(brojilac[1], imenilac)@  @sign@  @lib.check_fraction_simple(brojilac[2], imenilac)@ @hspacept(3)@ = @hspacept(3)@ @lib.check_fraction_simple(broj, imen)@
 @/repeat@
             
               

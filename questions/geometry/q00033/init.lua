@@ -9,6 +9,7 @@ style =
 text_style = {["font_size"] = "16"}	
 dot_style = {["font_size"] = "40"}	
 
+ang = "aOb"
 reply = "answer == '" .. ang .. "' ";
 ans = "answer = '" .. ang .. "' ";
 
@@ -32,14 +33,14 @@ mycanvas = function(no)
   lib.add_straight_path(ow/2, ov+ow, {{w, 0}}, style, true, false)
   lib.add_straight_path(ow/2, ov+ow, {{w, -ov}}, style, true, false)  
 
-  lib.add_text(w, 2*ow+ov, points[4], text_style, false, false)  
-  lib.add_text(w, 2*ow+5, points[5], text_style, false, false)
+  lib.add_text(w, 2*ow+ov, "a", text_style, false, false)  
+  lib.add_text(w, 2*ow+5, "b", text_style, false, false)
   lib.add_text(ow/2, ov, ".", dot_style, false, false)
-  lib.add_text(ow/2, ov+2*ow+5, points[1], text_style, false, false)  
+  lib.add_text(ow/2, ov+2*ow+5, "O", text_style, false, false)  
   lib.add_text(ov, ov, ".", dot_style, false, false)
-  lib.add_text(ov, ov+2*ow+5, points[2], text_style, false, false)
+  lib.add_text(ov, ov+2*ow+5, "A", text_style, false, false)
   lib.add_text(x, y, ".", dot_style, false, false)
-  lib.add_text(x+ow, y+2*ow, points[3], text_style, false, false)  
+  lib.add_text(x+ow, y+2*ow, "M", text_style, false, false)  
 
   
   lib.end_canvas()

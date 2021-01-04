@@ -1,5 +1,5 @@
 
-@quest[ind]@
+@quest[ind]@ @term@ da bi se dobio broj @value@?
 
 @vspace@
 Kojom jednačinom ćeš izračunati traženi broj? Oboj kružić pored tačnog odgovora.

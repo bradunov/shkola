@@ -1,1 +1,0 @@
-operation = {"uvećaj", "umanji"}

@@ -1,4 +1,6 @@
 
+include("terms")
+
 style = 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -13,9 +15,6 @@ line_style =
 		
 dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "16"}		
-
-name = {"prava", "poluprava", "pocetak poluprave", "duz", "krajevi duzi"}
-name2 = {"prava", "poluprava", "početak poluprave", "duž", "krajevi duži"}
 
 reply = {}
 ans = {}

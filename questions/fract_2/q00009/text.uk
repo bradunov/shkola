@@ -1,5 +1,5 @@
 
-@ime@ went to visit his grandma. He walked \(\frac{1}{@deo@}\) of the way. He still had to go \
+@ime@ went to visit his grandma. He walked \(\frac{@deo1@}{@deo@}\) of the way. He still had to go \
  @put2@ meters.  
 
 @vspace@
@@ -7,9 +7,12 @@
 @center@ @ime@ walked @lib.check_number(put1)@  meters.
 @vspace@
 @center@ @ime@'s house is @lib.check_number(put)@ meters from his grandma's house, \
-which is @lib.check_fraction_condition(condition, true, nil, sln)@ km.
+which is @answ@ km.
+
+
 
         
+
 
 
 

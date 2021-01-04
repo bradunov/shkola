@@ -4,7 +4,7 @@
 @vspace@
 
 Who spent more money and by how much? 
-@center@ @lib.check_string(reply[1],60, ans[1])@ spent @lib.check_number(cost,30)@ pounds more than @lib.check_string(reply[2],60, ans[2])@.
+@center@ @lib.check_string_case(reply[1],60, ans[1])@ spent @lib.check_number(cost,30)@ pounds more than @lib.check_string_case(reply[2],60, ans[2])@.
 
 @vspace@
 
