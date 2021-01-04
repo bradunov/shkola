@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+import glob
 
 import server.helpers as helpers
 from server.types import PageLanguage
@@ -23,6 +24,7 @@ class Repository(object):
     lists = {}
     content = {}
     icons = {}
+    icon_svgs = {}
 
     azure_blob = None
     preload = True
@@ -98,13 +100,16 @@ class Repository(object):
         return d
 
 
-    def get_icon_disk(self, file_name, is_json=False):
-        local_path = self.icons_path + "/" + file_name
-        logging.debug("PATH: {} - {}".format(local_path, os.getcwd()))
-        if is_json:
-            d = json.load(open(local_path, 'r'))
-        else:
-            d = open(local_path, 'r').read()
+    def get_icons_disk(self, file_names, is_json=False):
+        full_path_names = glob.glob(self.icons_path + "/" + file_names)
+        d = {}
+        for full_path_name in full_path_names:
+            name = full_path_name.split("/")[-1].split("\\")[-1].strip().lower()
+            logging.debug("PATH: {}, {}, {}".format(full_path_name, os.getcwd(), name))
+            if is_json:
+                d[name] = json.load(open(full_path_name, 'r', encoding="utf8"))
+            else:
+                d[name] = open(full_path_name, 'r', encoding="utf8").read()
         return d
 
 
@@ -466,17 +471,50 @@ class Repository(object):
 
     # Load SVG illustrations for all themes
     def load_icons(self):
+        icons_dir = self.get_icons_disk("icons.*.json", is_json=True)
+        icon_svgs = self.get_icons_disk("*.svg")
+        self.icon_svgs = {}
         self.icons = {}
+
+        for k,v in icon_svgs.items():
+            self.icon_svgs[k.strip().lower()] = v 
+
+        for k,v in icons_dir.items():
+            lang = k.split(".")[-2]
+            self.icons[lang] = {}
+            for k1,v1 in v.items():
+                v1 = v1.strip().lower()
+                if v1 not in self.icon_svgs.keys():
+                    self.icons[lang][k1.strip().lower()] = None
+                    logging.error("Missing topic SVG in {}: {}".format(k, v1))
+                else:
+                    self.icons[lang][k1.strip().lower()] = v1
+
         try:
-            icon_list = self.get_icon_disk("icons.json", is_json=True)
+            icon_list = self.get_icons_disk("icons.json", is_json=True)
             for icon in icon_list.keys():
                 try:
-                    svg = self.get_icon_disk(icon_list[icon])
+                    svg = self.get_icons_disk(icon_list[icon])
                     self.icons[icon.strip().lower()] = svg
                 except:
                     self.icons[icon.strip().lower()] = ""
         except:
             self.icons = {}
+            self.icon_svgs = {}
+
+
+    def get_icon_svg(self, lang, subtheme):
+        lang = lang.strip().lower()
+        subtheme = subtheme.strip().lower()
+        if lang not in self.icons.keys():
+            return ""
+        if subtheme not in self.icons[lang].keys():
+            return ""
+        svg_name = self.icons[lang][subtheme]
+        if svg_name not in self.icon_svgs.keys():
+            return ""
+        return self.icon_svgs[svg_name]
+
 
 
     def load_all(self):
@@ -601,5 +639,3 @@ class Repository(object):
                 return self.get_all_lists_blob()
 
 
-    def get_icons(self):
-        return self.icons

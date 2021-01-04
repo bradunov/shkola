@@ -545,7 +545,6 @@ class Design_default(object):
 
         lang = page.page_params.get_param("language")
         content = page.repository.get_content(PageLanguage.toStr(lang))
-        icons = page.repository.get_icons()
 
         icon_cnt = 0
 
@@ -604,16 +603,14 @@ class Design_default(object):
                             rank_topic = content[page.page_params.get_param("year")][theme][subclass]["rank_topic"].strip()
                             period = content[page.page_params.get_param("year")][theme][subclass]["period"]
                             if subtheme not in subtheme_dict.keys():
-                                try:
-                                    icon_svg = icons[subtheme.strip().lower()]
-                                    # Different SVGs can have same path IDs (e.g. created in the same program)
-                                    # So we change names here
-                                    
-                                    #icon_svg = re.sub(r'id="(.*?)"', 'id="\\1_R_{}"'.format(icon_cnt), icon_svg)
-                                    icon_svg = re.sub(r'cls-(.)', 'cld-\\1_R_{}'.format(icon_cnt), icon_svg)
-                                    icon_cnt = icon_cnt + 1
-                                except:
-                                    icon_svg = ""
+                                icon_svg = page.repository.get_icon_svg(PageLanguage.toStr(lang), subtheme)
+
+                                # Different SVGs can have same path IDs (e.g. created in the same program)
+                                # So we change names here
+                                
+                                #icon_svg = re.sub(r'id="(.*?)"', 'id="\\1_R_{}"'.format(icon_cnt), icon_svg)
+                                icon_svg = re.sub(r'cls-(.)', 'cld-\\1_R_{}'.format(icon_cnt), icon_svg)
+                                icon_cnt = icon_cnt + 1
 
                                 subtheme_d = {
                                     'title' : subtheme_o.capitalize(),
