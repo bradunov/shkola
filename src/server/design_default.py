@@ -188,18 +188,17 @@ class Design_default(object):
 
         sublang = []
         for lang in page.get_language_list():
-            if context.c.session.get("beta") or lang != PageLanguage.UK.value:
-                sublang.append({
-                    "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
-                        "height=\"15px\" alt=\"" + page.get_language_details(lang)["country"] + 
-                        "\" src=\"" + page.get_file_url("images/" + 
-                                    page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
-                                    page.get_language_details(lang)["country"],
-                    "link" : page.page_params.create_url( \
-                                op = PageOperation.MENU_YEAR, 
-                                beta = True if page.page_params.get_param("beta") else None, 
-                                language = lang)
-                })            
+            sublang.append({
+                "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
+                    "height=\"15px\" alt=\"" + page.get_language_details(lang)["country"] + 
+                    "\" src=\"" + page.get_file_url("images/" + 
+                                page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
+                                page.get_language_details(lang)["country"],
+                "link" : page.page_params.create_url( \
+                            op = PageOperation.MENU_YEAR, 
+                            beta = True if page.page_params.get_param("beta") else None, 
+                            language = lang)
+            })            
 
         # Jezik: &nbsp; 
         lang = {
@@ -342,19 +341,18 @@ class Design_default(object):
 
         sublang = []
         for lang in page.get_language_list():
-            if context.c.session.get("beta") or lang != PageLanguage.UK.value:
-                sublang.append({
-                    "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
-                        "height=\"15px\" alt=\"" + page.get_language_details(lang)["country"] + 
-                        "\" src=\"" + page.get_file_url("images/" + 
-                                    page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
-                                    page.get_language_details(lang)["country"],
-                    "link" : page.page_params.create_url(
-                        op = PageOperation.MENU_USER, 
-                        language = lang, 
-                        beta = True if page.page_params.get_param("beta") else None 
-                    )
-                })            
+            sublang.append({
+                "name" : "<input type=\"image\" style=\"padding: 0px\" width=\"27px\" "
+                    "height=\"15px\" alt=\"" + page.get_language_details(lang)["country"] + 
+                    "\" src=\"" + page.get_file_url("images/" + 
+                                page.get_language_details(lang)["image"]) + "\"> &nbsp; " + 
+                                page.get_language_details(lang)["country"],
+                "link" : page.page_params.create_url(
+                    op = PageOperation.MENU_USER, 
+                    language = lang, 
+                    beta = True if page.page_params.get_param("beta") else None 
+                )
+            })            
 
         page.template_params['menu_lang'] = sublang
 
