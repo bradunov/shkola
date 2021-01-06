@@ -509,6 +509,11 @@ class Repository(object):
 
     def get_icon_svg(self, lang, subtheme):
         lang = lang.strip().lower()
+
+        # Special provisioning for Serbian cyrillic
+        if lang == PageLanguage.RSC.value:
+            lang = PageLanguage.RS.value
+
         subtheme = subtheme.strip().lower()
         if lang not in self.icons.keys():
             return ""
