@@ -337,13 +337,17 @@ class Repository(object):
             level = list_dict["level"].lower()
             level_short = list_dict["level_short"].lower()
             theme = list_dict["theme"].lower()
+            rank_theme = list_dict["rank_theme"]
             questions = list_dict["questions"]
             if language not in self.content.keys():
                 self.content[language] = {}
             if level not in self.content[language].keys():
                 self.content[language][level] = {"level_short" : level_short}
             if theme not in self.content[language][level].keys():
-                self.content[language][level][theme] = {"name" : list_name}
+                self.content[language][level][theme] = {
+                    "name" : list_name,
+                    "rank" : rank_theme
+                }
             
             for q in questions:
                 if "period" not in q.keys() or \
@@ -451,7 +455,7 @@ class Repository(object):
         questions = {}
 
         for k,v in self.content[language][level][theme].items():
-            if k == "name":
+            if k == "name" or k == "rank":
                 continue
 
             if (not subtheme or subtheme == v["subtheme"]) and \

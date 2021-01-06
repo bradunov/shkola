@@ -574,141 +574,149 @@ class Design_default(object):
             # page.add_lines("<h3> {} razred - izaberi oblast</h3>\n".format(page.page_params.get_param("year").title()))
             # page.add_lines("</div>\n")
 
+
+            # Sort according to the assigned rank
+            sorted_themes = []
             for theme in sorted(content[page.page_params.get_param("year")].keys()):
-
                 if not theme == "level_short": 
-                    subtheme_list = []
-                    subtheme_dict = dict()
+                    sorted_themes.append([theme, content[page.page_params.get_param("year")][theme]["rank"]])
+            sorted_themes.sort(key=lambda x:x[1])
+            sorted_themes = [x[0] for x in sorted_themes]
 
-                    # Special provisioing for Serbian cyrillic
-                    if lang == PageLanguage.RSC:
-                        theme_o = Transliterate.rs(theme)
-                    else:
-                        theme_o = theme
+            #for theme in sorted(content[page.page_params.get_param("year")].keys()):
+            for theme in sorted_themes:
+                subtheme_list = []
+                subtheme_dict = dict()
 
-                    for subclass in sorted(content[page.page_params.get_param("year")][theme].keys()):
-                        if not subclass == "name":
-                            subtheme = content[page.page_params.get_param("year")][theme][subclass]["subtheme"].strip()
-                            topic = content[page.page_params.get_param("year")][theme][subclass]["topic"].strip()
-                            # Special provisioing for Serbian cyrillic
-                            if lang == PageLanguage.RSC:
-                                subtheme_o = Transliterate.rs(subtheme)
-                                topic_o = Transliterate.rs(topic)
-                            else:
-                                subtheme_o = subtheme
-                                topic_o = topic
-                            rank_subtheme = content[page.page_params.get_param("year")][theme][subclass]["rank_subtheme"].strip()
-                            rank_topic = content[page.page_params.get_param("year")][theme][subclass]["rank_topic"].strip()
-                            period = content[page.page_params.get_param("year")][theme][subclass]["period"]
-                            if subtheme not in subtheme_dict.keys():
-                                icon_svg = page.repository.get_icon_svg(PageLanguage.toStr(lang), subtheme)
+                # Special provisioing for Serbian cyrillic
+                if lang == PageLanguage.RSC:
+                    theme_o = Transliterate.rs(theme)
+                else:
+                    theme_o = theme
 
-                                # Different SVGs can have same path IDs (e.g. created in the same program)
-                                # So we change names here
-                                
-                                #icon_svg = re.sub(r'id="(.*?)"', 'id="\\1_R_{}"'.format(icon_cnt), icon_svg)
-                                icon_svg = re.sub(r'cls-(.)', 'cld-\\1_R_{}'.format(icon_cnt), icon_svg)
-                                icon_cnt = icon_cnt + 1
+                for subclass in sorted(content[page.page_params.get_param("year")][theme].keys()):
+                    if not subclass == "name" and not subclass == "rank":
+                        subtheme = content[page.page_params.get_param("year")][theme][subclass]["subtheme"].strip()
+                        topic = content[page.page_params.get_param("year")][theme][subclass]["topic"].strip()
+                        # Special provisioing for Serbian cyrillic
+                        if lang == PageLanguage.RSC:
+                            subtheme_o = Transliterate.rs(subtheme)
+                            topic_o = Transliterate.rs(topic)
+                        else:
+                            subtheme_o = subtheme
+                            topic_o = topic
+                        rank_subtheme = content[page.page_params.get_param("year")][theme][subclass]["rank_subtheme"].strip()
+                        rank_topic = content[page.page_params.get_param("year")][theme][subclass]["rank_topic"].strip()
+                        period = content[page.page_params.get_param("year")][theme][subclass]["period"]
+                        if subtheme not in subtheme_dict.keys():
+                            icon_svg = page.repository.get_icon_svg(PageLanguage.toStr(lang), subtheme)
 
-                                subtheme_d = {
-                                    'title' : subtheme_o.capitalize(),
-                                    'icon' : icon_svg, 
-                                    'rank_subtheme' : rank_subtheme,
-                                    'topics' : [],
-                                    'topics_dir' : {},
-                                    'min_period' : period,
-                                    'link' : Design_default._next_theme_url(
-                                            page = page, 
-                                            theme = theme.title().strip(), 
-                                            subtheme = subtheme, 
-                                            topic = "*", 
-                                            period = "*", 
-                                            difficulty = "*", 
-                                            l_id = content[page.page_params.get_param("year")][theme]["name"])
-                                }
-                                subtheme_dict[subtheme] = subtheme_d
-                                subtheme_list.append(subtheme_d)
+                            # Different SVGs can have same path IDs (e.g. created in the same program)
+                            # So we change names here
+                            
+                            #icon_svg = re.sub(r'id="(.*?)"', 'id="\\1_R_{}"'.format(icon_cnt), icon_svg)
+                            icon_svg = re.sub(r'cls-(.)', 'cld-\\1_R_{}'.format(icon_cnt), icon_svg)
+                            icon_cnt = icon_cnt + 1
 
-
-                                # BROWSE
-                                link = Design_default._next_theme_test_url(
-                                            page = page, 
-                                            theme = theme.title().strip(), 
-                                            subtheme = subtheme, 
-                                            topic = "*", 
-                                            period = "*", 
-                                            difficulty = "*", 
-                                            l_id = content[page.page_params.get_param("year")][theme]["name"])
-
-                                topic_d = {
-                                    # Special provisioing for Serbian cyrillic
-                                    'title' : "Sve teme" if not lang == PageLanguage.RSC else "Све теме",
-                                    'rank_topic' : "0",
-                                    'min_period' : "0",
-                                    'link' : link
-                                }
-
-                                # BROWSE
-                                topic_d['rank_topic'] = "9999"
-                                topic_d['title'] = page.get_messages()['test']
-                                topic_d['color'] = Design_default._get_color(int_year)
-                                topic_d['font-weight'] = 'bolder'
-                                topic_d['font-size'] = '12px'                                    
-
-                                subtheme_d['topics_dir']["all"] = topic_d
-                                subtheme_d['topics'].append(topic_d)
+                            subtheme_d = {
+                                'title' : subtheme_o.capitalize(),
+                                'icon' : icon_svg, 
+                                'rank_subtheme' : rank_subtheme,
+                                'topics' : [],
+                                'topics_dir' : {},
+                                'min_period' : period,
+                                'link' : Design_default._next_theme_url(
+                                        page = page, 
+                                        theme = theme.title().strip(), 
+                                        subtheme = subtheme, 
+                                        topic = "*", 
+                                        period = "*", 
+                                        difficulty = "*", 
+                                        l_id = content[page.page_params.get_param("year")][theme]["name"])
+                            }
+                            subtheme_dict[subtheme] = subtheme_d
+                            subtheme_list.append(subtheme_d)
 
 
-                            else:
-                                subtheme_d = subtheme_dict[subtheme]
+                            # BROWSE
+                            link = Design_default._next_theme_test_url(
+                                        page = page, 
+                                        theme = theme.title().strip(), 
+                                        subtheme = subtheme, 
+                                        topic = "*", 
+                                        period = "*", 
+                                        difficulty = "*", 
+                                        l_id = content[page.page_params.get_param("year")][theme]["name"])
 
-                            if topic not in subtheme_d['topics_dir'].keys():
-                                topic_d = {
-                                    'title' : topic_o.capitalize(),
-                                    'rank_topic' : rank_topic,
-                                    'min_period' : period,
-                                    'link' : Design_default._next_theme_url(
-                                            page = page, 
-                                            theme = theme.title().strip(), 
-                                            subtheme = subtheme, 
-                                            topic = topic, 
-                                            period = "*", 
-                                            difficulty = "*", 
-                                            l_id = content[page.page_params.get_param("year")][theme]["name"])
-                                }
-                                subtheme_d['topics_dir'][topic] = topic_d
-                                subtheme_d['topics'].append(topic_d)
-                            else:
-                                topic_d = subtheme_d['topics_dir'][topic]
+                            topic_d = {
+                                # Special provisioing for Serbian cyrillic
+                                'title' : "Sve teme" if not lang == PageLanguage.RSC else "Све теме",
+                                'rank_topic' : "0",
+                                'min_period' : "0",
+                                'link' : link
+                            }
 
-                            subtheme_d['min_period'] = period if period < subtheme_d['min_period'] else subtheme_d['min_period']
-                            topic_d['min_period'] = period if period < topic_d['min_period'] else topic_d['min_period']
+                            # BROWSE
+                            topic_d['rank_topic'] = "9999"
+                            topic_d['title'] = page.get_messages()['test']
+                            topic_d['color'] = Design_default._get_color(int_year)
+                            topic_d['font-weight'] = 'bolder'
+                            topic_d['font-size'] = '12px'                                    
 
-
-                    # Sort first by period and then alphabetically
-                    #subtheme_list.sort(key=lambda x:x['min_period'] + x['title'])
-                    subtheme_list.sort(key=lambda x:x['rank_subtheme'] + x['title'])
-                    #logging.debug("THEME {}: \n{}\n\n".format(
-                    #    theme, [[x['title'], x['min_period']] for x in subtheme_list] ))
-                    for st in subtheme_list:
-                        #st['topics'].sort(key=lambda x:x['min_period'] + x['title'])
-                        st['topics'].sort(key=lambda x:x['rank_topic'] + x['title'])
-                        #logging.debug("SUBTHEME {}: \n{}\n\n".format(
-                        #    st['title'], [[x['title'], x['min_period']] for x in st['topics']] ))
+                            subtheme_d['topics_dir']["all"] = topic_d
+                            subtheme_d['topics'].append(topic_d)
 
 
-                    page.template_params['themes'].append({
-                        'title' : theme_o.capitalize().strip(),
-                        'link' : Design_default._next_theme_url(
-                                page = page, 
-                                theme = theme.title().strip(), \
-                                subtheme = "*", \
-                                topic = "*", \
-                                period = "*", \
-                                difficulty = "*", \
-                                l_id = content[page.page_params.get_param("year")][theme]["name"]),
-                        'subthemes' : subtheme_list
-                    })
+                        else:
+                            subtheme_d = subtheme_dict[subtheme]
+
+                        if topic not in subtheme_d['topics_dir'].keys():
+                            topic_d = {
+                                'title' : topic_o.capitalize(),
+                                'rank_topic' : rank_topic,
+                                'min_period' : period,
+                                'link' : Design_default._next_theme_url(
+                                        page = page, 
+                                        theme = theme.title().strip(), 
+                                        subtheme = subtheme, 
+                                        topic = topic, 
+                                        period = "*", 
+                                        difficulty = "*", 
+                                        l_id = content[page.page_params.get_param("year")][theme]["name"])
+                            }
+                            subtheme_d['topics_dir'][topic] = topic_d
+                            subtheme_d['topics'].append(topic_d)
+                        else:
+                            topic_d = subtheme_d['topics_dir'][topic]
+
+                        subtheme_d['min_period'] = period if period < subtheme_d['min_period'] else subtheme_d['min_period']
+                        topic_d['min_period'] = period if period < topic_d['min_period'] else topic_d['min_period']
+
+
+                # Sort first by period and then alphabetically
+                #subtheme_list.sort(key=lambda x:x['min_period'] + x['title'])
+                subtheme_list.sort(key=lambda x:x['rank_subtheme'] + x['title'])
+                #logging.debug("THEME {}: \n{}\n\n".format(
+                #    theme, [[x['title'], x['min_period']] for x in subtheme_list] ))
+                for st in subtheme_list:
+                    #st['topics'].sort(key=lambda x:x['min_period'] + x['title'])
+                    st['topics'].sort(key=lambda x:x['rank_topic'] + x['title'])
+                    #logging.debug("SUBTHEME {}: \n{}\n\n".format(
+                    #    st['title'], [[x['title'], x['min_period']] for x in st['topics']] ))
+
+
+                page.template_params['themes'].append({
+                    'title' : theme_o.capitalize().strip(),
+                    'link' : Design_default._next_theme_url(
+                            page = page, 
+                            theme = theme.title().strip(), \
+                            subtheme = "*", \
+                            topic = "*", \
+                            period = "*", \
+                            difficulty = "*", \
+                            l_id = content[page.page_params.get_param("year")][theme]["name"]),
+                    'subthemes' : subtheme_list
+                })
 
 
 
