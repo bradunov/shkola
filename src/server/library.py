@@ -4,6 +4,7 @@ import random
 import lupa
 import logging
 import server.helpers as helpers
+from server.types import PageLanguage
 #from server.helpers import *
 
 
@@ -247,6 +248,11 @@ class Library(object):
         s_answer = v_answer
         if number:
             extra_condition = v_answer + ".length > 0"
+            # Internationalisation still in testing
+            # if self.page.page_params.get_param("language") == PageLanguage.RS or \
+            #         self.page.page_params.get_param("language") == PageLanguage.RSC:
+            if False:
+                v_answer += ".replace(',', '.')"
             v_answer = "Number(" + v_answer + ")"
         else:
             extra_condition = None
@@ -254,8 +260,17 @@ class Library(object):
         str_solution = ""
         if "answer" not in str(condition):
             if number:
-                str_condition = "is_ok = (" + v_answer + " == \'" + str(condition) + "\');"
-                str_solution = s_answer + " = \'" + str(condition) + "\';"
+                str_condition = "is_ok = (" + v_answer + " == \'" + str(condition) + "\');"                
+                str_solution = s_answer + " = \'" + str(condition) + "\'"
+
+                # Internationalisation still in testing
+                # if self.page.page_params.get_param("language") == PageLanguage.RS or \
+                #         self.page.page_params.get_param("language") == PageLanguage.RSC:
+                if False:
+                    str_solution += ".replace('.', ',')"
+
+                str_solution += ";"
+
             else:
                 str_condition = "is_ok = (" + v_answer + ".trim() == \'" + str(condition) + "\'.trim());"
                 str_solution = s_answer + " = \'" + str(condition) + "\'.trim();"
