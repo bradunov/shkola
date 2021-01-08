@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% import 'dev/elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+
+  </head>
+  <body style="overscroll-behavior: none">
+  {{elements.js_error_block()}}
+
+  {{elements.menu(template_params["menu"]["choices"], template_params["menu"]["current_choice"], template_params["menu"]["choice_action"], 
+                  template_params["menu"]["languages"], template_params["menu"]["current_language"], template_params["menu"]["language_action"], 
+                  template_params["menu"]["operations"], template_params["menu"]["current_operation"], template_params["menu"]["operation_action"])}}
+
+
+  <div>
+    <span style='float:left;display:inline;border:6px;padding:6px;'>
+      <form method="post" action='{{template_params["action"]}}'>
+        <input type="hidden" id="op" name="op" value="generate">
+        <input type="hidden" id="q_id" name="q_id" value='{{template_params["q_id"]}}'>
+        <input type="hidden" id="language" name="language" value='{{template_params["language"]}}'>
+        <div style='border:6px;padding:6px;background-color:#fafaf0;'>
+            <b>Init code:</b><br>
+            <textarea name="init_code" rows="10" cols="80">
+                {{template_params["init_code"]}}
+            </textarea>
+        </div>
+        <div style='border:6px;padding:6px;background-color:#faf0fa;'>
+            <b>Iter code:</b><br>
+            <textarea name="iter_code" rows="10" cols="80">
+                {{template_params["iter_code"]}}
+            </textarea>
+        </div>
+        <div style='border:6px;padding:6px;background-color:#f0fafa;'>
+            <b>Question text:</b><br>
+            <textarea name="text" rows="10" cols="80">
+                {{template_params["text"]}}
+            </textarea>
+        </div>
+        <div style='border:6px;padding:6px;background-color:#f0faf0;'>
+            <button type="submit">Test</button>
+        </div>
+      </form>
+    </span>
+
+    <span style='float:left;display:inline'>
+      <div style='display:block; width: 100%; text-align: center; '>
+        <div id="question_frame" class="sh_mobile_frame sh_lato_font" style='display: inline-block;'>
+          <div style='display: inline-block; margin: 0 8px 0 8px; width:359px'>
+            {{template_params["question"]}}
+          </div>
+        </div>
+        {{elements.buttons()}}
+      </div>
+
+
+      {# <div style='border-style:dotted;display:block;width=640px;align-content:center;box-sizing:border-box;background-color:white'>
+        {{template_params["question"]}}
+        {{elements.buttons()}}
+      </div> #}
+    </span>
+      
+    {{ elements.mobile_frame("screen_frame", "question") }}
+
+      
+  </div>
+
+
+  </body>
+</html>
