@@ -74,7 +74,7 @@
                   vertical-align: top;
                   margin-top: 25px; margin-bottom: 10px; margin-left: 20px;
                   font-size: 18px; color: #ffffff">
-          Upoznaj TATA MATU 
+          Упознај ТАТА МАТУ
         </div>
 
         <div style="display:inline-block; 
@@ -110,7 +110,7 @@
         <div id="tab_name_site" class="sh_lato_font" 
             style="display:inline-block; font-weight: bold; cursor: pointer; font-size: 14px; margin-left: 3px; margin-right: 3px; color: #148f91"
             onclick="tab_select('tab_site')">
-          O Tatamati
+          О ТАТА МАТИ
           <div id="tab_und_site" style="display:inline-block; margin-left:-20px; width:20px; overflow:hidden; vertical-align:middle">
             <svg width="200px" height="5px">
               <rect width="200px" height="5px" style="
@@ -140,7 +140,7 @@
         <div id="tab_name_us" class="sh_lato_font" 
             style="display:inline-block; font-weight: normal; cursor: pointer; font-size: 14px; margin-left: 3px; margin-right: 3px; color: #148f91"
             onclick="tab_select('tab_us')">
-          O Nama
+          О НАМА
         </div>
         <div id="tab_und_us" style="display:none; margin-left:-20px; width:20px;overflow:hidden; vertical-align:middle">
           <svg width="200px" height="5px">
@@ -158,6 +158,37 @@
           tab_set_line('tab_us', 0);
         </script>
 
+
+
+        <!-- Privatnost -->
+
+        <script>
+          tab_ids[ "tab_private" ] = 'tab_id_private';
+          tab_titles[ "tab_private" ] = 'tab_name_private';
+          tab_unds[ "tab_private" ] = 'tab_und_private';
+        </script>
+
+        <div id="tab_name_private" class="sh_lato_font" 
+            style="display:inline-block; font-weight: normal; cursor: pointer; font-size: 14px; margin-left: 3px; margin-right: 3px; color: #148f91"
+            onclick="tab_select('tab_private')">
+          ПРИВАТНОСТ
+        </div>
+        <div id="tab_und_private" style="display:none; margin-left:-20px; width:20px;overflow:hidden; vertical-align:middle">
+          <svg width="200px" height="5px">
+            <rect width="200px" height="5px" style="
+              opacity: 0.52;
+              -webkit-filter: blur(1.2px);
+              filter: blur(1.2px);
+              fill:#f3b051;
+              " />
+          </svg>
+        </div>
+
+        <script>
+          // Set the length based on the actual text
+          tab_set_line('tab_private', 0);
+        </script>
+
       </div>
 
 
@@ -165,172 +196,381 @@
       <div id="tab_id_site"
            style="display:block; 
                   width: 290px; 
-                  margin:auto; margin-top: 30px; margin-bottom: 4px">
+                  margin:auto; margin-top: 15px; margin-bottom: 4px">
 
-        <div class="sh_lato_font" style="display:block; margin-top: 12px; margin-bottom: 12px;">
-          2+2=4. To znamo, i nije teško. Ume matematika da bude i mnogo složenija, i
-          mnogo korisnija. Ali - i mnogo zanimljivija! Recimo: ako se upakuje u
-          aplikaciju, oblikuje u igru, predstavi kroz zanimljive primere, pa još
-          omogući i skupljanje poena? A zadataka bezbroj, složenih po uzrastu i
-          težini, da nas korak po korak uvlače u ovaj zanimljivi svet...
+        <div style="display:block; 
+                    background-color: white;
+                    width: 290px; 
+                    margin:0px 0px 0px 0px;">
+          <div class="sh_lato_font" style="display:inline-block; 
+                      background-color: white;
+                      font-size: 13px;
+                      margin:16px 16px 10px 16px;">
+            Добро дошли код ТАТА МАТЕ!
+            <br><br>
+            Математику често неправедно представе као јако тешку, досадну или као право чудовиште.
+            <br>
+            Ми знамо да то није тако. Математика уме да буде забавна и занимљива и ТАТА МАТА би да вам покаже како. 
+            Уз мало вежбе, видећете, постане баш лако.
+            <br><br>
+            Тренутно ТАТА МАТА има спремљене задатке за основце од 1. до 4. разреда, 
+            али ускоро, и старије тата мате могу да очекују своју вежбаоницу.
+            <br><br>
+            Наравно, нико није савршен, па ни ТАТА МАТА. 
+            Грешке увек могу да се десе, па ако приметите да нешто није како треба - од дугмића и опција, 
+            до нетачних решења (што је, ипак, мало вероватно па боље проверите још једном), јавите нам. 
+            Једноставно је, само треба да притисните на заставицу код тог задатка.
+            <br><br>
+          </div>
         </div>
-
-        <div class="sh_chalk_bold_font" 
-             style="display:block; width: 290px; text-align: center; font-size:100%; margin-top: 24px; margin-bottom: 24px;">
-          Dobrodošli kod 
-          {{ elements.color_string("TATA-MATE!") }}
-        </div>
-
-        <div class="sh_lato_font" style="display:block; margin-top: 12px; margin-bottom: 12px;">
-          Ova igra od svakoga može napraviti 'tatu za matu' (i 'mamu za matu', samo se
-          tata bolje rimuje). Iza nje stoji naša vesela ekipa tata-mata volontera svih
-          generacija: od iskusnih nastavnika i profesora koji smišljaju zadatke, preko
-          istraživača, sotverskih gurua i dizajnera koji ih pakuju u igru, do mladih
-          drugara i drugarica koji testiraju. Aplikacija je besplatna jer radimo iz
-          ljubavi. Osetićete to dok budete igrali - zaljubićete se i vi. A mi ćemo
-          nastaviti da dodajemo zadatke: trenutno su tu zadaci za osnovce od 1. do 4.
-          razreda, ali i starije tata-mate uskoro mogu da očekuju pravu zanimaciju.
-          Naravno, niko nije savršen, pa ni ovaj TATA-MATA: ako primetite da šta nije
-          kako treba - od dugmića i opcija, do netačnih rešenja (što je, ipak, malo
-          verovatno pa bolje proverite još jednom), javite nam (pritisnite na zastavicu: {{ elements.feedback_icon() }})! 
-        </div>
-
-        <div class="sh_lato_font" style="display:block; margin-top: 12px; margin-bottom: 12px;">
-          Igru možete koristiti bez i naloga. Ipak, za idealnu igru dobro bi bilo da
-          imate Google nalog, da se kroz njega ulogujete: tako će vam igra pamtiti
-          rezultate i dostignuća, i voditi vas dalje i dalje. Da ne brinete: mi ne
-          skupljamo nikakve podatke o vama. Dovoljno nam je da osetimo vašu radost
-          igranjem.
-        </div>
-
-        <div class="sh_lato_font" style="display:block; margin-top: 12px; margin-bottom: 12px;">
-          Na kraju, ipak, ne zaboravite da povremeno odložite igricu i telefon u stranu
-          - i nađete svet matematike i u prirodi, svuda oko vas!
-        </div>
-
-        <div class="sh_lato_font" style="display:block; margin-top: 12px; margin-bottom: 12px;">
-          Uživajte.
-        </div>
-
-        <div class="sh_lato_font" style="display:block; margin-top: 36px; margin-bottom: 12px;">
-          Vaše TATA-MATE
-        </div>
-              
       </div>
 
 
       <div id="tab_id_us"
            style="display:none; 
                   width: 290px; 
-                  margin:auto; margin-top: 30px; margin-bottom: 4px">
-        <div style="display:table;border-collapse:separate;border-spacing:5px;">
+                  margin:auto; margin-top: 15px; margin-bottom: 4px">
 
-          <div style="display:table-row;">
-            <div style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              <img src='{{ template_params["item_path"] }}images/us/desa.jpg' width='90'>
-            </div>
-            <div class="sh_lato_font"
-                 style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              <a href="http://poincare.matf.bg.ac.rs/~dradun/"> Desanka Radunović </a> <br> 
-              profesor matematike, izmišlja zadatke.               
+        <div style="display:block; 
+                    background-color: white;
+                    width: 290px; 
+                    margin:0px 0px 0px 0px;">
+          <div class="sh_lato_font" style="display:inline-block; 
+                      background-color: white;
+                      font-size: 13px;
+                      margin:16px 16px 0px 16px;">
+            <b> Здраво! </b> 
+            <br>
+            <br>
+            ТАТА МАТУ чини једна весела екипа волонтера свих генерација: 
+            од искусних наставника и професора који смишљају задатке, 
+            преко истраживача, софтверских гуруа и дизајнера који пакују задатке у игру.
+            <br>
+            <br>
+            <b>Наша мисија</b> - да покажемо забавну страну математике! 
+            Идеја нам је да се деца играју и уживају у решавању математичких заврзлама. 
+            Зато је ова апликација потпуно бесплатна.
+            <br>
+            <br>
+            Упознајте тим:
+            <br>
+            <br>
+          </div>
+        </div>
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white;">
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto;" 
+                    src='{{ template_params["item_path"] }}images/us/desa.jpg'>
             </div>
           </div>
 
-          <div style="display:table-row;">
-            <div style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              <img src='{{ template_params["item_path"] }}images/us/boki.jpg' width='90'>
-            </div>
-            <div class="sh_lato_font"
-                 style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              <a href="https://github.com/bradunov"> Božidar Radunović </a> <br>
-              programer, prikazuje zadatke
-            </div>
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      text-align: left;
+                      background-color: white; 
+                      vertical-align: top;
+                      margin: 22px 6px 22px 9px;
+                      width: 181px;
+                      height: 52px;">
+            <div style="display:flex; height: 52px; align-items:center"><div>
+              <a href="http://poincare.matf.bg.ac.rs/~dradun/"> Десанка Радуновић </a> <br> 
+              професор математике, измишља задатке.
+            </div></div>
+          </div>
+        </div>
+
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      background-color: white; 
+                      text-align: right;
+                      margin: 22px 6px 22px 9px;
+                      width: 181px;
+                      height: 52px;">
+            <div style="display:flex; height: 52px; align-items:center; justify-content: flex-end;"><div>
+              <a href="https://github.com/bradunov"> Божидар Радуновић </a> <br>
+              програмер, приказује задатке
+            </div></div>
           </div>
 
-          <div style="display:table-row;">
-            <div style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              <img src='{{ template_params["item_path"] }}images/us/vladap.png' width='90'>
-            </div>
-            <div class="sh_lato_font"
-                 style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              <a href="https://github.com/vladap2013"> Vladimir Petrović </a> <br>
-              programer, prikazuje zadatke
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto;" 
+                    src='{{ template_params["item_path"] }}images/us/boki.jpg'>
             </div>
           </div>
+        </div>
 
-          <div style="display:table-row;">
-            <div style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              <img src='{{ template_params["item_path"] }}images/us/madza.jpg' width='90'>
-            </div>
-            <div class="sh_lato_font"
-                 style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              Marija Kisa-Minić <br>
-              dizajner, crta mala slatka čudovišta
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto;" 
+                    src='{{ template_params["item_path"] }}images/us/vladap.png'>
             </div>
           </div>
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      background-color: white; 
+                      text-align: left;
+                      margin: 22px 6px 22px 9px;
+                      width: 181px;
+                      height: 52px;">
+              <div style="display:flex; height: 52px; align-items:center"><div>
+                <a href="https://github.com/vladap2013"> Владимир Петровић </a> <br>
+                програмер, приказује задатке
+              </div></div>
+          </div>
+        </div>
 
-          <div style="display:table-row;">
-            <div style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              <img src='{{ template_params["item_path"] }}images/us/emi.jpg' width='90'>
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      background-color: white; 
+                      text-align: right;
+                      margin: 22px 6px 22px 9px;
+                      width: 181px;
+                      height: 52px;">
+              <div style="display:flex; height: 52px; align-items:center; justify-content: flex-end;"><div>
+              Марија Киса Минић <br>
+              Дизајнер, воли да убацује чудовишта у тата мату
+              </div></div>
             </div>
-            <div class="sh_lato_font"
-                 style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              Emilia Greetham <br> 
-              Prevela zadatke na Engleski.
+
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto; " 
+                    src='{{ template_params["item_path"] }}images/us/madza.jpg'>
             </div>
           </div>
+        </div>
 
-          <div style="display:table-row;">
-            <div style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              <img src='{{ template_params["item_path"] }}images/us/JelenaR.png' width='90'>
-            </div>
-            <div class="sh_lato_font"
-                 style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              Jelena Rusić <br>
-              Učiteljica, izmišlja zadatke 
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto;" 
+                    src='{{ template_params["item_path"] }}images/us/emi.jpg'>
             </div>
           </div>
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      background-color: white; 
+                      text-align: left;
+                      margin: 22px 6px 22px 9px;
+                      width: 181px;
+                      height: 52px;">
+              <div style="display:flex; height: 52px; align-items:center"><div>
+                Emilia Greetham <br> 
+                Превела задатке на Енглески.
+              </div></div>
+          </div>
+        </div>
 
-          <div style="display:table-row;">
-            <div style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              <img src='{{ template_params["item_path"] }}images/us/ivan.jpg' width='90'>
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      background-color: white; 
+                      text-align: right;
+                      margin: 22px 6px 22px 9px;
+                      width: 181px;
+                      height: 52px;">
+              <div style="display:flex; height: 52px; align-items:center; justify-content: flex-end;"><div>
+                Јелена Ружић <br>
+                Учитељица, измишља задатке
+              </div></div>
             </div>
-            <div class="sh_lato_font"
-                 style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              Ivan Minić <br>
-              Statističar, prati rezultate
+
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto; " 
+                    src='{{ template_params["item_path"] }}images/us/JelenaR.png'>
             </div>
           </div>
+        </div>
 
-          <div style="display:table-row;">
-            <div style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              <img src='{{ template_params["item_path"] }}images/us/nebojsa.jpg' width='90'>
-            </div>
-            <div class="sh_lato_font"
-                 style="display:table-cell; 
-                        vertical-align: top; padding:5px;">
-              Nebojša Petković <br> 
-              Reklamira sajt.
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto;" 
+                    src='{{ template_params["item_path"] }}images/us/ivan.jpg'>
             </div>
           </div>
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      background-color: white; 
+                      text-align: left;
+                      margin: 22px 6px 22px 9px;
+                      width: 181px;
+                      height: 52px;">
+              <div style="display:flex; height: 52px; align-items:center"><div>
+                Иван Минић <br>
+                Статистичар, прати резултате
+              </div></div>
+          </div>
+        </div>
 
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      background-color: white; 
+                      text-align: right;
+                      margin: 22px 6px 22px 9px;
+                      width: 181px;
+                      height: 52px;">
+              <div style="display:flex; height: 52px; align-items:center; justify-content: flex-end;"><div>
+                Небојша Петковић <br> 
+                Рекламира сајт.
+              </div></div>
+            </div>
+
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto; " 
+                    src='{{ template_params["item_path"] }}images/us/nebojsa.jpg'>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+      <div id="tab_id_private"
+           style="display:none; 
+                  width: 290px; 
+                  margin:auto; margin-top: 15px; margin-bottom: 4px">
+
+        <div style="display:block; 
+                    background-color: white;
+                    width: 290px; 
+                    margin:0px 0px 0px 0px;">
+          <div class="sh_lato_font" style="display:inline-block; 
+                      background-color: white;
+                      font-size: 13px;
+                      margin:16px 16px 16px 16px;">
+            ТАТА МАТА је потпуно бесплатна апликација без реклама. 
+            Можеш је користити у потпуности анонимно као гост. 
+            Ипак, за идеално коришћење било би добро да имаш Гоогле налог и да се преко њега улогујеш. 
+            Тако ћеш најбоље моћи да пратиш резултате и напредак.
+            <br>
+            <br>
+            Најбитније, не брини, ТАТА МАТА је направљен тако да 
+            памти само твоје прво има и Гугл сличицу (да би могао да их приказе на екрану). 
+            ТАТА МАТА не скупља никакве друге податке о теби и не дели твоје резултате ни са ким. 
+            Ако ти одлучиш да поделиш свој успех с другарима, татом, мамом, или учитељима мораћеш да им покажеш лично.          </div>
+        </div>
+
+        <div style="display:block; 
+                    background-color: white;
+                    width: 290px; 
+                    margin:15px 0px 0px 0px;">
+          <div class="sh_lato_font" style="display:inline-block; 
+                      background-color: white;
+                      width: 240px;
+                      font-size: 13px;
+                      margin:16px 16px 16px 16px;">
+            Слатка мала чудовишта која користимо у ТАТА МАТИ су преузета са сајта
+            the <A href="https://thenounproject.com">Noun Project</A>, и хвала iconcheesu што их је нацртао.
+          </div>
+          <div style="display:inline-block; margin: -28px 0px 0px 238px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38.409" height="49.698" viewBox="0 0 38.409 49.698">
+                <defs>
+                    <style>
+                        .cls-1{fill:#148f91}
+                    </style>
+                </defs>
+                <g id="noun_Monster_169452" transform="translate(-15.199 -5)">
+                    <g id="Group_363" transform="translate(15.199 5)">
+                        <path id="Path_821" d="M39.9 5c-7.678 0-13.26 5.471-13.26 13.762v.5s.5 7.074-2.432 9.064c-2.874 1.99-7.019 1.824-5.471-3.04a9.851 9.851 0 0 1 3.482-4.919A4.68 4.68 0 0 0 24.1 17.38c0-1.769-2.1-2.6-3.371-2.874-2.321-.608-3.924-.442-3.206.5.608.718 4.7.663 4.421 2.321-.166.94-5.527 4.587-6.522 8.9a5.6 5.6 0 0 0 .774 4.864c2.6 3.261 7.351 2.1 10.169.829a8.37 8.37 0 0 0 2.266-1.437v.166h.111a29.789 29.789 0 0 0 12.435 1.879c1.824-.055 3.648-.166 5.471-.387a25.106 25.106 0 0 0 2.819-.5 7.5 7.5 0 0 0 2.211-.774.251.251 0 0 1 .276 0 98.74 98.74 0 0 0 1.6-11.661C54.274 10.306 47.586 5 39.9 5zm-8.065 15.585a2.819 2.819 0 1 1 2.819-2.819 2.831 2.831 0 0 1-2.819 2.819zm6.687 0a2.819 2.819 0 1 1 2.819-2.819 2.867 2.867 0 0 1-2.819 2.819zm6.578-.055a2.819 2.819 0 1 1 2.819-2.819A2.831 2.831 0 0 1 45.1 20.53z" class="cls-1" transform="translate(-15.199 -5)"/>
+                        <path id="Path_822" d="M43.225 62.816a3.073 3.073 0 0 0-2.155-1.879 3.36 3.36 0 0 0-1.05-.055c-.221.055-.5.111-.608.276l-.055.055a23.5 23.5 0 0 1 .553 4.145c.276 3.371.718 5.693-.829 8.677-.663 1.271-3.924 3.371-1.769 3.7a5.7 5.7 0 0 0 4.2-2.045c1.382-2.155 1.437-4.587 1.769-7.627.166-1.548-.055-4.2.166-5.2-.111.063-.222.063-.222-.047z" class="cls-1" transform="translate(-24.765 -29.987)"/>
+                        <path id="Path_823" d="M74.982 61.671a2.454 2.454 0 0 0-1.105.055 3 3 0 0 0-2.155 1.824.221.221 0 0 1-.221.111c.221 1.216.221 3.427.332 5.25a14.905 14.905 0 0 0 1.934 7.074 5.885 5.885 0 0 0 4.145 2.045c2.155-.276-.718-2.377-1.326-3.7-1.161-2.487-1.161-5.858-1.105-8.677A26.578 26.578 0 0 1 75.756 62a.054.054 0 0 1-.055-.055 1.931 1.931 0 0 0-.719-.274z" class="cls-1" transform="translate(-40.384 -30.334)"/>
+                        <path id="Path_824" d="M65.711 63.387a3.752 3.752 0 0 0-.663-.663 4.568 4.568 0 0 0-.718-.387 2.919 2.919 0 0 0-1.934.221 1.208 1.208 0 0 0-.276.166l-.332.332a1.261 1.261 0 0 0-.332.663c0 .055 0 .055-.055.055.276 1.382 0 4.09.111 6.743.166 3.427-.5 4.7 1.713 7.793 1.326 1.769 3.261 2.266 4.035 1.879 1.382-.663-1.382-3.095-1.824-4.919-.5-1.934.055-7.3.166-9.285a20.968 20.968 0 0 1 .332-2.1l-.055-.055a.735.735 0 0 0-.168-.443z" class="cls-1" transform="translate(-35.866 -30.613)"/>
+                        <path id="Path_825" d="M53.569 63.513a2.9 2.9 0 0 0-1.05-1.271 2.78 2.78 0 0 0-1.492-.442 1.638 1.638 0 0 0-1.326.553 2.5 2.5 0 0 0-.608.94.193.193 0 0 1-.055.111 2.738 2.738 0 0 1 .387 1.492c.055 2.045.387 8.014-.111 10-.442 1.824-3.206 4.256-1.824 4.919.829.387 2.708-.111 4.035-1.879 2.211-3.095 1.6-4.7 1.713-8.18a38.553 38.553 0 0 1 .442-6.19c-.056.003-.056.003-.111-.053z" class="cls-1" transform="translate(-29.472 -30.408)"/>
+                        <circle id="Ellipse_74" cx=".94" cy=".94" r=".94" class="cls-1" transform="translate(15.697 11.827)"/>
+                        <circle id="Ellipse_75" cx=".94" cy=".94" r=".94" class="cls-1" transform="translate(22.384 11.827)"/>
+                        <circle id="Ellipse_76" cx=".94" cy=".94" r=".94" class="cls-1" transform="translate(28.961 11.717)"/>
+                        <g id="Group_358" transform="translate(24.982 26.418)">
+                            <path id="Path_826" d="M67.032 54.126c-1.824.221-3.648.332-5.471.387H60.4v2.045a4.811 4.811 0 0 1 1.769 1.382 2.866 2.866 0 0 1 1.658-.166 2.907 2.907 0 0 1 1.437.829 1.764 1.764 0 0 1 .5.884v.113a3.114 3.114 0 0 0 .718 0v-.055a3.369 3.369 0 0 1 2.429-2.045 2.748 2.748 0 0 1 1.161-.055c.276.055.663.111.663.332h.111a13.9 13.9 0 0 0 1.381-4.977 15.662 15.662 0 0 1-5.195 1.326z" class="cls-1" transform="translate(-60.4 -52.8)"/>
+                        </g>
+                        <g id="Group_359" transform="translate(13.427 26.252)">
+                            <path id="Path_827" d="M45.466 59.077a2.153 2.153 0 0 1 .718-1.105 2.262 2.262 0 0 1 1.437-.608A2.95 2.95 0 0 1 49 57.64a4.3 4.3 0 0 1 1.769-1.161v-2.045A28.756 28.756 0 0 1 39.553 52.5H39.5a12.356 12.356 0 0 0 .995 4.642l.055.055a1.164 1.164 0 0 1 .718-.276 3.012 3.012 0 0 1 1.216.055 3.446 3.446 0 0 1 2.316 2.046v.111a2.208 2.208 0 0 0 .718.111c-.052-.057-.107-.112-.052-.167z" class="cls-1" transform="translate(-39.494 -52.5)"/>
+                        </g>
+                        <g id="Group_360" transform="translate(23.158 30.397)">
+                            <path id="Path_828" d="M59.255 62.6a2.292 2.292 0 0 1 1.05-1.326.054.054 0 0 0 .055-.055A3.88 3.88 0 0 0 58.758 60a3.715 3.715 0 0 0-1.658 1.05l.055.055a3.543 3.543 0 0 1 1.161 1.382.106.106 0 0 1-.055.166 1.387 1.387 0 0 0 .553.111 1.041 1.041 0 0 0 .442-.111c-.001.055-.056 0-.001-.053z" class="cls-1" transform="translate(-57.1 -60)"/>
+                        </g>
+                        <g id="Group_361" transform="translate(25.921 32.166)">
+                            <path id="Path_829" d="M62.432 63.2l-.332.332a.938.938 0 0 1 .332-.332z" class="cls-1" transform="translate(-62.1 -63.2)"/>
+                        </g>
+                        <g id="Group_362" transform="translate(29.127 32.055)">
+                            <path id="Path_830" d="M68.618 63.718a1.465 1.465 0 0 0-.276-.332A3.159 3.159 0 0 0 67.9 63a4.417 4.417 0 0 1 .718.718z" class="cls-1" transform="translate(-67.9 -63)"/>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+          </div>
         </div>
       </div>
+
+
 
 
 

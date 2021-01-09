@@ -54,7 +54,7 @@ page["item_path"] = "file:///C:/Users/bozidar/Documents/Code/shkola/src/"
 file_loader = jinja2.FileSystemLoader("..")
 env = jinja2.Environment(loader=file_loader)
 
-template = env.get_template("rs/about.html.j2")
+template = env.get_template("uk/about.html.j2")
 print(template.render(template_params=page))
 
 
