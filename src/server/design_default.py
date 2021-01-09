@@ -847,10 +847,24 @@ class Design_default(object):
 
 
     @staticmethod
+    # Store page parameters into session
+    # Used when registering results in order to get good statistics of years/topics/themes/etc 
+    def _store_last_question_into_session(page):
+        context.c.session.set("last_q_year", page.page_params.get_param("year"))
+        context.c.session.set("last_q_theme", page.page_params.get_param("theme"))
+        context.c.session.set("last_q_subtheme", page.page_params.get_param("subtheme"))
+        context.c.session.set("last_q_topic", page.page_params.get_param("topic"))
+        
+
+
+
+    @staticmethod
     @timer_section("render_test_page")
     def render_test_page(page):
 
         test = List(page)
+
+        Design_default._store_last_question_into_session(page)
 
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
@@ -1094,6 +1108,8 @@ class Design_default(object):
     def render_browse_page(page):
 
         test = List(page)
+
+        Design_default._store_last_question_into_session(page)
 
         # Create dictionary entries that define menu
         Design_default.add_menu(page)
