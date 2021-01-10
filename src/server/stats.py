@@ -6,6 +6,9 @@ import logging
 import json
 # import pprint
 
+from server.helpers import Transliterate
+from server.types import PageLanguage
+
 
 class Stats(object):
 
@@ -142,6 +145,7 @@ class Stats(object):
     def calc_user_stats(page, u_id, from_date=None):
         storage = server.storage.get_storage()
         results = storage.get_all_user_results(u_id=u_id, from_date=from_date)
+        lang = page.page_params.get_param("language")
         stats_time = None
 
         # Classify in categories
@@ -180,6 +184,18 @@ class Stats(object):
             # subthemes can be an array or a singleton, so always convert to an array
             if type(subthemes) == str:
                 subthemes = [subthemes]
+
+
+            # Special provisioing for Serbian cyrillic
+            # NOTE: result years, themes and subthemes are taken from l_id, which also stores language
+            # So if a user answers a question in 1_numbers.uk, the results theme will be shown in English
+            # regardless of page language as each list is bespoke for each language and it is not possible to "translate". 
+            # Transliteration however works as it is the same language/list.
+            if lang == PageLanguage.RSC:
+                level = Transliterate.rs(level)
+                level_short = Transliterate.rs(level_short)
+                theme = Transliterate.rs(theme)
+                subthemes = [Transliterate.rs(s) for s in subthemes]
 
             #period = q_info["period"]
             difficulty = q_info["difficulty"]
@@ -244,8 +260,7 @@ class Stats(object):
 
 
         # print("AAAAAAAAAAAAAAAAA\n")
-        # pp = pprint.PrettyPrinter(indent=4)
-        # pp.pprint(stats)
+        # print(json.dumps(stats, indent=2))
 
 
         # Calculate and update aggregate stats
@@ -270,8 +285,7 @@ class Stats(object):
 
 
         # print("BBBBBBBBBBBBBBBBBB\n")
-        # pp = pprint.PrettyPrinter(indent=4)
-        # pp.pprint(stats)
+        # print(json.dumps(stats, indent=2))
 
         return stats, stats_time
 
