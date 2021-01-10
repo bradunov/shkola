@@ -871,7 +871,11 @@
   {% set colors = ['#dc3d39', '#489cba', '#f3b051', '#8f53cb', '#6ab288', '#ec8e43', '#df367c', '#636661'] %}
   {% for ind in range(0, text|length) %}
     {% set c = text[ind] %}
-    <div style="display:inline-block; margin-right: {{spacing}}px; color:{{colors[ind % colors|length]}}"> {{c}} </div>
+    {% if c == " " %}
+      <div style="display:inline-block; margin-right: -2px; color:{{colors[ind % colors|length]}}"> {{c}} </div>
+    {% else %}
+      <div style="display:inline-block; margin-right: {{spacing}}px; color:{{colors[ind % colors|length]}}"> {{c}} </div>
+    {% endif %}
   {% endfor %}
   <div style="display:inline-block">  </div>
 
