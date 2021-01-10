@@ -558,7 +558,7 @@
 
 
   {% for i in range(0, 3) %}
-    {% if 2-i < number %}
+    {% if i < number %}
       {% set color = on_color %}
     {% else %}
       {% set color = off_color %}
