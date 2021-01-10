@@ -537,6 +537,7 @@ class Repository(object):
             logging.error("No lists found - did you set SHKOLA_REL_PATH correctly?")
             raise Exception("No lists found")
 
+        #print("self.lists: {}".format(json.dumps(self.lists, indent=2)))
         #logging.debug("self.lists: {}".format(self.lists))
 
         self.create_content()

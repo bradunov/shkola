@@ -279,7 +279,6 @@ class Design_default(object):
         # Do not show results to an anonymous user
         if not user_picture is None:
             page.template_params['menu'].append({
-                # Special provisioing for Serbian cyrillic
                 "name" : page.get_messages()["results"].upper(),
                 "link" : new_page_params.create_url(
                     op = PageOperation.STATS, 
@@ -290,7 +289,6 @@ class Design_default(object):
 
         # "name" : "Izloguj se (" + context.c.user.name + ")",
         page.template_params['menu'].append({
-            # Special provisioing for Serbian cyrillic
             "name" : page.get_messages()["about"].upper(),
             "link" : new_page_params.create_url(
                 op = PageOperation.ABOUT, 
@@ -301,7 +299,6 @@ class Design_default(object):
 
         # "name" : "Izloguj se (" + context.c.user.name + ")",
         page.template_params['menu'].append({
-            # Special provisioing for Serbian cyrillic
             "name" : page.get_messages()["logout"].upper(),
             "link" : new_page_params.create_url(
                 op = PageOperation.LOGOUT, 
