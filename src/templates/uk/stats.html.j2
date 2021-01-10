@@ -46,12 +46,13 @@
             
             {% set colors = ['#dc3d39', '#489cba', '#f3b051', '#8f53cb', '#6ab288', '#ec8e43', '#df367c', '#636661'] %}
             {% set level_sh = template_params["stats"][level_key]['level_short'] | int %}
+            <span style = "color:gray">
+              {{template_params["class_gen_str"]}}  
+            </span> 
             <span style = "color:{{colors[level_sh-1]}}" >
               {{ level_key }} 
             </span> 
-            <span style = "color:gray">
-              {{template_params["class_gen_str"]}}  
-            </span> <br> 																						  
+            <br>
             {{ elements.color_string(theme_key,-6)}}          
             </div>
 
