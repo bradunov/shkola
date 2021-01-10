@@ -57,9 +57,14 @@
           </div>
         </div>
 
-        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); margin: 6px 25px 12px 25px">
-          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
-              а кад завршиш, изађи са………………{{ elements.exit_icon("") }}
+        <div style="display: flex; align-items:baseline; width: calc(100% - 50px); margin: 0px 25px 12px 25px">
+          <div class="sh_lato_font" style="display: flex; color: #636661; font-size: 18px;">
+              а кад завршиш, изађи са 
+          </div>
+          <div class="sh_lato_font" style="display: flex; border-bottom: dotted 2px black; margin: 0px 8px 4px 8px; flex-grow: 4">
+          </div>
+          <div class="sh_lato_font" style="display: flex; color: #636661; font-size: 18px; ">
+              {{ elements.exit_icon("") }}
           </div>
         </div>
 
@@ -69,9 +74,14 @@
           </div>
         </div>
 
-        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); margin: 6px 25px 12px 25px">
-          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
-              или погледај решење……………………{{ elements.help_icon() }}
+        <div style="display: flex; align-items:baseline; width: calc(100% - 50px); margin: 0px 25px 0px 25px">
+          <div class="sh_lato_font" style="display: flex; color: #636661; font-size: 18px;">
+              или погледај решење
+          </div>
+          <div class="sh_lato_font" style="display: flex; border-bottom: dotted 2px black; margin: 0px 8px 4px 8px; flex-grow: 4">
+          </div>
+          <div class="sh_lato_font" style="display: flex; color: #636661; font-size: 18px; ">
+              {{ elements.help_icon() }}
           </div>
         </div>
 
@@ -83,16 +93,20 @@
 
         <div style="display: inline-block; text-align: center; width: calc(100% - 50px); height: 28px; margin: 35px 25px 0px 25px">
           <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
-            А ако приметиш да задатак није јасан или да има грешку, онда само
+            А ако приметиш да задатак није јасан или да има грешку, 
           </div>
         </div>
 
-        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); margin: 6px 25px 32px 25px">
-          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
-              пријави проблем……………{{ elements.feedback_icon() }}
+        <div style="display: flex; align-items:baseline; width: calc(100% - 50px); margin: 0px 25px 12px 25px">
+          <div class="sh_lato_font" style="display: flex; color: #636661; font-size: 18px;">
+              онда само пријави проблем 
+          </div>
+          <div class="sh_lato_font" style="display: flex; border-bottom: dotted 2px black; margin: 0px 8px 4px 8px; flex-grow: 4">
+          </div>
+          <div class="sh_lato_font" style="display: flex; color: #636661; font-size: 18px; ">
+              {{ elements.feedback_icon() }}
           </div>
         </div>
-
 
 
         {{ elements.scooter_back_fwd("sc_back_1", 'location.href = "' ~ template_params["back"] ~ '"', 

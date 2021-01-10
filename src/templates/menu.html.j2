@@ -67,21 +67,34 @@
       {% endif %}
       <button class="sh-menu-button" style="display: inline-block; vertical-align: middle; 
                   text-align: center; padding: 8px 35px 8px 8px; font-size: 20px; font-weight: 900; color: #029194" 
-                  onclick="shm_toggle()">☰</button>
+                  onclick="shm_toggle()">
+        <!-- ☰ -->
+        <svg width="20" height="12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
+          <path d="M0  1 20  1" stroke="#029194" stroke-width="2" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/>
+          <path d="M0  6 20  6" stroke="#029194" stroke-width="2" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/>
+          <path d="M0 11 20 11" stroke="#029194" stroke-width="2" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/>
+        </svg>
+      </button>
     </span>
   </div>
 {% endmacro %}
 
 
-{% macro head(template_params, text=None) %}
+{% macro head(template_params, exit_url=None) %}
   {{ start_head() }}
-    {% if text == None %}
+    {% if exit_url == None %}
       <div class="sh-menu-button sh_chalk_font" style="font-size: 24px; color: #029194"
            onclick='location.href = "/main"'> 
            TATA MATA 
       </div> 
     {% else %}
-      {{text}}
+      <div class="sh-menu-button sh_chalk_font" style="font-size: 24px; color: #029194; padding: 8px 16px 8px 30px"
+           onclick='location.href = " {{ exit_url }} "'> 
+        <svg width="17" height="17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
+          <path d="M16 1 1 16" stroke="#029194" stroke-width="2.5" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/>
+          <path d="M1 1 16 16" stroke="#029194" stroke-width="2.5" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/>
+        </svg>
+      </div> 
     {% endif %}
   {{ end_head(template_params) }}
 {% endmacro %}

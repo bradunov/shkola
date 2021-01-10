@@ -24,6 +24,8 @@
     <!-- MOBILE MENU START -->
     {% import 'menu.html.j2' as menu %}
     {{ menu.include() }}
+
+    {#
     {{ menu.start_head() }}
 
       <div style="display:inline-block; text-align:left; height: 36px; margin-left: 37px; margin-top: 8px">
@@ -45,6 +47,10 @@
       </div>
 
     {{ menu.end_head(template_params) }}
+    #}
+
+    {{ menu.head(template_params, template_params["exit"]) }} 
+
     {{ menu.dropdowns(template_params) }}
     <!-- MENU END -->
 
@@ -207,8 +213,7 @@
 
         <div style="display:inline-block; width: 25%; text-align: left; margin-top: 10px; ">
           <div style="display:inline-block; margin-left: 20px; ">
-            {# elements.stars(template_params["difficulty"]) #}
-            {{ elements.exit_icon('location.href = "' ~ template_params["back"] ~ '"') }}
+            {{elements.stars(template_params["difficulty"])}}
           </div>
         </div>
         <div style="display:inline-block; width: 73%; text-align: right; margin-top: 10px; ">

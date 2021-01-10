@@ -24,6 +24,8 @@
     <!-- MOBILE MENU START -->
     {% import 'menu.html.j2' as menu %}
     {{ menu.include() }}
+
+    {#
     {{ menu.start_head() }}
 
       <div style="display:inline-block; text-align:left; height: 36px; margin-left: 37px; margin-top: 8px">
@@ -45,6 +47,10 @@
       </div>
 
     {{ menu.end_head(template_params) }}
+    #}
+
+    {{ menu.head(template_params, template_params["exit"]) }} 
+
     {{ menu.dropdowns(template_params) }}
     <!-- MENU END -->
 

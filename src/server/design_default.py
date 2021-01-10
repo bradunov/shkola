@@ -994,6 +994,16 @@ class Design_default(object):
         page.template_params["h3"] = page.template_params["topic"]
         page.template_params["h4"] = "Test"
 
+        page.template_params["exit"] = page.page_params.create_url(
+                                        op=PageOperation.MENU_THEME, \
+                                        language = PageLanguage.toStr(page.page_params.get_param("language")), \
+                                        year=page.page_params.get_param("year"), \
+                                        theme = "", \
+                                        subtheme = "", \
+                                        topic = "", \
+                                        difficulty = "", \
+                                        period = "", \
+                                        beta = True if page.page_params.get_param("beta") else None)
 
         return
 
@@ -1129,12 +1139,26 @@ class Design_default(object):
         q.eval_with_exception()
 
 
+        all_questions = page.repository.get_content_questions(
+            PageLanguage.toStr(page.page_params.get_param("language")), 
+            page.page_params.get_param("year"), 
+            page.page_params.get_param("theme"))
+
+        if page.page_params.get_param("q_id") in all_questions.keys():
+            try:
+                difficulty = int(all_questions[page.page_params.get_param("q_id")]["difficulty"])
+            except:
+                difficulty = 0
+        else:
+            difficulty = 0
+
 
         url_prev, url_next = test.get_prev_next_questions_browse_url()
 
+        page.template_params["difficulty"] = difficulty
         page.template_params["next"] = url_next
         page.template_params["prev"] = url_prev
-        page.template_params["back"] = page.page_params.create_url(\
+        page.template_params["exit"] = page.page_params.create_url(\
             op = PageOperation.MENU_THEME, 
             language = PageLanguage.toStr(page.page_params.get_param("language")), \
             subtheme = "", 
