@@ -197,8 +197,12 @@ def prepare_user_stats_chart(pg, u_ID):
 
     pg.template_params["stats"] = {}
 
+    sorted_levels = list(user_stats['level'].keys())
+    sorted_levels.sort()
 
-    for level_key, level_val in user_stats['level'].items():
+    #for level_key, level_val in user_stats['level'].items():
+    for level_key in sorted_levels:
+        level_val = user_stats['level'][level_key]
         level_short=level_val['level_short']
         pg.template_params["stats"][level_key] = {}
         pg.template_params["stats"][level_key]['level_short'] = level_short
