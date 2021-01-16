@@ -54,6 +54,12 @@ class LibMath(object):
     def _round(self, x):
         return round(float(x))
 
+    def round_dec(self, num, dec=0):
+        # Max 4 decimal digits
+        dec = min(float(dec), 4)
+        dec = pow(10, dec)
+        return round(num * dec) / dec
+
     # Returns indices in array sorted according to values in array
     def argsort(self, array):
         # Have to convert to Python array explicitly
@@ -137,6 +143,13 @@ class Library(object):
         modified_style = self.input_style[0:start + len("width:")] + str(width) + self.input_style[end - len("px"):]
         return modified_style
 
+
+    def dec_to_str(self, num, dec=0):
+        s = str(num)
+        if self.page.page_params.get_param("language") == PageLanguage.RSC or \
+            self.page.page_params.get_param("language") == PageLanguage.RS:
+            s = s.replace(".", ",")
+        return s
 
     # str_condition: ok == <condition>
     def condition_check_script(self, item_name, str_condition, extra_condition=None):
@@ -248,10 +261,9 @@ class Library(object):
         s_answer = v_answer
         if number:
             extra_condition = v_answer + ".length > 0"
-            # Internationalisation still in testing
-            # if self.page.page_params.get_param("language") == PageLanguage.RS or \
-            #         self.page.page_params.get_param("language") == PageLanguage.RSC:
-            if False:
+            # Internationalisation
+            if self.page.page_params.get_param("language") == PageLanguage.RS or \
+                    self.page.page_params.get_param("language") == PageLanguage.RSC:
                 v_answer += ".replace(',', '.')"
             v_answer = "Number(" + v_answer + ")"
         else:
@@ -263,21 +275,27 @@ class Library(object):
                 str_condition = "is_ok = (" + v_answer + " == \'" + str(condition) + "\');"                
                 str_solution = s_answer + " = \'" + str(condition) + "\'"
 
-                # Internationalisation still in testing
-                # if self.page.page_params.get_param("language") == PageLanguage.RS or \
-                #         self.page.page_params.get_param("language") == PageLanguage.RSC:
-                if False:
+                # Internationalisation
+                if self.page.page_params.get_param("language") == PageLanguage.RS or \
+                        self.page.page_params.get_param("language") == PageLanguage.RSC:
                     str_solution += ".replace('.', ',')"
 
                 str_solution += ";"
 
             else:
-                str_condition = "is_ok = (" + v_answer + ".trim() == \'" + str(condition) + "\'.trim());"
-                str_solution = s_answer + " = \'" + str(condition) + "\'.trim();"
+                if case_sensitive:
+                    str_condition = "is_ok = (" + v_answer + ".trim() == \'" + str(condition) + "\'.trim());"
+                    str_solution = s_answer + " = \'" + str(condition) + "\'.trim();"
+                else:
+                    str_condition = "is_ok = (" + v_answer + ".trim().toLowerCase() == \'" + str(condition) + "\'.trim().toLowerCase());"
+                    str_solution = s_answer + " = \'" + str(condition) + "\'.trim();"
         else:
             mod_v_answer = v_answer
             if not number:
-                mod_v_answer += ".trim()"
+                if case_sensitive:
+                    mod_v_answer += ".trim()"
+                else:
+                    mod_v_answer += ".trim().toLowerCase()"
             str_condition = "is_ok = (" + condition.replace("answer", mod_v_answer) + ");"
             if solution is None:
                 logging.error("Free form condition in question {} but no solution given.\n{}".format(
