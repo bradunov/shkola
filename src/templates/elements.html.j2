@@ -982,8 +982,8 @@
 
 
 
-{% macro skip_icon() %}
-  <div id="ic_skip" title="Preskoči zadatak"
+{% macro skip_icon(title) %}
+  <div id="ic_skip" title="{{title}}"
       style="display:inline-block; cursor: pointer; margin-right: 4px;"
       onclick='popup_toggle_skip()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="18.012" height="18.013" viewBox="0 0 18.012 18.013">
@@ -1005,8 +1005,8 @@
 
 
 
-{% macro help_icon() %}
-  <div id="ic_help" title="Pomoć"
+{% macro help_icon(title) %}
+  <div id="ic_help" title="{{title}}"
       style="display:inline-block; cursor: pointer; margin-right: 4px;"
       onclick="popup_toggle_reveal()">
     <svg xmlns="http://www.w3.org/2000/svg" width="19.659" height="22.385" viewBox="0 0 19.659 22.385">
@@ -1021,8 +1021,8 @@
 
 
 
-{% macro feedback_icon() %}
-  <div id="ic_problem" title="Prijavi problem" 
+{% macro feedback_icon(title) %}
+  <div id="ic_problem" title="{{title}}" 
       style="display:inline-block; cursor: pointer; "
       onclick="popup_toggle_report_problem()">
     <svg xmlns="http://www.w3.org/2000/svg" width="12.371" height="19.026" viewBox="0 0 12.371 19.026">
@@ -1037,8 +1037,8 @@
 
 
 
-{% macro exit_icon(on_click) %}
-  <div id="ic_exit" title="Nazad"
+{% macro exit_icon(title, on_click) %}
+  <div id="ic_exit" title="{{title}}"
       style="display:inline-block; cursor: pointer; margin-right: 4px;"
       onclick='{{on_click}}'>
 
