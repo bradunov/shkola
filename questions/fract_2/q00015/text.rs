@@ -1,7 +1,9 @@
 
-Saberi razlomke. Zapiši rezultat u najjednostavnijem obliku.
+Izračunaj pretvaranjem decimalnog broja u razlomak. Zapiši rezultat u obliku razlomka i decimalnog broja.
 
-@repeat(4)@
-@center@ \(\frac{@broj1@}{@imenilac1@}\) +  \(\frac{@broj2@}{@imenilac2@}\)  +  \(\frac{@broj3@}{@imenilac3@}\) @hspacept(3)@ = @lib.check_fraction_simple(broj, imen)@
-@/repeat@  
-                      
+@repeat(3)@
+@hspacept(20)@ @value[1]@ @sign@ @value[2]@  =
+@center@  @lib.check_fraction_simple(enum[1], denom[1])@ @sign@ @lib.check_fraction_simple(enum[2], denom[2])@  = @ans@   =   @lib.check_number(result, 50)@
+@/repeat@
+  
+              

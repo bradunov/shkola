@@ -13,18 +13,15 @@ line_green =
 
 text_style = {["font_size"] = "20"}
 
+word = {}
+
+include("terms")
  
-task = {"(zapisom od najmanjeg do najvećeg)", "(velikim slovima azbučnim redom)"}
+dim_word = {7, 5}
+
 bracketl = "{"
 bracketr = "}"
  
-
-descr_w = {"s su slova koja se pišu isto ćirilicom i latinicom", "s su samoglasnici"} 
-word = {}      
-word[1] = {"A", "E", "J", "K", "M", "O", "T"}     
-word[2] = {"A", "E", "I", "O", "U"}
-dim_word = {7, 5}
-
 rel = "\(\leq\)"
 rel2 = "\(\lt\)"
 pos = "\(\in\)" 

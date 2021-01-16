@@ -7,6 +7,8 @@ red_style =
 
 text_style = {["font_size"] = "16"}
 
+include("terms")
+
 prime = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}
 dim = 10                                    --[[25]]--
 
@@ -22,9 +24,9 @@ for i = 1, val do
 end	
 
 if (val == 5) then
-    quest = "uzastopnih brojeva"
+    quest = msg[1]
 else
-    quest = "uzastopna broja"	
+    quest = msg[2]	
 end	
 
 answ = lib.check_number(numb[1],20) .. " * " .. lib.check_number(numb[2],20) .. " * " .. lib.check_number(numb[3],20)

@@ -6,3 +6,4 @@ msg_ten = {"deseta", "desetih"}
 msg_hundred = {"stota", "stotih"}
 msg_thousand = {"hiljadita", "hiljaditih"}
 
+ad = " i "

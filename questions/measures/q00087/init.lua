@@ -13,10 +13,10 @@ finish_h = math.floor(finish/60)
 finish_m = finish - 60 * finish_h
   
 if (start_m ~= 0) then
-   answ[1] = "i " .. lib.check_number(start_m,20) .. " min"  
+   answ[1] = lib.check_number(start_m,20) .. "min"  
 end   
 
 if (finish_m ~= 0) then
-   answ[2] = " i " .. tostring(finish_m) .. " min"  
+   answ[2] =  tostring(finish_m) .. "min"  
 end 
-     
+  

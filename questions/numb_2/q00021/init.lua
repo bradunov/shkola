@@ -10,15 +10,7 @@ text_style = {["font_size"] = "16"}
 colour_style = {["off_color"] = "f90",
                 ["font_size"] = "16"}
 
-
-title = {}
-title[1] = "cifra jedinica paran broj."
-title[2] = "zbir cifara deljiv sa 3."
-title[3] = "cifra jedinica 0 ili 5."
-title[4] = "broj paran i zbir cifara mu je deljiv sa 3."
-title[5] = "zbir cifara deljiv sa 9." 
-title[6] = "cifara jedinica 0." 
-title[7] = "dvocifreni završetak deljiv sa 4."
+include("terms")
 
 div = {2, 3, 5, 6, 9, 10, 4}
 

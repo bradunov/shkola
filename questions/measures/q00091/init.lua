@@ -22,11 +22,11 @@ if( finish_h >= 24) then
 end  
 
 if (finish_m ~= 0) then
-   answ[2] = " i " .. lib.check_number(finish_m) .. " min"  
+   answ[2] = lib.check_number(finish_m,20) .. "min"  
 end 
 
 if (start_m ~= 0) then
-   answ[1] = " i " ..  tostring(start_m,20) .. " min"  
+   answ[1] = tostring(start_m) .. "min"  
 end 
 
             

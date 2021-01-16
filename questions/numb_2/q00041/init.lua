@@ -25,6 +25,10 @@ line_red =
 
 text_style = {["font_size"] = "16"}
 
+word = {}
+
+include("names")
+
 bracketl = "{"
 bracketr = "}"
 
@@ -32,18 +36,8 @@ und = "\(\subset\)"
 empt = "\(\emptyset\)"
 oper = "\(\leq\)" 
 
-
-descr_w = {"banana", "sveska", "visibaba", "ananas", "internet"} 
-word = {}      
-word[1] = {"a","b", "n"}     
-word[2] = {"a", "v", "e", "k", "s"}
-word[3] = {"a", "b", "i", "s", "v"}
-word[4] = {"a", "n", "s"}
-word[5] = {"e", "i", "n", "r", "t"}
 dim_word = {3, 5, 5, 3, 5}
 
-
-descr_n = { "dekadna", "prost", "paran", "cifra broja"} 
 number = {}
 number[1] = {1, 10, 100, 1000}
 number[2] = {2, 3, 5, 7}
@@ -110,16 +104,16 @@ solut_2 = bracketl .. " s | " .. "s je "
 if (ind == 1) then 
     solut_2 = solut_2 .. descr_n[index] 
     if (index == 1) then
-        solut_2 = solut_2 .. " jedinica" .. " " .. oper .. " " .. tostring(1000)	
+        solut_2 = solut_2 .. " " .. tens[1] .. " " .. oper .. " " .. tostring(1000)	
 	else
         if (index < 4) then    
-            solut_2 = solut_2 .. " broj prve desetice" 	
+            solut_2 = solut_2 .. " " .. name[1] .. " " ..  adv .. " " .. tens[2]  	
 		else
             solut_2 = solut_2 .. " " .. tostring(value) 
         end			
 	end
 else 
-    solut_2 = solut_2 .. "slovo reči " .. descr_w[index]
+    solut_2 = solut_2 .. name[2] .. " " .. descr_w[index]
 end	
     solut_2 = solut_2 .. bracketr  
 
@@ -167,10 +161,10 @@ mycanvas = function(no)
               q[imax] = "e"
           end
           if (index == 2) then
-              q[imax] = "c"
+              q[imax] = "j"
           end
           if (index == 3) then
-              q[imax] = "n"
+              q[imax] = "k"
           end
           if (index == 4) then
               q[imax] = "o"
@@ -257,9 +251,9 @@ for i = 1,3 do
         end	
 		nr = nr + 1
         if (term == 0) then
-            check = "n"
+            check = ch[2]
         else
-            check = "t"  
+            check = ch[1]  
         end     		
 		reply[nr] = lib.check_string(check, 15) .. " " .. name[qq[i]] .. " " .. relat .. " " .. name[qq[j]] 
 	end

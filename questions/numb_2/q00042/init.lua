@@ -1,4 +1,6 @@
 
+include("terms")
+
 bracketl = "{"
 bracketr = "}"
 
@@ -20,8 +22,6 @@ dim = {}
 reply = {""}
 solut = {}
 choice = {}
-
-descr_w = {"banana", "sveska", "visibaba", "ananas", "internet"} 
 
 --[[ tekst]]--
 dim[1] = 3
@@ -106,7 +106,7 @@ for i = 1,stampa do
     ind = choice[i]
     solut[i] = bracketl
     if (ind < 6) then
-	    solut[i] = solut[i] .. " a | " .. "a je slovo reči " .. descr_w[ind] .. " " .. bracketr 
+	    solut[i] = solut[i] .. " x | " .. "x je " .. name .. " " .. descr_w[ind] .. " " .. bracketr 
 		reply[i] = tostring(dim[ind])
 	end
 	if (ind == 6) then
@@ -125,7 +125,7 @@ for i = 1,stampa do
 	    reply[i] = tostring(dim[ind])
     end	
 	if (ind == 10) then
-	    solut[i] = solut[i] .. " x | " .. "x je cifra broja " .. tostring(value) .. " " .. bracketr 
+	    solut[i] = solut[i] .. " x | " .. "x je " .. descr_n[3] .. " " .. tostring(value) .. " " .. bracketr 
 	    reply[i] = tostring(dim[ind])		
 	end	
     if (ind == 11) then
@@ -137,11 +137,11 @@ for i = 1,stampa do
     if (ind == 12) then
 	    numb = 7 + math.random(7)
 	    solut[i] = solut[i] .. " x | " .. "x" .. elem .. nn .. ", " .. " x" .. " " .. op2 .. " " .. numb .. " " .. bracketr 
-		reply[i] = "b"
+		reply[i] = inft
 	end	 	
     if (ind == 13) then
 	    numb = 6 + math.random(13)
-	    solut[i] = solut[i] .. " x | " .. "x je prost broj, " .. " x" .. " " .. op4 .. " " .. numb .. " " .. bracketr 
+	    solut[i] = solut[i] .. " x | " .. "x je " .. descr_n[1] .. ", x" .. " " .. op4 .. " " .. numb .. " " .. bracketr 
 		sum = 0
 		for j = 1,8 do
 		    if (prime[j] < numb) then
@@ -152,22 +152,23 @@ for i = 1,stampa do
 	end	 
     if (ind == 14) then
 	    numb = 7 + math.random(7)		
-	    solut[i] = solut[i] .. " x | " .. "x" .. elem .. n0 .. ", x je paran broj, x" .. op4 .. numb .. " " .. bracketr 
+	    solut[i] = solut[i] .. " x | " .. "x" .. elem .. n0 .. ", x je " .. descr_n[2] .. ", x" .. op4 .. numb .. " " .. bracketr 
 		temp = math.floor((numb+1)/2)
 		dim[ind] = temp
 		reply[i] = tostring(dim[ind])
 	end	 	
     if (ind == 15) then		
-	    solut[i] = solut[i] .. " x | " .. "x je arapska cifra " .. bracketr 
+	    solut[i] = solut[i] .. " x | " .. "x je " .. descr_n[4] .. bracketr 
 		dim[ind] = 10
 		reply[i] = tostring(dim[ind])
 	end	 	
     if (ind == 16) then	
 	    numb = 7 + math.random(7)	
-	    solut[i] = solut[i] .. " x | " .. "x" .. elem .. nn .. ", x sadrži " .. numb .. " " .. bracketr 
-		reply[i] = "b"
+	    solut[i] = solut[i] .. " x | " .. "x" .. elem .. nn .. ", x " .. adv .. " " .. numb .. " " .. bracketr 
+		reply[i] = inft
 	end	 		
 end                         
+                                      
                  
             
              

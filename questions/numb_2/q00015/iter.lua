@@ -1,5 +1,5 @@
 
-operat = {"umanjimo", "uvećamo"}
+include("terms")
 
 factor1 = 30 + math.random(69)
 prod = 100 + math.random(899) 

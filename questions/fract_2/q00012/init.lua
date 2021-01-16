@@ -78,14 +78,17 @@ imen = imenilac / gcd
 ceo = math.floor(broj/imen)
 broj = broj - ceo * imen
 
-condition = "is_ok = math.eq(whole + numerator/denominator, "..tostring(result)..");"	          
-solution1 = "numerator="..tostring(broj)..";denominator="..tostring(imen)..";whole="..tostring(ceo)..";"
-solution2 = "numerator="..tostring(broj)..";denominator="..tostring(imen)..";whole="..tostring(ceo)..";"
-             
 if (ceo == 0) then
+    condition = "is_ok = math.eq(numerator/denominator, "..tostring(result)..");"	          
+    solution1 = "numerator="..tostring(broj)..";denominator="..tostring(imen)..";"
+    solution2 = "numerator="..tostring(broj)..";denominator="..tostring(imen)..";"
     ans1 =  lib.check_fraction_condition(condition, nil, nil, solution1)
     ans2 =  lib.check_fraction_condition(condition, nil, nil, solution2)   
 else
+    condition = "is_ok = math.eq(whole + numerator/denominator, "..tostring(result)..");"	          
+    solution1 = "numerator="..tostring(broj)..";denominator="..tostring(imen)..";whole="..tostring(ceo)..";"
+    solution2 = "numerator="..tostring(broj)..";denominator="..tostring(imen)..";whole="..tostring(ceo)..";"
     ans1 =  lib.check_fraction_condition(condition, true, nil, solution1)
     ans2 =  lib.check_fraction_condition(condition, true, nil, solution2)   
 end	
+

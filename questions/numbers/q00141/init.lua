@@ -1,3 +1,4 @@
+
 include("terms")
 
 q2 = {1809, 1564, 1642, 1452, 1977, 1889}
@@ -34,7 +35,7 @@ addition_table = function()
           replyb = "answer == '" .. q3[i] .. "' ";  
           ansb = "answer = '" .. q3[i] .. "' ";  	  
           text = text .. lib.add_cell(tostring(q2[i]), style)		  
-        text = text .. lib.add_cell(lib.check_string(replyb,70,ansb), style)
+        text = text .. lib.add_cell(lib.check_string_case(replyb,70,ansb), style)
       end
       inda = math.random(2)	
       if (inda == 1) then
@@ -46,7 +47,7 @@ addition_table = function()
           replya = "answer == '" .. q5[i] .. "' ";  
           ansa = "answer = '" .. q5[i] .. "' ";  		  
           text = text .. lib.add_cell(tostring(q4[i]), style)		  
-          text = text .. lib.add_cell(lib.check_string(replya,70,ansa), style)
+          text = text .. lib.add_cell(lib.check_string_case(replya,70,ansa), style)
       end	  
       text = text .. lib.end_row()
   end

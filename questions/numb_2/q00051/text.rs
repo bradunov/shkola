@@ -1,5 +1,5 @@
 
-A i B su proizvoljni skupovi. Ispred svake jednakosti upiši 
+@"A"@ i @"B"@ su proizvoljni skupovi. Ispred svake jednakosti upiši 
 @hspacept(15)@ t ako je jednakost tačna, ili 
 @hspacept(15)@ n ako jednakost nije tačna. 
 

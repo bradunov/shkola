@@ -1,0 +1,3 @@
+operat = {"umanjimo", "uvećamo"}
+
+

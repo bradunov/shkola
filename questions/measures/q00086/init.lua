@@ -1,4 +1,5 @@
-include("trans")
+
+min_str = "min"
 
 answ = {"", ""}
 
@@ -17,9 +18,10 @@ if( finish_m >= 60) then
 end   
 
 if (start_m ~= 0) then
-   answ[1] = and_str .. tostring(start_m) ..  min_str
+   answ[1] = tostring(start_m) ..  min_str
 end   
 
 if (finish_m ~= 0) then
-   answ[2] = and_str .. lib.check_number(finish_m,20) .. min_str
+   answ[2] = lib.check_number(finish_m,20) .. min_str
 end 
+            

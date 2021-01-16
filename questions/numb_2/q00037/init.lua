@@ -25,22 +25,18 @@ line_red =
 
 text_style = {["font_size"] = "20"}
 
-choice = {"brojeva", "slova u reči"} 
-task = {"(od najmanjeg do najvećeg)", "(po azbučnom redu)"}
+word = {}  
+
+
+include("terms")
+
+
 bracketl = "{"
 bracketr = "}"
 rel = "\(\leq\)"
-
-descr_w = {"banana", "raskrsnica", "visibaba", "nekoliko", "internet"} 
-word = {}      
-word[1] = {"a","b", "n"}     
-word[2] = {"a", "i", "k", "n", "r", "s", "c"}
-word[3] = {"a", "b", "i", "s", "v"}
-word[4] = {"e", "i", "k", "l", "n", "o"}
-word[5] = {"e", "i", "n", "r", "t"}
+   
 dim_word = {3, 7, 5, 6, 5}
 
-descr_n = {"prost", "dekadna", "paran", "neparan"}
 number = {}
 number[1] = {2, 3, 5, 7, 11, 13, 17, 19}
 number[2] = {1, 10, 100, 1000}
@@ -86,20 +82,20 @@ if (ind == 1) then
     tempn = descr_n[index]  
     solut_2 = solut_2 .. lib.check_string(tempn,50) 
     if (index == 1) then
-        solut_2 = solut_2 .. " broj i x < " .. lib.check_number(20,20) 	
+        solut_2 = solut_2 .. " " .. name[1] ..", x < " .. lib.check_number(20,20) 	
 	end
     if (index == 2) then
-        solut_2 = solut_2 .. " jedinica i x " .. rel .. lib.check_number(1000,30) 	
+        solut_2 = solut_2 .. " ".. tens[1] .. ", x " .. rel .. lib.check_number(1000,30) 	
 	end
     if (index == 3) then
-        solut_2 = solut_2 .. " broj " .. lib.check_string("prve",40) .. "desetice" 	
+        solut_2 = solut_2 .. " " .. name[1] .. " " .. lib.check_string(adv[1],40) .. tens[2] 	
 	end
     if (index == 4) then
-        solut_2 = solut_2 .. " broj " .. lib.check_string("pete",40) .. "desetice"	
+        solut_2 = solut_2 .. name[1] .. " " .. lib.check_string(adv[2],40) .. tens[2]	
 	end	
 else
     tempw = descr_w[index] 
-    solut_2 = solut_2 .. "slovo reči " .. lib.check_string(tempw, 60) 
+    solut_2 = solut_2 .. name[2] .. " " .. lib.check_string(tempw, 70) 
 end	
     solut_2 = solut_2 .. bracketr  
 
@@ -166,7 +162,6 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end          
-        
        
             
     

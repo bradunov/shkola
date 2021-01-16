@@ -1,4 +1,6 @@
 
+include("terms")
+
 line_blue = 
 	{["off_color"] = "none",
         ["on_color"] = "fff",
@@ -29,10 +31,10 @@ number = foot + basket - result
   ow = 20
   
   lib.add_ellipse(4*ov, 2*ov+ow, ov+ow, 2*ov-ow, line_blue, false, false) 
-  lib.add_text(4*ov, ow, "košarka", text_style)
+  lib.add_text(4*ov, ow, sport[2], text_style)
 
   lib.add_circle(2*ov+ow, 3*ov-ow, ov+ow, line_green, false, false)	  
-  lib.add_text(2*ov, 2*ow, "fudbal", text_style)	  
+  lib.add_text(2*ov, 2*ow, sport[1], text_style)	  
 
   lib.add_input(2*ov-ow, 2*(ov+ow), 40, 30, lib.check_number(resf,20))
   lib.add_input(2*(ov+ow), 2*ov+ow, 40, 30, lib.check_number(result,20))

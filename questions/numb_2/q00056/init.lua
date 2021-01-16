@@ -1,4 +1,6 @@
 
+include("terms")
+
 line_blue = 
 	{["off_color"] = "none",
         ["on_color"] = "fff",
@@ -51,13 +53,13 @@ mycanvas = function(no)
   w = 5
   
   lib.add_ellipse(5*ov, 2*ov-ow, 2*ov-ow, ov+ow,  line_blue, false, false) 
-  lib.add_text(6*ov, ow, "košarka", text_style)
+  lib.add_text(6*ov, ow, sport[2], text_style)
 
   lib.add_ellipse(3*ov+ow, 2*ov-ow, 2*ov-ow, ov+ow, line_green, false, false)	  
-  lib.add_text(2*ov, ow, "fudbal", text_style)
+  lib.add_text(2*ov, ow, sport[1], text_style)
 
   lib.add_ellipse(4*ov, 3*ov, 2*ov-ow, ov+ow, line_red, false, false)	  
-  lib.add_text(6*ov, 4*ov, "odbojka", text_style)	  
+  lib.add_text(6*ov, 4*ov, sport[3], text_style)	  
 
   lib.add_input(2*ov, ov, 30, 30, lib.check_number(res_f,15))	  
   lib.add_input(4*ov-ow, ov, 30, 30, lib.check_number(res_fb,15))

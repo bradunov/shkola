@@ -1,8 +1,9 @@
+                                
+Calculate
 
-Calculate and simplify the result.
+@vspace@
+@center@ @number[1]@ @sign@ @number[2]@ @hspacept(3)@ = @hspacept(3)@  @lib.check_number(result,60)@
 
-@repeat(4)@
-@center@ \(\frac{@broj1@}{@imenilac1@}\)  @sign@ \(\frac{@broj2@}{@imenilac2@}\) \
-@hspacept(3)@ = @lib.check_fraction_simple(broj, imen)@
-@/repeat@
-           
+@vspace@
+@center@ @mycanvas()@
+            

@@ -1,6 +1,8 @@
 
 --[[ deljivost sa 2, 4, 5, 10 ]]--
 
+include("terms")
+
 denum = {2, 4, 5, 10} 
 
 cifre = {}
@@ -81,5 +83,5 @@ else
 end	
 
 if (ind == 0) then
-    answ[1] = lib.check_string("nema") .. " " .. lib.check_string("broja") .. " " .. lib.check_string("deljivog") .. " " .. lib.check_string("sa") .. " " .. lib.check_number(denum[index]) 
+    answ[1] = lib.check_string(msg[1]) .. " " .. lib.check_string(msg[2]) .. " " .. lib.check_string(msg[3]) .. " " .. lib.check_string(msg[4]) .. " " .. lib.check_number(denum[index]) 
 end

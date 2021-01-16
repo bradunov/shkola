@@ -1,0 +1,1 @@
+sport = {"fudbal", "košarka", "odbojka"} 

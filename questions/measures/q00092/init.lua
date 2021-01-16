@@ -1,10 +1,7 @@
 
 include("names")
+include("terms")
 
-day1 = {"ponedeljak", "utorak", "sreda", "cetvrtak", "petak", "subota", "nedelja"}
-day2 = {"ponedeljak", "utorak", "sredu", "četvrtak", "petak", "subotu", "nedelju"}
-month1 = {"januar", "februar", "mart", "april", "maj", "juni", "juli", "avgust", "septembar", "oktobar", "novembar", "decembar"}
-month2 = {"januara", "februara", "marta", "aprila", "maja", "juna", "jula", "avgusta", "septembra", "oktobra", "novembra", "decembra"}
 nmb_month = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 
 rz = math.random(#zensko_ime_nom); 
@@ -28,9 +25,9 @@ temp = math.floor(last/10)
 rest = last - temp * 10
 
 if (rest == 1 and temp ~=1) then
-    week = "dan"
+    week = padez[1]
 else    	
-    week = "dana"	
+    week = padez[2]	
 end	
 
 index = ind_s + last_d

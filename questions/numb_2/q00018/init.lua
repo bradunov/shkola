@@ -1,4 +1,6 @@
 
+include("terms")
+
 addition_table = function()
   columns = 6
 
@@ -19,10 +21,10 @@ addition_table = function()
 
   text = lib.start_table()
   text = text .. lib.start_row()
-  text = text .. lib.add_cell("deljenik", style)
-  text = text .. lib.add_cell("delilac", style)
-  text = text .. lib.add_cell("količnik", style)
-  text = text .. lib.add_cell("ostatak", style)  
+  text = text .. lib.add_cell(title[1], style)
+  text = text .. lib.add_cell(title[2], style)
+  text = text .. lib.add_cell(title[3], style)
+  text = text .. lib.add_cell(title[4], style)  
   text = text .. lib.end_row()
   for c=0,columns-1 do
     text = text .. lib.start_row()

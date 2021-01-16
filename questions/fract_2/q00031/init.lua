@@ -150,13 +150,13 @@ mycanvas = function()
   lib.add_text(ow+fld*w, 2*ow, "=", text_style)  
 
   for i = 1,sign do
-      lib.add_input(ow+(fld+i-0.5)*w, ow, 30, 30, lib.check_number(value[i],15))
+      lib.add_input(ow+(fld+i-0.5)*w, 2*ow, 30, 30, lib.check_number(value[i],15))
   end	
   fld =  fld+sign+1 
   lib.add_text(ow+fld*w, 2*ow, ",", text_style)
   
   for i = 1,stampa - sign do
-      lib.add_input(ow+(fld+i-0.5)*w, ow, 30, 30, lib.check_number(value[sign+i],15))
+      lib.add_input(ow+(fld+i-0.5)*w, 2*ow, 30, 30, lib.check_number(value[sign+i],15))
   end
 
 x = 0
@@ -172,13 +172,13 @@ end
 	  temp = diff[i] - 100 * d1 
 	  d2 = math.floor(temp/10)
 	  d3 = temp - 10 * d2
-      lib.add_input((x+i+1)*w, ow+(2*i-1)*w, 40, 40, lib.check_number(d3,15))	  
+      lib.add_input((x+i+1)*w, 2*ow+(2*i-1)*w, 40, 40, lib.check_number(d3,15))	  
 	  if (d1 ~= 0) then 
-         lib.add_input((x+i-1)*w, ow+(2*i-1)*w, 40, 40, lib.check_number(d1,15))
-         lib.add_input((x+i)*w, ow+(2*i-1)*w, 40, 40, lib.check_number(d2,15))
+         lib.add_input((x+i-1)*w, 2*ow+(2*i-1)*w, 40, 40, lib.check_number(d1,15))
+         lib.add_input((x+i)*w, 2*ow+(2*i-1)*w, 40, 40, lib.check_number(d2,15))
       else
 	     if (d2 ~= 0) then 
-		     lib.add_input((x+i)*w, ow+(2*i-1)*w, 40, 40, lib.check_number(d2,15))
+		     lib.add_input((x+i)*w, 2*ow+(2*i-1)*w, 40, 40, lib.check_number(d2,15))
 		 end
       end 
 	  if (i == 1) then
@@ -189,16 +189,17 @@ end
       t1 = math.floor(out[i+1]/10)
 	  t2 = out[i+1] - 10 * t1	  
 	  if (t1 ~= 0) then 
-	     lib.add_input((x+i)*w, ow+2*i*w, 40, 40, lib.check_number(t1,15))
+	     lib.add_input((x+i)*w, 2*ow+2*i*w, 40, 40, lib.check_number(t1,15))
 	  end
-      lib.add_input((x+i+1)*w, ow+2*i*w, 40, 40, lib.check_number(t2,15))
+      lib.add_input((x+i+1)*w, 2*ow+2*i*w, 40, 40, lib.check_number(t2,15))
 	  if(i ~= stampa) then
-         lib.add_input((x+i+2)*w, ow+2*i*w, 40, 40, lib.check_number(cifre[ind+i],15))	  
+         lib.add_input((x+i+2)*w, 2*ow+2*i*w, 40, 40, lib.check_number(cifre[ind+i],15))	  
       end 	  
   end 
     
   lib.end_canvas()
 end       
+        
     
    
         

@@ -127,7 +127,7 @@
       "difficulty": "2"
     },
     {
-      "name": "fract_2/q00014",
+      "name": "fract_2/q00013",
       "random": "10",
       "period": "2",
       "subtheme": "Razlomci",
@@ -137,31 +137,51 @@
       "difficulty": "2"
     },
     {
+      "name": "fract_2/q00014",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Sabiranje i oduzimanje   ",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
       "name": "fract_2/q00015",
       "random": "10",
       "period": "2",
       "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
+      "topic": "Sabiranje i oduzimanje   ",
       "rank_subtheme": "3",
-      "rank_topic": "5",
-      "difficulty": "2"
+      "rank_topic": "4",
+      "difficulty": "1"
     },
     {
       "name": "fract_2/q00016",
       "random": "10",
       "period": "2",
       "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
+      "topic": "Sabiranje i oduzimanje   ",
       "rank_subtheme": "3",
-      "rank_topic": "5",
-      "difficulty": "2"
+      "rank_topic": "4",
+      "difficulty": "1"
     },
     {
       "name": "fract_2/q00017",
       "random": "10",
       "period": "2",
       "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
+      "topic": "Sabiranje i oduzimanje   ",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00018",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Sabiranje i oduzimanje   ",
       "rank_subtheme": "3",
       "rank_topic": "4",
       "difficulty": "1"

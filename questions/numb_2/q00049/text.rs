@@ -1,5 +1,5 @@
 
-Skupovi A, B i C predstavljeni su  Ojler-Venovim dijagramom
+Skupovi @"A"@, @"B"@ i @"C"@ predstavljeni su  Ojler-Venovim dijagramom
 @center@ @mycanvas()@
 Zapiši nabrajanjem elemenata (od najmanjeg do najvećeg) sledeće skupove: 
 

@@ -1,0 +1,3 @@
+msg = {"razlika", "zbira"}
+
+

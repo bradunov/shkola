@@ -1,11 +1,13 @@
 
+include("terms")
+
 round = math.random(4)
 dec = 10^round 
 
 if (round == 1) then
-    name = "decimalu"
+    name = msg[1]
 else
-    name = "decimale"	
+    name = msg[2]	
 end	
                                                                                                 
 brojilac  = 2 + math.random(997)
