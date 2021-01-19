@@ -31,8 +31,8 @@ else
     sign = "+"	
 end	
 
-number1 = number1/10^deg    
-number2 = number2/10^deg
+number1 = lib.dec_to_str(number1/10^deg)    
+number2 = lib.dec_to_str(number2/10^deg)
 value = value/10^deg    
           
          

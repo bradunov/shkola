@@ -18,12 +18,5 @@ if (brojilac - imenilac * math.floor(brojilac/imenilac) == 0) then
 end	
 
 value = brojilac/imenilac 
-temp = math.floor(value * dec) 
-
-if (value*dec - temp >= 0.5) then
-    temp = temp + 1
-end	
-
-result = temp/dec        
-            
-            
+              
+result = lib.math.round_dec(value, round)  

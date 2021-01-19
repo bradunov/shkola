@@ -26,7 +26,9 @@ end
 reply[1] = lib.check_fraction_numerator(brojilac[1],imenilac[1])
 reply[2] = lib.check_fraction_denominator(brojilac[2],imenilac[2])
 reply[3] = lib.check_fraction_numerator(brojilac[3],imenilac[3])
-reply[4] = tostring(numb_dec)
+reply[4] = lib.dec_to_str(numb_dec)
 
 index = {1, 2, 3, 4}	
 out = lib.math.random_shuffle(index)
+
+          

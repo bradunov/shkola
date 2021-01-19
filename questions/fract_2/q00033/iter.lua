@@ -11,6 +11,7 @@ measure[4] = {"t", "kg", "g"}
 --[[ dm^3 = litar]]--
 
 dim_meas = {4, 4, 4, 3}
+step_meas = {1, 2, 3, 3}
 
 numb = {}
 
@@ -56,26 +57,28 @@ ind = math.random(dim_meas[index])
 value = 0
 max = 0
 for i = 1, nr do
-    step = ind-qq[i]
-	ab = math.abs(step)
-    if (max < ab) then
-        max = ab
-    end			
+    step = ind-qq[i]	
 	if (step >= 0) then
        value = value + numb[i] * dec^step
 	else
 	   step = -step
+       if (max < step) then
+           max = step
+       end			
        value = value + numb[i] / dec^step	
 	end  
 end
-
---[[
-max = max + 1
-temp = 	lib.math.round(value*dec^max)
-value = temp/dec^max
-]]--
-   
+  
 answ = ""
 for i = 1,nr do    
     answ = answ .. " " .. tostring(math.floor(numb[i])) .. measure[index][qq[i]]
 end	
+
+round = max * step_meas[index]
+result = lib.math.round_dec(value, round) 
+
+       
+            
+            
+            
+            			

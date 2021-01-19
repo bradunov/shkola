@@ -97,27 +97,7 @@
       "difficulty": "3"
     },
     {
-      "name": "fract_2/q00013",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
-      "rank_topic": "5",
-      "difficulty": "1"
-    },
-    {
       "name": "fract_2/q00014",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Razlomci",
-      "topic": "Računske operacije    ",
-      "rank_subtheme": "4",
-      "rank_topic": "5",
-      "difficulty": "2"
-    },
-    {
-      "name": "fract_2/q00015",
       "random": "10",
       "period": "2",
       "subtheme": "Razlomci",

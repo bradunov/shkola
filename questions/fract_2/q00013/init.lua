@@ -48,14 +48,20 @@ end
 
 for j = 1,3 do
     temp = value[choice] * 10^(4-j) 
-    if (lib.math.round(temp) == temp) then
-	    chind = 10^(4-j)
+    if (math.abs(lib.math.round(temp) - temp) < 0.0001) then
+	    chind = 4-j
 	end	
-end	    
-enum[choice] = value[choice] * chind
-denom[choice] = chind
+end
+denom[choice] = 10^chind	    
+enum[choice] = value[choice] * denom[choice]
+
 
 for i = 1,2 do
+    if (i ~= choice) then
+	    q = lib.math.gcd(enum[i], denom[i])
+	    enum[i] = enum[i]/q
+	    denom[i] = denom[i]/q
+	end	
     whl[i] =  math.floor(enum[i]/denom[i])
 	enum_p[i] = enum[i] - denom[i] * whl[i]
 end	 
@@ -87,9 +93,9 @@ else
     end			    
 end
 
-gcd = lib.math.gcd(imenilac, summ)
-broj = summ / gcd
-imen = imenilac / gcd
+qfin = lib.math.gcd(imenilac, summ)
+broj = summ / qfin
+imen = imenilac / qfin
 ceo = math.floor(broj/imen)
 broj = broj - ceo * imen
 
@@ -111,13 +117,13 @@ end
 quest = ""
 
 if (choice == 1) then
-   up = lib.math.round(enum_p[2])
-   down = lib.math.round(denom[2])
-   quest = value[1] .. " " .. sign .. " " .. whl[2]  .. "\(\frac{" .. up .. "}{" .. down .. "}\)"  
+    up = lib.math.round(enum_p[2])
+    down = lib.math.round(denom[2])
+    quest = lib.dec_to_str(lib.math.round_dec(value[1], chind)) .. " " .. sign .. " " .. whl[2]  .. "\(\frac{" .. up .. "}{" .. down .. "}\)"  
 else
-   up = lib.math.round(enum_p[1])
-   down = lib.math.round(denom[1])
-   quest = whl[1] .. "\(\frac{" .. up .. "}{" .. down .. "}\) " .. sign .. " " .. value[2]
-end
-               
+    up = lib.math.round(enum_p[1])
+    down = lib.math.round(denom[1])
+    quest = whl[1] .. "\(\frac{" .. up .. "}{" .. down .. "}\) " .. sign .. " " .. lib.dec_to_str(lib.math.round_dec(value[2], chind))
+end       
+    
     

@@ -19,6 +19,8 @@ red_style =
 
 text_style = {["font_size"] = "16"}
 
+include(“terms”)
+
 cifre = {};
 value = {};
 out = {}
@@ -28,9 +30,9 @@ round = math.random(3)
 dec = 10^round 
 
 if (round == 1) then
-    name = "decimalu"
+    name = decim[1]
 else
-    name = "decimale"	
+    name = decim[2]	
 end	
 
 deg = math.random(3)
@@ -153,7 +155,7 @@ mycanvas = function()
       lib.add_input(ow+(fld+i-0.5)*w, 2*ow, 30, 30, lib.check_number(value[i],15))
   end	
   fld =  fld+sign+1 
-  lib.add_text(ow+fld*w, 2*ow, ",", text_style)
+  lib.add_text(ow+fld*w, 2*ow, point, text_style)
   
   for i = 1,stampa - sign do
       lib.add_input(ow+(fld+i-0.5)*w, 2*ow, 30, 30, lib.check_number(value[sign+i],15))
@@ -198,7 +200,8 @@ end
   end 
     
   lib.end_canvas()
-end       
+end        
+   
         
     
    

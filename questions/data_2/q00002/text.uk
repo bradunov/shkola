@@ -1,0 +1,14 @@
+
+M is the  intersection point of lines AB and CD. Fill in the missing coordinates.
+@center@ @"A = ("@ @lib.check_number(ax, 15)@, @lib.check_number(ay, 15)@@")"@,@hspacept(10)@  @"B = ("@ @lib.check_number(bx, 15)@, @lib.check_number(by, 15)@@")"@,
+@center@ @"C = ("@ @lib.check_number(cx, 15)@, @lib.check_number(cy, 20)@@")"@,@hspacept(10)@  @"D = ("@ @lib.check_number(dx, 15)@, @lib.check_number(dy, 15)@@")"@,
+@center@ @"M = ("@ @lib.check_number(mmx, 15)@, @lib.check_number(mmy, 15)@@")"@.
+@vspace@
+@center@ @mycanvas()@    
+            
+              
+
+
+
+            
+            

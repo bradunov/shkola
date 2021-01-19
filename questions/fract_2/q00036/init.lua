@@ -4,6 +4,7 @@ array_temp = {};
 array_value = {};
 array_out = {};
 order = {};
+value = {}
 
 stampa = 10;
 
@@ -46,3 +47,8 @@ for i = 1, int do
     array_out[i] = array_out[i] / 10^dec
     array_value[i] = array_value[i] / 10^dec	
 end	
+
+for i = 1, int do
+    value[i] = lib.dec_to_str(array_value[i])	
+end	            
+      

@@ -187,6 +187,16 @@
       "difficulty": "1"
     },
     {
+      "name": "measures/q00097",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Merenje vremena",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
       "name": "measures/q00098",
       "random": "10",
       "period": "1",

@@ -1,4 +1,6 @@
 
+include(“terms”)
+
 hund = math.random(9) ; 
 ten = math.random(9);
 unit = math.random(10) - 1;
@@ -28,8 +30,8 @@ if(dec == 1) then
    answ = tostring(cifre[1]) .. lib.check_number(cifre[2], 15) .. "," .. tostring(cifre[3])
 end
 if(dec == 2) then
-   answ = tostring(cifre[1]) .. "," .. lib.check_number(cifre[2], 15) .. tostring(cifre[3])
+   answ = tostring(cifre[1]) .. point .. lib.check_number(cifre[2], 15) .. tostring(cifre[3])
 end
 if(dec == 3) then
-   answ = "0," .. tostring(cifre[1]) .. lib.check_number(cifre[2], 15) .. tostring(cifre[3])
+   answ = "0" .. point .. tostring(cifre[1]) .. lib.check_number(cifre[2], 15) .. tostring(cifre[3])
 end 

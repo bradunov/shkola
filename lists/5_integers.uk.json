@@ -45,6 +45,16 @@
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00023",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Deljivost brojeva",
+      "topic": "Deljivost sa 2, 3, 4, 5, 9, 10   ",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
     }
   ]
 }

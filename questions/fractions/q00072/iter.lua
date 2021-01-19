@@ -26,7 +26,7 @@ if (stampa == 1) then
     numright = res_dec
 	measright = measure1[ITEM]  
 else
-    numleft = res_dec 
+    numleft = lib.dec_to_str(res_dec) 
 	measleft = measure1[ITEM]
     numright = result 
 	measright = measure2[ITEM] 	
