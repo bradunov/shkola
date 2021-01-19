@@ -55,8 +55,8 @@ class LibMath(object):
         return round(float(x))
 
     def round_dec(self, num, dec=0):
-        # Max 4 decimal digits
-        dec = min(float(dec), 4)
+        # Max 20 decimal digits
+        dec = min(float(dec), 20)
         dec = pow(10, dec)
         return round(num * dec) / dec
 
