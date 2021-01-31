@@ -269,6 +269,7 @@ class Repository(object):
                     elif not self.check_extension(file, ".png") and \
                          not self.check_extension(file, ".xlsx") and \
                          not self.check_extension(file, ".docx") and \
+                         not self.check_extension(file, ".sh") and \
                          not self.check_extension(file, ".py"):
                         try:
                             with open(dirpath + "/" + file, encoding='utf-8') as f_text:
