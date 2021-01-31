@@ -1,0 +1,2 @@
+decim = {"decimalu", "decimale"}
+point = ","

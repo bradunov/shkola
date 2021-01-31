@@ -19,7 +19,7 @@ red_style =
 
 text_style = {["font_size"] = "16"}
 
-include(“terms”)
+include("terms")
 
 cifre = {};
 value = {};
@@ -201,6 +201,7 @@ end
     
   lib.end_canvas()
 end        
+   
    
         
     

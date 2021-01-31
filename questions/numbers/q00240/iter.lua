@@ -30,7 +30,7 @@ if (ITEM == 1) then
 	    term1 = value + term2
 		sign3 = "-"	
     end			
-	answ = lib.check_string("(",5) .. tostring(term1) .. sign3 .. lib.check_string("",5) .. tostring(term2) .. lib.check_string(")",5) .. sign1 .. lib.check_string("",5) .. tostring(factor3) .. lib.check_string("",5) .. sign2 .. tostring(factor1) .. lib.check_string("",5) .. " = " .. tostring(factor2)
+	answ = lib.check_string("(",5) .. tostring(term1) .. " " .. sign3 .. " " .. lib.check_string("",5) .. tostring(term2) .. lib.check_string(")",5) .. " " .. sign1 .. " " .. lib.check_string("",5) .. tostring(factor3) .. lib.check_string("",5) .. " " .. sign2 .. " " .. tostring(factor1) .. lib.check_string("",5) .. " = " .. tostring(factor2)
 end
 
 if (ITEM == 2) then  
@@ -54,7 +54,7 @@ if (ITEM == 2) then
 	    term1 = value + term2
 		sign3 = "-"	
     end			
-	answ = lib.check_string("(",5) .. tostring(term1) .. sign3 .. lib.check_string("",5) .. tostring(term2) .. lib.check_string(")",5) .. sign1 .. lib.check_string("(",5) .. tostring(factor2) .. lib.check_string("",5) .. sign2 .. tostring(factor1) .. lib.check_string(")",5) .. " = " .. tostring(factor3)
+	answ = lib.check_string("(",5) .. tostring(term1) .. " " .. sign3 .. " " .. lib.check_string("",5) .. tostring(term2) .. lib.check_string(")",5) .. " " .. sign1 .. " " .. lib.check_string("(",5) .. tostring(factor2) .. lib.check_string("",5) .. " " .. sign2 .. " " .. tostring(factor1) .. lib.check_string(")",5) .. " = " .. tostring(factor3)
 end
 
 if (ITEM == 3) then  
@@ -78,7 +78,7 @@ if (ITEM == 3) then
 	    term1 = factor1 + term2 
 		sign3 = "-"	
     end			
-	answ = lib.check_string("(",5) .. tostring(term1) .. sign3 .. lib.check_string("",5) .. tostring(term2) .. lib.check_string(")",5) .. sign1 .. lib.check_string("",5) .. tostring(factor2) .. lib.check_string("",5) .. sign2 .. tostring(factor3) .. lib.check_string("",5) .. " = " .. tostring(value)
+	answ = lib.check_string("(",5) .. tostring(term1) .. " " .. sign3 .. " " .. lib.check_string("",5) .. tostring(term2) .. lib.check_string(")",5) .. " " .. sign1 .. " " .. lib.check_string("",5) .. tostring(factor2) .. lib.check_string("",5) .. " " .. sign2 .. " " .. tostring(factor3) .. lib.check_string("",5) .. " = " .. tostring(value)
 	end
 
 if (ITEM == 4) then  
@@ -103,7 +103,7 @@ if (ITEM == 4) then
 	    term1 = factor1 + term2 
 		sign3 = "-"	
     end			
-	answ = lib.check_string("(",5) .. tostring(term1) .. sign3 .. lib.check_string("",5) .. tostring(term2) .. lib.check_string(")",5) .. sign1 .. lib.check_string("(",5) .. tostring(factor2) .. lib.check_string("",5) .. sign2 .. tostring(factor3) .. lib.check_string(")",5) .. " = " .. tostring(value)
+	answ = lib.check_string("(",5) .. tostring(term1) .. " " .. sign3 .. " " .. lib.check_string("",5) .. tostring(term2) .. lib.check_string(")",5) .. " " .. sign1 .. " " .. lib.check_string("(",5) .. tostring(factor2) .. lib.check_string("",5) .. " " .. sign2 .. " " .. tostring(factor3) .. lib.check_string(")",5) .. " = " .. tostring(value)
 end
   
 if (ITEM == 5) then  
@@ -132,7 +132,7 @@ if (ITEM == 5) then
 		sign3 = "-"	
     end	
 	
-	answ = lib.check_string("",5) .. tostring(term1) .. sign3 .. lib.check_string("(",5) .. tostring(term2) .. lib.check_string("",5) .. sign1 .. lib.check_string("",5) .. tostring(factor3) .. lib.check_string("",5) .. "+" .. tostring(factor1) .. lib.check_string(")",5) .. " = " .. tostring(result)
+	answ = lib.check_string("",5) .. tostring(term1) .. " " .. sign3 .. " " .. lib.check_string("(",5) .. tostring(term2) .. lib.check_string("",5) .. " " .. sign1 .. " " .. lib.check_string("",5) .. tostring(factor3) .. lib.check_string("",5) .. " + " .. tostring(factor1) .. lib.check_string(")",5) .. " = " .. tostring(result)
 end
 
  if (ITEM == 6) then  
@@ -169,8 +169,9 @@ end
 		sign3 = "-"	
     end	
 	
-	answ = lib.check_string("",5) .. tostring(term1) .. sign3 .. lib.check_string("",5) .. tostring(term2) .. lib.check_string("",5) .. sign1 .. lib.check_string("",5) .. tostring(factor3) .. lib.check_string("",5) .. sign2 .. tostring(factor1) .. lib.check_string("",5) .. " = " .. tostring(result)
+	answ = lib.check_string("",5) .. tostring(term1) .. " " .. sign3 .. " " .. lib.check_string("",5) .. tostring(term2) .. lib.check_string("",5) .. " " .. sign1 .. " " .. lib.check_string("",5) .. tostring(factor3) .. lib.check_string("",5) .. " " .. sign2 .. " " .. tostring(factor1) .. lib.check_string("",5) .. " = " .. tostring(result)
 end
          
+           
            
      

@@ -4,7 +4,7 @@
   "level_short": "5",
   "theme": "Prirodni brojevi",
   "language": "rs",
-  "rank_theme": "2",
+  "rank_theme": "1",
   "questions": [
     {
       "name": "fract_2/q00001",
@@ -33,7 +33,7 @@
       "subtheme": "Razlomci",
       "topic": "Računske operacije    ",
       "rank_subtheme": "3",
-      "rank_topic": "5",
+      "rank_topic": "4",
       "difficulty": "2"
     },
     {
@@ -93,7 +93,7 @@
       "subtheme": "Razlomci",
       "topic": "Pojam, brojevna prava ",
       "rank_subtheme": "3",
-      "rank_topic": "1",
+      "rank_topic": "4",
       "difficulty": "2"
     },
     {
@@ -103,7 +103,7 @@
       "subtheme": "Razlomci",
       "topic": "Pojam, brojevna prava ",
       "rank_subtheme": "3",
-      "rank_topic": "1",
+      "rank_topic": "4",
       "difficulty": "3"
     },
     {
@@ -425,6 +425,186 @@
       "rank_subtheme": "3",
       "rank_topic": "4",
       "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00043",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Sabiranje i oduzimanje   ",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00044",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Sabiranje i oduzimanje   ",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00045",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00046",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00047",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00048",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00049",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "3"
+    },
+    {
+      "name": "fract_2/q00050",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00051",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00052",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "3"
+    },
+    {
+      "name": "fract_2/q00053",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00054",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00055",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00056",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "3"
+    },
+    {
+      "name": "fract_2/q00057",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00058",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00059",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00060",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Razlomci",
+      "topic": "Množenje i deljenje razlomaka",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "1"
     },
     {
       "name": "numb_2/q00009",

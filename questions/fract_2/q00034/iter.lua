@@ -1,5 +1,5 @@
 
-include(“terms”)
+include("terms")
 
 hund = math.random(9) ; 
 ten = math.random(9);
