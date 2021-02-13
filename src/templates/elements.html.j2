@@ -235,6 +235,18 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
+  <!-- Facebook Pixel -->
+  <script>
+    fbq('track', 'ViewContent'
+      {% if 'template_name' in template_params %}
+      , {
+      content_name: ' {{ template_params["template_name"] }} '
+      }
+      {% endif %}
+    );
+  </script>
+  <!-- End Facebook Pixel -->
+
   <!-- Add headers for crawlers -->
   {% if 'h1' in template_params %}
   <h1 style="display:none;visibility:hidden"> {{ template_params['h1'] }}</h1>
