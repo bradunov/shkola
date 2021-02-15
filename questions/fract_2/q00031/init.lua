@@ -122,15 +122,15 @@ mycanvas = function()
   w = 25
   ow = 10
   
-  for i = 1,index_i + 1 do
+  for i = 1,index_i do
      lib.add_line(ow+(i-1)*w, ow, 0, index_j*w, style, false, false)
   end
   
   for j = 1,index_j + 1 do
-    lib.add_line(ow, ow+(j-1)*w, index_i*w, 0, style, false, false)
+    lib.add_line(ow, ow+(j-1)*w, (index_i-1)*w, 0, style, false, false)
   end
  
-  lib.add_line(ow, ow+w, index_i*w, 0, red_style, false, false)
+  lib.add_line(ow, ow+w, (index_i-1)*w, 0, red_style, false, false)
    
   lib.add_text(w, 2*ow, tostring(math.floor(cifre[1])), text_style)
   if (deg > 1) then  
@@ -152,13 +152,13 @@ mycanvas = function()
   lib.add_text(ow+fld*w, 2*ow, "=", text_style)  
 
   for i = 1,sign do
-      lib.add_input(ow+(fld+i-0.5)*w, 2*ow, 30, 30, lib.check_number(value[i],15))
+      lib.add_input(ow+(fld+i-0.5)*w, w, 30, 30, lib.check_number(value[i],10))
   end	
-  fld =  fld+sign+1 
-  lib.add_text(ow+fld*w, 2*ow, point, text_style)
+  fld =  fld+sign 
+  lib.add_text((fld+1)*w, 2*ow, point, text_style)
   
   for i = 1,stampa - sign do
-      lib.add_input(ow+(fld+i-0.5)*w, 2*ow, 30, 30, lib.check_number(value[sign+i],15))
+      lib.add_input(ow+(fld+i-0.5)*w, w, 30, 30, lib.check_number(value[sign+i],10))
   end
 
 x = 0
@@ -174,13 +174,13 @@ end
 	  temp = diff[i] - 100 * d1 
 	  d2 = math.floor(temp/10)
 	  d3 = temp - 10 * d2
-      lib.add_input((x+i+1)*w, 2*ow+(2*i-1)*w, 40, 40, lib.check_number(d3,15))	  
+      lib.add_input((x+i+1)*w, w+(2*i-1)*w, 40, 40, lib.check_number(d3,10))	  
 	  if (d1 ~= 0) then 
-         lib.add_input((x+i-1)*w, 2*ow+(2*i-1)*w, 40, 40, lib.check_number(d1,15))
-         lib.add_input((x+i)*w, 2*ow+(2*i-1)*w, 40, 40, lib.check_number(d2,15))
+         lib.add_input((x+i-1)*w, w+(2*i-1)*w, 40, 40, lib.check_number(d1,10))
+         lib.add_input((x+i)*w, w+(2*i-1)*w, 40, 40, lib.check_number(d2,10))
       else
 	     if (d2 ~= 0) then 
-		     lib.add_input((x+i)*w, 2*ow+(2*i-1)*w, 40, 40, lib.check_number(d2,15))
+		     lib.add_input((x+i)*w, w+(2*i-1)*w, 40, 40, lib.check_number(d2,10))
 		 end
       end 
 	  if (i == 1) then
@@ -191,16 +191,18 @@ end
       t1 = math.floor(out[i+1]/10)
 	  t2 = out[i+1] - 10 * t1	  
 	  if (t1 ~= 0) then 
-	     lib.add_input((x+i)*w, 2*ow+2*i*w, 40, 40, lib.check_number(t1,15))
+	     lib.add_input((x+i)*w, w+2*i*w, 40, 40, lib.check_number(t1,10))
 	  end
-      lib.add_input((x+i+1)*w, 2*ow+2*i*w, 40, 40, lib.check_number(t2,15))
+      lib.add_input((x+i+1)*w, w+2*i*w, 40, 40, lib.check_number(t2,10))
 	  if(i ~= stampa) then
-         lib.add_input((x+i+2)*w, 2*ow+2*i*w, 40, 40, lib.check_number(cifre[ind+i],15))	  
+         lib.add_input((x+i+2)*w, w+2*i*w, 40, 40, lib.check_number(cifre[ind+i],10))	  
       end 	  
   end 
     
   lib.end_canvas()
-end        
+end     
+
+   
    
    
         

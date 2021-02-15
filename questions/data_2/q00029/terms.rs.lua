@@ -1,0 +1,3 @@
+msg = {"trećem", "četvrtom", "petom"}
+
+

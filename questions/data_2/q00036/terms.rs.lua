@@ -1,0 +1,1 @@
+msg = {"uspeh učenika", "broj učenika u %"}

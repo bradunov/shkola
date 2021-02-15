@@ -32,10 +32,16 @@ else
 	end
 end	
 
+q = lib.math.gcd(denom, broj)
+brojilac = denom/q
+imenilac = broj/q 
+result = denom/broj
 answ = ""
+condition = "is_ok = math.eq(numerator/denominator, "..tostring(result)..");"	          
+solution = "numerator="..tostring(denom)..";denominator="..tostring(broj)..";"
 if (broj == 1) then
     answ = answ .. lib.check_number(lib.math.round(denom))
 else	
-    answ = answ .. lib.check_fraction_simple(denom, broj)
+    answ =  lib.check_fraction_condition(condition, nil, nil, solution)
 end	
 

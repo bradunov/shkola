@@ -1,0 +1,1 @@
+msg = {"Prosečna visina", "ekipe"}

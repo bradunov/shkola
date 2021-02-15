@@ -1,0 +1,1 @@
+name = {"utakmica", "utakmice", "utakmicu"}

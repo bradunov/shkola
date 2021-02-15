@@ -1,0 +1,11 @@
+{ "name" : "all_equat_2", 
+ "questions":  [
+    {"name" : "equat_2/q00001"},
+    {"name" : "equat_2/q00002"},
+    {"name" : "equat_2/q00003"},
+    {"name" : "equat_2/q00004"},
+    {"name" : "equat_2/q00005"},
+    {"name" : "equat_2/q00006"},
+    {"name" : "equat_2/q00007"}
+    ]
+}
