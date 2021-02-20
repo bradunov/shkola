@@ -9,6 +9,9 @@ from server.stats import Stats
 import server.question as question
 # import server.qlist as qlist
 
+from server.storage_az_table import Storage_az_table
+from datetime import datetime, timedelta
+
 import logging
 
 class Design_dev(object):
@@ -22,6 +25,7 @@ class Design_dev(object):
         if not page.page_params.get_param("op") == PageOperation.EDIT and \
            not page.page_params.get_param("op") == PageOperation.GENERATE and \
            not page.page_params.get_param("op") == PageOperation.LIST and \
+           not page.page_params.get_param("op") == PageOperation.VIEW_FEEDBACK and \
            not page.page_params.get_param("op") == PageOperation.STATS and \
            not page.page_params.get_param("op") == PageOperation.VIEW:
             page.page_params.set_param("op", PageOperation.VIEW)
@@ -57,6 +61,10 @@ class Design_dev(object):
             # ql.render_all_questions()
 
             Design_dev.render_list(page)
+            return page.render()
+
+        elif page.page_params.get_param("op") == PageOperation.VIEW_FEEDBACK:
+            Design_dev.render_feedback(page)
             return page.render()
 
         elif page.page_params.get_param("op") == PageOperation.STATS:
@@ -110,6 +118,15 @@ class Design_dev(object):
                                     language = "sel_lang.value", \
                                     js = True)
 
+        # View feedbacks
+        elif page.page_params.get_param("op") == PageOperation.VIEW_FEEDBACK:
+            page.template_params["menu"]["current_choice"] = "7"
+            page.template_params["menu"]["choices"] = ["7", "14", "30"]
+            page.template_params["menu"]["choice_action"] = page.page_params.create_url_edit(\
+                                    interval = "this.value", \
+                                    language = "sel_lang.value", \
+                                    js = True)
+
 
 
         ### Languages
@@ -141,6 +158,7 @@ class Design_dev(object):
             PageOperation.toStr(PageOperation.EDIT),
             PageOperation.toStr(PageOperation.VIEW),
             PageOperation.toStr(PageOperation.LIST),
+            PageOperation.toStr(PageOperation.VIEW_FEEDBACK),
             PageOperation.toStr(PageOperation.STATS)
             ]
         page.template_params["menu"]["operations"] = options
@@ -294,11 +312,75 @@ class Design_dev(object):
 
 
 
-        
-                    
 
 
 
+    @staticmethod
+    def render_feedback(page):
+
+        language = page.page_params.get_param("language")
+
+        page.template_params["template_name"] = Design_dev._add_language(page, "dev/feedback.html.j2")
+
+        Design_dev.render_menu(page)
+
+
+        storage = Storage_az_table()
+
+        no_days = int(page.page_params.get_param("interval"))
+        from_date = datetime.today() - timedelta(no_days)
+        feedbacks = storage.get_all_user_feedback(from_date)
+
+        feedbacks.sort(key=lambda i: i["Timestamp"], reverse=True)
+
+
+
+        page.template_params["attributes"] = {}
+        page.template_params["questions"] = []
+
+
+        for f in feedbacks:
+            #print(f["question_id"], f["type"], f["Timestamp"], f["language"], f["comment"], f["random_vals"])
+
+            q_id = f["question_id"]
+            q = {}
+            q["q_id"] = q_id
+            q["attributes"] = {}
+
+            q["attributes"]["Type"] = f["type"]
+            q["attributes"]["Time"] = str(f["Timestamp"])
+            q["attributes"]["Lang"] = f["language"]
+            q["attributes"]["User"] = f["user_id"]
+            q["attributes"]["Comment"] = f["comment"]
+
+            q["link"] = page.page_params.create_url_edit( \
+                                    op = PageOperation.VIEW, \
+                                    language = PageLanguage.toStr(language), 
+                                    q_id = q_id)
+
+            # Generate question and paste it into the list 
+            page.page_params.set_param("q_id", q_id)
+            gq = question.Question(page, language=language)
+            gq.set_from_file_with_exception()
+            try:
+                gq.eval_with_exception()
+            except:
+                page.add_lines("Problem with the question!\n")
+                logging.error("\n\nERROR: problem with question {}!\n\n".format(q_id))
+                pass
+
+            q["lib_id"] = gq.lib.lib_id
+
+            q["text"] = ""
+            for l in page.script_lines:
+                q["text"] = q["text"] + l + "\n"
+            for l in page.lines:
+                q["text"] = q["text"] + str(l)
+
+            previous_params = page.template_params
+            page.clear()
+            page.template_params = previous_params
+            page.template_params["questions"].append(q)
 
 
 

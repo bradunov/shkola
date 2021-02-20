@@ -106,6 +106,8 @@ class PageOperation(Enum):
     TEST_PREV = "test_prev"
     # Report an issue in question
     FEEDBACK = "feedback"
+    # View existing feedbacks
+    VIEW_FEEDBACK = "feedbacks"
     # About the site
     ABOUT = "about"
 
@@ -187,6 +189,7 @@ class PageParameters(object):
         "op" : PageOperation.DEFAULT,
         "q_id" : "",
         "l_id" : "",
+        "interval": "",
         "year" : "",
         "theme" : "",
         "subtheme" : "",
@@ -220,6 +223,7 @@ class PageParameters(object):
     # Actions that should be saved in the state
     _default_states = {
         "l_id" : "",
+        "interval" : "",
         "period" : "",
         "difficulty" : "",
         "q_num" : "",
@@ -548,6 +552,11 @@ class PageParameters(object):
         else:
             self._params["l_id"] = ""
 
+        if ("interval" in args.keys()) and (not args["interval"] is None) and args["interval"]:
+            self._params["interval"] = args["interval"]
+        else:
+            self._params["interval"] = "7"
+
         if "init_code" in args.keys():
             self._params["init_code"] = args["init_code"]
 
@@ -568,7 +577,7 @@ class PageParameters(object):
 
     # These parameters have to be strings (even op, language, design, user_id)
     # as they can be JS variables
-    def create_url_edit(self, root=None, op=None, q_id=None, l_id=None, 
+    def create_url_edit(self, root=None, op=None, q_id=None, l_id=None, interval=None,
                    language=None, beta=None, js=False):
         if root is None:
             root = self._params["root"]
@@ -578,20 +587,21 @@ class PageParameters(object):
             op = encap_str(op) if js else op
         q_id = self._str_to_url(q_id, self._params["q_id"], js)
         l_id = self._str_to_url(l_id, self._params["l_id"], js)
+        interval = self._str_to_url(interval, self._params["interval"], js)
         if language is None:
             language = PageLanguage.toStr(self._params["language"])
             language = encap_str(language) if js else language
         beta = not (beta is None)
 
         if js:
-            url = ("{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} + \"&language=\" + {}").format(
-                      root, op, q_id, l_id, language
+            url = ("{} + \"?op=\" + {} + \"&q_id=\" + {} + \"&l_id=\" + {} + \"&interval=\" + {} + \"&language=\" + {}").format(
+                      root, op, q_id, l_id, interval, language
                   )
             if beta:
                 url += " + \"&beta\" "
         else:
-            url = ("{}?op={}&q_id={}&l_id={}&language={}").format(
-                      root, op, q_id, l_id, language
+            url = ("{}?op={}&q_id={}&l_id={}&interval={}&language={}").format(
+                      root, op, q_id, l_id, interval, language
                   )
             if beta:
                 url += "&beta"

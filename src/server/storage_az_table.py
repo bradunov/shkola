@@ -246,7 +246,7 @@ class Storage_az_table():
         if from_date:
             if len(req) > 0:
                 req = req + " and "
-            req = req + "(Timestamp ge datetime'{}')".format(from_date)
+            req = req + "(Timestamp ge datetime'{}')".format(from_date.isoformat())
 
         entries = self.table_service.query_entities(self.sessions_table_name, req)
 
@@ -256,6 +256,30 @@ class Storage_az_table():
             result.append(row)
 
         return result
+
+
+
+
+    # Get direct user feedback before given date 
+    def get_all_user_feedback(self, from_date=None):
+
+        # Ignore JS and Google errors, only return specific user feedback
+        req = "(type ne 'JS_ERROR') and (type ne 'GOOGLE_ERROR')" 
+
+        if from_date:
+            if len(req) > 0:
+                req = req + " and "
+            req = req + "(Timestamp ge datetime'{}')".format(from_date.isoformat())
+
+        entries = self.table_service.query_entities(self.feedbacks_table_name, req)
+
+        result = []
+        for row in entries:
+            result.append(row)
+
+        return result
+
+
 
 
 
@@ -434,7 +458,7 @@ if __name__ == '__main__':
 
 
 
-    print_all_data = True
+    print_all_data = False
     if print_all_data:
         storage.print_all_users()
         storage.print_all_responses()
