@@ -35,7 +35,7 @@ class Site:
         else:
             log_handler = None
 
-        title = "TATAMATA - Vežbaonica matematike za osnovnu školu"
+        title = "TATAMATA - Besplatna vežbaonica matematike za osnovnu školu"
 
         self._app_data = AppData(title=title, use_azure_blob=self.use_azure_blob, preload=self.preload, external_log_handler=log_handler)
 
