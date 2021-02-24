@@ -22,7 +22,7 @@ end
 
 numb = number * (1 + enum/denom) 
 price = numb * (1 - enum/denom)
-price = lib.math.round_dec(price, ind)
+price = lib.math.round_dec(price, 2)
     
 if (ind == 0 and price - 100*math.floor(price/100) == 1) then
     valnew = msg[1]

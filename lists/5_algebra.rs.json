@@ -75,6 +75,96 @@
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00008",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Jednačine ",
+      "topic": "Primena razlomaka ",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00009",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Jednačine ",
+      "topic": "Primena razlomaka ",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00010",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Primena razlomaka ",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00011",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Primena razlomaka ",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00012",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Primena razlomaka ",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00013",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Primena razlomaka ",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00014",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Primena razlomaka ",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00015",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Primena razlomaka ",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "equat_2/q00016",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Nejednačine ",
+      "topic": "Primena razlomaka ",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
     }
   ]
 }

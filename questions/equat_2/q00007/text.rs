@@ -8,16 +8,5 @@ Oboj kružić ispred jednačine kojom možeš da izračunaš dužinu puta @"x"@.
 Reši jednačinu.
 @center@ @padez@ kuća je od bakine kuće udaljena  
 @center@ @lib.check_number(put)@@"m"@ = @lib.check_number(putkm)@@"km"@.
-        
-
-
-        
-
-
-
-
-
-
-                  
-
+              
 

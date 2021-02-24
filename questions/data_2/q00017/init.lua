@@ -21,7 +21,7 @@ out = lib.math.argsort(numb)
 
 reply[1] = numb[4] .. " : " .. numb[2] .. " = " .. numb[3] .. " : " .. numb[1] 
 reply[2] = numb[3] .. " : " .. numb[4] .. " = " .. numb[2] .. " : " .. numb[1] 
-reply[3] = numb[2] .. " : " .. numb[1] .. " = " .. numb[3] .. " : " .. numb[4] 
+reply[3] = numb[4] .. " : " .. numb[1] .. " = " .. numb[3] .. " : " .. numb[2] 
 reply[4] = numb[1] .. " : " .. numb[2] .. " = " .. numb[4] .. " : " .. numb[3] 
 
 index = {1, 2, 3, 4}

@@ -1,0 +1,6 @@
+
+include("terms")
+           
+numb = {}
+value = {}  
+            
