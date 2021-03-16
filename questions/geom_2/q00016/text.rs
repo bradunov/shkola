@@ -1,0 +1,11 @@
+
+@center@ @mycanvas()@                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+ 
+Odredi u koju se tačku preslikava tačka @point@ translacijom koja preslikava tačku @first@ u @second@. 
+Ukoliko je tačka izvan slike, kao odgovor napiši: @msg@. 
+@vspace@
+@center@ Tačka @point@ se preslikava u tačku @answ@. 
+@center@ Oboj ove četiri (tri) tačke na slici. 
+ 
+
+           

@@ -3,7 +3,7 @@ style =
 	{["off_color"] = "none",
         ["on_color"] = "fff",
         ["line_color"] = "000",
-        ["line_width"] = "0.3"};
+        ["line_width"] = "0.1"};
 
 blue_style = {["off_color"] = "fff",
                ["on_color"] = "0cf",

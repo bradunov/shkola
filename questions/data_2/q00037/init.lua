@@ -40,7 +40,7 @@ if (area == 0) then
     result = ""
 else
     temp = lib.math.round_dec(math.abs(area), 1)
-	result = msg2 .. lib.check_number(temp,40) .. proc .. "."
+	result = msg2 .. lib.check_number(temp,30) .. proc .. "."
 end	
 
            
