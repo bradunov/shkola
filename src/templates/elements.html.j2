@@ -13,6 +13,27 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer',"{{ template_params['google_tag_manager'] }}");</script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-183804063-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // General site tag
+      gtag('config', 'UA-183804063-1');
+      // Conversion tag
+      gtag('config', 'AW-593553951');
+    </script>
+
+    {% if 'user_picture' in template_params %}
+      <!-- Event snippet for Website traffic conversion page --> 
+      <script> 
+      gtag('event', 'conversion', {'send_to': 'AW-593553951/8tvjCMD41vwBEJ_Ug5sC'}); 
+      </script>
+    {% endif %}
+
     <!-- End Google Tag Manager -->
 
 
