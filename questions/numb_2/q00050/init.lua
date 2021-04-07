@@ -26,8 +26,8 @@ text_style = {["font_size"] = "16"}
 
 bracketl = "{"
 bracketr = "}"
-uni = "\(\cup\)"  
-sect = "\(\cap\)"
+uni = "\(\small\cup\)"  
+sect = "\(\small\cap\)"
 dif = "\"
 
 dim1 = 7

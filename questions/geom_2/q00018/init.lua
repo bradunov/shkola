@@ -1,4 +1,6 @@
 
+include("terms")
+
 style = 
 	{["off_color"] = "none",
         ["on_color"] = "none",
@@ -128,9 +130,9 @@ mycanvas = function(no)
       for j = i+1, nr do 
 	      br = br + 1 	  
 	      if (fig_ind[i] == fig_ind[j]) then
-		      sign[br] = "t"
+		      sign[br] = msg[1]
 		  else
-		      sign[br] = "s"  
+		      sign[br] = msg[2]  
           end		  
           answ[br] =  term .. fig[j]    
      end

@@ -23,8 +23,8 @@ text_style = {["font_size"] = "14"}
 
 bracketl = "{"
 bracketr = "}"
-uni = "\(\cup\)"  
-sect = "\(\cap\)"
+uni = "\(\small\cup\)"  
+sect = "\(\small\cap\)"
 dif = "\"
 
 

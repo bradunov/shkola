@@ -1,10 +1,10 @@
 
 include("terms")
   
-uni = "\(\cup\)"  
-sect = "\(\cap\)"
+uni = "\(\small\cup\)"  
+sect = "\(\small\cap\)"
 dif = "\"
-empt = "\(\emptyset\)"
+empt = "\(\small\emptyset\)"
 
 reply = {""}
 solut = {}

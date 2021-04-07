@@ -21,9 +21,9 @@ text_style = {["font_size"] = "14"}
 
 bracketl = "{"
 bracketr = "}"
-uni = "\(\cup\)"  
-sect = "\(\cap\)"
-empty = "\(\emptyset\)"  
+uni = "\(\small\cup\)"  
+sect = "\(\small\cap\)"
+empty = "\(\small\emptyset\)" 
 dif = "\"
 
 

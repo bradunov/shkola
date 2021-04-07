@@ -23,7 +23,7 @@ text_style = {["font_size"] = "14"}
 
 bracketl = "{"
 bracketr = "}"
-empty = "\(\emptyset\)"  
+empty = "\(\small\emptyset\)"  
 dif = "\"
 
 

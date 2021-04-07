@@ -14,8 +14,8 @@ line_style = {["off_color"] = "fff",
 dot_style = {["font_size"] = "35"}	
 text_style = {["font_size"] = "16"}	
 
-name = {"K1(O\(_1\),r)", "K2(O\(_2\),r)", "K3(O\(_3\),r)", "K4(O\(_4\),r)"} 
-circ = {"K1", "K2", "K3", "K4"} 	
+name = {"K1(O\(\small_1\),r)", "K2(O\(\small_2\),r)", "K3(O\(\small_3\),r)", "K4(O\(\small_4\),r)"} 
+circ = {"K1", "K2", "K3", "K4"}  	
 
 ind = math.random(6)
 

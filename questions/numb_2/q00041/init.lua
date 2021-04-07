@@ -27,13 +27,13 @@ text_style = {["font_size"] = "16"}
 
 word = {}
 
-include("names")
+include("terms")
 
 bracketl = "{"
 bracketr = "}"
 
 und = "\(\subset\)"  
-empt = "\(\emptyset\)"
+empt = "\(\small\emptyset\)"
 oper = "\(\leq\)" 
 
 dim_word = {3, 5, 5, 3, 5}
@@ -43,6 +43,7 @@ number[1] = {1, 10, 100, 1000}
 number[2] = {2, 3, 5, 7}
 number[3] = {2, 4, 6, 8, 10}
 number[4] = {}
+
 cifra = {}
 value = 0
 for i = 1,9 do
@@ -258,6 +259,7 @@ for i = 1,3 do
 		reply[nr] = lib.check_string(check, 15) .. " " .. name[qq[i]] .. " " .. relat .. " " .. name[qq[j]] 
 	end
 end       
+ 
  
  
 

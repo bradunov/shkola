@@ -1,12 +1,13 @@
 
 include("terms")
 
-rad1 = "r\(_1\)"
-rad2 = "r\(_2\)"
-circ1 = "K\(_1\)(A , r\(_1\))";     
-circ2 = "K\(_2\)(B , r\(_2\))"; 
+rad1 = "r\(\small_1\)"
+rad2 = "r\(\small_2\)"
+circ1 = "K\(\small_1\)(A , r\(\small_1\))";     
+circ2 = "K\(\small_2\)(B , r\(\small_2\))"; 
 
 meas = "cm"         
+                
             
                     
      

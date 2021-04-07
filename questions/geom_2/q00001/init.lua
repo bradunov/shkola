@@ -8,12 +8,12 @@ style =
 dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "16"}		
 
-par = "\(\parallel\)";   
-elem = "\(\in\)";
-con = "\(\ni\)";    
-sect = "\(\cap\)";
-uni = "\(\cup\)";
-incl = "\(\supset\)";
+par = "\(\small\parallel\)";   
+elem = "\(\small\in\)";
+con = "\(\small\ni\)";    
+sect = "\(\small\cap\)";
+uni = "\(\small\cup\)";
+incl = "\(\small\supset\)";
 
 ind = math.random(7)
 

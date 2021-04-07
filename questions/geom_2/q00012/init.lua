@@ -20,7 +20,7 @@ end
 
 scale = 2
 
-  lib.start_canvas(350, 350, "center", results)
+  lib.start_canvas(320, 350, "center", results)
 
   if (ind == 1) then
       lib.add_ellipse(100, 60, 60, 30, style, false, true)  

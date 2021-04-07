@@ -81,7 +81,7 @@ if (sign == 0) then
     point = rect_pt[3]	
 else
     results = "result[0] == 1 && result[1] == 1 && result[2] == 1 && result[3] == 1"
-    answ = lib.check_string_case(rect_pt[4], 20)
+    answ = lib.check_string_case(rect_pt[4], 60)
     first = rect_pt[sign]
     if (sign == 1) then
         op = math.random(2)

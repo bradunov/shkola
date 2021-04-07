@@ -5,14 +5,14 @@ bracketl = "{"
 bracketr = "}"
 
 und = "\(\subset\)"  
-empt = "\(\emptyset\)"
-op1 = "\(\leq\)" 
-op2 = "\(\geq\)"
-op3 = "\(\gt\)"
-op4 = "\(\lt\)"
-n0 = "\(N_0\)"  
-nn = "\(N\)"
-elem = "\(\in\)"  
+empt = "\(\small\emptyset\)"
+op1 = "\(\small\leq\)" 
+op2 = "\(\small\geq\)"
+op3 = "\(\small\gt\)"
+op4 = "\(\small\lt\)"
+n0 = "\(\small N_0\)"  
+nn = "\(\small N\)"
+elem = "\(\small\in\)"  
 
 prime = {2, 3, 5, 7, 11, 13, 17, 19}
 
@@ -168,7 +168,7 @@ for i = 1,stampa do
 		reply[i] = inft
 	end	 		
 end                         
-                                      
+                                           
                  
             
              

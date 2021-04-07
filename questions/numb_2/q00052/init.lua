@@ -2,18 +2,19 @@
 bracketl = "{"
 bracketr = "}"
 
-uni = "\(\cup\)"  
-sect = "\(\cap\)"
+uni = "\(\small\cup\)"  
+sect = "\(\small\cap\)"
 dif = "\"  
-empt = "\(\emptyset\)"
-n0 = "\(N_0\)"  
-nn = "\(N\)"
-elem = "\(\in\)"  
+empt = "\(\small\emptyset\)"
+n0 = "\(\small N_0\)"  
+nn = "\(\small N\)"
+elem = "\(\small\in\)"  
 
-op1 = "\(\leq\)" 
-op2 = "\(\geq\)"
-op3 = "\(\gt\)"
-op4 = "\(\lt\)"
+op1 = "\(\small\leq\)" 
+op2 = "\(\small\geq\)"
+op3 = "\(\small\gt\)"
+op4 = "\(\small\lt\)"
+
 
 reply = {""}
 solut = {}

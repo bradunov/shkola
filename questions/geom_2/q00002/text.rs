@@ -1,5 +1,5 @@
 
-Ispred svakog tvrđenja napiši t ako je tvrđenje tačno ili n ako je tvrđenje netačno.
+Ispred svakog tvrđenja napiši t ako je tvrđenje tačno ili n ako tvrđenje nije tačno.
  
 @vspace@
 @center@ @mycanvas()@
@@ -10,5 +10,6 @@ Ispred svakog tvrđenja napiši t ako je tvrđenje tačno ili n ako je tvrđenje
 @vspace@
 @center@ @lib.check_string(test[out[5]],10)@ @hspacept(5)@ @answ[out[5]]@ @hspacept(30)@ @lib.check_string(test[out[6]],10)@ @hspacept(5)@ @answ[out[6]]@
    
+               
              
             

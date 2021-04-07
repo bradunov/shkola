@@ -13,24 +13,24 @@ text_style = {["font_size"] = "16"}
 index = {}
 answ = {}
 
-answ = {"a \(\cap\) d = O",
-  "O \(\in\) a", 
-  "O \(\not\in\) d",  
-  "b \(\ni\) N", 
-  "b \(\not\ni\) M",   
-  "a \(\parallel\) c", 
-  "a \(\not\parallel\) d",   
-  "b \(\parallel\) a", 
-  "b \(\perp\) c",  
-  "d \(\perp\) c",  
-  "d \(\not\parallel\) c",  
-  "M \(\in\) d", 
-  "{P, Q} \(\subset\) b", 
-  "{P, Q} \(\supset\) b",
-  "N \(\in\) c",
-  "M \(\not\in\) a \(\cup\) b \(\cup\) c \(\cup\) d",   
-  "{N, P, Q} \(\subset\) b \(\cup\) c",   
-  "Q = b \(\cap\) c" 
+answ = {"a \(\small\cap\) d = O",
+  "O \(\small\in\) a", 
+  "O \(\small\not\in\) d",  
+  "b \(\small\ni\) N", 
+  "b \(\small\not\ni\) M",   
+  "a \(\small\parallel\) c", 
+  "a \(\small\not\parallel\) d",   
+  "b \(\small\parallel\) a", 
+  "b \(\small\perp\) c",  
+  "d \(\small\perp\) c",  
+  "d \(\small\not\parallel\) c",  
+  "M \(\small\in\) d", 
+  "{P, Q} \(\small\subset\) b", 
+  "{P, Q} \(\small\supset\) b",
+  "N \(\small\in\) c",
+  "M \(\small\not\in\) a \(\small\cup\) b \(\small\cup\) c \(\small\cup\) d",   
+  "{N, P, Q} \(\small\subset\) b \(\small\cup\) c",   
+  "Q = b \(\small\cap\) c" 
 }
 
 for i = 1,18 do

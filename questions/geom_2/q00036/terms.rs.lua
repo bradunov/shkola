@@ -1,0 +1,3 @@
+
+choice = {"za", "puta"}
+

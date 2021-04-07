@@ -1,7 +1,7 @@
 
 bracketl = "{"
 bracketr = "}"
-natur0 = "\(N_0\)"
+natur0 = "\(\small N_0\)"
 dot = "\(\dots\)"
 
 prime = {2,3,5,7}

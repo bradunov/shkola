@@ -7,7 +7,7 @@ style =
 
 dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "16"}
-symb = "\(\angle\)" 
+symb = "\(\small\angle\)"
 
 tacka = {"A", "B", "C"}
 

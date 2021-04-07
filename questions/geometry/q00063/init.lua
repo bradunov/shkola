@@ -6,7 +6,7 @@ style =
         ["line_width"] = "2"};
 
 text_style = {["font_size"] = "16"}
-symb = "\(\angle\)" 
+symb = "\(\small\angle\)"  
 
 sign = {" "}
 
