@@ -993,7 +993,8 @@ class Library(object):
         #logging.debug("add_input: {} {} {} {} {}".format(self.canvas_id, x, y, w, h))
         str = "new Infobox(paper_{}, ".format(self.canvas_id)
         str = str + "{" + "x:{},y:{}, width:{}, height:{}".format(x, y, w, h) + "})"
-        str = str + ".div.html(\"{}\");\n".format(text)
+        # Do proper escaping in JSON so that we can use e.g. LaTeX in here
+        str = str + ".div.html(\"{}\");\n".format(text.replace("\\", "\\\\"))
         self.page.add_lines(str)
 
         
