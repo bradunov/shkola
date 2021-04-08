@@ -243,6 +243,46 @@ class Library(object):
 
     
         
+    def check_one_option_dropdown(self, options, correct):
+        qid = self.get_object_id()
+        n_answer = 'check_dropdown_answer_{}'.format(qid)
+        line = "<select name='{}' id='{}'> ".format(n_answer, n_answer)
+        clear_str = "{"
+
+        is_ok = "is_ok = (document.getElementById('{}').value == '{}');".format(n_answer, correct)
+        clear_str = "if (!already_checked_obj_ok_" + n_answer + "){"
+
+        cnt = 0
+
+        # Have to convert to Python array explicitly
+        aoptions = list(options.values())
+
+        # Add empty option
+        aoptions.insert(0, " ")
+
+        for opt in aoptions:
+            line = line + "<option value='{}'>{}</option>".format(opt, opt)
+            cnt = cnt + 1
+
+        line = line + "</select>\n"
+        
+        self.condition_check_script(n_answer, is_ok)
+        
+        self.checks.append("{}_cond()".format(n_answer))
+
+        clear_value = "if (!already_checked_obj_ok_" + n_answer + "){"
+        clear_value = clear_value + "document.getElementById('{}').value = ' ';clearAllWBorder('{}');".format(n_answer, n_answer)
+        clear_value = clear_value + "}\n"
+        self.clears.append(clear_value)
+        
+        self.solutions.append("document.getElementById('{}').value = '{}';\n".format(n_answer, correct))
+        self.values.append("values = document.getElementById('" + n_answer + "').value.toString();\n")
+
+        return line
+
+
+
+
 
     # Inputs string/number and check that it matches <condition>
     # <condition> can be of form:
