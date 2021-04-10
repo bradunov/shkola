@@ -182,11 +182,14 @@ class Library(object):
 
 
 
-    def check_one_option_radio(self, options, correct, vertical=False):
+    def check_one_option_radio(self, options, correct, vertical=False, slim=False):
         qid = self.get_object_id()
         n_answer = 'check_radio_answer_{}'.format(qid)
         hspace = "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>"
-        line = "<div id={}> ".format(n_answer)
+        if slim:
+            line = "<div id={} style='display:inline-block'> ".format(n_answer)
+        else:
+            line = "<div id={}> ".format(n_answer)
         clear_str = "{"
 
         is_ok = "is_ok = (document.getElementById('{}_{}').checked);".format(n_answer, correct)
