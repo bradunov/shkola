@@ -5,7 +5,7 @@ Oboj kružić pored tačnog odgovora.
 
 @center@ A @hspacept(5)@ + @hspacept(5)@ @term[2]@  @hspacept(5)@ = @hspacept(5)@ @summA@,  
 
-@center@ @lib.check_one_option(answA,indA)@ 
+@center@ @lib.check_one_option_radio(answA,indA)@ 
 
 
 
@@ -13,4 +13,4 @@ Oboj kružić pored tačnog odgovora.
 
 @center@ @term[3]@ @hspacept(5)@ + @hspacept(5)@ B  @hspacept(5)@ = @hspacept(5)@ @summB@,     
 
-@center@ @lib.check_one_option(answB,indB)@ 
+@center@ @lib.check_one_option_radio(answB,indB)@ 

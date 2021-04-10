@@ -4,7 +4,7 @@ Oboj kružić pored tačnog odgovora.
  
 @vspace@
 
-@center@ @lib.check_one_option(answ,ind,true)@
+@center@ @lib.check_one_option_radio(answ,ind,true)@
                    
  
   

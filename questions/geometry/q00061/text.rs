@@ -4,6 +4,6 @@ Obim pravougaonika na slici je:
 
 @center@ @mycanvas()@                  
 
-@center@ @lib.check_one_option(answ,ind)@
+@center@ @lib.check_one_option_radio(answ,ind)@
 
        

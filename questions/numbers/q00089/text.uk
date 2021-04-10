@@ -3,7 +3,7 @@
 What calculation should you use to find out how much money they have together?
 Select the circle next to the correct answer.
 
-@center@ @lib.check_one_option(answ,ind,true)@ 
+@center@ @lib.check_one_option_radio(answ,ind,true)@ 
 
 @center@ @ime1@ and @ime2@ have @lib.check_number(result)@ pounds altogether.
 

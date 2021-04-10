@@ -5,4 +5,4 @@ Koliko kvadrata ima na slici?
 
 Označi kružić ispred tačnog odgovora.
        
-@lib.check_one_option(answ,index)@  
+@lib.check_one_option_radio(answ,index)@  

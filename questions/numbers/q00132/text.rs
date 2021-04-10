@@ -4,7 +4,7 @@ Oboj kružić u dnu ekrana pored tačnog odgovora.
 
 @center@ @mycanvas(result)@
 
-@center@ @lib.check_one_option(answ,index)@
+@center@ @lib.check_one_option_radio(answ,index)@
 
 
 

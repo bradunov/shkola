@@ -4,7 +4,7 @@ Zapiši nabrajanjem elemenata (od najmanjeg do najvećeg) razliku skupova predst
 
 @center@  @solut[1]@
 @vscape@
-@center@  @lib.check_one_option(answ,indic, true)@
+@center@  @lib.check_one_option_radio(answ,indic, true)@
 @vscape@
 
 

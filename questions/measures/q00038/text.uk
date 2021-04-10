@@ -4,7 +4,7 @@ Select the circle next to the correct answer.
 @vspace@
 @center@ @mycanvas()@                  
 
-@center@ @lib.check_one_option(answ,ind)@
+@center@ @lib.check_one_option_radio(answ,ind)@
 
                   
 

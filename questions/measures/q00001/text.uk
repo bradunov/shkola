@@ -3,7 +3,7 @@ The area of the rectangle in the picture is:
 
 @center@ @mycanvas()@                  
 
-@center@ @lib.check_one_option(answ,ind)@
+@center@ @lib.check_one_option_radio(answ,ind)@
 @vspace@
 
 What units are we using for the area? 

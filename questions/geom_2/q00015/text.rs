@@ -4,5 +4,5 @@ Na mreži su date tačke.
 
 @vspace@
 @center@ Koliko vektora je određeno ovim tačkama?
-@center@ @lib.check_one_option(out,index)@    
+@center@ @lib.check_one_option_radio(out,index)@    
             

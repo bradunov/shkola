@@ -3,7 +3,7 @@
 da pređe još @put2@ @"m"@.  
 
 Oboj kružić ispred jednačine kojom možeš da izračunaš dužinu puta @"x"@. 
-@lib.check_one_option(reply,ind, true)@
+@lib.check_one_option_radio(reply,ind, true)@
 @vspace@
 Reši jednačinu.
 @center@ @padez@ kuća je od bakine kuće udaljena  

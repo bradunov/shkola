@@ -6,9 +6,9 @@ Dati su skupovi
 @vspace@
 Označi koji od zapisa skupova  @"G"@ i @"H"@ je tačan. Ukoliko postoje prazni okviri u tačnom zapisu, dopuni brojeve koji nedostaju.   
 @vspace@
-@center@  @lib.check_one_option(answ1,ind1, true)@          
+@center@  @lib.check_one_option_radio(answ1,ind1, true)@          
 @vspace@            
-@center@  @lib.check_one_option(answ2,ind2, true)@             
+@center@  @lib.check_one_option_radio(answ2,ind2, true)@             
                                    
                      
                   

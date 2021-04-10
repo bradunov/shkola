@@ -3,7 +3,7 @@
 Kojim od navedenih izraza ćeš izračunati nepoznati broj x? 
 Oboj kružić pored tačnog odgovora.
 
-@center@ @lib.check_one_option(answ,ind,true)@ 
+@center@ @lib.check_one_option_radio(answ,ind,true)@ 
 
 @vspace@
 Izračunaj.                                                                                                 
