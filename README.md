@@ -4,6 +4,7 @@ Shkola is a web framework for exercising math for primary school kids.
 It is used to run [tatamata.org](https://www.tatamata.org/) web site. 
 Its current focus is on Serbian language and curriculum, but it can be easily extended to other countries and languages (please reach out if you are interested in helping).
 
+*RS:* Video prezentaciju o Shkoli/Tatamati mozete pogledati [ovde](https://youtu.be/rSYrRwMJ4Vg).
 
 
 ## Structure
