@@ -198,7 +198,8 @@ class Library(object):
         aoptions = list(options.values())
 
         if vertical:
-            line = line + "<div>\n"
+            # Do not add new line here as it breaks JS embedding
+            line = line + "<div>"
         else:
             line = line + hspace
         
@@ -216,9 +217,11 @@ class Library(object):
             cnt = cnt + 1
 
         if vertical:
-            line = line + "</div>\n"
+            # Do not add new line here as it breaks JS embedding
+            line = line + "</div>"
 
-        line = line + "</div>\n"
+        # Do not add new line here as it breaks JS embedding
+        line = line + "</div>"
         
         self.condition_check_script(n_answer, is_ok)
         
@@ -262,7 +265,8 @@ class Library(object):
             line = line + "<option value='{}'>{}</option>".format(opt, opt)
             cnt = cnt + 1
 
-        line = line + "</select>\n"
+        # Do not add new line here as it breaks JS embedding
+        line = line + "</select>"
         
         self.condition_check_script(n_answer, is_ok)
         
