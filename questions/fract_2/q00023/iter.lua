@@ -1,4 +1,6 @@
 
+answ = {"=", "<", ">"}
+
 broj1 = math.random(20);
 broj2 = broj1 + 2 + math.random(20);
 imen = 10 + math.random(30); 

@@ -1,3 +1,6 @@
+
+answ = {"=", "<", ">"}
+
 lnumber1 = math.random(79) + 10;
 lnumber2 = math.random(90 - lnumber1) + 10;
 leftsumm = lnumber1 + lnumber2

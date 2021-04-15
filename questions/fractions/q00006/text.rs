@@ -8,9 +8,10 @@ Posmatraj sliku i odgovori:
 @center@ Jedno celo ima @lib.check_number(8)@ osmina.
 
 @vspace@
-Uporedi razlomke. Upiši znak  < ili > . 
-@center@ Koji deo je veći? @hspacept(3)@ \(\frac{1}{2}\) @lib.check_string(">",20)@ \(\frac{1}{4}\)
-@center@ Koji deo je manji? @hspacept(3)@ \(\frac{1}{8}\) @lib.check_string("<",20)@ \(\frac{1}{4}\)              
+Uporedi razlomke. Izaberi znak  < ili > .
+ 
+@center@ Koji deo je veći? @hspacept(3)@ \(\frac{1}{2}\) @lib.check_one_option_dropdown(answ,">")@ \(\frac{1}{4}\)
+@center@ Koji deo je manji? @hspacept(3)@ \(\frac{1}{8}\) @lib.check_one_option_dropdown(answ,"<")@ \(\frac{1}{4}\)              
 
                   
                 

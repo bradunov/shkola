@@ -5,5 +5,5 @@ Odredi rastojanje njihovih centara @"AB"@.
 @vspace@
 @repeat(3)@
 @place[ind]@
-@center@ @rad1@ = @numb1@@meas@ , @hspacept(3)@ @rad2@ = @numb2@@meas@. @hspacept(15)@ @ans@ 
+@center@ @rad1@ = @numb1@@meas@ , @hspacept(3)@ @rad2@ = @numb2@@meas@. @hspacept(15)@ @reply@ 
 @/repeat@

@@ -1,3 +1,6 @@
+
+answ = {"=", "<", ">"}
+
 number1 = 3 + math.random(7);
 number2 = 3 + math.random(17 - number1);
 
@@ -15,7 +18,7 @@ else
     operation = "-"		  
 end
                   
-value = math.random(17) + 2;                
+value = math.random(17) + 2;   
 
 sign = "="   
 
@@ -24,4 +27,4 @@ end
 
 if (result < value) then sign = "<"
 end
-   
+     

@@ -36,14 +36,14 @@ blue_style =
 dot_style = {["font_size"] = "30"}	
 text_style = {["font_size"] = "16"}
 
-
-name = {"K1(S,r\(_1\))", "K2(T,r\(_2\))"} 
-circ = {"K1", "K2"} 
+name = {"K\(\small_1\)(S,r\(\small_1\))", "K\(\small_2\)(T,r\(\small_2\))"} 
+circ = {"K\(\small_1\)", "K\(\small_2\)"}
 cent = {"S", "T"}
 pt = {"P", "Q", "A", "B", "C", "D"}
 lin = {"SP", "TP", "AB", "CD", "PQ"}
 ang = {"QSP", "QTP", "ASB", "DTC"}
 
+answ = {"=", "<", ">"}
 symb = "\(\angle\)"
 
 ind = math.random(4)
@@ -134,14 +134,14 @@ mycanvas = function(no)
   lib.add_text(3*ov+2*ow, 2*ov+ow, pt[6], text_style)
 
   lib.add_circle(2*ov-ow, 2*(ov-ow), ov+ow, style, false, false)	  
-  lib.add_text(ow, 2*ow, circ[1])
+  lib.add_input(0, 0, 50, 30, circ[1])
   lib.add_text(2*ov-ow, ov+ow, ".", dot_style, false, false)	
   lib.add_text(2*ov-ow-5, 4*ow+5, cent[1], text_style)   
   lib.add_circle(3*ov+ow, 4*ow, ov, style, false, false) 
-  lib.add_text(4*ov+ow, ow, circ[2])
+  lib.add_input(4*ov, 0, 50, 30, circ[2])
   lib.add_text(3*ov+ow, ov, ".", dot_style, false, false)
   lib.add_text(3*ov+ow+5, 3*ow+5, cent[2], text_style)
-  		       
+
   lib.end_canvas()
 end     
        

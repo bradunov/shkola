@@ -1,9 +1,10 @@
  
-Poredi veličine i upiši znak < , >  ili  = :
+Poredi veličine. Izaberi znak = , < ili > .
 
 @repeat(5)@
-@center@ @answ@ 
-@/repeat@           
+@center@ @reply@ 
+@/repeat@ 
+          
 
 
 

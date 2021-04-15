@@ -1,4 +1,6 @@
 
+answ = {"=", "<", ">"}
+
 lnumber1 = math.random(79) + 20;
 lnumber2 = math.random(lnumber1 - 15 ) + 10;
 leftdiff = lnumber1 - lnumber2

@@ -1,7 +1,8 @@
-                                                                  Compare the totals. Use the sign  @hspacept(8)@<@hspacept(4)@, @hspacept(8)@> @hspacept(8)@ or @hspacept(8)@ =@hspacept(4)@.
+
+Compare the totals. Select the sign = , <  or > .
 
 @repeat(6)@ 
-@center@ @number2@ @hspace@ @operation@  @hspace@ @number1@ @hspace@ @lib.check_string(sign, 25)@  @hspace@ @value@
+@center@ @number2@ @hspacept(3)@ @operation@  @hspacept(3)@ @number1@ @hspacept(3)@ @lib.check_one_option_dropdown(answ,sign)@  @hspacept(3)@ @value@
 @/repeat@
   
   

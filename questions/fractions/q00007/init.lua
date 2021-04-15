@@ -1,4 +1,6 @@
 
+answ = {"<", ">"}
+
 fraction_table = function(rows)
   no_columns = 2^(rows-2)*5
   text = lib.start_table()

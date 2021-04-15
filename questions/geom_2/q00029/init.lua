@@ -1,4 +1,4 @@
 
 measure = {"\(^\circ\)", "'", "''"}
-al = "\(\alpha\)"
-bt = "\(\beta\)"    
+al = "\(\small\alpha\)"
+bt = "\(\small\beta\)"  

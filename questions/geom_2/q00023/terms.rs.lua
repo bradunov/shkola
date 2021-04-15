@@ -1,2 +1,2 @@
-msg = {"susedni", "uporedni", "unakrsni", "komplementni", "suplementni"}
+msg = {"susedni", "uporedni", "unakrsni", "komplementni", "suplementni", "jednaki"}
 

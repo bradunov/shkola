@@ -14,8 +14,8 @@ line_style = {["off_color"] = "fff",
 dot_style = {["font_size"] = "35"}	
 text_style = {["font_size"] = "16"}	
 
-name = {"K1(O\(\small_1\),r)", "K2(O\(\small_2\),r)", "K3(O\(\small_3\),r)", "K4(O\(\small_4\),r)"} 
-circ = {"K1", "K2", "K3", "K4"}  	
+name = {"K\(\small_1\)(O\(\small_1\),r)", "K\(\small_2\)(O\(\small_2\),r)", "K\(\small_3\)(O\(\small_3\),r)", "K\(\small_4\)(O\(\small_4\),r)"} 
+circ = {"K\(\small_1\)", "K\(\small_2\)", "K\(\small_3\)", "K\(\small_4\)"}  	
 
 ind = math.random(6)
 
@@ -76,10 +76,10 @@ end
   lib.add_straight_path (2*w, 2*ow+w, {{v, v-ow}}, line_style, false, true)
   lib.add_straight_path (v+2*w, 2*ow+w, {{-v, v-ow}}, line_style, false, true)
 
-  lib.add_text(3*ow, 3*ow, circ[1], text_style)
-  lib.add_text(2*(v-ow), 3*ow, circ[2], text_style)
-  lib.add_text(3*ow, v+2*ow, circ[3], text_style)
-  lib.add_text(2*(v-ow), v+2*ow, circ[4], text_style)  
+  lib.add_input(0, 0, 50, 30, circ[1])
+  lib.add_input(2*(v-2*ow), 0, 50, 30, circ[2])
+  lib.add_input(0, v-ow, 50, 30, circ[3])
+  lib.add_input(2*(v-2*ow), v-ow, 50, 30, circ[4])  
   
   lib.add_text(v+ow/2, ow+w, ".", dot_style, false, false)
   lib.add_text(v+ow/2, w+5, "A", text_style)
@@ -93,5 +93,4 @@ end
   lib.add_text(v+ow/2, 3*w-ow, "E", text_style)
  
   lib.end_canvas()
-end                 
-           
+end        

@@ -1,4 +1,6 @@
 
+answ = {"=", "<", ">"}
+
 lnumber1 = math.random(100) - 1;
 indl = math.random(4)
 lnumber2 = 10^indl;

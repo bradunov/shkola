@@ -6,9 +6,9 @@ Posmatraj sliku i odgovori:
 @center@ Jedno celo ima @lib.check_number(10)@ desetina.
 
 @vspace@
-Uporedi razlomke. Upiši znak < ili >. 
+Uporedi razlomke. Izaberi znak < ili > . 
 Koji deo je veći, \(\frac{1}{5}\) ili \(\frac{1}{10}\)?
-@center@ \(\frac{1}{5}\) @lib.check_string(">",15)@ \(\frac{1}{10}\)
+@center@ \(\frac{1}{5}\) @lib.check_one_option_dropdown(answ,">")@ \(\frac{1}{10}\)
 
 
 

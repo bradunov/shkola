@@ -1,8 +1,8 @@
 
-Uporedi zbirove. Upiši znak <, > ili  = .
+Uporedi zbirove. Izaberi znak = , < ili > .
 
 @repeat(6)@
-@center@ @lnumber1@  +  @lnumber2@ @hspacept(3)@ @lib.check_string(sign, 20)@ @hspacept(3)@ @rnumber1@  +  @rnumber2@ 
+@center@ @lnumber1@  +  @lnumber2@ @hspacept(3)@ @lib.check_one_option_dropdown(answ,sign)@ @hspacept(3)@ @rnumber1@  +  @rnumber2@ 
 @/repeat@
              
          

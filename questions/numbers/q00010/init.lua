@@ -17,6 +17,8 @@ frame_style =
         ["line_color"] = "000",
         ["line_width"] = "1"};
 
+answ = {"=", "<", ">"}
+
 mycanvas = function(no)
 
   w = 40
@@ -74,7 +76,7 @@ lib.start_canvas(350, 300, "center")
   lib.add_input(65, 280, 50, 50, lib.check_number(lsumm))
   lib.add_straight_path (260, 250, {{0, 30}}, frame_style, true, true)
   lib.add_input(235, 280, 50, 50, lib.check_number(rsumm))
-  lib.add_input(150, 280, 50, 50, lib.check_string(sign))
+  lib.add_input(150, 280, 50, 50, lib.check_one_option_dropdown(answ,sign))
   
   lib.end_canvas()
 end                   

@@ -8,10 +8,10 @@ Look at the picture and answer the following:
 @center@ One whole has @lib.check_number(8)@ eighths.
 
 @vspace@
-Compare the fractions. Use the sign  < or > . 
-@center@ Which fraction is bigger? @hspacept(3)@ \(\frac{1}{2}\) @lib.check_string(">",20)@ \(\frac{1}{4}\)
-@center@ Which fraction is smaller? @hspacept(3)@ \(\frac{1}{8}\) @lib.check_string("<",20)@ \(\frac{1}{4}\)                                                   
-                
+Compare the fractions. Select the sign  <  or > . 
+@center@ Which fraction is bigger? @hspacept(3)@ \(\frac{1}{2}\) @lib.check_one_option_dropdown(answ,">")@ \(\frac{1}{4}\)
+@center@ Which fraction is smaller? @hspacept(3)@ \(\frac{1}{8}\) @lib.check_one_option_dropdown(answ,"<")@ \(\frac{1}{4}\)                                                   
+                 
 
                   
                 

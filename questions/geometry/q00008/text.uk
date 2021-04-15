@@ -1,11 +1,10 @@
-                                Which figure continues the sequence? Enter the correct number.
 
-@center@ @lib.check_number(izbor)@
-
+Which figure continues the sequence? 
 @vspace@
  
 @center@ @mycanvas()@
 
+@center@ Enter the correct number. @hspacept(10)@ @lib.check_number(izbor,15)@
 
             
             

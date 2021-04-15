@@ -1,39 +1,42 @@
-broj1 = math.random(10);
+
+answ = {"=", "<", ">"}
+
+br1 = math.random(10);
 ind1 = math.random(2)
 
-broj2 = math.random(10); 
+br2 = math.random(10); 
 ind2 = math.random(2)
 
-if (broj2 == broj1) then 
-    if (broj1 == 1) then   
-	    broj2 = broj2 + 1
+if (br2 == br1) then 
+    if (ind2 == 1) then   
+	    ind1 = 2
 	else
-        broj2 =	broj2 - 1
+            ind1 = 1
 	end
 end	
 
-
 if (ind1 == 1) then
-   broj1 = broj1 * 1000
+   broj1 = br1 * 1000
 else
-   broj1 = broj1 * 10000
+   broj1 = br1 * 10000
 end
     
    
-if (ind2 == 2) then
-   broj2 = broj2 * 1000
+if (ind2 == 1) then
+   broj2 = br2 * 1000
 else
-   broj2 = broj2 * 10000
+   broj2 = br2 * 10000
 end
 
 fact = broj1 - broj2
-znak = "="   
+sign = "="   
 
-if (fact < 0) then znak = "<"
+if (fact < 0) then sign = "<"
 end
 
-if (fact > 0) then znak = ">"
+if (fact > 0) then sign = ">"
 end  
-                         
+                 
+                                      
              
           

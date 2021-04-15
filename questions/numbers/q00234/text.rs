@@ -1,8 +1,8 @@
 
-Uporedi razlike. Upiši znak <, > ili  = .
+Uporedi razlike. Izaberi znak = , < ili > .
 
 @repeat(6)@
-@center@ @leftsumm@  -  @lnumber1@ @hspacept(3)@ @lib.check_string(sign, 25)@ @hspacept(3)@ @rightsumm@  -  @rnumber1@ 
+@center@ @leftsumm@  -  @lnumber1@ @hspacept(3)@ @lib.check_one_option_dropdown(answ,sign)@ @hspacept(3)@ @rightsumm@  -  @rnumber1@ 
 @/repeat@
              
          

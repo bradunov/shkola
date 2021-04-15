@@ -1,6 +1,6 @@
 
 Upiši koliko ima žutih, a koliko zelenih kružića. 
-Uporedi njihov broj, upiši znak < , > ili = .
+Uporedi njihov broj, izaberi znak = , < ili > .
 
 @vspace@
 

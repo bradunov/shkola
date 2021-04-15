@@ -1,9 +1,10 @@
                                  
-Compare the sizes and enter the signs < , >  or  = :
+Compare the sizes.  Select the sign = , <  or > .
 
 @repeat(5)@
-@center@ @answ@ 
-@/repeat@           
+@center@ @reply@ 
+@/repeat@     
+      
 
 
 

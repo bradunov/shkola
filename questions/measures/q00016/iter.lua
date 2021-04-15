@@ -1,3 +1,6 @@
+
+answ = {"=", "<", ">"}
+
 measure = {"mm","cm","dm","m", "km"}
 index = {1,2,3,4,5}
 ind = lib.math.random_shuffle(index)

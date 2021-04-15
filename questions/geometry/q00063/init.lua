@@ -8,6 +8,7 @@ style =
 text_style = {["font_size"] = "16"}
 symb = "\(\small\angle\)"  
 
+answ = {"=", "<", ">"}
 sign = {" "}
 
 name = {"aOb", "cOd", "bOc", "aOc", "bOd", "aOd"}

@@ -1,3 +1,4 @@
+
 include("terms")
 
 style = {["off_color"] = "fff",
@@ -44,45 +45,31 @@ mycanvas = function()
   end		  
 
 
-lib.start_canvas(500, 100, "center", results)
+lib.start_canvas(400, 100, "center", results)
 
-  lib.add_rectangle(20, 50, 60, 20, style, false, true)
-  lib.add_circle(30, 75, 5, style, false, false)
-  lib.add_circle(70, 75, 5, style, false, false)
-  lib.add_curved_path(40, 50, {{40, -30, 40, 0}}, style, false, false)
-  lib.add_straight_path(65, 50, {{0, -15}}, red_line, "", false)
+  ow = 15
+  w = ow/2
+  ov = 20
+  v = 10
+  dm = 15
+  dm4 = dm/4
   
-  lib.add_rectangle(100, 50, 60, 20, style, false, true)
-  lib.add_circle(110, 75, 5, style, false, false)
-  lib.add_circle(150, 75, 5, style, false, false)
-  lib.add_curved_path(120, 50, {{40, -30, 40, 0}}, style, false, false)
-  lib.add_straight_path(145, 50, {{0, -15}}, red_line, "", false)
-
-  lib.add_rectangle(180, 50, 60, 20, different_style, true, false)
-  lib.add_circle(190, 75, 5, style, false, false)
-  lib.add_circle(230, 75, 5, style, false, false)
-  lib.add_curved_path(200, 50, {{40, -30, 40, 0}}, style, false, false)
-  lib.add_straight_path(225, 50, {{0, -15}}, red_line, "", false)
-
-  lib.add_rectangle(260, 50, 60, 20, style, false, true)
-  lib.add_circle(270, 75, 5, style, false, false)
-  lib.add_circle(310, 75, 5, style, false, false)
-  lib.add_curved_path(280, 50, {{40, -30, 40, 0}}, style, false, false)
-  lib.add_straight_path(305, 50, {{0, -15}}, red_line, "", false)
-
-  lib.add_rectangle(340, 50, 60, 20, style, false, true)
-  lib.add_circle(350, 75, 5, style, false, false)
-  lib.add_circle(390, 75, 5, style, false, false)
-  lib.add_curved_path(360, 50, {{40, -30, 40, 0}}, style, false, false)
-  lib.add_straight_path(385, 50, {{0, -15}}, red_line, "", false)
-
-  lib.add_rectangle(420, 50, 60, 20, style, false, true)
-  lib.add_circle(430, 75, 5, style, false, false)
-  lib.add_circle(470, 75, 5, style, false, false)
-  lib.add_curved_path(440, 50, {{40, -30, 40, 0}}, style, false, false)
-  lib.add_straight_path(465, 50, {{0, -15}}, red_line, "", false)
+  q = 1  
+  for i = 1,6 do  
+      if (i == 3) then
+          lib.add_rectangle(q*ow-v, 2*ov+v, 3*dm, dm, different_style, false, false)
+      else
+          lib.add_rectangle(q*ow-v, 2*ov+v, 3*dm, dm, style, false, true)
+      end 	    	  
+      lib.add_circle(q*ow+w-v, 4*ov-v, dm4, style, false, false)
+      lib.add_circle((q+2)*ow+w-v, 4*ov-v, dm4, style, false, false)
+      lib.add_curved_path((q+1)*ow-v, 2*ov+v, {{2*dm, -2*(dm-dm4), 2*dm, 0}}, style, false, false)
+      lib.add_straight_path((q+2)*ow-v+5, 2*ov+v, {{0, -3*dm4}}, red_line, "", false)
+      q = q + 4
+  end
 
   lib.end_canvas()
 end
-
+      
+ 
                   

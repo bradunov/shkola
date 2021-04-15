@@ -9,3 +9,4 @@ Pet tačaka @"A, B, C, D, E"@ su sredine duži koje spajaju centre ovih krugova.
 Oboj ove krugove i liniju koja spaja njihove centre.
 
 
+

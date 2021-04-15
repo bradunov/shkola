@@ -33,6 +33,7 @@ qq[9] = {2,1,0,2,1,2,1,1,0,1}
 qq[10] = {2,1,2,2,1,2,2,1,2,0}
 
 
+answ = {"=", "<", ">"}
 symb = "\(\angle\)"
 
 ow = 15
@@ -113,4 +114,3 @@ mycanvas = function(no)
  		
   lib.end_canvas()
 end     
-

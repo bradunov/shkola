@@ -1,4 +1,6 @@
 
+reply = {"=", "<", ">"}
+
 measure = {"m","dm","cm"}
 numb = {}
 

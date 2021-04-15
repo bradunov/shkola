@@ -1,5 +1,6 @@
-Compare the fractions with equal denominators: 
+
+Compare the fractions with equal denominators. Select the sign = , <  or > . 
 
 @repeat(5)@
-@center@ \(\frac{@broj1@}{@imenilac@}\) @hspace@@lib.check_string(znak)@@hspace@ \(\frac{@broj2@}{@imenilac@}\)
+@center@ \(\frac{@broj1@}{@imenilac@}\) @hspace@@lib.check_one_option_dropdown(answ,sign)@@hspace@ \(\frac{@broj2@}{@imenilac@}\)
 @/repeat@

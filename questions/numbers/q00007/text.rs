@@ -1,8 +1,9 @@
 
 Uporedi broj crvenih i plavih kvadratića.
-Upiši znak <, > ili  = .
+Izaberi znak = , < ili > .
 
 @center@ @mycanvas(no)@
+
 
                   
                   

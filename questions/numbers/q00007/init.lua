@@ -16,6 +16,8 @@ frame_style =
         ["on_color"] = "fff",
         ["line_color"] = "000",
         ["line_width"] = "1"};
+		
+answ = {"=", "<", ">"}		
 
 mycanvas = function(no)
 
@@ -70,10 +72,11 @@ lib.start_canvas(350, 300, "center")
       lib.add_rectangle(x, y, ow, ow, right_style, false, true)
   end
 
-  lib.add_input(150, 10+dim/2, 50, 50, lib.check_string(sign, 33))
+  lib.add_input(150, 10+dim/2, 50, 50, lib.check_one_option_dropdown(answ,sign))
   
   lib.end_canvas()
-end                   
+end   
+
                   
                   
                 

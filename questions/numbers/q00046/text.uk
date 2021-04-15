@@ -2,7 +2,7 @@
 In the rectangles write a number that makes the equality correct. 
 
 @repeat(4)@
-@center@ @decade@ @lib.check_number(number1, 20)@ @hspacept(3)@ @znak@ @hspacept(3)@ @number2@
+@center@ @decade@ @lib.check_number(number1, 15)@ @hspacept(3)@ @znak@ @hspacept(3)@ @number2@
 @/repeat@
 
 

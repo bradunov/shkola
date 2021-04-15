@@ -425,6 +425,26 @@
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00043",
+      "random": "5",
+      "period": "3",
+      "subtheme": "Osna simetrija",
+      "topic": "Simetrala duži i ugla",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00044",
+      "random": "6",
+      "period": "3",
+      "subtheme": "Osna simetrija",
+      "topic": "Simetrala duži i ugla",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
     }
   ]
 }

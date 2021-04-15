@@ -1,14 +1,8 @@
 
-Where is the figure in relation to the box? Write the number next to the correct word, like in the example. 
+Which figure is @msg[ind]@ the box? 
+Colour the circle on the correct box. 
 
 @center@ @mycanvas()@
-
-@center@ under @hspacept(2)@ @4@ @hspacept(10)@ above @lib.check_number(5,10)@ @hspacept(10)@ in front of @lib.check_number(3,10)@  
-
-@center@ in between @lib.check_number(6,10)@ @hspacept(10)@ behind @lib.check_number(1,10)@ @hspacept(10)@ next to @lib.check_number(2,10)@ 
-   
-               
-                  
 
 
             

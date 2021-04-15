@@ -1,5 +1,6 @@
-                                            Compare the number of red and blue squares.
-Use the signs @hspacept(8)@<@hspacept(4)@, @hspacept(8)@> @hspacept(8)@ or @hspacept(8)@ =@hspacept(4)@.
+
+Compare the number of red and blue squares. 
+Select the sign = , <  or > .
 
 @center@ @mycanvas(no)@
 

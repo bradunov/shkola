@@ -3,6 +3,6 @@ Reši nejednačine.
 
 @repeat(5)@
 @vspace@
-@center@ @ineq@,  @hspacept(20)@ x @lib.check_string(relsol,15)@ @lib.check_number(solution)@
+@center@ @ineq@,  @hspacept(20)@ x @lib.check_one_option_dropdown(compare,relsol)@ @lib.check_number(solution)@
 @/repeat@
 

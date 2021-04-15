@@ -1,10 +1,11 @@
 
 measure = {"\(^\circ\)", "'", "''"}
+answ = {"=", "<", ">"}
 
 numb = {}
 index = {}
 value = {}
-answ = {""}
+reply = {""}
 
 for i = 1,3 do
     index[i] = math.random(5) - 1
@@ -49,15 +50,15 @@ end
 
 stampa = math.random(2)
 for j = 1,2 do
-    answ[j] = ""
+    reply[j] = ""
     if (j == stampa) then 
-        answ[j] = tostring(value[j]) .. measure[3]	
+        reply[j] = tostring(value[j]) .. measure[3]	
 	else
         for i = 1,3 do 
             if (numb[j][i] ~= 0) then 
-                answ[j] = answ[j] .. " " .. tostring(numb[j][i]) .. measure[i]
+                reply[j] = reply[j] .. " " .. tostring(numb[j][i]) .. measure[i]
             end		
         end
     end		
 end	
-      
+    

@@ -74,13 +74,9 @@ if (opt == 1) then
             end	
 		else	
             solut[i] = "C" .. " " .. dif .. " " .. "A = " .. bracketl
-			    for j = 1, ind do
-                    tempw = ""
-		        if (j == ind) then
-    	            solut[i] = solut[i] .. lib.check_string(tempw,15)	
-		        else
-    	            solut[i] = solut[i] .. lib.check_number(tempw,15) .. ","
-                end			
+			for j = 1, ind do
+                tempw = ""
+    	        solut[i] = solut[i] .. lib.check_string(tempw,15)	
             end	
 		end	
 	    solut[i] = solut[i] .. bracketr			
@@ -156,7 +152,8 @@ mycanvas = function(no)
       lib.add_text(2*ov+ow, 3*ov+ow, part[3][3], text_style)    
     
   lib.end_canvas()
-end                        
+end                    
+                        
                       
          
                  

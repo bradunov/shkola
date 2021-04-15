@@ -1,10 +1,6 @@
 
-Uporedi brojeve. Upiši znak < , > ili = .
-
+Uporedi brojeve. Izaberi znak = , < ili > .
 @repeat(5)@
-@center@ @broj1@ @hspace@ @lib.check_string(znak, 15)@ @hspace@ @broj2@
+@center@ @broj1@ @hspace@ @lib.check_one_option_dropdown(answ,sign)@ @hspace@@broj2@
 @/repeat@
-
-
-
 

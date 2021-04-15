@@ -10,7 +10,7 @@ different_style = {["off_color"] = "f90",
         ["line_width"] = "2"};
 
 mycanvas = function(no)
-  lib.start_canvas(350, 220, "center")
+  lib.start_canvas(350, 200, "center")
 
   lib.add_triangle(90, 50, 30, 20, style, true, false)
   lib.add_rectangle(110, 10, 20, 50, style, true)

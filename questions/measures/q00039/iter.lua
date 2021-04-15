@@ -1,4 +1,6 @@
 
+answ = {"=", "<", ">"}
+
 measure = {"cm","dm","m"}
 ind = {}
 

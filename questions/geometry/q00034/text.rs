@@ -6,6 +6,6 @@ Oboj  kružić ispred tačnog odgovora.
 @center@ @mycanvas()@
 Na slici je ugao
 @vspace@   
-@lib.check_one_option_radio(answ,ind)@ 
+@center@ @lib.check_one_option_radio(answ,ind)@ 
 @vspace@             
             

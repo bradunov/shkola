@@ -1,0 +1,1 @@
+msg = {"iza", "pored", "ispred", "ispod", "iznad",  "između dve"}                   

@@ -1,3 +1,6 @@
+
+answ = {"=", "<", ">"}
+
 design = math.random(2)
 
 factor1 = math.random(8) + 1

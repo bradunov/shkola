@@ -5,4 +5,4 @@ Na slici je dato nekoliko uglova.
 
 Oboj uglove @first@ i @second@ i  dopuni rečenicu.           
 @vspace@           
-@center@ Uglovi @first@ i @second@  su  @lib.check_string(msg[ind], 100)@.
+@center@ Uglovi @first@ i @second@  su  @lib.check_string(reply, 100, ans)@.

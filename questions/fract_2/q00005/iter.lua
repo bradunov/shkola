@@ -1,4 +1,6 @@
 
+answ = {"=", "<", ">"}
+
 imen1 = 10 + math.random(19)
 broj1 = math.random(imen1-1)
 

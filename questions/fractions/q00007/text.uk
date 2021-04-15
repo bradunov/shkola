@@ -6,9 +6,9 @@ Look at the picture and answer the following:
 @center@One whole has @lib.check_number(10,20)@ tenths.
 
 @vspace@
-Compare the fractions. Use the sign < or >. 
+Compare the fractions. Select the sign <  or > .
 Which fraction is bigger, \(\frac{1}{5}\) or \(\frac{1}{10}\)?	
-@center@ \(\frac{1}{5}\) @lib.check_string(">",15)@ \(\frac{1}{10}\)
+@center@ \(\frac{1}{5}\) @lib.check_one_option_dropdown(answ,">")@ \(\frac{1}{10}\)
 
 
 

@@ -1,10 +1,9 @@
-                                Compare the sizes and enter the sign @hspacept(5)@ < , @hspacept(3)@ > @hspacept(3)@ or @hspacept(3)@ = :
+
+Compare the sizes. Select the sign = , <  or > .
 
 @repeat(5)@ 
-
-@center@ @numleft@ @measure[ind[1]]@ @hspacept(5)@ @lib.check_string(sign,15)@ @hspacept(5)@ @numright@ @measure[ind[2]]@
-
-@/repeat@       
+@center@ @numleft@ @measure[ind[1]]@ @hspacept(5)@ @lib.check_one_option_dropdown(answ,sign)@ @hspacept(5)@ @numright@ @measure[ind[2]]@
+@/repeat@      
                       
          
 

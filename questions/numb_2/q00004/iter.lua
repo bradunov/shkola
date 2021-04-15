@@ -1,4 +1,6 @@
 
+answ = {"=", "<", ">"}
+
 broj1 = 11 - math.random(21);
 broj2 = 11 - math.random(21); 
 
@@ -17,9 +19,10 @@ end
 
 fact = broj1 - broj2 
 
-if (fact < 0) then znak = "<"
+sign = "="
+if (fact < 0) then sign = "<"
 end
 
-if (fact > 0) then znak = ">"
+if (fact > 0) then sign = ">"
 end  
                           

@@ -1,6 +1,8 @@
 
 include("terms")
 
+answ = {"<", ">"}
+
 total = math.random(699999) + 200001
 number = math.random(89) + 11
 numberkg = number * 10^3
@@ -16,6 +18,7 @@ else
     sign = "+"	
 	comp = "<"
 end
+     
                 
             
             
