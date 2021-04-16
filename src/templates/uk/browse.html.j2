@@ -139,7 +139,6 @@
 
 
       function question_onnext() {
-        console.log("1");
         if (solved || showed_sol) {
           if (showed_sol) {
             checkAll("SHOWED", "{{template_params["root"]}}", "BROWSE", 
@@ -149,14 +148,12 @@
           location.href = window.location.href;
           return;
         }
-        console.log("2");
         var check = false;
         if (document.getElementById("popup_wrong_answer").style.visibility == "hidden") {
           // No need to (re-)check if the wrong answer form is open as the answers didn't change
           check = checkAll("SUBMIT", "{{template_params["root"]}}", "BROWSE",
                               "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}");
         }
-        console.log("3");
         if (check) {
           solved = true;
 
@@ -171,13 +168,10 @@
           document.getElementById("cup5").style.visibility = "visible";
           document.getElementById("next_text").innerHTML = "TRY AGAIN";
         } else {
-          console.log("5");
           //if (!showed_wrong) {
           if (document.getElementById("popup_wrong_answer").style.visibility == "hidden") {
             popup_toggle_wrong_answer("visible");
-            console.log("6");
           } else {
-            console.log("7");
             if (document.getElementById("wr_again").checked) {
               //document.getElementById("wrong_answer").style.visibility = "hidden";
               popup_toggle_wrong_answer("hidden");
@@ -186,13 +180,11 @@
               // Delete all wrong answers
               // NB: we decided not to delete wrong answers so that the kids knew what went wrong
               clearAll();
-              console.log("8");
             } else if (document.getElementById("wr_solution").checked) {
               //document.getElementById("wrong_answer").style.visibility = "hidden";
               popup_toggle_wrong_answer("hidden");
               popup_toggle_reveal("visible");
               question_show_solution();
-              console.log("9");
             } 
           }
         }

@@ -34,12 +34,12 @@ class LibMath(object):
                     feedback['rand_val'] = rnd_val_"""+ str(self.lib_id) + """;
                     xhr.open('POST', url);
                     xhr.onreadystatechange = function() {
-                        console.log("Received");
-                        console.log(xhr);
-                        if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
                     };
                     xhr.setRequestHeader('Content-Type', 'application/json');
-                    console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
                     xhr.send(JSON.stringify(feedback));
                 }
             </script>
@@ -417,8 +417,7 @@ class Library(object):
 
         str_condition = condition
         clear_str = ""
-
-
+        values = ""
 
         # We use '' in JS strings so make sure there is no ' character in the condition
         if isinstance(str_condition, str):
@@ -436,6 +435,9 @@ class Library(object):
                 logging.error("Free form fractional condition in question {} but no solution given.\n{}".format(
                     self.question_url, helpers.get_stack_trace()
                     ))
+            if values:
+                values += ", "
+            values += "'numerator' : " + str(s_answer_numerator) + ".toString()"
 
             
         if known is not None and "denominator" in known.keys():
@@ -449,6 +451,9 @@ class Library(object):
                 logging.error("Free form fractional condition in question {} but no solution given.\n{}".format(
                     self.question_url, helpers.get_stack_trace()
                     ))
+            if values:
+                values += ", "
+            values += "'denominator' : " + str(s_answer_denominator) + ".toString()"
 
 
         input_whole = "<input " + self.input_style + " type='text' size='1' id='" + n_answer_whole + "' />"
@@ -465,6 +470,9 @@ class Library(object):
                     logging.error("Free form fractional condition in question {} but no solution given.\n{}".format(
                         self.question_url, helpers.get_stack_trace()
                         ))
+                if values:
+                    values += ", "
+                values += "'whole' : " + str(s_answer_whole) + ".toString()"
 
 
         input_frac = input_frac + "<td style=\"border-bottom:solid 1px;text-align:center\">" + input_numerator + "</td>\n"
@@ -487,10 +495,8 @@ class Library(object):
 
         self.solutions.append(solution_str)
 
-        values = "values = { 'numerator' : " + str(s_answer_numerator) + \
-                 ".toString(), 'denominator' : " + str(s_answer_denominator) + ".toString() };\n"
-        if whole:
-            values += "values['whole'] = " + str(s_answer_whole) + ".toString();\n"
+
+        values = "values = { " + values + " };\n"
         self.values.append(values)
 
         #self.page.add_lines( input_frac )
@@ -1251,12 +1257,12 @@ class Library(object):
             report['response_type'] = type;
             xhr.open('POST', url);
             xhr.onreadystatechange = function() {
-                console.log("Received");
-                console.log(xhr);
-                if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
             };
             xhr.setRequestHeader('Content-Type', 'application/json');
-            console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
             xhr.send(JSON.stringify(report));
 
             attempt = attempt + 1;
