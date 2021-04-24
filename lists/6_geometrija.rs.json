@@ -1,0 +1,130 @@
+{
+  "name": "6 Geometrija",
+  "level": "6",
+  "level_short": "6",
+  "theme": "Geometrija",
+  "language": "rs",
+  "rank_theme": "3",
+  "questions": [
+    {
+      "name": "geom_2/q00045",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Pojam, elementi, vrste ",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00046",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Pojam, elementi, vrste ",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00047",
+      "random": "6",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Pojam, elementi, vrste ",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00048",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Stranice i uglovi ",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00049",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Stranice i uglovi ",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00050",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Stranice i uglovi ",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00051",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Stranice i uglovi ",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00052",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Stranice i uglovi ",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00053",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Stranice i uglovi ",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00054",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Stranice i uglovi ",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00055",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Stranice i uglovi ",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00056",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Stranice i uglovi ",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    }
+  ]
+}
