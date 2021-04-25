@@ -5,6 +5,7 @@ U ovom dokumentu se nalaze instrukcije za korišćenje programskog paketa Shkola
 
 ## Izmena i dopuna kategorizacije zadataka po nastavnom programu
 
+### Pregled i objašnjenje kategorizacije
 
 Klasifikacija zadataka po uzrastu i oblastima se nalazi u Excel fajlu koji možete direktno preuzeti sa ove adrese: [https://github.com/bradunov/shkola/raw/master/lists/lists.rs.xlsx](https://github.com/bradunov/shkola/raw/master/lists/lists.rs.xlsx). Tabela izgleda ovako: 
 
@@ -51,3 +52,20 @@ Veza između naziva oblasti i sličica je definisana [ovde](https://github.com/b
 
 
 
+### Dodavanje novog školskog programa
+
+Sada ćemo kroz primer pokazati kako dodati novi školski program. 
+Pretpostavimo da želimo da kreiramo novi program za predškolski uzrast. 
+Za to ćemo koristiti broj razreda 0. 
+
+Recimo da želimo da kreiramo novu oblast *Položaj* i temu *Levo, desno, sredina* u delu Geometrija. 
+Tada ćemo jednostavno dodati novi red na kraju Excel tabele. 
+Zadatak mora biti zapisan u Excel tabu Geometry a broj zadatka mora biti 1, jer je njegova jedinstevna šifra geometry/q00001.
+Polje *Random* je najbolje samo kopirati iz ulaza sa istim zadatkom.   
+Ostala polja možemo specifikovati po želji, u zavisnosti kako želimo meni da izgleda. 
+U ovom slučaju kreiramo novu oblast i temu. 
+Da bi dodali druge zadatke u istu oblast ili temu, jednostavno treba da koristimo isto ime oblasti i teme. 
+Takođe, ako je potrebno, možemo promeniti i naziv dela. 
+Evo kako to sve izgleda na primeru:
+
+![Dodavanje novog zadataka u Excelu](img/nova_lista_zadataka.png "Dodavanje novog zadataka u Excelu")
