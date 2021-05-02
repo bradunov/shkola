@@ -436,6 +436,51 @@ class Repository(object):
 
 
 
+    # Find the details (like topic, difficulty) for q_id within level and theme. 
+    # In the results we log the topic, difficulty, etc for the test, not for the question itself.
+    # So we may record topic = "*", difficulty = "*", etc. Here, we recover the corresponding value.
+    # TBD: we should be fixed, and we should record the actual values in the response
+    def get_content_question_detail(self, language, level, theme, subtheme, q_id):
+        # Special provisioning for Serbian cyrillic
+        if language == PageLanguage.RSC.value:
+            language = PageLanguage.RS.value
+        else:
+            language = language.lower().strip()
+
+        level = level.lower().strip()
+        theme = theme.lower().strip()
+        subtheme = subtheme.lower().strip()
+
+        if language not in self.content.keys() or \
+            level not in self.content[language].keys() or \
+            theme not in self.content[language][level].keys():
+            return []
+
+        q_info = None
+
+        for k,v in self.content[language][level][theme].items():
+            if k == "name" or k == "rank":
+                continue
+
+            if not v["questions"]:
+                continue
+
+            if v["questions"][0]["subtheme"].lower().strip() != subtheme:
+                continue
+
+            for q in v["questions"]:
+                if q["name"] == q_id:
+                    q_info = q
+                    break
+
+            if q_info: 
+                break
+
+        return q_info
+
+
+
+
     def get_content_questions(self, language, level, theme, subtheme=None, topic=None, period=None, difficulty=None):
         #language = language.lower().strip()
 

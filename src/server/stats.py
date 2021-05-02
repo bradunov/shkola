@@ -162,24 +162,44 @@ class Stats(object):
             if not stats_time or r["Timestamp"] > stats_time:
                 stats_time = r["Timestamp"]
 
-            if l_id not in page.repository.lists.keys():
-                logging.warning("List {} from result ({}) not in the list of lists!".format(l_id, r))
-                continue
+            if "year" in r.keys() and "theme" in r.keys() and "subtheme" in r.keys() and "difficulty" in r.keys():
+                level = r["year"]
+                level_short=page.r["year"]
+                theme = r["theme"]
+                subthemes = r["subtheme"]
+                topic = r["topic"]
+                difficulty = r["difficulty"]
 
-            q_info = None
-            for q in page.repository.lists[l_id]["questions"]:
-                if q["name"] == q_id:
-                    q_info = q
-                    break
-            
-            if q_info == None:
-                logging.warning("Question {} from result ({}) not in list {}!".format(q_id, r, l_id))
-                continue
+                if topic == "*" or difficulty == "*":
+                    q_info = page.repository.get_content_question_detail(lang, level, theme, subthemes, q_id)
+                    if not q_info or "topic" not in q_info.keys() or "difficulty" not in q_info.keys():
+                        if difficulty == "*":
+                            difficulty = "1"
+                    else:
+                        topic = q_info["topic"]
+                        difficulty = q_info["difficulty"]
 
-            level = page.repository.lists[l_id]["level"]
-            level_short=page.repository.lists[l_id]["level_short"]
-            theme = page.repository.lists[l_id]["theme"]
-            subthemes = q_info["subtheme"]
+            else:
+                if l_id not in page.repository.lists.keys():
+                    logging.warning("List {} from result ({}) not in the list of lists!".format(l_id, r))
+                    continue
+
+                q_info = None
+                for q in page.repository.lists[l_id]["questions"]:
+                    if q["name"] == q_id:
+                        q_info = q
+                        break
+                
+                if q_info == None:
+                    logging.warning("Question {} from result ({}) not in list {}!".format(q_id, r, l_id))
+                    continue
+
+                level = page.repository.lists[l_id]["level"]
+                level_short=page.repository.lists[l_id]["level_short"]
+                theme = page.repository.lists[l_id]["theme"]
+                subthemes = q_info["subtheme"]
+                difficulty = q_info["difficulty"]
+
 
             # subthemes can be an array or a singleton, so always convert to an array
             if type(subthemes) == str:
@@ -197,8 +217,6 @@ class Stats(object):
                 theme = Transliterate.rs(theme)
                 subthemes = [Transliterate.rs(s) for s in subthemes]
 
-            #period = q_info["period"]
-            difficulty = q_info["difficulty"]
 
 
             parsed_q = Stats._parse_questions(r["questions"])
