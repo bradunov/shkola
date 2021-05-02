@@ -164,7 +164,7 @@ class Stats(object):
 
             if "year" in r.keys() and "theme" in r.keys() and "subtheme" in r.keys() and "difficulty" in r.keys():
                 level = r["year"]
-                level_short=page.r["year"]
+                level_short = r["year"]
                 theme = r["theme"]
                 subthemes = r["subtheme"]
                 topic = r["topic"]

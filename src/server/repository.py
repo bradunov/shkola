@@ -442,10 +442,10 @@ class Repository(object):
     # TBD: we should be fixed, and we should record the actual values in the response
     def get_content_question_detail(self, language, level, theme, subtheme, q_id):
         # Special provisioning for Serbian cyrillic
-        if language == PageLanguage.RSC.value:
+        if language == PageLanguage.RSC:
             language = PageLanguage.RS.value
         else:
-            language = language.lower().strip()
+            language = language.value
 
         level = level.lower().strip()
         theme = theme.lower().strip()
