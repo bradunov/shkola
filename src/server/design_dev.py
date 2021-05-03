@@ -354,7 +354,19 @@ class Design_dev(object):
             q["attributes"]["User"] = f["user_id"]
             q["attributes"]["Comment"] = f["comment"]
 
-            rand_vals = list(json.loads(f["random_vals"].replace("'", "\"")).values())
+            # This one-liner doesn't preserve value ordering in python 3.6
+            # rand_vals = list(json.loads(f["random_vals"].replace("'", "\"")).values())
+            json_vals = json.loads(f["random_vals"].replace("'", "\""))
+            sorted_json_vals = {}
+            for k,v in json_vals.items():
+                if "rnd_arr_" in k: 
+                    num_k = k[8:]
+                else:
+                    num_k = k[4:]
+                sorted_json_vals[int(num_k)] = v
+            rand_vals = []
+            for k,v in sorted(sorted_json_vals.items()):
+                rand_vals.append(v)
 
             q["link"] = page.page_params.create_url_edit( \
                                     op = PageOperation.VIEW, \

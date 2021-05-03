@@ -95,10 +95,12 @@ class LibMath(object):
             rnd = random.randint(m, n)
         else:
             rnd = random.randint(1, n)
+
         if self.rand_vals and self.rand_vals_cnt < len(self.rand_vals) and \
-                isinstance(self.rand_vals[self.rand_vals_cnt], (int, float)):
+                not isinstance(self.rand_vals[self.rand_vals_cnt], list):
             rnd = self.rand_vals[self.rand_vals_cnt]
             self.rand_vals_cnt += 1
+
         self.page.add_script_lines("<script> rnd_val_{}['rnd_{}'] = {};</script>".format(
             self.lib_id, self._rnd_id, rnd))
         self._rnd_id = self._rnd_id + 1
