@@ -12,6 +12,7 @@ import server.question as question
 from server.storage_az_table import Storage_az_table
 from datetime import datetime, timedelta
 
+import json
 import logging
 
 class Design_dev(object):
@@ -353,6 +354,8 @@ class Design_dev(object):
             q["attributes"]["User"] = f["user_id"]
             q["attributes"]["Comment"] = f["comment"]
 
+            rand_vals = list(json.loads(f["random_vals"].replace("'", "\"")).values())
+
             q["link"] = page.page_params.create_url_edit( \
                                     op = PageOperation.VIEW, \
                                     language = PageLanguage.toStr(language), 
@@ -360,8 +363,9 @@ class Design_dev(object):
 
             # Generate question and paste it into the list 
             page.page_params.set_param("q_id", q_id)
-            gq = question.Question(page, language=language)
+            gq = question.Question(page, language=language, rand_vals=rand_vals)
             gq.set_from_file_with_exception()
+
             try:
                 gq.eval_with_exception()
             except:

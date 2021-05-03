@@ -78,7 +78,7 @@ class Question(object):
     # This breaks edit mode
     #@timer_section("question.init")
     def __init__(self, page, q_id=None, language=None, test_id=None, test_order=None, 
-                 init_code=None, iter_code=None, text=None):
+                 init_code=None, iter_code=None, text=None, rand_vals=None):
                  
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.page = page
@@ -130,7 +130,7 @@ class Question(object):
         else:
             self.text = page.page_params.get_param("text")
 
-        self.lib = Library(self)
+        self.lib = Library(self, rand_vals=rand_vals)
         logging.debug("Rendering question %s, language=%s", 
             self.question_url(), PageLanguage.toStr(self.language))
         self.questions_root_path = self.rel_path + "/" + self.questions_rel_path

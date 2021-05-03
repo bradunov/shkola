@@ -10,10 +10,13 @@ from server.types import PageLanguage
 
 class LibMath(object):
     _rnd_id = 0
-    def __init__(self, question):
+    def __init__(self, question, rand_vals=None):
         self.lua = question.lua
         self.page = question.page
         self.lib_id = question.q_unique_id
+        self.rand_vals = rand_vals
+        self.rand_vals_cnt = 0
+
         self.page.add_script_lines("""
             <script> 
                 var alread_shown_solutions = false;
@@ -73,6 +76,11 @@ class LibMath(object):
         # Have to convert to Python array explicitly
         parray = list(array.values())
         random.shuffle(parray)
+        if self.rand_vals and self.rand_vals_cnt < len(self.rand_vals) and \
+                isinstance(self.rand_vals[self.rand_vals_cnt], list) and \
+                    len(parray) == len(self.rand_vals[self.rand_vals_cnt]):
+            parray = self.rand_vals[self.rand_vals_cnt]
+            self.rand_vals_cnt += 1
         self.page.add_script_lines("<script> rnd_val_{}['rnd_arr_{}'] = {};</script>".format(
             self.lib_id, self._rnd_id, parray))
         self._rnd_id = self._rnd_id + 1
@@ -87,6 +95,10 @@ class LibMath(object):
             rnd = random.randint(m, n)
         else:
             rnd = random.randint(1, n)
+        if self.rand_vals and self.rand_vals_cnt < len(self.rand_vals) and \
+                isinstance(self.rand_vals[self.rand_vals_cnt], (int, float)):
+            rnd = self.rand_vals[self.rand_vals_cnt]
+            self.rand_vals_cnt += 1
         self.page.add_script_lines("<script> rnd_val_{}['rnd_{}'] = {};</script>".format(
             self.lib_id, self._rnd_id, rnd))
         self._rnd_id = self._rnd_id + 1
@@ -116,13 +128,13 @@ class Library(object):
     canvas_items = []
 
     
-    def __init__(self, question):
+    def __init__(self, question, rand_vals=None):
         self.page = question.page
         self.object_id = 0
         # If we have more questions on the same page make sure all use pseudo-random thus unique IDs
         self.lib_id = question.q_unique_id
         self.lua = question.lua
-        self.math = LibMath(question)
+        self.math = LibMath(question, rand_vals=rand_vals)
         self.question_url = question.question_url()
         self.clear()
 
