@@ -157,7 +157,7 @@ class PageLanguage(Enum):
     @classmethod
     def get_default(cls, browser_lang):
         # Default (for now)
-        default = PageLanguage.RS
+        default = PageLanguage.RSC
 
         browser_mapping = [
             ["sr-Latn", PageLanguage.RS], 
