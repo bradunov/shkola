@@ -14,6 +14,11 @@ page["total_bar"]["star2"] = 2
 page["total_bar"]["star3"] = 2
 page["total_bar"]["missed"] = 2
 
+# page["total_bar"]["star1"] = 0
+# page["total_bar"]["star2"] = 0
+# page["total_bar"]["star3"] = 0
+# page["total_bar"]["missed"] = 5
+
 page["type_bar"] = {}
 page["type_bar"]["star1"] = 2
 page["type_bar"]["star2"] = 2
@@ -24,7 +29,7 @@ page["type_bar"]["missed"] = 2
 file_loader = jinja2.FileSystemLoader("..")
 env = jinja2.Environment(loader=file_loader)
 
-template = env.get_template("rs/summary.html.j2")
+template = env.get_template("uk/summary.html.j2")
 print(template.render(template_params=page))
 
 
