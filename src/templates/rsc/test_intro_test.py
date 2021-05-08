@@ -3,7 +3,7 @@ import jinja2
 
 page = {}
 page['title'] = 'Shkola'
-page['item_path'] = 'item?url='
+page['item_path'] = '../src/'
 
 page['beta'] = True
 
