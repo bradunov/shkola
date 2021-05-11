@@ -125,6 +125,136 @@
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00057",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Podudarnost ",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00058",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Podudarnost ",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00059",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Podudarnost ",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00060",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Podudarnost ",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00061",
+      "random": "0",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Podudarnost ",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00062",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Značajne duži I tačke trougla ",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00063",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Značajne duži I tačke trougla ",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00064",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Trougao",
+      "topic": "Stranice i uglovi ",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00065",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Značajne duži I tačke trougla ",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00066",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Značajne duži I tačke trougla ",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00067",
+      "random": "6",
+      "period": "3",
+      "subtheme": "Četvorougao",
+      "topic": "Pojam, vrste, uglovi",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00068",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Četvorougao",
+      "topic": "Pojam, vrste, uglovi",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00069",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Četvorougao",
+      "topic": "Pojam, vrste, uglovi",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
     }
   ]
 }

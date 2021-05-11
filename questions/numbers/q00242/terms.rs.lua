@@ -1,0 +1,2 @@
+
+name = {"sličicu", "sličice", "sličica"}

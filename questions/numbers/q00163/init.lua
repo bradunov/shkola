@@ -2,22 +2,28 @@
 addition_table = function()
   columns = 5
 
-
   devide = math.random(5) + 1;
-  factor = math.random(7 - devide) + 1;
+  factor = math.random(7 - devide) + 2;
+  if (devide == factor) then
+     factor = factor - 1
+  end
+  
+  q = {}  
+  term = {}
+  for i = 0,columns-1 do  
+      q[i] = {}
+	  term[i] = math.random(8)
+      q[i][1] = devide * term[i]	  
+      val = q[i][1] * factor
+	  if (val > 100) then
+	      factor = 2
+	  end
+  end	  
 
-  q = {}
-  for i=0,columns-1 do
-    q[i] = {}
-	term = math.random(8)
-    q[i][1] = devide * term
-    q[i][2] = q[i][1] * factor
-	if (q[i][2] > 100) then
-	    factor = 2
-		q[i][2] = q[i][1] * factor
-	end	
-    q[i][3] = factor * term
-    q[i][4] = math.random(3)
+  for i = 0,columns-1 do
+      q[i][2] = q[i][1] * factor
+      q[i][3] = factor * term[i]
+      q[i][4] = math.random(3)
   end
 
   style = {}
@@ -46,7 +52,7 @@ addition_table = function()
   return text
 end
 
-    
+ 
       
       
     
