@@ -9,6 +9,7 @@ import server.context as context
 import server.helpers as helpers
 from server.user_db import GOOGLE_CLIENT_ID, GOOGLE_SITE_VERIFICATION, GOOGLE_TAG_MANAGER
 from server.design import Design
+from server.stat_charts import add_anon_stats
 
 #from server.timers import timer_section
 
@@ -425,6 +426,27 @@ class Page(object):
                     hist[-1]["correct"] = correct
                     hist[-1]["incorrect"] = incorrect
                     context.c.session.set("history", hist)
+
+
+                # We register temporary stats for anonymous users that are stored with the cookie
+                if (user_id == "UNKNOWN" or user_id == "local:UNKNOWN") and \
+                    context.c.session.get("last_q_year") and context.c.session.get("last_q_theme") and \
+                    context.c.session.get("last_q_subtheme") and context.c.session.get("difficulty"):
+
+                    year = context.c.session.get("last_q_year")
+                    theme = context.c.session.get("last_q_theme")
+                    subtheme = context.c.session.get("last_q_subtheme")
+                    difficulty = context.c.session.get("difficulty")
+
+                    anon_stats = context.c.session.get("anon_stats")
+                    if not anon_stats:
+                        anon_stats = {}
+                        context.c.session.set("anon_stats", anon_stats)
+
+                    add_anon_stats(self, anon_stats, args["q_id"], \
+                            PageLanguage.fromStr(language), \
+                            year, theme, subtheme, difficulty, correct, incorrect)
+
 
 
                 response = {"user_id" : user_id,

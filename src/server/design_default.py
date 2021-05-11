@@ -276,16 +276,16 @@ class Design_default(object):
 
         page.template_params['menu'].append(lists)
 
-        # Do not show results to an anonymous user
-        if not user_picture is None:
-            page.template_params['menu'].append({
-                "name" : page.get_messages()["results"].upper(),
-                "link" : new_page_params.create_url(
-                    op = PageOperation.STATS, 
-                    language = PageLanguage.toStr(page.page_params.get_param("language")), \
-                    beta = True if page.page_params.get_param("beta") else None 
-                )
-            })
+        # # Do not show results to an anonymous user
+        # if not user_picture is None:
+        page.template_params['menu'].append({
+            "name" : page.get_messages()["results"].upper(),
+            "link" : new_page_params.create_url(
+                op = PageOperation.STATS, 
+                language = PageLanguage.toStr(page.page_params.get_param("language")), \
+                beta = True if page.page_params.get_param("beta") else None 
+            )
+        })
 
         # "name" : "Izloguj se (" + context.c.user.name + ")",
         page.template_params['menu'].append({
