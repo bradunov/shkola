@@ -1,0 +1,4 @@
+
+name = {"pravouglog", "jednakokrakog"}
+
+		 

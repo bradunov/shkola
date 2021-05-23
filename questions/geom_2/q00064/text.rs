@@ -1,6 +1,7 @@
 
-Uglovi @trian@@"ABC"@ su 
-@center@ @quest@
+Ako uglovi @trian@@"ABC"@ zadovoljavaju uslov 
+@center@ @quest@ 
+izračunaj mere tih uglova.
 @vspace@
 Uglovi @trian@@"ABC"@ su
 @center@ @symb[1]@ = @lib.check_number(ang[1],30)@@meas@, @hspacept(15)@ @symb[2]@ = @lib.check_number(ang[2],30)@@meas@, @hspacept(15)@ @symb[3]@ = @lib.check_number(ang[3],30)@@meas@.

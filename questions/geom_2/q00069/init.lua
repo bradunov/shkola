@@ -9,25 +9,13 @@ dif_style =
 	{["off_color"] = "none",
         ["on_color"] = "none",
         ["line_color"] = "000",
-        ["line_width"] = "1"};		
-		
-red_style = 
-	{["off_color"] = "ffe6cc",
-        ["on_color"] = "ffe6cc",
-        ["line_color"] = "000",
-        ["line_width"] = "1"};
+        ["line_width"] = "1"};				
 
 blue_style = 
 	{["off_color"] = "cff",
         ["on_color"] = "cff",
         ["line_color"] = "000",
-        ["line_width"] = "1"};		
-
-yelow_style = 
-	{["off_color"] = "ff0",
-        ["on_color"] = "ff0",
-        ["line_color"] = "000",
-        ["line_width"] = "1"};				
+        ["line_width"] = "1"};					
 		
 text_style = {["font_size"] = "14"}		
 
@@ -148,6 +136,7 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end 
+      
       
        
   

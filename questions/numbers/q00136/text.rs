@@ -1,6 +1,6 @@
 
 Izračunaj postepeno, kao u primeru:
-@hspacept(60)@ @nik@  -  @lac@ @hspacept(3)@  = @hspacept(3)@ @nik@  - @cif2@ - @val2@  
+@center@ @nik@  -  @lac@ @hspacept(3)@  = @hspacept(3)@ @nik@  - @cif2@ - @val2@  
 @center@ @hspacept(30)@ =  @hspacept(3)@ @val1@  -  @val2@ @hspacept(3)@  = @hspacept(3)@ @rez@
 
 @repeat(3)@

@@ -62,10 +62,5 @@ for i = 1,3 do
 	else
         text = tostring( math.floor(numb[i]))
     end	
-    if (i == 3) then
-        fin = "."
-    else
-        fin = ", "
-    end		
-    quest = quest .. sp .. sp .. sp .. symb[i] .. " = " .. text .. symb[4] .. fin
+    quest = quest .. sp .. sp .. sp .. symb[i] .. " = " .. text .. symb[4] .. ", "
 end	

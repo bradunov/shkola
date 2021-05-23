@@ -1,0 +1,42 @@
+
+Oboj svakom trapezu veću osnovicu. 
+                                                                               
+@center@ @mycanvas()@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+Kojim vrstama pripadaju trapezi na slici? 
+@center@ 1. @lib.check_one_option_dropdown(name, name[3])@ @hspacept(30)@ 2. @lib.check_one_option_dropdown(name, name[2])@
+@center@ 3. @lib.check_one_option_dropdown(name, name[1])@ @hspacept(30)@ 4. @lib.check_one_option_dropdown(name, name[3])@
+@center@ 5. @lib.check_one_option_dropdown(name, name[1])@ @hspacept(30)@ 6. @lib.check_one_option_dropdown(name, name[2])@
+@center@ 7. @lib.check_one_option_dropdown(name, name[2])@ @hspacept(30)@ 8. @lib.check_one_option_dropdown(name, name[3])@
+                                                                                                                                                                                                      
+
+
+
+            
+
+
+
+                         
+
+
+
+
+
+
+
+
+
+                         
+
+           
+       
+
+       
+     
+            
+            
+            
+            
+            
+            
+
