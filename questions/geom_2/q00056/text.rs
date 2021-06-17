@@ -1,12 +1,13 @@
 
-U jednakokrakom trouglu (@"AB = AC"@) dat je jedan ugao (vidi sliku).
- 
+U jednakokrakom trouglu dat je jedan ugao (vidi sliku)
+@center@ @numb[ch]@ = @quest@ 
+@vspace@ 
 @center@ @mycanvas()@ 
 Kojoj vrsti (prema uglovima) pripada trougao?
-Poređaj po rastućem redosledu stranice trougla. (Stranice označi  temenima.)
-@vspace@
+@center@ Trougao je @lib.check_string(result, 70, ans)@.
 
-@center@ @numb[ch]@ = @quest@ @hspacept(15)@ Trougao je @lib.check_string(result, 70, ans)@.
+@vspace@
+Poređaj po rastućem redosledu stranice trougla (stranice označi  temenima).
 @center@ @reply@
 
             

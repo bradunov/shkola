@@ -1,0 +1,5 @@
+msg = {"pravougli", "jednakokraki", "kosougli"}
+
+
+
+		 

@@ -355,6 +355,126 @@
       "rank_subtheme": "2",
       "rank_topic": "3",
       "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00079",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Četvorougao",
+      "topic": "Trapez",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00080",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Četvorougao",
+      "topic": "Trapez",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00081",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Četvorougao",
+      "topic": "Trapez",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00082",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Četvorougao",
+      "topic": "Trapez",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00083",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Četvorougao",
+      "topic": "Trapez",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00084",
+      "random": "5",
+      "period": "3",
+      "subtheme": "Površina figure",
+      "topic": "Podudarne figure",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00085",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Površina figure",
+      "topic": "Podudarne figure",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00086",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Površina figure",
+      "topic": "Pravougaonik, kvadrat",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00087",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Površina figure",
+      "topic": "Pravougaonik, kvadrat",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00088",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Površina figure",
+      "topic": "Pravougaonik, kvadrat",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00089",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Površina figure",
+      "topic": "Paralelogram, trougao, trapez",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00090",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Površina figure",
+      "topic": "Paralelogram, trougao, trapez",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
     }
   ]
 }
