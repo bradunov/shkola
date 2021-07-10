@@ -22,14 +22,3 @@ surface_m = math.floor(surface/dim)
 surface_c = surface - surface_m * dim
 
 
-denom = 1 + math.random(4)
-
-temp = math.floor(surface/(denom*dim))
-rest = surface - temp * denom*dim
-if (rest == 0) then 
-    result = temp
-else
-    result = temp + 1	
-end	
-
-
