@@ -64,7 +64,7 @@ meas = {"cm", "cm\(\small^2\)"}
 sp = "\(   \) "
 	
 name = {"1", "2", "3", "4", "5", "6", "7", "8"}
-area = {3, 1.5, 3.5, 3, 6.75, 3, 5, 7.5}
+area = {1.5, 0.75, 1.75, 1.5, 3.375, 1.5, 2.5, 3.75}
 
 ch = {}
 dim = 8
@@ -78,7 +78,7 @@ end
 qq = lib.math.random_shuffle(ch)
 
 for i = 1,4 do
-    answ[i] = name[qq[i]] .. sp .. sp .. sp .. lib.check_number(area[qq[i]],30) .. meas[2]
+    answ[i] = name[qq[i]] .. sp .. sp .. sp .. lib.check_number(area[qq[i]],35) .. meas[2]
 end	
 
 

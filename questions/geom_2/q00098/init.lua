@@ -58,7 +58,7 @@ meas = {"cm", "cm\(\small^2\)"}
 sp = "\(   \) "
 	
 name = {"1", "2", "3", "4", "5", "6", "7"}
-area = {5.25, 6, 8, 6, 4, 7.5, 8}
+area = {2.625, 3, 4, 3, 2, 3.75, 4}
 
 ch = {}
 dim = 7
@@ -72,7 +72,7 @@ end
 qq = lib.math.random_shuffle(ch)
 
 for i = 1,4 do
-    answ[i] = name[qq[i]] .. sp .. sp .. sp .. lib.check_number(area[qq[i]],30) .. meas[2]
+    answ[i] = name[qq[i]] .. sp .. sp .. sp .. lib.check_number(area[qq[i]],35) .. meas[2]
 end	
 
 
@@ -111,7 +111,7 @@ mycanvas = function()
     end
      	
   lib.end_canvas()
-end         
+end          
       
             
             

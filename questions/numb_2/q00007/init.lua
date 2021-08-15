@@ -2,7 +2,7 @@
 include("terms")
 
 addition_table = function()
-  columns = 8
+  columns = 6
   min_range = 9
   max_range = 20
 
@@ -39,5 +39,3 @@ addition_table = function()
 
   return text
 end
-
-  

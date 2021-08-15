@@ -1,0 +1,13 @@
+                                                
+By how much is
+
+@repeat(3)@
+the @operat1[sign[1]]@ of the numbers @number[1]@ and @number[2]@ @operat3[sign[3]]@ by the @operat2[sign[2]]@ of the numbers @number[3]@ and @number[4]@?
+@center@ Result is @lib.check_number(result,30)@. 
+@/repeat@  
+                     
+           
+
+            
+            
+            

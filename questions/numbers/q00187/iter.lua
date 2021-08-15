@@ -1,14 +1,9 @@
+
 include("terms")
 
 ind1 = math.random(2);
 sign1 = operat1[ind1]
-
-if (ind1 == 1) then
-    sign2 = operat2a[ind2]
-else
-    sign2 = operat2i[ind2]	
-end	
-
+	
 term1 = math.random(69900) + 20100;
 term2 = math.random(term1 - 15000) + 10000;
 
@@ -51,5 +46,7 @@ else
        sign2 = operat2i[1]	
    end	
 end
+
+         
 
          

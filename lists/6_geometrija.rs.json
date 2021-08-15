@@ -555,6 +555,26 @@
       "rank_subtheme": "3",
       "rank_topic": "3",
       "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00099",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Površina figure",
+      "topic": "Paralelogram, trougao, trapez, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00100",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Površina figure",
+      "topic": "Paralelogram, trougao, trapez, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "3"
     }
   ]
 }

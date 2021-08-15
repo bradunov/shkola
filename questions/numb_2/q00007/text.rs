@@ -1,5 +1,5 @@
 
-Dopuni tabelu koja prikazuje promenu temperature izraženu u &#8451:
+Dopuni tabelu koja prikazuje promenu temperature izraženu u ℃:
 
 @addition_table()@
 

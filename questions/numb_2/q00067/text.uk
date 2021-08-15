@@ -1,0 +1,12 @@
+                                                                                
+Write an equation and work out the answer using the given number line.
+Enter the numbers which are missing.
+
+@center@ @mycanvas()@
+
+@center@ @value1@ +  @lib.check_number(value2,20)@ + ( @lib.check_number(value3,20)@ ) + ( @lib.check_number(value4,20)@ ) =  @lib.check_number(result,20)@  
+            
+            
+            
+            
+            
