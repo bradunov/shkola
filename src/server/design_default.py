@@ -248,14 +248,14 @@ class Design_default(object):
             #                 js = False)
             #         })
 
-            # Year 6+ are not complete so we only show in beta mode
+            # Year 7+ are not complete so we only show in beta mode
             # I had an error in logs, not sure why (some inconsistency in input data):
             #   File "./server/design_default.py", line 238, in add_menu
             #   if int(level) <= 4 or page.page_params.get_param("beta"):
             #   ValueError: invalid literal for int() with base 10: 'first'
             # so added exception handling for ValueError
             try:
-                if int(level) <= 5 or page.page_params.get_param("beta"): 
+                if int(level) <= 6 or page.page_params.get_param("beta"): 
                     lists['submenu']['options'].append({
                         "name" : level.upper(),
                         "link" : new_page_params.create_url( \
@@ -424,8 +424,8 @@ class Design_default(object):
             i = 0
             for ynumber in sorted(ordered.keys()):
 
-                # Year 6+ are not complete so we only show in beta mode
-                if int(ordered[ynumber]) <= 5 or page.page_params.get_param("beta"): 
+                # Year 7+ are not complete so we only show in beta mode
+                if int(ordered[ynumber]) <= 6 or page.page_params.get_param("beta"): 
                     year = ordered[ynumber]
 
                     page.template_params['button']['choices'].append({
