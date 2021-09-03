@@ -1,0 +1,3 @@
+msg = "deljenje nulom"
+
+

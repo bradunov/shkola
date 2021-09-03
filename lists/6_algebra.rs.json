@@ -25,6 +25,36 @@
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00019",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Jednačine ",
+      "topic": "Sa celim brojevima",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00020",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Jednačine ",
+      "topic": "Sa celim brojevima",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00021",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Jednačine ",
+      "topic": "Sa celim brojevima",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "3"
     }
   ]
 }
