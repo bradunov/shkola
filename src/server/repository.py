@@ -334,10 +334,10 @@ class Repository(object):
                 "language" not in list_dict.keys():
                 logging.debug("Skipping list %s in content - no level or theme or questions or language", list_name)
                 continue
-            language = list_dict["language"].lower()
-            level = list_dict["level"].lower()
-            level_short = list_dict["level_short"].lower()
-            theme = list_dict["theme"].lower()
+            language = list_dict["language"].lower().strip()
+            level = list_dict["level"].lower().strip()
+            level_short = list_dict["level_short"].lower().strip()
+            theme = list_dict["theme"].lower().strip()
             rank_theme = list_dict["rank_theme"]
             questions = list_dict["questions"]
             if language not in self.content.keys():
@@ -363,7 +363,8 @@ class Repository(object):
                 if isinstance(q["subtheme"], list): 
 
                     for st in q["subtheme"]:
-                        label = "{}|{}|{}|{}".format(st.lower(), q["topic"].lower(), q["period"].lower(), q["difficulty"].lower())
+                        label = "{}|{}|{}|{}".format(st.lower().strip(), q["topic"].lower().strip(), \
+                            q["period"].lower().strip(), q["difficulty"].lower().strip())
 
                         if label not in self.content[language][level][theme].keys():
                             self.content[language][level][theme][label] = {
@@ -394,7 +395,8 @@ class Repository(object):
                         else:
                             self.content[language][level][theme][label]["questions"].append(next_q)
                 else:
-                    label = "{}|{}|{}|{}".format(q["subtheme"].lower(), q["topic"].lower(), q["period"].lower(), q["difficulty"].lower())
+                    label = "{}|{}|{}|{}".format(q["subtheme"].lower().strip(), q["topic"].lower().strip(), \
+                        q["period"].lower().strip(), q["difficulty"].lower().strip())
 
                     if label not in self.content[language][level][theme].keys():
                         self.content[language][level][theme][label] = {
@@ -496,7 +498,7 @@ class Repository(object):
         if language not in self.content.keys() or \
             level not in self.content[language].keys() or \
             theme not in self.content[language][level].keys():
-            return []
+            return {}
 
         questions = {}
 
