@@ -1,9 +1,4 @@
 
-include("terms")
-
-set = {2, 2, 2, 3, 3, 5, 7}
-relat = {">", "<"}
-
 enum = {}
 denom = {}
 whl = {}
@@ -12,7 +7,7 @@ value = {}
 qq = {}
 
 choice = math.random(2)
-max = 50
+max_range = 50
 for i = 1,2 do
     qq = lib.math.random_shuffle(set)
     ind = math.random(2)
@@ -28,7 +23,7 @@ for i = 1,2 do
             denom[i] = denom[i] * qq[j];	
 		end	
 	end	 
-    enum[i] = 5 + math.random(max);	 
+    enum[i] = 5 + math.random(max_range);	 
     value[i] = enum[i] / denom[i]
     if (value[i] == math.floor(value[i])) then
 	    enum[i] = enum[i] + 1
@@ -99,18 +94,21 @@ if (broj ~=0) then
 end
 	
 index = math.random(2)	
+fct = math.random(2) -1
+sg = sign + 2*fct
+  
 quest = ""
 if (index == 1) then
-    quest = msg1[1] .. oper[sign] .. msg1[2] .. term1 .. msg1[3] .. comp[sign] .. msg1[4] .. term3
+    quest = msg1[1] .. oper[sign] .. msg1[2] .. term1 .. msg1[3] .. comp[sg] .. msg1[4] .. term3
 else
-    quest = msg2[1] .. oper[sign] .. term2 .. msg2[2] .. comp[sign] .. msg1[4] .. term3
+    quest = msg2[1] .. oper[sign] .. term2 .. msg2[2] .. comp[sg] .. msg1[4] .. term3
 end
 
 if (index == 2) then  
     if (sign == 2) then
-        reply = "0 \(\leq\) x " .. relat[2] 	
+        reply = "0 " .. lib.check_one_option_dropdown(relat, relat[4]) .. " x " .. lib.check_one_option_dropdown(relat, relat[sg]) 	
 	else
-        reply = "x " .. relat[1]
+        reply = "x " .. lib.check_one_option_dropdown(relat, relat[sg])
     end		
     if (whl[1] == 0) then
         condition = "is_ok = math.eq(numerator/denominator, "..tostring(value[1])..");"	          
@@ -122,7 +120,7 @@ if (index == 2) then
         reply = reply .. lib.check_fraction_condition(condition, true, nil, solution)
     end	
 else
-    reply = "x " .. relat[1] 
+    reply = "x " .. lib.check_one_option_dropdown(relat, relat[1+2*fct]) 
     if (whl[2] == 0) then            
         condition = "is_ok = math.eq(numerator/denominator, "..tostring(value[2])..");"	          
         solution = "numerator="..tostring(enum_p[2])..";denominator="..tostring(denom[2])..";"
@@ -132,6 +130,5 @@ else
         solution = "numerator="..tostring(enum_p[2])..";denominator="..tostring(denom[2])..";whole="..tostring(whl[2])..";"
         reply = reply .. lib.check_fraction_condition(condition, true, nil, solution)
     end	
-end	         
+end	                  
           
-     

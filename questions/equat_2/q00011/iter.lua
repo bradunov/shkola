@@ -1,9 +1,15 @@
 
+enum = {}
+denom = {}
+whl = {}
+enum_p = {}
+value = {}
+qq = {}  
+
 index = math.random(4) 
-sg = math.random(2)
 
 choice = 5 - math.random(4)
-max = 50
+max_range = 50
 for i = 1,2 do
     qq = lib.math.random_shuffle(set)
     ind = math.random(2)
@@ -19,7 +25,7 @@ for i = 1,2 do
             denom[i] = denom[i] * qq[j];	
 		end	
 	end	 
-    enum[i] = 5 + math.random(max);	 
+    enum[i] = 5 + math.random(max_range);	 
     value[i] = enum[i] / denom[i]
     if (value[i] == math.floor(value[i])) then
 	    enum[i] = enum[i] + 1
@@ -108,23 +114,22 @@ else
     end	
 end	
 
+sg = math.random(2)
 neq = ""
 if (index == 1) then
-    neq = "x : " .. term2 .. " " .. comp_g[sg] .. term3
-	reply = "x " .. comp_g[sg] .. ans	
+    neq = "x : " .. term2 .. " " .. sign[2+sg] .. " " .. term3
+	reply = "x " .. lib.check_one_option_dropdown(sign, sign[2+sg]) .. " " .. ans	
 end
 if (index == 2) then
-    neq = "x : " .. term2 .. " " .. comp_l[sg] .. term3
-	reply = lib.check_number(0,15) .. comp_l[1] .. " x " .. comp_l[sg] .. ans
+    neq = "x : " .. term2 .. " " .. sign[sg] .. " " .. term3
+	reply = lib.check_number(0,15) .. " " .. lib.check_one_option_dropdown(sign, sign[1]) .. " x " .. lib.check_one_option_dropdown(sign, sign[sg]) .. " " .. ans
 end
 if (index == 3) then
-    neq = term1 .. " : x " .. comp_g[sg] .. term3	
-	reply = lib.check_number(0,15) .. comp_l[2] .. " x " .. comp_l[sg] .. ans	
+    neq = term1 .. " : x " .. sign[2+sg] .. " " .. term3	
+	reply = lib.check_number(0,15)  .. " ".. lib.check_one_option_dropdown(sign, sign[2]) .. " x " .. lib.check_one_option_dropdown(sign, sign[sg]) .. " " .. ans	
 end
 if (index == 4) then
-    neq = term1 .. " : x " .. comp_l[sg] .. term3
-	reply = "x " .. comp_g[sg] .. ans		
+    neq = term1 .. " : x " .. sign[sg] .. " " .. term3
+	reply = "x " .. lib.check_one_option_dropdown(sign, sign[2+sg]) .. " " .. ans		
 end
-	
-  	
       

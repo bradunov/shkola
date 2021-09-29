@@ -2,9 +2,9 @@
 include("terms")
 
 addition_table = function()
-  columns = 6
-  min = 3
-  max = 6
+  columns = 5
+  min = 9
+  max = 18
 	
   q = {}
   denom = {}
@@ -63,3 +63,4 @@ addition_table = function()
 
   return text
 end
+            

@@ -9,17 +9,3 @@ Rešenja prikaži na brojevnoj polupravoj tako što ćeš obojiti oblast rešenj
 Oboj i kružić ukoliko granična tačka pripada oblasti rešenja.
 @center@ @mycanvas()@           
                     
-                              
-            
-            
- 
-
-            
-            
-            
-                    
-            
-            
-            
-            
- 

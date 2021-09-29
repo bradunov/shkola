@@ -3,8 +3,8 @@ operation = {"·", ":"}
 ind = math.random(2)
 sign = operation[ind]
 
-compare = {"<", ">"}
-index = math.random(2)
+compare = {"<", ">", "≤", "≥"}
+index = math.random(4)
 relat = compare[index]
 
 factor1 = math.random(59) + 21
@@ -21,8 +21,12 @@ if (stampa == 1) then
     if (ind == 2) then
 	    term = prod
         solution = factor2;
-        result = factor1;				
-	    relsol = compare[3 - index]
+        result = factor1;	
+        if (index < 3) then		
+	        relsol = compare[3 - index]
+		else
+	        relsol = compare[7 - index]
+        end			
 	end
 	ineq = tostring(term) .. " " .. sign .. " x " .. relat .. " " .. tostring(result)
 else
@@ -33,4 +37,4 @@ else
 	end
     ineq = "x " .. sign .. " " .. tostring(term) .. " " .. relat .. " " .. tostring(result)
 end	
-               
+      

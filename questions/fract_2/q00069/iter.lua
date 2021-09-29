@@ -4,8 +4,7 @@ answ2 = ""
 
 brac = {"\(\big ( \)", "\(\big ) \)"}
 
-
-max = 8
+max = 7
 imenilac1 = 2 + math.random(max);
 brojilac1 =  math.random(2*max);
 imenilac2 = 1 + math.random(max + 1);
@@ -65,7 +64,6 @@ else
 		end	
     end
 end
- 	
  	
 
 

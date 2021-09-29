@@ -3,10 +3,10 @@ x1 = "x\(\small_1\)"
 x2 = "x\(\small_2\)"
 
 fact = math.random(20) - 1;
-term = 15 - math.random(29);
-
-if (fact == 0 and term == 0) then
-	term = - math.random(min_range) 
+term = math.random(15);
+sg = math.random(2)
+if (sg == 1) then
+	term = - term 
 end		
 
 answ1 = ""

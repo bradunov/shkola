@@ -1,54 +1,45 @@
 
-ind = math.random(4)
-
 bracketl = "{"
 bracketr = "}"
+sign = {"<", ">", "≤", "≥"} 
 
-if (ind == 1) then	
-    term2 = math.random(5) + 3;
-    noneq = "x " .. " \(\lt\) " .. tostring(math.floor(term2))  
-	answ = "x " .. "\(\in\) " .. bracketl
-	for i = 1, term2 - 2 do
-	    answ = answ .. lib.check_number(i,10) .. ", "
-	end	
-    temp = term2 - 1
-	answ = answ .. lib.check_number(temp,10) .. bracketr
-end 
 
-if (ind == 2) then	
-    term1 = math.random(59) + 20;
-    term2 = term1 + 2 + math.random(5)
-    noneq = tostring(math.floor(term1)) .. " \(\lt\) " .. " x " .. " \(\lt\) " .. tostring(math.floor(term2))  
-	answ = "x " .. "\(\in\) " .. bracketl
-	for i = term1 + 1, term2 - 2 do
-	    answ = answ .. lib.check_number(i,20) .. ", "
-	end	
-    temp = term2 - 1 
-	answ = answ .. lib.check_number(temp,20) .. bracketr
-end  
+ind1 = math.random(4)
 
-if (ind == 3) then	
-    term2 = math.random(5) + 3;
-    noneq = "x " .. "\(\leq\) " .. tostring(math.floor(term2))  
-	answ = "x " .. "\(\in\) " .. bracketl
-	for i = 1, term2 - 1 do
-	    answ = answ .. lib.check_number(i,10) .. ", "
-	end	 
-	answ = answ .. lib.check_number(term2,10) .. bracketr
-end 	
+if (ind1 == 1 or ind1 == 3) then
+    ind2 = 2*math.random (2) - 1
+else
+    ind2 = 2*math.random (2)
+end	
 
-if (ind == 4) then	
-    term1 = math.random(59) + 20;
-    term2 = term1 + 2 + math.random(5)
-    noneq = tostring(math.floor(term2)) .. " \(\gt\) " .. " x " .. " \(\geq\) " .. tostring(math.floor(term1))  
-	answ = "x " .. "\(\in\) " .. bracketl
-	for i = term1, term2 - 2 do
-	    answ = answ .. lib.check_number(i,20) .. ", "
-	end	
-    temp = term2 - 1 
-	answ = answ .. lib.check_number(temp,20) .. bracketr
-end                 
+term1 = math.random(59)  - 1;
+term2 = term1 + 2 + math.random(5)
+step = 1
+if (ind1 == 2 or ind1 == 4) then
+     tmp = term1
+	 term1 = term2
+	 term2 = tmp
+	 step = -1
+end	 
 
-             
+noneq = tostring(math.floor(term1)) .. " " .. sign[ind1] .. " x " .. sign[ind2] .. " " .. tostring(math.floor(term2))  
+answ = "x " .. "\(\small\in\) " .. bracketl
 
-             
+if (ind1 < 3) then
+    min_range = 1 
+else
+    min_range = 0 
+end
+max_range = math.abs(term2 - term1) - 1
+if (ind2 > 2) then
+    max_range = max_range + 1
+end
+
+for i = min_range, max_range do
+    numb = term1 + step * i 
+        if (i < max_range) then 
+	        answ = answ .. lib.check_number(numb,20) .. ", "
+	    else
+	        answ = answ .. lib.check_number(numb,20) .. bracketr	
+	    end	
+end	

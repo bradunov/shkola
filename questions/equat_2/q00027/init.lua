@@ -1,0 +1,181 @@
+
+style = 
+       {["off_color"] = "000",
+        ["on_color"] = "000",
+        ["line_color"] = "000",
+        ["line_width"] = "2"};
+
+dif_style = 
+	{["off_color"] = "fff",
+        ["on_color"] = "f90",
+        ["line_color"] = "000",
+        ["off_line_color"] = "000",
+        ["line_width"] = "2"};		
+
+text_style = {["font_size"] = "16"}
+
+set = {2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+enum = {}
+denom = {}
+whl = {}
+enum_p = {}
+value = {}
+qq = {}
+term = {""}
+ch = {}
+
+sign = {"<", ">", "≤", "≥"} 
+index = math.random(4) 
+
+max_rang = 20
+for i = 1,2 do
+    qq = lib.math.random_shuffle(set)
+	denom[i] = qq[1]
+    enum[i] = 2 + math.random(max_rang);	 
+    value[i] = enum[i] / denom[i]
+    if (value[i] == math.floor(value[i])) then
+	    enum[i] = enum[i] + 1
+	end	
+	if (i == 2 and fact == 2) then
+	    fact = 1
+    else		
+	    fact = math.random(2)
+	end	
+	if (fact == 1) then
+        enum[i] = - enum[i]
+	end	
+	value[i] = enum[i] / denom[i]	
+end	
+
+enum[3] = enum[1] * enum[2]
+denom[3] = denom[1] * denom[2] 
+
+for i = 1,3 do
+    term[i] = ""
+    q = lib.math.gcd(enum[i], denom[i])
+    denom[i] = denom[i] / q
+    enum[i] = enum[i] / q
+    value[i] = enum[i]/denom[i]
+    tmp = math.floor(value[i] * 10)
+	rest = value[i] * 10 - tmp		
+    if (value[i] > 0) then
+        whl[i] = math.floor(value[i])
+    else 
+        whl[i] = math.ceil(value[i])
+    end
+    enum_p[i] = enum[i]	- whl[i] * denom[i]
+    if (i == 1) then
+        sht = enum_p[1]
+    end
+    if (rest == 0) then	
+	    term[i] = lib.dec_to_str(lib.math.round_dec(value[i], 1))
+        ch[i] = 1
+	else		
+        if (whl[i] ~= 0) then
+            term[i] = term[i] .. tostring(whl[i])  
+			enum_p[i] = math.abs(enum_p[i])
+        end
+        term[i] = term[i] .. "\(\frac{" .. tostring(math.floor(enum_p[i])) .. "}{" .. tostring(math.floor(denom[i])) .. "}\)"	
+        ch[i] = 2
+	end
+end
+
+neq = ""
+answ1 = ""
+answ2 = ""
+
+if (ch[1] == 1) then	
+        answ1 = lib.check_number(value[1],30)	
+else 
+    if (whl[1] ~= 0) then
+        answ1 = lib.check_number(whl[1],20)  
+    end
+	tmp = enum_p[1]/denom[1]	
+ 	condition2 = "is_ok = math.eq(numerator/denominator, "..tostring(tmp)..");"
+    sln2 = "numerator="..tostring(enum_p[1])..";denominator="..tostring(denom[1])..";"
+    answ2 = answ2 .. lib.check_fraction_condition(condition2, nil, nil, sln2)
+end
+
+if (fact == 1) then
+    if (index < 3) then
+        if (index == 1) then
+            ind = 2
+        else
+            ind = 1
+        end
+    else		
+        if (index == 3) then
+            ind = 4
+        else
+            ind = 3
+		end	
+    end				
+else
+ 	ind = index 
+end  
+neq = term[2] .. " * x " .. sign[index] .. " " .. term[3]	  	
+reply = "x " .. lib.check_one_option_dropdown(sign, sign[ind]) .. " " .. answ1 .. answ2		
+
+dist = 2
+leng = 2 * dist
+part = denom[1] 	
+first = whl[1] - dist
+last =  whl[1] + dist
+int = leng * part
+
+if (ind < 3) then
+    if (ind == 2) then
+        results = "result[0] == 0 && result[1] == 1 && result[2] == 0" 
+    else
+        results = "result[0] == 1 && result[1] == 0 && result[2] == 0"	
+    end
+else
+    if (ind == 4 ) then
+        results = "result[0] == 0 && result[1] == 1 && result[2] == 1" 
+    else
+        results = "result[0] == 1 && result[1] == 0 && result[2] == 1"	
+    end	
+end	
+	
+
+mycanvas = function()
+  lib.start_canvas(340, 120, "center", results)
+
+
+  ow = 40
+  w = 15
+  v = 30
+  ov = 5
+
+  scale1 = math.floor(300/int)
+  scale2 = part * scale1
+  mark = dist*scale2 + sht*scale1 
+  
+  lib.add_straight_path(w, 2*ow, {{mark, 0}, {0, -ow}, {-mark, 0}}, dif_style, false, true)
+  lib.add_straight_path(w+8, ow-3, {{-8, 3}, {8, 3}}, style, false, false) 
+  lib.add_straight_path(w + leng*scale2, 2*ow, {{-leng*scale2+mark, 0}, {0, -2*v}, {leng*scale2-mark, 0}}, dif_style, false, true)
+  lib.add_straight_path(w+leng*scale2-8, 2*(ow-v)-3, {{8, 3}, {-8, 3}}, style, false, false) 
+
+  lib.add_straight_path(w, 2*ow, {{leng*scale2, 0}}, style, false, false)     
+  
+  for i = 2, int + 1 do 
+      lib.add_straight_path(w+(i-1)*scale1, 2*ow, {{0, 5}, {0, -10}}, style, false, false)
+  end 
+
+  for i = 1, leng + 1 do 
+      number = first + i - 1
+      lib.add_straight_path(w+(i-1)*scale2, 2*ow, {{0, 10}, {0, -20}}, style, false, false)
+      lib.add_input(2+(i-1)*scale2, 2*(ow+w), 40, 30, lib.check_number(number, 25))	  
+  end
+   
+  lib.add_circle (w+mark, 2*ow, 4, dif_style, false, true)
+
+  lib.end_canvas()
+end     
+            
+
+  
+
+
+  

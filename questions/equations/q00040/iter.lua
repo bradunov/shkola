@@ -1,9 +1,10 @@
+
 include("terms")
 
 ind = math.random(2)
 
-compare = {">", "<"}
-index = math.random(2)
+compare = {">", "<", "≥", "≤"} 
+index = math.random(4)
 relat = compare[index]
 
 bracketl = "{"
@@ -24,21 +25,37 @@ else
     sign = "-"
 end	
 
-if(index == 1) then
-    answ = "x " .. "\(\in\) " .. bracketl
-    for i = 1, stampa do
+answ = "x " .. "\(\small\in\) " .. bracketl
+
+if (index == 1 or index == 3) then 
+    if (index == 1) then
+        min_range = 1 
+        max_range = stampa		
+    else
+        min_range = 0 
+        max_range = stampa - 1		
+    end	
+	for i = min_range, max_range do 
 	    out = solution + i
 	    answ = answ .. lib.check_number(out,20) .. ", "		
     end	
-    answ = answ .. " ... " .. bracketr	
-else
-	answ = "x " .. "\(\in\) " .. bracketl .. lib.check_number(1, 20) .. ", " .. lib.check_number(2, 20) .. ", ..." 
-    for i = 1, stampa do
-	    out = solution - stampa - 1 + i
+    answ = answ .. " ... " 		
+end
+
+if (index == 2 or index == 4) then 
+	if (index == 2) then
+        min_range = 0 
+        max_range = stampa -1		
+    else
+        min_range = 1 
+        max_range = stampa 		
+    end
+	answ = answ .. lib.check_number(1, 20) .. ", ..." 
+    for i = min_range, max_range do
+	    out = solution - stampa  + i
 	    answ = answ .. ", " .. lib.check_number(out,20) 
     end		
-    answ = answ .. bracketr
 end	
 
-            
-           
+answ = answ .. bracketr	
+          

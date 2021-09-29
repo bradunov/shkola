@@ -1,8 +1,9 @@
 
 Reši jednačine i proveri rešenja. 
 
-@repeat(4)@
-@center@ @quest@ @hspacept(25)@ x =  @lib.check_number(factor[3])@ 
+@repeat(3)@
+@center@ @quest@ 
+@center@ @answ1@, @hspacept(10)@@answ2@ 
 @vspace@
 @/repeat@    
 

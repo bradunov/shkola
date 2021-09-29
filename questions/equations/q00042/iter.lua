@@ -1,84 +1,82 @@
 
-compare = {"<", ">"}
-
+compare = {"<", ">", "≤", "≥"}
+index = math.random(4)
+relat = compare[index]
+	
 operat = {"+", "-"}
 ind = math.random(2)
 
-sign1 = " "
+factor3 = math.random(10) + 4
+factor2 = factor3 + 3 + math.random(10)
 
-factor1 = math.random(15) + 4
-factor2 = math.random(99 - factor1) + 31
-factor3 = math.random(15) + 4
+choice = math.random(4)
 
-
-
-if (ITEM == 1) then
-    index = math.random(2)
-    relat = compare[index]   
-    sign1 = "·"
-    sign2 = operat[ind]	
+if (choice == 1) then   
+    sign2 = "*"
+    sign1 = operat[ind]	
+    factor1 = math.random(15) + 4	
 	if (ind == 1) then
-		value = (factor2 + factor3) * factor1
+	    value = factor1 * factor2 + factor3
 		relatsol = relat
 	else
-	    value = (factor2 - factor3) * factor1 
-		relatsol = compare[3 - index]
+	    value = factor1 * factor2 - factor3 	
 	end	
-	result = factor3	
-	answ = " (" .. tostring(factor2) .. " " .. sign2 .. " x) " .. sign1 .. " " .. tostring(factor1) .. " " .. relat .. " " ..  tostring(value)
+	relatsol = relat	
+	answ = tostring(factor1) .. " " .. sign2 .. " x " .. sign1 .. " " .. tostring(factor3) .. " " .. relat .. " " ..  tostring(value)
 end
 
-if (ITEM == 2) then  
-    index = math.random(2)
-    relat = compare[index] 
-    sign1 = "·"
-    sign2 = operat[ind]	
+if (choice == 2) then  
+    sign2 = "*"
+    sign1 = operat[ind]	
+	factor1 = math.random(15) + 4
 	if (ind == 1) then
-		value = factor2 + factor3 * factor1
-		relatsol = relat
+		value = factor1 * (factor2 + factor3)
 	else
-	    temp = factor3 * factor1
-        if (factor2 <= temp) then
-            factor2 = temp + 11 + math.random(19)
-        end			
-	    value = factor2 - temp 
-		relatsol = compare[3 - index]
+		value = factor1 * (factor2 - factor3)		 
 	end
-	result = factor3	
-	answ = tostring(factor2) .. " " .. sign2 .. " x " .. sign1 .. " " .. tostring(factor1) .. " " .. relat .. " " ..  tostring(value)
+	relatsol = relat	
+	answ = tostring(factor1) .. " " .. sign2 .. " (x " .. sign1 .. " " .. tostring(factor3) .. ") " .. relat .. " " ..  tostring(value)
 end
 
-if (ITEM == 3) then 
-    index = math.random(2)
-    relat = compare[index]  
-	sign1 = ":"
-    sign2 = operat[ind]	
+if (choice == 3) then 
+	sign2 = ":"
+    sign1 = operat[ind]	
+	tmp = factor3 + 2 + math.random(5)
+	factor1 = tmp * factor2
 	if (ind == 1) then
-		value = factor2 * factor1 - factor3
-		relatsol = relat
+		value = tmp + factor3
 	else		
-	    value = factor2 * factor1 + factor3
-		relatsol = compare[3 - index]
+	    value = tmp - factor3
 	end	
-	result = factor3
-	answ = "( " .. tostring(value) .. " " .. sign2 .. " x) " .. sign1 .. " " .. tostring(factor1) .. " " .. relat .. " " .. tostring(factor2)
+    if (index < 3) then
+		relatsol = compare[3 - index]	
+    else
+		relatsol = compare[7 - index]
+    end			
+	answ = tostring(factor1) .. " " .. sign2 .. " x " .. sign1 .. " " .. tostring(factor3) .. " " .. relat .. " " .. tostring(value)
 end
 
-if (ITEM == 4) then  
-    index = math.random(2)
-    relat = compare[index] 
-	sign1 = ":"
-    sign2 = operat[ind]	
+if (choice == 4) then  
+	sign2 = ":"
+    sign1 = operat[ind]	
+	value = 3 + math.random(7)	
 	if (ind == 1) then
-		value = factor2 + factor3
+	    factor1 = value * (factor2 + factor3)
 		relatsol = relat
 	else		
-	    value = factor2 - factor3
-		relatsol = compare[3 - index]
+	    factor1 = value * (factor2 - factor3)
 	end	
-	result = factor1 * factor3	
-	answ = tostring(factor2) .. " " .. sign2 .. " x " .. sign1 .. " " .. tostring(factor1) .. " " .. relat .. " " .. tostring(value)
+	if (index < 3) then
+		relatsol = compare[3 - index]	
+    else
+		relatsol = compare[7 - index]
+    end	
+	answ = tostring(factor1) .. " " .. sign2 .. " (x " .. sign1 .. " " .. tostring(factor3) .. ") " .. relat .. " " .. tostring(value)
 end
+
+result = factor2
+    
+     
      
   
 

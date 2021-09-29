@@ -8,7 +8,7 @@ enum_p = {}
 value = {}
 qq = {}
 
-comp = {"\(\leq\)", "\(\lt\)", "\(\geq\)", "\(\gt\)"}
+comp = {"≤", "<", "≥", ">"}
 
 ineq = math.random(4)
 

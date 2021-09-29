@@ -8,7 +8,7 @@ enum_p = {}
 value = {}
 qq = {}
 
-comp = {">", "<"}
+comp = {">", "<", "≥", "≤"}    
 choice = 5 - math.random(4)
 max = 20
 for i = 1,2 do
@@ -55,11 +55,21 @@ if (test1 > 3 or test2 > 3) then
             end
         end
     end		
-    index = 1
+    index = 2*math.random(2) - 1
 	nmax = math.floor(value[1] / value[2])
+	if (value[1] - nmax * value[2] == 0) then
+        if (index == 1) then
+            nmax = nmax - 1
+        end
+    end		
 else
-    index = 2
+    index = 2*math.random(2)
 	nmax = math.floor(value[1] * value[2])	
+	if ( nmax - value[1] * value[2] == 0) then
+        if (index == 2) then
+            nmax = nmax - 1
+        end
+    end		
 end	
 
 if (choice < 3) then
@@ -103,10 +113,10 @@ else
 end	
 
 neq = ""
-if (index == 1) then	
-    neq = term1 .. " : n " .. comp[1] .. term2	
+if (index == 1 or index == 3) then	
+    neq = term1 .. " : n " .. comp[index] .. " " .. term2	
 else
-    neq = "n : " .. term1 .. " " .. comp[2] .. term2
+    neq = "n : " .. term1 .. " " .. comp[index] .. " " .. term2
 end
 
 stampa = 5	
@@ -120,12 +130,11 @@ if (nmax > 1) then
 	    reply = reply .. ", " .. lib.check_number(2,15) .. ", ... "  	
         for i = 1, 2 do
 	        out = nmax - 2 + i
-	        reply = reply .. ", " .. lib.check_number(out,15) 
+	        reply = reply .. ", " .. lib.check_number(out,20) 
         end		
 	end	
 end
 reply = reply .. "}"
- 
 
 	
   	

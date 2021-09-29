@@ -1,10 +1,12 @@
 
+sign = "·" 
+comp = {"<", ">", "≤", "≥"}
+bracketl = "{"
+bracketr = "}" 
+
 answ = {""}
 value = {""}
-sign = "·" 
-
-bracketl = "{"
-bracketr = "}"  
+ 
 stampa = 3
 
 total = math.random(699) + 401;
@@ -17,10 +19,10 @@ if (rest > 0) then
     result = result + 1
 end	
            
-answ[1] = tostring(math.floor(place)) .. " " .. sign .. " x \(\lt\) " .. tostring(math.floor(total))           
-answ[2] = tostring(math.floor(place)) .. " " .. sign .. " x \(\leq\) " .. tostring(math.floor(total))                      
-answ[3] = tostring(math.floor(place)) .. " " .. sign .. " x \(\gt\) " .. tostring(math.floor(total))  
-answ[4] = tostring(math.floor(place)) .. " " .. sign .. " x \(\geq\) " .. tostring(math.floor(total)) 
+answ[1] = tostring(math.floor(place)) .. " " .. sign .. " x " .. comp[1] .. tostring(math.floor(total))           
+answ[2] = tostring(math.floor(place)) .. " " .. sign .. " x " .. comp[3] .. tostring(math.floor(total))                      
+answ[3] = tostring(math.floor(place)) .. " " .. sign .. " x " .. comp[2] .. tostring(math.floor(total))  
+answ[4] = tostring(math.floor(place)) .. " " .. sign .. " x " .. comp[4] .. tostring(math.floor(total)) 
 
 ind = {1, 2, 3, 4}
 
@@ -32,15 +34,10 @@ for i = 1,4 do
     end
 end	
    
-solution = "x " .. "\(\in\) " .. bracketl
+solution = "x " .. "\(\small\in\) " .. bracketl
 for i = 1, stampa do
     temp = result + i - 1 
 	solution = solution .. lib.check_number(temp,20) .. ", "
 end	
 solution = solution .. " ... " .. bracketr
      
-     
-    
-             
-            
-            
