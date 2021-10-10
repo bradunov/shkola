@@ -1174,7 +1174,7 @@
       "topic": "Sve računske operacije",
       "rank_subtheme": "5",
       "rank_topic": "3",
-      "difficulty": "2"
+      "difficulty": "3"
     },
     {
       "name": "equations/q00041",
@@ -1204,7 +1204,7 @@
       "topic": "Sve računske operacije",
       "rank_subtheme": "5",
       "rank_topic": "3",
-      "difficulty": "1"
+      "difficulty": "2"
     },
     {
       "name": "equations/q00044",
@@ -1214,7 +1214,7 @@
       "topic": "Množenje i deljenje ",
       "rank_subtheme": "5",
       "rank_topic": "2",
-      "difficulty": "1"
+      "difficulty": "2"
     },
     {
       "name": "equations/q00045",
@@ -1224,7 +1224,7 @@
       "topic": "Sve računske operacije",
       "rank_subtheme": "5",
       "rank_topic": "3",
-      "difficulty": "2"
+      "difficulty": "3"
     }
   ]
 }

@@ -34,7 +34,7 @@
       "topic": "Procenat",
       "rank_subtheme": "1",
       "rank_topic": "1",
-      "difficulty": "1"
+      "difficulty": "2"
     },
     {
       "name": "data_2/q00007",
@@ -44,7 +44,7 @@
       "topic": "Procenat",
       "rank_subtheme": "1",
       "rank_topic": "1",
-      "difficulty": "1"
+      "difficulty": "3"
     },
     {
       "name": "data_2/q00008",
@@ -54,60 +54,10 @@
       "topic": "Procenat",
       "rank_subtheme": "1",
       "rank_topic": "1",
-      "difficulty": "1"
-    },
-    {
-      "name": "data_2/q00009",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Primena razlomaka",
-      "topic": "Procenat",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "1"
-    },
-    {
-      "name": "data_2/q00010",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Primena razlomaka",
-      "topic": "Procenat",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "2"
-    },
-    {
-      "name": "data_2/q00011",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Primena razlomaka",
-      "topic": "Procenat",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "2"
-    },
-    {
-      "name": "data_2/q00012",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Primena razlomaka",
-      "topic": "Procenat",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "2"
-    },
-    {
-      "name": "data_2/q00013",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Primena razlomaka",
-      "topic": "Procenat",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
       "difficulty": "3"
     },
     {
-      "name": "data_2/q00014",
+      "name": "data_2/q00009",
       "random": "10",
       "period": "3",
       "subtheme": "Primena razlomaka",
@@ -124,17 +74,7 @@
       "topic": "Razmera",
       "rank_subtheme": "1",
       "rank_topic": "2",
-      "difficulty": "2"
-    },
-    {
-      "name": "data_2/q00016",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Primena razlomaka",
-      "topic": "Razmera",
-      "rank_subtheme": "1",
-      "rank_topic": "2",
-      "difficulty": "3"
+      "difficulty": "1"
     },
     {
       "name": "data_2/q00017",
@@ -169,36 +109,6 @@
     {
       "name": "data_2/q00020",
       "random": "10",
-      "period": "3",
-      "subtheme": "Primena razlomaka",
-      "topic": "Razmera",
-      "rank_subtheme": "1",
-      "rank_topic": "2",
-      "difficulty": "2"
-    },
-    {
-      "name": "data_2/q00021",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Primena razlomaka",
-      "topic": "Razmera",
-      "rank_subtheme": "1",
-      "rank_topic": "2",
-      "difficulty": "3"
-    },
-    {
-      "name": "data_2/q00022",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Primena razlomaka",
-      "topic": "Razmera",
-      "rank_subtheme": "1",
-      "rank_topic": "2",
-      "difficulty": "2"
-    },
-    {
-      "name": "data_2/q00023",
-      "random": "6",
       "period": "3",
       "subtheme": "Primena razlomaka",
       "topic": "Razmera",
@@ -377,14 +287,14 @@
       "difficulty": "3"
     },
     {
-      "name": "data_2/q00037",
+      "name": "data_2/q00039",
       "random": "10",
       "period": "3",
       "subtheme": "Primena razlomaka",
       "topic": "Procenat",
       "rank_subtheme": "1",
       "rank_topic": "1",
-      "difficulty": "3"
+      "difficulty": "1"
     }
   ]
 }

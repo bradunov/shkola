@@ -3,9 +3,5 @@ Od kog broja
 
 @repeat(5)@
 @vspace@
-@center@ @peround@ @proc@ @hspacept(2)@ iznosi @hspacept(2)@ @result@?  @hspacept(10)@  @lib.check_number(number,50)@
+@center@ @per@ @proc@ @hspacept(2)@ iznosi @hspacept(2)@ @result@?  @hspacept(10)@  @lib.check_number(number,50)@
 @/repeat@
-
-              
-     
-          

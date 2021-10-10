@@ -35,6 +35,136 @@
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00010",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Primena racionalnih brojeva",
+      "topic": "Procenat",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00011",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Primena racionalnih brojeva",
+      "topic": "Procenat",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00012",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Primena racionalnih brojeva",
+      "topic": "Procenat",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00013",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Primena racionalnih brojeva",
+      "topic": "Procenat",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00014",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Primena racionalnih brojeva",
+      "topic": "Procenat",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00016",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Primena racionalnih brojeva",
+      "topic": "Proporcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00021",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Primena razlomaka",
+      "topic": "Procenat",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00021",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Primena razlomaka",
+      "topic": "Proporcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00022",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Primena razlomaka",
+      "topic": "Proporcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00023",
+      "random": "6",
+      "period": "3",
+      "subtheme": "Primena razlomaka",
+      "topic": "Proporcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00037",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Primena racionalnih brojeva",
+      "topic": "Procenat",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00038",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Primena racionalnih brojeva",
+      "topic": "Procenat",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00040",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Primena racionalnih brojeva",
+      "topic": "Proporcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
     }
   ]
 }
