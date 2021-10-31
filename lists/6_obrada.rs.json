@@ -24,7 +24,7 @@
       "topic": "Zavisnost među veličinama",
       "rank_subtheme": "1",
       "rank_topic": "1",
-      "difficulty": "1"
+      "difficulty": "2"
     },
     {
       "name": "data_2/q00003",
@@ -137,6 +137,26 @@
       "difficulty": "2"
     },
     {
+      "name": "data_2/q00033",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Prikaz podataka dijagramima",
+      "topic": "Stubičasti ",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00034",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Prikaz podataka dijagramima",
+      "topic": "Stubičasti ",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
       "name": "data_2/q00037",
       "random": "10",
       "period": "2",
@@ -165,6 +185,136 @@
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00041",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Koordinatni sistem ",
+      "topic": "Prikaz podataka",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00042",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Koordinatni sistem ",
+      "topic": "Prikaz podataka",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00043",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Koordinatni sistem ",
+      "topic": "Prikaz podataka",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00044",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Koordinatni sistem ",
+      "topic": "Prikaz podataka",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00045",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Prikaz podataka dijagramima",
+      "topic": "Linijski",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00045",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Tumačenje podataka",
+      "topic": "Prikazanih grafički",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00046",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Prikaz podataka dijagramima",
+      "topic": "Stubičasti ",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00047",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Tumačenje podataka",
+      "topic": "Prikazanih grafički",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00047",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Prikaz podataka dijagramima",
+      "topic": "Linijski",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00048",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Tumačenje podataka",
+      "topic": "Prikazanih grafički",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00049",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Tumačenje podataka",
+      "topic": "Prikazanih tabelom",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00050",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Tumačenje podataka",
+      "topic": "Prikazanih tabelom",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00050",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Tumačenje podataka",
+      "topic": "Prikazanih grafički",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
     }
   ]
 }

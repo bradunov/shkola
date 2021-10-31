@@ -207,46 +207,6 @@
       "difficulty": "2"
     },
     {
-      "name": "data_2/q00033",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Prikaz I obrada podataka",
-      "topic": "Tabela",
-      "rank_subtheme": "2",
-      "rank_topic": "1",
-      "difficulty": "2"
-    },
-    {
-      "name": "data_2/q00033",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Prikaz I obrada podataka",
-      "topic": "Stubičasti dijagram",
-      "rank_subtheme": "2",
-      "rank_topic": "2",
-      "difficulty": "2"
-    },
-    {
-      "name": "data_2/q00034",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Prikaz I obrada podataka",
-      "topic": "Tabela",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "1"
-    },
-    {
-      "name": "data_2/q00034",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Prikaz I obrada podataka",
-      "topic": "Stubičasti dijagram",
-      "rank_subtheme": "2",
-      "rank_topic": "2",
-      "difficulty": "1"
-    },
-    {
       "name": "data_2/q00035",
       "random": "10",
       "period": "3",

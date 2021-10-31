@@ -43,7 +43,7 @@ if (ind == 1) then
 	a1 = 16 
     a2 = 2 
 	sum1 = 4
-	sum2 = 0
+	sum2 = 5
 end
 
 if (ind == 2) then
@@ -85,7 +85,7 @@ if (ind == 7) then
 	a1 = 10 
     a2 = 3 
 	sum1 = 9
-	sum2 = 0	
+	sum2 = 10	
 end
 
 if (ind == 8) then
