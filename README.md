@@ -52,7 +52,11 @@ One question can be placed into multiple lists and assigned different attributes
 There are a few special question attributes. Attributes `rank_*` define question ordering within `*` category.
 Different questions have different level of randomness and attribute `random` defines up to how many times should a question appear in a test before repeating itself. 
 
-It is also possible to define lists in an XLS file, and use the [following script](lists/convert_xlsx_to_json.py) to convert it into JSON lists. 
+It is also possible to define lists in an XLS file, and use the [following script](lists/convert_xlsx_to_json.py) to convert it into JSON lists. Note that new versions of xlrd do not support XLSX files. To install a supported version, type
+```
+pip3 uninstall xlrd
+pip3 install xlrd==1.2.0
+```
 
 The testing framework also provides a basic [logic](src/server/test.py) for selecting questions from a list. It can randomly select questions from a given theme, subtheme or topic, with different difficulties. 
 It also consider previously asked questions and takes care to repeat questions according to the value of `random` attribute. 

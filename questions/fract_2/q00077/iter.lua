@@ -9,7 +9,8 @@ else
     ind = math.random(3) - 1
 	denom = 10^ind
 	if (ind == 0) then
-        enum = 0			
+        enum = 0
+        whole = whole + 1		
     else
         enum = math.random(denom - 1)
     end		

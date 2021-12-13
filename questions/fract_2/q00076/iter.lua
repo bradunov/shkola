@@ -1,4 +1,15 @@
 
+enum = {}
+denom = {}
+whl = {}
+enum_p = {}
+value = {}
+qq = {}
+ch = {}
+
+out = {}
+sign = {}
+
 ch[1] = math.random(4)
 ch[2] = ch[1] + math.random(6 - ch[1])
 for i = 1,6 do

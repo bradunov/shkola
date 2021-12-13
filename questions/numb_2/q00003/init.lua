@@ -75,7 +75,4 @@ vscale = 5
   
   lib.end_canvas()
 end
-         
-         
-             
-                  
+    

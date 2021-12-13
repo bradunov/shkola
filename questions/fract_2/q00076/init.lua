@@ -9,16 +9,7 @@ left_bg = "\(\biggl(\)"
 right_b = "\(\bigr)\)"
 right_bg = "\(\biggr)\)"
 
-enum = {}
-denom = {}
-whl = {}
-enum_p = {}
-value = {}
-qq = {}
-ch = {}
 
-out = {}
-sign = {}
 
 max = 15           
                         

@@ -315,6 +315,16 @@
       "rank_subtheme": "4",
       "rank_topic": "2",
       "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00051",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Tumačenje podataka",
+      "topic": "Prikazanih grafički",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
     }
   ]
 }
