@@ -186,7 +186,7 @@ if (ch == 2) then
         end
 	end	
 else
-    reply1 = lib.check_number(result, 30)		
+    reply1 = lib.check_number(lib.math.round_dec(result,1),40)		
 end		
 
                 

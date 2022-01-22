@@ -1,12 +1,8 @@
 
-A package has @total@ marbles. \(\frac{1}{@blue@}\) of them are blue \
-and \(\frac{1}{@yellow@}\) are yellow. If there are any marbles of another color, then they are red. 
-
+In a package of marbles there are 
+@center@ \(\frac{@enum[1]@}{@denom[1]@}\) blue and @hspacept(3)@ \(\frac{@enum[2]@}{@denom[2]@}\) yellow marbles. 
+There are half as many green marbles as yellow marbles. There are @brojilac[3]@  green marbles. The rest are red marbles. 
 @vspace@
-
-@center@ How many red marbles are there?  @hspacept(10)@ @lib.check_number(red)@
-
-                  
-
-                  
-                  
+How many red marbles are there?  
+@center@ There are  @hspacept(3)@ @lib.check_number(brojilac[4])@ @hspacept(3)@  red marbles. 
+    

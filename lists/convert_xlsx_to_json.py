@@ -87,9 +87,9 @@ for isheet in range(0, book.nsheets):
       random = str(int(sheet.cell(y,RANDOM).value))
       period = str(int(sheet.cell(y,PERIOD).value))
       difficulty = str(int(sheet.cell(y,DIFFICULTY).value))
-      theme = sheet.cell(y,THEME).value
-      subtheme = sheet.cell(y,SUBTHEME).value
-      topic = sheet.cell(y,TOPIC).value
+      theme = sheet.cell(y,THEME).value.strip()
+      subtheme = sheet.cell(y,SUBTHEME).value.strip()
+      topic = sheet.cell(y,TOPIC).value.strip()
       rank_theme = str(int(sheet.cell(y,RANK_THEME).value))
       rank_subtheme = str(int(sheet.cell(y,RANK_SUBTHEME).value))
       rank_topic = str(int(sheet.cell(y,RANK_TOPIC).value))

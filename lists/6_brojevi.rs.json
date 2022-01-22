@@ -31,7 +31,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Racionalni brojevi",
-      "topic": "Pojam, prikaz na brojevnoj pravoj ",
+      "topic": "Pojam, prikaz na brojevnoj pravoj",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -41,7 +41,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Racionalni brojevi",
-      "topic": "Pojam, prikaz na brojevnoj pravoj ",
+      "topic": "Pojam, prikaz na brojevnoj pravoj",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -51,7 +51,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Racionalni brojevi",
-      "topic": "Pojam, prikaz na brojevnoj pravoj ",
+      "topic": "Pojam, prikaz na brojevnoj pravoj",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -61,7 +61,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Racionalni brojevi",
-      "topic": "Računske operacije ",
+      "topic": "Računske operacije",
       "rank_subtheme": "2",
       "rank_topic": "3",
       "difficulty": "2"
@@ -71,7 +71,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Racionalni brojevi",
-      "topic": "Pojam, prikaz na brojevnoj pravoj ",
+      "topic": "Pojam, prikaz na brojevnoj pravoj",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -81,7 +81,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Racionalni brojevi",
-      "topic": "Računske operacije ",
+      "topic": "Računske operacije",
       "rank_subtheme": "2",
       "rank_topic": "3",
       "difficulty": "1"
@@ -91,7 +91,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Racionalni brojevi",
-      "topic": "Računske operacije ",
+      "topic": "Računske operacije",
       "rank_subtheme": "2",
       "rank_topic": "3",
       "difficulty": "2"
@@ -141,7 +141,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Racionalni brojevi",
-      "topic": "Računske operacije ",
+      "topic": "Računske operacije",
       "rank_subtheme": "2",
       "rank_topic": "3",
       "difficulty": "2"
@@ -151,7 +151,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Racionalni brojevi",
-      "topic": "Računske operacije ",
+      "topic": "Računske operacije",
       "rank_subtheme": "2",
       "rank_topic": "3",
       "difficulty": "1"
@@ -171,7 +171,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Racionalni brojevi",
-      "topic": "Računske operacije ",
+      "topic": "Računske operacije",
       "rank_subtheme": "2",
       "rank_topic": "3",
       "difficulty": "1"
@@ -208,7 +208,7 @@
     },
     {
       "name": "numb_2/q00003",
-      "random": "0",
+      "random": "10",
       "period": "1",
       "subtheme": "Celi brojevi",
       "topic": "Pojam, suprotan broj, apsolutna vrednost",
@@ -218,7 +218,7 @@
     },
     {
       "name": "numb_2/q00003",
-      "random": "0",
+      "random": "10",
       "period": "1",
       "subtheme": "Celi brojevi",
       "topic": "Prikaz na brojevnoj pravoj, upoređivanje",

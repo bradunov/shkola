@@ -1,0 +1,2 @@
+
+msg = {"komada", "komad"}

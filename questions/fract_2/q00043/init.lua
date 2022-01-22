@@ -32,3 +32,5 @@ for i = 1,4 do
     enum[i] = brojilac[i]/ q
     denom[i] = imenilac / q
 end
+
+  

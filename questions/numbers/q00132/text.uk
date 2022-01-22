@@ -1,0 +1,6 @@
+                                
+In the picture, there is some money which @ime@ has in their purse. How much does @ime@ have? 
+Click the correct circle.           
+@center@ @mycanvas(result)@
+
+@center@ @lib.check_one_option_radio(answ,index)@

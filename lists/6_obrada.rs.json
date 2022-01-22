@@ -7,36 +7,6 @@
   "rank_theme": "4",
   "questions": [
     {
-      "name": "data_2/q00001",
-      "random": "8",
-      "period": "3",
-      "subtheme": "Koordinatni sistem ",
-      "topic": "Zavisnost među veličinama",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "3"
-    },
-    {
-      "name": "data_2/q00002",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Koordinatni sistem ",
-      "topic": "Zavisnost među veličinama",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "2"
-    },
-    {
-      "name": "data_2/q00003",
-      "random": "8",
-      "period": "3",
-      "subtheme": "Koordinatni sistem ",
-      "topic": "Zavisnost među veličinama",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "2"
-    },
-    {
       "name": "data_2/q00010",
       "random": "10",
       "period": "3",
@@ -87,16 +57,6 @@
       "difficulty": "3"
     },
     {
-      "name": "data_2/q00016",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Primena racionalnih brojeva",
-      "topic": "Proporcija",
-      "rank_subtheme": "2",
-      "rank_topic": "2",
-      "difficulty": "2"
-    },
-    {
       "name": "data_2/q00021",
       "random": "10",
       "period": "3",
@@ -141,7 +101,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Prikaz podataka dijagramima",
-      "topic": "Stubičasti ",
+      "topic": "Stubičasti",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "2"
@@ -151,7 +111,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Prikaz podataka dijagramima",
-      "topic": "Stubičasti ",
+      "topic": "Stubičasti",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"
@@ -190,7 +150,7 @@
       "name": "data_2/q00041",
       "random": "10",
       "period": "3",
-      "subtheme": "Koordinatni sistem ",
+      "subtheme": "Koordinatni sistem",
       "topic": "Prikaz podataka",
       "rank_subtheme": "1",
       "rank_topic": "1",
@@ -200,27 +160,17 @@
       "name": "data_2/q00042",
       "random": "10",
       "period": "3",
-      "subtheme": "Koordinatni sistem ",
+      "subtheme": "Koordinatni sistem",
       "topic": "Prikaz podataka",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
     },
     {
-      "name": "data_2/q00043",
-      "random": "10",
-      "period": "3",
-      "subtheme": "Koordinatni sistem ",
-      "topic": "Prikaz podataka",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "3"
-    },
-    {
       "name": "data_2/q00044",
       "random": "10",
       "period": "3",
-      "subtheme": "Koordinatni sistem ",
+      "subtheme": "Koordinatni sistem",
       "topic": "Prikaz podataka",
       "rank_subtheme": "1",
       "rank_topic": "1",
@@ -251,7 +201,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Prikaz podataka dijagramima",
-      "topic": "Stubičasti ",
+      "topic": "Stubičasti",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"

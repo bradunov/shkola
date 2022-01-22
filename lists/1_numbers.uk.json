@@ -317,6 +317,26 @@
       "difficulty": "1"
     },
     {
+      "name": "numbers/q00132",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Money and notes",
+      "topic": "Banknotes",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00133",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Money and notes",
+      "topic": "Banknotes",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
       "name": "numbers/q00169",
       "random": "10",
       "period": "3",

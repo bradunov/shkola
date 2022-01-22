@@ -31,7 +31,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
-      "topic": "Upoređivanje razlomaka ",
+      "topic": "Upoređivanje razlomaka",
       "rank_subtheme": "6",
       "rank_topic": "2",
       "difficulty": "2"
@@ -111,7 +111,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Razlomci",
-      "topic": "Upoređivanje razlomaka ",
+      "topic": "Upoređivanje razlomaka",
       "rank_subtheme": "6",
       "rank_topic": "2",
       "difficulty": "1"
@@ -921,7 +921,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Rimski brojevi ",
+      "topic": "Rimski brojevi",
       "rank_subtheme": "1",
       "rank_topic": "4",
       "difficulty": "1"
@@ -981,7 +981,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Rimski brojevi ",
+      "topic": "Rimski brojevi",
       "rank_subtheme": "1",
       "rank_topic": "4",
       "difficulty": "1"
@@ -1110,8 +1110,8 @@
       "name": "equations/q00001",
       "random": "10",
       "period": "2",
-      "subtheme": "Jednačine ",
-      "topic": "Sabiranje i oduzimanje ",
+      "subtheme": "Jednačine",
+      "topic": "Sabiranje i oduzimanje",
       "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "1"
@@ -1120,8 +1120,8 @@
       "name": "equations/q00002",
       "random": "10",
       "period": "2",
-      "subtheme": "Jednačine ",
-      "topic": "Sabiranje i oduzimanje ",
+      "subtheme": "Jednačine",
+      "topic": "Sabiranje i oduzimanje",
       "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "1"
@@ -1130,8 +1130,8 @@
       "name": "equations/q00003",
       "random": "10",
       "period": "2",
-      "subtheme": "Jednačine ",
-      "topic": "Sabiranje i oduzimanje ",
+      "subtheme": "Jednačine",
+      "topic": "Sabiranje i oduzimanje",
       "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "1"
@@ -1140,8 +1140,8 @@
       "name": "equations/q00004",
       "random": "10",
       "period": "2",
-      "subtheme": "Jednačine ",
-      "topic": "Sabiranje i oduzimanje ",
+      "subtheme": "Jednačine",
+      "topic": "Sabiranje i oduzimanje",
       "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "1"
@@ -1150,8 +1150,8 @@
       "name": "equations/q00005",
       "random": "10",
       "period": "2",
-      "subtheme": "Jednačine ",
-      "topic": "Množenje i deljenje ",
+      "subtheme": "Jednačine",
+      "topic": "Množenje i deljenje",
       "rank_subtheme": "4",
       "rank_topic": "2",
       "difficulty": "2"
@@ -1161,7 +1161,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine",
-      "topic": "Sabiranje i oduzimanje ",
+      "topic": "Sabiranje i oduzimanje",
       "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "1"
@@ -1171,7 +1171,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine",
-      "topic": "Množenje i deljenje ",
+      "topic": "Množenje i deljenje",
       "rank_subtheme": "4",
       "rank_topic": "2",
       "difficulty": "1"
@@ -1181,7 +1181,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine",
-      "topic": "Množenje i deljenje ",
+      "topic": "Množenje i deljenje",
       "rank_subtheme": "4",
       "rank_topic": "2",
       "difficulty": "2"
@@ -1211,7 +1211,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine",
-      "topic": "Množenje i deljenje ",
+      "topic": "Množenje i deljenje",
       "rank_subtheme": "4",
       "rank_topic": "2",
       "difficulty": "2"
@@ -1221,7 +1221,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Jednačine",
-      "topic": "Množenje i deljenje ",
+      "topic": "Množenje i deljenje",
       "rank_subtheme": "4",
       "rank_topic": "2",
       "difficulty": "3"
@@ -1231,7 +1231,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Nejednačine",
-      "topic": "Sabiranje i oduzimanje ",
+      "topic": "Sabiranje i oduzimanje",
       "rank_subtheme": "5",
       "rank_topic": "1",
       "difficulty": "1"
@@ -1241,7 +1241,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Nejednačine",
-      "topic": "Sabiranje i oduzimanje ",
+      "topic": "Sabiranje i oduzimanje",
       "rank_subtheme": "5",
       "rank_topic": "1",
       "difficulty": "2"
