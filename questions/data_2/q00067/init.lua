@@ -102,10 +102,10 @@ for i = 1,4 do
 end
 
 hyp = math.sqrt( (xp[2]-xp[1])^2 + (yp[2]-yp[1])^2 )
-
+diag = math.sqrt( (xp[3]-xp[1])^2 + (yp[3]-yp[1])^2 )
 area = lib.math.round_dec(hyp * hyp, 2)
 circ = lib.math.round_dec(4 * hyp, 2)
-
+diag = lib.math.round_dec(diag, 2)
 
 mycanvas = function()
 
@@ -155,4 +155,4 @@ mycanvas = function()
   lib.add_line(ow+xp[4]*w, ow+yp[4]*w, (xp[1]-xp[4])*w, (yp[1]-yp[4])*w, line_style, false, false)    
  
   lib.end_canvas()
-end       
+end        

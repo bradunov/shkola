@@ -1,0 +1,150 @@
+{
+  "name": "7 Geometrija",
+  "level": "7",
+  "level_short": "7",
+  "theme": "Geometrija",
+  "language": "rs",
+  "rank_theme": "3",
+  "questions": [
+    {
+      "name": "geom_2/q00106",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Trougao",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00107",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Trougao",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00108",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Trougao",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00109",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Trougao",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00110",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Četvorougao",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00111",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Četvorougao",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00112",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Četvorougao",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00113",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Trougao",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00114",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Trougao",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00115",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Trougao",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00116",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Četvorougao",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00117",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Četvorougao",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00118",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Četvorougao",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00119",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Četvorougao",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "3"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+msg = {"stranica ", "visina "} 
+                                     

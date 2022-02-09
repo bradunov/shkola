@@ -1,0 +1,1 @@
+msg = {"pravougli trapez (q = h\(\small_m\))", "jednakokraki trapez (q = s)", "trapez"}  
