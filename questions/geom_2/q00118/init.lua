@@ -13,11 +13,17 @@ dif_style =
 				
 text_style = {["font_size"] = "16"}	
 
+unit = {"cm", "cm\(\small^2\)"}
 name = {"a", "b", "d\(\small_1\)", "d\(\small_2\)", "O", "P"}
 
 val = {}
 ind = {}
 out = {}
+meas = {""}
+
+for i = 1,5 do
+    meas[i] = unit[1]
+end	
 
 max_range = 6
 
@@ -36,13 +42,13 @@ end
 
 qst1 = math.random(2)
 qst2 = 2 + math.random(2)
---[[
-qst3 = qst2 + math.random(6 - qst2)
-]]--
 qst3 = math.random(6)
 if (qst3 == qst1 or qst3 == qst2) then
     qst3 = 4 + math.random(2)
-end		
+end	
+if (qst3 == 6) then
+    meas[3] = unit[2]
+end	
 
 nr = 0
 for i = 1,6 do
@@ -55,6 +61,13 @@ out = lib.math.random_shuffle(ind)
 
 ans1 = lib.math.round_dec(val[out[1]],1)
 ans2 = lib.math.round_dec(val[out[2]],1)
+if (out[1] == 6) then
+    meas[4] = unit[2]
+end	
+if (out[2] == 6) then
+    meas[5] = unit[2]
+end	
+
 
 mycanvas = function(no)
 
@@ -81,5 +94,4 @@ mycanvas = function(no)
 
     
   lib.end_canvas()
-end            
-            
+end    

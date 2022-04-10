@@ -13,11 +13,17 @@ dif_style =
 				
 text_style = {["font_size"] = "14"}	
 
+unit = {"cm", "cm\(\small^2\)"}
 name = {"a", "b", "c", "P", "t", "R", "r", "O", "h"}
 
 val = {}
 ind = {}
 out = {}
+meas = {""}
+
+for i = 1,4 do
+    meas[i] = unit[1]
+end	
 
 max_range = 4
 numb2 = 2 + math.random(max_range)
@@ -51,6 +57,9 @@ end
 
 qst1 = 1
 qst2 = 1 + math.random(5)
+if (qst2 == 4) then
+    meas[2] = unit[2]
+end	
 
 nr = 0
 for i = 2,9 do
@@ -63,6 +72,12 @@ out = lib.math.random_shuffle(ind)
 
 ans1 = out[1]
 ans2 = out[4]
+if (out[1] == 4) then
+    meas[3] = unit[2]
+end	
+if (out[4] == 4) then
+    meas[4] = unit[2]
+end	
 
 
 mycanvas = function(no)

@@ -1,5 +1,6 @@
 
-include("terms") 
+msg = {"pravougli trapez ", "jednakokraki trapez ", "trapez"} 
+
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 style = 
 	{["off_color"] = "fff",
@@ -15,12 +16,19 @@ dif_style =
 				
 text_style = {["font_size"] = "16"}	
 
+unit = {"cm", "cm\(\small^2\)"}
+symb = {"(q = h\(\small_m\) )", "(q = s)", " "}
 name = {"m", "n", "s", "q", "h\(\small_m\)", "d\(\small_1\)", "d\(\small_2\)", "O", "P"}
 
 val = {}
 ind = {}
 out = {}
 prt = {}
+meas = {""}
+
+for i = 1,2 do
+    meas[i] = unit[1]
+end	
 
 ch = math.random(3)
 
@@ -66,8 +74,6 @@ qst2 = 4 + math.random(3)
 quest = ""
 if (ch == 3) then
     quest = quest .. name[4].. " = " .. val[4] .. ","
-else
-	
 end
 
 ind[1] = qst1
@@ -82,6 +88,12 @@ out = lib.math.random_shuffle(ind)
 
 ans1 = lib.math.round_dec(val[out[1]],1)
 ans2 = lib.math.round_dec(val[out[2]],1)
+if (out[1] == 9) then
+    meas[1] = unit[2]
+end	
+if (out[2] == 9) then
+    meas[2] = unit[2]
+end
 
 nr = 1
 for i = 1,3 do  
@@ -121,5 +133,5 @@ scale = 8
   lib.add_input(ov+2*v-4, scale+2*v, 50, 30, name[7])
     
   lib.end_canvas()
-end             
-          
+end              
+     

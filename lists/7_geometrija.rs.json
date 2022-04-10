@@ -7,6 +7,46 @@
   "rank_theme": "3",
   "questions": [
     {
+      "name": "geom_2/q00062",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Značajne duži i tačke trougla",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00063",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Značajne duži i tačke trougla",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00065",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Značajne duži i tačke trougla",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00066",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Značajne duži i tačke trougla",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
       "name": "geom_2/q00106",
       "random": "10",
       "period": "1",
@@ -144,6 +184,276 @@
       "topic": "Četvorougao",
       "rank_subtheme": "1",
       "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00120",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Pitagorina teorema",
+      "topic": "Četvorougao",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00121",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Mnogougao",
+      "topic": "Vrstе, elementi",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00122",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Mnogougao",
+      "topic": "Vrstе, elementi",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00123",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Mnogougao",
+      "topic": "Vrstе, elementi",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00124",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Mnogougao",
+      "topic": "Vrstе, elementi",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00125",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Mnogougao",
+      "topic": "Pravilni mnogougao",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00126",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Mnogougao",
+      "topic": "Pravilni mnogougao",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00127",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Mnogougao",
+      "topic": "Obim i površina",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00128",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Mnogougao",
+      "topic": "Obim i površina",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00129",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Mnogougao",
+      "topic": "Obim i površina",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00130",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Trougao",
+      "topic": "Značajne duži i tačke trougla",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00131",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Centralni i periferijski ugao",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00132",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Centralni i periferijski ugao",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00133",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Centralni i periferijski ugao",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00134",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Centralni i periferijski ugao",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00135",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Obim, dužina kružnog luka",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00136",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Obim, dužina kružnog luka",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00137",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Obim, dužina kružnog luka",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00138",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Obim, dužina kružnog luka",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00139",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Obim, dužina kružnog luka",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00140",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Obim, dužina kružnog luka",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00141",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Obim, dužina kružnog luka",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00142",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Površina kruga, kružnog isečka I kružnog prstena",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00143",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Površina kruga, kružnog isečka I kružnog prstena",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00144",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Površina kruga, kružnog isečka I kružnog prstena",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00145",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Površina kruga, kružnog isečka I kružnog prstena",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00146",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Površina kruga, kružnog isečka I kružnog prstena",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
       "difficulty": "3"
     }
   ]

@@ -51,6 +51,7 @@ for i = 1,4 do
     ind[i] = math.random(4)
 end
 
+
 mycanvas = function()
 	 		  
   lib.start_canvas(320, 320, "center")   
@@ -85,15 +86,14 @@ mycanvas = function()
   
 --[[blue]]--
   if (ind[2] == 1) then
-     lib.add_straight_path(ow+10*w, ow+2*w, {{2*w,0}, {w,w}, {0,2*w}, {-w,w}, {-2*w, 0}, {-w,-w}, {0,-2*w}}, blue_style, true, false) 
+     lib.add_straight_path(ow+10*w, ow+2*w, {{2*w,0}, {w,w}, {0,2*w}, {-w,w}, {-2*w, 0}, {-w,-w}, {0,-2*w}, {w,-w}}, blue_style, true, false) 
      lib.add_straight_path(ow+11*w, ow+3*w, {{w,w}, {-w,w}, {-w,-w}, {w,-w}}, style, true, false) 
   end
   if (ind[2] == 2) then  
-  lib.add_straight_path (ow+7*w, ow+2*w, {{6*w,w}, {-2*w,2*w}, {-2*w,0}, {0,-w}, {-w, -w}}, blue_style, false, true)  
+  lib.add_straight_path (ow+7*w, ow+2*w, {{6*w,w}, {-2*w,2*w}, {-2*w,0}, {0,-w}, {-2*w, -2*w}}, blue_style, false, true)  
   end
   if (ind[2] == 3) then 
-     lib.add_straight_path (ow+7*w, ow+6*w, {{6*w,-5*w}, {-w,5*w}, {-5*w,0}}, blue_style, false, true)
-     lib.add_straight_path (ow+9*w, ow+6*w, {{w,-2*w}, {w,0}, {-w,2*w},{-w,0}}, style, false, true)   
+     lib.add_straight_path (ow+7*w, ow+6*w, {{6*w,-5*w}, {-w,5*w}, {-2*w,0}, {w,-2*w}, {-w,0}, {-w,2*w}, {-2*w,0}}, blue_style, false, true)
   end
   if (ind[2] == 4) then 	
      lib.add_straight_path (ow+8*w, ow+2*w, {{3*w,-w}, {3*w,2*w}, {-2*w,2*w},  {-w, -2*w}, {-w,0}, {-w,2*w},  {-w,-3*w}}, blue_style, false, true)        
@@ -115,7 +115,7 @@ mycanvas = function()
   
    --[[yelow]]--
   if (ind[4] == 1) then
-     lib.add_straight_path (ow+12*w, ow+10*w, {{-4*w,0}, {0,-w}, {5*w,0}, {0,5*w}, {-5*w,0}, {0,-3*w}, {3*w,0}, {0, w}, {-2*w, 0}, {0, w}, {3*w,0}}, yelow_style, false, true)  
+     lib.add_straight_path (ow+12*w, ow+10*w, {{-4*w,0}, {0,-w}, {5*w,0}, {0,5*w}, {-5*w,0}, {0,-3*w}, {3*w,0}, {0, w}, {-2*w, 0}, {0, w}, {3*w,0}, {0, -3*w} }, yelow_style, false, true)  
   end
   if (ind[4] == 2) then
      lib.add_straight_path (ow+8*w, ow+11*w, {{w,-w}, {2*w,0}, {2*w,w}, {-2*w,w}, {-2*w, 0}, {-w,-w}}, yelow_style, false, true)  
@@ -137,21 +137,3 @@ mycanvas = function()
 
   lib.end_canvas()
 end
-
-            
-          
-         
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-     

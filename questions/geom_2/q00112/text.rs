@@ -7,5 +7,5 @@ a) Ako je @"q"@ = @dif[1]@@meas[1]@ izračunaj obim @"O"@ i površinu @"P"@ kvad
 @"b)"@ Ako je površina kvadrata brojčano @fct@ puta veća od obima (u odgovarajućim jedinicama @meas[2]@,  odnosno @meas[1]@), za koliko je dijagonala duža od stranice? 
 @center@ @"q"@  = @lib.check_number(dif[2],40)@@meas[1]@.   
 @vspace@
-Računati na dve decimale, uzeti da je @"√2 = 1.41"@.        
-                     
+Računaj sa tri decimale (@"√2 = 1.414"@), a rezultat zapiši na jednu decimalu.        
+        
