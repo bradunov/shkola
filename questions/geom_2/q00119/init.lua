@@ -1,6 +1,4 @@
-
-msg = {"pravougli trapez ", "jednakokraki trapez ", "trapez"} 
-
+include("terms")
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 style = 
 	{["off_color"] = "fff",
@@ -17,7 +15,6 @@ dif_style =
 text_style = {["font_size"] = "16"}	
 
 unit = {"cm", "cm\(\small^2\)"}
-symb = {"(q = h\(\small_m\) )", "(q = s)", " "}
 name = {"m", "n", "s", "q", "h\(\small_m\)", "d\(\small_1\)", "d\(\small_2\)", "O", "P"}
 
 val = {}
