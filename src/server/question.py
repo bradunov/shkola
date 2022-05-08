@@ -337,8 +337,8 @@ class Question(object):
         output = output.replace("@/h3@", "</div>")
 
         # Replace headers
-        output = output.replace("@sup@", "<sup>")
-        output = output.replace("@/sup@", "</sup>")
+        output = output.replace("@sup@", "<sup><sup>")
+        output = output.replace("@/sup@", "</sup></sup>")
 
         # Replace spaces
         output = output.replace("@hspace@", "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
