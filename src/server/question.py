@@ -336,6 +336,10 @@ class Question(object):
         output = output.replace("@h3@", "<div style='display:inline-block;font-weight:bold;font-size:18px;padding-top:4px;padding-bottom:2px;'>")
         output = output.replace("@/h3@", "</div>")
 
+        # Replace headers
+        output = output.replace("@sup@", "<sup>")
+        output = output.replace("@/sup@", "</sup>")
+
         # Replace spaces
         output = output.replace("@hspace@", "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")
         output = output.replace("@vspace@", "<div style='display:table;padding-top:0px;padding-bottom:0px;float:center'> </div>")
@@ -525,9 +529,9 @@ class Question(object):
                     code = code + include_code
 
                 # Ignore alignment tags
-                elif (strings[ind] != "left" and strings[ind] != "right" and strings[ind] != "center" and \
-                    strings[ind] != "H1" and strings[ind] != "H2" and strings[ind] != "H3" and \
-                    strings[ind] != "/H1" and strings[ind] != "/H2" and strings[ind] != "/H3"):
+                elif (strings[ind].lower() != "left" and strings[ind].lower() != "right" and strings[ind].lower() != "center" and \
+                    strings[ind].lower() != "h1" and strings[ind].lower() != "h2" and strings[ind].lower() != "h3" and strings[ind].lower() != "sup" and \
+                    strings[ind].lower() != "/h1" and strings[ind].lower() != "/h2" and strings[ind].lower() != "/h3" and strings[ind].lower() != "/sup" ):
                     code = code + "output = {}\n".format(strings[ind])
                     code = code + "if (output ~= nil) then page.add_lines(output) end\n"
             elif item["type"] == "repeat":
