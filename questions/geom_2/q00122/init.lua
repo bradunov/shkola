@@ -1,5 +1,5 @@
 
-meas = {"n", "u", "t", "d", "s" } 
+meas = {"n", "u", "t", "d", "s\(\small^\circ\)"} 
 
 addition_table = function()
 

@@ -1,0 +1,6 @@
+
+Simplify the expressions. In the first empty box write the sign - if the result is negative.
+
+@repeat(4)@
+@center@   @quest@ @hspacept(3)@ = @hspacept(3)@ @answ@@sup@ @lib.check_number(val,15)@ @/sup@   
+@/repeat@

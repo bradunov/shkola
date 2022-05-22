@@ -1,0 +1,160 @@
+{
+  "name": "7 Algebra",
+  "level": "7",
+  "level_short": "7",
+  "theme": "Algebra",
+  "language": "rs",
+  "rank_theme": "2",
+  "questions": [
+    {
+      "name": "numb_2/q00082",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00083",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00084",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00085",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00086",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00087",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00088",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00089",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00090",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00091",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00092",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00093",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00094",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00095",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00096",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "3"
+    }
+  ]
+}

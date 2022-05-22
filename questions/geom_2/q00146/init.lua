@@ -52,62 +52,74 @@ ch = math.random(3+ind)
 	
 numb[1] = 3 + math.random(15)
 if (ind == 1) then
-	numb[2] = lib.math.round_dec(numb[1] / root3, 3)
+	numb[2] = lib.math.round_dec(numb[1] * root3 /3, 3)
 	numb[3] = lib.math.round_dec(0.5 *	numb[2],3)
+	pm = lib.math.round_dec(0.25 * numb[1] * numb[1] * root3, 3)	
+	po = lib.math.round_dec(numb[2] * numb[2] * con, 3)
+	pu = lib.math.round_dec(numb[3] * numb[3] * con, 3)		
     if (ch == 1) then 
-        value = 0.25 * numb[1] * numb[1] * (root3 - 0.5*con) 
+		po = lib.math.round_dec(0.25 * numb[1] * numb[1] * con, 3)
+        value = pm - 0.5 * po
     end	
-    if (ch == 2) then 
-        value = numb[1] * numb[1] * (con/3 - 0.25*root3)/3  
+    if (ch == 2) then 	
+        value = (po - pm)/3  
     end	
-    if (ch == 3) then 
-        value = numb[1] * numb[1] * con /12
+    if (ch == 3) then 	
+        value = (po - pu)/3  
     end	
     if (ch == 4) then 
-        value = numb[1] * numb[1] * (con/6 + 0.25 * root3) / 6
+        value = (po - pm)/6 + (pm - pu)/3 
     end		
 end
 if (ind == 2) then
 	numb[2] = numb[1] 	
 	numb[3] = 0.5 * numb[1] * root3
 	numb[3] = lib.math.round_dec(numb[3],3) 
+	pm = lib.math.round_dec(1.5 * numb[1] * numb[1] * root3, 3)	
+	po = lib.math.round_dec(numb[2] * numb[2] * con, 3)
+	pu = lib.math.round_dec(numb[3] * numb[3] * con, 3)		
     if (ch == 1) then 
-        value = numb[1] * numb[1] * (2*con - 3*root3) / 12
+        value = (po - pm) / 6
     end	
     if (ch == 2) then 
-        value = numb[1] * numb[1] * (2*root3 - con) / 8
+       value = (pm - pu) / 6
     end	
     if (ch == 3) then 
-        value = numb[1] * numb[1] * con /24
+       value = (po - pu) / 6
     end
     if (ch == 4) then 
-        value = numb[1] * numb[1] * (3*root3 - con) /24
+        value = (po - pm)/12 + (pm - pu)/6
     end	
     if (ch == 5) then 
-        value = 1.5 * numb[1] * numb[1] * (root3 - con/3) 
-    end		
-end	
+		po = lib.math.round_dec(0.25 * numb[1] * numb[1] * con, 3)	
+        value = pm - 2 * po
+    end	
+end				
 if (ind == 3) then
 	numb[2] = 0.5 * numb[1] * root2
 	numb[2] = lib.math.round_dec(numb[2],3)
 	numb[3] = 0.5 *	numb[1]
+	pm = lib.math.round_dec(numb[1] * numb[1], 3)	
+	po = lib.math.round_dec(numb[2] * numb[2] * con, 3)
+	pu = lib.math.round_dec(numb[3] * numb[3] * con, 3)	
     if (ch == 1) then 
-        value = 0.25 * numb[1] * numb[1] * (0.5*con -1)  
+        value = (po - pm) / 4 
     end	
     if (ch == 2) then 
-        value = 0.25 * numb[1] * numb[1] * (1 - 0.25*con)  
+        value = (pm - pu) / 4  
     end	
     if (ch == 3) then 
-        value = numb[1] * numb[1] * con / 16
+       value = (po - pu) / 4
     end	
     if (ch == 4) then 
-        value = numb[1] * numb[1] / 8
+       value = (po - pm)/8 + (pm - pu)/4
     end	
     if (ch == 5) then 
-        value = numb[1] * numb[1] * (1 - 0.25*con)
+	po = lib.math.round_dec(0.25 * numb[1] * numb[1] * con, 3)	
+        value = pm - po
     end	
     if (ch == 6) then 
-        value = 0.5 * numb[1] * numb[1] 
+        value = 0.5 * pm 
     end		
 end	
 
@@ -230,7 +242,7 @@ mycanvas = function()
 ]]--
 
   lib.end_canvas()
-end              
+end       
           
           
             

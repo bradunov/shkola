@@ -103,7 +103,7 @@ if (ind == 2) then
 	if (ch == 2) then
     	numb[2] = 3 + math.random(15)
 		numb[4] = 2 * numb[2]
-	    numb[1] = lib.math.round_dec(numb[4] / root2,3)
+	    numb[1] = lib.math.round_dec(numb[2] * root2,3)
 	    numb[3] = lib.math.round_dec(0.5 *	numb[1] ,3)
     end		
 	if (ch == 3) then
