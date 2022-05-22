@@ -71,7 +71,7 @@ else
 end	
 
 for i = 1,3 do
-    out[i] = "\(^" .. grd[i].. "\) "
+    out[i] = "\(^{" .. grd[i].. "}\) "
 end	
 
 miss = math.random(3)
@@ -90,7 +90,7 @@ if (miss == 1) then
 	        number[1] = lib.check_string(base, 20)
         end			
     end	
-    out[1] = "\(^" .. lib.check_number(grd[1], 15)	.. "\) " 
+    out[1] = lib.sup_start() .. lib.check_number(grd[1], 15)	.. lib.sup_end()
 end	
 if (miss == 2) then
     rest = grd[2] - 2*math.floor(grd[2]/2)
@@ -107,7 +107,7 @@ if (miss == 2) then
 	        number[2] = lib.check_string(base, 20)
         end			
     end	
-    out[2] = "\(^" .. lib.check_number(grd[2], 15)	.. "\)" 
+    out[2] = lib.sup_start() .. lib.check_number(grd[2], 15)	.. lib.sup_end()
 end	
 if (miss == 3) then
     rest = grd[3] - 2*math.floor(grd[3]/2)
@@ -125,7 +125,7 @@ if (miss == 3) then
 	        number[3] = lib.check_string(base, 20)
         end			
     end	
-    out[3] = "\(^" .. lib.check_number(grd[3], 15)	.. "\) " 
+    out[3] = lib.sup_start() .. lib.check_number(grd[3], 15)	.. lib.sup_end()
 end	
 
 quest = ""
@@ -172,5 +172,5 @@ if (ch < 3) then
 else
     answ = answ .. bracl .. "\(\frac{" .. denom .. "}{" .. numb .. "}\)" .. bracr 
 end 
-answ = answ .. "\(^" .. val  .. "\)"   		      
+answ = answ .. "\(^{" .. val  .. "}\)"   		      
           

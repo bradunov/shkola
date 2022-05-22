@@ -165,6 +165,12 @@ class Library(object):
             s = s.replace(".", ",")
         return s
 
+    def sup_start(self):
+        return "<sup><sup>"
+
+    def sup_end(self):
+        return "</sup></sup>"
+
     # str_condition: ok == <condition>
     def condition_check_script(self, item_name, str_condition, extra_condition=None):
         if extra_condition is not None:
