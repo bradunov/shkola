@@ -336,9 +336,14 @@ class Question(object):
         output = output.replace("@h3@", "<div style='display:inline-block;font-weight:bold;font-size:18px;padding-top:4px;padding-bottom:2px;'>")
         output = output.replace("@/h3@", "</div>")
 
-        # Replace headers
+        # Replace superscripts
         output = output.replace("@sup@", self.lib.sup_start())
         output = output.replace("@/sup@", self.lib.sup_end())
+
+        # Replace fraction
+        output = output.replace("@frac@", self.lib.frac_start())
+        output = output.replace("@frac_line@", self.lib.frac_mid())
+        output = output.replace("@/frac@", self.lib.frac_end())
 
         # Replace spaces
         output = output.replace("@hspace@", "<div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div>")

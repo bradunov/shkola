@@ -171,6 +171,17 @@ class Library(object):
     def sup_end(self):
         return "</sup></sup>"
 
+    def frac_start(self):
+        return "\n<table style='display:inline-table;vertical-align:middle'>\n<tbody>\n<tr>\n" \
+            "<td style=\"border-bottom:solid 1px;text-align:center\">"
+
+    def frac_mid(self):
+        return "</td>\n" \
+            "</tr>\n<tr>\n<td style=\"text-align:center\">"
+
+    def frac_end(self):
+        return "</td>\n</tr>\n</tbody>\n</table>\n"
+
     # str_condition: ok == <condition>
     def condition_check_script(self, item_name, str_condition, extra_condition=None):
         if extra_condition is not None:
