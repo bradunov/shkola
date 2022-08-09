@@ -40,3 +40,4 @@ if (ch < 3) then
 else
     answ = lib.check_fraction_simple(denom, numb)
 end              
+           

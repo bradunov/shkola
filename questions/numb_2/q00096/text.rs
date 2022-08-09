@@ -1,6 +1,6 @@
 
 Dopuni izraze tako da jednakosti budu tačne. 
 
-@repeat(4)@
+@repeat(3)@
 @center@   @quest@  =  @answ@   
 @/repeat@

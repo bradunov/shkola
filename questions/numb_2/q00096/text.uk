@@ -1,7 +1,0 @@
-
-In the empty box write the correct answer.
-
-@repeat(4)@
-@center@   @quest@  =  @answ@   
-@/repeat@
-  

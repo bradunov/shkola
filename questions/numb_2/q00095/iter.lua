@@ -1,5 +1,6 @@
 
 letter = {"a", "b", "c", "m", "n", "p", "x", "y", "z"}
+letter1 = {"-a", "-b", "-c", "-m", "-n", "-p", "-x", "-y", "-z"}
 oper = {" * ", " : "}
 
 bracl = "\(\bigl(\)"
@@ -16,57 +17,38 @@ sg = math.random(4)
 if (ch < 3) then
     if (ch == 1) then
         base = tostring(numb)
+        base1 = tostring(-numb)		
     else	
         base = letter[numb-1]
+        base1 = letter1[numb-1]		
     end	
-    if (sg == 1) then 
-	    number[1] = base
-	    number[2] = base
-	    number[3] = base		
-    end		
-    if (sg == 2) then 
-	    number[1] = "-" .. base
-	    number[2] = "-" .. base	
-	    number[3] = "-" .. base		
-    end		
-    if (sg == 3) then 
-	    number[1] = base
-	    number[2] = "-" .. base	
-	    number[3] = base	
-    end		
-    if (sg == 4) then 
-	    number[1] = base
-	    number[2] = "-" .. base	
-	    number[3] = "-" .. base	
-    end		
 else
     denom = math.random(numb-1)
     qq = lib.math.gcd(denom, numb)
 	denom = math.floor(denom/qq)
 	numb = math.floor(numb/qq)
-    base = "\(\frac{" .. tostring(denom) .."}{" .. tostring(numb) .. "}\)"
-    base1 = "\(\frac{" .. tostring(-denom) .."}{" .. tostring(numb) .. "}\)"	
-    if (sg == 1) then 
-	    number[1] = base
-	    number[2] = base
-	    number[3] = base		
-    end		
-    if (sg == 2) then 
-	    number[1] = base1
-	    number[2] = base1
-	    number[3] = base1		
-    end		
-    if (sg == 3) then 
-	    number[1] = base
-	    number[2] = base1
-	    number[3] = base		
-    end		
-    if (sg == 4) then 
-	    number[1] = base
-	    number[2] = base1
-	    number[3] = base1		
-    end		
+    if (numb == 1) then	
+        base = tostring(denom)
+        base1 = tostring(-denom)
+        ch = 1
+    else		
+		base = "\(\frac{" .. tostring(denom) .."}{" .. tostring(numb) .. "}\)"
+		base1 = "\(\frac{" .. tostring(-denom) .."}{" .. tostring(numb) .. "}\)"	
+    end
+end	
+for i = 1,3 do
+    number[i] = base	
 end
+if (sg == 2) then
+	number[1] = base1
+end	
+if (sg > 1) then
+	number[2] = base1
+end		
+if (sg - 2*math.floor(sg/2) == 0) then 
+	number[3] = base1		
+end
+
 
 ind = math.random(2)
 op = math.random(2) 
@@ -89,9 +71,9 @@ quest = ""
 
 if (ind == 1) then
     if (grd[3] == 1) then
-		quest = bracl .. " (" .. number[1] .. ")\(^" .. grd[1]  .. "\) " .. oper[op] .. " (" .. number[2] .. ")\(^" .. grd[2]  .. "\) " .. bracr .. " : (" .. number[3] .. ")"
+		quest = bracl .. " (" .. number[1] .. ")\(^{" .. grd[1]  .. "}\) " .. oper[op] .. " (" .. number[2] .. ")\(^{" .. grd[2]  .. "}\) " .. bracr .. " : (" .. number[3] .. ")"
     else	
-		quest = bracl .. " (" .. number[1] .. ")\(^" .. grd[1]  .. "\) " .. oper[op] .. " (" .. number[2] .. ")\(^" .. grd[2]  .. "\) " .. bracr .. " : (" .. number[3] .. ")\(^" .. grd[3]  .. "\)"
+		quest = bracl .. " (" .. number[1] .. ")\(^{" .. grd[1]  .. "}\) " .. oper[op] .. " (" .. number[2] .. ")\(^{" .. grd[2]  .. "}\) " .. bracr .. " : (" .. number[3] .. ")\(^{" .. grd[3]  .. "}\)"
     end
 	if (op == 1) then
         val = grd[1] + grd[2] - grd[3]
@@ -99,7 +81,7 @@ if (ind == 1) then
         val = grd[1] - grd[2] - grd[3]	
 	end	
 else
-    quest = "(" .. number[3] .. ")\(^" .. grd[3]  .. "\) : " .. bracl .. " (" .. number[1] .. ")\(^" .. grd[1]  .. "\) " .. oper[op] .. " (" .. number[2] .. ")\(^" .. grd[2]  .. "\) " .. bracr 
+    quest = "(" .. number[3] .. ")\(^{" .. grd[3]  .. "}\) : " .. bracl .. " (" .. number[1] .. ")\(^{" .. grd[1]  .. "}\) " .. oper[op] .. " (" .. number[2] .. ")\(^{" .. grd[2]  .. "}\) " .. bracr 
     if (op == 1) then
         val = grd[3] - grd[1] - grd[2]
     else
@@ -128,4 +110,4 @@ if (ch < 3) then
     answ = answ .. "(" .. lib.check_string(base,20) .. ")"
 else
     answ = answ .. "(" .. lib.check_fraction_simple(denom, numb) .. ")"
-end  		
+end  	

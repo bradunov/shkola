@@ -1,0 +1,1 @@
+task = {"zbir", "razliku"}

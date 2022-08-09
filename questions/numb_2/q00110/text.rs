@@ -1,0 +1,10 @@
+
+Odredi @task[op]@ polinoma  @"P"@ i @"Q"@. 
+ 
+@center@  @"P"@ = @term[1]@,  
+@center@ @"Q"@ = @term[2]@,  
+@vspace@
+@center@  @"P"@ @oper[op]@ @"Q"@ = @result@   
+
+            
+            

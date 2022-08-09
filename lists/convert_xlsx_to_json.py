@@ -5,7 +5,7 @@ import json
 import argparse
 import os.path
 
-defaut_file_name = 'lists.rs.xlsx'
+defaut_file_name = 'lists.rs.xls'
 default_path = "../questions"
 
 parser = argparse.ArgumentParser(description="Create ARM template")

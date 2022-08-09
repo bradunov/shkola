@@ -1,0 +1,6 @@
+
+Simplify the expressions. In the first empty box write the sign - if the result is negative. Letters indicate positive numbers.
+
+@repeat(3)@
+@center@   @quest@  =  @answ@@sup@ @lib.check_number(val,15)@ @/sup@   
+@/repeat@
