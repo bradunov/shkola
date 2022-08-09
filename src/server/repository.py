@@ -267,6 +267,7 @@ class Repository(object):
                                 )
                             pass
                     elif not self.check_extension(file, ".png") and \
+                         not self.check_extension(file, ".xls") and \
                          not self.check_extension(file, ".xlsx") and \
                          not self.check_extension(file, ".docx") and \
                          not self.check_extension(file, ".sh") and \
