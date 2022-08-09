@@ -255,7 +255,7 @@ class Design_default(object):
             #   ValueError: invalid literal for int() with base 10: 'first'
             # so added exception handling for ValueError
             try:
-                if int(level) <= 6 or page.page_params.get_param("beta"): 
+                if int(level) <= 7 or page.page_params.get_param("beta"): 
                     lists['submenu']['options'].append({
                         "name" : level.upper(),
                         "link" : new_page_params.create_url( \
@@ -425,7 +425,7 @@ class Design_default(object):
             for ynumber in sorted(ordered.keys()):
 
                 # Year 7+ are not complete so we only show in beta mode
-                if int(ordered[ynumber]) <= 6 or page.page_params.get_param("beta"): 
+                if int(ordered[ynumber]) <= 7 or page.page_params.get_param("beta"): 
                     year = ordered[ynumber]
 
                     page.template_params['button']['choices'].append({
