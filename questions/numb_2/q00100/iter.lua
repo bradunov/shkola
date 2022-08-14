@@ -18,7 +18,7 @@ cor = ""
 for i = 1,stampa do
     numb[i] = 1 + math.random(3)
 	ch[i] = math.random(3)
-	nugr = 1 + math.random(3)
+	nugr = math.random(3)
 	if (i > 1) then
 	    for j = 1,i-1 do
 		    if (ch[i] == ch[j] and numb[i] == numb[j]) then
@@ -51,8 +51,12 @@ for i = 1,stampa do
 		if (nugr - 2*math.floor(nugr/2) ~= 0) then
 		    sign = -sign
 		end	
-    end		
-	quest = quest .. "(" .. termq .. ")\(^{" .. nugr .. "}\) " 
+    end	
+    if (nugr == 1) then
+		quest = quest .. "(" .. termq .. ") " 
+    else	
+		quest = quest .. "(" .. termq .. ")\(^{" .. nugr .. "}\) " 
+	end
     if (i < stampa) then
        quest = quest .. " * "
     else

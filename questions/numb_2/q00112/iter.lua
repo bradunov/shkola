@@ -17,7 +17,11 @@ arg = ""
 argchk = ""
 for i = 1,2 do
     degr[i] = math.random(5)
-    arg = arg .. choice[i] .. "\(^{" .. degr[i] .. "}\)"
+	if (degr[i] == 1) then
+		arg = arg .. choice[i] 
+	else
+		arg = arg .. choice[i] .. "\(^{" .. degr[i] .. "}\)"
+	end
     argchk = argchk .. lib.check_string(choice[i],15) .. lib.sup_start() .. lib.check_number(degr[i],10) .. lib.sup_end()
 end
 

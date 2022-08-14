@@ -126,7 +126,7 @@ for i = 1,3 do
 	result = result .. argchk[i]	
 
 	if (i < 3) then
-		result = result .. " " .. sign .. " "
+		result = result .. " " .. lib.check_string(sign,10) .. " "
 	end
 end	
-               
+           
