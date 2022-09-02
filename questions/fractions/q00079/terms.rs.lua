@@ -1,0 +1,1 @@
+padez = {"kajsiju", "kajsije", "kajsija"}

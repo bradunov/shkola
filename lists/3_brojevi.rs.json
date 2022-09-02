@@ -267,6 +267,46 @@
       "difficulty": "3"
     },
     {
+      "name": "fractions/q00077",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": "Tekstualni zadatak",
+      "rank_subtheme": "6",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00078",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": "Upoređivanje razlomaka",
+      "rank_subtheme": "6",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00082",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": "Upoređivanje razlomaka",
+      "rank_subtheme": "6",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00083",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": "Upoređivanje razlomaka",
+      "rank_subtheme": "6",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
       "name": "numbers/q00047",
       "random": "10",
       "period": "1",

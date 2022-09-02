@@ -257,6 +257,16 @@
       "difficulty": "1"
     },
     {
+      "name": "fractions/q00079",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Razlomci",
+      "topic": "Tekstualni zadatak",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
       "name": "numbers/q00109",
       "random": "10",
       "period": "1",

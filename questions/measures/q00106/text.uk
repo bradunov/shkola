@@ -1,0 +1,7 @@
+
+Four children took part in a race realised in @lap@ laps. Average times per lap are given in the table.
+@center@ @mycanvas()@ 
+Fill in the total time for each child, in seconds (column 3) and minutes and seconds (column 4).
+
+What is the difference between the best and the worst result?
+@center@  @lib.check_number(res_m, 15)@ @"min"@ @hspacept(3)@ @lib.check_number(res_s, 30)@ @"s"@     

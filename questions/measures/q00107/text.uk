@@ -1,0 +1,13 @@
+
+Belgrade time is 7 hours behind Singapore. Belgrade time is 6 hours ahead of New York.
+If it is 
+@center@ @day_q@, @hspacept(3)@ @datum_q@ @month_q@, @hspacept(3)@ @hour_q@ @pad_q@ 
+in Belgrade, what day and time is it in Singapore and New York? 
+
+@vspace@ 
+In Singapore is 
+@center@  @answ[1]@.
+In New York is 
+@center@ @answ[2]@.          
+            
+                 

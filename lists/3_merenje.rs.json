@@ -405,6 +405,36 @@
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
+    },
+    {
+      "name": "measures/q00105",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Merenje vremena",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00106",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Merenje vremena",
+      "topic": "Pretvaranje jedne mere u drugu",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00107",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Merenje vremena",
+      "topic": "Računske operacije",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
     }
   ]
 }

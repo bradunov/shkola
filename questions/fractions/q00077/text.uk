@@ -1,0 +1,6 @@
+
+@ime@ has a chocolate bar with @denom@ pieces. If he eats @number@ @piece[pc]@ and gives  \(\frac{@enum@}{@denom@}\) to a friend,  it will rest him  
+
+@center@ @lib.check_one_option_dropdown(answ, answ[ind])@
+
+a chocolate.

@@ -1,0 +1,6 @@
+
+@numb@ boys share @quant@ pies equaly. How much pie does each boy get? 
+
+@vspace@
+
+@center@ Each boy gets @hspacept(2)@ @lib.check_number(whole)@ @hspacept(2)@ and @hspacept(2)@ @lib.check_fraction_simple(rest, numb)@ @hspacept(2)@ pies. 

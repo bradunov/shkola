@@ -1,0 +1,10 @@
+
+Colour the label of the given fraction \(\frac{@enum[ind[ch]]@}{@denom[ind[ch]]@}\)  on the number line. 
+
+@center@ @mycanvas()@  
+
+Is the given fraction:
+@center@  less than \(\frac{@enum[left]@}{@denom[left]@}\)? @hspacept(30)@ @lib.check_one_option_dropdown(op, quest[1])@
+@center@  more than\(\frac{@enum[right]@}{@denom[right]@}\)? @hspacept(30)@ @lib.check_one_option_dropdown(op, quest[2])@
+@center@  more than \(\frac{@enum[left]@}{@denom[left]@}\) and less than \(\frac{@enum[right]@}{@denom[right]@}\)? @hspacept(30)@ @lib.check_one_option_dropdown(op, quest[3])@
+            
