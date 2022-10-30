@@ -1,115 +1,169 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.tatamata.org</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/rs</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/rs/menu_year</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/rs/menu_theme/year/1</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/rs/menu_theme/year/2</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/rs/menu_theme/year/3</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/rs/menu_theme/year/4</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.tatamata.org/main/language/rs/menu_theme/year/5</loc>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.tatamata.org/main/language/rs/menu_theme/year/6</loc>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.tatamata.org/main/language/rs/menu_theme/year/7</loc>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/rsc</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/rsc/menu_year</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/rsc/menu_theme/year/1</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/rsc/menu_theme/year/2</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/rsc/menu_theme/year/3</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/rsc/menu_theme/year/4</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.tatamata.org/main/language/rsc/menu_theme/year/5</loc>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.tatamata.org/main/language/rsc/menu_theme/year/6</loc>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.tatamata.org/main/language/rsc/menu_theme/year/7</loc>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/uk</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/uk/menu_year</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/uk/menu_theme/year/1</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/uk/menu_theme/year/2</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/uk/menu_theme/year/3</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tatamata.org/main/language/uk/menu_theme/year/4</loc>
-    <lastmod>2020-11-24</lastmod>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.tatamata.org/main/language/uk/menu_theme/year/5</loc>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.tatamata.org/main/language/uk/menu_theme/year/6</loc>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.tatamata.org/main/language/uk/menu_theme/year/7</loc>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
