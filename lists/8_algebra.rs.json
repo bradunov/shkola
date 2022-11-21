@@ -1,0 +1,90 @@
+{
+  "name": "8 Algebra",
+  "level": "8",
+  "level_short": "8",
+  "theme": "Algebra",
+  "language": "rs",
+  "rank_theme": "1",
+  "questions": [
+    {
+      "name": "equat_2/q00032",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Rešenje",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00033",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Rešenje",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00034",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Ekvivalentne jednačine",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00035",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Ekvivalentne jednačine",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00036",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Rešenje",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00037",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Ekvivalentne transformacije",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00038",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Rešavanje",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00039",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Rešavanje",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "2"
+    }
+  ]
+}

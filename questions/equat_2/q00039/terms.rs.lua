@@ -1,0 +1,1 @@
+msg = {"Rešenje je x = ",  "Nema rešenja", "Rešenje je svaki realan broj", "Rešenje je svaki realan broj x≠0"}
