@@ -140,10 +140,10 @@ class UserDB(object):
 
 
             # Do not full name and email 
-            name = idinfo['given_name']
+            name = idinfo.get('given_name', "")
             #email = idinfo['email']
-            language = idinfo['locale']
-            picture = idinfo['picture']
+            language = idinfo.get('locale')
+            picture = idinfo.get('picture')
 
         except ValueError as ex:
             logging.info("Failed google authentication: {}".format(ex))
