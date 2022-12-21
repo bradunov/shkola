@@ -7,6 +7,36 @@
   "rank_theme": "2",
   "questions": [
     {
+      "name": "equat_2/q00106",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Algebarski izrazi",
+      "topic": "Pojam",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00107",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Algebarski izrazi",
+      "topic": "Pojam",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00108",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Algebarski izrazi",
+      "topic": "Polinomi",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
       "name": "equat_2/q00109",
       "random": "8",
       "period": "2",
