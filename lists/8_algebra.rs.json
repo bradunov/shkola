@@ -85,6 +85,116 @@
       "rank_subtheme": "1",
       "rank_topic": "4",
       "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00040",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Ekvivalentne transformacije",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00041",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Rešavanje",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00042",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Rešavanje",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "3"
+    },
+    {
+      "name": "equat_2/q00043",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Primena",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00044",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Primena",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00045",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Primena",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00046",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Primena",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00047",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Primena",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00048",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Primena",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00049",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Primena",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00050",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne jednačine sa jednom nepoznatom",
+      "topic": "Primena",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
     }
   ]
 }

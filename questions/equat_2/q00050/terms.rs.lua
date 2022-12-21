@@ -1,0 +1,1 @@
+msg = {"vrane", "vrana", "grane", "grana"};
