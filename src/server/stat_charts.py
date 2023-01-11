@@ -119,7 +119,7 @@ def draw_chart(chart_data, pg):
             "message" : subtop_task_tmp
         }
 
-        print("SSS: ", single_stat)
+        #print("SSS: ", single_stat)
 
         stats_per_subtask[subtheme_key.lower().capitalize()] = single_stat
 
