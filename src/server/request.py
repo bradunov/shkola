@@ -4,7 +4,7 @@ from enum import Enum, unique
 import http.cookies
 import logging
 
-from http.cookies import SimpleCookie
+from session import SESSION_COOKIE
 import re
 
 @unique
@@ -40,8 +40,7 @@ class Request:
                 except http.cookies.CookieError as err:
                     logging.info("Invalid cookie header received: %s", http_cookie)
                 # Check that our cookie survived parsing
-                if "shkola_session_id" in http_cookie and \
-                    self._cookies.get('shkola_session_id') is None:
+                if SESSION_COOKIE in http_cookie and SESSION_COOKIE not in self._cookies:
                     logging.error("Cookie 'shkola_session_id' lost during parsing cookie: {}".format(
                         http_cookie
                     ))
