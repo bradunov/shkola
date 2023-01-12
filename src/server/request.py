@@ -4,7 +4,7 @@ from enum import Enum, unique
 import http.cookies
 import logging
 
-from session import SESSION_COOKIE
+from server.session import SESSION_COOKIE
 import re
 
 @unique
