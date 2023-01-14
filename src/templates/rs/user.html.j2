@@ -184,13 +184,7 @@
     <script>
       function onSignIn(googleUser) {
           console.log('Google sign in');
-          var profile = googleUser.getBasicProfile();
-          var id_token = googleUser.getAuthResponse().id_token;
-          console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-          console.log('Name: ' + profile.getName());
-          console.log('Image URL: ' + profile.getImageUrl());
-          console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
+          var id_token = googleUser['credential'];
           var xhr = new XMLHttpRequest();
           xhr.open('POST', '{{ template_params["google_link"] }}');
           xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -210,84 +204,32 @@
     </script>
 
 
-    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
-      var googleUser = {};
-      var startGoogleAuth = function() {
-        console.log("Loading google auth2 library");
-        gapi.load('auth2', function(){
-          // Retrieve the singleton for the GoogleAuth library and set up the client.
-          // B: When having auth problems on tablet, do we need to set more parameters here:
-          // https://developers.google.com/identity/sign-in/web/reference#gapiauth2clientconfig
-          console.log("Google auth2 library loaded, calling init");
-          auth2 = gapi.auth2.init({
-            client_id: '{{ template_params['google_signin_client_id'] }}',
-            cookiepolicy: 'single_host_origin',
-            // Request scopes in addition to 'profile' and 'email'
-            //scope: 'additional_scope'
-          });
-          attachSignin(document.getElementById('button_user_google'));
+      window.onload = function () {
+        google.accounts.id.initialize({
+          client_id: '{{ template_params['google_signin_client_id'] }}',
+          callback: onSignIn
         });
+        google.accounts.id.prompt();
+        // Display the Sign In With Google Button
+        google.accounts.id.renderButton(
+          document.getElementById("buttonDiv"),
+          { type: 'standard', theme: 'outline', size: 'medium', text: 'continue_with', locale: "sr_Latn_RS" }
+        );        
       };
-
-      function attachSignin(element) {
-          //console.log("Element id: ", element.id);
-          auth2.attachClickHandler(element, {}, onSignIn,
-              function(error) {
-                var xhr = new XMLHttpRequest();
-                var url = '/main?op=feedback'
-                xhr.open('POST', url);
-                xhr.onreadystatechange = function() {
-                    console.log("Received");
-                    console.log(xhr);
-                    if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
-                };
-                var report = {};
-                report['type'] = 'GOOGLE_ERROR';
-                report['comment'] = JSON.stringify(error, undefined, 2);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                console.log("Sending report to " + url + ": " + JSON.stringify(report));
-                xhr.send(JSON.stringify(report));
-                alert(JSON.stringify(error, undefined, 2));
-                popup_toggle_wait("hidden");
-              });
-      }
     </script>
 
 
 
     <div style="display:table; margin:0 auto">
       <div align="center" style="display:content; border:0px; padding:0px; margin:0px">
-        <div id="button_user_google" class="sh-std-button" 
-            onclick="popup_toggle_wait('visible');"
-            style="display: inline-block;
-                    background: #f9f9f9;
+        <div style="display: inline-block;
                     width: 240px;
                     height: 40px;
-                    margin: 83px 10px 0px 10px;">
-
-          <div id="text_user_google"> 
-            <div class="sh_lato_font"
-                style="display: inline-block;
-                    cursor: pointer;
-                    vertical-align: middle;
-                    margin: 10px 0px 10px 23px;
-                    font-size: 18px;
-                    color: #6ab288"> 
-                      ULOGUJ SE PREKO 
-            </div>
-            <div style="display: inline-block; 
-                        margin-right: 22px; 
-                        margin-left: 6px; 
-                        margin-top: 0px; 
-                        height: 22px; 
-                        vertical-align: middle">
-              <img src="{{ template_params['item_path'] }}images/google.png" alt="G" height="22px" width="22px">
-            </div>
-          </div>
+                    margin: 83px 10px 20px 10px;">
+          <div id='buttonDiv' style="display: inline-block"></div>
         </div>
-        <div id='gauth_status'></div>
-        <script>startGoogleAuth();</script>
       <div>
 
       <div align="center" style="display:content; border:0px; padding:0px; margin:0px">

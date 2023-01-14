@@ -4,6 +4,9 @@ from enum import Enum, unique
 import http.cookies
 import logging
 
+from session import SESSION_COOKIE
+import re
+
 @unique
 class RequestType(Enum):
     AZURE = 0
@@ -22,7 +25,27 @@ class Request:
 
     def _parse_cookies(self):
         if self._rtype == RequestType.CHERRY_PY:
-            self._cookies = self._request.cookie
+            # Google One Tap sends a cookie Python cannot parse
+            # https://stackoverflow.com/questions/66864766/one-tap-login-g-state-cookie-is-not-parseable-on-http-cookies-simplecookie
+            # Solution: remove and reparse
+            ### self._cookies = self._request.cookie
+            self._cookies = http.cookies.SimpleCookie()
+            http_cookie = self.get_header('Cookie')
+            if http_cookie:
+                # Remove any broken cookie which has XXX = { ... };
+                # Replace with XXX = ''
+                fixed_http_cookie = re.sub(r"\s*=\s*{.*\}\s*;", "='';", http_cookie)
+                try:
+                    self._cookies.load(fixed_http_cookie)
+                except http.cookies.CookieError as err:
+                    logging.info("Invalid cookie header received: %s", http_cookie)
+                # Check that our cookie survived parsing
+                if SESSION_COOKIE in http_cookie and SESSION_COOKIE not in self._cookies:
+                    logging.error("Cookie 'shkola_session_id' lost during parsing cookie: {}".format(
+                        http_cookie
+                    ))
+
+
         else:
             self._cookies = http.cookies.SimpleCookie()
             http_cookie = self.get_header('Cookie')
