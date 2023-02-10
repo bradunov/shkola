@@ -195,6 +195,106 @@
       "rank_subtheme": "1",
       "rank_topic": "5",
       "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00051",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne nejednačine sa jednom nepoznatom",
+      "topic": "Rešavanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00052",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne nejednačine sa jednom nepoznatom",
+      "topic": "Ekvivalentne nejednačine",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00053",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne nejednačine sa jednom nepoznatom",
+      "topic": "Ekvivalentne nejednačine",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00054",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne nejednačine sa jednom nepoznatom",
+      "topic": "Ekvivalentne nejednačine",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "equat_2/q00055",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne nejednačine sa jednom nepoznatom",
+      "topic": "Rešavanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "equat_2/q00056",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne nejednačine sa jednom nepoznatom",
+      "topic": "Rešavanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00057",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne nejednačine sa jednom nepoznatom",
+      "topic": "Rešavanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00058",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne nejednačine sa jednom nepoznatom",
+      "topic": "Primena",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00059",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne nejednačine sa jednom nepoznatom",
+      "topic": "Primena",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00060",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne nejednačine sa jednom nepoznatom",
+      "topic": "Primena",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
     }
   ]
 }

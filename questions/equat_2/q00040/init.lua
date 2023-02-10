@@ -167,15 +167,15 @@ end
 
 equ = lib.check_number(coef[1],40).. "x" .. dg2 
 if (coef[2] < 0) then
-    equ = equ .. " - " 
+    equ = equ .. lib.check_string("-", 10) 
 else
-    equ = equ .. " + " 
+    equ = equ .. lib.check_string("+", 10) 
 end	
 equ = equ .. lib.check_number(math.abs(coef[2]),40) .. "x"
 if (coef[3] < 0) then
-    equ = equ .. " - " 
+    equ = equ .. lib.check_string("-", 10) 
 else
-    equ = equ .. " + " 
+    equ = equ .. lib.check_string("+", 10) 
 end	
 equ = equ .. lib.check_number(math.abs(coef[3]),40)
 

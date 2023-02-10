@@ -162,14 +162,14 @@ if (aa * bb ~= 0) then
 	q = lib.math.gcd(aa,bb)
 	aa = aa/q
 	bb = bb/q 
-	val = bb/aa	
+	val = -bb/aa	
 	reply  = msg[1]				
 	rest = val - lib.math.round(val)	  
 	if (rest == 0) then
 		equ = lib.check_number(val, 20)			
 	else		
 		condit = "is_ok = math.eq(numerator/denominator, "..tostring(val)..");"	
-		solut = "numerator="..tostring(bb)..";denominator="..tostring(aa)..";"
+		solut = "numerator="..tostring(-bb)..";denominator="..tostring(aa)..";"
 		equ = lib.check_fraction_condition(condit, nil, nil, solut)
 	end 
 else

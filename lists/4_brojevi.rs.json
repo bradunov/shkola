@@ -1225,16 +1225,6 @@
       "rank_subtheme": "5",
       "rank_topic": "2",
       "difficulty": "2"
-    },
-    {
-      "name": "equations/q00045",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Nejednačine",
-      "topic": "Sve računske operacije",
-      "rank_subtheme": "5",
-      "rank_topic": "3",
-      "difficulty": "3"
     }
   ]
 }

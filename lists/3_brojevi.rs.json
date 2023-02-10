@@ -1139,7 +1139,17 @@
     {
       "name": "numbers/q00241",
       "random": "10",
-      "period": "1",
+      "period": "2",
+      "subtheme": "Brojevni izraz",
+      "topic": "Redosled računskih operacija",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00243",
+      "random": "5",
+      "period": "2",
       "subtheme": "Brojevni izraz",
       "topic": "Redosled računskih operacija",
       "rank_subtheme": "3",

@@ -97,11 +97,19 @@ if (ftp < 0) then
     reply = msg[3]
 else
 	enum1 = ftp - numb[2] 
-	value1 = enum1 / numb[1]
+	value1 = enum1 / numb[1]	
 	enum2 = -ftp - numb[2] 
 	value2 = enum2 / numb[1]
     if (value1 ~= value2) then	
-		reply  = msg[1]	
+		reply  = msg[1]
+		if (value1 > value2) then
+		    tmp = value2
+			value2 = value1
+			value1 = tmp
+			tmp = enum2
+			enum2 = enum1
+			enum1 = tmp
+		end
     else
 		reply  = msg[2]	
     end		
