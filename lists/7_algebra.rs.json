@@ -7,6 +7,36 @@
   "rank_theme": "2",
   "questions": [
     {
+      "name": "equat_2/q00106",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Algebarski izrazi",
+      "topic": "Pojam",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00107",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Algebarski izrazi",
+      "topic": "Pojam",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00108",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Algebarski izrazi",
+      "topic": "Polinomi",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
       "name": "equat_2/q00109",
       "random": "8",
       "period": "2",
@@ -21,7 +51,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Algebarski izrazi",
-      "topic": "Sabiranje i oduzimanje polinoma",
+      "topic": "Sabiranje I oduzimanje polinoma",
       "rank_subtheme": "1",
       "rank_topic": "3",
       "difficulty": "1"
@@ -31,7 +61,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Algebarski izrazi",
-      "topic": "Sabiranje i oduzimanje polinoma",
+      "topic": "Sabiranje I oduzimanje polinoma",
       "rank_subtheme": "1",
       "rank_topic": "3",
       "difficulty": "2"
@@ -41,7 +71,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Algebarski izrazi",
-      "topic": "Sabiranje i oduzimanje polinoma",
+      "topic": "Sabiranje I oduzimanje polinoma",
       "rank_subtheme": "1",
       "rank_topic": "3",
       "difficulty": "1"
@@ -119,7 +149,7 @@
     {
       "name": "equat_2/q00120",
       "random": "10",
-      "period": "2",
+      "period": "3",
       "subtheme": "Rastavljanje na činioce",
       "topic": "Kvadrat binoma",
       "rank_subtheme": "2",
@@ -129,7 +159,7 @@
     {
       "name": "equat_2/q00121",
       "random": "10",
-      "period": "2",
+      "period": "3",
       "subtheme": "Rastavljanje na činioce",
       "topic": "Kvadrat binoma",
       "rank_subtheme": "2",
@@ -139,7 +169,7 @@
     {
       "name": "equat_2/q00122",
       "random": "10",
-      "period": "2",
+      "period": "3",
       "subtheme": "Rastavljanje na činioce",
       "topic": "Kvadrat binoma",
       "rank_subtheme": "2",
@@ -149,7 +179,7 @@
     {
       "name": "equat_2/q00123",
       "random": "10",
-      "period": "2",
+      "period": "3",
       "subtheme": "Rastavljanje na činioce",
       "topic": "Razlika kvadrata",
       "rank_subtheme": "2",
@@ -159,7 +189,7 @@
     {
       "name": "equat_2/q00124",
       "random": "10",
-      "period": "2",
+      "period": "3",
       "subtheme": "Rastavljanje na činioce",
       "topic": "Razlika kvadrata",
       "rank_subtheme": "2",
@@ -169,7 +199,7 @@
     {
       "name": "equat_2/q00125",
       "random": "10",
-      "period": "2",
+      "period": "3",
       "subtheme": "Rastavljanje na činioce",
       "topic": "Razlika kvadrata",
       "rank_subtheme": "2",
@@ -179,7 +209,7 @@
     {
       "name": "equat_2/q00126",
       "random": "10",
-      "period": "2",
+      "period": "3",
       "subtheme": "Rastavljanje na činioce",
       "topic": "Razlika kvadrata",
       "rank_subtheme": "2",
@@ -189,7 +219,7 @@
     {
       "name": "equat_2/q00127",
       "random": "10",
-      "period": "2",
+      "period": "3",
       "subtheme": "Rastavljanje na činioce",
       "topic": "Razlika kvadrata",
       "rank_subtheme": "2",

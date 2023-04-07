@@ -538,10 +538,10 @@ mycanvas = function()
 		lib.add_text(dif*scale-2*ov, 4*v-ov, point[1], text_style, false, false)
      end 
   else
-	  lib.add_input(dif*scale-2*ov, 2*ow, 50, 50, lib.check_number(point[1], 30)) 
-	  lib.add_input((dif+numbl)*scale-2*ov, 4*v, 50, 50, lib.check_number(point[2], 30))
+	  lib.add_input(dif*scale-2*ov, 3*ow-v, 50, 50, lib.check_number(point[1], 30)) 
+	  lib.add_input((dif+numbl)*scale-2*ov, 3*ow+ov, 50, 50, lib.check_number(point[2], 30))
       if (sing == 0) then		  
-		  lib.add_input((int - dif)*scale-2*ov, 2*ow, 50, 50, lib.check_number(point[3], 30)) 
+		  lib.add_input((int - dif)*scale-2*ov, 3*ow-v, 50, 50, lib.check_number(point[3], 30)) 
       end
   end	  
   if (ind == 2) then
@@ -596,5 +596,4 @@ numb[2][1]<0  |     +                    +                       -
 0*x >=< bb   ind = 3   Rešenje je svaki realan broj.    
 0*x >=< bb   ind = 4   Nema rešenja.
 ]]--
-	        	
             

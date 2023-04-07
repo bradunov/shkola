@@ -1,0 +1,2 @@
+
+answ = {"raste", "opada"}
