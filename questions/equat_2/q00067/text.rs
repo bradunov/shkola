@@ -6,3 +6,4 @@ Bez crtanja grafika utvrdi da li su date funkcije rastuće ili opadajuće. U pos
 3. @hspacept(15)@ @"y = "@ @fun[out[3]]@ @hspacept(50)@ @lib.check_one_option_dropdown(answ, ind[out[3]])@ @hspacept(30)@ @lib.check_number(graph[3])@ 
 4. @hspacept(15)@ @"y = "@ @fun[out[4]]@ @hspacept(50)@ @lib.check_one_option_dropdown(answ, ind[out[4]])@ @hspacept(30)@ @lib.check_number(graph[4])@
 5. @hspacept(15)@ @"y = "@ @fun[out[5]]@ @hspacept(50)@ @lib.check_one_option_dropdown(answ, ind[out[5]])@ @hspacept(30)@ @lib.check_number(graph[5])@     
+ 

@@ -64,11 +64,10 @@ for i = 1,numb do
 end
 
 perm = {}
-for i = 1,2*numb do
+for i = 1,3*numb do
 	perm[i] = i
 end
 perm = lib.math.random_shuffle(perm)
-
 
 
 

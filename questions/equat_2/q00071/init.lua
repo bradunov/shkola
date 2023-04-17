@@ -174,25 +174,15 @@ else
 end	
 if (check < 2) then
 	point0 = lib.check_number(lib.math.round_dec(broj/imen,1))  
-	sign1 = lib.check_number(lib.math.round_dec(broj/imen,1)) 
-	sign2 = lib.check_number(lib.math.round_dec(broj/imen,1)) 	
 else
 	point0 = lib.check_fraction_simple(broj, imen) 	
-	sign1 = lib.check_fraction_simple(broj, imen)	
-	sign2 = lib.check_fraction_simple(broj, imen)	
 end	
 if (ch[1][2] < 2) then
 	point1 = lib.check_number(lib.math.round_dec(enum[1][2]/denom[1][2],1))  
 else
 	point1 = lib.check_fraction_simple(enum[1][2], denom[1][2]) 					
 end
-if (enum[1][1]/denom[1][1] > 0) then
-    sg1 = ">"
-    sg2 = "<"
-else
-    sg1 = "<"
-    sg2 = ">"
-end	
+
 
 
 px = {}
@@ -244,4 +234,3 @@ mycanvas = function()
   lib.end_canvas()
 end         
      
-              
