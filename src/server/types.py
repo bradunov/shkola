@@ -389,8 +389,12 @@ class PageParameters(object):
                                 self._params["topic"] = args["permalink"][ind+1]
                                 ind += 2
                             elif args["permalink"][ind] == "question":
-                                self._params["q_id"] = args["permalink"][ind+1] + "/" + args["permalink"][ind+2]
-                                ind += 3
+                                if ind + 1 < len(args["permalink"])
+                                    self._params["q_id"] = args["permalink"][ind+1] + "/" + args["permalink"][ind+2]
+                                    ind += 3
+                                else:
+                                    logging.info("Expecting more inputs {}.".format(args["permalink"]))
+                                    break
                             else:
                                 break
 

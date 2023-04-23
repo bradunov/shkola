@@ -580,8 +580,13 @@ class Question(object):
         
 
         lua_fun = self.lua.eval(code)
-        lua_fun(self.page, self.lib, strings)
-                        
+        try:
+            lua_fun(self.page, self.lib, strings)
+        except Exception as e:
+            logging.error("An exception occurred in question {}: {}".format(self.q_id, e))
+            raise e
+
+
         if self.lib is not None:
             self.lib.add_check_button_code()
             self.lib.add_clear_button_code()
