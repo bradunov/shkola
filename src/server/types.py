@@ -381,7 +381,7 @@ class PageParameters(object):
                     if len(args["permalink"]) > ind+4 and args["permalink"][ind+3] == "theme":
                         self._params["theme"] = args["permalink"][ind+4]
                         ind = 7
-                        while ind < len(args["permalink"]):
+                        while ind + 1 < len(args["permalink"]):
                             if args["permalink"][ind] == "subtheme":
                                 self._params["subtheme"] = args["permalink"][ind+1]
                                 ind += 2
@@ -389,7 +389,7 @@ class PageParameters(object):
                                 self._params["topic"] = args["permalink"][ind+1]
                                 ind += 2
                             elif args["permalink"][ind] == "question":
-                                if ind + 1 < len(args["permalink"]):
+                                if ind + 2 < len(args["permalink"]):
                                     self._params["q_id"] = args["permalink"][ind+1] + "/" + args["permalink"][ind+2]
                                     ind += 3
                                 else:
