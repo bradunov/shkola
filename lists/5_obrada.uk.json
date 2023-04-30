@@ -1,0 +1,260 @@
+{
+  "name": "5 Data Processing",
+  "level": "5",
+  "level_short": "5",
+  "theme": "Data Processing",
+  "language": "uk",
+  "rank_theme": "4",
+  "questions": [
+    {
+      "name": "data_2/q00004",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Fraction application",
+      "topic": "Percentage",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00005",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Fraction application",
+      "topic": "Percentage",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00006",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Fraction application",
+      "topic": "Percentage",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00007",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Fraction application",
+      "topic": "Percentage",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00008",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Fraction application",
+      "topic": "Percentage",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00009",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Fraction application",
+      "topic": "Percentage",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00015",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Fraction application",
+      "topic": "Ratio",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00017",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Fraction application",
+      "topic": "Ratio",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00018",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Fraction application",
+      "topic": "Ratio",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00019",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Fraction application",
+      "topic": "Ratio",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00020",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Application of fractions",
+      "topic": "Ratio",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00024",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Application of fractions",
+      "topic": "Arithmetic mean",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00025",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Application of fractions",
+      "topic": "Arithmetic mean",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00026",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Application of fractions",
+      "topic": "Arithmetic mean",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00027",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Application of fractions",
+      "topic": "Arithmetic mean",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00028",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Application of fractions",
+      "topic": "Arithmetic mean",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00029",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Application of fractions",
+      "topic": "Arithmetic mean",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00030",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Presentation and processing of data",
+      "topic": "Table",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00031",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Presentation and processing of data",
+      "topic": "Table",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00032",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Presentation and processing of data",
+      "topic": "Table",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00035",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Data presentation and processing",
+      "topic": "Pie chart",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00036",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Application of fractions",
+      "topic": "Percentage",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00036",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Application of fractions",
+      "topic": "Percentage",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00036",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Application of fractions",
+      "topic": "Percentage",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00039",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Application of fractions",
+      "topic": "Percentage",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    }
+  ]
+}

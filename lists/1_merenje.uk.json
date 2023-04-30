@@ -1,0 +1,40 @@
+{
+  "name": "1 Measurement and Measures",
+  "level": "1",
+  "level_short": "1",
+  "theme": "Measurement and Measures",
+  "language": "uk",
+  "rank_theme": "4",
+  "questions": [
+    {
+      "name": "measures/q00045",
+      "random": "5",
+      "period": "2",
+      "subtheme": "Measuring with non-standard units of measurement",
+      "topic": "Measuring length and weight",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00046",
+      "random": "5",
+      "period": "2",
+      "subtheme": "Measuring with non-standard units of measurement",
+      "topic": "Measuring length and weight",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00047",
+      "random": "3",
+      "period": "2",
+      "subtheme": "Measuring with non-standard units of measurement",
+      "topic": "Measuring length and weight",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    }
+  ]
+}

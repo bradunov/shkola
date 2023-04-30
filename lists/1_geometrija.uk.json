@@ -11,7 +11,7 @@
       "random": "3",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "Position in space",
+      "topic": "Spatial relations",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -21,7 +21,7 @@
       "random": "3",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "Position in space",
+      "topic": "Spatial relations",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -31,7 +31,7 @@
       "random": "3",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "Size",
+      "topic": "Size of objects and beings",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -41,7 +41,7 @@
       "random": "4",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "2D and 3D shapes",
+      "topic": "Geometrical figures and bodies",
       "rank_subtheme": "1",
       "rank_topic": "3",
       "difficulty": "1"
@@ -51,7 +51,7 @@
       "random": "3",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "Size",
+      "topic": "Size of objects and beings",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -61,7 +61,7 @@
       "random": "6",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "Position in space",
+      "topic": "Spatial relations",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -71,7 +71,7 @@
       "random": "0",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "Position in space",
+      "topic": "Spatial relations",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -81,17 +81,37 @@
       "random": "0",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "Position in space",
+      "topic": "Spatial relations",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00009",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Line",
+      "topic": "Open, closed line",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00009",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Line",
+      "topic": "Open, closed line",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
     },
     {
       "name": "geometry/q00010",
       "random": "3",
       "period": "2",
       "subtheme": "Line",
-      "topic": "Straight, curved and broken line",
+      "topic": "Straight, curved, broken line",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -101,7 +121,7 @@
       "random": "3",
       "period": "2",
       "subtheme": "Line",
-      "topic": "Straight, curved and broken line",
+      "topic": "Straight, curved, broken line",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -111,7 +131,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "2D and 3D shapes",
+      "topic": "Geometric figures and bodies",
       "rank_subtheme": "1",
       "rank_topic": "3",
       "difficulty": "1"
@@ -121,7 +141,7 @@
       "random": "3",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "2D and 3D shapes",
+      "topic": "Geometric figures and bodies",
       "rank_subtheme": "1",
       "rank_topic": "3",
       "difficulty": "2"
@@ -131,7 +151,7 @@
       "random": "6",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "Position in space",
+      "topic": "Spatial relations",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"
@@ -141,7 +161,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "Position in space",
+      "topic": "Spatial relations",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"
@@ -151,7 +171,7 @@
       "random": "0",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "2D and 3D shapes",
+      "topic": "Geometric figures and bodies",
       "rank_subtheme": "1",
       "rank_topic": "3",
       "difficulty": "1"
@@ -161,7 +181,7 @@
       "random": "0",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "2D and 3D shapes",
+      "topic": "Geometric figures and bodies",
       "rank_subtheme": "1",
       "rank_topic": "3",
       "difficulty": "1"
@@ -170,8 +190,8 @@
       "name": "geometry/q00045",
       "random": "8",
       "period": "2",
-      "subtheme": "Position, size and shape",
-      "topic": "Position in space",
+      "subtheme": "Line",
+      "topic": "External, internal area",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"
@@ -181,7 +201,7 @@
       "random": "8",
       "period": "2",
       "subtheme": "Line",
-      "topic": "Inner and outer area",
+      "topic": "External, internal area",
       "rank_subtheme": "2",
       "rank_topic": "3",
       "difficulty": "2"
@@ -191,9 +211,19 @@
       "random": "3",
       "period": "2",
       "subtheme": "Line",
-      "topic": "Inner and outer area",
+      "topic": "Outer, inner area",
       "rank_subtheme": "2",
       "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00056",
+      "random": "6",
+      "period": "2",
+      "subtheme": "Line",
+      "topic": "Open, closed line",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
       "difficulty": "1"
     },
     {
@@ -201,7 +231,7 @@
       "random": "0",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "Position in space",
+      "topic": "Spatial relations",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"
@@ -211,7 +241,7 @@
       "random": "8",
       "period": "2",
       "subtheme": "Line",
-      "topic": "Inner and outer area",
+      "topic": "Outer, inner area",
       "rank_subtheme": "2",
       "rank_topic": "3",
       "difficulty": "2"
@@ -221,7 +251,7 @@
       "random": "8",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "Size",
+      "topic": "Size of objects and beings",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
@@ -231,10 +261,20 @@
       "random": "6",
       "period": "1",
       "subtheme": "Position, size and shape",
-      "topic": "Position in space",
+      "topic": "Spatial relations",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00084",
+      "random": "3",
+      "period": "2",
+      "subtheme": "Line",
+      "topic": "Straight, curved, broken line",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
     }
   ]
 }

@@ -1,0 +1,250 @@
+{
+  "name": "7 Data Processing",
+  "level": "7",
+  "level_short": "7",
+  "theme": "Data Processing",
+  "language": "uk",
+  "rank_theme": "4",
+  "questions": [
+    {
+      "name": "data_2/q00001",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Coordinate system",
+      "topic": "Line and polygon",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00002",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Coordinate system",
+      "topic": "Line and polygon",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00003",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Coordinate system",
+      "topic": "Line and polygon",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00016",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Extended proportion",
+      "topic": "Text task",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00043",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Coordinate system",
+      "topic": "Line and polygon",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00052",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Extended proportion",
+      "topic": "Text task",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00052",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Extended proportion",
+      "topic": "Text task",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00053",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Extended proportion",
+      "topic": "Direct proportional function",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00054",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Extended proportion",
+      "topic": "Text task",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00054",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Extended proportion",
+      "topic": "Text task",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00055",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Extended proportion",
+      "topic": "Function of direct proportionality",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00056",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Extended proportion",
+      "topic": "Function of direct proportionality",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00057",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Extended proportion",
+      "topic": "Textual task",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00058",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sample",
+      "topic": "Mean, median, mode",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00059",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sample",
+      "topic": "Mean, median, mode",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00060",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sample",
+      "topic": "Mean, median, mode",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00061",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sample",
+      "topic": "Mean, median, mode",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00062",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Coordinate system",
+      "topic": "Distance between points in coordinate system",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00063",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Coordinate system",
+      "topic": "Distance between points in coordinate system",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00064",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Coordinate system",
+      "topic": "Line and polygon",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00065",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Coordinate system",
+      "topic": "Line and polygon",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00066",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Coordinate system",
+      "topic": "Line and polygon",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00067",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Coordinate system",
+      "topic": "Line and polygon",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00068",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Coordinate system",
+      "topic": "Line and polygon",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    }
+  ]
+}
