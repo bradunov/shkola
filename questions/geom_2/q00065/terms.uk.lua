@@ -1,0 +1,1 @@
+msg = "jednakokraki" translates to "isosceles" in English.

@@ -1,0 +1,6 @@
+In the empty box next to the picture, write the number that corresponds to the type of angle.
+
+@center@ 1 acute @hspacept(30)@ 2 right @hspacept(30)@ 3 obtuse 
+
+@vspace@
+@center@ @mycanvas(result)@

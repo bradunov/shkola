@@ -1,0 +1,7 @@
+In the empty fields, write how many colored squares and rectangles are in the picture. 
+
+@hspacept(60)@ squares @hspacept(15)@ @lib.check_number(square, 15)@
+@hspacept(60)@ rectangles @hspacept(15)@ @lib.check_number(rect, 15)@
+
+@vspace@
+@center@ @mycanvas()@

@@ -1,0 +1,9 @@
+What is the height of the block if its 
+
+@repeat(2)@
+@center@ length @edge1@@measure[ind]@,  
+@center@ width @edge2@@measure[ind]@ 
+@center@ surface area @surface@@measure2[ind]@ 
+@center@ The height of the block is @hspacept(3)@ @lib.check_number(edge3,20)@@measure[ind]@.
+@vspace@
+@/repeat@

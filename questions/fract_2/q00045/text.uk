@@ -1,0 +1,5 @@
+Which part of the rectangle's surface in the picture is covered by a smaller rectangle whose length is equal to \(\frac{@enum[1]@}{@denom[1]@}\) of the length of the given rectangle and width is equal to \(\frac{@enum[2]@}{@denom[2]@}\) of the width of the given rectangle? 
+Color the smaller rectangle and calculate. 
+
+The smaller rectangle covers 
+@center@ @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(value)..");", nil, nil, solution)@ of the surface of the given rectangle.

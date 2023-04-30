@@ -1,0 +1,2 @@
+answ = {"The length AC is the diameter of the circle.", "The length AC is the radius of the circle.", "The length AD is the diameter of the circle.", "The length AD is the radius of the circle.", "The length OA is the radius of the circle.", "The length BO is the diameter of the circle.", "The length DO is the radius of the circle.", "Point O is the center of the circle.", "Point A is the center of the circle."}
+test = {"n", "n", "t", "n", "t", "n", "t", "t", "n"}

@@ -1,0 +1,3 @@
+In front of each statement write @hspacept(3)@ t @hspacept(3)@ if the statement is true or @hspacept(3)@ n @hspacept(3)@ if the statement is not true. 
+
+Then there are several lines with some code that includes functions and variables that cannot be translated without context.

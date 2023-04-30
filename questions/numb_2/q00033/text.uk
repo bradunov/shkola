@@ -1,0 +1,6 @@
+Write all two-digit divisors of the given number, from smallest to largest.
+
+@repeat(5)@
+
+@number@ @hspace@ @answ@         
+@/repeat@

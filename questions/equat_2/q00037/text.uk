@@ -1,0 +1,5 @@
+Reduce the given equation to a linear equation with integer coefficients of the form @center@ @"a x = b"@ using equivalent transformations, where @hspace@ a ≥ 0.
+
+Repeat the following twice:
+@center@  What is the question?
+@center@ Note:   (30 spaces)  Here is the equation:

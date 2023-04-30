@@ -1,0 +1,1 @@
+name = {"right-angled", "isosceles"}

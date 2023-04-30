@@ -1,0 +1,7 @@
+@numb1@ workers would clean the pool in @day1@ days. Write an equation to calculate how many more workers, @"x"@, are needed to clean the pool in @day2@ days.
+
+@vspace@
+@center@ @equ@
+@vspace@
+Solve the equation.
+@center@ It is necessary to have @lib.check_number(result, 20)@ more workers.

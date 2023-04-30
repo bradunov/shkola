@@ -1,0 +1,8 @@
+Two straight angles intersect, as shown in the picture. 
+@vspace@
+@center@ @mycanvas(result)@    
+            
+How many right angles do they form?
+
+@center@ @lib.check_number(number,15)@ 
+@vspace@

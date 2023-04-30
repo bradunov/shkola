@@ -1,0 +1,10 @@
+By equivalent transformations, reduce the equation 
+@center@  @quest[1]@  
+@center@ = @quest[2]@
+to an equation of the form 
+@center@ "P(x) = 0",
+where @"P(x)"@ is a polynomial in the variable @"x"@ with integer coefficients in descending order of degrees. 
+@vspace@
+@center@  @equ@  = 0 
+@vspace@
+Is the equation linear? @hspace@ @lib.check_one_option_dropdown(msg, reply)@

@@ -1,0 +1,2 @@
+answ = {"Point O belongs to the circle.", "Point C belongs to the circle.", "Point B belongs to the circle.", "Point A belongs to the circle.", "Point B belongs to the circle.", "Point O belongs to the circle."}
+test = {"n", "t", "n", "t", "t", "t"}

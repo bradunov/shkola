@@ -1,0 +1,5 @@
+Write the appropriate number so that the equation is correct.
+
+@repeat(4)@
+@center@ @lib.check_fraction_numerator(numerator, denominator)@ @hspacept(3)@ = @hspacept(3)@ @whole_number@
+@/repeat@

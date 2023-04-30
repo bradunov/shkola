@@ -1,0 +1,7 @@
+Finish marking the points and lines on the picture so that:
+
+The point @"a"@ is located in @"RS"@, point @"c"@ includes points @"P"@ and @"R"@, and line @"d"@ intersects with @"S"@. 
+
+Point @"b"@ is parallel to point @"a"@, line @"c"@ intersects with line @"d"@ at point @"O"@, and point @"Q"@ is on line @"b"@.
+
+Display the picture using the @mycanvas()@ tag.

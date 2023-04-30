@@ -1,0 +1,7 @@
+A rectangular path with a length of @length@@"cm"@ and a width of @width@@"cm"@ needs to be covered with square tiles.
+@vspace@
+What is the maximum possible length of the tiles so that there is no waste?
+@center@ @lib.check_number(prod, 30)@@"cm"@ 
+@vspace@ 
+How many of these tiles are used to cover the path?             
+@center@ @lib.check_number(value, 50)@

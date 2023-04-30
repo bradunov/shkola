@@ -1,0 +1,1 @@
+msg = {"duž", "length", "center", "lines"}

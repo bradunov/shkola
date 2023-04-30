@@ -1,0 +1,1 @@
+msg = {"and more", "less than", " number of students who have ", " points.", " average number of points for the whole group (use mean values given in red numbers)." }

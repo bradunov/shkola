@@ -1,0 +1,6 @@
+Calculate. 
+If only one field is given for entering the result, write the result in the form of a decimal number. If more than one field is given, write the result in the form of a fraction.
+
+@repeat(4)@
+@center@ @task@ =  @reply1@ @reply2@
+@/repeat@

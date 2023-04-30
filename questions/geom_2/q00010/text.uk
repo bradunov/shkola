@@ -1,0 +1,3 @@
+Color the @msg[ind]@ circle in the picture.
+
+@center@ @mycanvas()@

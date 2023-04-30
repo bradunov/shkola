@@ -1,0 +1,4 @@
+The pictograph represents the number of sold pastries in a bakery. Each symbol represents @factor@ sold pastries.
+
+@center@ @mycanvas()@
+In the table, write down how many pastries were sold on the given days.

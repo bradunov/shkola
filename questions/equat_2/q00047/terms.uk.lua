@@ -1,0 +1,1 @@
+atrib = {"Milan's", "Nikolina's", "Petrova's", "Dejan's", "Vladi's", "Jovan's"};

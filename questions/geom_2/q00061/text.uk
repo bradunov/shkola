@@ -1,0 +1,8 @@
+@vspace@                                
+@center@ @mycanvas()@
+Complete the statements about the congruence of triangles  @name[1]@,  @name[2]@,  @name[3]@ and  @name[4]@ in the picture (separate the labels with a comma if there are more). Write based on which congruence criterion this follows.
+@"r\(\small_1\) \(\small\neq\) r\(\small_2\)"@ 
+@center@ @trian@@name[1]@ @eq@ @trian@@lib.check_string_case(name[2], 60)@ @hspacept(10)@ rule @lib.check_one_option_dropdown(rule, rule[2])@
+@center@ @trian@@name[3]@ @eq@ @trian@@lib.check_string_case(name[4], 60)@  @hspacept(10)@ rule @lib.check_one_option_dropdown(rule,rule[1])@
+@vspace@
+@"r\(\small_1\) = r\(\small_2\)"@ @hspacept(20)@  @trian@@name[1]@ @eq@ @trian@@lib.check_string_case(reply,100,ans)@

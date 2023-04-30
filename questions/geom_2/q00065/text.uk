@@ -1,0 +1,5 @@
+The lengths of the sides of triangle "ABC" are "AB" = 3 units, "BC" = 1 unit, and "CA" = 2 units. Points "D, E" and "F" are the midpoints of the sides of the triangle, and point "H" is the foot of the altitude from vertex "B" (see image).
+Calculate "DH" = 1 unit.
+Explain why. Triangle "CHE" is isosceles, "HED" = 30°, "EH" = "EC".
+By the Law of Cosines, triangle "DHG" is similar to triangle "ABC".
+Therefore, "DH" = 1 unit.

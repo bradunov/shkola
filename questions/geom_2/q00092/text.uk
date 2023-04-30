@@ -1,0 +1,9 @@
+The parallelogram @"ABCD"@ is composed of the triangle @"AED"@ and trapezoid @"EBCD"@ (see the picture), where 
+@center@ @"AE"@ = @"EB"@ @hspacept(3)@ and @hspacept(3)@ @"DC"@ = 2 @"EB"@
+
+@center@ @mycanvas()@
+
+If  @dim[ind]@ @name_edge[ind]@ is equal to @edge[ind]@@meas[unit]@ and the area of the @fig[ch]@ @name_area[ch]@ is equal to @area[ch]@@meas2[unit]@, calculate the areas of @fig[q1]@ and @fig[q2]@.
+@vspace@
+@center@ The area of @fig[q1]@ @name_area[q1]@ is @hspacept(3)@ @lib.check_number(area[q1],30)@@meas2[unit]@,
+@center@ the area of @fig[q2]@ @name_area[q2]@ is @hspacept(3)@ @lib.check_number(area[q2],30)@@meas2[unit]@.

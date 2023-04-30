@@ -1,0 +1,8 @@
+Calculate the length of the side of a square if its perimeter is given. Express the length of the side as a whole number in the appropriate unit of measure.
+
+@repeat(3)@
+@center@ The perimeter of the square is @circ@ @measure[mes_c]@. 
+@center@ The length of the side of the square is @lib.check_number(side)@ @lib.check_string(measure[mes_s],25)@. 
+
+@vspace@
+@/repeat@

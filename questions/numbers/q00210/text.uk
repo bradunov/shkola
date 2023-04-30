@@ -1,0 +1,5 @@
+The newspapers were printed in a circulation of @number@ copies. If the newspaper has @paper@ @strana@, how many sheets of paper were used to print the entire circulation? 
+(Remember that two pages are printed on one sheet of paper.)
+
+@vspace@
+@center@ @hspacept(3)@ @lib.check_number(result,60)@ @hspacept(3)@ sheets of paper were used.

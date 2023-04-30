@@ -1,0 +1,1 @@
+msg = {" is inside the circle.", " is on the circle.", " is outside the circle.", " is the center of the circle.", "Point "}

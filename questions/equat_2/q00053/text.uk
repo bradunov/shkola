@@ -1,0 +1,6 @@
+Determine the solutions to the inequality on the set of real numbers:
+@center@ @ineq[1]@,  @hspacept(40)@ @sol[1]@
+@center@ @ineq[2]@, @hspacept(40)@ @sol[2]@
+@vspace@
+Are the inequalities equivalent?    
+@center@@lib.check_one_option_dropdown(msg, reply)@

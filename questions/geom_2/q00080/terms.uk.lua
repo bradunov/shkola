@@ -1,0 +1,1 @@
+msg = {"rectangular", "isosceles", "oblique"}

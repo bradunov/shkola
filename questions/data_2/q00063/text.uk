@@ -1,0 +1,2 @@
+Determine the lengths of the lines (to two decimal places) and the coordinates of their centers if the ends of the lines are marked by points on a square grid (the length unit is the side of a square on the grid). 
+@center@ @mycanvas()@

@@ -1,0 +1,3 @@
+Calculate the interior angles of the parallelogram "ABCD" (where numb[1] is rel numb[2]) if the sum of its two angles is:
+                               
+numb[5] = dat    numb[1] = numb[3] = answ[1]    numb[2] = numb[4] = answ[2]

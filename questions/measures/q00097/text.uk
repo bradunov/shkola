@@ -1,0 +1,7 @@
+@ime@ is celebrating their birthday on @finish_d@. @finish_m@.
+
+@center@ @mycanvas()@
+
+On which day of the week is @ime@'s birthday?
+@vspace@
+@center@ @ime@'s birthday is on @hspacept(3)@ @lib.check_string(reply, 70, ans)@.

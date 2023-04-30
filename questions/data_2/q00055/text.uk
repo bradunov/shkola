@@ -1,0 +1,6 @@
+Write down the coefficient of proportionality of the linear function represented by the graph.
+@center@   @"y ="@ @lib.check_number(coef[ch], 30)@ @"* x"@.
+@center@ @mycanvas()@
+Based on the graph, calculate:
+@center@ for @hspacept(3)@ @"x ="@ @arg[1]@ @hspacept(3)@ the value of @hspacept(3)@ @"y ="@ @lib.check_number(fun[1],30)@
+@center@ for @hspacept(3)@ @"y ="@ @lib.dec_to_str(fun[2])@ @hspacept(3)@ the value of @

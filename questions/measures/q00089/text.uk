@@ -1,0 +1,8 @@
+Theater performance that lasts for @last_h@ hours and @last_m@ minutes, ended at @finish_h@@"h"@ @answ[2]@.
+
+When did the performance start?
+
+@vspace@
+
+@center@ The theater performance started at
+@center@ @lib.check_number(start_h,20)@@"h"@ @answ[1]@.

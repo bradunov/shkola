@@ -1,0 +1,6 @@
+Calculate the square of a binomial.
+
+@repeat(3)@  
+Question:  
+Answer: @result@   
+@/repeat@

@@ -1,0 +1,11 @@
+Write the missing labels on the image.
+
+@center@ @mycanvas()@
+
+Complete the empty fields in the sentences.
+@center@ The triangle on the picture is @lib.check_string_case("ABC", 40)@.
+@center@ Point A is @lib.check_string(elem[1], 40)@ of the triangle.
+@center@ The @"AB = "@@lib.check_string_case("c", 15)@ segment is @lib.check_string(elem[2], 60)@ of the triangle.
+@center@ The union of segments @"AB"@, @"BC"@ and @"CA"@ forms the triangular @lib.check_string(elem[3], 40)@.
+@center@ Angle @ang[2]@ is @lib.check_string_case(reply1, 80, ans1)@ of the triangle.
+@center@ Point M belongs to the @lib.check_string_case(reply2, 80, ans2)@ of the triangle.

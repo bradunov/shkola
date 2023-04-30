@@ -1,0 +1,7 @@
+What can be the length of the side of an isosceles triangle if 
+
+@repeat(2)@
+@center@ the length of @msg[ITEM]@ is equal to @dist@ @measure[ind]@?
+@center@ The length of @"d"@ @msg[3-ITEM]@ is @hspacept(8)@ @reply@
+@vspace@
+@/repeat@

@@ -1,0 +1,11 @@
+@imem@ multiplied an unknown number x by @number1@, and @imez@ by @number2@. The sum of the resulting products is @result@. 
+Which of the following expressions will you use to calculate the unknown number x? 
+Color the circle next to the correct answer.
+
+@center@ @lib.check_one_option_radio(answ,ind,true)@ 
+
+@vspace@
+Calculate.                                                                                                 
+@center@ The factor x is @lib.check_number(factor, 40)@. 
+@center@ @imem@ calculated the product @lib.check_number(prod1, 40)@.
+@center@ @imez@ calculated the product @lib.check_number(prod2, 40)@.

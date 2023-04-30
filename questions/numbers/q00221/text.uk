@@ -1,0 +1,6 @@
+At the pizzeria, you can add the following toppings to your pizza: @quest@
+@ime@ wants to order a pizza with two toppings.
+
+@vspace@
+How many different combinations does @ime@ have available?
+@center@ @lib.check_number(result,20)@

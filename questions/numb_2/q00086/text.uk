@@ -1,0 +1,6 @@
+Write down the following numbers:
+
+@repeat(4)@
+@center@ @numb@ as a power with base @base@,
+@center@ @numb@ = @base@ @sup@ @lib.check_number(grd,10)@ @/sup@
+@/repeat@

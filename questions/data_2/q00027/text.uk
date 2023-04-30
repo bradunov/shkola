@@ -1,0 +1,7 @@
+In one sack there is @number[1]@@"kg"@ of flour, and in the other @number[2]@@"kg"@. 
+@vspace@
+How much flour needs to be transferred from the second sack to the first so that both sacks have equal amounts?
+@center@ It is necessary to transfer @lib.check_number(dif,40)@@"kg"@ of flour. 
+@vspace@
+How much flour is now in each sack?
+@center@ There is @lib.check_number(number[3],40)@@"kg"@ of flour in each sack.

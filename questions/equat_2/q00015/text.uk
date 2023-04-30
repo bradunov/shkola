@@ -1,0 +1,4 @@
+@repeat(2)@
+@quest@? Determine the unknown number @"x"@.
+@center@ @reply@.
+@/repeat@

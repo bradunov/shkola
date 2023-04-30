@@ -1,0 +1,11 @@
+By equivalent transformations, reduce the given inequality to a linear inequality with integer coefficients of the form @"a x ⋛ b"@, where @a ≥ 0@.
+
+Question:
+ 
+Note:
+
+Bound 1:   Equation 1: 
+
+Bound 2:   Equation 2: 
+
+Bound 3:   Equation 3:

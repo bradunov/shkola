@@ -1,0 +1,1 @@
+msg = "from the picture"

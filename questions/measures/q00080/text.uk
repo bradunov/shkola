@@ -1,0 +1,8 @@
+Calculate the volume of a rectangular prism with:
+@repeat(2)@
+@center@ @quest[1]@, 
+@center@ @quest[2]@, 
+@center@ @quest[3]@.
+@center@ The volume is @answ@.
+@vspace@
+@/repeat@

@@ -1,0 +1,4 @@
+Calculate the area of the figure in the picture if the length of the grid squares is @grid@@meas[1]@. 
+Assume that @"π"@ = \(\frac{22}{7}\). Write the result to two decimal places.
+@center@ @mycanvas(result)@
+@center@ The area of the figure is @hspacept(5)@ @lib.check_number(area, 50)@@meas[2]@.

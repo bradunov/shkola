@@ -1,0 +1,6 @@
+Determine the product of the binomial. 
+
+@repeat(2)@  
+@center@ @quest@ =  @result@  
+@vspace@ 
+@/repeat@

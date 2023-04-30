@@ -1,0 +1,4 @@
+If the radius of the circle circumscribed around a regular polygon @hspacept(3)@ @dat[1]@ = @numb[1]@@meas[1]@, @hspacept(3)@ calculate the central angle @dat[2]@ and the length of the arc @dat[3]@ that corresponds to it. 
+Assume that @"π"@ = 3.142. Write the result to two decimal places. 
+@center@ @mycanvas()@
+@center@ @dat[2]@ = @lib.check_number(numb[2],25)@@meas[2]@, @hspacept(25)@ @dat[3]@ = @lib.check_number(numb[3],35)@@meas[1]@

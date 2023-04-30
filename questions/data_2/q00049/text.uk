@@ -1,0 +1,4 @@
+The table shows the results of testing two groups of students, "A" and "B". 
+@center@ @mycanvas()@
+For each group, enter @quest@
+@center@ group "A" @hspacept(5)@ @lib.check_number(outa,40)@,@hspacept(25)@ group "B" @hspacept(5)@ @lib.check_number(outb,40)@

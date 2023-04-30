@@ -1,0 +1,5 @@
+The length of the median line of an isosceles trapezoid @"ABCD"@, where @"AB"@ is the longer base, is equal to @numb@@"cm"@. 
+If @"CP"@ is the height of the trapezoid, determine the length of line @"AP"@.
+
+@vspace@
+@center@ @"AP"@ = @lib.check_number(numb, 20)@@"cm"@.

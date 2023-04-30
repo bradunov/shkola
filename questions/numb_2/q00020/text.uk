@@ -1,0 +1,5 @@
+Find the smallest common multiple of the given numbers.
+
+@repeat(5)@
+@center@ @answ@ @hspacept(15)@ the common multiple is @lib.check_number(number,30)@.         
+@/repeat@

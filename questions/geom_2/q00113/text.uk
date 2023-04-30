@@ -1,0 +1,3 @@
+Fill in the table that contains the measurements of an equilateral triangle: side length "a", height "h", radius of the circumcircle "R", radius of the incircle "r", perimeter "O" and area "P". 
+Calculate with three decimals, assuming that "√3 = 1.732". Write the results to one decimal.
+@addition_table()@

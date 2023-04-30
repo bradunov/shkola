@@ -1,0 +1,4 @@
+"With which banknote can you replace the following banknotes? 
+Color the circle at the bottom of the screen above the correct answer. 
+
+@center@ @mycanvas(result)@"

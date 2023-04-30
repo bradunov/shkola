@@ -1,0 +1,9 @@
+Set the parentheses so that the equations are correct.
+
+@repeat(6)@
+
+@center@ @answ@
+
+@vspace@
+
+@/repeat@

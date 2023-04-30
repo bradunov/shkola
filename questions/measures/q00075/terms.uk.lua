@@ -1,0 +1,1 @@
+arr_str = {"glass", "glass (accusative case)", "glasses"}

@@ -1,0 +1,3 @@
+On the ship there are @total@ passengers. If a certain number of passengers @text1[ITEM]@ in the port, on the ship there will be @text2[ITEM]@ @number@ passengers. How many passengers are @text3[ITEM]@ in the port? 
+Set up and solve the equation. 
+@center@ @lib.check_number(total,30)@ @lib.check_string(sign,10)@ @lib.check_string("x",30)@ = @lib.check_number(number,30)@, @hspacept(20)@   x = @lib.check_number(solution,30)@

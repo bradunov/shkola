@@ -1,0 +1,1 @@
+msg = {"adjacent", "comparative", "cross", "complementary", "supplementary", "equal"}

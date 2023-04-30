@@ -1,0 +1,7 @@
+Write the linear function in implicit and explicit form whose graph is a line in the picture. 
+@center@ @imp[1]@ = 0, 
+@center@  @"y = "@ @fun[1]@.
+@vspace@
+@center@ @mycanvas()@
+Write down the coordinates of the points where this line intersects 
+@center@ the x-axis @hspacept(4)@ (@point0@, @lib.check_number(y0, 15)@),@hspacept(20)@  the y-axis @hspacept(4)@ (@lib.check_number(x1,15)@, @point1@).

@@ -1,0 +1,1 @@
+msg_str = {"the volume of one cube side is equal to", "the sum of the lengths of the edges of the cube is equal to"}

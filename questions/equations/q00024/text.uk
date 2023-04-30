@@ -1,0 +1,8 @@
+For how many numbers is @oper[ind]@ between @term1@ and @term2@ @comp[ind]@ than the number @term3@?
+
+@vspace@
+Which equation will you use to calculate the required number? Color the circle next to the correct answer.
+@vspace@
+@center@ @lib.check_one_option_radio(answ,ind-1,true)@ 
+@vspace@ 
+@center@ The solution of the equation is  @hspacept(5)@   x = @lib.check_number(solution)@.

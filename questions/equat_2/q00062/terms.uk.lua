@@ -1,0 +1,1 @@
+axis = {"x (consumption kW)", "y (amount din)"}

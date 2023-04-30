@@ -1,0 +1,5 @@
+Using the formula for difference of squares, calculate and simplify the resulting polynomial. Write down the terms with coefficients that are not equal to 0.
+
+@repeat(3)@
+@center@  @quest@  =  @result@   
+@/repeat@

@@ -1,0 +1,5 @@
+Using the table of square roots, calculate the approximate value of the expression with the given error. 
+@repeat(3)@ 
+@hspacept(20)@ error @" ≤ "@ @lib.dec_to_str(err)@  
+@center@ @quest@ @hspacept(3)@  = @hspacept(3)@ @lib.check_number(result, 40)@ 
+@/repeat@

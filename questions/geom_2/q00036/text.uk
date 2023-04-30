@@ -1,0 +1,8 @@
+The parallelogram @"ABCD"@ is given. In it, the angle @numb[2]@ is larger than the angle @numb[1]@. Calculate the angles of the parallelogram. 
+
+@center@ @mycanvas()@
+
+The angles of the parallelogram are: 
+
+@center@  @numb[1]@ @hspacept(5)@ @answ[1]@ @hspacept(25)@  @numb[2]@ @hspacept(5)@ @answ[2]@
+@center@  @numb[3]@ @hspacept(5)@ @answ[3]@ @hspacept(25)@  @numb[4]@ @hspacept(5)@ @answ[4]@

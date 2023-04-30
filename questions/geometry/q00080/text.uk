@@ -1,0 +1,9 @@
+Beside the picture, write the name of the body and complete the sentences.
+
+@center@ @mycanvas()@
+
+@center@ @knot[ind_knot]@ is @lib.check_string(element[1], 40)@, @hspacept(3)@ @edge[ind_edge]@ is @lib.check_string(element[2], 40)@, @hspacept(3)@ @side[ind_side]@ is @lib.check_string(element[3], 40)@.
+@vspace@
+What is correct?
+@center@ @lib.check_one_option_radio(answ_edge,ind,true)@ 
+@center@ @lib.check_one_option_radio(answ_side,ind,true)@

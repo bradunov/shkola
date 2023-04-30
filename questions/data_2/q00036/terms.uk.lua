@@ -1,0 +1,1 @@
+msg = {"success of students", "number of students in %"}

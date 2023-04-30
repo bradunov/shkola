@@ -1,0 +1,7 @@
+The plane took off from London to Belgrade at local time @start_h@@"h"@ @answ[1]@. The flight lasted @last_h@ hours and @last_m@ minutes. 
+If it is known that the time in Great Britain is set one hour back compared to the time in Serbia, what was the local time when the plane landed?
+
+@vspace@ 
+
+@center@ The plane landed at 
+@center@ @lib.check_number(finish_h,20)@@"h"@ @answ[2]@.

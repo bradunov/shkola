@@ -1,0 +1,4 @@
+@ime@ has @number@ @pad@. Every day, they eat up to \(\frac{@1@}{@fact@}\) apricots that are left, because they only eat the whole part of the calculated number of apricots. They leave the remaining apricots for the next day. On the last day, they eat all the remaining apricots.
+
+ @vspace@                
+(Example: Ana eats up to 1/3 of 5 apricots by eating 1, and 4 apricots remain for the next day. On the second day, she eats up to 1/3 of the remaining four apricots (one) and has 3 left. On the third

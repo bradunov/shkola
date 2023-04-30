@@ -1,0 +1,5 @@
+Does a convex polygon exist? 
+@repeat(3)@
+@center@    What is @quest1@ @hspacept(5)@    @quest2@?
+@center@ Answer: @lib.check_one_option_dropdown(reply, answ)@
+@/repeat@

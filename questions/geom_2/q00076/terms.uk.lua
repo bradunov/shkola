@@ -1,0 +1,26 @@
+title = {"Parallelogram is a centrally symmetric figure.",
+         "The center of symmetry of a parallelogram is the intersection of diagonals.",
+         "An isosceles trapezoid is a centrally symmetric figure.",
+         "A rhombus is a centrally symmetric figure.",
+         "Parallelogram is an axisymmetric figure.",
+         "Rectangle is an axisymmetric figure.",
+         "A rhombus is an axisymmetric figure.",
+         "Trapezoid is an axisymmetric figure.",
+         "An isosceles trapezoid is an axisymmetric figure.",
+         "A deltoid is an axisymmetric figure.",
+         "The diagonals of a rectangle are the bisectors of the corresponding angles.",
+         "The diagonals of a rhombus are the bisectors of the corresponding angles.",
+         "A circle can be inscribed in a rhombus.",
+         "A circle can be circumscribed around a rhombus.",
+         "The diagonal of a rhombus is the diameter of the circumscribed circle.",
+         "The height of a rhombus is the diameter of the inscribed circle.",
+         "A parallelogram inscribed in a circle is a rectangle.",
+         "The diagonal of a rectangle is the diameter of the circumscribed circle.",
+         "A parallelogram has four axes of symmetry.",
+         "A rectangle has four axes of symmetry.",
+         "A rectangle has two axes of symmetry.",
+         "The diagonals of a trapezoid bisect the corresponding angles.",
+         "The diagonals of a deltoid bisect the opposite angles that are not equal."
+         }
+
+reply = {"t", "t", "n", "n", "n", "t", "t", "n", "t", "t", "n", "t", "t", "n", "n", "t", "t", "t", "n", "n", "t", "n", "t"}

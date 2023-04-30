@@ -1,0 +1,10 @@
+In a car factory, @white@ white and @black@ black cars were produced in one month. 
+
+How many cars were produced in total that month?  
+@center@ @lib.check_number(result,40)@
+
+How many cars would be produced in total if @diff@ more white cars were produced?  
+@center@ @lib.check_number(value,40)@
+
+By how much should the number of black cars produced be reduced so that the total number of cars produced that month remains the same? 
+@center@ @lib.check_number(diff,40)@

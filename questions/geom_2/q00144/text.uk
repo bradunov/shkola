@@ -1,0 +1,3 @@
+Fill in the table that contains the radius of the circle "r", central angle "φ", peripheral angle over the same arc "α" and the length of the corresponding arc "l", and the area of the circular segment "P". Assume that "π" is equal to 22/7. Round the numbers to one decimal place.
+
+@addition_table()@

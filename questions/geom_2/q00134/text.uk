@@ -1,0 +1,4 @@
+Calculate the unknown angles in the picture if 
+@center@ @ang_y[1]@ = @task@@meas@. 
+@center@ @mycanvas()@
+@center@ @answ@

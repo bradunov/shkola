@@ -1,0 +1,5 @@
+Color both @name@ broken lines.
+
+@vspace@
+
+@center@ @mycanvas(result)@

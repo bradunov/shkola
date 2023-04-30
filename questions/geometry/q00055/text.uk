@@ -1,0 +1,6 @@
+Two triangles have equal perimeters. 
+The sides of one triangle are @side[1]@@"cm"@, @side[2]@@"cm"@, and @side[3]@@"cm"@.
+
+@vspace@
+The second triangle is equilateral. What is the length of the side of the equilateral triangle?
+@center@@lib.check_number(result,20)@@"cm"@.

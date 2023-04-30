@@ -1,0 +1,1 @@
+answ = {"grows", "falls"}

@@ -1,0 +1,6 @@
+Calculate the interior angles of the parallelogram "ABCD" if:
+repeat 3 times
+- [empty line]
+- Centered [number] = [dat] [30pt space] [numb[ind[1]]] = [answ[1]]
+- Centered [numb[ind[2]]] = [answ[2]] [20pt space] [numb[ind[3]]] = [answ[3]]
+/end repeat

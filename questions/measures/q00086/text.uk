@@ -1,0 +1,7 @@
+The tennis match started at @start_h@@"h"@ @answ[1]@ and lasted for @last_h@ hours and @last_m@ minutes. 
+What time did it finish?
+
+@vspace@
+
+@center@ The tennis match finished at 
+@center@ @lib.check_number(finish_h,20)@@"h"@ @answ[2]@.

@@ -1,0 +1,4 @@
+@numb1@ workers would clean the pool in @day1@ days. 
+How many more workers are needed to help them clean the pool in @day2@ days?
+@vspace@
+@center@ It is necessary to have @lib.check_number(result, 20)@ more workers.

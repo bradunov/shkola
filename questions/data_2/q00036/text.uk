@@ -1,0 +1,4 @@
+Out of a total of @total@ eighth-grade students in one school, @out[1]@ of them finished the grade with excellent performance (5), @out[2]@ with very good (4), @out[3]@ with good (3) and @out[4]@ with sufficient (2).
+Display in a table and pie chart, as started, what percentage of the total number of fourth-grade students each of the listed groups of students represents. Calculate the percentage to one decimal place.
+
+@center@ @mycanvas()@

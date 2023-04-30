@@ -1,0 +1,9 @@
+@numb1@ liters of solution contains @per1@@proc@ alcohol.
+How many liters of water should be added to obtain a solution with @per2@@proc@ alcohol?
+
+Complete the table and write the answer.
+
+@vspace@
+@center@ @mycanvas()@
+
+@center@ It is necessary to add @lib.check_number(result, 40)@@"l"@ of water.

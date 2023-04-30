@@ -1,0 +1,7 @@
+The leg @"a"@ of a right triangle has a length of @katainit@@meas[ind]@. The leg @"b"@ is @dif@@meas[inddif]@ shorter than the hypotenuse. 
+Write an equation to calculate the length of leg @"b"@. 
+@center@ @equ@
+@vspace@
+Calculate the perimeter and area of the triangle.
+@center@ The perimeter of the triangle is @lib.check_number(circ)@@meas[ind]@.
+@center@ The area of the triangle is @lib.check_number(area)@@meas2[ind]@.

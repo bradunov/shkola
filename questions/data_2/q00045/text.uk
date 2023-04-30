@@ -1,0 +1,7 @@
+@imez@ and @imem@ are a piece of ice from the yard, when the temperature was @init_temp@@"°C"@, they put it in a pot with a lid and heated it on the stove. The ice melted and with further heating the water boiled. The process in the pot is represented graphically.
+Color the line that shows this process.
+
+@center@ @mycanvas()@
+
+After how much time did all the ice melt?
+@center@ The ice melted after @hspacept(5)@ @lib.check_number(fin_ice,15)@ @"min"@.

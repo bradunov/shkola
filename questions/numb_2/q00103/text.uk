@@ -1,0 +1,5 @@
+Simplify expressions. Write the power for the given base and a minus sign in the first box if the result is negative.
+
+@repeat(4)@
+@center@   @quest@  = @answ@
+@/repeat@

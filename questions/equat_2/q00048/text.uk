@@ -1,0 +1,6 @@
+@imez@ gave birth to @imea@ with @yz@ @zyear@. This year she calculated that in @period@ @peryear@ she will be @fct@ times older than @imeg@. Write an equation to calculate how many years @"x"@ @imem@ has now, and solve it.
+@vspace@
+@center@ @equ@
+@vspace@
+
+@center@ @imem@ now has @lib.check_number(ym,20)@ @myear@.

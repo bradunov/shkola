@@ -1,0 +1,1 @@
+msg = "condition x ≠ "

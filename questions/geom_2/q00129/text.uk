@@ -1,0 +1,5 @@
+Calculate the circumference @"O"@ and area @"P"@ of the polygon in the picture. 
+The length of a grid square represents @dim@@meas[1]@. 
+@center@ @mycanvas()@
+Calculate with three decimals and write the result to one decimal place. 
+@center@ @"O"@ = @lib.check_number(circ,40)@@meas[1]@,  @hspacept(30)@ @"P"@ = @lib.check_number(area,50)@@meas[2]@

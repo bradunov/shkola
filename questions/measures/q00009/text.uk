@@ -1,0 +1,9 @@
+Calculate the surface area of a rectangular prism whose 
+
+@repeat(2)@
+@center@ length @hspacept(3)@ @quest[1]@
+@center@ width @hspacept(3)@ @quest[2]@
+@center@ height @hspacept(3)@ @quest[3]@
+@center@ The surface area is @answ@.
+@vspace@
+@/repeat@

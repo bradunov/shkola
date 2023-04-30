@@ -1,0 +1,6 @@
+Points are given on the network.
+@center@ @mycanvas()@
+
+@vspace@
+@center@ How many vectors are determined by these points?
+@center@ @lib.check_one_option_radio(out,index)@

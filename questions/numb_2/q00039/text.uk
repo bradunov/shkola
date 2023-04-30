@@ -1,0 +1,6 @@
+Write by enumeration the elements (from smallest to largest) of the sets represented by the Euler-Venn diagram.
+@center@ @mycanvas()@
+
+@center@  @"A"@ = @solut[1]@
+@center@  @"B"@ = @solut[2]@
+@center@  @"C"@ = @solut[3]@

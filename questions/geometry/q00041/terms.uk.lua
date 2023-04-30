@@ -1,0 +1,1 @@
+answ = {"rectangle", "square", "vertices", "opposite", "adjacent"}

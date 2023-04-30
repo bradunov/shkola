@@ -1,0 +1,7 @@
+@ime1@ and @ime2@ received money from their parents to buy sweets. 
+@ime1@ has @quest[1]@  
+@ime2@ has @quest[2]@
+
+@vspace@
+@center@ Who has more money and by how much?
+@center@ @lib.check_string_case(reply,50, ans)@ has more money by @lib.check_number(value,20)@ dinars.

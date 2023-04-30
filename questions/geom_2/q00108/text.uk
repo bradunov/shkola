@@ -1,0 +1,4 @@
+Determine the type of triangle to which the lengths of the sides belong (in "cm"): 
+Repeat 4 times:
+- Center: [length of side 1], [length of side 2], [length of side 3], [dropdown menu to select the triangle type]
+End of repeat.

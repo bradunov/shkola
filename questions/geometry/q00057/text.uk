@@ -1,0 +1,6 @@
+The picture shows several points.
+@center@ @mycanvas()@
+
+@vspace@
+@center@ How long is determined by these points?
+@center@ @lib.check_one_option_radio(out,index)@

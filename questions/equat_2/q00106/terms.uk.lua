@@ -1,0 +1,11 @@
+title = {"Sum of numbers a and b.",
+         "Difference of expressions 2a and 3b.",
+         "Product of expressions 3x and y.",
+         "Product of expressions a + 4 and b - 4.",
+         "Quotient of expressions a + 2 and a - 3.",
+         "Sum of squares of numbers x and y.",
+         "Square of sum of numbers a and b.",
+         "Difference of squares of numbers x and y.",
+         "Square of difference of numbers a and b.",
+         "Triple square of number x decreased by the value of number x and increased by the greatest single-digit number.",
+         "Difference of squares of expression x - 3 and number y, divided by

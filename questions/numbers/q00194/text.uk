@@ -1,0 +1,9 @@
+In the car factory, @total@ cars were produced. @sold@ were sold.
+@vspace@
+How many cars are left? @hspacept(10)@ @lib.check_number(value,30)@
+@vspace@
+How many cars would be left if @diff@ more were produced and @diff@ more were sold?
+@center@ (@lib.check_number(total,30)@ + @lib.check_number(diff,30)@) - (@lib.check_number(sold,30)@ + @lib.check_number(diff,30)@) = @lib.check_number(value,30)@
+@vspace@
+How many cars would be left if @diff@ less were produced and @diff@ less were sold?
+@center@ (@lib.check_number(total,30)@ - @lib.check_number(diff,30)@) - (@lib.check_number(sold,30)@ - @lib.check_number(diff,30)@) = @lib.check_number(value,30)@

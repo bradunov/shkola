@@ -1,0 +1,1 @@
+msg = "The sides of the triangle cannot be any longer."

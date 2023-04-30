@@ -1,0 +1,8 @@
+Write by enumeration the elements (from smallest to largest) of the union and intersection of sets represented by the Euler-Venn diagram. 
+
+@center@ @mycanvas()@
+
+@center@  @solut[1]@
+@vscape@
+@center@  @solut[2]@
+@vscape@

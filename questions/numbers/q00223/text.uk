@@ -1,0 +1,8 @@
+A group of boys cannot determine who is the heaviest and who is the lightest among them. Help them.
+The graph shows the weights of the boys.
+
+@vspace@
+@center@ @mycanvas()@ 
+
+@center@ The heaviest boy is @lib.check_string_case(reply1,40,ans1)@. He weighs @lib.check_number(choice[ind[6]],20)@kg.
+@center@ The lightest boy is @lib.check_string_case(reply2,40,ans2)@. He weighs @lib.check_number(choice[ind[1]],20)@kg.

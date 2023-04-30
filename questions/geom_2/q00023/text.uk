@@ -1,0 +1,7 @@
+The picture shows several angles. 
+
+@center@ @mycanvas()@
+
+Color the angles @first@ and @second@ and complete the sentence. 
+@vspace@           
+@center@ Angles @first@ and @second@ are @lib.check_string(reply, 100, ans)@.

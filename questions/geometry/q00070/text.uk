@@ -1,0 +1,4 @@
+Color in the figure on the image.
+The figure labeled @fig1[ind]@ is bounded by a broken line formed by the segments @ans@.
+The perimeter of @fig2[ind]@ is @lib.check_number(circ[ind], 20)@ the length of the grid squares.
+@remark@

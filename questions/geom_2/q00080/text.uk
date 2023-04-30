@@ -1,0 +1,13 @@
+Two interior angles of trapezoid "ABCD" are equal to @center@@quest@.
+
+Calculate the remaining two angles of trapezoid and determine to which type of trapezoid it belongs. 
+
+@vspace@
+
+The remaining two angles of trapezoid "ABCD" are 
+@center@  @lib.check_number(out[4],30)@@meas@, @hspacept(20)@ @lib.check_number(out[qq],30)@@meas@.
+
+@vspace@
+
+Trapezoid "ABCD" is 
+@center@@lib.check_one_option_dropdown(msg, name)@

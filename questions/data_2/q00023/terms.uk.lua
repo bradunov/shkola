@@ -1,0 +1,1 @@
+name = {"bedroom", "living room", "master bedroom", "children's room", "kitchen", "bathroom", "hallway"}

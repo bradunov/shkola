@@ -1,0 +1,7 @@
+Calculate by reducing to similar roots. Then, using the table of square roots, calculate approximate values of the expressions (with an error not greater than 0.01).
+ 
+Repeat 3 times: 
+
+   - Question: [insert question here]
+   - Answer: [insert answer here]
+   - Result: [insert rounded value here]

@@ -1,0 +1,7 @@
+What is the approximate length of a pencil measured by the length of an eraser?
+
+@center@ @mycanvas()@   
+
+@center@ The length of the pencil is approximately equal to 
+@center@   @lib.check_number(ind_pen, 15)@ @hspacept(3)@ @length@ of the eraser.
+@vspace@

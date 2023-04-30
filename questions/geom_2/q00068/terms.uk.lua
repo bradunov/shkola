@@ -1,0 +1,26 @@
+title = {"A convex quadrilateral has all angles less than 180°.",
+         "A quadrilateral can have all acute angles.",
+         "A quadrilateral has at least one angle less than 90°.",
+         "A rectangle is a parallelogram with all angles equal.",
+         "If one angle of a parallelogram is a right angle, then the parallelogram is a rectangle.",
+         "A square is a rectangle with all sides equal and all angles equal.",
+         "A rhombus is a parallelogram with all sides equal.",
+         "A rhombus is a parallelogram with all angles equal.",
+         "A kite is a quadrilateral with two pairs of adjacent sides equal.",
+         "A kite is a quadrilateral with two pairs of equal adjacent angles.",
+         "A trapezoid is a quadrilateral with one pair of equal opposite sides.",
+         "A trapezoid is a quadrilateral with one pair of parallel opposite sides.",
+         "The sum of the interior angles of a quadrilateral is 360°.",
+         "The sum of the exterior angles of a quadrilateral is 360°.",
+         "The diagonal of a quadrilateral can be shorter than the shortest side of the quadrilateral.",
+         "A parallelogram is a quadrilateral with two pairs of equal opposite angles.",
+         "The diagonals of a parallelogram bisect each other.",
+         "The diagonals of a parallelogram are equal.",
+         "The diagonals of a trapezoid bisect each other.",
+         "The diagonals of an isosceles trapezoid are equal.",
+         "The diagonals of a kite are perpendicular.",
+         "A kite is a quadrilateral with equal opposite angles.",
+         "A kite is a quadrilateral with two pairs of equal opposite angles."
+         }
+
+reply = {"t", "n", "n", "t", "t", "t", "t", "n", "n", "t", "n", "t", "t", "t", "n", "t", "t", "n", "n", "t", "t", "n", "t"}

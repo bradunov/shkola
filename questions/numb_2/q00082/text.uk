@@ -1,0 +1,6 @@
+Write down the exponent for the given base and exponent. Represent the exponent as a product. 
+
+Repeat 4 times: 
+Center the base, exponent, and degree. 
+Center the string of the base and the number of the exponent with a limit of 15 and 10 characters respectively. 
+Display the exponent as a product.

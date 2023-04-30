@@ -1,0 +1,8 @@
+Determine the solution of the inequality:
+@center@ @quest@
+@vspace@
+@center@ @equ[1]@
+@center@ @equ[2]@
+@vspace@
+Color the solution area on the number line (including the boundary points if they are included) and write the boundaries (to two decimal places).
+@center@ @mycanvas()@

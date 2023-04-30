@@ -1,0 +1,8 @@
+Calculate the height of a cuboid with:
+@repeat(2)@
+@center@ @quest[1]@, 
+@center@ @quest[2]@, 
+@center@ @quest[3]@.
+@center@ The height is @answ@.
+@vspace@
+@/repeat@

@@ -1,0 +1,4 @@
+The sets @"A"@", @"B"@", and @"C"@ are represented by an Euler-Venn diagram. On the image, color the squares that represent the set @center@@quest@. 
+
+@vspace@
+@center@ @mycanvas()@

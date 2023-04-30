@@ -1,0 +1,7 @@
+How many squares are in the picture?
+ 
+@center@ @mycanvas()@
+
+Mark the circle in front of the correct answer.
+
+@center@ @lib.check_one_option_radio(answ,index)@

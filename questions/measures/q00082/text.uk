@@ -1,0 +1,10 @@
+The pool is @edge1@@measure[1]@ long, @edge2@@measure[1]@ wide, and @edge3@@measure[2]@ deep. What is the volume of the pool?
+
+@center@ The volume of the pool is 
+@center@ @lib.check_number(volume_out[1],30)@@measure1[1]@ @answ1@.
+
+@vspace@
+If the pool is filled with water to a depth of \(\frac{1}{@denom@}\), how much water is in the pool?
+
+@center@ There is 
+@center@ @lib.check_number(volw,50)@@measure2[2]@ = @lib.check_number(volw_out

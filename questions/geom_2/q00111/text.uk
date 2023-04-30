@@ -1,0 +1,3 @@
+Fill in the table that contains the measures of squares: the side length "a", the diagonal "d", the radius of the circumscribed circle "R", the radius of the inscribed circle "r", the perimeter "O", and the area "P". (Write the results to two decimal places).
+
+@addition_table()@

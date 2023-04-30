@@ -1,0 +1,4 @@
+In the school model that students are making, a tree with a height of @out_t@@"m"@ is represented by a model with a height of @mod_tree@@"dm"@. 
+In that ratio, what will be the height of the school building model that is @out_s@@"m"@ high? 
+@vspace@
+@center@ The school model will be @lib.check_number(mod_school, 40)@ @mes@ high.

@@ -1,0 +1,3 @@
+The product of two numbers is @prod@. If one factor is @operat[ind]@ by @number@, the product will be @result@.
+
+The factors are @lib.check_string(reply1, 30, ans1)@ and @lib.check_string(reply2, 30, ans2)@.

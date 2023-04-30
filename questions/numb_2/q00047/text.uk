@@ -1,0 +1,7 @@
+The sets @"A"@, @"B"@, and @"C"@ are represented by Euler-Venn diagram.
+@center@ @mycanvas()@
+Write down the elements of the following sets in order (from smallest to largest):
+
+@center@ @answ[1]@ @solut[1]@
+@vspace@
+@center@ @answ[2]@ @solut[2]@

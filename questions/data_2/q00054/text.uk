@@ -1,0 +1,4 @@
+Graph the linear function that shows the dependence of the length of the side @"y"@ on the perimeter @pad[ch]@ @"x"@.
+@center@ The coefficient of proportionality is @hspacept(3)@ @"k = "@@lib.check_number(lib.math.round_dec(coef[ch], 2), 30)@.
+@center@ @mycanvas()@
+Based on the graph, complete the table. (Write decimal numbers to two decimal places).

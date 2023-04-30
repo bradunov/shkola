@@ -1,0 +1,1 @@
+hour_str = {"hour", "hours"}

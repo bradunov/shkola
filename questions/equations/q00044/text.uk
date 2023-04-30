@@ -1,0 +1,5 @@
+In one school, there are @total@ students. Buses are provided for their excursion, which have no more than @place@ seats. 
+Which inequality will you use to calculate how many buses are needed for transporting the students? 
+@center@ @lib.check_one_option_radio(value,index,true)@ 
+Determine the solution set of this inequality. 
+@center@   @solution@

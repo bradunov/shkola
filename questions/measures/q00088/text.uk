@@ -1,0 +1,7 @@
+The movie projection started at @start_h@@"h"@ @answ[1]@ and ended at @finish_h@@"h"@ @answ[2]@. 
+How long does the projection last?
+
+@vspace@ 
+
+@center@ The movie projection lasts 
+@center@ @lib.check_number(last_h,20)@ hours and @lib.check_number(last_m,20)@ minutes.

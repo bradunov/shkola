@@ -1,0 +1,5 @@
+Color all the letters that are symmetrical.
+
+@vspace@
+
+@center@ @mycanvas(all, results)@

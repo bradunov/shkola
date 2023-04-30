@@ -1,0 +1,5 @@
+Write the number @number@ as a product of @val@ @quest@ (from smallest to largest).
+
+@center@ @mycanvas()@
+
+@center@ @number@ @hspacept(3)@ = @hspacept(3)@ @answ@

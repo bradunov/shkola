@@ -1,0 +1,4 @@
+Fill in the table that contains the number of elements of convex polygons (@"n"@-sides, @"u"@-angles, @"t"@-vertices, and @"d"@-diagonals) and the sum of interior angles (@"s"@).
+
+@vspace@
+@addition_table()@

@@ -1,0 +1,9 @@
+Solve the inequality 
+@center@ @neq@.
+
+The solutions of the inequality are 
+@center@ @reply@
+Display the solutions on a number line. 
+The circle indicates the boundary value of the solution region. Color in the circle if the boundary point belongs to the solution region. 
+Enter integer values around the circle and color in the solution region. 
+@center@ @mycanvas()@

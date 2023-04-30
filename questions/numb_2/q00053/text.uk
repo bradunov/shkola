@@ -1,0 +1,10 @@
+Sets are given:
+@center@ @solut[1]@
+@center@ @solut[2]@
+@center@ @solut[3]@
+@vspace@
+Mark which of the records of sets "G" and "H" is correct. If there are empty boxes in the correct record, complete the missing numbers.
+@vspace@
+@center@  @lib.check_one_option_radio(answ1,ind1, true)@          
+@vspace@            
+@center@  @lib.check_one_option_radio(answ2,ind2, true)@

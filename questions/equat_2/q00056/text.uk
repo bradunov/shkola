@@ -1,0 +1,6 @@
+Solve inequalities. Write the boundary values to one decimal place or in the form of a fraction.
+@repeat(3)@
+@vspace@
+@center@ @equ[ITEM]@
+@center@ Choose the correct option: @lib.check_one_option_dropdown(msg, reply[ITEM])@ @hspacept(8)@ @sol[ITEM]@.
+@/repeat@

@@ -1,0 +1,5 @@
+Determine prime numbers by coloring all numbers that are not prime. (Coloring is done by clicking next to the number.)
+
+@center@ @mycanvas()@
+
+Use the Sieve of Eratosthenes, a process in which numbers divisible by 2, 3, 5, ... are colored in order. Numbers that are not colored are prime.

@@ -1,0 +1,1 @@
+name = {"acute", "obtuse", "right", "no triangle"}

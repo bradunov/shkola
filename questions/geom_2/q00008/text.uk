@@ -1,0 +1,5 @@
+Points @"A"@, @"B"@, and @"C"@ are the centers of circles @"a"@, @"b"@, and @"c"@, respectively, which touch each other (see the picture). The diameters of the circles are @rad_a@@meas@, @rad_b@@meas@, and @rad_c@@meas@.
+
+@center@ @mycanvas()@
+What is the perimeter of triangle @"ABC"@?
+@center@ The perimeter of triangle @"ABC"@ is @hspacept(3)@ @lib.check_number(circ, 20)@@meas@.

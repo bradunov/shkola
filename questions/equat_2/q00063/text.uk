@@ -1,0 +1,5 @@
+@name[1]@ is walking home from school and covers @vel[1]@ meters per minute. At that moment, her brother @name[2]@, who started from home towards school at a speed of @vel[2]@ meters per minute, is @free[2]@ meters away from the school. Write linear functions for calculating the distance from school after @"x"@ minutes:
+(1) @hspace@ @name_a[1]@ @hspacept(40)@ @equ[1]@
+(2) @hspace@ @name_a[2]@ @hspacept(40)@ @equ[2]@
+
+Color the graph of the lines (@ind@).

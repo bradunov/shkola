@@ -1,0 +1,3 @@
+Write the names of geometric shapes in the empty boxes below them. Color the circles on the @name@ surfaces. 
+
+@center@ @mycanvas(result)@

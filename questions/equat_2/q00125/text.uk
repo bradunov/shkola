@@ -1,0 +1,8 @@
+Using the formula for the difference of squares, calculate.
+
+ 
+@repeat(2)@ 
+ @center@ @quest@ =  
+@center@ @ans@ = @result@    
+@vspace@ 
+@/repeat@

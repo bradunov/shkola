@@ -1,0 +1,9 @@
+The diagonal of a square is @"q"@ @meas[1]@ longer than the side.
+@vspace@
+a) If @"q"@ = @dif[1]@@meas[1]@, calculate the perimeter @"O"@ and the area @"P"@ of the square.
+@center@ @"O"@ = @lib.check_number(circ,50)@@meas[1]@,@hspacept(30)@ @"P"@ = @lib.check_number(area,50)@@meas[2]@.
+@vspace@
+@"b)"@ If the area of the square is numerically @fct@ times greater than the perimeter (in the corresponding units @meas[2]@, i.e. @meas[1]@), how much longer is the diagonal than the side?
+@center@ @"q"@  = @lib.check_number(dif[2],40)@@meas[1]@.   
+@vspace@
+Calculate with three decimals (@"√2 = 1.414"@), and write the result to one decimal place.

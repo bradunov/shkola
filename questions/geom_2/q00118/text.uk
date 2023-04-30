@@ -1,0 +1,7 @@
+The labels of the elements of the deltoid are given in the picture. @"O"@ is the perimeter and @"P"@ is the area of the deltoid.
+@center@ @mycanvas()@ 
+Based on the given data 
+@center@ @name[qst1]@ = @val[qst1]@@meas[1]@, @hspacept(10)@  @name[qst2]@ = @val[qst2]@@meas[2]@, @hspacept(10)@ @name[qst3]@ = @val[qst3]@@meas[3]@,
+calculate: 
+@center@ @name[out[1]]@ = @lib.check_number(ans1,35)@@meas[4]@, @hspacept(10)@ @name[out[2]]@ = @lib.check_number(ans2,35)@@meas[5]@.
+(Calculate with three decimal places and write the results to one decimal place).

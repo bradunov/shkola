@@ -1,0 +1,10 @@
+One angle is given in an isosceles triangle (see picture)
+@center@ @numb[ch]@ = @quest@
+@vspace@
+@center@ @mycanvas()@
+What type (based on angles) of triangle does it belong to?
+@center@ The triangle is @lib.check_string(result, 70, ans)@.
+
+@vspace@
+Arrange the sides of the triangle in ascending order (label the sides with vertices).
+@center@ @reply@

@@ -1,0 +1,3 @@
+Draw all @name[ind]@ triangles (only basic ones, which are not composed of multiple triangles).
+
+@center@ @mycanvas()@

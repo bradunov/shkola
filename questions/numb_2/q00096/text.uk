@@ -1,0 +1,5 @@
+Complete the expressions so that the equalities are true.
+
+@repeat(3)@
+@center@   @quest@  @hspacept(3)@ = @hspacept(3)@ @answ@   
+@/repeat@

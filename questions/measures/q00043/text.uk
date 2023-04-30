@@ -1,0 +1,5 @@
+Write down the time displayed on the clock.
+@vspace@
+@center@ @period[index]@ noon @hspacept(10)@ @lib.check_number(numb_h,30)@ @hour@ @lib.check_number(numb_m,30)@ minutes.
+@vspace@
+@center@ @mycanvas(result)@

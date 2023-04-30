@@ -1,0 +1,8 @@
+Calculate gradually, as in the example:
+@center@ @addend1@ + @addend2@ = @addend1@ + @value1@ + @value2@ = @sum@ + @value2@ = @result@
+
+@repeat(3)@
+@vspace@
+@center@ @augend1@ + @augend2@ @hspacept(3)@ = @hspacept(3)@ @lib.check_number(augend1,20)@ + @lib.check_number(value1,20)@ + @lib.check_number(value2,20)@
+@center@ @hspacept(60)@ = @hspacept(3)@ @lib.check_number(summation,20)@ + @lib.check_number(value2,20)@ = @lib.check_number(result,20)@
+@/repeat@

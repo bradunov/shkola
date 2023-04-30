@@ -1,0 +1,9 @@
+@imem@ ate \(\frac{@enum[1]@}{@denom[1]@}\) cakes and @imez@ ate \(\frac{@enum[2]@}{@denom[2]@}\) cakes. 
+Both ate a part of the cake. 
+
+@vspace@
+@center@ @lib.select_objects(6, 4,"table","sum(result) == "..tostring(boja), style, sln)@
+@vspace@
+How many cakes are left?
+
+@center@ There are @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(value)..");", nil, nil, solution)@ cakes left.

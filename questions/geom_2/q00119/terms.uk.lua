@@ -1,0 +1,1 @@
+msg = {"rectangular trapezoid", "isosceles trapezoid", "trapezoid"}

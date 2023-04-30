@@ -1,0 +1,1 @@
+edge = {"side", "diagonal"}

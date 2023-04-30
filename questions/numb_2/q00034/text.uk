@@ -1,0 +1,11 @@
+The factory has produced @ind@ models of footwear in the following quantities: @number[1]@, @number[2]@, @number[3]@ and @number[4]@ pairs of shoes. It wants to distribute them evenly among its stores.
+@vspace@
+What is the maximum number of stores that can be supplied with equal packages of shoes?
+@center@ They can supply a maximum of @lib.check_number(prod, 30)@ stores.
+@vspace@
+How many pairs of each model will one store receive?
+@center@ Each store will receive:
+@center@ @lib.check_number(value[1], 50)@ pairs of the first model,
+@center@ @lib.check_number(value[2], 50)@ pairs of the second model,
+@center@ @lib.check_number(value[3], 50)@ pairs of the third model,
+@center@ @lib.check_number(value[4], 50)@ pairs of the fourth model.

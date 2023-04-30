@@ -1,0 +1,9 @@
+Set 
+@center@    @solut_2@, @hspacept(8)@  @add@
+presents @task[ind]@:
+@vskip@
+@center@ by listing the elements 
+@center@    @solut_1@,
+@vspace@
+@center@Euler-Venn diagram             
+@center@ @mycanvas()@

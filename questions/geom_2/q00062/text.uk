@@ -1,0 +1,10 @@
+Longer @"DE, DF"@ and @"EF"@ are the midlines of triangle @"ABC"@ (see image).
+The measure of angle @ang[1]@ is @numb[1]@@meas@, and the angle @ang[2]@ is @numb[2]@@meas@.
+@center@ @mycanvas()@
+
+Triangles @name[5]@ and @small@ are @lib.check_one_option_dropdown(msg, msg[1])@.
+Triangles @small_1@ and @small_2@ are @lib.check_one_option_dropdown(msg, msg[2])@.
+
+The angles of triangle @small@, expressed in @meas@, are equal to
+@center@ @lib.check_string(reply, 80, ans)@.
+(Enter values separated by commas, without spaces.)

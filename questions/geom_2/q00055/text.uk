@@ -1,0 +1,10 @@
+We know how to construct an angle of @"60"@@meas@ and the bisector of any angle, i.e. to determine half of any angle.
+
+@center@ @mycanvas()@
+
+Using the labels from the image, where @"sO"@ is the label of the angle obtained by bisecting angle O with the bisector, write how the given angle can be constructed by adding angles that we can construct. 
+Example: @hspacept(5)@  75@meas@ = 60@meas@ + 15@meas@ = @"O + ssO"@
+
+@vspace@
+@center@ @sum@@meas@ = @reply@ 
+@center@ = @answ@

@@ -1,0 +1,3 @@
+Which triangles with vertices @"O, P, Q, R, S"@ and T are congruent to the triangle @value@?
+Color the circle in front of the correct answer. 
+@center@ @mycanvas()@

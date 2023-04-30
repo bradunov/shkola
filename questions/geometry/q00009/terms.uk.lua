@@ -1,0 +1,1 @@
+type = {"straight", "broken open", "broken closed", "closed curved", "open curved"}

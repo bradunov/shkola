@@ -1,0 +1,5 @@
+One pack of paper is needed to print @paper@ pages of a book. 
+How many copies of a book with @value@ @strana@ can be printed from @number@ packs of paper?
+
+@vspace@
+It is possible to print @hspacept(3)@ @lib.check_number(result,60)@ @hspacept(3)@ copies of the book.

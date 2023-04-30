@@ -1,0 +1,1 @@
+msg = {"consecutive numbers", "consecutive number"}

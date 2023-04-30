@@ -1,0 +1,5 @@
+The area of a square @"P"@ is given, 
+@repeat(4)@
+@vspace@
+@center@ @"P"@ = @quest@@meas2[sig]@, @hspacept(20)@@edge[ind]@ is @answ@@meas[sig]@;
+@/repeat@

@@ -1,0 +1,8 @@
+Express the given measures in the indicated units.
+
+@vspace@
+
+@repeat(5)@
+@center@ @answ@ @hspacept(3)@ = @hspacept(3)@ @lib.check_number(result,90)@ @measure[index][ind]@
+
+@/repeat@

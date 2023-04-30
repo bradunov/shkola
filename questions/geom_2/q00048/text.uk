@@ -1,0 +1,6 @@
+The table shows the lengths of the @"a"@", @"b"@", and @"c"@ sides in centimeters. In the last column, write 
+@hspacept(10)@ t if these lengths can form a triangle, 
+@hspacept(10)@ n if they cannot form a triangle.
+
+@vspace@
+@addition_table()@

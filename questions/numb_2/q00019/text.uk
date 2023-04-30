@@ -1,0 +1,7 @@
+Divide @number@ by @factor@.
+
+@vspace@
+@center@ @mycanvas()@
+
+@center@ The quotient is @lib.check_number(result, 40)@.            
+@center@ The remainder is @lib.check_number(rest, 20)@.

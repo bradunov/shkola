@@ -1,0 +1,5 @@
+In the empty boxes below the pictures, write the number that indicates whether the body is horned or round.
+@hspacept(20)@ 1 horned body
+@hspacept(20)@ 2 round body
+
+@center@ @mycanvas(result)@

@@ -1,0 +1,4 @@
+@center@ @mycanvas()@
+
+Color the segments on the picture and write down the endpoints of the segments on which the line @"s"@ is the bisector (in alphabetical order of the points below the @"s"@).
+@center@ @answ[1]@, @hspacept(4)@ @answ[2]@, @hspacept(4)@ @answ[3]@, @hspacept(4)@ @answ[4]@

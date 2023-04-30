@@ -1,0 +1,5 @@
+Solve the equations.
+@repeat(3)@
+@center@ @equ[ITEM]@
+@center@ Choose one option: @lib.check_one_option_dropdown(msg, reply[ITEM])@ @sol[ITEM]@.
+@/repeat@

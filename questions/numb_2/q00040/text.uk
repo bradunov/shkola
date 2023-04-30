@@ -1,0 +1,16 @@
+Write by listing the elements (starting from the smallest) the following sets of numbers:
+
+Set of natural numbers
+N = {1, 2, 3, ...}
+
+Set of prime numbers of the first ten
+R = {2, 3, 5, 7}
+
+Set of digits of the number [value]
+C = {digit1, digit2, ...}
+
+Set of natural numbers complemented with zero
+{0, 1, 2, 3, ...}
+
+Set of even numbers less than 100
+P = {0, 2, 4, 6, 8, 10, ..., 98}

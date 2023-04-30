@@ -1,0 +1,8 @@
+Calculate the surface area of a cube if:
+
+@repeat(2)@
+
+@center@ @quest@ 
+@center@ The surface area of the cube is @hspacept(3)@ @lib.check_number(surface)@ @measure2[ind]@. 
+@vspace@
+@/repeat@

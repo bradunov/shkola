@@ -1,0 +1,1 @@
+place = {"straight", "semi-straight", "long"}

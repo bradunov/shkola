@@ -1,0 +1,1 @@
+operation = {"Which number should be multiplied by a number", "By which number should a number be multiplied", "Which number should be divided by a number", "By which number should a number be divided"}

@@ -1,0 +1,8 @@
+@ime@ went to his grandmother's house. He traveled \(\frac{@deo1@}{@deo@}\) of the way. He still has to travel @put2@ meters more. 
+
+Circle the equation that can be used to calculate the distance @"x"@. 
+@center@ @lib.check_one_option_radio(reply,ind, true)@
+@vspace@
+Solve the equation. 
+@center@ The distance from the grandmother's house to the @padez@ house is 
+@center@ @lib.check_number(put)@@"m"@ = @lib.check_number(putkm)@@"km"@.

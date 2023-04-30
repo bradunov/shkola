@@ -1,0 +1,9 @@
+The triangle is given as @"ABC"@. 
+The measure of angle @number_f@ is @dat_f@, and the measure of angle @number_s@ is @dat_s@. 
+@vspace@
+@center@ @mycanvas()@
+
+Based on the given data, determine the measures of the remaining interior and exterior angles of the triangle: 
+
+@center@  @numb[ind[1]]@ @hspacept(5)@ @answ[1]@ @hspacept(25)@  @numb[ind[2]]@ @hspacept(5)@ @answ[2]@
+@center@  @numb[ind[3]]@ @hspacept(5)@ @answ[3]@ @hspacept(25)@  @numb[ind[4]]@ @hspacept(5)@ @answ[4]@.

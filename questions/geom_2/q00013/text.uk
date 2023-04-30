@@ -1,0 +1,7 @@
+The image shows four circles: @center@ @name[1]@, @hspacept(2)@ @name[2]@, @hspacept(2)@ @name[3]@, @hspacept(2)@ @name[4]@. 
+Five points @"A, B, C, D, E"@ are the midpoints of the segments that connect the centers of these circles.
+
+@center@ @mycanvas(result)@
+
+@center@ Circles @first@ and @second@ are symmetric with respect to point @lib.check_string_case(simc, 15)@. 
+Color these circles and the line that connects their centers.

@@ -1,0 +1,9 @@
+@ime@ traveled to his grandmother's on @start_d@ @start_m@ and returned home on @finish_d@ @finish_m@.
+
+@vspace@
+How many days did @ime@ stay at his grandmother's?
+@vspace@
+@center@ @ime@ stayed at his grandmother's for @lib.check_number(last,20)@ @week@.
+
+@vspace@
+@remark@

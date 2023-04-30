@@ -1,0 +1,5 @@
+When a certain number @oper[ind]@ is combined with \(\frac{@enum@}{@denom@}\), the resulting @operation[ind]@ is @numb@ @comp[sign]@ of that number. 
+What is that number?
+
+@vspace@
+@center@ That number is @lib.check_number(result,30)@.

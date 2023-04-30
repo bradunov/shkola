@@ -1,0 +1,6 @@
+Write down the coordinates of the points marked on the square grid (the unit of length is the side of the grid square).
+@center@ @answ[1]@
+@center@ @answ[2]@
+@center@ @answ[3]@
+
+@center@ @mycanvas()@

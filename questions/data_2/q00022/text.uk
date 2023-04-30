@@ -1,0 +1,6 @@
+@ime[1]@, @ime[2]@, and @ime[3]@ have placed a bet on sports predictions. @ime[1]@ gave @numb[1]@ dinars, @ime[2]@ @numb[2]@ dinars, and @ime[3]@ @numb[3]@ dinars. They won @total@ dinars. 
+How should they fairly divide the winnings?
+
+@vspace@
+@center@ @ime[1]@ should receive @hspacept(3)@ @lib.check_number(value[1], 50)@ dinars, 
+@center@ @ime[2]@ should receive @hspacept

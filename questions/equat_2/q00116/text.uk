@@ -1,0 +1,6 @@
+Determine the product of a monomial and a binomial. 
+
+@repeat(3)@
+  @quest@ = 
+@center@ @result@
+@/repeat@

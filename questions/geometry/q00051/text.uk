@@ -1,0 +1,10 @@
+The yellow square consists of @base@ @padez@ squares. 
+
+@center@ @mycanvas()@ 
+
+@center@ If the perimeter of the red square is @circ@@"cm"@", what is the perimeter of the yellow square? @hspacept(5)@  @lib.check_number(circ_med, 30)@@"cm"@
+@vspace@
+@center@ How many red squares need to be added to make a larger square than the yellow one?
+@center@ @lib.check_one_option_radio(answ,ind)@
+@vspace@
+@center@ What is the perimeter of the new square? @hspacept(5)@  @lib.check_number(circ_big, 30)@@"cm"@

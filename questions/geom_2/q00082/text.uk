@@ -1,0 +1,6 @@
+The diagonals of a trapezoid divide the angles at the larger base @"a"@, which is @lib.dec_to_str(factor)@ times longer than the smaller base @"b"@. 
+If the perimeter of the trapezoid is @lib.dec_to_str(circ)@@meas@, what are its sides? 
+@vspace@
+@center@ The sides of the trapezoid are 
+@center@ @"a"@ = @lib.check_number(edge_a,30)@@meas@, @hspacept(25)@ @"b"@ = @lib.check_number(edge_b,30)@@meas@, 
+@center@ @"c"@ = @lib.check_number(edge_c,30)@@meas@, @hspacept(25)@ @"d"@ = @lib.check_number(edge_b,30)@@meas@.

@@ -1,0 +1,9 @@
+Assertion   
+@center@ @title[mod]@ @"x"@ @quest@ 
+write (in ascending order) in the form 
+@"(a)"@ inequalities 
+@center@ @ineq@,  
+@"(b)"@ interval to which the solution belongs 
+@center@ @set@,  
+@"(c)"@ color the domain on the number line and write the boundaries
+@center@ @mycanvas()@

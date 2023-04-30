@@ -1,0 +1,6 @@
+The image shows the money that @name@ has in their wallet. How much money does @name@ have in total in dinars? 
+Color the circle at the bottom of the screen next to the correct answer. 
+
+@center@ @mycanvas(result)@
+
+@center@ @lib.check_one_option_radio(answ,index)@

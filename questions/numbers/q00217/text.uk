@@ -1,0 +1,8 @@
+Write expressions and determine their value:
+
+@repeat(3)@
+@vspace@
+@center@ @quest@ 
+@center@ @answ@ 
+
+@/repeat@

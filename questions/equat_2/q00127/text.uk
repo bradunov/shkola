@@ -1,0 +1,6 @@
+Factor the difference of squares.
+
+@repeat(3)@
+ @result@ =  
+@center@  @quest@ 
+@/repeat@

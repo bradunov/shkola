@@ -1,0 +1,5 @@
+The pedestrian moves at a constant speed, so that he covers @lib.dec_to_str(lib.math.round_dec(test_f, 2))@ kilometers in one hour. Fill in the missing data in the table:
+@center@what is the time needed for the pedestrian to cover a given distance, or 
+@center@what is the distance covered by the pedestrian in a given time?
+@center@ @mycanvas()@
+(Round decimal numbers to two decimal places.)

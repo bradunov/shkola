@@ -1,0 +1,7 @@
+The concert, which lasts for @last_h@ hours and @last_m@ minutes, started with a delay of @late@ minutes. The concert ended at @finish_h@@"h"@ @answ[2]@. 
+When was the concert supposed to start?
+
+@vspace@ 
+
+@center@ The concert was supposed to start at 
+@center@ @lib.check_number(start_h,20)@@"h"@ @answ[1]@.

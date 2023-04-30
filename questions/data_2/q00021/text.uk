@@ -1,0 +1,9 @@
+@ime@ made a cake mixture by mixing flour, sugar, ground walnuts, and butter in a ratio of @part[1]@ : @part[2]@ : @part[3]@ : @part[4]@. 
+
+@vspace@
+What percentage of @elem[ind]@ is in the mixture? 
+@center@ The mixture contains @lib.check_number(value, 40)@ @proc@ @elem[ind]@.
+
+@vspace@
+If @numb1@ @pers1@ needs @quant@@"g"@ of @elem[index]@ to make a cake, how much of each ingredient is needed to make a cake for @numb2@ @pers2@?
+You

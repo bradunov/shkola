@@ -1,0 +1,5 @@
+How many angles do the lines in the picture form in the @padez[ind]@ case?
+@center@ @lib.check_number(number,15)@
+@vspace@
+Color the circles that belong to the @name[ind]@ angles.
+@center@ @mycanvas(result)@

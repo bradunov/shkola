@@ -1,0 +1,6 @@
+Which vector in the image is equal to the vector 
+@center@ @numb@ * @vect@? 
+@center@@ lib.check_one_option_radio (out,ind)@
+Color that vector.
+@results@
+@center@ @mycanvas()@

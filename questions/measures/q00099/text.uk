@@ -1,0 +1,4 @@
+What could be the weight of @object[ind]@?
+
+@vspace@
+@center@ @lib.check_one_option_radio(answ,index, true)@

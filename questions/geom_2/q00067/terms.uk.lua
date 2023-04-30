@@ -1,0 +1,1 @@
+name = {"rectangles", "trapezoids", "kites", "squares", "parallelograms", "non-convex quadrilaterals", "rhombuses"}

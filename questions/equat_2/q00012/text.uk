@@ -1,0 +1,9 @@
+Solve the inequality
+@center@ @neq@.
+
+The solutions to the inequality are
+@center@ @reply@
+@vspace@
+Show the solutions on a number line by coloring the solution area.
+Color the circle if the boundary point belongs to the solution area.
+@center@ @mycanvas()@

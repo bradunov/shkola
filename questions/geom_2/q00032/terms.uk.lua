@@ -1,0 +1,1 @@
+name = {"hour", "hours", "hours"}

@@ -1,0 +1,8 @@
+A three-digit number is written with one digit, for example @"ccc"@. The quotient of this number and the triple value of the number @"c"@ does not depend on which digit @"c"@ is.
+@center@ What is this quotient?  @hspacept(30)@ @lib.check_number(37,20)@
+@vspace@
+Explanation.
+@center@ @"ccc : (3 · c) = "@
+@center@  @answ[1]@
+@center@  @answ[2]@ 
+@center@  @answ[3]@

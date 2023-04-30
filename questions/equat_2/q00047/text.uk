@@ -1,0 +1,8 @@
+@imez@ and @imem@ live at a distance of @dist@@meas[2]@ from each other. @imez@ started walking from her house towards @imeat@ at a speed of @v1km@ km/h. At the same time, @imem@ started cycling towards her at a speed of @v2km@ km/h.
+
+Write an equation to calculate the distance @"p"@ that @imez@ covered until she met @imein@.
+
+@center@ @equ@
+@vspace@
+Solve the equation. Write the result to one decimal place.
+@center@ @imez@ covered @lib.check_number(path,40)@ @meas[2]@.

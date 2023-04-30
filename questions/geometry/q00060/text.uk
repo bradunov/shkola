@@ -1,0 +1,8 @@
+What angle do the clock hands make at 
+
+@repeat(3)@
+
+@center@ @number@ @name@? @hspacept(20)@ @lib.check_string(reply, 60, ans)@ angle
+
+@vspace@ 
+@/repeat@

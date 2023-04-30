@@ -1,0 +1,8 @@
+The picture shows two intersecting circles (see picture). @"O"@ is the circumference and @"P"@ is the area of the figure @"ADBC"@.
+@center@ @mycanvas()@
+Based on the given data,
+@center@ @name[qst1]@ = @val[qst1]@@meas[1]@, @hspacept(10)@  @name[qst2]@ = @val[qst2]@@meas[2]@, @hspacept(10)@ @name[qst3]@ = @val[qst3]@@meas[3]@,
+
+calculate:
+@center@ @name[out[1]]@ = @lib.check_number(ans1,35)@@meas[4]@, @hspacept(10)@ @name[out[2]]@ = @lib.check_number(ans2,35)@@meas[5]@.
+Calculate with three decimals and write the results to one decimal place.

@@ -1,0 +1,7 @@
+Determine the solution of the linear inequality 
+@center@  @quest@ 
+@vspace@ 
+@center@  @equ@ 
+
+Color the solution area on the number line (including boundary points if they are included) and write the limits (to two decimal places).
+@center@ @mycanvas()@
