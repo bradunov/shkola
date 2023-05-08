@@ -3,11 +3,11 @@ Na osnovu teksta napiši izraze. Koristi zagrade i znake / za količnik i  ^ za 
 
 @vspace@
 @center@ @quest[1]@    
-@center@@answ[1]@       
+@center@ @answ[1]@       
 @vspace@
 @center@ @quest[2]@    
-@center@@answ[2]@ 
+@center@ @answ[2]@ 
 @vspace@
 @center@ @quest[3]@    
-@center@@answ[3]@
+@center@ @answ[3]@
              
