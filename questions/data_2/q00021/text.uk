@@ -1,9 +1,13 @@
-@ime@ made a cake mixture by mixing flour, sugar, ground walnuts, and butter in a ratio of @part[1]@ : @part[2]@ : @part[3]@ : @part[4]@. 
+@ime@ made a mixture for cakes by mixing flour, sugar, ground walnuts and butter in a ratio of @center@ @part[1]@ : @part[2]@ : @part[3]@ : @part[4]@. 
 
 @vspace@
-What percentage of @elem[ind]@ is in the mixture? 
-@center@ The mixture contains @lib.check_number(value, 40)@ @proc@ @elem[ind]@.
+What percentage of @elem[ind]@ is in the mixture?
+@center@ There are @lib.check_number(value, 40)@ @proc@ @elem[ind]@ in the mixture.
 
 @vspace@
-If @numb1@ @pers1@ needs @quant@@"g"@ of @elem[index]@ to make a cake, how much of each ingredient is needed to make a cake for @numb2@ @pers2@?
-You
+If @numb1@ @pers1@ needs @quant@@"g"@ of @elem[index]@ to prepare a cake, how much of each ingredient is needed to make a cake for @numb2@ @pers2@?
+It is necessary to take:
+@center@ @elem[1]@ @hspacept(10)@ @lib.check_number(qq[1], 30)@ @"g"@,
+@center@ @elem[2]@ @hspacept(10)@ @lib.check_number(qq[2], 30)@ @"g"@, 
+@center@ @elem[3]@ @hspacept(10)@ @lib.check_number(qq[3], 30)@ @"g"@, 
+@center@ @elem[4]@ @hspacept(10)@ @lib.check_number(qq[4], 30)@ @"g"@.

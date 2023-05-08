@@ -1,6 +1,6 @@
-The course started on @start_d@. @start_m@ and ended on @finish_d@. @finish_m@ next year. 
+The course started on @start_d@ @start_m@ and ended on @finish_d@ @finish_m@ next year. 
 
-@vspace@
-How many months did the course last?
-@vspace@
+@vspace@ 
+How many months did the course last? 
+@vspace@ 
 @center@ The course lasted @lib.check_number(last,20)@ @week@.

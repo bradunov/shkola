@@ -1,6 +1,7 @@
-Ivica kocke je @edge@@measure[1]@. A cuboid consists of @tostring(number1)@ such cubes.
-@center@ The volume of the cuboid is @hspacept(3)@ @lib.check_number(volume1,40)@@measure2[1]@.  
-@vspace@
+Ivica kocke je edge@measure[1]@. Kvadar se sastoji od tostring(number1) takvih kocki.
+center Zapremina kvadra je hspacept(3) lib.check_number(volume1,40)@measure2[1]@.  
+vspace
 
-The edge of the cube is @edge@@measure[2]@. The cuboid has the same length and width as the cube, and its height is @tostring(number2)@ times longer than the edge of the cube. 
-@center@ The volume of the cuboid is @hspacept(3)@ @lib.check_number(volume2,40)@@measure2
+Ivica kocke je edge@measure[2]@. Kvadar ima istu dužinu i širinu kao i kocka, a visina mu je tostring(number2) puta duža od ivice kocke. 
+center Zapremina kvadra je hspacept(3) lib.check_number(volume2,40)@measure2[2]@.  
+vspace

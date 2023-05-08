@@ -1,6 +1,6 @@
-Sort the polynomials by decreasing degrees of the variable. Write down the summands where the coefficients are different from 0.
+Arrange the polynomials in descending order of the variable degree. Write down the coefficients that are different from 0 as the summands. 
 
 @repeat(2)@
-@center@  @quest@  = 
-@center@  @result@   
+@center@ @quest@ = 
+@center@ @result@
 @/repeat@

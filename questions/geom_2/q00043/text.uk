@@ -1,11 +1,11 @@
 In front of each statement write @hspacept(3)@ t @hspacept(3)@ if the statement is true or @hspacept(3)@ n @hspacept(3)@ if the statement is not true.
 @vspace@
-Check if result[1] is equal to answer[1]: @hspacept(5)@  @answ[1]@       
+@lib.check_string(result[1], 15)@  @hspacept(5)@  @answ[1]@       
 @vspace@
-Check if result[2] is equal to answer[2]: @hspacept(5)@  @answ[2]@     
+@lib.check_string(result[2], 15)@  @hspacept(5)@  @answ[2]@     
 @vspace@
-Check if result[3] is equal to answer[3]: @hspacept(5)@  @answ[3]@     
+@lib.check_string(result[3], 15)@  @hspacept(5)@  @answ[3]@     
 @vspace@
-Check if result[4] is equal to answer[4]: @hspacept(5)@  @answ[4]@                     
+@lib.check_string(result[4], 15)@  @hspacept(5)@  @answ[4]@                     
 @vspace@
-Check if result[5] is equal to answer[5]: @hspacept(5)@  @answ[5]@
+@lib.check_string(result[5], 15)@  @hspacept(5)@  @answ[5]@

@@ -2,4 +2,4 @@ Determine prime numbers by coloring all numbers that are not prime. (Coloring is
 
 @center@ @mycanvas()@
 
-Use the Sieve of Eratosthenes, a process in which numbers divisible by 2, 3, 5, ... are colored in order. Numbers that are not colored are prime.
+Use the Sieve of Eratosthenes, a procedure in which numbers divisible by 2, 3, 5, ... are colored in order. The numbers that are not colored are prime.

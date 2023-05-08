@@ -1,4 +1,4 @@
-Sort the polynomials in descending order of the variable degree. Write down the summands with coefficients different from 0.
+Arrange the polynomials in decreasing order of the variable's degree. Write down the summands whose coefficients are different from 0.
 
 @repeat(3)@
 @center@  @quest@ = @result@   

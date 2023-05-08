@@ -1,8 +1,8 @@
-Solve the inequality
-@center@ @neq@.
+Solve the inequality 
+@center@ @neq@. 
 
-The solutions of the inequality are
+The solutions to the inequality are 
 @center@ @reply@ 
 @vspace@
-Show the solutions on a number line. The circle indicates the boundary value of the solution area. Color the circle if the boundary point belongs to the solution area. Enter integer values around the circle and color the solution area.
+Display the solutions on a number line. The circle indicates the boundary value of the solution area. Color in the circle if the boundary point belongs to the solution area. Enter integer values around the circle point and color in the solution area. 
 @center@ @mycanvas()@

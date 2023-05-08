@@ -1,10 +1,10 @@
-"A" and "B" are arbitrary sets. Write t in front of each equality if the equality is true, or n if the equality is not true.
+"A" and "B" are arbitrary sets. Write 't' in front of each equality if it is true, or 'n' if it is false. 
 
  
 
-     t               SOLUTION1
-     n               SOLUTION2
-     t               SOLUTION3
-     n               SOLUTION4
-     t               SOLUTION5
-     n               SOLUTION6
+     @lib.check_string(reply[1],15)@               @solut[1]@
+     @lib.check_string(reply[2],15)@               @solut[2]@
+     @lib.check_string(reply[3],15)@               @solut[3]@
+     @lib.check_string(reply[4],15)@               @solut[4]@
+     @lib.check_string(reply[5],15)@               @solut[5]@
+     @lib.check_string(reply[6],15)@               @solut[6]@

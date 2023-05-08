@@ -1,7 +1,7 @@
 In one store, a package of shampoo with @vol[1]@@"ml"@ costs @numb1@ dinars, and a package of the same shampoo with @vol[2]@@"ml"@ costs @numb2@ dinars.
 @vspace@
-Which package is cheaper to buy?
-@center@ It is cheaper to buy a package of shampoo with 
+Which package is more affordable to buy?
+@center@ It is more affordable to buy a package of shampoo with 
 @center@ @lib.check_one_option_dropdown(vol, vol[ind])@@"ml"@.
 @vspace@
 How much money is saved with this choice (write the number to two decimal places)?

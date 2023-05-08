@@ -1,5 +1,5 @@
-Out of @per[1]@@proc@ voters who turned out to vote, @per[2]@@proc@ of them voted for one of the candidates. 
-What portion of the total number of voters voted for that candidate? 
+From @per[1]@@proc@ voters who turned out to vote, @per[2]@@proc@ voted for one of the candidates. 
+What percentage of the total number of voters voted for that candidate?
 
 @vspace@
 @center@ @hspacept(3)@   @lib.check_number(result,40)@@proc@ voters voted.

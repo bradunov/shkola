@@ -1,3 +1,3 @@
-quest = {"Height AP and AQ are drawn from vertex A to sides BC and CD",
-         "Height DP is drawn from vertex D to side AB",
-         "Heights DP and DQ are drawn from vertex D to sides AB and BC"}
+quest = {"From vertex A, heights AP and AQ are drawn to sides BC and CD.",
+         "From vertex D, height DP is drawn to side AB.",
+         "From vertex D, heights DP and DQ are drawn to sides AB and BC."}

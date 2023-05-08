@@ -1,3 +1,3 @@
-Draw all @name[ind]@ triangles (only basic ones, which are not composed of multiple triangles).
+Color all @name[ind]@ triangles (only the basic ones, not those made up of multiple triangles).
 
 @center@ @mycanvas()@

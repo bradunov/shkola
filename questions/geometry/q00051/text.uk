@@ -1,6 +1,6 @@
 The yellow square consists of @base@ @padez@ squares. 
 
-@center@ @mycanvas()@ 
+@center@ @mycanvas()@  
 
 @center@ If the perimeter of the red square is @circ@@"cm"@", what is the perimeter of the yellow square? @hspacept(5)@  @lib.check_number(circ_med, 30)@@"cm"@
 @vspace@

@@ -1,1 +1,6 @@
 In the square, write the corresponding digit so that the resulting number is closest to the given one and the inequality is true.
+
+@repeat(6)@
+@center@ @answ@ @hspacept(3)@ @znak@ @hspacept(3)@ @lib.dec_to_str(number)@
+
+@/repeat@

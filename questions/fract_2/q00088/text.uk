@@ -1,3 +1,6 @@
-Calculate. If there is no solution in the set of real numbers, write the letter "n". 
+Calculate. If there is no solution in the set of real numbers, write the letter @"n"@.
 
-[Then there are four questions to be repeated, with a blank for the answer after each question.]
+@repeat(4)@
+@vspace@
+@center@ @quest@ @hspacept(3)@ = @hspacept(3)@ @reply@
+@/repeat@

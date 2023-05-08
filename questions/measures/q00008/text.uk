@@ -2,6 +2,6 @@ How many cardboard boxes are needed to make a cube-shaped box without a lid, if 
 
 @repeat(3)@
 @center@ @edge1@ @measure[ind]@ @edge2@@measure[ind+1]@? 
-@center@ It is necessary to use @lib.check_number(surface1,25)@ @measure2[ind]@ @lib.check_number(surface2,25)@ @measure2[ind+1]@ of cardboard.
+@center@ It takes @lib.check_number(surface1,25)@ @measure2[ind]@ @lib.check_number(surface2,25)@ @measure2[ind+1]@ of cardboard.
 @vspace@
 @/repeat@

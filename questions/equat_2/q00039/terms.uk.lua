@@ -1,1 +1,1 @@
-msg = {"The solution is x = ", "There is no solution", "The solution is any real number", "The solution is any real number x≠0"}
+msg = {"Solution is x = ", "There is no solution", "The solution is every real number", "The solution is every real number x≠0"}

@@ -1,6 +1,8 @@
-The wire was cut into pieces with lengths: @numb[1]@ @name[1]@ of @part[1]@"cm"@, @numb[2]@ @name[2]@ of @part[2]@"cm"@, @numb[3]@ @name[3]@ of @part[3]@"cm"@, @numb[4]@ @name[4]@ of @part[4]@"cm"@ and @numb[5]@ @name[5]@ of @part[5]@"cm"@. 
-Complete the table with the given data as started: 
+The wire was cut into pieces with the following lengths: 
+@center@ @numb[1]@ @name[1]@ of @part[1]@@"cm"@,  @numb[2]@ @name[2]@ of @part[2]@@"cm"@, @numb[3]@ @name[3]@ of @part[3]@@"cm"@, @numb[4]@ @name[4]@ of @part[4]@@"cm"@, and @numb[5]@ @name[5]@ of @part[5]@@"cm"@.
+Complete the table with the given data as started below:
 
-@center@ @mycanvas()@ 
+@center@ @mycanvas()@
 
-What would be the length
+What would be the length of each piece if the wire was cut into the same number of pieces, but of equal length? Write the result to two decimal places.
+@center@ The length of each piece of wire would be @hspacept(3)@ @lib.check_number(aver, 40)@@"cm"@.

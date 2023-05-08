@@ -1,6 +1,6 @@
-Find all proper subsets of the set 
+Determine all proper subsets of the set 
 @center@ @"S"@ = @bracketl@  @cifra[1]@, @cifra[2]@,  @cifra[3]@, @cifra[4]@ @bracketr@.  
-Write the elements of the sets in order from smallest to largest.
+Write the elements of the sets in ascending order.
 @vspace@
 @center@ @solut1[1]@, @hspacept(15)@ @solut1[2]@, 
 @center@ @solut1[3]@, @hspacept(15)@ @solut1[4]@,

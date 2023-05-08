@@ -1,6 +1,6 @@
-Write the linear function in implicit and explicit form whose graph is a line in the picture. 
+Write the linear function in implicit and explicit form whose graph is a straight line in the picture.
 @center@ @imp[1]@ = 0, 
-@center@  @"y = "@ @fun[1]@.
+@center@ "y = " @fun[1]@.
 @vspace@
 @center@ @mycanvas()@
 Write down the coordinates of the points where this line intersects 

@@ -1,4 +1,4 @@
-@number@ students from one school are practicing football and basketball. Among them, @foot@ are practicing football and @basket@ are practicing basketball. 
-The sets of students who are practicing these sports are represented by an Euler-Venn diagram. 
+@number@ students from one school train football and basketball. Of them, @foot@ train football and @basket@ train basketball. 
+The sets of students who train these sports are represented by an Euler-Venn diagram.
 @center@ @mycanvas()@
-In the empty frames on the picture, write how many students are practicing only football, only basketball, or both sports.
+In the empty frames on the picture, write how many students train only football, only basketball, or both sports.

@@ -1,5 +1,5 @@
 @repeat(2)@
-An edge of a cube is @edge@@measure[ind]@. @answ@
-@center@ What is the surface area of the cube? @hspacept(3)@ @lib.check_number(surface,40)@@measure2[ind]@  
+Ivica kocke je @edge@@measure[ind]@. @answ@
+@center@ What is the surface area of the cube? @hspacept(3)@ @lib.check_number(surface,40)@@measure2[ind]@
 @vspace@
 @/repeat@

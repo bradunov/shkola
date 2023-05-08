@@ -1,6 +1,7 @@
-The labels of the parallelogram elements are given in the picture. "O" is the perimeter and "P" is the area of the parallelogram.
-Based on the given data: 
-qst1 = [value of qst1][measurement unit 1], qst2 = [value of qst2][measurement unit 2], qst3 = [value of qst3][measurement unit 3],
+The elements of a parallelogram are marked on the picture. @"O"@ is the perimeter and @"P"@ is the area of the parallelogram. 
+@center@ @mycanvas()@ 
+Based on the given data 
+@center@  @name[qst1]@ = @val[qst1]@@meas[1]@, @hspacept(10)@ @name[qst2]@ = @val[qst2]@@meas[2]@, @hspacept(10)@  @name[qst3]@ = @val[qst3]@@meas[3]@, 
 calculate: 
-out[1] = [ans1 rounded to 35 decimal places][measurement unit 4], out[4] = [ans2 rounded to 35 decimal places][measurement unit 5]. 
-(Calculate with three decimal places and write the results to one decimal place).
+@center@  @name[out[1]]@ = @lib.check_number(ans1,35)@@meas[4]@, @hspacept(10)@ @name[out[4]]@ = @lib.check_number(ans2,35)@@meas[5]@. 
+(Calculate with three decimal places and write the results with one decimal place).

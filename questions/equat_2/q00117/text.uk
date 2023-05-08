@@ -1,6 +1,6 @@
-Determine the product of the binomial. 
+Determine the product of binomials.
 
-@repeat(2)@  
-@center@ @quest@ =  @result@  
-@vspace@ 
+@repeat(2)@
+@center@ @quest@ = @result@
+@vspace@
 @/repeat@

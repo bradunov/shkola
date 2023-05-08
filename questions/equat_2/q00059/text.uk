@@ -1,3 +1,10 @@
-The lengths of the sides of triangle "ABC" are "a" = [1] cm, "b" = [2] cm, and "c" = ? cm, where "k" is a whole number. 
-For what values of "k" is angle "ACB" acute? 
-Write inequalities that determine the allowable values of "k" and the solution set.
+The lengths of the sides of triangle @"ABC"@ are @hspacept(3)@ @"a"@ = @numb[1]@@"cm"@, @hspacept(3)@ @"b"@ = @numb[2]@@"cm"@ @hspacept(3)@ and @hspacept(3)@ @"c"@ = @quest@ @"cm"@, @hspacept(3)@ @"k"@ is a whole number.
+For which values of the number @"k"@ is @"∢ACB"@ acute?
+Write the inequalities that determine the allowable values of the number @"k"@ and the set of solutions.
+
+@vspace@
+@center@ @equ[1]@
+@center@ @equ[2]@
+@vspace@
+@center@ @note@  
+@center@ @set@

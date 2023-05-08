@@ -1,2 +1,4 @@
-name = {"pravim", "oštrim", "tupim"} translates to name = {"I make", "sharp", "dull"}
-padez = {"pravih", "oštrih", "tupih"} translates to padez = {"of the made", "of the sharp", "of the dull"}
+name = {"pravim", "oštrim", "tupim"}
+padez = {"pravih", "oštrih", "tupih"} 
+
+(Note: There is nothing to translate in this text as it contains only variable assignments.)

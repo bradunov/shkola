@@ -1,5 +1,9 @@
-The vertices of the pentagon in the picture are the vertices of several convex angles. Write down all the convex angles whose vertex is the point @point@.
+The vertices of the pentagon in the picture are the vertices of multiple convex angles. 
+Write down all the convex angles whose vertex is point @point@. 
 
-The angles with the vertex at @point@ are:
-@lib.check_string_case(reply, 100, ans)@
-(Labels of angles separated by commas, without spaces.)
+@vspace@
+@center@ @mycanvas()@
+
+@center@ The angles with vertex at @point@ are 
+@center@ @lib.check_string_case(reply, 100, ans)@
+(Separate angle labels with a comma, without spaces.)

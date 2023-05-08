@@ -1,3 +1,4 @@
-Point O is the center and "r" is the radius of the circle K. M is a point outside of K. A and "B" are points on the circle K, where A is the closest to M, and "B" is the furthest from M. If "d(M,A)" denotes the distance between the points, complete the following table. 
-
-[The output table is not provided in the text and needs to be completed separately.]
+Point O is the center and @"r"@ is the radius of the circle K. M is a point outside of K. A and @"B"@ are points on the circle K, where A is the closest to M, and @"B"@ is the farthest from M.
+If @"d(M,A)"@ denotes the distance between the points, complete the following table.
+@vspace@
+@addition_table()@

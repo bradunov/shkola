@@ -1,1 +1,1 @@
-operation = {"Which number should be added to the number", "Which number should be subtracted from the number", "To which number should the number be added", "From which number should the number be subtracted"}
+operation = {"What number should be added to the number", "What number should be subtracted from the number", "Which number should the number be added to", "From which number should the number be subtracted"}

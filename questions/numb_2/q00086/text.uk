@@ -1,4 +1,4 @@
-Write down the following numbers:
+Write down these numbers:
 
 @repeat(4)@
 @center@ @numb@ as a power with base @base@,

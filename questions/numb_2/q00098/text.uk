@@ -1,7 +1,7 @@
-Grade the product. Write a "-" sign in the first square if the result is negative. Letters denote positive quantities. 
+Grade the product. Enter the - sign in the first square if the result is negative. Letters denote positive quantities.
 
 @repeat(2)@
-@center@   What is @quest@ equal to? 
+@center@   @quest@  =
 @center@  @ans@
 @vspace@
 @/repeat@

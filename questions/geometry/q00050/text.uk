@@ -1,4 +1,4 @@
-Calculate the length of the side of a square if its perimeter is given. Express the length of the side as a whole number in the appropriate unit of measure.
+Calculate the length of the side of a square if its perimeter is given. Express the length of the side as a whole number in the appropriate unit of measure. 
 
 @repeat(3)@
 @center@ The perimeter of the square is @circ@ @measure[mes_c]@. 

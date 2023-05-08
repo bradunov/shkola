@@ -5,6 +5,6 @@ Below the pictures, write the names of the figures.
 Complete the sentences.
 @vspace@
 Points @"A"@, @"B"@, @"C"@ and @"D"@ are @lib.check_string(answ[3], 70)@.
-The sides @"AB"@ and @"CD"@ are @lib.check_string(answ[4], 70)@ sides.
-The sides @"AB"@ and @"BC"@ are @lib.check_string(answ[5], 70)@ sides.
+Sides @"AB"@ and @"CD"@ are @lib.check_string(answ[4], 70)@ sides.
+Sides @"AB"@ and @"BC"@ are @lib.check_string(answ[5], 70)@ sides.
 @vspace@

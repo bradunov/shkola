@@ -1,4 +1,4 @@
-At the school tournament, one class played @total@ @term1@. The ratio of wins to losses is @fact2@ : @fact1@. 
-What is the number of wins if there were no draws?
+At the school tournament, one class played a total of @total@ @term1@. The ratio of wins to losses is @fact2@ : @fact1@. 
+What is the number of wins if there were no games with a tie result?
 @vspace@
 @center@ The class won @lib.check_number(win, 20)@ @term2@.

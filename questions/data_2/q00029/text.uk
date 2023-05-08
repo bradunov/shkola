@@ -1,5 +1,5 @@
-@name@ took @numb1@ math tests. It turned out that the average number of points he scored on them was @value@. 
-How many points does @name@ need to score on the @pad@ test so that his average score after all tests is at least @aver@?
+@name@ has taken @numb1@ math tests. It turned out that the average number of points he scored on them is equal to @value@.
+How many points does @name@ need to score on the @pad@ test so that his average number of points after all the tests is at least @aver@?
 
 @vspace@
-@center@ @name@ needs to get @lib.check_number(result, 30)@ points.
+@center@ @name@ needs to score @lib.check_number(result, 30)@ points.

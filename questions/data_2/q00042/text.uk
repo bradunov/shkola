@@ -1,6 +1,7 @@
-For each point @"A"@, determine the quadrant to which it belongs and the coordinates of 
-point @"M"@ symmetric to @"A"@ with respect to the @"x"@ axis, 
-and point @"N"@ symmetric to @"A"@ with respect to the @"y"@ axis.
+For each point @"A"@ determine the quadrant to which it belongs and the coordinates 
+@center@ of the point @"M"@ symmetric to @"A"@ with respect to the @"x"@ axis, 
+@center@ of the point @"N"@ symmetric to @"A"@ with respect to the @"y"@ axis.
 @repeat(4)@ 
 @vspace@
-@center@ @"A"@ = (@xa@, @ya@) @hspacept(5)@ @lib.check_one_option_dropdown(posit, posit[ind])@@hspacept(5)@ @"M"@ = (@lib.check_number(xm,15)@, @lib.check_number(ym,15)@), @hspacept(5)@ @"N"@ = (@
+@center@ @"A"@ = (@xa@, @ya@) @hspacept(5)@ @lib.check_one_option_dropdown(posit, posit[ind])@@hspacept(5)@ @"M"@ = (@lib.check_number(xm,15)@, @lib.check_number(ym,15)@), @hspacept(5)@ @"N"@ = (@lib.check_number(xn,15)@, @lib.check_number(yn,15)@) 
+@/repeat@

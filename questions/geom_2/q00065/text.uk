@@ -1,5 +1,8 @@
-The lengths of the sides of triangle "ABC" are "AB" = 3 units, "BC" = 1 unit, and "CA" = 2 units. Points "D, E" and "F" are the midpoints of the sides of the triangle, and point "H" is the foot of the altitude from vertex "B" (see image).
-Calculate "DH" = 1 unit.
-Explain why. Triangle "CHE" is isosceles, "HED" = 30°, "EH" = "EC".
-By the Law of Cosines, triangle "DHG" is similar to triangle "ABC".
-Therefore, "DH" = 1 unit.
+The lengths of the sides of triangle @"ABC"@ are @"AB"@ = @edge[3]@@meas[2]@, @"BC"@ = @edge[1]@@meas[2]@, and @"CA"@ = @edge[2]@@meas[2]@. Points @"D, E"@ and @"F"@ are the midpoints of the sides of the triangle, and point @"H"@ is the foot of the altitude from vertex @"B"@ (see picture). 
+@center@ @mycanvas()@ 
+@center@ Calculate @hspacept(20)@ @"DH"@ = @lib.check_number(value, 20)@@meas[2]@. 
+@vspace@   
+Explain. @hspacept(8)@ Triangle @"CHE"@ is @lib.check_string_case(msg, 90)@
+@center@ @symb@@"HED"@ = @ang[3]@ = @symb@@lib.check_string_case(reply1, 30, ans1)@,  @hspacept(8)@ @"EH"@ = @"EC"@ = @lib.check_string_case(reply2, 20, ans2)@          
+@center@ By the rule @lib.check_one_option_dropdown(rule, "SUS")@, @hspacept(8)@ triangle @"@name[6]@" is congruent to @"@lib.check_string_case(name[7], 30)@". 
+@center@ It follows that @"DH"@ = @lib.check_string_case(reply3, 20, ans3)@.

@@ -1,4 +1,4 @@
-The table shows some values of variables @"x"@ and @"y"@. Based on the data, determine the coefficient of proportionality and fill in the empty fields in the table. (Write decimal numbers to two decimal places).
+Some values of variables @"x"@ and @"y"@ are given in the table. Based on the data, determine the coefficient of proportionality and fill in the empty fields in the table. (Write decimal numbers to two decimal places).
 @center@ The coefficient of proportionality is @hspacept(5)@ @lib.check_number(lib.math.round_dec(coef, 3), 40)@.
 
 @center@ @mycanvas()@

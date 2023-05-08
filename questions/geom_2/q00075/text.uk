@@ -1,4 +1,5 @@
-In the circle with center @name[ind]@ @"ABCD" @, the circle touches the side @"AB"@ at point @"P"@. If @"PB"@ = @numb@@meas[2]@, what is the circumference of @padez[ind]@?
+In @name[ind]@ @"ABCD"@ circle is inscribed. @quest@ The circle touches the side @"AB"@ at point @"P"@. 
+If @"PB"@ = @numb@@meas[2]@, what is the circumference of @padez[ind]@?
 
 @vspace@
 @center@ The circumference of @padez[ind]@ is @hspacept(8)@ @lib.check_number(circ, 30)@@meas[2]@.

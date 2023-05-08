@@ -1,4 +1,4 @@
 By dividing the numerator by the denominator, express the fraction in decimal form \(\frac{@number@}{@factor@}\).
 
 @center@ @mycanvas()@  
-@center@ Round the quotient to @round@ @name@ @hspacept(3)@ @lib.check_number(result, 50)@
+@center@ Round the quotient to @round@ @name@ @hspacept(3)@ @lib.check_number(result, 50)@.

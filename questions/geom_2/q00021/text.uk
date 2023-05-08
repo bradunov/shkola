@@ -1,10 +1,11 @@
-The picture shows two intersecting circles, @center@ @name[1]@ and @hspacept(2)@ @name[2]@. 
+In the picture, there are two circles that intersect, 
+@center@ @name[1]@ and @hspacept(2)@ @name[2]@. 
 
 @vspace@
 @center@ @mycanvas()@
 
-@center@ Compare the central angles
+@center@ Compare central angles
 @center@ @symb@@a_left@ @hspacept(2)@ @lib.check_one_option_dropdown(answ,sign_a)@ @hspacept(2)@ @symb@@a_right@
 @vspace@
-@center@ Compare the corresponding segments
+@center@ Compare corresponding sides
 @center@ @l_left@ @hspacept(2)@ @lib.check_one_option_dropdown(answ,sign_s)@ @hspacept(2)@ @l_right@

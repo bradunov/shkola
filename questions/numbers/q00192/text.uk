@@ -1,7 +1,7 @@
-@ime@ had @bank@ dinars in his bank account. He withdrew @car@ dinars to buy a car. 
+@ime@ had @bank@ dinars in his bank account. He withdrew @car@ dinars to buy a car.
 @vspace@
 How much money does he have left in his account? @hspacept(3)@ @lib.check_number(value, 50)@ dinars
-@vspace@  
+@vspace@
 How much money would he have left if he had @diff@ dinars more? @hspacept(3)@ @lib.check_number(value1, 50)@ dinars
 @vspace@
 How much money would he have left if the car cost @diff@ dinars more? @hspacept(3)@ @lib.check_number(value2, 50)@ dinars

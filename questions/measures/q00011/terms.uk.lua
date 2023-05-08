@@ -1,10 +1,10 @@
-msg_1 = "By how much would the surface area of a box change if all dimensions of the box"
+msg_1 = "By how much would the surface area of the box change if all dimensions of the box"
 msg_2 = " were increased by "
 msg_3 = " The surface area would increase by "
 msg_4 = " were decreased by "
 msg_5 = " The surface area would decrease by "
 
-msg_6 = "How many times would the surface area of a box change if all dimensions of the box"
+msg_6 = "How many times would the surface area of the box change if all dimensions of the box"
 msg_7 = " were increased "
 msg_8 = " times?"
 msg_9 = " The surface area would increase "

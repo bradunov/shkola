@@ -1,3 +1,7 @@
-Solutions to the given equations are offered. Which of the listed solutions is correct? Choose the answer.
+Solutions to the given equations are offered. Which of the listed solutions is correct? Choose an answer.
 
-(There are two sets of equations and solutions, but the content is in Serbian and cannot be translated.)
+@repeat(2)@
+@center@ @term[1]@@hspacept(3)@  = @hspacept(3)@ @term[2]@ 
+@center@ The solution is @hspacept(3)@ x = @answ1@ @answ2@. @hspacept(10)@@lib.check_one_option_dropdown(msg, reply)@ 
+@vspace@
+@/repeat@

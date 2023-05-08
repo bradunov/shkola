@@ -1,5 +1,7 @@
-"How many convex angles are there in the picture? 
+How many convex angles are there in the picture?
 
-Write the number in the empty box.  [input box]
+@center@ @mycanvas()@
 
-What is "@symb@@"mOn" like? [text box]  [check button]"
+Enter the number in the blank frame. @hspacept(10)@ @hspacept(10)@ @lib.check_number(value,15)@
+@vspace@
+What is the @symb@@"mOn"@ like? @hspacept(25)@ @lib.check_string(reply, 60, ans)@

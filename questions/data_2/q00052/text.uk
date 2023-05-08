@@ -1,4 +1,3 @@
-For @out[ch]@@"m"@ of canvas, you need to pay @price[ch]@ dinars. If @"x"@ represents the length of the canvas and @"y"@ the corresponding price, the coefficient of proportionality @"k"@ in the function @center@ @"y = k * x"@ @hspacept(8)@ is @hspacept(8)@ @"k = "@@lib.check_number(coef, 40)@.
-Complete the table that shows how much you need to pay for the given lengths of canvas. 
-@center@ @mycanvas()@
-@center@ How much does @out[sig1]@@"m"@ of canvas cost? @hspacept(10)
+For @out[ch]@@"m"@ of canvas, you need to pay @price[ch]@ dinars. If @"x"@ denotes the length of the canvas and @"y"@ the corresponding price, the coefficient of proportionality @"k"@ in the function @center@ @"y = k * x"@ @hspacept(8)@ is @hspacept(8)@ @"k = "@@lib.check_number(coef, 40)@. Complete the table that shows how much needs to be paid for the given lengths of canvas. @center@ @mycanvas()@
+@center@ How much does @out[sig1]@@"m"@ of canvas cost? @hspacept(10)@  @lib.check_number(price[sig1], 40)@ dinars;
+@center@ How many meters of canvas can be purchased for @price[sig2]@ dinars? @hspacept(10)@ @lib.check_number(out[sig2], 20)@@"m"@.

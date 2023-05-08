@@ -1,10 +1,10 @@
-Identify the type of triangle in the picture.
+Determine the type of triangle in the picture.
 
 @center@ @mycanvas()@
 
 Complete the sentences.
 @vspace@
-@center@ The points @teme[1]@, @teme[2]@, and @teme[3]@ form a @lib.check_string(answr[1], 60)@ triangle @triang@.
-@center@ The lines @duz[1]@, @duz[2]@, and @duz[3]@ form a @lib.check_string(answr[2], 60)@ triangle @triang@.
+@center@ The points @teme[1]@, @teme[2]@ and @teme[3]@ form a @lib.check_string(answr[1], 60)@ triangle @triang@.
+@center@ The lines @duz[1]@, @duz[2]@ and @duz[3]@ are @lib.check_string(answr[2], 60)@ of the triangle @triang@.
 
 @vspace@

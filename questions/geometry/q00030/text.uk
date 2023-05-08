@@ -1,3 +1,9 @@
-In front of each statement, write t if the statement is true or n if the statement is false. 
+In front of each statement write t if the statement is true or n if the statement is false.
 
-(There are also some code and special tags in the text that should not be translated.)
+@vspace@
+@center@ @mycanvas()@
+
+@lib.check_string(test[1], 10)@ @hspacept(5)@ Lines @"f"@ and @"g"@ intersect.
+@lib.check_string(test[2], 10)@ @hspacept(5)@ Lines @"g"@ and @"h"@ intersect.
+@lib.check_string(test[3], 10)@ @hspacept(5)@ Lines @"f"@ and @"h"@ are parallel.
+@lib.check_string(test[4], 10)@ @hspacept(5)@ Lines @"g"@ and @"h"@ are parallel.

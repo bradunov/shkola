@@ -1,4 +1,4 @@
-"The graph shows the results of testing two groups of students, @"A"@ and @"B"@. 
+The graph shows the results of testing two groups of students, @"A"@ and @"B"@.
 
 For each group, write in the table how many students achieved the number of points in the given interval.
-@center@ @mycanvas()@"
+@center@ @mycanvas()@

@@ -2,5 +2,6 @@ Determine the greatest common divisor for the given numbers.
 
 @center@ @mycanvas()@
 
-Enter the greatest common divisor for the given numbers, or if it does not exist, enter @hspacept(3)@ 1.
+Enter the greatest common divisor for the given numbers or, if it doesn't exist, enter @hspacept(3)@ 1.
+
 @center@ @lib.check_number(prod, 50)@

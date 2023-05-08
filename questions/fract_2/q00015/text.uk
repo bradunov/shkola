@@ -1,7 +1,6 @@
-Calculate by converting a decimal number into a fraction. Write the result in the form of a fraction and a decimal number.
+Calculate by converting a decimal number to a fraction. Write the result in the form of a fraction and a decimal number.
 
-Repeat three times:
-    - Convert @lib.dec_to_str(value[1])@ @sign@ @lib.dec_to_str(value[2])@ into a fraction.
-    - Check the fraction: @lib.check_fraction_simple(enum[1], denom[1])@ @sign@ @lib.check_fraction_simple(enum[2], denom[2])@
-    - The result is: @ans@ = @lib.check_number(result, 50)@
-End of repetition.
+@repeat(3)@
+@hspacept(20)@ @lib.dec_to_str(value[1])@ @sign@ @lib.dec_to_str(value[2])@   =
+@center@  @lib.check_fraction_simple(enum[1], denom[1])@ @sign@ @lib.check_fraction_simple(enum[2], denom[2])@  = @ans@   =   @lib.check_number(result, 50)@
+@/repeat@

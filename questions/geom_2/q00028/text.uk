@@ -1,7 +1,7 @@
 What angle is given angle?
 
-(repeats 5 times)
+@repeat(5)@
 
-(center) (question) (3 spaces) (name)? (10 spaces) (answer)
+@center@   @quest@ @hspacept(3)@ @name@?  @hspacept(10)@  @answ@
 
-(end repeat)
+@/repeat@

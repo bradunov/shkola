@@ -1,4 +1,5 @@
-The length of the side of the regular polygon in the picture is @numb[1]@@meas[1]@. Calculate the areas of: @name[1]@ circumscribed circle, @name[2]@ inscribed circle, @name[3]@ circular ring formed by these two circles, and @name[4]@ colored circular segment. Assume that @dat[1]@ = @lib.dec_to_str(con)@, @dat[2]@ = @lib.dec_to_str(root2)@ and @dat[3]@ = @lib.dec_to_str(root3)@. Calculate with three decimals and write the result to one decimal place. 
+The length of the side of the regular polygon in the picture is @numb[1]@@meas[1]@. Calculate the areas of: @name[1]@ circumscribed circle, @name[2]@ inscribed circle, @name[3]@ circular ring formed by these two circles and @name[4]@ colored circular segment. 
+Assume that @dat[1]@ = @lib.dec_to_str(con)@, @dat[2]@ = @lib.dec_to_str(root2)@ and @dat[3]@ = @lib.dec_to_str(root3)@. Calculate with three decimals and write the result to one decimal place. 
 @center@ @mycanvas()@
 @center@ @name[1]@ = @lib.check_number(area[1],40)@@meas[2]@, @hspacept(10)@ @name[2]@ = @lib.check_number(area[2],40)@@meas[2]@,
 @center@ @name[3]@ = @lib.check_number(area[3],40)@@meas[2]@, @hspacept(10)@ @name[4]@ = @lib.check_number(area[4],40)@@meas[2]@.

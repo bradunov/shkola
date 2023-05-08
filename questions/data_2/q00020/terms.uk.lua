@@ -1,1 +1,1 @@
-name = {"match", "matches", "match"}
+name = {"game", "games", "game"}

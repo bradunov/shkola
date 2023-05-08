@@ -1,1 +1,1 @@
-atrib = {"Milan's", "Nikolina's", "Petrova's", "Dejan's", "Vladi's", "Jovan's"};
+atrib = {"Milanova", "Nikolina", "Petra", "Dejana", "Vlada", "Jovana"};

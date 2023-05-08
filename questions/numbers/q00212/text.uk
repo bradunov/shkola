@@ -1,5 +1,5 @@
-The total price of textbooks for the third grade that the publishing house delivered to the school is @value@ @money1@. 
-If the school has @number@ third-grade students, what is the price of one set of textbooks?
+The total price of the set of textbooks for the third grade that the publishing house delivered to the school is @value@ @money1@. 
+If the school has @number@ third-grade students, what is the price of one set?
 
 @vspace@
 The price of one set of textbooks is @hspacept(3)@ @lib.check_number(result,40)@ @hspacept(3)@ @money2@.

@@ -1,4 +1,4 @@
-Sort the given numbers from smallest to largest.
+Arrange the numbers in order from smallest to largest.
 
 @vspace@
 @center@ @value[1]@, @hspacept(5)@ @value[2]@, @hspacept(5)@ @value[3]@, @hspacept(5)@ @value[4]@, @hspacept(5)@ @value[5]@,

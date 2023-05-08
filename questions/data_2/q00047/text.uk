@@ -1,5 +1,5 @@
 The average heights of girls and boys during regular schooling are shown graphically. 
-Color the graph that shows changes in height for boys, if it is known that their average height in @ch_y@ year is @ch_t@@"cm"@. 
-@center@ @mycanvas()@
+Color the graph that shows the changes in height of @gend[ch]@, if it is known that in @ch_y@ year their average height is @ch_t@@"cm"@. 
+@center@ @mycanvas()@ 
 @quest[index]@
 @reply@ years.

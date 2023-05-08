@@ -1,8 +1,8 @@
-The triangle @"ABC"@ is given. The line @"ED"@ is parallel to @"CA"@, and the line @"DF"@ is parallel to @"BC"@ (see image). 
+The triangle is given by @"ABC"@. Line @"ED"@ is parallel to @"CA"@, and line @"DF"@ is parallel to @"BC"@ (see image). 
 The measure of angle @number_f@ is @dat_f@, and the angle @number_s@ is @dat_s@.
 @center@ @mycanvas()@
 
-Based on the given data, find the measures of the following angles:
+Based on the given data, determine the measures of the following angles: 
 
 @center@  @numb[ind[1]]@ @hspacept(5)@ @answ[1]@ @hspacept(25)@  @numb[ind[2]]@ @hspacept(5)@ @answ[2]@
 @center@  @numb[ind[3]]@ @hspacept(5)@ @answ[3]@ @hspacept(25)@  @numb[ind[4]]@ @hspacept(5)@ @answ[4]@

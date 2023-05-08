@@ -1,5 +1,5 @@
-Fill in the table that contains measurements of a right triangle: the legs "a" and "b", the hypotenuse, the centroid line "t_c" and the height "h_c", the perimeter "O", and the area "P". 
-(Record the results to one decimal place).
+Fill in the table that contains the measurements of a right triangle: the legs @"a"@ and @"b"@, hypotenuse centroid line @"t\(\small_c\)"@ and height @"h\(\small_c\)"@, perimeter @"O"@ and area @"P"@. 
+(Results should be written to one decimal place).
 
 @vspace@
 @addition_table()@

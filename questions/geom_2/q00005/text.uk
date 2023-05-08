@@ -1,12 +1,10 @@
-"How many triangles and lines are there in the picture? 
+How many triangles and lines are there in the picture? 
 Mark the circle in front of the correct answer. 
 
-[Picture] 
+@center@ @mycanvas()@
 
-There are 
-[radio button options for number of triangles] 
-Triangles. 
-
-There are 
-[radio button options for number of lines] 
-Lines."
+@center@ There are triangles:       
+@center@ @lib.check_one_option_radio(ans_tr,index_tr)@    
+@vspace@
+@center@ There are lines:       
+@center@ @lib.check_one_option_radio(ans_ln,index_ln)@

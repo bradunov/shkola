@@ -1,10 +1,10 @@
-Winter break started on @start_d@ @start_m@ and lasted for @last@ @week@. 
+Winter break started on @day_s@ @start_d@. @start_m@ and lasted for @last@ @week@. 
 
 @vspace@ 
 On which day of the week did the break end? 
 @center@ The break ended on @lib.check_string(day_f,70)@.
 @vspace@
-On which date did the break end? 
+On what date did the break end? 
 @center@ @lib.check_number(finish_d,20)@ @lib.check_string(finish_m,70)@ 
 @vspace@
 @vspace@

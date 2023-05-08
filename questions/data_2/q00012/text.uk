@@ -1,8 +1,8 @@
 At the beginning, the price of the product was @number@ @val@. 
 What is the current price of the product if the product first increased by @per@@proc@, and then decreased by @per@@proc@? 
 @vspace@
-@center@ The price of the product is @hspacept(3)@ @lib.check_number(price1,50)@ @valnew1@. 
+@center@The price of the product is  @hspacept(3)@  @lib.check_number(price1,50)@ @valnew1@. 
 @vspace@
-Would the price be the same if the product first decreased by @per@@proc@, and then increased by @per@@proc@? 
+Would the price be the same if the product first decreased by @per@@proc@, and then increased by @per@@proc@?   
 @center@ @lib.check_one_option_dropdown(reply, reply[1])@ 
-@center@ The price of the product would be @hspace
+@center@ The price of the product would be   @hspacept(3)@  @lib.check_number(price2,50)@ @valnew2@.

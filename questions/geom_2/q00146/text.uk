@@ -1,4 +1,4 @@
-The length of the side of a regular polygon is @hspacept(3)@ @numb[1]@@meas[1]@. @hspacept(3)@ Calculate the area of the colored figure in the picture. 
-Assume that @dat[1]@ = @lib.dec_to_str(con)@, @dat[2]@ = @lib.dec_to_str(root2)@, and @dat[3]@ = @lib.dec_to_str(root3)@. Write the result to one decimal place. 
+The length of the side of a regular polygon is @numb[1]@@meas[1]@. Calculate the area of the colored figure in the picture.
+Assume that @dat[1]@ = @lib.dec_to_str(con)@, @dat[2]@ = @lib.dec_to_str(root2)@ and @dat[3]@ = @lib.dec_to_str(root3)@. Round the result to one decimal place.
 @center@ @mycanvas()@
 @center@ The area of the colored figure is @hspacept(8)@ @lib.check_number(area,40)@@meas[2]@.

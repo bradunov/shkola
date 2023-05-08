@@ -1,6 +1,6 @@
 How much is 
 
 @repeat(3)@
-@center@ @term1@ @hspacept(5)@ out of @hspacept(5)@ @term2@ ? @hspacept(30)@ @ans@
+@center@ @term1@ @hspacept(5)@ from @hspacept(5)@ @term2@ ? @hspacept(30)@ @ans@
 @vspace@
 @/repeat@

@@ -1,6 +1,9 @@
-There are two polygons in the picture.
-(a) (b)
-(a) is a(n) [dropdown1] [dropdown2] angle.
-Point P is an inner point of polygon (a).
-(b) is a(n) [dropdown3] [dropdown4] angle.
-Point Q is an inner point of polygon (b).
+On the picture there are two polygons. 
+@center@  "a"  @hspacept(100)@ "b"                                                                        
+@center@ @mycanvas()@
+Complete the sentences:
+@center@ "a" is an @lib.check_one_option_dropdown(msg, con1)@ @lib.check_one_option_dropdown(numb, edge1)@ angle. 
+@center@ "P" is an inner point of polygon "a".
+@vspace@
+@center@ "b" is a @lib.check_one_option_dropdown(msg, con2)@ @lib.check_one_option_dropdown(numb, edge2)@ angle. 
+@center@ "Q" is an inner point of polygon "b".

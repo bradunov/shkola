@@ -1,7 +1,5 @@
-Compare angles. Choose the sign =, <, or >. 
+Compare angles. Choose a sign = , < or > .
 
-(repeats 5 times) 
-
-(center) (input field for reply[1]) (dropdown menu with options for sign) (input field for reply[2]) 
-
-(/repeats)
+@repeat(5)@
+@center@    @reply[1]@ @hspacept(3)@ @lib.check_one_option_dropdown(answ,sign)@ @hspacept(3)@ @reply[2]@
+@/repeat@

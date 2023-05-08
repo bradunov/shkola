@@ -2,5 +2,5 @@ In one school out of @number@ students, @per@@proc@ are girls. How many girls an
 
 @vspace@
 The school is attended by
-@center@ @lib.check_number(numb_1,50)@ girls,
-@center@ @lib.check_number(numb_2,50)@ boys.
+@center@   @lib.check_number(numb_1,50)@ girls,
+@center@   @lib.check_number(numb_2,50)@ boys.

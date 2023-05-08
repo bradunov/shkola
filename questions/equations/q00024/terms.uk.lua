@@ -1,2 +1,2 @@
 operation = {"sum", "difference"}
-compare = {"greater", "smaller", "larger", "smaller"}
+compare = {"greater", "less", "bigger", "smaller"}

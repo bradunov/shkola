@@ -3,8 +3,8 @@
 Finish the started sentences.
 
 @center@ @"n"@ is @lib.check_string(name[1], 60)@.
-@center@ He is @lib.check_string(name[2], 70)@.
-@center@ Point O is @lib.check_string(reply[1], 120, ans[1])@.
-@center@ JE is @lib.check_string(reply[2], 60, ans[2])@.
-@center@ Points J and E are @lib.check_string(reply[3], 80, ans[3])@.
+@center@ O@"n"@ is @lib.check_string(name[2], 70)@.   
+@center@ Point O is @lib.check_string(reply[1], 120, ans[1])@. 
+@center@ JE is @lib.check_string(reply[2], 60, ans[2])@.  
+@center@ Points J and E are @lib.check_string(reply[3], 80, ans[3])@.                                                                                                        
 @center@ Point A is outside the line @lib.check_string_case("n", 30)@.

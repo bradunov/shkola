@@ -1,1 +1,4 @@
-Circle the circles on the drawings that represent the grid of cubes.
+Color the circles on the drawings that represent a grid of cubes.
+
+@vspace@
+@center@ @mycanvas()@

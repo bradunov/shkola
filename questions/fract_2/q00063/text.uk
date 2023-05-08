@@ -1,4 +1,4 @@
-Color the dashes on the number line that correspond to the given rational numbers. 
+Color the lines on the number line that correspond to the given rational numbers. 
 @vspace@
 @center@ @mycanvas()@      
 @center@ @quest[1]@ @hspacept(15)@ @quest[2]@ @hspacept(15)@ @quest[3]@ @hspacept(15)@ @quest[4]@ 

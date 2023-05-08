@@ -1,4 +1,4 @@
-@ime_m@ ate \(\frac{@enum[1]@}{@denom[1]@}\) of the cakes. @ime_f@ ate \(\frac{@enum[2]@}{@denom[2]@}\) of the remaining part. 
+@ime_m@ ate \(\frac{@enum[1]@}{@denom[1]@}\) cakes. @ime_f@ ate \(\frac{@enum[2]@}{@denom[2]@}\) of the remaining part. 
 What part of the cake is left?
 
-@center@ @ans@ @lib.check_fraction_condition(condition, nil, nil, solution)@ of the cake.
+@center@ @ans@ @lib.check_fraction_condition(condition, nil, nil, solution)@ cakes.

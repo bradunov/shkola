@@ -1,6 +1,6 @@
-The length of the @elem[ind]@ from the top of an isosceles triangle is @numb@@meas[1]@.
+@elem[ind]@ from the top of an isosceles triangle has a length of @numb@@meas[1]@.
 @vspace@
-What is the distance @quest[ch]@?
+What is the distance to @quest[ch]@?
 @center@ The distance is @lib.check_number(dist,30)@@meas[2]@.
 @vspace@
 What is the length of @elempad[ind]@ from the top of an isosceles triangle?

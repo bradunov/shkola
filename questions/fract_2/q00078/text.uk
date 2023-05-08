@@ -1,5 +1,5 @@
-@sign1@ numbers @hspacept(2)@ @quest[1]@ @hspacept(2)@ and @hspacept(2)@ @quest[2]@ @hspacept(2)@ @sign2@ @sign3@ @hspacept(2)@ @quest[3]@. Write the corresponding expression and calculate its value.
-If there is one field for entering the result, write the result as a decimal number with one decimal place. If there is more than one field, write the result in the form of a fraction.
+@sign1@ numbers @hspacept(2)@ @quest[1]@ @hspacept(2)@ and @hspacept(2)@ @quest[2]@ @hspacept(2)@ @sign2@  @sign3@  @hspacept(2)@  @quest[3]@. Write down the corresponding expression and calculate its value.
+If there is only one field for the result, write the answer in the form of a decimal number with one decimal place. If there are more than one field, write the answer in the form of a fraction.
 
 @vspace@
 @center@ @task@ 

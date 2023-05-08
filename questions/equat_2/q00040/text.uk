@@ -1,9 +1,9 @@
-By equivalent transformations, reduce the equation 
+Equivalent transformations reduce the equation 
 @center@  @quest[1]@  
 @center@ = @quest[2]@
 to an equation of the form 
-@center@ "P(x) = 0",
-where @"P(x)"@ is a polynomial in the variable @"x"@ with integer coefficients in descending order of degrees. 
+@center@ @"P(x) = 0"@,
+where @"P(x)"@ is a polynomial in variable @"x"@ with integer coefficients in decreasing order of degrees. 
 @vspace@
 @center@  @equ@  = 0 
 @vspace@

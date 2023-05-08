@@ -1,1 +1,1 @@
-measures_str = {" edge", "surface area of a side", "surface area of a cube"}
+measures_str = {" edge", "side area", "cube surface area"}

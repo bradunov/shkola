@@ -1,11 +1,13 @@
-"What is the volume of a cube if:
+What is the volume of a cube if:
+
 the perimeter of one side of the cube is equal to @tostring(math.floor(circ1))@ @measure[ind]@.
-@center@The volume of the cube is @lib.check_number(volume,30)@ @measure2[ind]@.
+@center@The volume of the cube is @lib.check_number(volume,30)@ @measure2[ind]@. 
 @vspace@
 
 the sum of the lengths of the edges of the cube is equal to @tostring(math.floor(circ2))@ @measure[ind]@.
-@center@The volume of the cube is @lib.check_number(volume,30)@ @measure2[ind]@.
+@center@The volume of the cube is @lib.check_number(volume,30)@ @measure2[ind]@. 
 @vspace@
 
 the length of the edge of the cube is increased @tostring(factor)@ times.
-@center@The volume of the cube
+@center@The volume of the cube is increased @lib.check_number(temp,30)@ times. 
+@vspace@

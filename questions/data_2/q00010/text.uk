@@ -1,4 +1,4 @@
-The manufacturer has paid the value-added tax (VAT) for the sneakers. The tax of @per@@proc@ amounts to @tax@ @val@.
+The manufacturer has paid the value added tax (VAT) for the sneakers. The tax of @per@@proc@ amounts to @tax@ @val@.
 How much will the customer pay for the sneakers?
 @vspace@
 @center@ The customer will pay for the sneakers @hspacept(3)@ @lib.check_number(price,50)@ @valnew@.

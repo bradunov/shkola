@@ -1,7 +1,7 @@
-For @numb[1]@ "m" of canvas, you need to pay @price[1]@ dinars.
+For @numb[1]@ @"m"@ of fabric, you need to pay @price[1]@ dinars.
 @vspace@
-How much does @numb[2]@ "m" of the same canvas cost?
+How much does @numb[2]@ @"m"@ of the same fabric cost? 
 @center@ It costs @lib.check_number(price[2], 40)@ dinars.
 @vspace@
-How many meters of the same canvas can be bought for @price[3]@ dinars?
-@center@ You can buy @lib.check_number(numb[3], 20)@ "m" of canvas.
+How many meters of the same fabric can be bought for @price[3]@ dinars?
+@center@ You can buy @lib.check_number(numb[3], 20)@ @"m"@ of fabric.

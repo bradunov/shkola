@@ -1,2 +1,2 @@
-angle_str = {"acute", "sharp"}
+angle_str = {"sharp", "acute"}
 ans_str = "no"

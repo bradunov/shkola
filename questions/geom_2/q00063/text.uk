@@ -1,4 +1,4 @@
-In front of each statement write @hspacept(3)@ t @hspacept(3)@ if the statement is true or @hspacept(3)@ n @hspacept(3)@ if the statement is false.
+In front of each statement write @hspacept(3)@ t @hspacept(3)@ if the statement is true or @hspacept(3)@ n @hspacept(3)@ if the statement is not true.
 
 @vspace@
 @lib.check_string(result[1], 15)@  @hspacept(5)@  @answ[1]@       

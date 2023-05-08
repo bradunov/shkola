@@ -1,3 +1,3 @@
-Which triangles with vertices @"O, P, Q, R, S"@ and T are congruent to the triangle @value@?
+Which triangles with vertices @"O, P, Q, R, S"@ and T are congruent to triangle @value@? 
 Color the circle in front of the correct answer. 
 @center@ @mycanvas()@

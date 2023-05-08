@@ -1,6 +1,6 @@
-Write down the exponent for the given base and exponent. Represent the exponent as a product. 
+Write the exponent for the given base and exponent. Represent the exponent as a product.
 
-Repeat 4 times: 
-Center the base, exponent, and degree. 
-Center the string of the base and the number of the exponent with a limit of 15 and 10 characters respectively. 
-Display the exponent as a product.
+@repeat(4)@
+@center@ base @base@, exponent @grd@ 
+@center@ @lib.check_string(base,15)@ @sup@ @lib.check_number(grd,10)@ @/sup@ @hspacept(3)@ = @hspacept(3)@ @answ@  
+@/repeat@

@@ -1,4 +1,4 @@
-Write the number @number@ as a product of @val@ @quest@ (from smallest to largest).
+Give the number @number@ written as a product of @val@ @quest@ (from smaller to larger).
 
 @center@ @mycanvas()@
 

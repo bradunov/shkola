@@ -11,5 +11,5 @@ word[5] = {"e", "i", "n", "r", "t"}
 descr_n = {"prime", "decimal", "even", "odd"}
 
 name = {"number", "word letter"}
-tens = {"ones", "tens"}
+tens = {"unit", "tens"}
 adv = {"first", "fifth"}

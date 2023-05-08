@@ -1,1 +1,5 @@
-Fill in the table that contains the measures of an isosceles trapezoid: bases "a" and "b", leg "c", height "h", perimeter "O" and area "P".
+Fill in the table that contains the measurements of an isosceles trapezoid: bases @"a"@ and @"b"@, leg @"c"@, height @"h"@, perimeter @"O"@ and area @"P"@.
+
+@vspace@
+@addition_table()@
+@vspace@

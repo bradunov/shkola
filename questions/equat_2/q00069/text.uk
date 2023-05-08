@@ -1,5 +1,5 @@
-Write in implicit form the linear function (in order of variables x, y, and constant term). The coefficient 1 is entered.
+Write in implicit form the linear function (in order of variables x, y, and constant term). Coefficient 1 is entered.
 
 @repeat(5)@
-@center@  @"y = "@ @fun@, @hspacept(30)@  @imp@ = 0
+@center@  @"y = "@ @fun@, @hspacept(30)@  @"ax + by + c = "@ @imp@
 @/repeat@

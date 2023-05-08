@@ -1,4 +1,4 @@
-The smallest common multiple of two numbers @"S(m,n)"@ and @"m"@ is given. 
+The smallest common multiple of two numbers @"S(m,n)"@ and number @"m"@ is given. 
 What is the value of @"n"@?
 @vspace@
 @center@ @"S(m,n)"@ @hspacept(55)@ @"m"@ @hspacept(70)@ @"n"@ 

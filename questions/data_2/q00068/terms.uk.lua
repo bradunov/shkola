@@ -1,1 +1,5 @@
-msg = {"square", "diamond", "rhombus"}
+msg = {"kvadrat", "romb", "deltoid"}
+
+Translation: 
+
+msg = {"square", "rhombus", "rhombus"}

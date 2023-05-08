@@ -1,2 +1,2 @@
 operation = {"increased", "decreased"}
-comp = {"greater", "smaller", "not smaller", "not greater"}
+comp = {"greater", "less", " not less ", " not greater "}

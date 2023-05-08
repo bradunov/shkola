@@ -1,5 +1,5 @@
 Write numbers in words.
-Example: the number 3.456 is written as "three whole, four tenths, five hundredths and six thousandths".
+Example: the number 3.456 is written as "three whole, four tenths, five hundredths, and six thousandths".
 
 @repeat(5)@
 @vspace@

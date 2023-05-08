@@ -1,7 +1,7 @@
-Finish marking the points and lines on the picture so that:
+Finish marking the points and lines on the picture so that it is:
 
-The point @"a"@ is located in @"RS"@, point @"c"@ includes points @"P"@ and @"R"@, and line @"d"@ intersects with @"S"@. 
+@center@ @"a"@ = @"RS"@,  @hspacept(20)@ @"c"@ includes {@"P"@, @"R"@}, @hspacept(20)@ @"d"@ intersects @"S"@  
+@center@ @"b"@ parallel to @"a"@, @hspacept(20)@ @"c"@ intersects @"d"@ = {@"O"@},  @hspacept(20)@ @"Q"@ is on @"b"@.   
 
-Point @"b"@ is parallel to point @"a"@, line @"c"@ intersects with line @"d"@ at point @"O"@, and point @"Q"@ is on line @"b"@.
-
-Display the picture using the @mycanvas()@ tag.
+@vspace@
+@center@ @mycanvas()@

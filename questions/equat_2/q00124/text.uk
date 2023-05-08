@@ -1,7 +1,7 @@
-"Write the difference of squares as the product of two binomials. 
+Write the difference of squares as the product of two binomials.
 
-@repeat(2)@ 
+@repeat(2)@
 @center@ @result@ = 
 @center@   @quest@    
 @vspace@ 
-@/repeat@"
+@/repeat@

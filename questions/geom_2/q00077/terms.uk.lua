@@ -1,1 +1,1 @@
-name = {"oblique", "right-angled", "isosceles"}
+name = {"kosougli", "right-angled", "isosceles"}

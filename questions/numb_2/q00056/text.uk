@@ -1,4 +1,4 @@
-@number@ students of one school practice at least one of the sports: football, basketball, and volleyball. @volley@ students practice volleyball, @res_bv@ practice volleyball and basketball, @res_fb@ practice football and basketball, and @res_b@ students only practice basketball. @res_2@ students practice two sports, and @res_3@ students practice all three sports.
+@number@ students of one school practice at least one of the sports: football, basketball and volleyball. @volley@ students practice volleyball, @res_bv@ practice both volleyball and basketball, @res_fb@ practice both football and basketball, while @res_b@ students only practice basketball. @res_2@ students practice two sports, and @res_3@ students practice all three sports.
 
 @center@ @mycanvas()@
 

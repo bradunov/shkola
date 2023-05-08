@@ -1,7 +1,7 @@
 The plane took off at @start_h@@"h"@ @answ[1]@. The flight lasted @last_h@ hours and @last_m@ minutes. 
 What time did the plane land?
 
-@vspace@
+@vspace@ 
 
-@center@ The plane landed at
+@center@ The plane landed at 
 @center@ @lib.check_number(finish_h,20)@@"h"@ @answ[2]@.

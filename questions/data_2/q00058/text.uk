@@ -1,5 +1,5 @@
 Complete the table so that it shows the success of @total@ students in one class on a math test.
-@center@ @mycanvas()@
+@center@ @mycanvas()@ 
 
-@center@ @quest[ch]@
-@center@ @lib.check_number(value, 40)@.
+@center@ @quest[ch]@  
+@center@  @lib.check_number(value, 40)@.

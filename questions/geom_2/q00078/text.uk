@@ -1,4 +1,4 @@
-Determine all angles of trapezoid "ABCD" if one angle is given. 
+Determine all angles of trapezoid @"ABCD"@ if one angle is @dat@.
 
 @center@ @mycanvas()@
 

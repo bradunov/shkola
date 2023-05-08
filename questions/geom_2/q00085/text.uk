@@ -1,1 +1,3 @@
-Color the corresponding circles on the image that have the same area as the red square.
+Color the corresponding circles on the image that have the same area as the red square. 
+
+@center@ @mycanvas()@

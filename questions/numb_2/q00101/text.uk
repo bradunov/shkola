@@ -1,3 +1,5 @@
-"Simplify the expressions. Enter the '-' sign in the first square if the result is negative. Letters denote positive quantities." 
+Simplify the expressions. Write a '-' sign in the first square if the result is negative. Letters denote positive values.
 
-The code and tags should not be translated. The output text should not be in quotes.
+@repeat(4)@
+@center@   @quest@  = @answ@
+@/repeat@

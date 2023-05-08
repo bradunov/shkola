@@ -1,3 +1,4 @@
-Calculate the length of the curved line in the picture, if the length of the grid square is @grid@@meas@. Assume that @"π"@ = \(\frac{22}{7}\). Write the result to two decimal places.
+Calculate the length of the curved line in the picture, if the length of the grid square is @grid@@meas@. 
+Assume that @"π"@ = \(\frac{22}{7}\). Write the result to two decimal places.
 @center@ @mycanvas(result)@
 @center@ The length of the curve is @hspacept(5)@ @lib.check_number(circ, 40)@@meas@.

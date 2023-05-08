@@ -1,9 +1,9 @@
 con = {" is ", " is not ", " and ", "of "}
-title = {" number ", " absolute value of a number "}
+title = {" number ", " absolute value of number "}
 msg = {" non-negative", 
        " negative", 
        " positive", 
-       " greater than ", 
-       " less than ", 
-       " greater than or equal to ", 
-       " less than or equal to "}
+	   " greater ", 
+	   " smaller ", 
+	   " greater ", 
+	   " smaller "}

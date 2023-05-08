@@ -1,5 +1,4 @@
-Write rational numbers that correspond to the given points on the number line. Write the notation in the form of a fraction or a decimal number, depending on the form in which it is written. 
-If the number is negative and the notation is in the form of a fraction, write the - sign in the numerator.
+Write rational numbers that correspond to the given points on the number line. Write the expression in the form of a fraction or a decimal number, depending on the form being used. If the number is negative and the expression is in the form of a fraction, write the negative sign in the numerator.
 @vspace@
 @center@ @mycanvas()@      
 @center@ @name[1]@: @hspacept(10)@ @quest[1]@ @hspacept(30)@ @name[2]@: @hspacept(10)@@quest[2]@ 

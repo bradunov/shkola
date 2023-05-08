@@ -1,4 +1,4 @@
-Simplify expressions. Write the power for the given base and a minus sign in the first box if the result is negative.
+Simplify expressions. Enter the power for a given base and the sign - in the first square if the result is negative. 
 
 @repeat(4)@
 @center@   @quest@  = @answ@

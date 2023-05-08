@@ -1,5 +1,5 @@
-Calculate the element @dat[sg]@, circumference @"O"@ and area @"P"@ of a regular polygon from the image if
+Calculate the element @dat[sg]@, perimeter @"O"@ and area @"P"@ of a regular polygon from the picture if 
 @center@ @dat[ch]@ = @numb[ch]@@meas[1]@.
-Round to three decimal places and write the result to one decimal place.                                                                    
+Round the result to three decimal places and write it to one decimal place. 
 @center@ @mycanvas()@
 @center@ @dat[sg]@ = @lib.check_number(numb[sg],25)@@meas[1]@, @hspacept(15)@ @"O"@ = @lib.check_number(circ,30)@@meas[1]@,  @hspacept(15)@ @"P"@ = @lib.check_number(area,35)@@meas[2]@

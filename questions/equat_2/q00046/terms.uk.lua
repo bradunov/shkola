@@ -1,3 +1,3 @@
-relat = {" for ", " less ", " greater ", " decreased ", " increased ", " smaller ", " larger ", " sum ", " difference "}
-part = {"percentages", "halves", "thirds", "quarters", "fifths", "sixths", "percentage", "percent"}
-text = {" of number a ", " is ", " of ", "Number a, ", " and "}
+relat = {" for ", " less than ", " greater than ", " decreased ", " increased ", " smaller ", " larger ", " sum of ", " difference between "}
+part = {"percent", "half", "third", "quarter", "fifth", "sixth", "percent", "percentage"}
+text = {" number a ", " is ", " of ", "Number a, ", " and "}

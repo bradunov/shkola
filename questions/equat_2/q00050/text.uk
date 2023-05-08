@@ -1,8 +1,8 @@
-@center@ The crows flew, spotted the branches;
-@center@ on @nv1@ branch, there were @vfree@ @text[2]@ more,
-@center@ on @nv2@ branch, there were @ng@ @text[4]@ more.
+@center@ The crows have flown, they spotted the branches;
+@center@ on @nv1@ branch, there were @vfree@ @text[2]@,
+@center@ on @nv2@ branch, there were @ng@ @text[4]@.
 @vspace@
-Write an equation to calculate the number of branches, denoted by "g".
+Write an equation to calculate how many branches there were, represented by variable @"g"@.
 @center@ @equ@
 @vspace@
 Solve the equation and answer:

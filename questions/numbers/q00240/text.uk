@@ -1,8 +1,8 @@
-Set the parentheses so that the equations are correct.
+Set the brackets so that the equations are correct.
 
 @repeat(6)@
 
-@center@ @answ@
+@center@ @answ@  
 
 @vspace@
 

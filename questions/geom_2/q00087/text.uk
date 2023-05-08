@@ -1,8 +1,8 @@
-The sides of a rectangle are @"a"@ and @"b"@. What is the side length of a square with an area equal to the area of the rectangle (expressed as a whole number)?
+The sides of a rectangle are @"a"@ and @"b"@. What is the length of the side of a square that has the same area as the rectangle (expressed as a whole number)?
 
 @repeat(3)@
 @vspace@
 @center@ @"a"@ = @edge_a@@measure[ind]@, @hspacept(3)@ @"b"@ = @edge_b@@measure[ind]@,  
-@center@ The side length of the square is @lib.check_number(edge_c,20)@@measure[ind]@. 
+@center@ The side of the square is @lib.check_number(edge_c,20)@@measure[ind]@. 
 
 @/repeat@

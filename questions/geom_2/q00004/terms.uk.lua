@@ -6,7 +6,7 @@ answ = {
   " different points determine ",
   " non-collinear points determine ",  
   " parallel lines divide the plane into ", 
-  " parallel lines and another line that intersects them divide the plane into ",  
+  " parallel lines and one more line that intersects them divide the plane into ",  
   " pairs of parallel lines that intersect at 4 points divide the plane into ", 
   " lines that intersect at 3 points divide the plane into " 
 }

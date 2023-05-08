@@ -1,4 +1,4 @@
-The pages of a rectangle are @"a"@ and @"b"@. What is the area of the square that has the same perimeter as the rectangle?
+The sides of a rectangle are @"a"@ and @"b"@. What is the area of a square with the same perimeter as the rectangle?
 
 @repeat(3)@
 @vspace@

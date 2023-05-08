@@ -1,5 +1,6 @@
-The triangle is given as @"ABC"@. 
+The triangle is given by @"ABC"@. 
 The measure of angle @number_f@ is @dat_f@, and the measure of angle @number_s@ is @dat_s@. 
+
 @vspace@
 @center@ @mycanvas()@
 

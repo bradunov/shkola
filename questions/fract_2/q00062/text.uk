@@ -1,7 +1,6 @@
 Rational numbers 
-@center@ @quest[1]@ @hspacept(15)@ @quest[2]@ @hspacept(15)@ @quest[3]@ @hspacept(15)@ @quest[4]@ @hspacept(15)@ @quest[5]@ @hspacept(15)@ @quest[6]@
-arrange @relat@.
-If the number is negative and written in the form of a fraction, put the - sign in the numerator.
+@center@ Arrange @relat@ the following: @quest[1]@ @hspacept(15)@ @quest[2]@ @hspacept(15)@ @quest[3]@ @hspacept(15)@ @quest[4]@ @hspacept(15)@ @quest[5]@ @hspacept(15)@ @quest[6]@
+If the number is negative and written as a fraction, put the - sign in the numerator.
 @vspace@
 @center@ @reply[out[1]]@ @hspacept(3)@ @answ[sign]@ @hspacept(3)@ @reply[out[2]]@ @hspacept(3)@ @answ[sign]@ @hspacept(3)@ @reply[out[3]]@ 
 @center@ @answ[sign]@ @hspacept(3)@ @reply[out[4]]@ @hspacept(3)@ @answ[sign]@ @hspacept(3)@ @reply[out[5]]@ @hspacept(3)@ @answ[sign]@ @hspacept(3)@ @reply[out[6]]@.

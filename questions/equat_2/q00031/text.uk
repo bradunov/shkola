@@ -1,5 +1,5 @@
 @repeat(2)@
-Does @"x"@ need to be @oper[op]@ @term[2]@ to get the number @comp[index]@ from the number @term[3]@?
+Does @"x"@ need to be @oper[op]@ @msg[neq+2]@ @term[2]@ to get the @comp[index]@ number from the number @term[3]@?
 @center@ @reply@
 @vspace@
 @/repeat@

@@ -1,6 +1,6 @@
 Fill in the table to show the success of @total@ students in one class on a math test.
 
-@center@ @mycanvas()@ 
+@center@ @mycanvas()@
 
-What is the average grade of the class on the test (calculate to two decimals)? 
+What is the average grade of the class on the test (calculate to two decimal places)?
 @center@ The average grade is @hspacept(3)@ @lib.check_number(aver, 30)@.

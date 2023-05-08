@@ -5,4 +5,6 @@ The points are given in the coordinate system:
 What type of quadrilateral is @"ABCD"@?
 @center@ @lib.check_one_option_dropdown(msg, msg[ch])@
 @vspace@
-Calculate the perimeter and area of this quadrilateral (to
+Calculate the perimeter and area of this quadrilateral (to two decimal places). The unit of length @"dim"@ is the length of the side of a grid square. 
+@center@ The perimeter is @hspacept(5)@ @lib.check_number(circ, 50)@@meas[1]@. 
+@center@ The area is @hspacept(5)@ @lib.check_number(area, 50)@@meas[2]@.

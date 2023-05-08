@@ -1,7 +1,7 @@
-A circle @"k(O,"@ with radius of @radius@@meas@ is given, as well as lines @"a"@, @"b"@, @"c"@, and @"d"@. 
+The circle @"k(O,"@ with radius @radius@@meas@ is given, as well as the lines @"a"@, @"b"@, @"c"@, and @"d"@. 
 The distance from point O to 
-line @"a"@ is @pt[1]@ = @dist[1]@@meas@, to line @"b"@ is @pt[2]@ = @dist[2]@@meas@, 
-to line @"c"@ is @pt[3]@ = @dist[3]@@meas@, and to line @"d"@ is @pt[4]@ = @dist[4]@@meas@.
+@center@ line @"a"@ is @pt[1]@ = @dist[1]@@meas@, @hspacept(3)@ line @"b"@ is @pt[2]@ = @dist[2]@@meas@, 
+@center@ line @"c"@ is @pt[3]@ = @dist[3]@@meas@, @hspacept(3)@ line @"d"@ is @pt[4]@ = @dist[4]@@meas@.
 
 Complete the following sentences:
 @vspace@

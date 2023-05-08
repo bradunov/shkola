@@ -1,1 +1,1 @@
-msg = {" is a secant.", " is a tangent.", " is a secant that contains the diameter.", " has no common points with the circle.", "Line "}
+msg = {" is a secant.", " is a tangent.", " is a secant that contains the diameter.", " does not have common points with the circle.", "Line "}

@@ -1,0 +1,1 @@
+part = {"tretjine", "četrtine", "petine", "šestine", "sedmine", "osmine", "devetine"}

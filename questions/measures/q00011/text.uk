@@ -3,7 +3,7 @@ What is the surface area of a box in the shape of a rectangular prism with dimen
 
 @repeat(2)@
 @vspace@
-@quest[ITEM]@ 
+@quest[ITEM]@
 @center@ @answ[ITEM]@
 @center@ The surface area of the modified box is @lib.check_number(surface1[ITEM],40)@@measure2[ind]@.
 @/repeat@

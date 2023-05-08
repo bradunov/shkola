@@ -1,4 +1,4 @@
-"@ime@" had @number@ @msg@. She wanted to buy a shirt for @numb1@ @msg@ and pants for @numb2@ @msg@. When she came to the store, she saw that the price of the shirt was reduced by @per@@proc@, while the price of the pants was increased by @per@@proc@.
+@ime@ had @number@ @msg@. She wanted to buy a shirt for @numb1@ @msg@ and pants for @numb2@ @msg@. When she came to the store, she saw that the price of the shirt was reduced by @per@@proc@, while the price of the pants was increased by @per@@proc@.
 
-Circle the dot above the correct statement.
+Circle the correct statement.
 @center@ @lib.check_one_option_radio(answ,index, true)@

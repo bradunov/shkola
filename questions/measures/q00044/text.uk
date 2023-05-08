@@ -1,4 +1,10 @@
-@ime1@ lives in Belgrade, and her friend @ime2@ moved to @town[ind]@. They often use "@"chat"@" on the Internet to communicate. In order to talk, they have to be online at the same time. 
+@ime1@ lives in Belgrade, and her friend @ime2@ moved to @town[ind]@. They often use "@"chat"@" to communicate on the Internet. In order to talk, they have to connect to the Internet at the same time. 
 When it's 12@"h"@ in Belgrade, it's @t_town@@"h"@ in @padez[ind]@. 
 
-@ime1@ and @ime2@ can't talk between @amint[2]@@"h"@ and @pmint[1]@@"h"@ their time because they have to go to school. Also, they can't talk between @pmint[2]@@"h"@ and @amint
+@ime1@ and @ime2@ cannot talk between @amint[2]@@"h"@ and @pmint[1]@@"h"@ their time because they have to go to school. Also, they cannot talk between @pmint[2]@@"h"@ and @amint[1]@@"h"@ because they are sleeping at that time.
+When can @ime1@ and @ime2@ talk? Write the time interval in local time.
+
+@vspace@
+
+@center@ Belgrade  @hspacept(20)@ from @lib.check_string(reply[1], 20, ans[1])@@"h"@ to @lib.check_string(reply[2], 20, ans[2])@@"h"@,
+@center@ @town[ind]@ @hspacept(20)@ from @lib.check_string(reply[3], 20, ans[3])@@"h"@ to @lib.check_string(reply[4], 20, ans[4])@@"h"@.

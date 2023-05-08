@@ -1,1 +1,7 @@
-"Date uglove izrazi u sekundama." translates to "Convert angles to seconds." The rest of the text is code and tags for a program.
+"Date ugly expressions in seconds.
+
+@repeat(5)@
+
+@center@    Answer = [value] seconds
+
+@/repeat@"

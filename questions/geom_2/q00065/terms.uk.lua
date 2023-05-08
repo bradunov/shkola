@@ -1,1 +1,3 @@
-msg = "jednakokraki" translates to "isosceles" in English.
+msg = "jednakokraki"
+
+Translation: "jednakokraki" (This is already in English. No translation needed.)

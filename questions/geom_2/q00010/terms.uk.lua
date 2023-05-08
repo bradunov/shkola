@@ -1,1 +1,1 @@
-msg = {"strings", "tangents"}
+msg = {"chords", "tangents"}

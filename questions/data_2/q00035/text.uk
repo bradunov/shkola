@@ -1,4 +1,4 @@
-Out of @total@ surveyed citizens, @out[1]@ stated they spent their annual vacation in the mountains, @out[2]@ at the seaside, and @out[3]@ at home. 
-Present the results of this research on a circle, as it was started.
+From a total of @total@ surveyed citizens, @out[1]@ stated that they spent their annual vacation in the mountains, @out[2]@ at the seaside, and @out[3]@ at home. 
+Present the results of this research in a circle, as it was initiated.
 @vspace@
 @center@ @mycanvas(result)@

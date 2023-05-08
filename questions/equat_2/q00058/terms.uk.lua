@@ -1,1 +1,1 @@
-msg = {"The set of solutions is ", "There are no solutions "}
+msg = {"Solution set is ", "No solutions "}

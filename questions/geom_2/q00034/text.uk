@@ -1,8 +1,8 @@
-The triangle @"ABC"@ and the line @"p"@ containing the vertices @"C"@ is parallel to the line @"AB"@ (picture). 
-The measure of angle @number_f@ is @dat_f@, and the angle @number_s@ is @dat_s@. 
+The triangle @"ABC"@ and the line @"p"@ containing the vertex @"C"@ are parallel to the line @"AB"@ (picture).
+The measure of angle @number_f@ is @dat_f@, and the measure of angle @number_s@ is @dat_s@.
 @center@ @mycanvas()@
 
-Based on the given data, determine the measures of the following angles: 
+Based on the given data, determine the measures of the following angles:
 
 @center@  @numb[ind[1]]@ @hspacept(5)@ @answ[1]@ @hspacept(25)@  @numb[ind[2]]@ @hspacept(5)@ @answ[2]@
 @center@  @numb[ind[3]]@ @hspacept(5)@ @answ[3]@ @hspacept(25)@  @numb[ind[4]]@ @hspacept(5)@ @answ[4]@. 

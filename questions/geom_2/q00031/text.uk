@@ -1,5 +1,5 @@
-What angle does the (@colour[ch]@) clock hand (@choice[ch]@) make in @number@ @vreme@? 
+What angle does the @choice[ch]@ hand (@colour[ch]@) make in @number@ @vreme@? 
 
 @center@ @mycanvas(result)@ 
             
-@center@ The clock hand makes an angle of @hspacept(3)@ @lib.check_number(ang,30)@ @meas@.
+@center@ The hand makes an angle of @hspacept(3)@ @lib.check_number(ang,30)@ @meas@.

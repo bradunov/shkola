@@ -1,1 +1,7 @@
-What is the surface area of a cuboid if its length is @edge1@@measure[ind]@, width is @edge2@@measure[ind]@, and the sum of all its edges is @summ@@measure[ind]@? The surface area of the cuboid is @lib.check_number(surface)@@measure2[ind]@.
+What is the surface area of a cuboid if its 
+@repeat(2)@
+@center@ length is @edge1@@measure[ind]@, width is @edge2@@measure[ind]@,
+@center@ and the sum of all its edges is @summ@@measure[ind]@? 
+@center@ The surface area of the cuboid is @lib.check_number(surface)@@measure2[ind]@. 
+@vspace@
+@/repeat@

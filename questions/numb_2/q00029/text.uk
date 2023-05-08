@@ -1,1 +1,6 @@
-Find the least common multiple of the given numbers.
+Determine the least common multiple for the given numbers.
+
+@center@ @mycanvas()@
+
+@center@ Least common multiple for given numbers
+@center@ @lib.check_number(prod, 70)@

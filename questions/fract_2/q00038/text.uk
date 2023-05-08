@@ -1,5 +1,5 @@
 @imem@ ate \(\frac{@enum[1]@}{@denom[1]@}\) cakes and @imez@ ate \(\frac{@enum[2]@}{@denom[2]@}\) cakes. 
-Both ate a part of the cake. 
+Color the part of the cake they both ate. 
 
 @vspace@
 @center@ @lib.select_objects(6, 4,"table","sum(result) == "..tostring(boja), style, sln)@

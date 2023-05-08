@@ -1,4 +1,4 @@
-@imez@ and @imem@ are a piece of ice from the yard, when the temperature was @init_temp@@"°C"@, they put it in a pot with a lid and heated it on the stove. The ice melted and with further heating the water boiled. The process in the pot is represented graphically.
+@imez@ and @imem@ are a piece of ice from the yard, when the temperature was @init_temp@@"°C"@, they put it in a pot with a lid and heated it on the stove. The ice melted and with further heating the water boiled. The process in the pot is presented graphically.
 Color the line that shows this process.
 
 @center@ @mycanvas()@

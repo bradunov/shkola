@@ -1,6 +1,6 @@
 @center@ @mycanvas()@
 
-If the sides of the squares in the square grid are @lib.dec_to_str(1/2)@@meas[1]@, calculate the areas of the figures in the picture.
+If the sides of the squares of the square grid are @lib.dec_to_str(1/2)@@meas[1]@, calculate the areas of the figures in the picture.
 
 @center@ @answ[1]@ @hspacept(30)@ @answ[2]@
 @center@ @answ[3]@ @hspacept(30)@ @answ[4]@

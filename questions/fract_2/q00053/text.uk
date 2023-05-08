@@ -1,8 +1,8 @@
-@imem@ and @imez@ divided the cake from the picture (colored part) into two equal parts.
+@imem@ and @imez@ divided the cake in the picture (colored part) into two equal parts.
 
-Which part of the whole cake did @imez@ eat? Write as a fraction.
+Which part of the whole cake did @imez@ eat? Write it as a fraction.
 @vspace@
-@center@ @lib.select_objects(imax, jmax, "table", "", style_table)@
+@center@ @lib.select_objects(imax, jmax, "table", "", style_table)@ 
 
 @vspace@
 @center@ @imez@ ate @lib.check_fraction_condition(\

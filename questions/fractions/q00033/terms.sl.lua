@@ -1,0 +1,2 @@
+num = "števec"
+denom = "imenovalec"

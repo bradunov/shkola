@@ -1,4 +1,8 @@
-@ime@ has @number@ @pad@. Every day, they eat up to \(\frac{@1@}{@fact@}\) apricots that are left, because they only eat the whole part of the calculated number of apricots. They leave the remaining apricots for the next day. On the last day, they eat all the remaining apricots.
+@ime@ has @number@ @pad@. Every day, she eats up to \(\frac{@1@}{@fact@}\) apricots that are left, because she eats only the whole part of the calculated number of apricots. She leaves the remaining apricots for the next day. On the last day, she eats all the remaining apricots.
 
- @vspace@                
-(Example: Ana eats up to 1/3 of 5 apricots by eating 1, and 4 apricots remain for the next day. On the second day, she eats up to 1/3 of the remaining four apricots (one) and has 3 left. On the third
+@vspace@                
+(Example: Ana eats up to 1/3 of 5 apricots by eating 1, and 4 apricots remain for the next day. On the second day, she eats up to 1/3 of the remaining 4 apricots (one) and has 3 apricots left. On the third day, she eats up to 1/3 of three apricots (one), and has 2 apricots left for the next day. On the fourth day, she eats the remaining two apricots, because 1/3 of two apricots is less than a whole apricot.)
+@vspace@       
+How many days will it take for @ime@ to eat all the apricots?
+
+@center@ @ime@ will eat all the apricots in @lib.check_number(nr)@ days.

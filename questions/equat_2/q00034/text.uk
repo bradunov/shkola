@@ -1,3 +1,7 @@
-Are the claims that identity is equal to equality whose left side is "@term_left@" and whose right side is the given expressions true?
+Are the claims true that identity is equal to equality, whose left side is 
+@center@ @term_left@ @" = "@ 
+and whose right side is the given expressions?
 
-(There are four dropdown options to choose from, but the text within them cannot be translated without context.)
+@repeat(4)@ 
+@center@ @term_right@ @hspacept(30)@  @lib.check_one_option_dropdown(msg, reply)@ 
+@/repeat@

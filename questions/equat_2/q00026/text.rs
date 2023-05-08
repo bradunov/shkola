@@ -4,18 +4,3 @@ Ako je za upis rezultata dato jedno polje rezultat zapiši u obliku decimalnog b
 @vspace@
 @center@   To je broj  @hspacept(3)@ @answ1@@answ2@. 
                  
-      
-            
-     
-        
-
-
-
-            
-            
-            
-            
-            
-            
-
-

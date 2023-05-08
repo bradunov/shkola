@@ -1,1 +1,1 @@
-header_arr = { "Decimal", "Unit", "Give", "Number", "Rounded", "Number" }
+header_arr = { "Decimal", "unit", "Provide", "number", "Rounded", "number" }

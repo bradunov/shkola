@@ -1,6 +1,7 @@
-The football stadium can accommodate @total@ visitors. @number@ tickets have been sold for the match. What equation can you use to calculate how many tickets have not been sold? Circle the correct answer. 
+The football stadium can accommodate @total@ visitors. @number@ tickets were sold for the match. 
+What equation can you use to calculate how many tickets were not sold? Circle the correct answer. 
 @vspace@
 @center@ @lib.check_one_option_radio(value,index,true)@ 
 @vspace@ 
-Solve the corresponding equation and answer how many tickets have not been sold. 
+Solve the corresponding equation and answer how many tickets were not sold. 
 @center@   x = @lib.check_number(solution,40)@

@@ -1,8 +1,8 @@
 @repeat(2)@
 
-What are the natural numbers whose product with @number@ @operation[ind]@ by @dif@ gives the number @comp[index]@ of @result@?
+What are the natural numbers whose product with @lib.check_number(number,20)@ @lib.check_string(sign,10)@ @lib.check_number(dif,20)@ gives the number @lib.check_number(comp[index],20)@ out of @lib.check_number(result,30)@?
 Write and solve the corresponding inequality.
-@center@ x · @lib.check_number(number,20)@  @lib.check_string(sign,10)@  @lib.check_number(dif,20)@  @lib.check_one_option_dropdown(compare,relat)@   @lib.check_number(result,30)@, @hspacept(20)@  x @lib.check_one_option_dropdown(compare,relat)@ @lib.check_number(solution,20)@ 
+@center@ x · @lib.check_number(number,20)@  @lib.check_string(sign,10)@  @lib.check_number(dif,20)@  @lib.check_one_option_dropdown(compare,relat)@   @lib.check_number(result,30)@, @hspacept(20)@  x @lib.check_one_option_dropdown(compare,relat)@ @lib.check_number(solution,20)@
 @center@ @answ@
 @vspace@
 @/repeat@

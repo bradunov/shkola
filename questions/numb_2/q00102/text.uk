@@ -1,4 +1,5 @@
-"Simplify expressions. Enter the power for the given base and the minus sign in the first box if the result is negative. 
+Simplify expressions. Write the exponent for the given base and the sign - in the first square if the result is negative.
 
-Repeat 4 times: 
-Center the question and answer in each repetition."
+@repeat(4)@
+@center@   @quest@  = @answ@
+@/repeat@

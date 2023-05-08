@@ -1,6 +1,6 @@
-"Using the formula for the difference of squares, calculate. 
+Apply the formula for the difference of squares to calculate.
 
-@repeat(3)@ 
-@center@ @quest@ =  @result@  
-@vspace@ 
-@/repeat@"
+@repeat(3)@
+@center@ @quest@ =  @result@
+@vspace@
+@/repeat@

@@ -1,5 +1,4 @@
-If the wheel of a car with a diameter of @lib.dec_to_str(numb)@@meas[ind]@ rotates @rot@ times per minute, what is the speed of the car? 
-Assume that @"π"@ = \(\frac{22}{7}\). Write the result to one decimal place. 
-
+If the wheel of a car with a diameter of @lib.dec_to_str(numb)@@meas[ind]@ rotates @rot@ times per minute, at what speed is the car moving?
+Assume that @"π"@ = \(\frac{22}{7}\). Write the result to one decimal place.
 @vspace@
 @center@ The car is moving at a speed of @lib.check_number(value,45)@ @"km/h"@.

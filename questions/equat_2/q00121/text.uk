@@ -1,1 +1,5 @@
-"Jednakosti predstavljaju kvadriranje binoma. Dopuni prazna mesta u monomima." translates to "Equalities represent squaring a binomial. Fill in the blank spaces in the monomials." The code and special tags should not be translated.
+Equalities represent binomial squaring. Fill in the blanks in the monomials.
+
+@repeat(4)@ 
+@center@ @quest@ = @result@    
+@/repeat@

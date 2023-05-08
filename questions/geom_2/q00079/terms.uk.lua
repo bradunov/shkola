@@ -1,2 +1,2 @@
-name = {"square", "rhombus", "Interior angle of rhombus"}
-padez = {"square", "rhombus"}
+name = {"square", "diamond", "Internal angle of the diamond"}
+padez = {"square", "diamond"}

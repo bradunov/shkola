@@ -1,4 +1,5 @@
-The book cost @number@ @val@. The price of the book is @oper[ch]@ for @per@@proc@. What is the current price of the book?
+The book cost @number@ @val@. The price of the book is @oper[ch]@ for @per@@proc@. 
+What is the current price of the book?
 
 @vspace@
 @center@ The price of the book is @hspacept(3)@ @lib.check_number(price,50)@ @valnew@.

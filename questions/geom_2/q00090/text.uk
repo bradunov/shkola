@@ -1,1 +1,5 @@
-Fill in the table containing the measures of a parallelogram: sides "a" and "b", heights "hₐ" and "h_b", perimeter "O" and area "P".
+Fill in the table containing the measurements of a parallelogram: the sides @"a"@ and @"b"@, heights @"h\(\small_a\)"@ and @"h\(\small_b\)"@, perimeter @"O"@ and area @"P"@.
+
+@vspace@
+@addition_table()@
+@vspace@

@@ -1,9 +1,9 @@
-The bases of the trapezoid @"ABCD"@ are @"AB"@ and @"CD"@ and the angles are given (see image).
+The bases of trapezoid @"ABCD"@ are @"AB"@ and @"CD"@ and the angles are given (see picture). 
 @center@ @number_f@ = @dat_f@, @hspacept(20)@ @number_s@ = @dat_s@.
 
 @center@ @mycanvas()@
 
-Determine the remaining interior and exterior angles of the trapezoid:
+Determine the other interior and exterior angles of the trapezoid: 
 
 @center@  @numb[ind[1]]@ @hspacept(5)@ @answ[1]@ @hspacept(25)@  @numb[ind[2]]@ @hspacept(5)@ @answ[2]@
 @center@  @numb[ind[3]]@ @hspacept(5)@ @answ[3]@ @hspacept(25)@  @numb[ind[4]]@ @hspacept(5)@ @answ[4]@ 

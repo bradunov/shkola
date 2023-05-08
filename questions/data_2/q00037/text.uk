@@ -1,8 +1,8 @@
-The pages of the rectangle are @"a"@ and @"b"@. 
-If the page @"a"@ is increased by @numb_a@@proc@, and the page @"b"@ is decreased by @numb_b@@proc@, by how much percent will the area of the rectangle change?
+The sides of a rectangle are @"a"@ and @"b"@. 
+If the side @"a"@ increases by @numb_a@@proc@, and the side @"b"@ decreases by @numb_b@@proc@, by how much percent will the area of the rectangle change? 
 @vspace@
 The area of the rectangle will change by 
 @center@ @lib.check_one_option_radio(reply,index,true)@ 
 @vspace@ 
-If the area of the rectangle is changing, express by how much in percent (express the percentage to one decimal place).
+If the area of the rectangle is changing, express by how much in percent (express the percentage to one decimal place). 
 @center@ @result@

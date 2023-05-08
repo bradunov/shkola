@@ -1,8 +1,8 @@
-One angle is given in an isosceles triangle (see picture)
-@center@ @numb[ch]@ = @quest@
-@vspace@
-@center@ @mycanvas()@
-What type (based on angles) of triangle does it belong to?
+One angle is given in an isosceles triangle (see picture).
+@center@ @numb[ch]@ = @quest@ 
+@vspace@ 
+@center@ @mycanvas()@ 
+To which type (according to angles) does the triangle belong?
 @center@ The triangle is @lib.check_string(result, 70, ans)@.
 
 @vspace@

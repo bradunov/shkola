@@ -1,4 +1,4 @@
-Write the exponent in the result.
+Write the power in the result.
 
 @repeat(4)@
 @center@   @quest@  =  @answ@@sup@ @lib.check_number(val,15)@ @/sup@   

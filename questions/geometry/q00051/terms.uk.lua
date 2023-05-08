@@ -1,1 +1,1 @@
-name = {"red", "red"}
+ime = {"red", "red"}

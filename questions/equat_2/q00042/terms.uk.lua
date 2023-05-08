@@ -1,1 +1,1 @@
-msg = {"Solutions ", "Solution ", "No solution "}
+msg = {"Solutions ", "Solution ", "No solutions "}

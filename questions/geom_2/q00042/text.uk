@@ -1,3 +1,3 @@
-Color the line that divides the figure into two regions so that all points in one region are closer to point "A" and all points in the other region are closer to point "B".
+Color the line that divides the figure into two regions so that all points in one region are closer to point @"A"@, and all points in the other region are closer to point @"B"@.
 
-<center> <canvas> </canvas> </center>
+@center@ @mycanvas()@

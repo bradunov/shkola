@@ -1,6 +1,6 @@
-Color the segments on the number line that correspond to the given fractions.
+Color the lines on the number line that correspond to the given fractions.
 
-@center@ @mycanvas()@      
+@center@ @mycanvas()@
 
-@center@  \(\frac{@out[1]@}{@part@}\), @hspacept(20)@ \(\frac{@out[2]@}{@part@}\), @hspacept(20)@ \(\frac{@out[3]@}{@part@}\), @hspacept(20)@ \(\frac{@out[4]@}{@part@}\)
+@center@ \(\frac{@out[1]@}{@part@}\), @hspacept(20)@ \(\frac{@out[2]@}{@part@}\), @hspacept(20)@ \(\frac{@out[3]@}{@part@}\), @hspacept(20)@ \(\frac{@out[4]@}{@part@}\)
 @vspace@

@@ -1,5 +1,5 @@
 @center@ @mycanvas()@
 
-Color the picture of the blue triangle @value_pt[1]@@value_pt[2]@@value_pt[3]@ dressed by the translation that maps the point @origin@ to @picture@.
+Color the picture of the blue triangle @value_pt[1]@@value_pt[2]@@value_pt[3]@ dressed up by the translation that maps the point @origin@ to @picture@.
 
 @answ@

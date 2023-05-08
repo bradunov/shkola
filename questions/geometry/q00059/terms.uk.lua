@@ -1,2 +1,2 @@
-name = {"line", "ray", "start of ray", "line segment", "line segments endpoints"}
-name2 = {"line", "ray", "start of ray", "line segment", "longer line segment endpoints"}
+name = {"straight line", "ray", "starting point of the ray", "line segment", "longer line segments"}
+name2 = {"straight line", "ray", "starting point of the ray", "line segment", "longer line segments"}

@@ -1,5 +1,5 @@
-This is a graph of a linear function. Write the coefficient of proportionality 
-@center@   @"y ="@ @lib.check_number(coef, 20)@ @"* x"@.
+This is a graph of a linear function. Write down the coefficient of proportionality: 
+@center@ @"y ="@ @lib.check_number(coef, 20)@ @"* x"@.
 @center@ @mycanvas()@
-@center@ For @hspacept(3)@ @"x ="@ @arg[1]@ @hspacept(3)@, @"y ="@ @lib.check_number(fun[1],30)@.
-@center@ For @hspacept(3)@ @"y ="@ @lib.dec_to_str(fun[2])@ @hspacept(3)@, @"x ="@  @lib.check_number(arg[2],30)@.
+@center@ For @"x ="@ @arg[1]@ @hspacept(3)@ the value of @"y ="@ is @hspacept(3)@ @"y ="@ @lib.check_number(fun[1],30)@.
+@center@ For @"y ="@ @lib.dec_to_str(fun[2])@ @hspacept(3)@ the value of @"x ="@ is @lib.check_number(arg[2],30)@.

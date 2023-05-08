@@ -1,6 +1,6 @@
-Write the dates of the products as powers with natural bases.
+Write the dates of production as powers with natural bases.
 
 @repeat(3)@
-@center@  @quest@ @hspacept(3)@ 
-@center@ = @hspacept(3)@ (@answ@)@sup@ @lib.check_number(grd,10)@ @/sup@ * (@answ2@)@sup@ @lib.check_number(grd2,10)@ @/sup@  
+@center@  Question @hspacept(3)@ 
+@center@ = @hspacept(3)@ (@answer@)@sup@ @lib.check_number(base1,10)@ @/sup@ * (@answer2@)@sup@ @lib.check_number(base2,10)@ @/sup@  
 @/repeat@

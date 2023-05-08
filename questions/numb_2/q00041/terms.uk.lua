@@ -1,5 +1,3 @@
-This is a code snippet in Serbian that defines variables and arrays for a word game. Here is a translation of the variable names and values:
-
 descr_w = {"banana", "notebook", "daisy", "pineapple", "internet"}     
 word[1] = {"a","b", "n"}     
 word[2] = {"a", "v", "e", "k", "s"}
@@ -9,8 +7,8 @@ word[5] = {"e", "i", "n", "r", "t"}
 
 descr_n = { "decimal", "prime", "even", "digit of a number"} 
 
-tens = {"ones", "tens"}
-name = {"number", "word letter"}
+tens = {"units", "tens"}
+name = {"number", "letter of a word"}
 
 adv = "first"
 ch = {"t", "n"}

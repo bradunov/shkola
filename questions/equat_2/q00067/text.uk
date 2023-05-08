@@ -1,7 +1,7 @@
-Without drawing graphics, determine whether the given functions are increasing or decreasing. In the last field, enter the ordinal numbers of the functions whose graphs are parallel to the graph of the given function, if they exist, or 0 if they do not exist. (List the ordinal numbers in increasing order, without separating them with a space or comma).
+Without drawing graphs, determine whether the given functions are increasing or decreasing. In the last field, enter the ordinal numbers of the functions whose graphs are parallel to the graph of the given function, if they exist, or 0 if they do not exist. (List ordinal numbers in ascending order, without separating with space or comma).
 
-1. y = [function]
-2. y = [function]
-3. y = [function]
-4. y = [function]
-5. y = [function]
+1. y = [function 1] [dropdown menu] [input field]
+2. y = [function 2] [dropdown menu] [input field]
+3. y = [function 3] [dropdown menu] [input field]
+4. y = [function 4] [dropdown menu] [input field]
+5. y = [function 5] [dropdown menu] [input field]

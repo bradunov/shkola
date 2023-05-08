@@ -1,5 +1,3 @@
-msg = {"Ostala je", "Ostale su", "Ostalo je"} 
+msg = {"Ostala je", "Ostale su", "Ostalo je"}
 
-Translation: 
-
-msg = {"It remained", "They remained", "It remained"}
+Translation: "There is one left", "There are more left", "There is none left".

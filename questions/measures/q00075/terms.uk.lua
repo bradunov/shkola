@@ -1,1 +1,1 @@
-arr_str = {"glass", "glass (accusative case)", "glasses"}
+arr_str = {"glass", "glass (accusative)", "glasses"}

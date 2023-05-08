@@ -1,1 +1,1 @@
-msg = {"convex", "parallelogram", "rectangle", "trapezoid", "rhombus", "non-convex"}
+msg = {"convex", "parallelogram", "rectangle", "trapezoid", "rhombus", "concave"}

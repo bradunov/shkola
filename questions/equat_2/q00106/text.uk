@@ -1,14 +1,17 @@
-Based on the text, write expressions. Use parentheses and / for division and ^ for exponentiation (without spaces).
+Based on the text, write expressions. Use parentheses and the / sign for division and ^ for exponentiation (without spaces).
 
-(vspace) 
-(1) 
-(center) 
-(answer[1]) 
-(vspace) 
-(2) 
-(center) 
-(answer[2]) 
-(vspace) 
-(3) 
-(center) 
-(answer[3])
+@vspace@
+@center@ Write expressions based on the text:    
+@center@Use parentheses and the / sign for division and ^ for exponentiation (without spaces).       
+@vspace@
+@center@ Expression 1:    
+@center@ 
+@answ[1]@ 
+@vspace@
+@center@ Expression 2:    
+@center@ 
+@answ[2]@ 
+@vspace@
+@center@ Expression 3:    
+@center@ 
+@answ[3]@

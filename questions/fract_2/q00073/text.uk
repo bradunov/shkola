@@ -1,7 +1,7 @@
-@sign1@ numbers @hspacept(3)@ @quest[1]@ @hspacept(3)@ and @hspacept(3)@ @quest[2]@ @hspacept(3)@ @sign2@ for @sign3@ numbers @hspacept(3)@ @quest[3]@ @hspacept(3)@ and @hspacept(3)@ @quest[4]@. 
-Write the corresponding expression and calculate its value. 
-If only one field is given for the result, write the result in the form of a decimal number with one decimal place. If more than one field is given, write the result in the form of a fraction.
+@sign1@ numbers  @hspacept(3)@ @quest[1]@ @hspacept(3)@ and @hspacept(3)@ @quest[2]@ @hspacept(3)@ @sign2@ for @sign3@ numbers @hspacept(3)@  @quest[3]@ @hspacept(3)@ and @hspacept(3)@  @quest[4]@.
+Write the appropriate expression and calculate its value.
+If only one field is given for the answer, write the result in decimal form with one decimal place. If more than one field is given, write the result in the form of a fraction.
 
 @vspace@
-@center@ @task[1]@
-@center@ @task[2]@ = @reply1@ @reply2@
+@center@ @task[1]@ 
+@center@ @task[2]@ =  @reply1@ @reply2@

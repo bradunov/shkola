@@ -1,2 +1,2 @@
-title = {"Name", "Number", "Bodies", "Surface", "Flat", "Curved"}
-object = {"Cube", "Rectangular prism", "Cylinder", "Sphere", "Cone", "Pyramid"}
+title = {"Name", "Number", "bodies", "surface", "flat", "curved"}
+object = {"cube", "cuboid", "cylinder", "sphere", "cone", "pyramid"}

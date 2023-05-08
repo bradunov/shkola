@@ -1,6 +1,6 @@
-Is the @"s"@ axis the perpendicular bisector of @symb@@"aOb"@?
+What is the perpendicular bisector of @"s"@ for @symb@@"aOb"@?
 @vspace@
 @center@ @mycanvas()@
 
-Write @hspacept(3)@ t @hspacept(3)@ if the statement is true or @hspacept(3)@ n @hspacept(3)@ if the statement is false.
+Write @hspacept(3)@ t @hspacept(3)@ if the statement is true or @hspacept(3)@ n @hspacept(3)@ if it is false.
 @center@  @lib.check_string(reply,10)@

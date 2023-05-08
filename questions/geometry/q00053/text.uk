@@ -1,6 +1,6 @@
-How many triangles are in the picture?
- 
-[An image is displayed here]
- 
-Mark the circle in front of the correct answer. 
-[Multiple choice options are displayed here]
+How many triangles are there in the picture?
+
+@center@ @mycanvas()@
+
+@center@ Circle the correct answer.      
+@center@ @lib.check_one_option_radio(answ,index)@

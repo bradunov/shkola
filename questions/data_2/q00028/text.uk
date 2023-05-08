@@ -1,4 +1,4 @@
 @name@ had @numb3@ @pad3@, @numb4@ @pad4@, and @numb5@ @pad5@ at the mid-term. 
-What is her average grade (calculate to two decimal places)?
+What is her average grade (calculate to two decimal places)? 
 @vspace@
 @center@ @advb@ the average grade is @lib.check_number(aver, 40)@.

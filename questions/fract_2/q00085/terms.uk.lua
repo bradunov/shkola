@@ -1,1 +1,1 @@
-edge = {"side", "diagonal"}
+edge = {" side ", " diagonal "}

@@ -1,4 +1,4 @@
-Calculate the height of a cuboid with:
+Calculate the height of a cuboid whose:
 @repeat(2)@
 @center@ @quest[1]@, 
 @center@ @quest[2]@, 

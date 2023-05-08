@@ -1,5 +1,5 @@
 @repeat(2)@
-There are @total@@"kg"@ of wheat in the silo. How many kilograms of wheat can be @quest[ITEM]@ @text@ from @number@@"t"@ of wheat? 
+In the silo, there are @total@"kg"@ of wheat. How many kilograms of wheat can be @text@ from @number@"t"@ of wheat? 
 Set up an inequality and solve it. 
 
 @center@ @lib.check_number(total,60)@ @lib.check_string(sign,15)@ @lib.check_string("x",15)@ @lib.check_one_option_dropdown(answ,compneq)@ @lib.check_number(numberkg,60)@@"kg"@, 

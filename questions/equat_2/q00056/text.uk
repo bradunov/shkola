@@ -1,6 +1,7 @@
-Solve inequalities. Write the boundary values to one decimal place or in the form of a fraction.
-@repeat(3)@
+Solve the inequalities. Write the boundary values to one decimal place or in the form of a fraction. 
+
+@foreach(3)
 @vspace@
-@center@ @equ[ITEM]@
-@center@ Choose the correct option: @lib.check_one_option_dropdown(msg, reply[ITEM])@ @hspacept(8)@ @sol[ITEM]@.
-@/repeat@
+@center@ @equ[ITEM]@ 
+@center@ @lib.check_one_option_dropdown(msg, reply[ITEM])@ @hspacept(8)@ @sol[ITEM]@.
+@endforeach

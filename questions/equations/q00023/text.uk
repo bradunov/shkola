@@ -1,7 +1,7 @@
-What is the @term@ to obtain the number @value@?
+@quest[ind]@ What is the @term@ needed to obtain the number @value@?
 
 @vspace@
-Which equation will you use to calculate the required number? Color the circle next to the correct answer.
+By which equation will you calculate the required number? Color the circle next to the correct answer.
 @vspace@
 @center@ @lib.check_one_option_radio(answ,ind-1,true)@ 
 @vspace@

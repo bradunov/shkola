@@ -1,4 +1,4 @@
-Sort the polynomials by degrees, @request@. Enter the position of the polynomial in the ordered sequence in the square next to the polynomial.
+Sort the polynomials by degrees, @request@. Enter the position of the polynomial in the ordered list in the square next to the polynomial.
 
 @repeat(5)@
 @center@ @ITEM@. @hspacept(20)@ @quest[ITEM]@  @hspacept(100)@ @lib.check_number(result[ITEM],20)@ 

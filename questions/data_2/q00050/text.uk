@@ -1,4 +1,4 @@
-In one city, the temperature was measured every day at 12 o'clock and the average temperatures per month were obtained during three months for five years. The results are shown in the graph. Display them also in a table.
+In one city, the temperature was measured every day at noon and the average temperatures per month were obtained during three months for five years. The results are shown in a graph. Display them also in a table.
 @center@ @mycanvas()@
 @quest@
 @center@ @reply@

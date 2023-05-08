@@ -1,8 +1,8 @@
-Watch the picture and write down the correct answers. 
+Watch the picture and write down the correct answers.
 
 @center@ @mycanvas(result)@
 
 @center@ What color is the heaviest figure? @hspacept(3)@ @lib.check_string(h_colour, 50)@
 @center@ What color is the lightest figure? @hspacept(3)@ @lib.check_string(l_colour, 50)@
-@center@ The @b_colour@ figure is @lib.check_string(reply1, 40, ans1)@ of @l_comp@ 
+@center@ The @b_colour@ figure is @lib.check_string(reply1, 40, ans1)@ of @l_comp@
 @center@ and @lib.check_string(reply2, 40, ans2)@ of @h_comp@.

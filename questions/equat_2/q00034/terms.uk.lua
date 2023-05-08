@@ -1,1 +1,1 @@
-msg = {"correct", "incorrect"}
+msg = {"correct", "not correct"}

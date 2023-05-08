@@ -2,6 +2,6 @@
 
 @center@ @mycanvas()@
 
-On what date is @ime@ celebrating their birthday?
+On what date does @ime@ celebrate their birthday?
 
 @center@ @ime@ is celebrating their birthday on @hspacept(3)@ @lib.check_number(finish_d,20)@. @finish_m@.

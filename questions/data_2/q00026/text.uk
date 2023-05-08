@@ -1,4 +1,4 @@
-Determine three numbers in the given interval @"[a,b]"@ such that the arithmetic mean of the outer two is equal to the middle number, for every consecutive three numbers.
+Determine three numbers in the given interval @"[a,b]"@ such that the arithmetic mean of the extremes is the middle number for every three consecutive numbers.
 
 @repeat(2)@
 @center@ a = @reply[1]@ @hspacept(140)@ @"b"@ = @reply[5]@

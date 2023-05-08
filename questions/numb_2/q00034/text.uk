@@ -1,4 +1,4 @@
-The factory has produced @ind@ models of footwear in the following quantities: @number[1]@, @number[2]@, @number[3]@ and @number[4]@ pairs of shoes. It wants to distribute them evenly among its stores.
+The factory has produced @ind@ models of footwear in the following quantities: @number[1]@, @number[2]@, @number[3]@, and @number[4]@ pairs of shoes. It wants to distribute them evenly among its stores.
 @vspace@
 What is the maximum number of stores that can be supplied with equal packages of shoes?
 @center@ They can supply a maximum of @lib.check_number(prod, 30)@ stores.

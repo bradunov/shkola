@@ -1,3 +1,5 @@
-Compare the quotients. Choose the sign = , < or >. 
+Compare the quantities. Choose the sign = , < or >.
 
-Then there is a code that generates 6 lines of text with two sets of numbers and a dropdown menu with the options = , < or > for each line.
+(repeats 6 times)
+(centered) (left number) : (right number) (space) (dropdown with options =, <, >) (space) (left number) : (right number)
+(end of repeat)

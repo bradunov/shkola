@@ -1,3 +1,3 @@
-Color the @name[ind]@ (only the basic ones, which are not composed of multiple quadrilaterals).
+Color all @name[ind]@ (only the basic ones that are not made up of multiple quadrilaterals).
 
 @center@ @mycanvas()@

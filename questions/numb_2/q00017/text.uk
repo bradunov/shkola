@@ -1,8 +1,11 @@
-@imem@ divided the number @number1@, and @imez@ divided the number @number2@ with an unknown number x. The sum of the obtained quotients is @result@. 
+@imem@ shared the number @number1@, and @imez@ shared the number @number2@ with an unknown number x. The sum of the obtained quotients is @result@. 
 Which of the following expressions will you use to calculate the unknown number x? 
-Color the circle next to the correct answer.
+Circle the correct answer.
 
-Calculate. 
-The divisor x is @lib.check_number(factor, 40)@. 
-@imem@ calculated the quotient @lib.check_number(prod1, 40)@.
-@imez@ calculated the quotient @lib.check_number(prod2, 40)@.
+@center@ @lib.check_one_option_radio(answ,ind,true)@ 
+
+@vspace@
+Calculate.                                                                                                 
+@center@ The divisor x is @lib.check_number(factor, 40)@. 
+@center@ @imem@ calculated the quotient @lib.check_number(prod1, 40)@.
+@center@ @imez@ calculated the quotient @lib.check_number(prod2, 40)@.

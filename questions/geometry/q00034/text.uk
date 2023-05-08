@@ -1,10 +1,9 @@
-Put a circle in front of the correct answer.
- 
-Add vertical space.
- 
-Center the canvas.
-On the picture is an angle.
- 
-Add vertical space.
- 
-Center and display one option radio button with the answer and its index.
+Color the circle in front of the correct answer.
+
+@vspace@
+
+@center@ @mycanvas()@
+The image shows an angle.
+@vspace@   
+@center@ @lib.check_one_option_radio(answ,ind)@ 
+@vspace@

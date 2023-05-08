@@ -1,4 +1,4 @@
-Factor the difference of squares.
+Factor the difference of squares into its factors.
 
 @repeat(3)@
  @result@ =  

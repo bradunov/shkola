@@ -1,4 +1,4 @@
-Which of the following statements is correct? Equation:
+Which of the following statements is true? Equation:
 @repeat(3)@
 @center@ @equ[ITEM]@
 @center@ @lib.check_one_option_dropdown(msg, reply[ITEM])@

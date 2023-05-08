@@ -1,4 +1,4 @@
-The image shows the money that @name@ has in their wallet. How much money does @name@ have in total in dinars? 
+On the image is the money that @ime@ has in their wallet. How much money does @ime@ have in total? 
 Color the circle at the bottom of the screen next to the correct answer. 
 
 @center@ @mycanvas(result)@

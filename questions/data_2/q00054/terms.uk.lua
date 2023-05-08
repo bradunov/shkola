@@ -1,2 +1,2 @@
-pad = {"squares", "rhombuses", "equilateral triangles"}
+pad = {"square", "rhombus", "equilateral triangle"}
 axis = {"circumference(cm)", "side(cm)"}
