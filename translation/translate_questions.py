@@ -17,11 +17,25 @@ import logging
 def is_auto(directory, filename, short_lang, update=False):
 
   path = os.path.join(directory, "auto.json")
+  wrong_json = False
   try:
       with open(path, 'r') as file:
           json_data = json.load(file)
   except FileNotFoundError:
       json_data = {}
+      pass      
+  except json.JSONDecodeError:
+      with open(path, 'r') as file:
+          file_data = file.read()
+      if not file_data:
+          json_data = {}
+      else:
+          logging.info(f"Found empty/wrong auto.json file in {directory}, assuming not auto.")
+          wrong_json = True
+      pass      
+
+  if wrong_json:
+    return False
 
   if filename in json_data.keys() and \
      isinstance(json_data[filename], list) and \
@@ -40,7 +54,7 @@ def is_auto(directory, filename, short_lang, update=False):
     # write updated JSON data back into file
     # print(f"Writing auto in {path}: {json_data}")
     with open(path, 'w') as file:
-        json.dump(json_data, file)
+        json.dump(json_data, file, ensure_ascii=False)
 
   return auto
 
