@@ -1,0 +1,1 @@
+operation = {"Katero število naj se doda številu", "Katero število naj se odšteje od števila", "Kateremu številu naj se doda število", "Od katerega števila naj se odšteje število"}

@@ -1,0 +1,1 @@
+figure = {"kroge", "pravokotnike", "kvadrate", "trikotnike"}

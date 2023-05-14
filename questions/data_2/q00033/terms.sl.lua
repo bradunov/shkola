@@ -1,0 +1,1 @@
+msg = {"ocena", "število učencev"}

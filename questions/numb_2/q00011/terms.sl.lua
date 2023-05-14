@@ -1,0 +1,1 @@
+msg = {"ni", "števila", "deljivega", "z"}

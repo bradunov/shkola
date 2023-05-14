@@ -1,0 +1,1 @@
+msg = {" je v krogu.", " je na krožnici.", " je zunaj kroga.", " je središče kroga.", "Točka "}

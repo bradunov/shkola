@@ -1,0 +1,26 @@
+title = {" Konveksni štirikotnik ima vse kote manjše od 180°.", 
+         " Štirikotnik lahko ima vse ostre kote.",
+         " Štirikotnik ima vsaj en kot manjši od 90°.",		 
+         " Pravokotnik je vzporednik, katerega vsi koti so enaki.", 
+		 " Če je eden od kotov vzporednika prav, je vzporednik pravokotnik.",
+         " Kvadrat je pravokotnik, katerega vse stranice so enake in vsi koti enaki.",
+         " Romb je vzporednik, katerega vse stranice so enake.", 		 
+         " Romb je vzporednik, katerega vsi koti so enaki.", 	
+         " Deltoid je štirikotnik, katerega ima vse stranice enake.", 	
+		 " Deltoid je štirikotnik, katerega ima dva para enakih sosednjih stranic.",		 
+         " Trapez je štirikotnik, katerega ima en par enakih nasprotnih stranic.",
+         " Trapez je štirikotnik, katerega ima en par vzporednih nasprotnih stranic.",
+         " Vsota notranjih kotov štirikotnika je 360°.",
+         " Vsota zunanjih kotov štirikotnika je 360°.",	
+         " Diagonala štirikotnika lahko meri manj kot najmanjša stranica štirikotnika.",
+		 " Vzporednik je štirikotnik, katerega ima dva para enakih nasprotnih kotov.",
+		 " Diagonali vzporednika se prerežeta na polovici.",
+		 " Diagonali vzporednika sta enaki.",  		 
+		 " Diagonali trapeza se prerežeta na polovici.",	
+		 " Diagonali enakokrakega trapeza sta enaki.",		 
+		 " Diagonali deltoida sta pravokotni.",
+         " Deltoid je štirikotnik, katerega ima nasprotni koti enaki.",
+         " Deltoid je štirikotnik, katerega ima en par enakih nasprotnih kotov."			 
+		 } 
+
+reply = {"t", "n", "n", "t", "t", "t", "t", "n", "n", "t", "n", "t", "t", "t", "n", "t", "t", "n", "n", "t", "t", "n", "t"}

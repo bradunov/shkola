@@ -1,0 +1,1 @@
+msg = {"Ni rešitve", "Rešitev je vsako realno število "}

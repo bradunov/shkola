@@ -1,0 +1,1 @@
+msg = "Dolžina stranic trikotnika ne more biti daljša."

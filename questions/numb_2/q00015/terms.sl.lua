@@ -1,0 +1,1 @@
+operat = {"zmanjšajmo", "povečajmo"}

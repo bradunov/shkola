@@ -1,0 +1,1 @@
+name = {"tekma", "tekme", "tekmo"}

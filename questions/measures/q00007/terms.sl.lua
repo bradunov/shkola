@@ -1,0 +1,1 @@
+change = {"povečala", "zmanjšala"}

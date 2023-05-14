@@ -1,0 +1,1 @@
+msg = {"Preostalo je", "Preostale so", "Preostalo je"}

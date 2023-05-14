@@ -1,0 +1,1 @@
+msg = {"Rešitve ", "Rešitev ", "Ni rešitve "}

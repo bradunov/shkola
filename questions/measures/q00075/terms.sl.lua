@@ -1,0 +1,1 @@
+arr_str = {"kozarec", "kozarec", "kozareci"}

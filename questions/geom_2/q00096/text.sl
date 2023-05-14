@@ -1,0 +1,6 @@
+@center@ @mycanvas()@
+
+Če so stranice kvadratka kvadratne mreže @lib.dec_to_str(1/2)@@meas[1]@, izračunaj površine trapeza s slike. 
+@vspace@
+@center@ @answ[1]@ @hspacept(30)@ @answ[2]@
+@center@ @answ[3]@ @hspacept(30)@ @answ[4]@

@@ -1,0 +1,1 @@
+msg = {"kvadrat", "romb", "deltoid"}

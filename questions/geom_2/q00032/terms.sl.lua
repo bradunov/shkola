@@ -1,0 +1,1 @@
+name = {"čas", "časa", "časov"}

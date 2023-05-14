@@ -1,0 +1,1 @@
+msg = {"ima edinstveno rešitev.", "ni rešitve.", "rešitev je vsako realno število.", "rešitev je vsako realno število x≠0."}

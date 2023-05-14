@@ -1,0 +1,1 @@
+type = {"pravilna", "odprta lomljena", "zaprt lomljen", "zaprt ukrivljen", "odprt ukrivljen"}

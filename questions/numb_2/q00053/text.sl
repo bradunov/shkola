@@ -1,0 +1,10 @@
+Dane so množice 
+@center@ @solut[1]@
+@center@ @solut[2]@
+@center@ @solut[3]@
+@vspace@
+Označi, kateri zapis množic @"G"@ in @"H"@ je pravilen. Če obstajajo prazni okviri v pravilnem zapisu, dopolni manjkajoče številke.
+@vspace@
+@center@  @lib.check_one_option_radio(answ1,ind1, true)@          
+@vspace@            
+@center@  @lib.check_one_option_radio(answ2,ind2, true)@

@@ -1,0 +1,1 @@
+array_operation = {"Razlike", "Vsote"}

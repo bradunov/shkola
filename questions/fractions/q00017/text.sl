@@ -1,4 +1,4 @@
-@ime1@ ima @ukupno@ bonbonov. @padež2@ je dal \(\frac{1}{@imenovalec@}\) bonbona.  
+@ime1@ ima @ukupno@ bonbonov. @padež2@ je dal \(\frac{1}{@imenilac@}\) bonbona. 
 
 @vspace@
 Koliko bonbonov je ostalo @padež1@?

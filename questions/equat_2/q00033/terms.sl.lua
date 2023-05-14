@@ -1,0 +1,1 @@
+msg = {"pravilno", "ni pravilno"}

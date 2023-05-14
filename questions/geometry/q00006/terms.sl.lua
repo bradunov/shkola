@@ -1,0 +1,1 @@
+direction = {"levo", "gor", "desno", "dol"}

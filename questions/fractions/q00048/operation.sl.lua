@@ -1,0 +1,1 @@
+deo = {"polovico", "tretjino", "četrtino", "petino", "šestino", "sedmino", "osmino"}

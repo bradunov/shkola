@@ -1,0 +1,1 @@
+food = {"paradižnik", "sir", "oljke", "šunka", "gobe", "salama"}

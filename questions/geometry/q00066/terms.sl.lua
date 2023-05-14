@@ -1,0 +1,1 @@
+ans_str = "normalne"

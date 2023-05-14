@@ -1,0 +1,1 @@
+array_position = {"zgoraj levo", "zgoraj desno", "spodaj levo", "spodaj desno"}

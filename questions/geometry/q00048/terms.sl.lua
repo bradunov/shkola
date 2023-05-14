@@ -1,0 +1,1 @@
+measure = {"dolžina cm", "širina cm", "obseg cm"}

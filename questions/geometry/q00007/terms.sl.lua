@@ -1,0 +1,1 @@
+msg = {"za", "poleg", "pred", "pod", "nad", "med dvema"}

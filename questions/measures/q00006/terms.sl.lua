@@ -1,0 +1,1 @@
+msg_str = {"obseg ene stranice kocke je enak ", "vsota dolžin robov kocke je enaka "}

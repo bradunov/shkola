@@ -1,0 +1,1 @@
+comp = {"več", "manj"}

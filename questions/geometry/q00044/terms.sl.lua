@@ -1,0 +1,1 @@
+model = {"kvadrat", "krog", "trikotnik", "pravokotnik"}

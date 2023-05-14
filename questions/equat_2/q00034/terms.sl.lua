@@ -1,0 +1,1 @@
+msg = {"točno", "ni točno"}

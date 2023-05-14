@@ -1,0 +1,1 @@
+msg = {"zaporednih števil", "zaporedna števila"}

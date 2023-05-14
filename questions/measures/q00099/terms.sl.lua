@@ -1,0 +1,1 @@
+object = {"psa", "človeka", "slona", "modrega kita"}

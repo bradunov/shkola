@@ -1,0 +1,1 @@
+title = {"število", "število decimalnih mest", "približna vrednost", "napaka"}

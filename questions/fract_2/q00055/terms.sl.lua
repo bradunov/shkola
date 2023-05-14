@@ -1,0 +1,1 @@
+msg = {"večje od", "manjše od"}

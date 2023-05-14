@@ -1,0 +1,1 @@
+sport = {"nogomet", "košarka"}

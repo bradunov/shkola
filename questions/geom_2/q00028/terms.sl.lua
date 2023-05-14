@@ -1,0 +1,1 @@
+msg = {"komplementaren", "presečen", "vzporeden", "suplementaren"}

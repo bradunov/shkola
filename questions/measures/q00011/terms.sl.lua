@@ -1,0 +1,13 @@
+msg_1 = "Za koliko bi se promenila površina kutije ako bi se sve dimenzije kutije"
+msg_2 = " povečale za "
+msg_3 = " Površina bi se povečala za "
+msg_4 = " zmanjšale za "
+msg_5 = " Površina bi se zmanjšala za "
+
+msg_6 = "Kolikokrat bi se spremenila površina kutije, če bi se vse dimenzije kutije"
+msg_7 = " povečale "
+msg_8 = " krat?"
+msg_9 = " Površina bi se povečala "
+msg_10 = "krat."
+msg_11 = " zmanjšale "
+msg_12 = " Površina bi se zmanjšala "

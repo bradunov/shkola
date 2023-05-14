@@ -1,0 +1,1 @@
+msg = {"konveksni", "paralelogram", "pravokotnik", "trapez", "deltoid", "nekonveksni"}

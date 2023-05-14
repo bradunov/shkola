@@ -1,0 +1,1 @@
+name = {"monom", "binom", "trinom"}

@@ -1,0 +1,1 @@
+msg = {"stranica ", "višina "}

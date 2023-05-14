@@ -1,0 +1,1 @@
+msg = {" je sekanta.", " je tangenta.", " je sekanta, ki vsebuje premer.", " nima skupnih točk s krožnico.", "Premica "}

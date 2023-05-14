@@ -1,0 +1,1 @@
+msg = {"Skup sklepov je  ", "Ni sklepov "}

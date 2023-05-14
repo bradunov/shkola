@@ -1,0 +1,5 @@
+Dolžina stranice pravilnega mnogokotnika na sliki je @hspacept(3)@  @numb[1]@@meas[1]@. @hspacept(3)@ Izračunaj površine: @name[1]@ opisanega kroga,  @name[2]@ vpisanega kroga, @name[3]@ krožnega obroča, ki ga tvorita ta dva kroga  in @name[4]@ pobarvanega krožnega izseka. 
+Vzeti naj bodo @dat[1]@ = @lib.dec_to_str(con)@,  @dat[2]@ = @lib.dec_to_str(root2)@ in @dat[3]@ = @lib.dec_to_str(root3)@. Računati s tremi decimalkami in rezultat zapisati na eno decimalno mesto.                                                             
+@center@ @mycanvas()@
+@center@ @name[1]@ = @lib.check_number(area[1],40)@@meas[2]@,  @hspacept(10)@ @name[2]@ = @lib.check_number(area[2],40)@@meas[2]@,
+@center@ @name[3]@ = @lib.check_number(area[3],40)@@meas[2]@,  @hspacept(10)@ @name[4]@ = @lib.check_number(area[4],40)@@meas[2]@.

@@ -1,0 +1,1 @@
+position = {"pritličje", "LEVO", "DESNO", "levo", "desno", "VRSTA", "SEDEŽ"}

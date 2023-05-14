@@ -1,0 +1,1 @@
+name = {"soba", "dnevna", "spalnica", "otroška", "kuhinja", "kopalnica", "hodnik"}

@@ -1,0 +1,1 @@
+name = {"ostro-kotne", "pravo-kotne", "topo-kotne", "raznostranske", "enako-krake", "enako-stranicne", "ostro-kotne in enako-krake", "pravo-kotne in enako-krake"}

@@ -1,0 +1,4 @@
+Predvidi pravilo in nadaljuj niz.
+@repeat(5)@
+@center@ @array_number[1]@, @hspacept(5)@ @array_number[2]@, @hspacept(5)@ @array_number[3]@, @hspacept(5)@ @array_number[4]@, @hspacept(5)@ @lib.check_number(array_number[5])@, @hspacept(5)@ @lib.check_number(array_number[6])@.                 
+@/repeat@

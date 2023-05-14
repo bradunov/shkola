@@ -1,0 +1,1 @@
+name = {"ostrokotni", "toplotni", "pravokotni", "brez trikotnika"}

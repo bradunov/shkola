@@ -1,0 +1,1 @@
+choice = {"najvišje", "najširše", "najožje", "največje", "najnižje", "najmanjše"}

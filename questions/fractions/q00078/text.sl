@@ -7,4 +7,4 @@ Kateri del figure je pobarvan? Zapiši zlomkom.
     "numerator="..tostring(enum)..";denominator="..tostring(denom)..";")@
 @/repeat@
             
-Opazite, da so ti ulomki enaki.
+Opazi, da so ti zlomki enaki.

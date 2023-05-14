@@ -1,0 +1,1 @@
+position = {"na levem robu", "na sredini", "na desnem robu"}

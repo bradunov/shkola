@@ -1,0 +1,1 @@
+model = {"valjek", "kocka", "žoga", "kvader", "piramida", "kupa"}

@@ -1,0 +1,1 @@
+sign = {"kvocient","produkt", "povečaj", "zmanjšaj"}

@@ -1,0 +1,1 @@
+choice = {"nižjo", "višjo"}

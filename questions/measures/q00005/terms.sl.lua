@@ -1,0 +1,1 @@
+measures_str = {"dolžina", "širina", "višina", "površina"}

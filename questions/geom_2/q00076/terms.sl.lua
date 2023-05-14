@@ -1,0 +1,26 @@
+title = {"Paralelogram je centralno simetrična figura.",
+         "Centar simetrije paralelograma je presek dijagonal.",
+         "Jednakokraki trapez je centralno simetrična figura.",
+         "Deltoid je centralno simetrična figura.",
+         "Paralelogram je osno simetrična figura.",
+         "Pravokotnik je osno simetrična figura.",
+         "Romb je osno simetrična figura.",
+         "Trapez je osno simetrična figura.",
+         "Jednakokraki trapez je osno simetrična figura.",
+         "Deltoid je osno simetrična figura.",
+         "Dijagonale pravokotnika so simetrale ustreznih kotov.",
+         "Dijagonale romba so simetrale ustreznih kotov.",
+         "V romb se lahko vpiše krog.",
+         "Okoli romba se lahko opiše krog.",
+		 "Dijagonala romba je premer opišočega kroga.",
+         "Višina romba je premer vpisanega kroga.",
+         "Paralelogram vpisan v krog je pravokotnik.",
+         "Dijagonala pravokotnika je premer opišočega kroga.",
+         "Paralelogram ima štiri osi simetrije.",
+         "Pravokotnik ima štiri osi simetrije.",
+         "Pravokotnik ima dve osi simetrije.",		 
+         "Dijagonale trapeza delijo ustrezen kot na dva enaka dela.",
+         "Dijagonale deltoida delijo nasprotne kote, ki niso enaki."
+         }
+
+reply = {"t", "t", "n", "n", "n", "t", "t", "n", "t", "t", "n", "t", "t", "n", "n", "t", "t", "t", "n", "n", "t", "n", "t"}

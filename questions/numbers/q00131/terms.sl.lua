@@ -1,0 +1,1 @@
+header_arr = { "Decimalna", "enota", "Podati", "številko", "Zaokroženo", " število" }

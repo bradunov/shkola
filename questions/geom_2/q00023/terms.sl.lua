@@ -1,0 +1,1 @@
+msg = {"sosednji", "vzporedni", "prečni", "komplementarni", "dopolnilni", "enaki"}

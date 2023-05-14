@@ -1,0 +1,1 @@
+msg = {" osnove ", " kraka "}

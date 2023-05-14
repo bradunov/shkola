@@ -1,0 +1,2 @@
+answ = {"Točka O pripada krogu.", "Točka C pripada krogu.", "Točka B pripada krogu.", "Točka A pripada krogu.", "Točka B pripada krogu.", "Točka O pripada krogu."}
+test = {"n", "t", "n", "t", "t", "t"}

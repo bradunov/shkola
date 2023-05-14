@@ -1,0 +1,1 @@
+title = {"števka ena je sodo število.", "vsota števk je deljiva s 3.", "števka ena je 0 ali 5.", "število je sodo in vsota števk je deljiva s 3.", "vsota števk je deljiva s 9.", "števka ena je 0.", "dvoštevilčni zaključek je deljiv s 4."}

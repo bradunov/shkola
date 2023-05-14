@@ -1,0 +1,1 @@
+msg = {"kosov", "kos"}
