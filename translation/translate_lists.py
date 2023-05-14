@@ -37,11 +37,11 @@ def accumulate_names(text, d, params):
 
 
 # Aggregate all terms to be translated into one dictionary
-def translate_list(text, d):
+def translate_list(text, d, short_lang):
   list = json.loads(text)
   list["name"] = d[list["name"].strip().lower()]
   list["theme"] = d[list["theme"].strip().lower()]
-
+  list["language"] = short_lang
   
   for q in list["questions"]:
     q["subtheme"] = d[q["subtheme"].strip().lower()]
@@ -51,10 +51,10 @@ def translate_list(text, d):
 
 
 
-
-# DEBUG = """
-# ["2 measurement and units", "measurement and units", "length measurement", "comparison of measures", "conversion of one measure to another", "time measurement", "arithmetic operations", "7 algebra", "algebra", "algebraic expressions", "concept", "polynomials", "addition and subtraction of polynomials", "multiplication of polynomials", "factoring", "square of a binomial", "difference of squares", "7 real numbers", "real numbers", "irrational numbers", "square of a rational number", "square root", "multiplication and division", "decimal representation", "approximate value", "absolute error", "addition and subtraction", "numerical expression", "power", "operations with powers", "power of a product, quotient, and power", "6 geometry", "geometry", "quadrilateral", "parallelogram", "triangle", "concept, elements, types", "sides and angles", "congruence", "concept, types, angles", "trapezoid", "area of a figure", "congruent figures", "rectangle, square", "parallelogram, triangle, trapezoid, deltoid", "vector", "5 algebra", "equations", "application of fractions", "inequalities", "6 data processing", "data processing", "application of rational numbers", "percentage", "proportion", "data representation by diagrams", "bar", "coordinate system", "data representation", "line", "data interpretation", "graphically represented", "represented in a table", "5 natural numbers", "natural numbers", "fractions", "concept, number line", "expansion, reduction, and comparison", "divisibility of numbers", "properties of divisibility", "common divisor and common multiple", "divisibility by 2, 3, 4, 5, 9, 10", "prime and composite numbers", "numerical expressions", "sets", "notation", "subset, equal sets", "union, intersection", "difference", "union, intersection, difference", "1 numbers", "numbers", "numbers up to 10", "counting", "addition", "subtraction", "number comparison", "numbers up to 20", "numbers up to 100", "number writing", "number sequence", "dinar, banknotes up to 100 dinars", "expression in different denominations", "number line", "8 algebra", "linear equations with one unknown", "solution", "equivalent equations", "equivalent transformations", "solving", "application", "linear inequalities with one unknown", "equivalent inequalities", "linear function", "graph", "implicit function", "1 geometry", "position, size, and shape", "spatial relations", "size of objects and beings", "geometric figures and solids", "line", "straight, curved, broken line", "open, closed line", "external, internal area", "2 geometry", "straight line", "point, line, ray, segment", "broken line", "open, closed", "length of a broken line", "figures", "perimeter", "symmetry", "3 numbers", "comparing fractions", "word problem", "decimal representation of a number", "numbers up to 1000", "number notation, number ray", "order of arithmetic operations", "multiplication", "division", "Roman numerals", "all arithmetic operations", "1 measurement and units", "measurement with nonstandard units", "length and weight measurement", "7 data processing", "line and polygon", "extended proportion", "direct proportionality function", "sample", "average value, median, mode", "distance between points in coord. system", "6 algebra", "with integers", "with rational numbers", "6 numbers", "rational numbers", "comparison", "concept, representation on the number line", "whole numbers", "representation on the number line, comparison", "concept, opposite number, absolute value", "3 measurement and measures", "measurement of liquid volume", "measurement of mass", "4 numbers", "number notation, number line", "4 measurement and measures", "surface area of a square and a rectangle", "surface area of a rectangle", "surface area of a square", "surface area of a cube and a cuboid", "surface area of a cube", "surface area of a cuboid", "measurement of volume", "measurement of surface area", "volume of a cube and a cuboid", "volume of a cube", "volume of a cuboid", "5 data processing", "ratio", "arithmetic mean", "display and data processing", "table", "pie chart", "5 geometry", "basic concepts", "point, line, segment", "circle", "mapping", "angle", "concept, comparison, types", "calculations with angles", "translation and angles", "axial symmetry", "axial symmetry of a figure", "perpendicular bisector of a segment and an angle", "6 coordinate system", "dependence among magnitudes", "coordinates of points", "7 geometry", "significant lines and points of a triangle", "Pythagorean theorem", "polygon", "types, elements", "regular polygon", "perimeter and area", "central and peripheral angle", "perimeter, length of a circular arc", "area of a circle, circular sector and circular ring", "2 numbers", "calculating part of a given size", "number notation, number line", "data", "table and bar diagram", "3 geometry", "concept, elements", "perimeter of geometric figures", "square", "rectangle", "measurement of area with a given measure", "line", "mutual position of lines", "types of angles", "circle and disk", "4 geometry", "geometric solids", "angular, round", "cuboid and cube", "net", "elements, properties"]
-# """
+USE_CHATGPT_4 = True
+DEBUG = """
+["2 measurement and units", "measurement and units", "length measurement", "comparison of measures", "conversion of one measure to another", "time measurement", "arithmetic operations", "7 algebra", "algebra", "algebraic expressions", "concept", "polynomials", "addition and subtraction of polynomials", "multiplication of polynomials", "factoring", "square of a binomial", "difference of squares", "7 real numbers", "real numbers", "irrational numbers", "square of a rational number", "square root", "multiplication and division", "decimal representation", "approximate value", "absolute error", "addition and subtraction", "numerical expression", "power", "operations with powers", "power of a product, quotient, and power", "6 geometry", "geometry", "quadrilateral", "parallelogram", "triangle", "concept, elements, types", "sides and angles", "congruence", "concept, types, angles", "trapezoid", "area of a figure", "congruent figures", "rectangle, square", "parallelogram, triangle, trapezoid, deltoid", "vector", "5 algebra", "equations", "application of fractions", "inequalities", "6 data processing", "data processing", "application of rational numbers", "percentage", "proportion", "data representation by diagrams", "bar", "coordinate system", "data representation", "line", "data interpretation", "graphically represented", "represented in a table", "5 natural numbers", "natural numbers", "fractions", "concept, number line", "expansion, reduction, and comparison", "divisibility of numbers", "properties of divisibility", "common divisor and common multiple", "divisibility by 2, 3, 4, 5, 9, 10", "prime and composite numbers", "numerical expressions", "sets", "notation", "subset, equal sets", "union, intersection", "difference", "union, intersection, difference", "1 numbers", "numbers", "numbers up to 10", "counting", "addition", "subtraction", "number comparison", "numbers up to 20", "numbers up to 100", "number writing", "number sequence", "dinar, banknotes up to 100 dinars", "expression in different denominations", "number line", "8 algebra", "linear equations with one unknown", "solution", "equivalent equations", "equivalent transformations", "solving", "application", "linear inequalities with one unknown", "equivalent inequalities", "linear function", "graph", "implicit function", "1 geometry", "position, size, and shape", "spatial relations", "size of objects and beings", "geometric figures and solids", "line", "straight, curved, broken line", "open, closed line", "external, internal area", "2 geometry", "straight line", "point, line, ray, segment", "broken line", "open, closed", "length of a broken line", "figures", "perimeter", "symmetry", "3 numbers", "comparing fractions", "word problem", "decimal representation of a number", "numbers up to 1000", "number notation, number ray", "order of arithmetic operations", "multiplication", "division", "Roman numerals", "all arithmetic operations", "1 measurement and units", "measurement with nonstandard units", "length and weight measurement", "7 data processing", "line and polygon", "extended proportion", "direct proportionality function", "sample", "average value, median, mode", "distance between points in coord. system", "6 algebra", "with integers", "with rational numbers", "6 numbers", "rational numbers", "comparison", "concept, representation on the number line", "whole numbers", "representation on the number line, comparison", "concept, opposite number, absolute value", "3 measurement and measures", "measurement of liquid volume", "measurement of mass", "4 numbers", "number notation, number line", "4 measurement and measures", "surface area of a square and a rectangle", "surface area of a rectangle", "surface area of a square", "surface area of a cube and a cuboid", "surface area of a cube", "surface area of a cuboid", "measurement of volume", "measurement of surface area", "volume of a cube and a cuboid", "volume of a cube", "volume of a cuboid", "5 data processing", "ratio", "arithmetic mean", "display and data processing", "table", "pie chart", "5 geometry", "basic concepts", "point, line, segment", "circle", "mapping", "angle", "concept, comparison, types", "calculations with angles", "translation and angles", "axial symmetry", "axial symmetry of a figure", "perpendicular bisector of a segment and an angle", "6 coordinate system", "dependence among magnitudes", "coordinates of points", "7 geometry", "significant lines and points of a triangle", "Pythagorean theorem", "polygon", "types, elements", "regular polygon", "perimeter and area", "central and peripheral angle", "perimeter, length of a circular arc", "area of a circle, circular sector and circular ring", "2 numbers", "calculating part of a given size", "number notation, number line", "data", "table and bar diagram", "3 geometry", "concept, elements", "perimeter of geometric figures", "square", "rectangle", "measurement of area with a given measure", "line", "mutual position of lines", "types of angles", "circle and disk", "4 geometry", "geometric solids", "angular, round", "cuboid and cube", "net", "elements, properties"]
+"""
 
 
 
@@ -63,10 +63,10 @@ def translate(src_text, params):
   source_language = params["src_lang"]
   target_language = params["dst_lang"]
 
-  # DEBUG - ChatGPT 3.5 misses some strings.   
-  # translation = DEBUG
-  # d = json.loads('{"a": ' + translation + '}')["a"]
-  # return d
+  if USE_CHATGPT_4:
+    translation = DEBUG
+    d = json.loads('{"a": ' + translation + '}')["a"]
+    return d
 
 
   prompt = f"""
@@ -120,8 +120,10 @@ def translate_dict(d, params):
     text = "["
     trans = []
     cnt = 0
-    # For now we set this to be very long
-    max_cnt = 50
+    if USE_CHATGPT_4:
+      max_cnt = 5000
+    else:
+      max_cnt = 50
     for k,v in d.items():
       if cnt > 0:
         text += ", "
@@ -262,7 +264,7 @@ if __name__ == "__main__":
     with open(src_path, 'r') as file:
         file_contents = file.read().strip()
 
-    trans_text = translate_list(file_contents, d)
+    trans_text = translate_list(file_contents, d, params["dst_short"])
 
     with open(dst_path, 'w') as file:
       file.write(trans_text)
