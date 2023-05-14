@@ -1,17 +1,17 @@
 {
-  "name": "6 Coordinate System",
+  "name": "6 coordinate system",
   "level": "6",
   "level_short": "6",
-  "theme": "Coordinate System",
-  "language": "uk",
+  "theme": "coordinate system",
+  "language": "rs",
   "rank_theme": "4",
   "questions": [
     {
       "name": "data_2/q00001",
       "random": "8",
       "period": "3",
-      "subtheme": "Dependency among quantities",
-      "topic": "Coordinates of points",
+      "subtheme": "dependence among magnitudes",
+      "topic": "coordinates of points",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "3"
@@ -20,8 +20,8 @@
       "name": "data_2/q00002",
       "random": "10",
       "period": "3",
-      "subtheme": "Dependency among quantities",
-      "topic": "Coordinates of points",
+      "subtheme": "dependence among magnitudes",
+      "topic": "coordinates of points",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -30,8 +30,8 @@
       "name": "data_2/q00003",
       "random": "8",
       "period": "3",
-      "subtheme": "Dependency among quantities",
-      "topic": "Coordinates of points",
+      "subtheme": "dependence among magnitudes",
+      "topic": "coordinates of points",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"
