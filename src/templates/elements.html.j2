@@ -304,7 +304,7 @@
             popup_toggle_error("visible");
         }
         };
-        xhr.send('id_token=' + id_token);
+        xhr.send('id_token=' + id_token + '&fwd_url={{ template_params["fwd_url"] }}');
     }
   </script>
 

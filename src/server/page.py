@@ -13,6 +13,7 @@ from server.stat_charts import add_anon_stats
 
 #from server.timers import timer_section
 
+from urllib.parse import unquote
 import json
 import logging
 
@@ -639,6 +640,7 @@ class Page(object):
     def login_google(self):
         id_token = None
         ok = False
+        url = None
 
         logging.info("*** login google called")
 
@@ -651,6 +653,10 @@ class Page(object):
             else:
                 logging.info("login_google(): no id_token")
 
+            url = pdict.get('fwd_url', None)
+            if url:
+                url = unquote(url)
+
         else:
             ok = True
             logging.info("login_google(): User already logged in")
@@ -658,9 +664,10 @@ class Page(object):
         # url = self.page_params.get_param("root") + \
         #     "?op={}".format(PageOperation.toStr(PageOperation.MENU_YEAR))
 
-        url = self.page_params.create_url( \
-            op = PageOperation.MENU_YEAR, 
-            beta = True if self.page_params.get_param("beta") else None)
+        if not url:
+            url = self.page_params.create_url( \
+                op = PageOperation.MENU_YEAR, 
+                beta = True if self.page_params.get_param("beta") else None)
 
         if not ok:
             # If error, pass error message as url (to be printed for debug)

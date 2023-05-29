@@ -390,8 +390,9 @@ class Design_default(object):
         page.template_params["h1"] = "Izaberi godinu"
 
         page.template_params["google_link"] = page.page_params.create_url(
-                                    op = PageOperation.LOGIN_GOOGLE, 
-                                    beta = True if page.page_params.get_param("beta") else None)
+            op = PageOperation.LOGIN_GOOGLE, 
+            beta = True if page.page_params.get_param("beta") else None)
+        page.template_params["fwd_url"] = page.page_params.relative_url(quoted=True)
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
 
@@ -726,8 +727,9 @@ class Design_default(object):
 
 
         page.template_params["google_link"] = page.page_params.create_url(
-                                    op = PageOperation.LOGIN_GOOGLE, 
-                                    beta = True if page.page_params.get_param("beta") else None)
+            op = PageOperation.LOGIN_GOOGLE, 
+            beta = True if page.page_params.get_param("beta") else None)
+        page.template_params["fwd_url"] = page.page_params.relative_url(quoted=True)
 
 
 
@@ -755,8 +757,9 @@ class Design_default(object):
             page.template_params["user_name"] = user_name
 
         page.template_params["google_link"] = page.page_params.create_url(
-                                    op = PageOperation.LOGIN_GOOGLE, 
-                                    beta = True if page.page_params.get_param("beta") else None)
+            op = PageOperation.LOGIN_GOOGLE, 
+            beta = True if page.page_params.get_param("beta") else None)
+        page.template_params["fwd_url"] = page.page_params.relative_url(quoted=True)
 
 
     @staticmethod
@@ -779,8 +782,9 @@ class Design_default(object):
         page.template_params["difficulty"] = context.c.session.get("difficulty").title()
 
         page.template_params["google_link"] = page.page_params.create_url(
-                                    op = PageOperation.LOGIN_GOOGLE, 
-                                    beta = True if page.page_params.get_param("beta") else None)
+            op = PageOperation.LOGIN_GOOGLE, 
+            beta = True if page.page_params.get_param("beta") else None)
+        page.template_params["fwd_url"] = page.page_params.relative_url(quoted=True)
 
         page.template_params["h1"] = page.template_params['year']
         page.template_params["h2"] = page.template_params["theme"]
@@ -886,8 +890,9 @@ class Design_default(object):
         page.template_params["template_name"] = Design_default._add_language(page, "test.html.j2")
 
         page.template_params["google_link"] = page.page_params.create_url(
-                                    op = PageOperation.LOGIN_GOOGLE, 
-                                    beta = True if page.page_params.get_param("beta") else None)
+            op = PageOperation.LOGIN_GOOGLE, 
+            beta = True if page.page_params.get_param("beta") else None)
+        page.template_params["fwd_url"] = page.page_params.relative_url(quoted=True)
 
 
         q_id = page.page_params.get_param("q_id")
@@ -1043,8 +1048,9 @@ class Design_default(object):
         page.template_params["template_name"] = Design_default._add_language(page, "summary.html.j2")
 
         page.template_params["google_link"] = page.page_params.create_url(
-                                    op = PageOperation.LOGIN_GOOGLE, 
-                                    beta = True if page.page_params.get_param("beta") else None)
+            op = PageOperation.LOGIN_GOOGLE, 
+            beta = True if page.page_params.get_param("beta") else None)
+        page.template_params["fwd_url"] = page.page_params.relative_url(quoted=True)
 
         # page.template_params["results"] = []
         # page.template_params["correct"] = 0
@@ -1119,8 +1125,10 @@ class Design_default(object):
 
 
         page.template_params["google_link"] = page.page_params.create_url(
-                                    op = PageOperation.LOGIN_GOOGLE, 
-                                    beta = True if page.page_params.get_param("beta") else None)
+            op = PageOperation.LOGIN_GOOGLE, 
+            beta = True if page.page_params.get_param("beta") else None)
+        page.template_params["fwd_url"] = page.page_params.relative_url(quoted=True)
+
 
         test = List(page)
         _, url_next = test.get_prev_next_questions_browse_url()
@@ -1154,8 +1162,9 @@ class Design_default(object):
         page.template_params["template_name"] = Design_default._add_language(page, "browse.html.j2")
 
         page.template_params["google_link"] = page.page_params.create_url(
-                                    op = PageOperation.LOGIN_GOOGLE, 
-                                    beta = True if page.page_params.get_param("beta") else None)
+            op = PageOperation.LOGIN_GOOGLE, 
+            beta = True if page.page_params.get_param("beta") else None)
+        page.template_params["fwd_url"] = page.page_params.relative_url(quoted=True)
 
         q_id = page.page_params.get_param("q_id")
 
@@ -1310,8 +1319,9 @@ class Design_default(object):
         page.template_params["h1"] = "Rezultat"
 
         page.template_params["google_link"] = page.page_params.create_url(
-                                    op = PageOperation.LOGIN_GOOGLE, 
-                                    beta = True if page.page_params.get_param("beta") else None)
+            op = PageOperation.LOGIN_GOOGLE, 
+            beta = True if page.page_params.get_param("beta") else None)
+        page.template_params["fwd_url"] = page.page_params.relative_url(quoted=True)
 
         #prepare_user_stats_chart(page, 'Petar')
         prepare_user_stats_chart(page, u_id)
@@ -1330,7 +1340,8 @@ class Design_default(object):
         page.template_params["h1"] = "O name"
 
         page.template_params["google_link"] = page.page_params.create_url(
-                                    op = PageOperation.LOGIN_GOOGLE, 
-                                    beta = True if page.page_params.get_param("beta") else None)
+            op = PageOperation.LOGIN_GOOGLE, 
+            beta = True if page.page_params.get_param("beta") else None)
+        page.template_params["fwd_url"] = page.page_params.relative_url(quoted=True)
 
 

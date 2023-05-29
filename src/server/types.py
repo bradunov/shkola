@@ -10,6 +10,7 @@ from server.helpers import encap_str
 
 import server.context as context
 
+from urllib.parse import quote
 import logging
 
 
@@ -211,6 +212,9 @@ class PageParameters(object):
         # Enable to get features in beta
         "beta" : False,
 
+        # Forward to URL
+        "fwd_url": "",
+
         # Current URL in the full form
         "url" : None
     }
@@ -269,6 +273,15 @@ class PageParameters(object):
 
     def get_url(self):
         return self.url
+
+
+    def relative_url(self, quoted=False):
+        url = "/main" + self.url.split("main")[1]
+        if quoted:
+            return quote(url)
+        else:
+            return url
+
 
 
     def delete_history(self):
@@ -572,6 +585,9 @@ class PageParameters(object):
 
         if "beta" in args.keys():
             self._params["beta"] = True
+
+        if "fwd_url" in args.keys():
+            self._params["fwd_url"] = args["fwd_url"]
 
         if "user_agent" in args.keys():
             self._params["mobile"] = is_user_on_mobile(args["user_agent"])
