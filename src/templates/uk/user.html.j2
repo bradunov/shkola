@@ -160,30 +160,7 @@
 
 
 
-    <script>
-      function onSignIn(googleUser) {
-          console.log('Google sign in');
-          var id_token = googleUser['credential'];
-          var xhr = new XMLHttpRequest();
-          xhr.open('POST', '{{ template_params["google_link"] }}');
-          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-          xhr.onload = function() {
-          console.log('Sign in response: ' + xhr.responseText);
-          var r = xhr.responseText.split(':')
-          if (r[0] == 'OK') {
-              window.location.assign(r[1]);
-          } else {
-              document.getElementById('gauth_status').innerText = "Login error: " + r[1];
-              popup_toggle_wait("hidden");
-              popup_toggle_error("visible");
-          }
-          };
-          xhr.send('id_token=' + id_token);
-      }
-    </script>
-
-
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Override default Googe login by adding element rendering -->
     <script>
       window.onload = function () {
         google.accounts.id.initialize({

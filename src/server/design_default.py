@@ -54,9 +54,11 @@ class Design_default(object):
             context.c.headers.redirect(new_url)
             return ""
 
-        if not context.c.user:
-            # First login, if not already done
-            page.page_params.set_param("op", PageOperation.MENU_USER)
+        # Now we don't force user to log on
+        # The new Google login offers loggin as a pop up on every page
+        # if not context.c.user:
+        #     # First login, if not already done
+        #     page.page_params.set_param("op", PageOperation.MENU_USER)
 
         user = context.c.user
 
@@ -356,11 +358,6 @@ class Design_default(object):
 
         root = page.page_params.get_param("root")
 
-        #page.template_params["google_link"] = "{}?op={}".format(
-        #    root,
-        #    PageOperation['LOGIN_GOOGLE'].value
-        #)
-
         page.template_params["google_link"] = page.page_params.create_url(
                                     op = PageOperation.LOGIN_GOOGLE, 
                                     beta = True if page.page_params.get_param("beta") else None)
@@ -392,6 +389,9 @@ class Design_default(object):
 
         page.template_params["h1"] = "Izaberi godinu"
 
+        page.template_params["google_link"] = page.page_params.create_url(
+                                    op = PageOperation.LOGIN_GOOGLE, 
+                                    beta = True if page.page_params.get_param("beta") else None)
 
         content = page.repository.get_content(PageLanguage.toStr(page.page_params.get_param("language")))
 
@@ -725,6 +725,11 @@ class Design_default(object):
                 page.template_params["error_msg"] = "No content"
 
 
+        page.template_params["google_link"] = page.page_params.create_url(
+                                    op = PageOperation.LOGIN_GOOGLE, 
+                                    beta = True if page.page_params.get_param("beta") else None)
+
+
 
     @staticmethod
     @timer_section("render_confirm_anon_page")
@@ -743,6 +748,9 @@ class Design_default(object):
                     beta = True if page.page_params.get_param("beta") else None
                 )
 
+        page.template_params["google_link"] = page.page_params.create_url(
+                                    op = PageOperation.LOGIN_GOOGLE, 
+                                    beta = True if page.page_params.get_param("beta") else None)
 
 
     @staticmethod
@@ -764,6 +772,9 @@ class Design_default(object):
         page.template_params["period"] = context.c.session.get("period").title()
         page.template_params["difficulty"] = context.c.session.get("difficulty").title()
 
+        page.template_params["google_link"] = page.page_params.create_url(
+                                    op = PageOperation.LOGIN_GOOGLE, 
+                                    beta = True if page.page_params.get_param("beta") else None)
 
         page.template_params["h1"] = page.template_params['year']
         page.template_params["h2"] = page.template_params["theme"]
@@ -867,6 +878,11 @@ class Design_default(object):
         Design_default.add_menu(page)
 
         page.template_params["template_name"] = Design_default._add_language(page, "test.html.j2")
+
+        page.template_params["google_link"] = page.page_params.create_url(
+                                    op = PageOperation.LOGIN_GOOGLE, 
+                                    beta = True if page.page_params.get_param("beta") else None)
+
 
         q_id = page.page_params.get_param("q_id")
 
@@ -1020,6 +1036,10 @@ class Design_default(object):
 
         page.template_params["template_name"] = Design_default._add_language(page, "summary.html.j2")
 
+        page.template_params["google_link"] = page.page_params.create_url(
+                                    op = PageOperation.LOGIN_GOOGLE, 
+                                    beta = True if page.page_params.get_param("beta") else None)
+
         # page.template_params["results"] = []
         # page.template_params["correct"] = 0
         # page.template_params["incorrect"] = 0
@@ -1092,6 +1112,10 @@ class Design_default(object):
         page.template_params["h4"] = "Start browse"
 
 
+        page.template_params["google_link"] = page.page_params.create_url(
+                                    op = PageOperation.LOGIN_GOOGLE, 
+                                    beta = True if page.page_params.get_param("beta") else None)
+
         test = List(page)
         _, url_next = test.get_prev_next_questions_browse_url()
 
@@ -1122,6 +1146,10 @@ class Design_default(object):
         Design_default.add_menu(page)
 
         page.template_params["template_name"] = Design_default._add_language(page, "browse.html.j2")
+
+        page.template_params["google_link"] = page.page_params.create_url(
+                                    op = PageOperation.LOGIN_GOOGLE, 
+                                    beta = True if page.page_params.get_param("beta") else None)
 
         q_id = page.page_params.get_param("q_id")
 
@@ -1275,6 +1303,10 @@ class Design_default(object):
 
         page.template_params["h1"] = "Rezultat"
 
+        page.template_params["google_link"] = page.page_params.create_url(
+                                    op = PageOperation.LOGIN_GOOGLE, 
+                                    beta = True if page.page_params.get_param("beta") else None)
+
         #prepare_user_stats_chart(page, 'Petar')
         prepare_user_stats_chart(page, u_id)
 
@@ -1291,5 +1323,8 @@ class Design_default(object):
 
         page.template_params["h1"] = "O name"
 
+        page.template_params["google_link"] = page.page_params.create_url(
+                                    op = PageOperation.LOGIN_GOOGLE, 
+                                    beta = True if page.page_params.get_param("beta") else None)
 
 
