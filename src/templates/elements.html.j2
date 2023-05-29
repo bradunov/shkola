@@ -309,6 +309,7 @@
   </script>
 
   <script src="https://accounts.google.com/gsi/client" async defer></script>
+  {% if "user_name" not in template_params.keys(): %}  
   <script>
     window.onload = function () {
       google.accounts.id.initialize({
@@ -318,6 +319,7 @@
       google.accounts.id.prompt();
     };
   </script>
+  {% endif %}
   <!-- End Google Login -->
 
 

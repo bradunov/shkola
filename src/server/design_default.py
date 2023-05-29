@@ -748,6 +748,12 @@ class Design_default(object):
                     beta = True if page.page_params.get_param("beta") else None
                 )
 
+
+        # This is otherwise loaded from the menu, and in this case we don't display menu
+        user_name = context.c.session.get("user_name")
+        if not user_name is None:
+            page.template_params["user_name"] = user_name
+
         page.template_params["google_link"] = page.page_params.create_url(
                                     op = PageOperation.LOGIN_GOOGLE, 
                                     beta = True if page.page_params.get_param("beta") else None)
