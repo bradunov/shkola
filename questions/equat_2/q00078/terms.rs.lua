@@ -1,0 +1,2 @@
+
+msg = {"određen", "nemoguć", "neodređen"}

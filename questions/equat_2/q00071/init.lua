@@ -12,7 +12,7 @@ diff_style =
         ["line_width"] = "1"};	
 
 line_style = 
-	{["off_line_color"] = "000",
+	{["off_line_color"] = "f30",
         ["line_color"] = "f30",
         ["line_width"] = "2"};	
 

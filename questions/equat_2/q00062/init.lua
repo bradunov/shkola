@@ -6,15 +6,10 @@ style = {["off_color"] = "fff",
         ["line_color"] = "000",
         ["line_width"] = "0.2"};
 		
-dif_style = {["off_color"] = "fff",
-             ["on_color"] = "fff",
-             ["line_color"] = "f9c",
-			 ["off_line_color"] = "000",
+dif_style = {["line_color"] = "f30",
              ["line_width"] = "2"};		
 
-line_style = {["off_color"] = "fff",
-        ["on_color"] = "fff",
-        ["line_color"] = "000",
+line_style = {["line_color"] = "000",
         ["line_width"] = "1"};
 					
 text_style = {["font_size"] = "14"}
@@ -80,11 +75,13 @@ mycanvas = function()
     end
 
     lib.add_line(2*ov, ov+(dim_y-1)*dy, ow+dim_x*dx, 0, line_style, false, false)
+  lib.add_straight_path(2*ov+ow+dim_x*dx, v+(dim_y-1)*dy, {{ow, ow/4}, {-ow, ow/4}}, diff_style, false, false)
+    lib.add_text((dim_x-1)*dx+2*ov, (dim_y-1)*dy, axis[1], small_style) 
     lib.add_line(w+ov, ov-v, 0, dim_y*dy-ow, line_style, false, false)
-    lib.add_text((dim_x-1)*dx+2*ow, (dim_y-1)*dy, axis[1], small_style)  
-	lib.add_text(dx+w+ow, v, axis[2], small_style) 
+ lib.add_straight_path(w+v+2, ov, {{ov/4, -ov}, {ov/4, ov}}, line_style, false, false) 
+	lib.add_text(dx+w+2*ov, v, axis[2], small_style) 
+
 
   lib.end_canvas()
 end    
-            
             

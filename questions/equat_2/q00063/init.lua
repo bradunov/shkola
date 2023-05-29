@@ -7,11 +7,9 @@ style = {["off_color"] = "fff",
         ["line_color"] = "000",
         ["line_width"] = "0.2"};
 		
-dif_style = {["off_color"] = "fff",
-             ["on_color"] = "fff",
-             ["line_color"] = "3c3",
-			 ["off_line_color"] = "000",
-             ["line_width"] = "2"};		
+dif_style = {["line_color"] = "f30",
+	     ["off_line_color"] = "0cf",
+             ["line_width"] = "2.5"};		
 
 line_style = {["off_color"] = "fff",
         ["on_color"] = "fff",
