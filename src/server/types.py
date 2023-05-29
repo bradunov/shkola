@@ -276,7 +276,7 @@ class PageParameters(object):
 
 
     def relative_url(self, quoted=False):
-        if not "main" in self.url:
+        if not self.url or not "main" in self.url:
             return "/"
         url = "/main" + self.url.split("main")[1]
         if quoted:
