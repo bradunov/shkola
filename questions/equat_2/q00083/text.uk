@@ -1,0 +1,9 @@
+The pool needs to be filled with @total@ liters of water. How much water needs to be poured from the water supply, which is at @temp[1]@@mes[1]@, and how much water heated to @temp[2]@@"°C"@ needs to be added to the pool to reach the temperature of @temp[3]@@"°C"@?
+Write the corresponding system of equations (write all coefficients that are different from 0). Write the solution to one decimal place.
+@vspace@
+@center@ @eq[1]@
+@center@ @eq[2]@
+            
+It is necessary to
+@center@ x = @lib.check_number(numb[1])@ @mes[2]@ of water at @temp[1]@@mes[1]@
+@center@ y = @lib.check_number(numb[2])@ @mes[2]@ of water at @temp[2]@@mes[1]@

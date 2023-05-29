@@ -21,7 +21,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "calculating part of a given size",
+      "topic": "calculating part of a given quantity",
       "rank_subtheme": "6",
       "rank_topic": "3",
       "difficulty": "2"
@@ -111,7 +111,7 @@
       "random": "0",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "calculating part of a given size",
+      "topic": "calculating part of a given quantity",
       "rank_subtheme": "6",
       "rank_topic": "3",
       "difficulty": "1"
@@ -151,7 +151,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "calculating part of a given size",
+      "topic": "calculating part of a given quantity",
       "rank_subtheme": "6",
       "rank_topic": "3",
       "difficulty": "2"
@@ -161,7 +161,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "calculating part of a given size",
+      "topic": "calculating part of a given quantity",
       "rank_subtheme": "6",
       "rank_topic": "3",
       "difficulty": "2"
@@ -181,7 +181,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "calculating part of a given size",
+      "topic": "calculating part of a given quantity",
       "rank_subtheme": "6",
       "rank_topic": "3",
       "difficulty": "1"
@@ -191,7 +191,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "calculating part of a given size",
+      "topic": "calculating part of a given quantity",
       "rank_subtheme": "6",
       "rank_topic": "3",
       "difficulty": "1"
@@ -301,7 +301,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 100",
-      "topic": "number comparison",
+      "topic": "comparison of numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
@@ -321,7 +321,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 100",
-      "topic": "number comparison",
+      "topic": "comparison of numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "3"
@@ -481,7 +481,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 100",
-      "topic": "number comparison",
+      "topic": "comparison of numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -581,7 +581,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 100",
-      "topic": "number notation, number line",
+      "topic": "number notation,number line",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -601,7 +601,7 @@
       "random": "8",
       "period": "3",
       "subtheme": "data",
-      "topic": "table and bar diagram",
+      "topic": "table and bar chart",
       "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "1"
@@ -621,7 +621,7 @@
       "random": "8",
       "period": "3",
       "subtheme": "data",
-      "topic": "table and bar diagram",
+      "topic": "table and bar chart",
       "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "1"
@@ -631,7 +631,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 100",
-      "topic": "number notation, number line",
+      "topic": "number notation,number line",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -641,7 +641,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 100",
-      "topic": "number notation, number line",
+      "topic": "number notation,number line",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"

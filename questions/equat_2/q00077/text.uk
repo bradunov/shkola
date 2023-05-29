@@ -1,0 +1,10 @@
+By using the method of substitution, solve the system of linear equations (write down all coefficients that are different from 0).
+@center@  @imp[1]@
+@center@  @imp[2]@. 
+@center@  @separ@
+@center@  @eq[1]@
+@center@  @eq[2]@
+@center@  @separ@
+@center@  @eq[3]@  
+@vspace@
+The solution of the system is @hspacept(8)@ x = @lib.check_number(xpoint, 20)@, @hspacept(8)@ y = @lib.check_number(ypoint, 20)@.

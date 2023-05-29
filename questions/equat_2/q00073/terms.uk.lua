@@ -1,0 +1,1 @@
+msg = {"The solution set is empty.", "Every pair of numbers is a solution."}

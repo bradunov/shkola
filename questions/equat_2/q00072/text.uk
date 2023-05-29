@@ -1,0 +1,5 @@
+Check if any of the pairs @"(x,y)"@ is a solution to the given equations.
+ 
+@addition_table()@
+@vspace@
+Are the equations equivalent?    @hspacept(10)@ @lib.check_one_option_dropdown(answ, answ[ind])@

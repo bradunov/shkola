@@ -141,7 +141,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "decimal representation of a number",
+      "topic": "decimal notation of a number",
       "rank_subtheme": "6",
       "rank_topic": "5",
       "difficulty": "2"
@@ -261,7 +261,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "decimal representation of a number",
+      "topic": "decimal notation of a number",
       "rank_subtheme": "6",
       "rank_topic": "5",
       "difficulty": "3"
@@ -311,7 +311,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 1000",
-      "topic": "number comparison",
+      "topic": "comparison of numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -321,7 +321,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 1000",
-      "topic": "number comparison",
+      "topic": "comparison of numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
@@ -421,7 +421,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 1000",
-      "topic": "number comparison",
+      "topic": "comparison of numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -451,7 +451,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 1000",
-      "topic": "number comparison",
+      "topic": "comparison of numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
@@ -511,7 +511,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 1000",
-      "topic": "number comparison",
+      "topic": "comparison of numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -531,7 +531,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 1000",
-      "topic": "number comparison",
+      "topic": "comparison of numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -581,7 +581,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 1000",
-      "topic": "number comparison",
+      "topic": "comparison of numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -1051,7 +1051,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "numbers up to 1000",
-      "topic": "number comparison",
+      "topic": "comparison of numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -1071,7 +1071,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 1000",
-      "topic": "number comparison",
+      "topic": "comparison of numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -1111,7 +1111,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numbers up to 1000",
-      "topic": "number comparison",
+      "topic": "comparison of numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"

@@ -1,0 +1,10 @@
+By using the method of substitution, solve the system of linear equations (write down all coefficients that are different from 0).
+
+@center@  @imp[1]@
+@center@  @imp[2]@. 
+@center@  @separ@
+@center@  @eq[1]@
+@center@  @eq[2]@
+@center@  @separ@   
+@center@ @sol@  
+The system of equations is @hspacept(10)@ @lib.check_one_option_dropdown(msg, msg[sing])@.
