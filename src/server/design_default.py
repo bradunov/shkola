@@ -54,11 +54,13 @@ class Design_default(object):
             context.c.headers.redirect(new_url)
             return ""
 
-        # Now we don't force user to log on
-        # The new Google login offers loggin as a pop up on every page
-        # if not context.c.user:
-        #     # First login, if not already done
-        #     page.page_params.set_param("op", PageOperation.MENU_USER)
+        if page.page_params.get_param("op") == PageOperation.DEFAULT:
+            if not context.c.user:
+                # If first time user, send to login page 
+                page.page_params.set_param("op", PageOperation.MENU_USER)
+            else: 
+                page.page_params.set_param("op", PageOperation.MENU_YEAR)
+
 
         user = context.c.user
 
