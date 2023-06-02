@@ -707,6 +707,26 @@
       "difficulty": "1"
     },
     {
+      "name": "numbers/q00244",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Brojevni izraz",
+      "topic": "Tekstualni zadatak",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "numbers/q00245",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Brojevni izraz",
+      "topic": "Tekstualni zadatak",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
       "name": "equations/q00013",
       "random": "10",
       "period": "1",
