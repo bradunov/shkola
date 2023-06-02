@@ -1,5 +1,5 @@
 Paint the line that represents the graph of the linear function
-@center@ "y = " @fun[out[1]]@.
+@center@ @"y = "@ @fun[out[1]]@.
 @vspace@
 @center@ @mycanvas()@
 

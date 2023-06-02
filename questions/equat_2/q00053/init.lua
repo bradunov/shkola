@@ -1,8 +1,6 @@
  
 include("terms") 
 
-msg = {"jesu",  "nisu"}
-
 rel = {" < ", " > ", " ≤ ", " ≥ "}
 brac = {"(", ")", "[", "]"}
 

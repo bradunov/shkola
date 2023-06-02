@@ -1,6 +1,6 @@
 Calculate the value of the expression.
 
 @repeat(4)@
-\vspace 
-\center @question@ = @lib.check_number(result,50)@
+@vspace@ 
+@center@ @quest@ = @lib.check_number(result,50)@
 @/repeat@

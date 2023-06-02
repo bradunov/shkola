@@ -1,3 +1,2 @@
-msg = {"jesu", "nisu"}
+msg = {"yes", "no"}
 
-(Note: This is already in English and does not need to be translated.)

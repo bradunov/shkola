@@ -1,7 +1,8 @@
 Without drawing graphs, determine whether the given functions are increasing or decreasing. In the last field, enter the ordinal numbers of the functions whose graphs are parallel to the graph of the given function, if they exist, or 0 if they do not exist. (List ordinal numbers in ascending order, without separating with space or comma).
 
-1. y = [function 1] [dropdown menu] [input field]
-2. y = [function 2] [dropdown menu] [input field]
-3. y = [function 3] [dropdown menu] [input field]
-4. y = [function 4] [dropdown menu] [input field]
-5. y = [function 5] [dropdown menu] [input field]
+1. @hspacept(15)@ @"y = "@ @fun[out[1]]@ @hspacept(50)@ @lib.check_one_option_dropdown(answ, ind[out[1]])@ @hspacept(30)@ @lib.check_number(graph[1])@ 
+2. @hspacept(15)@ @"y = "@ @fun[out[2]]@ @hspacept(50)@ @lib.check_one_option_dropdown(answ, ind[out[2]])@ @hspacept(30)@ @lib.check_number(graph[2])@ 
+3. @hspacept(15)@ @"y = "@ @fun[out[3]]@ @hspacept(50)@ @lib.check_one_option_dropdown(answ, ind[out[3]])@ @hspacept(30)@ @lib.check_number(graph[3])@ 
+4. @hspacept(15)@ @"y = "@ @fun[out[4]]@ @hspacept(50)@ @lib.check_one_option_dropdown(answ, ind[out[4]])@ @hspacept(30)@ @lib.check_number(graph[4])@
+5. @hspacept(15)@ @"y = "@ @fun[out[5]]@ @hspacept(50)@ @lib.check_one_option_dropdown(answ, ind[out[5]])@ @hspacept(30)@ @lib.check_number(graph[5])@     
+ 

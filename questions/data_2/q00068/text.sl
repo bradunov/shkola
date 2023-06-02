@@ -1,4 +1,4 @@
-Datumi so v koordinatnem sistemu točke
+Zadate so v koordinatnem sistemu točke
 @center@ @"A"@ = (@x[1]@, @y[1]@), @hspacept(20)@ @"B"@ = (@x[2]@, @y[2]@), 
 @center@  @"C"@ = (@x[3]@, @y[3]@), @hspacept(20)@ @"D"@ = (@x[4]@, @y[4]@).
 @vspace@
