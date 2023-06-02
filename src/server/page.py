@@ -423,14 +423,14 @@ class Page(object):
                     shown_solution = args["shown_solutions"]
 
                 hist = context.c.session.get("history")
-                if (len(hist) > 0 and (hist[-1]["correct"] == 0 or correct > hist[-1]["correct"])) and not shown_solution:
+                if (hist and isinstance(hist, list) and len(hist) > 0 and (hist[-1]["correct"] == 0 or correct > hist[-1]["correct"])) and not shown_solution:
                     hist[-1]["correct"] = correct
                     hist[-1]["incorrect"] = incorrect
                     context.c.session.set("history", hist)
 
 
                 # We register temporary stats for anonymous users that are stored with the cookie
-                if (user_id == "UNKNOWN" or user_id == "local:UNKNOWN") and \
+                if (not user_id or user_id == "UNKNOWN" or user_id == "local:UNKNOWN") and \
                     context.c.session.get("last_q_year") and context.c.session.get("last_q_theme") and \
                     context.c.session.get("last_q_subtheme") and context.c.session.get("difficulty"):
 
