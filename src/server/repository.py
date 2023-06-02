@@ -691,7 +691,7 @@ class Repository(object):
             l_ids = []
             l = self.find_key(self.lists, l_path)
             for k in l.keys():
-                if language is None or ("language" in l[k].keys() and l[k]["language"] == language):
+                if language is None or (type(l[k]) is dict and "language" in l[k].keys() and l[k]["language"] == language):
                     l_ids.append(k)
             return l_ids
         else:
