@@ -329,6 +329,9 @@ class Repository(object):
             if len(list_name)>=len("notest_") and list_name[0:len("notest_")]=="no_tests":
                 logging.debug("Skipping list %s in content - starting with notest_", list_name)
                 continue
+            if type(list_dict) is not dict:
+                logging.debug("Skipping list %s in content - not a dictionary", list_name)
+                continue
             if "level" not in list_dict.keys() or \
                 "theme" not in list_dict.keys() or \
                 "questions" not in list_dict.keys() or \

@@ -717,16 +717,18 @@ class Page(object):
 
 
     def login_anon(self) -> str:
-        if not context.c.user:
-            user_id = 'UNKNOWN'
-            name = 'UNKNOWN'
-            email = None
-            user_language = "rs"
+        # Disabiling Anomymous logging
+        # This allows us to continue asking for Google login
+        # if not context.c.user:
+        #     user_id = 'UNKNOWN'
+        #     name = 'UNKNOWN'
+        #     email = None
+        #     user_language = "rs"
 
-            logging.debug("Login anonymous user UNKNOWN")
-            self.userdb.login_test(user_id, name, email, user_language)
-        else:
-            logging.info("login(): User already logged in")
+        #     logging.debug("Login anonymous user UNKNOWN")
+        #     self.userdb.login_test(user_id, name, email, user_language)
+        # else:
+        #     logging.info("login(): User already logged in")
 
         # url = self.page_params.get_param("root") + \
         #     "?op={}".format(PageOperation.toStr(PageOperation.CONFIRM_ANON))
