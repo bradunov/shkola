@@ -1,0 +1,4 @@
+@ime@ is reading a book for school, which has @numb[1]@ @text[1]@. On Saturday, she reads @numb[2]@ @text[2]@. On Sunday, she reads @add@ pages @comp[ind]@ than on Saturday. 
+How many more pages does @ime@ have to read?
+@vspace@
+@center@ @ime@ has to read @hspacept(3)@ @lib.check_number(numb[3],20)@ @hspacept(3)@ @text[3]@ more.

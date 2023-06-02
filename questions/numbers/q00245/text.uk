@@ -1,0 +1,10 @@
+@padez@ requires a total of @total@ @meas@ of water to make a solution for spraying the orchard, and there are containers of @small[ch]@ and @big[ch]@ liters. Water is taken from the faucet and excess water can be poured out. How can @ime@ measure exactly @total@ @meas@ of water the fastest way?
+
+Instructions: In each row, show how @ime@ measures the amount of water in that pouring (from larger to smaller container -->, from smaller to larger container <--, without pouring from one container to another for measuring -/-).
+
+@text[1]@
+@center@@quest[1]@
+@text[2]@
+@center@@quest[2]@
+@text[3]@
+@center@@quest[3]@
