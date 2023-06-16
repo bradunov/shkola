@@ -308,7 +308,11 @@
     }
   </script>
 
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <!-- I occasionally get Uncaught ReferenceError: google is not defined, 
+        similar to the one I was getting with gapi and platform.js.
+        so we are making it explicitly synchronous here. However, not sure this still works.
+        There must be a better way but will dig out in future. -->
+  <script src="https://accounts.google.com/gsi/client" async="false" defer="false"></script>
   {% if "user_name" not in template_params.keys(): %}  
   <script>
     window.onload = function () {
