@@ -1,2 +1,2 @@
-comment = {"first pouring", "second pouring", "third pouring"}
+work = {"pours", "adds", "adds", "pours to"}
 msg = {"liters", "litres"}

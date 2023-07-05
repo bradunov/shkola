@@ -1,2 +1,2 @@
-comment = {"prvo sipanje", "drugo sipanje", "treće sipanje"} 
+work = {"sipa", "dosipa", "dosipa", "sipa u"}
 msg = {"litre", "litara"}      
