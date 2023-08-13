@@ -1,0 +1,2 @@
+
+msg = {"prodire", "mimoilazi", "∥", "∈"}

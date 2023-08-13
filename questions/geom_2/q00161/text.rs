@@ -3,5 +3,5 @@ U pravouglom trouglu @"ABC"@ visina koja odgovara hipotenuzi je @"h"@. Hipotenuz
 @center@ @mycanvas()@
 Ako je 
 @center@ @quest@
-izračunaj dužine duži
-@center@ @ans@      
+izračunaj (na jednu decimalu) dužine duži 
+@center@ @ans@       

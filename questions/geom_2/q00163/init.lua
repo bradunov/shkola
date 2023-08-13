@@ -1,5 +1,4 @@
 
-include("names")
 include("shapes")
 
 style = 

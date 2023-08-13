@@ -1,0 +1,270 @@
+{
+  "name": "8 Geometrija",
+  "level": "8",
+  "level_short": "8",
+  "theme": "Geometrija",
+  "language": "rs",
+  "rank_theme": "2",
+  "questions": [
+    {
+      "name": "geom_2/q00147",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Talesova teorema",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00148",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Talesova teorema",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00149",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Talesova teorema",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00150",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Slični trouglovi",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00151",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Talesova teorema",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00152",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Slični trouglovi",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00153",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Slični trouglovi",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00154",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Slični trouglovi",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00155",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Slični trouglovi",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00156",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Slični trouglovi",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00157",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Slični trouglovi",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00158",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Primene",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00159",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Slični trouglovi",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00160",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Primene",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00161",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Primene",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00162",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Primene",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00163",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Sličnost",
+      "topic": "Primene",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00164",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Tačka, prava, ravan",
+      "topic": "Odnos tačke, prave i ravni",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00165",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Tačka, prava, ravan",
+      "topic": "Odnos tačke, prave i ravni",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00166",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Tačka, prava, ravan",
+      "topic": "Odnos tačke, prave i ravni",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00167",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Tačka, prava, ravan",
+      "topic": "Odnos tačke, prave i ravni",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00168",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Tačka, prava, ravan",
+      "topic": "Ortogonalna projekcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00169",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Tačka, prava, ravan",
+      "topic": "Ortogonalna projekcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00170",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Tačka, prava, ravan",
+      "topic": "Ortogonalna projekcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00171",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Tačka, prava, ravan",
+      "topic": "Ortogonalna projekcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00172",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Tačka, prava, ravan",
+      "topic": "Ortogonalna projekcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    }
+  ]
+}

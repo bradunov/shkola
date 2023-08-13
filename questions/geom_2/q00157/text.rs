@@ -3,5 +3,5 @@ U trougao @"ABC"@ upisan je romb @"ADEF"@.  Izračunaj dužinu stranice romba ak
 @center@ @quest@
 @center@ @mycanvas()@
 
-Dužina stranice romba je 
+Dužina stranice romba je (na jednu decimalu)
 @center@ @lib.check_number(sol, 30)@@"cm"@. 
