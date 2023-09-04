@@ -1,0 +1,1 @@
+msg = {"strana", "strane"} 

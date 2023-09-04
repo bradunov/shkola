@@ -265,6 +265,36 @@
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00173",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Tačka, prava, ravan",
+      "topic": "Poliedar",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00174",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Tačka, prava, ravan",
+      "topic": "Poliedar",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00175",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Tačka, prava, ravan",
+      "topic": "Poliedar",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
     }
   ]
 }
