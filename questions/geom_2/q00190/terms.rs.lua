@@ -1,0 +1,2 @@
+		
+elem = {"dužine", "širine", "dubine"}	
