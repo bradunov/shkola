@@ -158,6 +158,11 @@
                       ', columnNo: ' + columnNo + ', error: ' + error + ', stack trace: ' + (error ? error.stack : "Not available");
       let type = "JS_ERROR";
 
+      if msg.trim() == "Uncaught ReferenceError: google is not defined" {
+        // Ignore this error as it is not critical
+        return true;
+      }
+
       if (typeof sendFeedbackToServer === "function") {
         // If a feedback function exists, use it as it will also record question state
         let root = (typeof global_root === "undefined")?"main":global_root;
@@ -181,7 +186,8 @@
         feedback['html'] = document.documentElement.innerHTML;
         sendHTTPFeedback(feedback);
       }
-      return false;
+      // We don't want users to see the error
+      return true;
     }
     </script>
 
