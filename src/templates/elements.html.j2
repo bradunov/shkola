@@ -155,7 +155,7 @@
       let l_id = (typeof global_l_id === "undefined")?"":global_l_id;
       let language = (typeof global_language === "undefined")?"":global_language;
       let error_msg = 'msg: ' + msg + ', url: ' + url + ', lineNo: ' + lineNo + 
-                      ', columnNo: ' + columnNo + ', error: ' + error;
+                      ', columnNo: ' + columnNo + ', error: ' + error + ', stack trace: ' + (error ? error.stack : "Not available");
       let type = "JS_ERROR";
 
       if (typeof sendFeedbackToServer === "function") {
