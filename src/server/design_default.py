@@ -1112,12 +1112,31 @@ class Design_default(object):
 
         page.template_params["template_name"] = Design_default._add_language(page, "browse_intro.html.j2")
 
-        page.template_params["year"] = page.page_params.get_param("year").title()
-        page.template_params["theme"] = page.page_params.get_param("theme").title()
-        page.template_params["subtheme"] = page.page_params.get_param("subtheme").title()
-        page.template_params["topic"] = page.page_params.get_param("topic").title()
-        page.template_params["period"] = context.c.session.get("period").title()
-        page.template_params["difficulty"] = context.c.session.get("difficulty").title()
+        year = ""
+        theme = ""
+        subtheme = ""
+        topic = ""
+        period = ""
+        difficulty = ""
+
+        try:
+            year = page.page_params.get_param("year").title()
+            theme = page.page_params.get_param("theme").title()
+            subtheme = page.page_params.get_param("subtheme").title()
+            topic = page.page_params.get_param("topic").title()
+            period = context.c.session.get("period").title()
+            difficulty = context.c.session.get("difficulty").title()
+        except Exception as ex:
+            logging.error(f"Error getting params for {year}/{theme}/{subtheme}/{topic}/{period}/{difficulty}: {ex}")
+            pass
+
+
+        page.template_params["year"] = year
+        page.template_params["theme"] = theme
+        page.template_params["subtheme"] = subtheme
+        page.template_params["topic"] = topic
+        page.template_params["period"] = period
+        page.template_params["difficulty"] = difficulty
 
 
         page.template_params["h1"] = page.template_params['year']
