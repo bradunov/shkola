@@ -11,8 +11,8 @@ addition_table = function()
     for i=0,columns-1 do
         q[i] = {}
         ind[i] = math.random(2)
+        fact = 10
         if (ind[i] == 1) then
-            fact = 10
             min_range = min*fact
             max_range = max*fact
             q[i][1] = min_range - math.random(max_range)
@@ -35,8 +35,7 @@ addition_table = function()
                 q[i][1] =  q[i][1]/com				
                 denom[i] = denom[i]/com
 			end		
-        end
-		
+        end		
         q[i][2] = q[i][1] * q[i][1] 
 	    den2 = denom[i] * denom[i]	
         if (ind[i] == 1) then	
@@ -87,3 +86,4 @@ addition_table = function()
 
     return text
 end          
+            

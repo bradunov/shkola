@@ -84,9 +84,6 @@ if (ch == 4) then
         end			
 	end
 end 
-for i = 1,2 do
-	numb[i] = lib.math.round_dec(numb[i], 2)
-end
 
 if (ind > 1) then
     if (ind == 2) then	
@@ -106,11 +103,9 @@ else
     numb[5] = 0	
 end	
 
-for i = 3,5 do
+for i = 1,5 do
 	numb[i] = lib.math.round_dec(numb[i], 2)
 end
-
-
 
 if (ch == 1 or ch == 3) then
     ans1 = elem[2] .. space .. " H = " .. lib.check_number(numb[2]) 	

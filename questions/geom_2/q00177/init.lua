@@ -56,12 +56,13 @@ else
 	s = numb[1]^2 + numb[2]^2 + numb[3]^2	
 	quest = edge[1] .. " = " .. numb[1] .. meas[1] .. "," .. space .. edge[2] .. " = " .. numb[2] .. meas[1] .. "," .. space .. edge[3] .. " = " .. numb[3] .. meas[1]	
 end	
-numb[ind] = lib.math.round_dec(math.sqrt (s),1)
+numb[ind] = math.sqrt (s)
 
-s = math.sqrt (numb[1]^2 + numb[2]^2)
-area = lib.math.round_dec(numb[3] * s, 1)	
-
+tmp = math.sqrt (numb[1]^2 + numb[2]^2)
+area = lib.math.round_dec(numb[3] * tmp, 1)	
+numb[ind] = lib.math.round_dec(numb[ind],1)
    
+
 mycanvas = function(no)
 
   lib.start_canvas(350, 150, "center")
@@ -87,4 +88,3 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end
-           

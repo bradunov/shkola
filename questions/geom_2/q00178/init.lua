@@ -51,66 +51,38 @@ for i = 1,4 do
 end   
    
 ind = math.random(5)
-
 ch = math.random(3)
 
 if (ind < 4) then  
 	s = numb[1]^2 
 	quest = edge[1] .. " = " .. numb[1] .. meas[1] .. "," .. space .. edge[ind+1] .. " = " .. numb[ind+1] .. meas[1]
 	if (ind == 1) then
-		numb[3] = math.sqrt (3*s + numb[2]^2)
-		numb[3] = lib.math.round_dec(numb[3],1)			
-		numb[4] = math.sqrt (4*s + numb[2]^2)	
-		numb[4] = lib.math.round_dec(numb[4],1)			
-        ans = edge[3] .. " = " .. lib.check_number(numb[3]) .. meas[1] 
-        if (ch == 1) then 
-			ans = ans .. "," .. space .. edge[4] .. " = " .. lib.check_number(numb[4]) .. meas[1]
-		end 		
+		numb[3] = math.sqrt (3*s + numb[2]^2)		
+		numb[4] = math.sqrt (4*s + numb[2]^2)						
 	else			
 		if (ind == 2) then	
 			numb[2] = math.sqrt (numb[3]^2 - 3*s)				
 		else
 			numb[2] = math.sqrt (numb[4]^2 - 4*s)			 					 			
 		end	
-		numb[2] = lib.math.round_dec(numb[2],1)		
-		ans = edge[2] .. " = " .. lib.check_number(numb[2]) .. meas[1]
 		if (ind == 2) then			
-			numb[4] = math.sqrt (4*s + numb[2]^2)			
-			numb[4] = lib.math.round_dec(numb[4],1)	
-			if (ch == 1) then 
-				ans = ans .. "," .. space .. edge[4] .. " = " .. lib.check_number(numb[4]) .. meas[1]
-			end 					
+			numb[4] = math.sqrt (4*s + numb[2]^2)								
 		else	
-			numb[3] = math.sqrt (3*s + numb[2]^2)		 			
-			numb[3] = lib.math.round_dec(numb[3],1)		 
-			if (ch == 1) then 
-				ans = ans .. "," .. space .. edge[3] .. " = " .. lib.check_number(numb[3]) .. meas[1]
-			end 				
+			numb[3] = math.sqrt (3*s + numb[2]^2)		 			 				
 		end	
 	end
 else
 	s = numb[2]^2 	
 	quest = edge[2] .. " = " .. numb[2] .. meas[1] .. "," .. space .. edge[ind-1] .. " = " .. numb[ind-1] .. meas[1] 
 	if (ind == 4) then
-		numb[1] = math.sqrt ((numb[3]^2 - s)/3)
-		numb[1] = lib.math.round_dec(numb[1],1)			
+		numb[1] = math.sqrt ((numb[3]^2 - s)/3)		
     else		
-		numb[1] = math.sqrt ((numb[4]^2 - s)/4)
-		numb[1] = lib.math.round_dec(numb[1],1)				
-    end	
-	ans = edge[1] .. " = " .. lib.check_number(numb[1]) .. meas[1] 		
+		numb[1] = math.sqrt ((numb[4]^2 - s)/4)		
+    end		
 	if (ind == 4) then	
-		numb[4] = math.sqrt (4*numb[1]^2+s)	
-		numb[4] = lib.math.round_dec(numb[4],1)		 
-		if (ch == 1) then 
-			ans = ans .. "," .. space .. edge[4] .. " = " .. lib.check_number(numb[4]) .. meas[1]
-		end 			
+		numb[4] = math.sqrt (4*numb[1]^2+s)		 		
     else		
-		numb[3] = math.sqrt (3*numb[1]^2+s)
-		numb[3] = lib.math.round_dec(numb[3],1)		
-		if (ch == 1) then 
-			ans = ans .. "," .. space .. edge[3] .. " = " .. lib.check_number(numb[3]) .. meas[1]
-		end 			
+		numb[3] = math.sqrt (3*numb[1]^2+s)		
     end	
 end	
 
@@ -126,9 +98,41 @@ if (ch > 1) then
     else
 	    ans2 = "P = " .. lib.check_number(area[1],50).. meas[2]	
     end
+end
+	
+for i = 1,4 do
+	numb[i] = lib.math.round_dec(numb[i],1)	
 end	
-
-
+if (ind < 4) then  
+	if (ind == 1) then				
+        ans = edge[3] .. " = " .. lib.check_number(numb[3]) .. meas[1] 
+        if (ch == 1) then 
+			ans = ans .. "," .. space .. edge[4] .. " = " .. lib.check_number(numb[4]) .. meas[1]
+		end 		
+	else				
+		ans = edge[2] .. " = " .. lib.check_number(numb[2]) .. meas[1]
+		if (ind == 2) then			
+			if (ch == 1) then 
+				ans = ans .. "," .. space .. edge[4] .. " = " .. lib.check_number(numb[4]) .. meas[1]
+			end 					
+		else	 
+			if (ch == 1) then 
+				ans = ans .. "," .. space .. edge[3] .. " = " .. lib.check_number(numb[3]) .. meas[1]
+			end 				
+		end	
+	end
+else
+	ans = edge[1] .. " = " .. lib.check_number(numb[1]) .. meas[1] 		
+	if (ind == 4) then	 
+		if (ch == 1) then 
+			ans = ans .. "," .. space .. edge[4] .. " = " .. lib.check_number(numb[4]) .. meas[1]
+		end 			
+    else			
+		if (ch == 1) then 
+			ans = ans .. "," .. space .. edge[3] .. " = " .. lib.check_number(numb[3]) .. meas[1]
+		end 			
+    end	
+end	
   
 mycanvas = function(no)
 

@@ -125,9 +125,6 @@ else
 			numb[1] = numb[5] / (tmp*numb[2]) 
 		end		
 	end
-	for i = 1,2 do
-		numb[i] = lib.math.round_dec(numb[i], 2)
-	end
 end
 	
 area_b = numb[1] * numb[1]
