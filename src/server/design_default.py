@@ -1127,7 +1127,10 @@ class Design_default(object):
             period = context.c.session.get("period").title()
             difficulty = context.c.session.get("difficulty").title()
         except Exception as ex:
-            logging.error(f"Error getting params for {year}/{theme}/{subtheme}/{topic}/{period}/{difficulty}: {ex}")
+            logging.error(
+                "Error getting params for {}/{}/{}/{}/{}/{}: {}".format(
+                    year, theme, subtheme, topic, period, difficulty, ex
+                ))
             pass
 
 
