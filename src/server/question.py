@@ -583,8 +583,8 @@ class Question(object):
         try:
             lua_fun(self.page, self.lib, strings)
         except Exception as e:
-            logging.error("An exception occurred in question {}: {}\n{}".format(\
-                self.q_id, e, traceback.format_exc()))
+            logging.error("An exception occurred in question {}: {}\nCODE: {}\nSTRINGS:{}\n{}".format(\
+                self.q_id, e, code, strings, traceback.format_exc()))
             raise e
 
 
