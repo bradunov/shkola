@@ -157,7 +157,7 @@ class Site:
                               "Stack: {}".format(
                     error, request.method(), request.get_url(), request.get_query_data(), 
                     request.get_post_data() if request.method() == 'POST' else "", 
-                    request.get_cookie(), request.header_remote_addr(), request.header_user_agent(),
+                    request.get_all_cookies(), request.header_remote_addr(), request.header_user_agent(),
                     trace_str))
                 raise error
 

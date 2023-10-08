@@ -90,6 +90,10 @@ class Request:
         return None
 
 
+    def get_all_cookies(self):
+        return self._cookies
+
+
     def param_get(self, name, default = None):
         return self._request.params.get(name, default)
 
