@@ -151,7 +151,14 @@ class Site:
                 page_body = page.main(request, headers, tc, args)
             except Exception as error:
                 trace_str = traceback.format_exc()
-                logging.error("Error: {}\n{}".format(error, trace_str))
+                logging.error("Error: {}\n"
+                              "Page: {} {}\nParams: {}\n{}\n"
+                              "Cookies: {}\nRemote IP: {}\nUser agent: {}\n"
+                              "Stack: {}".format(
+                    error, request.method(), request.get_url(), request.get_query_data(), 
+                    request.get_post_data() if request.method() == 'POST' else "", 
+                    request.get_cookie(), request.header_remote_addr(), request.header_user_agent(),
+                    trace_str))
                 raise error
 
         response = cherrypy.response
