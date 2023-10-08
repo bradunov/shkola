@@ -6,7 +6,7 @@ ind = {}
 answ = {""}
 result = {""}
 
-for i = 1,29 do
+for i = 1,34 do
     index[i] = i
 end	
 ind = lib.math.random_shuffle(index)

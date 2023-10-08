@@ -16,17 +16,23 @@ text = {"Piramida je poliedar sa dva paralelna podudarna mnogougla.",
 		"Piramida je prava ako je podnožje visine piramide centar kružnice opisane oko osnove.",		
 		"Piramida je prava ako je jedna bočna ivica normalna na ravan osnove.",			
 		"Piramida je prava ako se oko njene osnove može opisati kružnica.",				
-		"Bočne ivice prave piramide jednake su među sobom.",		
+		"Bočne ivice prave piramide jednake su među sobom.",			
  		"Piramida je prava samo ako je njena osnova pravilni mnogougao.",
   		"Omotač prave piramide čine isključivo jednakostranični trouglovi.",
-		"Omotač prave piramide čine jednakokraki ili jednakostranični trouglovi.",		
+		"Omotač prave piramide čine isključivo jednakokraki ili jednakostranični trouglovi.",		
 		"Piramida je pravilna ako je njena osnova pravilni mnogougao.",		
 		"Pravilni tetraedar je telo čije su strane četiri podudarna jednakostranična trougla.",		
 	    "Glavni dijagonalni presek pravilne piramide je jednakokraki trougao određen sa dve nesusedne bočne ivice i sadrži visinu.",		
 	    "Pravilna trostrana piramida nema dijagonalni presek.",
 	    "Pravilna trostrana piramida ima tri dijagonalna preseka.",		
 	    "Dijagonalni presek pravilne piramide je jednakokraki trougao.", 
-	    "Dijagonalni presek pravilne piramide je jednakostranični trougao.",
-		"Piramida ima neparan broj ivica."}		
+	    "Dijagonalni presek pravilne piramide je uvek jednakostranični trougao.",
+		"Piramida ima neparan broj ivica.",
+		"Tupougli trougao ne može biti osnova prave piramide.",	
+		"Svaki trougao može biti osnova prave piramide.",
+		"Romb može biti osnova prave piramide.",
+		"Piramida je prava ako su joj sve bočne ivice jednake.",		
+		"Podnožje visine prave piramide nalazi se uvek u unutrašnjosti osnove."			
+		}		
 
-reply = {"n", "t", "t", "n", "n", "t","t", "t", "n", "t", "t", "t", "t", "n", "t", "n", "t", "t", "n", "n", "t", "t", "t", "t", "t", "n", "t", "n", "n"}
+reply = {"n", "t", "t", "n", "n", "t", "t", "t", "n", "t", "t", "t", "t", "n", "t", "n", "н", "t", "n", "n", "t", "t", "t", "t", "t", "n", "t", "n", "n", "n", "t", "n", "t", "n"}

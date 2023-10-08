@@ -475,6 +475,116 @@
       "rank_subtheme": "3",
       "rank_topic": "4",
       "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00194",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Piramida",
+      "topic": "Pojam, elementi, vrste",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00195",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Piramida",
+      "topic": "Pojam, elementi, vrste",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00196",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Piramida",
+      "topic": "Pojam, elementi, vrste",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00197",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Piramida",
+      "topic": "Pojam, elementi, vrste",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00198",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Piramida",
+      "topic": "Površina",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00199",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Piramida",
+      "topic": "Površina",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00200",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Piramida",
+      "topic": "Površina",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00201",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Piramida",
+      "topic": "Površina",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00202",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Piramida",
+      "topic": "Zapremina",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00203",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Piramida",
+      "topic": "Zapremina",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00204",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Piramida",
+      "topic": "Zapremina",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "1"
     }
   ]
 }
