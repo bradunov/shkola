@@ -1,0 +1,2 @@
+		
+elem = {"poluprečnik osnove", "visina", "obim osnove", "površina osnove", "površina omotača", "osni presek"}
