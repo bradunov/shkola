@@ -23,13 +23,13 @@ dark_style = {["off_color"] = "aaf",
 text_style = {["font_size"] = "16"}		
 
 
-edge = {"a", "b", "H", "d", "Q"} 
+edge = {"a", "b", "H", "r", "Q", "O"} 
 meas = {"cm", "cm²", "cm³"} 
 space = "\( \ \ \ \ \) " 
 numb = {}
 px = {}
 py = {}
-index = {1,2,3,4,5}
+index = {1,2,5,6}
 out = {}
 out = lib.math.random_shuffle(index)
 
@@ -43,37 +43,17 @@ numb[1] = 2 + math.random(10)
 numb[2] = 2 + math.random(10)	
 if (ind == 1) then
     numb[3] = numb[1]
-	numb[4] = 2 * numb[2]
+	numb[4] = numb[2]
 else
     numb[3] = numb[2]
-	numb[4] = 2 * numb[1]
+	numb[4] = numb[1]
 end
-numb[5] = 2 * numb[1] * numb[2]
+numb[5] = numb[1] * numb[2]
+numb[6] = 2 * (numb[1] + numb[2])
 
-check = 0
-if (ind == 1) then
-	if ((out[1] == 1 and out[2] == 3) or (out[1] == 3 and out[2] == 1)) then
-	    check = 1
-	else
-		if ((out[1] == 2 and out[2] == 4) or (out[1] == 4 and out[2] == 2)) then
-			check = 1
-		end	
-	end	
-else
-	if ((out[1] == 1 and out[2] == 4) or (out[1] == 4 and out[2] == 1)) then
-	    check = 1
-	else
-		if ((out[1] == 2 and out[2] == 3) or (out[1] == 3 and out[2] == 2)) then
-			check = 1
-		end	
-	end	
+if ((out[1] == 5 and out[2] == 6) or (out[1] == 6 and out[2] == 5)) then
+    out[1] = math.random(2)
 end	
-if (check == 1) then
-	tmp = out[2] 
-	out[2] = out[3]	
-	out[3] = tmp
-end	
-
 quest = edge[out[1]] .. " = "
 if (out[1] == 5) then  
 	quest = quest .. numb[out[1]] .. meas[2]
@@ -87,8 +67,8 @@ else
 	quest = quest .. numb[out[2]] .. meas[1]	
 end
 
-area_b = pi * (0.5 * numb[4])^2
-area = area_b + numb[3] * numb[4] * pi
+area_b = pi * numb[4]^2
+area = 2*area_b + 2 * numb[3] * numb[4] * pi
 vol = area_b * numb[3]
 area = lib.math.round_dec(area, 1)
 vol = lib.math.round_dec(vol, 1)
@@ -141,17 +121,13 @@ mycanvas = function(no)
 		lib.add_straight_path(px[1],py[1]+w, {{ov, 0}}, style,  false, false) 
 	    lib.add_text(2*v+ow, ov-ow, "a", text_style, false, false) 
 		lib.add_text(2*ov-4*ow, w+ow, "b", text_style, false, false) 
-		lib.add_text(2*v+ow, v-ow, "H", text_style, false, false) 
-		lib.add_text(v, v, "d", text_style, false, false) 
-		lib.add_text(w+2*ow, 4*ow, "Q", text_style, false, false)	
+		lib.add_text(ov, w, "Q", text_style, false, false)	
 	else
 		lib.add_straight_path(px[1],py[1], {{0, w}}, style,  false, false) 
 		lib.add_straight_path(px[1]+ov,py[1], {{0, w}}, style,  false, false)
 		lib.add_text(ov-ow, ov-ow-5, "a", text_style, false, false) 
 		lib.add_text(v, v, "b", text_style, false, false) 
-		lib.add_text(2*v, 2*ow, "d", text_style, false, false) 
-		lib.add_text(2*w, v, "H", text_style, false, false) 
-		lib.add_text(ov+v, w+ow, "Q", text_style, false, false)
+		lib.add_text(ov-ow, v, "Q", text_style, false, false)
 	end
 
 --[[
@@ -162,5 +138,5 @@ mycanvas = function(no)
 ]]--
  
   lib.end_canvas()
-end            
+end        
     

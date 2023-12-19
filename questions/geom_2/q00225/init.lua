@@ -38,11 +38,11 @@ numb[2] = min_range + math.random(max_range)
 numb[3] = math.sqrt(numb[1]^2 + numb[2]^2)	
 numb[5] = numb[1]^2 / numb[3]                    --[[ H1 ]]--
 numb[6] = numb[2]^2 / numb[3]                    --[[ H2 ]]--
-numb[4] = numb[2] * numb[5] / numb[1]             --[[ r ]]--
+numb[4] = numb[1] * numb[2] / numb[3]             --[[ r ]]--
 
 area = numb[4] * (numb[1] + numb[2]) * 22/7
 area = lib.math.round_dec(area,1)
-vol = numb[4]^2 * (numb[5] + numb[6]) * 22/21
+vol = numb[4]^2 * numb[3] * 22/21
 mass = vol * dens 
 mass = lib.math.round_dec(mass,1)	
 
@@ -120,6 +120,6 @@ end
  
   lib.end_canvas()
 end                     
-      
+     
             
     

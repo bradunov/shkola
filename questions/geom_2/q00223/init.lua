@@ -20,7 +20,10 @@ addition_table = function()
 	ind = math.random(11)
 	if (ind == 8) then
 	    ind = ind - math.random(5)
-    end		
+    end	
+	if (ind == 10) then
+	    ind = ind - 2 - math.random(5)
+    end	
 	
     if (ind < 6) then
    	    q[i][7] = 1

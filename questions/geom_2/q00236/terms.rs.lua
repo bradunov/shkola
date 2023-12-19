@@ -1,0 +1,2 @@
+		
+name = {"pozitivno", "negativno"}
