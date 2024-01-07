@@ -149,7 +149,7 @@ else
 					dat2 = 6
 					numb[6] = math.ceil(numb[6])
 					numb[2] = numb[6] / (2 * pi)
-					numb[7] = pi * numb[1]^2				
+					numb[7] = pi * numb[2]^2				
 				else
 					dat2 = 7
 					numb[7] = math.ceil(numb[7])
@@ -165,7 +165,7 @@ else
 					dat2 = 6
 					numb[6] = math.ceil(numb[6])
 					numb[2] = numb[6] / (2 * pi)
-					numb[7] = pi * numb[1]^2				
+					numb[7] = pi * numb[2]^2				
 				else
 					dat2 = 7
 					numb[7] = math.ceil(numb[7])

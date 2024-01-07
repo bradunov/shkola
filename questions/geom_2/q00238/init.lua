@@ -52,21 +52,26 @@ rotsin = math.sin(angrad[ch])
 
 ind = math.random(4)
 
-x[1] = dim2 + math.random(dim2-6)
-if (ind < 3) then
-	y[1] = 3 + math.random(dim2-5)
+if (ind < 4) then
+	x[1] = dim2 + math.random(dim2-6)
+	y[1] = 2 + math.random(dim2-5)
+	x[2] = x[1]
+	y[2] = dim - y[1]
 else
-	y[1] = math.random(dim2-3)
-end
-x[2] = x[1]
-y[2] = dim - y[1]
-x[5] = x[1] 
-y[5] = dim2
+	x[1] = dim2 
+	y[1] = math.random(dim2-4)	
+	x[2] = dim - 1 - math.random(5)
+    y[2] = dim2
+end	
+x[5] = (x[1] + x[2])/2
+y[5] = (y[1] + y[2])/2
 dif1 = dim - 2 * y[1]
 
 xaxis = dim2 - 2
-yaxis = 1
-if (ind == 3) then
+
+if (ind < 4) then
+    yaxis = 1
+else
     yaxis = dim2 - 2
 end
 
@@ -102,7 +107,7 @@ if (ind < 3) then
 	x[5-ind] = ptx[5-ind] + 2 + yaxis
 	y[5-ind] = xaxis - pty[5-ind] + 2				
 else
-    if (ind == 3) then
+    if (ind == 4) then
 		if (sg == 1) then
 		    ptx[3] = ptx[1]*rotcos - pty[1]*rotsin
 		    pty[3] = pty[1]*rotcos + ptx[1]*rotsin			
@@ -139,9 +144,9 @@ end
 
 mycanvas = function()
 
-  lib.start_canvas(300, 280, "center")
+ lib.start_canvas(280, 230, "center")
 
-  w = math.floor(270/dim) 
+  w = math.floor(220/dim) 
   ow = 10
   
   for i = 2,dim do
@@ -159,19 +164,28 @@ mycanvas = function()
   lib.add_straight_path(ow+(yaxis+2)*w-3, 2*ow, {{ow/4, -ow}, {ow/4, ow}}, diff_style, false, false)
   lib.add_text(ow+(yaxis+3)*w, 2*ow, "y", text_style) 
 
+if (ind < 4) then
   lib.add_line(ow+x[1]*w, ow+y[1]*w, 0, dif1*w, red_style, false, false)
   lib.add_text(x[1]*w, y[1]*w, "A", text_style)  
-  lib.add_circle (ow+x[1]*w, ow+y[1]*w, 3, red_style, false, false )   
+  lib.add_circle (ow+x[1]*w, ow+y[1]*w, 2, red_style, false, false )   
   lib.add_text(x[2]*w, 2*ow+y[2]*w, "B", text_style) 
-  lib.add_circle (ow+x[2]*w, ow+y[2]*w,  3, red_style, false, false ) 
+  lib.add_circle (ow+x[2]*w, ow+y[2]*w,  2, red_style, false, false ) 
+else
+  lib.add_line(ow+x[1]*w, ow+y[1]*w, (x[2]-x[1])*w, (y[2]-y[1])*w, red_style, false, false)
+  lib.add_text(x[1]*w, y[1]*w, "A", text_style)  
+  lib.add_circle (ow+x[1]*w, ow+y[1]*w, 2, red_style, false, false )   
+  lib.add_text(ow+x[2]*w, 2*ow+y[2]*w, "B", text_style) 
+  lib.add_circle (ow+x[2]*w, ow+y[2]*w,  2, red_style, false, false ) 
+end
   
 --[[  slika duzi 
   lib.add_line(ow+x[3]*w, ow+y[3]*w, (x[4]-x[3])*w, (y[4]-y[3])*w, blue_style, false, false)  
   lib.add_text(2*ow+x[3]*w, 2*ow+y[3]*w, "P", text_style) 
-  lib.add_circle (ow+x[3]*w, ow+y[3]*w, 3, blue_style, false, false )   
+  lib.add_circle (ow+x[3]*w, ow+y[3]*w, 2, blue_style, false, false )   
   lib.add_text(2*ow+x[4]*w, y[4]*w, "Q", text_style) 
-  lib.add_circle (ow+x[4]*w, ow+y[4]*w, 3, blue_style, false, false ) 
-]]-- 
+  lib.add_circle (ow+x[4]*w, ow+y[4]*w, 2, blue_style, false, false ) 
+]]--
+
 	if (ind < 3) then
 		r = 2*pty[1]*w
 		if (ind == 1) then
@@ -182,23 +196,23 @@ mycanvas = function()
 			yy = ow+y[2]*w
 		end
 	else	
-		if (ind == 3) then
+		if (ind == 4) then
 			xx = ow+(yaxis+2)*w
 			yy = ow+(xaxis+2)*w
 			lib.add_text(xx-ow, yy-5, "O", text_style)
-			lib.add_circle (xx, yy, 3, diff_style, false, false ) 
+			lib.add_circle (xx, yy, 2, diff_style, false, false ) 
 			r = w*math.sqrt(ptx[1]^2 + pty[1]^2)
+	lib.add_circle (xx, yy, w*math.sqrt(ptx[2]^2 + pty[2]^2), blue_style, false, false )  			
 		else
 			r = pty[1]*w
 			xx = ow+x[5]*w
 			yy = ow+y[5]*w	
 			lib.add_text(x[5]*w+2*ow, y[5]*w-5, "S", text_style)
-			lib.add_circle (ow+x[5]*w, ow+y[5]*w, 3, diff_style, false, false )
+			lib.add_circle (ow+x[5]*w, ow+y[5]*w, 2, diff_style, false, false )
 		end
 	end
 	lib.add_circle (xx, yy, r, blue_style, false, false )  
 	lib.add_circle (xx, yy, 2, dif_style, false, false )   
 
   lib.end_canvas()
-end                                         
-     
+end           

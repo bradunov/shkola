@@ -1,6 +1,6 @@
 
 U loptu prečnika @numb@@meas[1]@ @text@  je @name[ind]@. Izračunaj površinu i zapreminu lopte i površinu i zapreminu upisanog tela.
-(Uzmi da je @"π"@ = @"22/7"@, rezultate zapiši na dve decimalu.) 
+(Uzmi da je @"π"@ = @"22/7"@, rezultate zapiši na dve decimale.) 
 @vspace@
 @center@ Površina lopte je @hspacept(5)@  @lib.check_number(area,50)@@meas[2]@.
 @center@ Zapremina lopte je @hspacept(5)@  @lib.check_number(vol,50)@@meas[3]@.

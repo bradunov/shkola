@@ -139,9 +139,9 @@ end
 
 mycanvas = function()
 
-  lib.start_canvas(300, 280, "center")
+  lib.start_canvas(300, 230, "center")
 
-  w = math.floor(270/dim) 
+  w = math.floor(220/dim) 
   ow = 10
   
   for i = 2,dim+4 do
@@ -195,5 +195,4 @@ mycanvas = function()
 	  
 
   lib.end_canvas()
-end                                         
-             
+end         

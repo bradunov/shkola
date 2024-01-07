@@ -11,10 +11,14 @@ default_path = "../questions"
 parser = argparse.ArgumentParser(description="Create ARM template")
 parser.add_argument("-f", "--file", help="Input XLS file", type=str, default=defaut_file_name)
 parser.add_argument("-p", "--path", help="Path to questions", type=str, default=default_path)
+parser.add_argument("--ignore_errors", help="Report errors but continue", action='store_true')
+parser.add_argument("-t", "--dump_topics", help="Print the list of topics", action='store_true')
 
 args = parser.parse_args()
 file_name = args.file.strip()
 path = args.path.strip()
+ignore_errors = args.ignore_errors
+dump_topics = args.dump_topics
 
 if path[-1] != "/":
   path += "/"
@@ -80,6 +84,9 @@ for isheet in range(0, book.nsheets):
       for x in range(0, sheet.ncols):
         print("{} ".format(sheet.cell(y,x).value), end="")
       print("")
+      if not ignore_errors:
+        print("Stopping due to error!")
+        exit(0)
       continue
 
     if not all_empty:
@@ -99,6 +106,9 @@ for isheet in range(0, book.nsheets):
 
       if not os.path.isfile(path + question + "/text." + language): 
         print("Missing: ", path + question + "/text." + language)
+        if not ignore_errors:
+          print("Stopping due to error!")
+          exit(0)
       else:
         if list_file_name not in lists.keys():
           lists[list_file_name] = {
@@ -125,11 +135,12 @@ for isheet in range(0, book.nsheets):
         themes[subtheme] = ""
 
 
-print("\n\nLista tema:\n")
-print(json.dumps(themes, indent=2))
+if dump_topics:
+  print("\n\nLista tema:\n")
+  print(json.dumps(themes, indent=2))
 
+  #print(json.dumps(lists, indent=2))
+  for file_name, content in lists.items():
+    with open(file_name, 'w') as outfile:
+      json.dump(content, outfile, indent=2, ensure_ascii=False)
 
-#print(json.dumps(lists, indent=2))
-for file_name, content in lists.items():
-  with open(file_name, 'w') as outfile:
-    json.dump(content, outfile, indent=2, ensure_ascii=False)

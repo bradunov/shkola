@@ -1,3 +1,3 @@
 		
 direction = {"pozitivno", "negativno"}
-point = {"A", "B", "O(0,0)", "S (sredina duži AB)"}
+point = {"A", "B", "S (sredina duži AB)", "O(0,0)"}
