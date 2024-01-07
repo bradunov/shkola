@@ -66,5 +66,8 @@
   "Tačka, prava, ravan": "linija.svg",
   "Sličnost": "merenje duzine.svg",
   "Prizma": "geometrijska tela.svg",
-  "Piramida": "trougao.svg"
+  "Piramida": "trougao.svg",
+  "Valjak": "obim.svg",
+  "Kupa": "masa.svg",
+  "Lopta": "kruznica i krug.svg"
 }
