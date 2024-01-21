@@ -1,1 +1,1 @@
-Obarvaj figuro, s katero nadaljujemo začeti niz.
+Obarvaj črno figuro, s katero nadaljujemo začeti niz.

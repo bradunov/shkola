@@ -1,6 +1,6 @@
 Calculate and round the result to three decimals.
 
-@repeat(5)@
+@repeat(3)@
 @vspace@
 @center@ @quest@  @reply@
 @/repeat@

@@ -46,14 +46,11 @@ if (ind == 1) then
     end	
 else
     for i = 1, dim_word[index] do
-        tempw = word[index][i] 
-        reply = "answer == '" .. tempw .. "' "  ;
-        ans = "answer = '" .. tempw .. "' ";		  		
-		if (i == dim_word[index]) then
-    	    solut_1 = solut_1 .. lib.check_string(reply,15,ans) 
-		else
-    	    solut_1 = solut_1 .. lib.check_string(reply,15,ans) .. ", "	
-		end	
+        tempw = word[index][i]         		  	
+    	solut_1 = solut_1 .. lib.check_string(tempw,15) 
+	if (i < dim_word[index]) then
+    	    solut_1 = solut_1 .. ", "	
+        end	
     end	
 end	
 solut_1 = solut_1 .. bracketr
@@ -126,27 +123,11 @@ mycanvas = function(no)
           lib.add_circle (x, y, 5, style_green, true, false) 
 		  lib.add_input(x-15, y-3*ow/2, 30, 30, lib.check_string(q[i], 15))  		  
       else
-          lib.add_circle (x, y, 5, style_green, true, false) 
-          reply = "answer == '" .. q[i] .. "' "  ;
-          ans = "answer = '" .. q[i] .. "' ";		  
-		  lib.add_input(x-15, y-3*ow/2, 30, 30, lib.check_string(reply, 15, ans))                   
+          lib.add_circle (x, y, 5, style_green, true, false) 	  
+		  lib.add_input(x-15, y-3*ow/2, 30, 30, lib.check_string(q[i], 15))                   
 	  end
   end
 
   lib.end_canvas()
 end  
      
-      
-            
-        
-   
-       
-            
-    
-          
-          
-    
-    
-                  
-                
-                

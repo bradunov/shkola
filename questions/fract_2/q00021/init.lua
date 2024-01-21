@@ -49,6 +49,7 @@ for i = 1,4 do
     if (numer[i] == 0) then   
 	    numb[i] = numb[i] + 1
 		numer[i] = 1
+		value[i] = numb[i]/part		
 	end		
 	if (ceo[i] == 0) then
 	    answ[i] = ""
@@ -86,20 +87,3 @@ mycanvas = function(no)
  
   lib.end_canvas()
 end   
-   
- 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            

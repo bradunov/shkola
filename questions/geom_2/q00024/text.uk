@@ -1,5 +1,6 @@
-"Convert angle expressions to degrees, minutes, and seconds.
 
-@repeat(5)@
+Convert angle expressions to degrees, minutes, and seconds.
+
+@repeat(4)@
 @center@ @value@ @measure[3]@ = @answ@
-@/repeat@"
+@/repeat@

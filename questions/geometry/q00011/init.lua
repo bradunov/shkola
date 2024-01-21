@@ -6,7 +6,7 @@ style =
         ["on_color"] = "fff",
         ["line_color"] = "f00",
         ["off_line_color"] = "000",
-        ["line_width"] = "2"};
+        ["line_width"] = "3"};
 
 izbor = math.random(2)
 

@@ -1,7 +1,7 @@
 
 Reši nejednačine.
 
-@repeat(4)@
+@repeat(3)@
 @center@ @neq@,  @hspacept(15)@ @reply@  
 @/repeat@
    

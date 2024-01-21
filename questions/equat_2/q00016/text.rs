@@ -1,11 +1,13 @@
 
 Za koje prirodne brojeve @"n"@ je tačna nejednakost?
-Brojeve upiši rastućim redosledom.
+Brojeve upiši rastućim redosledom. Ako brojeva ima više od pet upisuju se samo najmanja i najveća dva, ostali su zamenjeni sa ... .
 
-@repeat(4)@
+@repeat(2)@
 @vspace@
-@center@ @neq@,  @hspacept(15)@ @reply@  
+@center@ @neq@,  
+@center@ @reply@  
 @/repeat@
+
 
    
    

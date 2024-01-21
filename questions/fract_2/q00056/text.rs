@@ -1,6 +1,6 @@
 
 Izračunaj.
-@repeat(3)@
+@repeat(2)@
 @center@ @quest@    
 @center@ =  @ans@ 
 @/repeat@         

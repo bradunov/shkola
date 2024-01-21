@@ -1,6 +1,6 @@
                                                 
 Calculate and simplify the result.
-@repeat(4)@
+@repeat(3)@
 @center@ @reply@  =   @ans@ 
 @/repeat@ 
                         

@@ -8,10 +8,3 @@ predstavi @task[ind]@:
 @vspace@
 @center@Ojler-Venovim dijagramom             
 @center@ @mycanvas()@	
-
-		  
-			  
-                       
-                                 
-             
-                  

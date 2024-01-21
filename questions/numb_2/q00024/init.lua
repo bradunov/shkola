@@ -75,8 +75,8 @@ mycanvas = function()
        if (deg[i] ~= 0) then
 	       for j = 1, deg[i] do
 		       term2 = term1/prime[i]
-               lib.add_input(z, y, 30, 30, lib.check_number(prime[i],20))			   
-               lib.add_input(x, y+w, 80, 30, lib.check_number(term2,len))	
+               lib.add_input(z, y, 40, 40, lib.check_number(prime[i],20))			   
+               lib.add_input(x, y+w, 80, 40, lib.check_number(term2,len))	
                term1 = term2
 			   y = y + w
              len = len - 5
@@ -87,13 +87,3 @@ mycanvas = function()
    
   lib.end_canvas()
 end 
-
-          
-            
-            
-            
-   
-        
-       
-             
-       

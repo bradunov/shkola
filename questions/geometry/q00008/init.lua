@@ -1,42 +1,131 @@
 
-sstyle = {["off_color"] = "fff",
-        ["on_color"] = "fff",
+brown_style = 
+	{["off_color"] = "c90",
+        ["on_color"] = "c90",
         ["line_color"] = "000",
-        ["line_width"] = "2"};
-
-different_style = {["off_color"] = "f90",
-        ["on_color"] = "f90",
+        ["line_width"] = "2"};	
+				
+yelow_style = {["off_color"] = "ff0",
+        ["on_color"] = "ff0",
         ["line_color"] = "000",
-        ["line_width"] = "2"};
+        ["line_width"] = "2"};		
 
-mycanvas = function(no)
-  lib.start_canvas(350, 200, "center")
 
-  lib.add_triangle(90, 50, 30, 20, style, true, false)
-  lib.add_rectangle(110, 10, 20, 50, style, true)
-  lib.add_triangle(150, 50, 30, 20, different_style, true, false)
-  lib.add_triangle(190, 50, 30, 20, style, true, false)
-  lib.add_rectangle(210, 10, 20, 50, style, true)
-  lib.add_triangle(250, 50, 30, 20, different_style, true, false) 
+dif_style = {["off_color"] = "fff",
+        ["on_color"] = "f30",
+        ["line_color"] = "000",
+        ["line_width"] = "1"};		
 
-  lib.add_rectangle(10, 110, 20, 50, style, true)
-  lib.add_triangle(50, 150, 30, 20, different_style, true, false) 
-  lib.add_triangle(85, 150, 30, 20, style, true, false) 
-  lib.add_text(53, 175, "1")
+index = {}
+out = {}
+for i = 1,6 do
+    index[i] = i
+end
+out = lib.math.random_shuffle(index)	
+		
+mycanvas = function()
 
-  lib.add_triangle(145, 150, 30, 20, different_style, true, false)
-  lib.add_triangle(180, 150, 30, 20, style, true, false)
-  lib.add_rectangle(200, 110, 20, 50, style, true)
-  lib.add_text(173, 175, "2")
+  ind = math.random(6)
 
-  lib.add_triangle(270, 150, 30, 20, style, true, false)
-  lib.add_rectangle(290, 110, 20, 50, style, true)
-  lib.add_triangle(330, 150, 30, 20, different_style, true, false)
-  lib.add_text(298, 175, "3")
+  results = ""
+
+  for i = 1, 6 do
+	if i > 1 then
+		results = results .. " && "
+	end
+	results = results .. "result[" .. tostring(i-1) .. "] == "
+	if (out[i] == ind) then
+	  results = results .. "1"
+	else
+	  results = results .. "0"
+	end
+  end		
+
+
+  lib.start_canvas(300, 260, "center", results)
+
+    ov = 150 
+	ow = 10
+    v = 5
+	hr = 40
+	wr = 20
+	ht = 20
+	wt = 20
+	
+	shiftx =  wr + 2*wt + 4*ow	
+	shifty =  80 
+	
+	xsabl = 80
+	
+	for i = 1,6 do 
+		level = math.floor((i-1)/3)
+		shift_x =  (i-1-3*level)*shiftx	
+		shift_y =  level*shifty		
+		x = 3*ow + shift_x
+		y = ov + shift_y 			
+		if (out[i] < 3) then
+			xx = x		
+			if (out[i] == 1) then
+				style1 = brown_style
+				style2 = yelow_style
+			else
+				style1 = yelow_style
+				style2 = brown_style
+			end
+            if (out[i] == ind) then			
+				for j = 1,2 do
+					lib.add_triangle(xsabl+(j-1)*(wr+2*wt), hr, wt, ht, style1, true, false)
+					lib.add_triangle(xsabl+(j-1)*(wr+2*wt) +wt, hr, wt, ht, style2, true, false)
+					lib.add_rectangle(xsabl+(j-1)*(wr+2*wt) +2*wt-ow, ow, wr, hr, yelow_style, true, false)	
+				end	
+            end				
+			lib.add_triangle(xx, y-ht+ow, wt, ht, style1, true, false)
+			lib.add_triangle(xx+wt, y-ht+ow, wt, ht, style2, true, false)
+			lib.add_rectangle(xx+2*wt-ow, y-hr, wr, hr, yelow_style, true, false)
+		else
+			if (out[i] < 5) then
+				xx = x
+				if (out[i] == 3) then
+					style1 = brown_style
+					style2 = yelow_style
+				else
+					style1 = yelow_style
+					style2 = brown_style
+				end	
+				if (out[i] == ind) then			
+					for j = 1,2 do
+						lib.add_triangle(xsabl+(j-1)*(wr+2*wt), hr, wt, ht, style1, true, false)
+						lib.add_rectangle(xsabl+(j-1)*(wr+2*wt) +wt-ow, ow, wr, hr, yelow_style, true, false)				
+						lib.add_triangle(xsabl+(j-1)*(wr+2*wt) +2*wt, hr, wt, ht, style2, true, false)
+					end	
+				end					
+				lib.add_triangle(xx, y-ht+ow, wt, ht, style1, true, false)
+				lib.add_rectangle(xx+wt-ow, y-hr, wr, hr, yelow_style, true, false)				
+				lib.add_triangle(xx+2*wt, y-ht+ow, wt, ht, style2, true, false)
+			else	
+				xx = x
+				if (out[i] == 5) then
+					style1 = brown_style
+					style2 = yelow_style
+				else
+					style1 = yelow_style
+					style2 = brown_style
+				end	
+				if (out[i] == ind) then			
+					for j = 1,2 do
+						lib.add_rectangle(xsabl+(j-1)*(wr+2*wt)-ow, ow, wr, hr, yelow_style, true, false)				
+						lib.add_triangle(xsabl+(j-1)*(wr+2*wt)+wt, hr, wt, ht, style1, true, false)
+						lib.add_triangle(xsabl+(j-1)*(wr+2*wt)+2*wt, hr, wt, ht, style2, true, false)						
+					end	
+				end						
+				lib.add_rectangle(xx-ow, y-hr, wr, hr, yelow_style, true, false)								
+				lib.add_triangle(xx+wt, y-ht+ow, wt, ht, style1, true, false)
+				lib.add_triangle(xx+2*wt, y-ht+ow, wt, ht, style2, true, false)
+			end	
+        end
+		lib.add_circle (xx+wt, y+ow+v, 6, dif_style, false, true)		
+	end
 
   lib.end_canvas()
 end
-
-izbor = 3
       
-                  

@@ -1,11 +1,7 @@
+
 The radius of the circle is @radius@@meas@. The distance from the center of the circle to point @pt[1]@ is @out[1]@@meas@, to point @pt[2]@ is @out[2]@@meas@, to point @pt[3]@ is @out[3]@@meas@, and to point @pt[4]@ is @out[4]@@meas@. 
 Write the labels of the points that satisfy the given conditions.
-
-@vspace@
 @center@ @ans[ord[1]]@ 
-@vspace@
 @center@ @ans[ord[2]]@ 
-@vspace@
 @center@ @ans[ord[3]]@            
-@vspace@
-@center@ @ans[ord[4]]@
+@center@ @ans[ord[4]]@       

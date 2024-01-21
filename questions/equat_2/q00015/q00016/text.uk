@@ -1,7 +1,0 @@
-For which natural numbers @"n"@ is the inequality true?
-Write the numbers in ascending order.
-
-@repeat(4)@
-@vspace@
-@center@ @neq@,  @hspacept(15)@ @reply@  
-@/repeat@

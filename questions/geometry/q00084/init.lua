@@ -4,7 +4,7 @@ line_style = {["off_color"] = "fff",
         ["on_color"] = "fff",
         ["line_color"] = "f30",
         ["off_line_color"] = "000",
-        ["line_width"] = "2"}; 
+        ["line_width"] = "3"}; 
 
 dot_style = {["font_size"] = "30"}
 	

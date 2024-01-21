@@ -1,7 +1,7 @@
 
 Reši jednačine. 
 
-@repeat(4)@
+@repeat(3)@
 @center@ @ans1@ = @ans2@@hspacept(20)@ x =  @reply@ 
 @/repeat@  
             

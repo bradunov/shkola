@@ -32,20 +32,19 @@ vremeh = vreme/imenilac
 swhole = math.floor(vremeh)
 rest = vreme - swhole * imenilac
 if (swhole == 0) then
-    answ = lib.check_fraction_simple(vreme,imenilac)
+		condition0 = "is_ok = math.eq(numerator/denominator, "..tostring(vremeh)..");"                     
+		g0 = lib.math.gcd(vreme, imenilac)
+		sln0 = "numerator="..tostring(vreme/g0)..";denominator="..tostring(imenilac/g0) .. ";"
+		answ = lib.check_fraction_condition(condition0, nil, nil, sln0)
 else
     if (rest == 0) then
 	    answ = lib.check_number(swhole,15)
 	else	
-        answ = lib.check_number(swhole,15) .. lib.check_fraction_simple(rest,imenilac)	
+		condition = "is_ok = math.eq(whole + numerator/denominator, "..tostring(vremeh)..");"                     
+		snum = lib.math.round((vremeh - swhole) * imenilac)
+		g = lib.math.gcd(snum, imenilac)
+		sln = "numerator="..tostring(snum/g)..";denominator="..tostring(imenilac/g).. ";whole="..tostring(swhole) ..";"
+		answ = lib.check_fraction_condition(condition, true, nil, sln)
 	end	
---[[ Ako se trazi skracivanje razlomka
-	
-    condition = "is_ok = math.eq(whole + numerator/denominator, "..tostring(vremeh)..");"                     
-    snum = lib.math.round((vremeh - swhole) * imenilac)
-    g = lib.math.gcd(snum, imenilac)
-    sln = "numerator="..tostring(snum/g)..";denominator="..tostring(imenilac/g)..";whole="..tostring(swhole)..";"
-    answ = lib.check_fraction_condition(condition, true, nil, sln)
-]]--	
 end	    	              
       

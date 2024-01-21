@@ -1,10 +1,4 @@
 
 Which figure continues the sequence? 
-@vspace@
- 
 @center@ @mycanvas()@
-
-@center@ Enter the correct number. @hspacept(10)@ @lib.check_number(izbor,15)@
-
-            
-            
+Colour the circle under the correct answer.

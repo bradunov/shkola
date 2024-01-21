@@ -1,1 +1,1 @@
-position = {"ispred", "iza"}
+position = {"prvi", "ispred plavog automobila", "iza plavog automobila", "poslednji"}

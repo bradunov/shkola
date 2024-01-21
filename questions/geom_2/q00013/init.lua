@@ -9,7 +9,7 @@ line_style = {["off_color"] = "fff",
         ["on_color"] = "fff",
         ["line_color"] = "0cf",
         ["off_line_color"] = "000",
-        ["line_width"] = "2"}; 
+        ["line_width"] = "3"}; 
 		
 dot_style = {["font_size"] = "35"}	
 text_style = {["font_size"] = "16"}	

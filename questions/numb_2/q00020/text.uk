@@ -1,5 +1,5 @@
 Determine the smallest common divisor of the given numbers.
 
-@repeat(5)@
+@repeat(4)@
 @center@ @answ@ @hspacept(15)@ the common divisor is @lib.check_number(number,30)@.         
 @/repeat@

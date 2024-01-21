@@ -1,5 +1,3 @@
+
+Colour the @name[ind]@ lines.
 @center@ @mycanvas()@
-
-Write the number that corresponds to the @choice@ line.
-
-@center@ @lib.check_number(index,15)@

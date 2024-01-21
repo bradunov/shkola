@@ -1,7 +1,7 @@
 
-Izračunaj i rezultat zaokrugli na tri decimale.
+Izračunaj svođenjem na deljenje prirodnim brojem. Rezultat zaokrugli na tri decimale.
 
-@repeat(5)@
+@repeat(3)@
 @vspace@
 @center@ @quest@  @reply@
 @/repeat@

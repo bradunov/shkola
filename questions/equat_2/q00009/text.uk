@@ -1,4 +1,4 @@
-@repeat(3)@
+@repeat(2)@
 What number @add[sign]@ @value[1]@ should be added to get a number that is @value[3]@ times @prod[ind]@ as much as @value[4]@?
 @vspace@
 @center@ @lib.check_string(value[2],40)@

@@ -1,7 +1,6 @@
-What angle is given angle?
 
-@repeat(5)@
+What angle is given angle:
 
-@center@   @quest@ @hspacept(3)@ @name@?  @hspacept(10)@  @answ@
-
+@repeat(4)@
+@center@   @quest@ @hspacept(3)@ @name@ @hspacept(10)@  @answ@
 @/repeat@

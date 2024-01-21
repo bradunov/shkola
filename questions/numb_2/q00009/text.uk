@@ -1,6 +1,6 @@
 
 Write all the factors of the given number from smallest to largest. If the number is prime write @"p"@ before the number.
 
-@repeat(5)@
+@repeat(4)@
 @answ@        
 @/repeat@  

@@ -1,1 +1,1 @@
-position = {"in front of", "behind"}
+position = {"the first", "in front of the blue car", "behind the blue car", "the last"}

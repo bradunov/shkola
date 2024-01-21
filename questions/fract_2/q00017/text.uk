@@ -9,4 +9,3 @@ Calculate the sums.
 @center@ = @lib.check_fraction_condition(condition, true, {}, sln)@ 
 
         
-

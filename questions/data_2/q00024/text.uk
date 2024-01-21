@@ -1,5 +1,6 @@
+
 Calculate the arithmetic mean of the given numbers and write the result in the form of a fraction.
 
-@repeat(4)@
+@repeat(3)@
 @center@ @reply[1]@ @hspacept(3)@ and @hspacept(3)@ @reply[2]@    @hspacept(15)@  @ans@ 
 @/repeat@

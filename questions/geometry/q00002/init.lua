@@ -11,9 +11,7 @@ different_style = {["off_color"] = "0cf",
         ["line_color"] = "00f",
         ["line_width"] = "2"};
 
-
-ind = math.random(2)
-
+ind = math.random(4)
 
 mycanvas = function()
 
@@ -25,22 +23,22 @@ mycanvas = function()
           results = results .. "&& "
       end
       results = results .. "result[" .. tostring(index) .. "] == "	  
-      if (i == 2) then
-	      if ( ind == 1 ) then
+      if (i < 4) then
+	      if ( ind == i ) then
              results = results .. "1 "
 	      else
              results = results .. "0 " 
           end
       else		  
-	      if (i == 3) then 	  			  
-	          if (ind == 2) then
+	      if (i == 4) then 	
+              results = results .. "0 " 	
+          else			  
+	          if (ind == i-1) then
 		          results = results .. "1 "
 		      else	  
                   results = results .. "0 " 
 		      end
-		   else
-              results = results .. "0 " 	
-           end			  
+          end			  
       end		  
   end		  
 
@@ -71,5 +69,6 @@ lib.start_canvas(400, 100, "center", results)
   lib.end_canvas()
 end
       
+ 
  
                   

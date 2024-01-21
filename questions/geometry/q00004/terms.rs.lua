@@ -1,1 +1,1 @@
-figure = {"krugove", "pravougaonike", "kvadrate", "trouglove"}
+figure = { "pravougaonike", "kvadrate", "krugove", "trouglove"}

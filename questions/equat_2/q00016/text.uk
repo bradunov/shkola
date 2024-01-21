@@ -1,7 +1,9 @@
-For which natural numbers "n" is the inequality true?
-Write the numbers in ascending order.
 
-@repeat(4)@
+For which natural numbers "n" is the inequality true?
+Write the numbers in ascending order. If there are more then five numbers, write only the first and the last two.
+
+@repeat(2)@
 @vspace@
-@center@ ≠,   @hspacept(15)@ @reply@  
+@center@ @neq@,  
+@center@ @reply@  
 @/repeat@

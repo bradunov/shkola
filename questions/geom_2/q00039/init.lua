@@ -10,13 +10,13 @@ line_style =
         ["on_color"] = "f00",
         ["line_color"] = "f00",
         ["off_line_color"] = "000",
-        ["line_width"] = "2"};
+        ["line_width"] = "3"};
 
 diff_style = 
 	{["off_color"] = "ff9",
         ["on_color"] = "ff9",
         ["line_color"] = "000",
-        ["line_width"] = "1"};
+        ["line_width"] = "2"};
 				
 
 ind = math.random(6)
@@ -73,7 +73,7 @@ mycanvas = function()
      lib.add_line(v+ow+w, ow/2, 0, 2*w+3*ow, line_style, false, true)	 
   end
 
-
+--[[
   for i = 1,12 do
     lib.add_line(v, v+(i-1)*ow, 11*ow, 0, style, false, false)
   end
@@ -81,8 +81,6 @@ mycanvas = function()
   for i = 1,12 do
     lib.add_line(v+(i-1)*ow, v, 0, 11*ow, style, false, false)
   end
-  
+]]--  
   lib.end_canvas()
 end
-           
-     

@@ -2,7 +2,7 @@
 include("terms")
 
 addition_table = function()
-  columns = 6
+  columns = 5
 
   q = {}
   for i=0,columns-1 do
@@ -31,13 +31,9 @@ addition_table = function()
 	ind = 1 + math.random(2)	
     for r=1,4 do
       if (q[c][5] == r) then
-        text = text .. lib.add_cell(lib.check_number(q[c][r]), style)
+          text = text .. lib.add_cell(lib.check_number(q[c][r]), style)
       else
-	    if (q[c][5] == 4 and r == ind) then
-            text = text .. lib.add_cell(lib.check_number(q[c][r]), style)		   
-		else   
-            text = text .. lib.add_cell(tostring(q[c][r]), style)
-		end	
+          text = text .. lib.add_cell(tostring(q[c][r]), style)
       end
     end
     text = text .. lib.end_row()
@@ -46,12 +42,3 @@ addition_table = function()
 
   return text
 end    
-
-      
-    
-      
-      
-    
-   
-    
-    

@@ -1,0 +1,1 @@
+path = {"najkraći", "najduži"}

@@ -23,9 +23,10 @@ for i = 1,5 do
 end	
 
 mycanvas = function(no)
-  lib.start_canvas(350, 250, "center")  
+
+ lib.start_canvas(250, 190, "center")  
   
-  w = 20
+  w = 15
   ow = 10
 
   for i = 1,12 do

@@ -1,7 +1,7 @@
 
 Izračunaj.
 
-@repeat(4)@
+@repeat(3)@
 @center@ @quest@  @reply@
 @/repeat@
               

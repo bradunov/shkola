@@ -1,5 +1,5 @@
 
-Ojler-Venovim dijagramom predstavljen je skup @choice[ind]@.            
+Ojler-Venovim dijagramom predstavljen je skup @choice[ind]@            
 			  
 @center@ @mycanvas()@			  
 			  

@@ -1,6 +1,6 @@
                                 
 Write from smallest to largest, the common factors of the pairs of given numbers. If the numbers are mutually prime write @"p"@ before the numbers. 
 
-@repeat(5)@
+@repeat(4)@
 @answ@        
 @/repeat@   

@@ -1,6 +1,6 @@
 
 addition_table = function()
-  columns = 6
+  columns = 5
 
   q = {}
   for i=0,columns-1 do

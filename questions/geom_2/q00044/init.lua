@@ -33,9 +33,9 @@ y = {}
 mark = {"a", "b", "s"}
 symb = "\(\angle\)"
 
-ow = 20
-ov = 150
-v = 10
+ow = 10
+ov = 75
+v = 5
 
 x = 11 * ow
 tmp = math.random(5)
@@ -54,7 +54,7 @@ else
 end	
 
 mycanvas = function(no)
-  lib.start_canvas(320, 300, "center")
+  lib.start_canvas(200, 160, "center")
   
   if (ind == 1) then
       lib.add_line(2*ow, 2*ov-ow-v, x, -y[1], red_style, false, false)
@@ -115,7 +115,7 @@ mycanvas = function(no)
    			 
   lib.add_text (2*ow, 2*(ov-ow), ".", dot_style, false, false)
   lib.add_text(2*ow, 2*ov-ow+3, "O", text_style, false, false)
- 
+--[[ 
   for i = 1,15 do
     lib.add_line(ow, v+(i-1)*ow, 14*ow, 0, grid_style, false, false)
   end
@@ -123,6 +123,6 @@ mycanvas = function(no)
   for i = 1,15 do
     lib.add_line(ow+(i-1)*ow, v, 0, 14*ow, grid_style, false, false)
   end  
- 		
+]]-- 		
   lib.end_canvas()
-end
+end       

@@ -1,7 +1,7 @@
 
 Napiši sve dvocifrene sadržaoce datog broja, od najmanjeg do najvećeg. 
 
-@repeat(5)@
+@repeat(4)@
 
 @number@ @hspace@ @answ@         
 @/repeat@      

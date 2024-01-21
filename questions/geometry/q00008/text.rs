@@ -1,12 +1,4 @@
 
-Na kojoj slici su figure kojima treba nastaviti započeti niz? 
-
-@vspace@
- 
+Na kojoj slici su figure kojima treba nastaviti započeti niz?  
 @center@ @mycanvas()@
-
-@center@ Upiši broj. @hspacept(10)@ @lib.check_number(izbor,15)@
- @vspace@   
-                    
-            
-
+Oboj kružić ispod odgovarajućeg crteža. 

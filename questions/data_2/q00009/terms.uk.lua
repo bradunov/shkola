@@ -1,2 +1,2 @@
 msg = {"dinar", "dinara"}
-oper = {"snižena", "povećana"}
+oper = {"reduced", "increased"}

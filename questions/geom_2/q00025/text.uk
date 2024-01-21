@@ -1,7 +1,6 @@
-"Date ugly expressions in seconds.
 
-@repeat(5)@
+Express in seconds given angles.
 
-@center@    Answer = [value] seconds
-
-@/repeat@"
+@repeat(4)@ 
+@center@    @answ@ = @lib.check_number(value,50)@ @measure[3]@
+@/repeat@   

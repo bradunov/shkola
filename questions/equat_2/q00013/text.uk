@@ -1,9 +1,8 @@
+
 Solve the inequality 
 @center@ @neq@. 
 
 The solutions of the inequality are 
 @center@ @reply@ 
-@vspace@
-Display the solutions on a number line by coloring the solution region. 
-Color the circle if the boundary point belongs to the solution region. 
+Display the solutions on a number line by coloring the solution region. Color the circle if the boundary point belongs to the solution region. 
 @center@ @mycanvas()@

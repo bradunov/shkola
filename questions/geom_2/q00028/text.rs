@@ -1,8 +1,6 @@
 
-Koji ugao je datom uglu
+Koji ugao je datom uglu:
  
-@repeat(5)@ 
-
-@center@   @quest@ @hspacept(3)@ @name@?  @hspacept(10)@  @answ@
-
-@/repeat@   
+@repeat(4)@ 
+@center@   @quest@ @hspacept(3)@ @name@  @hspacept(10)@  @answ@
+@/repeat@ 

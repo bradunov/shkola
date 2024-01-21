@@ -1,1 +1,1 @@
-type = {"straight", "open broken", "closed broken", "closed curved", "open curved"}
+name = {"straight", "broken", "curved"}

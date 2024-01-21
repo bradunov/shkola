@@ -74,7 +74,6 @@ for i = 1, 5 do
 	else
 	  results = results .. "0"
 	end
-
 end
    
 mycanvas = function(no)

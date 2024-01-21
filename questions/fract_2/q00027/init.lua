@@ -88,7 +88,6 @@ temp = {1,2,3,4,5,6,7,8,9,10,11,12,13}
 out = lib.math.random_shuffle(temp)  
 
 for i = 1,6 do
-	value_rand[i] = value[out[i]]
+	value_rand[i] = lib.math.round_dec(value[out[i]],3)
 	answer_rand[i] = answer[out[i]]
 end	
-     		  

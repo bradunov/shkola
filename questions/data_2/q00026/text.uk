@@ -1,7 +1,9 @@
-Determine three numbers in the given interval @"[a,b]"@ such that the arithmetic mean of the extremes is the middle number for every three consecutive numbers.
 
-@repeat(2)@
+Calculate three numbers in the given interval @"[a,b]"@ such that in an ascending sequence of five numbers (including @"a"@ and @"b"@)  the  mean number is an arithmetic mean of the ends for every three consecutive numbers.
+
+@repeat(1)@
 @center@ a = @reply[1]@ @hspacept(140)@ @"b"@ = @reply[5]@
 @center@ @reply[2]@ @hspacept(6)@ @reply[3]@ @hspacept(6)@ @reply[4]@ 
 @vspace@
 @/repeat@
+            

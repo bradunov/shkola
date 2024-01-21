@@ -1,5 +1,5 @@
-                                Colour all of the @figure[ind]@ in the picture.
-
+                                
+Colour all of the @figure[ind]@ in the picture.
 @center@ @mycanvas()@
 
 

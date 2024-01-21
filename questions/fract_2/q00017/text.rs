@@ -1,5 +1,5 @@
 
-Izračunaj zbir. 
+Izračunaj zbir dopunom do celog broja. 
 
 @center@ \(\frac{@broj1@}{@imenilac1@}\) @hspacept(3)@ + @hspacept(3)@ \(\frac{@broj2@}{@imenilac2@}\) 
 @center@ = @lib.check_fraction_simple(brojilac1,imenilac)@ @hspacept(3)@  + @hspacept(3)@ \(\frac{@brojilac2@}{@imenilac@}\)

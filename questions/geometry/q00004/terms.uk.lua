@@ -1,1 +1,1 @@
-figure = {"circles", "rectangles", "squares", "triangles"}
+figure = {"rectangles", "squares", "circles", "triangles"}

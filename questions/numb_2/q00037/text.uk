@@ -1,4 +1,4 @@
-The Euler-Venn diagram represents the set @choice[ind]@.
+The Euler-Venn diagram represents the set @choice[ind]@
 
 @center@ @mycanvas()@
 

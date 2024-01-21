@@ -20,16 +20,12 @@ swhole = math.floor(putkm)
 rest = put - swhole * imenilac
 if (swhole == 0) then
     answ = lib.check_fraction_simple(put,imenilac)
-else
-    answ = lib.check_number(swhole,15) .. lib.check_fraction_simple(rest,imenilac)	
---[[ Ako se trazi skracivanje razlomka
-	
+else		
     condition = "is_ok = math.eq(whole + numerator/denominator, "..tostring(putkm)..");"       
     snum = lib.math.round((putkm - swhole) * imenilac)
     g = lib.math.gcd(snum, imenilac)
     sln = "numerator="..tostring(snum/g)..";denominator="..tostring(imenilac/g)..";whole="..tostring(swhole)..";"
     answ = lib.check_fraction_condition(condition, true, nil, sln)
-]]--	
 end	         
 
                   
