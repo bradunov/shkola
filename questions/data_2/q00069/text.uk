@@ -1,0 +1,7 @@
+
+The table shows the cost of bus tickets to different cities in @money[1]@.
+@center@ @mycanvas()@ 
+What is the total cost for a return journey to @town[ch]@ for @numb[1]@ adults and @numb[2]@ children?
+@center@ @lib.check_number(total)@ @money[2]@
+How much more does it cost for @numb[3]@ adults to make a single journey to @padez[first]@ than to  @padez[second]@?
+@center@ @lib.check_number(dif)@ @money[2]@

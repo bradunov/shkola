@@ -1,0 +1,6 @@
+
+Color the interval where  the fraction is positioned.
+@center@  \(\frac{@broj[3]@}{@imen[3]@}\) 
+@center@ @mycanvas()@ 
+Which fraction is closer to @bound@?
+@center@ @lib.check_one_option_radio (answ,ind)@  

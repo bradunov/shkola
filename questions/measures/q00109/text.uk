@@ -1,0 +1,5 @@
+
+If one needs an area of @number@@meas[1]@, how large would a stadium need to be to hold one million people? 
+@vspace@ 
+The area of stadium should be (the approximate value in @meas[3]@ round to one decimal)
+@center@ @lib.check_number(area_m,50)@@meas[2]@ ≤ @lib.check_number(area_k,50)@@meas[3]@                

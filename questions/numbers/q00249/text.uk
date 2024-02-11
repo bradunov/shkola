@@ -1,0 +1,8 @@
+
+What can we say about @value@?
+@vspace@
+@center@ It is @lib.check_number(numb[1])@ @rel[ch]@ than @numb[2]@.
+@center@ It is a @oper[op]@ of @numb[3]@ and @lib.check_number(numb[4])@.
+@center@ It is made of @lib.check_number(val[3])@ thousands.
+@center@ It is made of @lib.check_number(val[2])@ hundreds.
+@center@ It is made of @lib.check_number(val[1])@ tens.

@@ -1,5 +1,6 @@
+
 Color @name@.
 
-\vspace@
+@vspace@
 
-\center\ @mycanvas(result)@
+@center@ @mycanvas(result)@

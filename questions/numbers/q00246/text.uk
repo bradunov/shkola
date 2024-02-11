@@ -1,0 +1,6 @@
+
+Write down:  
+@center@  @value@ @name@ in digits @hspacept(10)@ @lib.check_number(result,55)@   
+@repeat(3)@
+@center@ the number that is @add@ more than this number @hspacept(10)@@lib.check_number(number,55)@ @punct@
+@/repeat@

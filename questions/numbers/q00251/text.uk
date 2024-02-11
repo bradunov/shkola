@@ -1,0 +1,7 @@
+
+Check the accuracy of the equalities. Write @hspacept(2)@ t @hspacept(2)@ if the equality is true or @hspacept(2)@ n @hspacept(2)@ if it is not true in the left frame.
+
+@repeat(4)@ 
+@center@ @lib.check_string(rel,15)@@hspacept(40)@ @numb[1]@  @sign@  @numb[2]@  @hspacept(3)@ = @hspacept(3)@ @numb[3]@  @sign@  @numb[4]@ 
+@/repeat@
+ 

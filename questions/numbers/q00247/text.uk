@@ -1,0 +1,5 @@
+
+The population of the country is  @value@.
+What is the current approximate population expressed in @meas[ind]@?
+@vspace@
+The population is approximately @hspacept(5)@  @lib.check_number(number,55)@.

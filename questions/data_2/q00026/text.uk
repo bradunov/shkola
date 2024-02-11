@@ -1,5 +1,5 @@
 
-Calculate three numbers in the given interval @"[a,b]"@ such that in an ascending sequence of five numbers (including @"a"@ and @"b"@)  the  mean number is an arithmetic mean of the ends for every three consecutive numbers.
+Calculate three numbers in the given interval @"[a,b]"@ such that for every three consecutive numbers the  mean number is an arithmetic mean of the ends.
 
 @repeat(1)@
 @center@ a = @reply[1]@ @hspacept(140)@ @"b"@ = @reply[5]@

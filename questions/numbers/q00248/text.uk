@@ -1,0 +1,4 @@
+
+How much would a million grains of rice weigh, if one grain weighs @weight@ @meas_g@? 
+@vspace@ 
+@center@ Rice weigh @hspacept(10)@ @lib.check_number(totl_kg,40)@ kilos = @lib.check_number(totl_t,20)@@meas_t@.

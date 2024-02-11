@@ -1,0 +1,6 @@
+
+@ime@ wanted to buy a coat that cost @money[2]@@price@ .
+She saw the coat on sale in one shop at  @quest@ off, and  the same coat on sale in another shop at  @proc@% off.  
+What are the prices of the coat after sale (round to one decimal)
+@center@ in the first shop, @hspacept(20)@  @money[2]@@lib.check_number(first,40)@
+@center@ in the second shop? @hspacept(20)@  @money[2]@@lib.check_number(second,40)@

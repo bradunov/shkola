@@ -1,7 +1,5 @@
 
-sym = {"M", "V", "Е", "D", "О", "U", "H", "A", "В", "I", "С", "Т"}
-nonsym = { "Č", "K", "R", "J", "L", "S", "G", "Š", "P", "F", "N", "Z"}
-
+include("terms")
 
 text_style = 
 	{["off_color"] = "000",
@@ -10,7 +8,7 @@ text_style =
         ["off_line_color"] = "000",
         ["line_width"] = "1",
         ["font_family"] = "Helvetica",
-	["font_size"] = "50"};
+	["font_size"] = "40"};
 
 
 --[[ Create an array of indices for both straight and curved ]]
@@ -28,25 +26,36 @@ stampa = 9 + math.random(#all_ind - 13)
 all = {}
 results = ""
 
+ch = math.random(2)
+
 for i = 1, stampa do
 
   if i > 1 then
     results = results .. " && "
   end
   results = results .. "result[" .. tostring(i-1) .. "] == "
-
-  if all_ind[i] <= #sym then
-    all[i] = sym[all_ind[i]]
-    results = results .. "1"
-  else
-    all[i] = nonsym[all_ind[i] - #sym]
-    results = results .. "0"
-  end
+  if (ch == 1) then
+	  if all_ind[i] <= #sym then
+		all[i] = sym[all_ind[i]]
+		results = results .. "1"
+	  else
+		all[i] = nonsym[all_ind[i] - #sym]
+		results = results .. "0"
+	  end
+   else	  
+	  if all_ind[i] <= #nonsym then
+		all[i] = nonsym[all_ind[i]]
+		results = results .. "1"
+	  else
+		all[i] = sym[all_ind[i] - #nonsym]
+		results = results .. "0"
+	  end  
+    end	  
 end
 
 
 mycanvas = function(all, results)
-  lib.start_canvas(300, 300, "center", results)
+  lib.start_canvas(300, 350, "center", results)
 
   out = math.floor(stampa/5)
   rest = stampa - 5*out
@@ -75,8 +84,3 @@ mycanvas = function(all, results)
 
   lib.end_canvas()
 end  
-
-    
-    
-            
-          

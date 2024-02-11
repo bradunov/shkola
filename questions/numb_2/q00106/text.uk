@@ -1,0 +1,11 @@
+
+The temperature at 6 a.m. was recorded each day for one week.
+@center@ @mycanvas()@ 
+What was (enter one if there are more) 
+@center@ the coldest morning, @hspacept(20)@ @lib.check_string_case(reply1, 80, ans1)@
+@center@ the warmest morning? @hspacept(20)@ @lib.check_string_case(reply2, 80, ans2)@
+What is the difference in temperature between
+@center@ @padez[first]@ and  @padez[second]@? @hspacept(20)@ @lib.check_number(dif, 20)@°C
+ Place the recorded temperatures in order from smallest to largest.
+@center@ @answ@.
+            

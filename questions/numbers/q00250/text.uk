@@ -1,0 +1,10 @@
+
+Using all of the digits from 0 to 9, write down a 10-digit number:
+the largest number you can write @hspacept(5)@ @lib.check_number(numb[1],90)@,
+the smallest number you can write @hspacept(5)@ @lib.check_number(numb[2],90)@,
+the number that is one less than the largest number @hspacept(5)@ @lib.check_number(numb[3],90)@,
+the number that is one more than the smallest number @hspacept(5)@ @lib.check_number(numb[4],90)@.
+@vspace@
+Is it true that using the digits 0 to 9 we can write any number, no matter how large or small? 
+@center@ @lib.check_one_option_dropdown(ans, ans[1])@ 
+            

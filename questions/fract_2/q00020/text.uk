@@ -1,6 +1,6 @@
 
 Write the corresponding number so that the equation is correct.
 
-@repeat(3)@
+@repeat(4)@
 @center@ @lib.check_fraction_numerator(brojilac, imenilac)@ @hspacept(3)@ = @hspacept(3)@ @ceo@
 @/repeat@
