@@ -1,5 +1,8 @@
+
 Using the formula for difference of squares, calculate and simplify the resulting polynomial. Write down the terms whose coefficients are different from 0. 
 
-@repeat(3)@
-@center@  @quest@  =  @result@   
+@repeat(2)@ 
+@vspace@
+@center@  @quest@  =  
+@center@ @result@   
 @/repeat@

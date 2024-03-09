@@ -63,9 +63,9 @@ mmy = xaxis - my + 2
 
 mycanvas = function()
 
-  lib.start_canvas(300, 280, "center")
+  lib.start_canvas(260, 260, "center")
 
-  w = math.floor(270/dim) 
+  w = math.floor(240/dim) 
   ow = 10
   
   for i = 2,dim do
@@ -106,37 +106,3 @@ mycanvas = function()
 end                                 
                                     
                                   
-     
-              
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-      
-            
-                
-            
-            
-     
-            
-            
-   
-        
-       
-             
-       

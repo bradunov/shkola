@@ -1,6 +1,6 @@
+
 Solve the equations and check the solutions. 
 If there is one solution field, write the solution in the form of a decimal number with one decimal place. If there are more than one solution fields, write the solution in the form of a fraction. 
-
-@repeat(4)@
+@repeat(3)@
 @center@ @quest@ @hspacept(25)@  x = @answ1@ @answ2@
 @/repeat@

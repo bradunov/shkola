@@ -1,5 +1,7 @@
-Fill in the appropriate monomials in the empty spaces.
 
-@repeat(4)@
+Fill in the appropriate monomials in the empty spaces (enter the degree 1 also).
+
+@repeat(3)@
+@vspace@
 @center@  @quest@
 @/repeat@

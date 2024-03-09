@@ -1,0 +1,4 @@
+
+The coloured equilateral triangle (indicated by the black circle  in the figure) is rotated about its center by the angle  @angle@. 
+Which drawing shows the triangle after rotation? Colour the circle below  the corresponding drawing.
+@center@ @mycanvas()@           

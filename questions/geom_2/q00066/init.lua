@@ -45,38 +45,30 @@ numb[4][2] = 2*phi[4]
 
 mycanvas = function(no)
 
-  ow = 10
-  w = 250
-  ov = 150
-  v = 40
+  ow = 6
+  w = 150
+  ov = 90
+  v = 24
 
-  lib.start_canvas(320, 190, "center") 
+  lib.start_canvas(200, 110, "center") 
  
   lib.add_straight_path(ov-v-4, 3*ow-2, {{w-2*v-ow, ov-2*ow+2}}, style, true, false)    
   lib.add_straight_path(ov-v-4, 3*ow-2, {{-v-5, ov-2*ow+2}}, style, true, false)  
-  lib.add_straight_path(v+2*ow, ov+ow, {{w-v-3, 0}}, style, true, false)  
+  lib.add_straight_path(v+2*ow-3, ov+ow, {{w-v, 0}}, style, true, false)  
   lib.add_straight_path(ov-v-3, 3*ow-2, {{0, ov-2*ow+3}}, dif_style, true, false)  
   lib.add_straight_path(w+2*ow-3, ov+ow, {{-ov-v+5, -2*v+ow+5}}, dif_style, true, false)    
   lib.add_straight_path(2*v, 2*v+ow+5, {{2*(v+ow)+5, 0}}, dif_style, true, false)    
   
-  lib.add_text(w-ov+ow, ow+8, "A", text_style)   
-  lib.add_text(v+2*ow, ov+2*ow, "B", text_style)  
-  lib.add_text(w+ow, ov+2*ow, "C", text_style)
-  lib.add_text(w-ov+ow, ov+2*ow, "H", text_style) 
+  lib.add_text(w-ov+ow, ow+3, "A", text_style)   
+  lib.add_text(v+ow-2, ov+2*ow+2, "B", text_style)  
+  lib.add_text(w+2*ow, ov+2*ow+2, "C", text_style)
+  lib.add_text(w-ov+ow, ov+2*ow+2, "H", text_style) 
   lib.add_text(v+3*ow, 2*(v+ow)-5, "T", text_style) 
   lib.add_text(2*(w-ov)+5, 2*(v+ow)-5, "M", text_style) 
     
-  lib.add_text(2*v+3*ow+3, 5*ow-5, ang[1], text_style)  
+  lib.add_text(2*v+3*ow, 5*ow-5, ang[1], text_style)  
   lib.add_text(2*v-5, ov, ang[2], text_style) 
   lib.add_text(w-5, ov, ang[3], text_style) 
    
   lib.end_canvas()
 end 
-     
-  
-  
-          
-            
-            
-            
-          

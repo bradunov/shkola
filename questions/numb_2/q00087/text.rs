@@ -1,6 +1,6 @@
 
 Izračunaj: 
 
-@repeat(5)@
+@repeat(4)@
 @center@ @quest@ @sup@ @grdout@ @/sup@  = @answ@ 
 @/repeat@

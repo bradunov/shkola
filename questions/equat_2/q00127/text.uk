@@ -1,6 +1,8 @@
+
 Factor the difference of squares into its factors.
 
-@repeat(3)@
- @result@ =  
+@repeat(2)@ 
+@vspace@
+@center@  @result@ =  
 @center@  @quest@ 
 @/repeat@

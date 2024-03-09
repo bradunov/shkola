@@ -1,6 +1,6 @@
-Calculate. 
-If only one field is given for entering the result, write the result in the form of a decimal number. If more than one field is given, write the result in the form of a fraction.
 
-@repeat(4)@
+
+Calculate expressions. If only one field is given for entering the result, write the result in the form of a decimal number. If more than one field is given, write the result in the form of a fraction.
+@repeat(3)@
 @center@ (@quest[1]@) @sign[1]@ (@quest[2]@) @sign[2]@ (@quest[3]@)  =  @reply1@ @reply2@
 @/repeat@

@@ -1,9 +1,10 @@
-@vspace@
-@center@ @mycanvas()@
-Arrange the angles of a triangle in ascending order if the lengths of its sides are given.
-(Use the labels for the angles given in the image.)
 
-@repeat(3)@
+Arrange the angles of a triangle in ascending order if the lengths of its sides are given. (Use the labels for the angles given in the image.)
+@vspace@                                                                                                                                                                                                            
+@center@ @mycanvas()@
+@repeat(2)@
+@vspace@
 @center@ @name[1]@ = @edge[1]@, @hspacept(15)@ @name[2]@ = @edge[2]@, @hspacept(15)@ @name[3]@ = @edge[3]@,
 @center@ @reply@
 @/repeat@
+   

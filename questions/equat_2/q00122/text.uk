@@ -1,6 +1,9 @@
-Arrange polynomials in descending order of variables. Write down the summands with coefficients different from 0.
 
-@repeat(2)@
-@center@  @quest@  = 
-@center@  @result@   
-@/repeat@
+Arrange polynomial in descending order of variables. Write down the summands with coefficients different from 0.
+
+@vspace@ 
+@center@  @quest[3]@  
+@center@  @quest[2]@ 
+@center@  @quest[1]@ 
+@vspace@
+@center@  @result@    

@@ -1,7 +1,5 @@
-Express the yellow section of the grid in hundredths, tenths, as a decimal and as a 
-percentage of the whole grid.
+
+Express color sections of the grid in hundredths, tenths, as a decimal and as a percentage of the whole grid.
 @center@ @mycanvas()@
-Yelow figure:
-Green figure:
-@vspace@
-What fraction of the grid is shaded in total?
+What fraction of the grid is shaded in total? 
+@center@ @lib.check_number(total, 20)@%    

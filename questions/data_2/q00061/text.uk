@@ -1,9 +1,10 @@
+
 The table shows the results of testing two groups of students, @"A"@ and @"B"@. The first row contains the number of points, and the other two rows contain the number of students who achieved them.
 @center@ @mycanvas()@
 Determine for the sample the number of points for each group
-@center@  mean value (to two decimal places)
+mean value (to two decimal places)
 @center@  @"A"@ @hspacept(5)@ @lib.check_number(aver[1], 40)@, @hspacept(25)@ @"B"@ @hspacept(5)@ @lib.check_number(aver[2], 40)@,
-@center@  median
-@center@ @"A"@ @hspacept(5)@ @lib.check_number(med[1], 40)@, @hspacept(25)@ @"B"@ @hspacept(5)@ @lib.check_number(med[2], 40)@,
-@center@  mode
-@center@ @"A"@ @hspacept(5)@ @lib.check_number(modus[1], 40)@, @hspacept(25)@ @"B"@ @hspacept(5)@ @lib.check_number(modus[2], 40)@.
+median @hspacept(15)@ @"A"@ @hspacept(5)@ @lib.check_number(med[1], 40)@, @hspacept(25)@ @"B"@ @hspacept(5)@ @lib.check_number(med[2], 40)@,
+mode @hspacept(40)@ @"A"@ @hspacept(5)@ @lib.check_number(modus[1], 40)@, @hspacept(25)@ @"B"@ @hspacept(5)@ @lib.check_number(modus[2], 40)@.
+         
+    

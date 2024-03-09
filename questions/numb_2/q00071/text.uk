@@ -1,13 +1,6 @@
 
 Calculate the number:
-@repeat(3)@
+@repeat(2)@
 take @sign[ind1]@ of the numbers @term1@ and @term2@, and @sign[ind]@ @sign[ind2]@ of the numbers @term3@ and @term4@ 
 @center@ @lib.check_number(result,30)@ 
-
 @/repeat@ 
-
-
-            
-            
-            
-            

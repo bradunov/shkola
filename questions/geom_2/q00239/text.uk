@@ -1,0 +1,6 @@
+
+The triangle  @"ABC"@, ( @"A"@(@ptx[1]@,@pty[1]@),  @"B"@(@ptx[2]@,@pty[2]@), @"C"@(@ptx[3]@,@pty[3]@) ) by rotation in the coordinate system is mapped to the triangle @"PQR"@.
+If the rotation angle is @angle@ and @direction[sg]@ oriented, and the center of rotation is the point  @point[ind]@, enter the coordinates of the vertices of the triangle  @"PQR"@ (to one decimal place).
+@center@ @mycanvas()@   
+@center@ @"P = ("@ @lib.check_number(ptx[3])@, @lib.check_number(pty[3])@),@hspacept(20)@  @"Q = ("@ @lib.check_number(ptx[4])@, @lib.check_number(pty[4])@).
+Triangles @"ABC"@ and @"PQR"@ are congruent. @hspace@ @lib.check_one_option_dropdown(answ, answ[1])@                 

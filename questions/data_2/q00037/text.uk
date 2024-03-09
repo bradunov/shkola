@@ -1,5 +1,5 @@
-The sides of a rectangle are @"a"@ and @"b"@. 
-If the side @"a"@ increases by @numb_a@@proc@, and the side @"b"@ decreases by @numb_b@@proc@, by how much percent will the area of the rectangle change? 
+
+The sides of a rectangle are @"a"@ and @"b"@. If the side @"a"@ increases by @numb_a@@proc@, and the side @"b"@ decreases by @numb_b@@proc@, by how much percent will the area of the rectangle change? 
 @vspace@
 The area of the rectangle will change by 
 @center@ @lib.check_one_option_radio(reply,index,true)@ 

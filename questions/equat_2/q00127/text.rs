@@ -1,7 +1,8 @@
 
 Date razlike kvdrata rastavi na činioce.
  
-@repeat(3)@ 
- @result@ =  
+@repeat(2)@ 
+@vspace@
+@center@  @result@ =  
 @center@  @quest@ 
 @/repeat@

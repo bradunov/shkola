@@ -107,7 +107,8 @@ mycanvas = function()
   end
 
   lib.add_text(ov, v, msg[1], text_style, false, false)
-  lib.add_text(ov, 2*v, msg[2], text_style, false, false)
+  lib.add_text(ov, 2*v-7, msg[2], text_style, false, false)
+  lib.add_text(ov, 2*v+8, msg[3], text_style, false, false)
   
   for i = 1,5 do
       lib.add_text(w+i*v, v, mark[6-i], text_style, false, false)  
@@ -155,18 +156,3 @@ mycanvas = function()
   lib.end_canvas()
 end                     
       
-  
-    
-            
-            
-            
-           
-   
-   
-        
-    
-   
-        
-       
-             
-       

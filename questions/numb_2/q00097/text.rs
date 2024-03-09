@@ -1,7 +1,8 @@
 
 Upiši stepen u rezultatu.
 
-@repeat(4)@ 
+@repeat(3)@ 
+@vspace@
 @center@   @quest@  =  @answ@@sup@ @lib.check_number(val,15)@ @/sup@   
 @/repeat@
             

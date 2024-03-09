@@ -1,5 +1,7 @@
+
 Write the dates of the products as powers with a natural base.
 
-@repeat(4)@
+@repeat(3)@
+@vspace@
 @center@  @quest@ @hspacept(3)@ = @hspacept(3)@ (@answ@)@sup@ @lib.check_number(grd,10)@ @/sup@   
 @/repeat@

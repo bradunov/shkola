@@ -1,7 +1,7 @@
 
 Rastavi potkorenu veličinu na proste činioce, i na osnovu toga izračunaj kvadratni koren.
 
-@repeat(3)@ 
+@repeat(2)@ 
 @vspace@
 @center@ @numb2@ = 
 @center@@reply@

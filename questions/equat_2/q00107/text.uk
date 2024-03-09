@@ -1,5 +1,5 @@
 For given values of x and y, calculate the values of the expression:
 
-@repeat(4)@
+@repeat(3)@
 @center@   @quest@,  @hspacept(30)@ @term@ =  @answ@   
 @/repeat@

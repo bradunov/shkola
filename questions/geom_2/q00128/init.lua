@@ -228,11 +228,11 @@ area = lib.math.round_dec(area, 1)
 
 mycanvas = function()
 	 		  
-  lib.start_canvas(250, 250, "center")   
+  lib.start_canvas(190, 190, "center")   
   
-   w = 16
-   ow = 12
-   v = 4
+   w = 12
+   ow = 9
+   v = 3
 
   
    if (ind == 1) then 

@@ -82,12 +82,12 @@ end
 
 mycanvas = function(no)
 
-  ow = 10
-  w = 250
-  ov = 150
-  v = 40
+  ow = 8
+  w = 200
+  ov = 120
+  v = 32
 
-  lib.start_canvas(320, 140, "center") 
+  lib.start_canvas(250, 110, "center") 
  
   lib.add_straight_path(2*(ow+v)+3, ow-2, {{w-2*v+ow-2, ov-v+2}}, style, true, false)    
   lib.add_straight_path(ov-v-5, ow-2, {{-2*v+2*ow-2, ov-3*ow-6}}, style, true, false)  
@@ -97,10 +97,12 @@ mycanvas = function(no)
   lib.add_straight_path(w-ov+5, ow, {{0, 2*v+3*ow}}, dif_style, true, false) 
   
   lib.add_text(ov-ow, 2*(v-ow), "t", text_style)
-  lib.add_text(2*v-ow-3, 2*(v-ow), "b", text_style)
-  lib.add_text(ov+v+ow+2, 2*(v-ow), "a", text_style)   
+  lib.add_text(2*v-ow-5, 2*(v-ow), "b", text_style)
+  lib.add_text(ov+v+ow+3, 2*(v-ow), "a", text_style)   
   lib.add_text(ov+2*ow, ov-2*ow, "c", text_style) 
-  lib.add_text(w-ov+ow, 2*(v-ow), "h", text_style) 
+  lib.add_text(w-ov+ow+3, 2*(v-ow), "h", text_style) 
     
   lib.end_canvas()
 end 
+          
+          

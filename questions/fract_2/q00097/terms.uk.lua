@@ -1,3 +1,3 @@
-msg = {"Hundredths", "Tenths", "Decimal", "Percent.", " " } 
-name = {"Yelow", "green"} 
+msg = {"Hundred.", "Tenths", "Decimal", "Percent.", "", "%" } 
+name = {"Yelow", "Green"} 
 

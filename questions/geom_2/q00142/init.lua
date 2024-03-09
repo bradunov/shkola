@@ -50,11 +50,11 @@ area = lib.math.round_dec(area, 2)
 
 mycanvas = function()
 	 		  
-  lib.start_canvas(350, 180, "center")   
+  lib.start_canvas(270, 140, "center")   
   
-   w = 16
-   ow = 12
-   v = 4
+   w = 12
+   ow = 9
+   v = 3
 
    sg = math.random(2) - 1
    if (sg == 2) then
@@ -84,4 +84,3 @@ mycanvas = function()
 
   lib.end_canvas()
 end    
-            

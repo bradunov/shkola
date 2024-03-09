@@ -1,7 +1,7 @@
 
 Izračunaj. 
 
-@repeat(3)@
+@repeat(2)@
 @vspace@
 @center@ @quest@ @hspacept(3)@ 
 @center@ = @hspacept(3)@ @answ@ 

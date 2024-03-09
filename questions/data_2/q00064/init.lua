@@ -64,7 +64,7 @@ circ = lib.math.round_dec(circ, 2)
 
 mycanvas = function()
 
-  lib.start_canvas(260, 260, "center")
+  lib.start_canvas(260, 250, "center")
 
   w = math.floor(230/dim2) 
   ow = 10

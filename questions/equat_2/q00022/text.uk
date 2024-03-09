@@ -1,9 +1,6 @@
-What @factor[2]@ is needed to obtain the number @value@?
 
-@vspace@
+@quest[ind]@ @factor[2]@ to obtain the number @value@?
 What equation will you use to calculate the required number? Color the circle next to the correct answer.
-@vspace@
 @center@ @lib.check_one_option_radio(reply,index-1,true)@ 
-@vspace@
 Solve the equation.
 @center@   x = @lib.check_number(factor[1],40)@

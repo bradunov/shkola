@@ -3,8 +3,3 @@
 
 Oboj kružić  iznad tačnog tvrđenja.
 @center@ @lib.check_one_option_radio(answ,index, true)@
-
-
-
-
-

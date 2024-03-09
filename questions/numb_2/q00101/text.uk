@@ -1,5 +1,7 @@
+
 Simplify the expressions. Write a '-' sign in the first square if the result is negative. Letters denote positive values.
 
-@repeat(4)@
+@repeat(3)@ 
+@vspace@
 @center@   @quest@  = @answ@
-@/repeat@
+@/repeat@ 

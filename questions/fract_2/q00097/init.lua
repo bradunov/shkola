@@ -1,13 +1,11 @@
 
 include("terms")
-msg = {"stotine", "desetine", "decimal.", "procen.", "broj", "%" } 
-name = {"žuta", "zelena"} 
 
 style =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
         ["line_color"] = "000",
-        ["line_width"] = "0.5"};
+        ["line_width"] = "2"};
 
 green_style = 
 	{["off_color"] = "6f6",
@@ -117,14 +115,14 @@ mycanvas = function()
 
    --[[tabela]]-- 
    
-	lib.add_line(ow, tab, 0, 3*v-ow, style, false, false)
-	lib.add_line(ow+v, tab, 0, 3*v-ow, style, false, false)
+	lib.add_line(ow, tab, 0, 3*v-ow, grid_style, false, false)
+	lib.add_line(ow+v, tab, 0, 3*v-ow, grid_style, false, false)
 	for i = 1,4 do 
-		lib.add_line(ow+v + i*(v+w), tab, 0, 3*v-ow, style, false, false)
+		lib.add_line(ow+v + i*(v+w), tab, 0, 3*v-ow, grid_style, false, false)
 	end
-	lib.add_line(ow, tab, 4*ov+v-ow, 0, style, false, false)	 
+	lib.add_line(ow, tab, 4*ov+v-ow, 0, grid_style, false, false)	 
 	for j = 1,3 do
-		lib.add_line(ow, tab+j*v-ow, 4*ov+v-ow, 0, style, false, false)
+		lib.add_line(ow, tab+j*v-ow, 4*ov+v-ow, 0, grid_style, false, false)
 	end
 
 	for j = 1,2 do
@@ -137,11 +135,21 @@ mycanvas = function()
 	lib.add_text(2*ow + 4*ov, tab+2*w, msg[6], text_style, false, false)  	
 
 	for j = 1,2 do
+		for i = 1,2 do	
+            lib.add_line(i*(v+w)+w, tab+j*v+2*ow, 3*ow, 0, style, false, false)		
+			if (i == 1) then
+				lib.add_input(i*(v+w), tab+j*v-ow, 60, 60, lib.check_number(size[j]*10,20))
+				lib.add_text(i*(v+w)+3*ow, tab+j*v+3*ow, "100", text_style, false, false) 
+			else			
+				lib.add_input(i*(v+w), tab+j*v-ow, 60, 60, lib.check_number(size[j],20))
+				lib.add_text(i*(v+w)+3*ow, tab+j*v+3*ow, "10", text_style, false, false) 
+			end		
+		end	
 		for i = 3,4 do		
 			if (i == 3) then
-				lib.add_input(i*(v+w), tab+j*v, 60, 60, lib.check_number(size[j]/10))
+				lib.add_input(i*(v+w), tab+j*v, 60, 60, lib.check_number(size[j]/10,20))
 			else			
-				lib.add_input(i*(v+w), tab+j*v, 60, 60, lib.check_number(size[j]*10))
+				lib.add_input(i*(v+w), tab+j*v, 60, 60, lib.check_number(size[j]*10,20))
 			end		
 		end
 	end	
@@ -164,3 +172,4 @@ mycanvas = function()
 
   total = (size[1] + size[2]) * 10  
 end
+        

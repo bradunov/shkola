@@ -1,6 +1,8 @@
+
 Write down these numbers:
 
-@repeat(4)@
+@repeat(3)@
+@vspace@
 @center@ @numb@ as a power with base @base@,
 @center@ @numb@ = @base@ @sup@ @lib.check_number(grd,10)@ @/sup@
 @/repeat@

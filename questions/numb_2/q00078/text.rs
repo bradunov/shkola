@@ -1,8 +1,7 @@
 
 Izračunaj.
-@repeat(3)@ 
-
+@repeat(2)@ 
 @vspace@
-@center@ @quest@ @hspacept(3)@ 
+@center@ @quest@ 
 @center@ = @hspacept(3)@ @lib.check_number(value, 20)@ 
 @/repeat@

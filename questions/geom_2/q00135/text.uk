@@ -1,5 +1,5 @@
-Calculate the radii of the circumscribed (@dat[2]@) and inscribed circle (@dat[3]@), and the perimeter @"O"@ of the regular polygon in the picture if @hspacept(3)@ @quest@.
-Round to three decimals and write the result to two decimals. 
+
+Calculate the radii of the circumscribed (@dat[2]@) and inscribed circle (@dat[3]@), and the perimeter @"O"@ of the regular polygon in the picture if @hspacept(3)@ @quest@. Calculate with three decimals and write the result to two decimals. 
 @center@ @mycanvas()@
 @center@ @dat[2]@ = @lib.check_number(numb[2],35)@@meas@, @hspacept(15)@ @dat[3]@ = @lib.check_number(numb[3],35)@@meas@,  @hspacept(15)@ @"O"@ = @lib.check_number(circ,35)@@meas@
 If we assume that the circumferences of these circles are slightly larger or smaller than the perimeter of the polygon, determine the interval to which the number @pi@ belongs.

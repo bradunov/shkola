@@ -48,21 +48,21 @@ arg[2] = lib.math.round_dec(fun[2] / coef[ch], 2)
  
   mycanvas = function()
 
-  lib.start_canvas(280, 230, "center")
+  lib.start_canvas(250, 190, "center")
   
     ow = 15
 	ov = 10	
     v = 5
 	w = 20
 
-    dx = math.floor(200/max_x)	
+    dx = math.floor(160/max_x)	
 	
 	tmx = max_x*dx
 	if (coef[ch] > 1) then
 		tmx = math.floor(tmx / coef[ch])	
 	end	
 	tmy = tmx*coef[ch]	
-	lib.add_line(w, dim_x*dx -ov, tmx, -tmy, dif_style, false, false)		
+	lib.add_line(w, dim_x*dx -v, tmx, -tmy, dif_style, false, false)		
 
     for i = 1, dim_x do
        lib.add_line(w+i*dx, ov, 0, max_x * dx, style, false, false)
@@ -90,4 +90,3 @@ arg[2] = lib.math.round_dec(fun[2] / coef[ch], 2)
 end       
              
             
- 

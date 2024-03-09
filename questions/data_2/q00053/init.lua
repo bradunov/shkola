@@ -39,15 +39,15 @@ dim_x = max_x + 1
 
 mycanvas = function()
 
-  lib.start_canvas(300, 250, "center")
+  lib.start_canvas(250, 190, "center")
 
-    dx = math.floor(200/max_x)	
+    dx = math.floor(150/max_x)	
 
     ow = 15
     v = 5
 
 	
-	lib.add_line(ow+v, dim_x*dx - 6, max_x*dx, -coef*max_x*dx, line_style, false, false)		
+	lib.add_line(ow+v, dim_x*dx , max_x*dx, -coef*max_x*dx, line_style, false, false)		
 
     for i = 1, dim_x do
        lib.add_line(ow+v+i*dx, ow, 0, max_x * dx, style, false, false)
@@ -74,3 +74,4 @@ mycanvas = function()
   
 end              
        
+            

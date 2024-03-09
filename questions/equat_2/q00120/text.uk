@@ -1,6 +1,8 @@
+
 Calculate the square of a binomial.
 
-@repeat(3)@  
-@quest@ =  
+@repeat(2)@
+@vspace@
+@center@ @quest@ =  
 @center@ @result@   
 @/repeat@

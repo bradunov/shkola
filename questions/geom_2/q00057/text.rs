@@ -9,10 +9,3 @@ Dva trougla su podudarna ako su
 @lib.check_string(result[3], 15)@  @hspacept(5)@  @answ[3]@     
 @vspace@
 @lib.check_string(result[4], 15)@  @hspacept(5)@  @answ[4]@                     
-@vspace@
-@lib.check_string(result[5], 15)@  @hspacept(5)@  @answ[5]@                    
-                       
-                       
-            
-
-          

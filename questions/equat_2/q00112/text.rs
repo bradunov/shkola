@@ -1,6 +1,7 @@
 
-U prazna mesta upiši odgovarajuće monome.
+U prazna mesta upiši odgovarajuće monome (upiši i stepen 1).
  
-@repeat(4)@  
+@repeat(3)@  
+@vspace@
 @center@  @quest@   
 @/repeat@

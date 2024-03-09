@@ -1,7 +1,4 @@
 
-Tabela pokazuje uspeh učenika na pismenom zadatku.
-
+Tabela pokazuje uspeh učenika na pismenom zadatku. Koji podatak iz tabele nije tačno prikazan stubičastim dijagramom? 
 @center@ @mycanvas()@ 
-
-Koji podatak iz tabele nije tačno prikazan stubičastim dijagramom? 
-Oboj kružić ispod odgovarajućeg stubića.
+@center@ Oboj kružić ispod odgovarajućeg stubića.

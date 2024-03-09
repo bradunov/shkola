@@ -69,7 +69,7 @@ if (index == 3) then
     reply = msg[5] .. lib.check_number(11, 15) 
 end
 if (index == 4) then 
-    reply = msg[6] .. lib.check_number(12, 15) 
+    reply = msg[5] .. lib.check_number(12, 15) 
 end
 
 mycanvas = function()

@@ -264,10 +264,10 @@ area = lib.math.round_dec(area, 1)
 
 mycanvas = function()
 	 		  
-  lib.start_canvas(250, 180, "center")   
+  lib.start_canvas(190, 140, "center")   
   
-   w = 16
-   ow = 12
+   w = 12
+   ow = 9
    v = 5
 
   

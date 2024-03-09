@@ -137,7 +137,7 @@ end
 
 mycanvas = function()
 
-  lib.start_canvas(350, 290, "center")
+  lib.start_canvas(350, 300, "center")
 
     wx = 15
     wy = 20	

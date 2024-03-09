@@ -1,6 +1,6 @@
 Split the root of the underlying quantity into prime factors, and calculate the square root based on that.
 
-@repeat(3)@
+@repeat(2)@
 @vspace@
 @center@ @numb2@ = 
 @center@@reply@

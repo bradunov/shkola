@@ -1,6 +1,9 @@
+
 On a square grid, the coordinates of three vertices of a square @"A, B"@ and @"C"@ are given. Determine the coordinates of the fourth vertex @"D"@.
 
-@repeat(4)@
+@repeat(2)@ 
+@vspace@
 @center@ @"A"@ = (@xp[1]@, @yp[1]@), @hspacept(15)@ @"B"@ = (@xp[2]@, @yp[2]@), @hspacept(15)@ @"C"@ = (@xp[3]@, @yp[3]@)
 @center@ @"D"@ = (@lib.check_number(xp[4],20)@, @lib.check_number(yp[4],20)@)
 @/repeat@
+            

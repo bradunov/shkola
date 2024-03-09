@@ -5,7 +5,7 @@ addition_table = function()
 
   measure = {name[1].." \( \ \) cm", name[1].." \( \ \) cm", name[2].." cm"} 
 
-  columns = 6 
+  columns = 5 
   max_range = 6
   
   q = {}

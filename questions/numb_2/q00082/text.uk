@@ -1,6 +1,6 @@
 Write the exponent for the given base and exponent. Represent the exponent as a product.
 
-@repeat(4)@
+@repeat(3)@
 @center@ base @base@, exponent @grd@ 
 @center@ @lib.check_string(base,15)@ @sup@ @lib.check_number(grd,10)@ @/sup@ @hspacept(3)@ = @hspacept(3)@ @answ@  
 @/repeat@

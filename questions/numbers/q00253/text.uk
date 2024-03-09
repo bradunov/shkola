@@ -1,5 +1,5 @@
 
-The book is  @book@ pages long. If @ime@ reads @numb@ pages each day, how long will she take to finish her book?
+The book is  @book@ @pg@ long. If @ime@ reads @numb@ pages each day, how long will she take to finish her book?
 @ime@ will read the book for
 @center@ @lib.check_number(period)@ @hspacept(3)@ @term@.
               

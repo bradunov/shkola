@@ -1,6 +1,7 @@
 
 Odredi proizvod monoma.
  
-@repeat(4)@  
+@repeat(3)@  
+@vspace@
 @center@  @quest@   
 @/repeat@

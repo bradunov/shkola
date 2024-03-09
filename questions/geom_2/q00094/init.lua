@@ -7,7 +7,7 @@ addition_table = function()
   eh = {4, 12, 15, 24}
   ec = {5, 13, 17, 25}
 
-  columns = 6
+  columns = 5
   min_range = 2
   max_range = 14
   

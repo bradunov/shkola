@@ -16,20 +16,17 @@ op = {}
 dim = 3
 choice = letter[math.random(5)]
 degr = 2
-sum = 1 + math.random(2)
+sum = math.random(3)
 
-max_range = 7
-quest = ""
-for k = 1,sum do
-	value[k] = {}
-	for j = 1,2 do
-		numb[j] = {}
-		ch[j] = 0
-		term[j] = ""			
-	end	
-	square = math.random(2)
-	if (square == 1) then	
+max_range = 6
+
+for k = 1,3 do
+	quest[4-k] = ""
+	if (k <= sum) then
+		value[k] = {}
 		for j = 1,2 do
+			numb[j] = {}
+			ch[j] = 0	
 			for i = 1,3 do	
 				numb[j][i] = math.random(max_range) - 1
 				if (numb[j][i] ~= 0 and ch[j] == 0) then 
@@ -43,6 +40,7 @@ for k = 1,sum do
 			end
 		end	
 		for j = 1,2 do
+			term[j] = ""
 			for i = 1,3 do	
 				sg = math.random(2)		
 				st = degr + 1 - i	
@@ -75,44 +73,14 @@ for k = 1,sum do
 		value[k][3] = numb[1][1] * numb[2][3] + numb[1][2] * numb[2][2] + numb[1][3] * numb[2][1]	
 		value[k][4] = numb[1][2] * numb[2][3] + numb[1][3] * numb[2][2]
 		value[k][5] = numb[1][3] * numb[2][3] 
-		quest = quest .. "(" .. term[1] .. ") * (" .. term[2] .. ")"	
-	else		
-		for i = 1,3 do
-			numb[1][i] = math.random(max_range)							
-		end
-		ch[1] = math.random(2)	
-		numb[1][3-ch[1]] = 0
-		sg = math.random(2)
-		for i = 1,3 do				
-			if (numb[1][i] ~= 0) then
-				if (numb[1][i] ~= 1 or i == 3) then		        
-					term[1] = term[1] .. tostring(numb[1][i]) 	
-				end	
-				if (i < 3) then		
-					term[1] = term[1] .. choice 
-					if (i == 1) then
-						term[1] = term[1] .. "\(^{\small" .. 2 .. "}\)"
-					end					
-				end					
-			end	
- 			if (i == 2) then	
-				term[1] = term[1] .. " " .. oper[sg]	
-			end	
-		end			
-		if (sg == 2) then
-			numb[1][3] = - numb[1][3]
-		end					
-		value[k][1] = numb[1][1] * numb[1][1] 
-		value[k][2] = 2 * numb[1][1] * numb[1][2] 
-		value[k][3] = 2 * numb[1][1] * numb[1][3] + numb[1][2] * numb[1][2] 	
-		value[k][4] = 2 * numb[1][2] * numb[1][3] 
-		value[k][5] = numb[1][3] * numb[1][3] 	
-		quest = quest .. "(" .. term[1] .. ")\(^{\small" .. 2 .. "}\)"
-	end
-	op[k] = math.random(2)	
-	if (k < sum) then
-	    quest = quest .. " " .. oper[op[k]] .. " "
-    end			
+		op[k] = math.random(2)
+		quest[4-k] = quest[4-k] .. "(" .. term[1] .. ") * (" .. term[2] .. ")"
+		if (k < sum) then
+			quest[4-k] = quest[4-k] .. " " .. oper[op[k]] .. " "
+		else
+			quest[4-k] = quest[4-k] .. " = "	
+		end	
+    end	
 end
 
 check = 0
@@ -151,7 +119,7 @@ for i = 1,5 do
 		else 		
 			result = result .. " " .. lib.check_string(sign[i],10)    
 		end
-		result = result .. lib.check_number(valabs[i],20)		
+		result = result .. " " .. lib.check_number(valabs[i],15)		
 		if (i < 5) then		
 			result = result .. lib.check_string(choice,10) 
 			if (i < 4) then
@@ -160,3 +128,4 @@ for i = 1,5 do
 		end
 	end
 end
+         

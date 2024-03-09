@@ -3,7 +3,6 @@ Solve the inequality
 
 The solutions of the inequality are 
 @center@ @reply@ 
-Display the solutions on a number line. 
-A circle denotes the boundary value of the solution area. Color in the circle if the boundary point belongs to the solution area. 
+Display the solutions on a number line. A circle denotes the boundary value of the solution area. Color in the circle if the boundary point belongs to the solution area. 
 Enter integer values around the circle and color in the solution area. 
 @center@ @mycanvas()@

@@ -1,3 +1,3 @@
-name = {"jednakokraki", "jednakostranicni", "nejednakostranicni"}
-name2 = {"jednakokraki", "jednakostranični", "nejednakostranični"}
+name = {"isosceles", "equilateral", "scalene"}
+name2 = {"isosceles", "equilateral", "scalene"}
 answr = { "vertices", "sides"}

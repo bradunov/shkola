@@ -1,5 +1,4 @@
 The diagonal of a square is @"q"@ @meas[1]@ longer than its side.
-@vspace@
 a) If @"q"@ = @dif[1]@@meas[1]@, calculate the perimeter @"O"@ and area @"P"@ of the square.
 @center@ @"O"@ = @lib.check_number(circ,50)@@meas[1]@,@hspacept(30)@ @"P"@ = @lib.check_number(area,50)@@meas[2]@.
 @vspace@

@@ -1,5 +1,7 @@
+
 Arrange the polynomials in decreasing order of the variable's degree. Write down the summands whose coefficients are different from 0.
 
-@repeat(3)@
+@repeat(2)@
+@vspace@
 @center@  @quest@ = @result@   
 @/repeat@

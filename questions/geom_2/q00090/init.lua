@@ -5,7 +5,7 @@ addition_table = function()
   hb = "h\(\small_b\)"
   measure = {"a  \( \ \) cm", "b  \( \ \) cm", "h\(\small_a\)  \( \ \)cm",  "h\(\small_b\)  \( \ \)cm", "O  \( \ \)cm", "P \( \ \ \) cm\(^2\)"} 
 
-  columns = 6
+  columns = 5
   min_range = 5
   max_range = 29
 

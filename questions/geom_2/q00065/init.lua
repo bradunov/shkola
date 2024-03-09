@@ -64,12 +64,12 @@ ans3 = "answer = '" .. name[3] .. "' ";
 
 mycanvas = function(no)
 
-  ow = 10
-  w = 250
-  ov = 150
-  v = 40
+  ow = 8
+  w = 200
+  ov = 120
+  v = 32
 
-  lib.start_canvas(320, 170, "center") 
+  lib.start_canvas(250, 140, "center") 
  
   lib.add_straight_path(2*(ow+v)+3, 3*ow-2, {{w-2*v+ow-2, ov-v+2}}, style, true, false)    
   lib.add_straight_path(ov-v-5, 3*ow-2, {{-2*v+2*ow-2, ov-3*ow-6}}, style, true, false)  

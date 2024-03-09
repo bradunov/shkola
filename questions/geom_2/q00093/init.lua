@@ -8,7 +8,7 @@ ea = {3, 5, 8, 7}
 eb = {4, 12, 15, 24}
 ec = {5, 13, 17, 25}
 
-  columns = 6
+  columns = 5
   min_range = 5
   max_range = 29
 

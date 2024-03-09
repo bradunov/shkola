@@ -3,5 +3,5 @@ Dopuni tabelu tako da ona prikazuje uspeh @total@ učenika jednog odeljenja na t
 @center@ @mycanvas()@ 
 
 @center@ @quest[ch]@  
-@center@  @lib.check_number(value, 40)@.
+@center@  @lib.check_number(value, 40)@
 

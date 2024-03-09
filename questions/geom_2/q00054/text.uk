@@ -1,9 +1,9 @@
-@vspace@
-@center@ @mycanvas()@
-Arrange in descending order the sides of a triangle if the sizes of its angles are given.
-(Use the labels for the sides given in the image.)
 
-@repeat(3)@
+Arrange in descending order the sides of a triangle if the sizes of its angles are given. (Use the labels for the sides given in the image.)
+@vspace@                                                                                                                                                                                                               
+@center@ @mycanvas()@
+@repeat(2)@
+@vspace@
 @center@ @numb[1]@ = @ang_g[1]@@meas[1]@ @ang_m[1]@@meas[2]@ @hspacept(15)@ @numb[2]@ = @ang_g[2]@@meas[1]@ @ang_m[2]@@meas[2]@ @hspacept(15)@ @numb[3]@ = @ang_g[3]@@meas[1]@ @ang_m[3]@@meas[2]@
 @center@ @reply@
-@/repeat@
+@/repeat@    

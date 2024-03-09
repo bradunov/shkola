@@ -57,18 +57,12 @@ if (ang_m[ch] ~= 0) then
 end	
 
 if (ang[1] > 5400) then
-    result =  "answer == '" .. msg1[3] .. "' "  ..
-        "|| answer == '" .. msg2[3] .. "'" ;
-    ans = "answer = '" .. msg1[3] .. "' ";
+    out =  msg[3] 
 else
     if (ang[1] < 5400) then
-        result =  "answer == '" .. msg1[1] .. "' "  ..
-           "|| answer == '" .. msg2[1] .. "'" ;
-        ans = "answer = '" .. msg1[1] .. "' ";
+        out = msg[1]
     else	   
-        result =  "answer == '" .. msg1[2] .. "' "  ..
-           "|| answer == '" .. msg2[2] .. "'" ;
-        ans = "answer = '" .. msg1[2] .. "' ";
+        out = msg[2]
 	end
 end	
 
@@ -115,4 +109,4 @@ mycanvas = function(no)
     
   lib.end_canvas()
 end       
-            
+          

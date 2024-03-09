@@ -1,9 +1,7 @@
+
 Calculate by reducing to similar roots. Then, using the table of square roots, calculate approximate values of the expressions (with an error no greater than 0.01).
-
-@repeat(3)@
-
+@repeat(2)@
 @vspace@
-@center@ Calculate: 
+@center@ @quest@ 
 @center@ = @hspacept(3)@ @answ@ @hspacept(3)@  = @hspacept(3)@ @lib.check_number(lib.math.round_dec(value, 2), 40)@ 
-
 @/repeat@

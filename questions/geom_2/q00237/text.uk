@@ -1,0 +1,5 @@
+
+Which point represents the image of point @point@ obtained by rotation for a positive angle of @angle@° with respect to the center of rotation O?
+@center@ @mycanvas()@
+@vspace@
+@center@ Point @point@ is mapped to point @lib.check_string(reply,20)@. 
