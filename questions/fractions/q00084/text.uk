@@ -1,0 +1,10 @@
+
+@ime@ drew and shaded a figure made up of 2 squares.
+@center@ @mycanvas()@
+
+How much of the figure is shaded?
+ 
+Give your answer as a decimal.
+@center@ @lib.check_number(area,40)@
+            
+            

@@ -1,0 +1,5 @@
+
+At a music concert each child came with one adult. The adult ticket price was £@adult@  and the child ticket price was £@child@.
+The total amount spent on tickets for the music concert was more than £@total@.
+What is the least number of adults who could have been at the concert?
+@center@ @lib.check_number(result)@

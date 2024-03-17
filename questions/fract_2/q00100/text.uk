@@ -1,0 +1,6 @@
+
+A bottle is \(\frac{@broj[1]@}{@imen[1]@}\) full. When @add@ @meas[1]@ of water is added to the bottle it is \(\frac{@broj[2]@}{@imen[2]@}\) full. 
+What is the capacity of the bottle?
+@vspace@ 
+@center@ The capacity of the bottle is  @ans@ @meas[2]@.
+            

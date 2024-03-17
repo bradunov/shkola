@@ -1,0 +1,12 @@
+
+@ime@ baked some scones and is going to put an equal amount into some bags. If she put an equal amount into: 
+@center@ @bag[1]@ bags, she will have @rest[1]@ left over,
+@center@ @bag[2]@ bags, she will have @rest[2]@ left over,
+@center@ @bag[3]@ bags, she will have @rest[3]@ left over,
+@center@ @bag[4]@ bags, she will have @rest[4]@ left over,
+@center@ @bag[5]@ bags, she will have @rest[5]@ left over.
+@ime@ baked more than @min_range@ but less than @max_range@ scones.
+@vspace@
+How many scones did @ime@ bake?
+@center@ @lib.check_number(total)@
+            

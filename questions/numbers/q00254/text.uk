@@ -1,0 +1,6 @@
+
+There were @fct@ times as many visitors to the netball courts on Saturday than on Friday. On Sunday, the number of visitors was double that of Saturday. There were @dif@ more visitors on Saturday than Friday.
+Find the total number of visitors on these three days.
+@vspace@
+The total number of visitors  is
+@center@ @lib.check_number(total,30)@.         
