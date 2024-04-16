@@ -1,3 +1,4 @@
+
 include("terms")
 
 style = 
@@ -23,20 +24,30 @@ blue_style = {["off_color"] = "fff",
 			   
 text_style = {["font_size"] = "16"}
 
- 
-
 number = 4
 
 ind = math.random(3)
 
-w = 10
-ow = 20
-ov = 250
-  
- 	
+if (ind == 1) then
+   result = "result[0] == 1 && result[1] == 1 && result[2] == 1 && result[3] == 1 && result[4] == 0 && result[5] == 0 && result[6] == 0 && result[7] == 0 && result[8] == 0 && result[9] == 0 && result[10] == 0 && result[11] == 0"
+end
+
+if (ind == 2) then
+   result = "result[0] == 0 && result[1] == 0 && result[2] == 0 && result[3] == 0 && result[4] == 1 && result[5] == 1 && result[6] == 1 && result[7] == 1 && result[8] == 0 && result[9] == 0 && result[10] == 0 && result[11] == 0"
+end  
+
+if (ind == 3) then
+   result = "result[0] == 0 && result[1] == 0 && result[2] == 0 && result[3] == 0 && result[4] == 0 && result[5] == 0 && result[6] == 0 && result[7] == 0 && result[8] == 1 && result[9] == 1 && result[10] == 1 && result[11] == 1"
+end      
+       
+      	
 mycanvas = function(result)
 
-  lib.start_canvas(320, 270, "center", result)
+  lib.start_canvas(230, 230, "center", result)
+
+  w = 8
+  ow = 16
+  ov = 200
 
   lib.add_straight_path(ow, 5*ow, {{ov+2*ow, 0}}, style,  false, false)
   lib.add_straight_path(5*ow, ow, {{0, ov+ow}}, style,  false, false)
@@ -61,17 +72,4 @@ mycanvas = function(result)
   lib.end_canvas()
 end    
 
-if (ind == 1) then
-   result = "result[0] == 1 && result[1] == 1 && result[2] == 1 && result[3] == 1 && result[4] == 0 && result[5] == 0 && result[6] == 0 && result[7] == 0 && result[8] == 0 && result[9] == 0 && result[10] == 0 && result[11] == 0"
-end
-
-if (ind == 2) then
-   result = "result[0] == 0 && result[1] == 0 && result[2] == 0 && result[3] == 0 && result[4] == 1 && result[5] == 1 && result[6] == 1 && result[7] == 1 && result[8] == 0 && result[9] == 0 && result[10] == 0 && result[11] == 0"
-end  
-
-if (ind == 3) then
-   result = "result[0] == 0 && result[1] == 0 && result[2] == 0 && result[3] == 0 && result[4] == 0 && result[5] == 0 && result[6] == 0 && result[7] == 0 && result[8] == 1 && result[9] == 1 && result[10] == 1 && result[11] == 1"
-end      
-       
-            
-    
+   

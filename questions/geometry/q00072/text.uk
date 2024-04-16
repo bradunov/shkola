@@ -1,4 +1,4 @@
-Color the figures in the picture that need to be connected to form a figure that matches the red figure.
 
-(vspace)
-(center) (mycanvas())
+Color the figures in the picture that need to be connected to form a figure that matches the red figure.
+@vspace@
+@center@ @mycanvas()@

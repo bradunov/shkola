@@ -1,10 +1,7 @@
 
-Express the volume in the indicated units. 
- 
-@repeat(5)@ 
+Express the volume in the indicated units.  
+@repeat(4)@ 
 @vspace@ 
 @center@ @value@ @measure[ind2]@ = @answ@
-
 @/repeat@     
-            
-            
+ 

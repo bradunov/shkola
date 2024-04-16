@@ -1,3 +1,4 @@
+
 include("terms")
 
 style = 
@@ -14,13 +15,13 @@ test = {t_str, n_str, t_str, n_str, t_str, t_str, n_str,  t_str}
 index = {1,2,3,4,5,6,7,8}
 out = lib.math.random_shuffle(index)
 
-ow = 10
-w = 250
-ov = 150
+ow = 8
+w = 200
+ov = 120
 
 
 mycanvas = function(no)
-  lib.start_canvas(300, 200, "center")
+  lib.start_canvas(240, 160, "center")
   
   lib.add_straight_path(ow, 2*ow, {{w, 0}}, style, true, false)
   lib.add_straight_path(7*ow, ow/2, {{0, ov}}, style, true, false)  
@@ -39,5 +40,5 @@ mycanvas = function(no)
   
   lib.end_canvas()
 end
-         
+     
             

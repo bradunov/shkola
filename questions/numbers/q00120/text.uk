@@ -1,11 +1,7 @@
 
 Calculate the sum of the first @hspacept(3)@ M @hspacept(3)@ natural numbers. 
 
-@repeat(5)@
-
-@center@ M = @ind@ @hspacept(10)@ The sum is  @lib.check_number(summ)@.  
+@repeat(4)@
+@center@ M = @ind@ @hspacept(20)@ The sum is  @lib.check_number(summ)@.  
 @/repeat@         
-        
-  
-            
-            
+ 

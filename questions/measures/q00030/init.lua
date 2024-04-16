@@ -1,6 +1,7 @@
+
 measure = {"m", "dm", "cm","mm"}
 
-grad2 ="\( ^2\)"
+grad2 ="²"
 
 dim = {""}
 number = {};
@@ -21,7 +22,3 @@ for i = 1, stampa do
 end		
  
 out = lib.math.argsort(number);
-               
-          
-
-  

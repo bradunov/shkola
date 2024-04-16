@@ -1,6 +1,8 @@
-What are the interior angles of an isosceles triangle if the angle at the vertex @bt@ is equal to the angle on the base @al@? 
-@repeat(3)@ 
-@operat[op]@	@coef@ 
-@center@ @al@ = @term[1]@ @hspacept(25)@ @bt@ = @term[2]@
+
+What are the interior angles of an isosceles triangle if the angle at the vertex @bt@ compared to the angle on the base @al@ is
+@repeat(2)@ 
+@operat[op]@	@coef@? 
+@center@ @al@ = @term[1]@ 
+@center@ @bt@ = @term[2]@
 @/repeat@  
 (Correct for rounding error at angle @bt@.)

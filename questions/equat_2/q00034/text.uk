@@ -1,7 +1,7 @@
-Are the claims true that identity is equal to equality, whose left side is 
-@center@ @term_left@ @" = "@ 
-and whose right side is the given expressions?
 
+Are the claim true that the equality, whose left side is 
+@center@ @term_left@ @" = "@ 
+and right side is the given expression, is identity?
 @repeat(4)@ 
 @center@ @term_right@ @hspacept(30)@  @lib.check_one_option_dropdown(msg, reply)@ 
 @/repeat@

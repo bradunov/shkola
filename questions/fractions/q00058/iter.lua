@@ -1,4 +1,5 @@
-include("operation")
+
+include("terms")
 
 indev = math.random(6)
 part = dev[indev]
@@ -22,12 +23,3 @@ if (indcomp == 1) then
 else 
     numb2 = numb2 * result
 end	          
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                                  

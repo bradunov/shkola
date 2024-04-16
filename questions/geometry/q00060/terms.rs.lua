@@ -1,2 +1,2 @@
-hour_arr = {"čas", "časa", "časova"}
-angle_arr = {"ostar", "oštar", "oštar", "tup", "prav"}
+hour = {"čas", "časa", "časova"}
+angle = {"oštar", "prav", "tup"}

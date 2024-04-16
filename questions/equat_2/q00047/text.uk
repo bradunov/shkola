@@ -1,7 +1,6 @@
-@imez@ and @imem@ live at a distance of @dist@@meas[2]@ from each other. @imez@ started walking from her home towards @imeat@ at a speed of @v1km@ @"km/h"@. At the same time, @imem@ started cycling towards her at a speed of @v2km@ @"km/h"@.
 
-Write an equation to calculate the length of the path @"p"@ that @imez@ traveled until she met @imein@.
-
+@imez@ and @imem@ live at a distance of @dist@@meas[2]@ from each other. @imez@ started walking from her home towards @imem@ at a speed of @v1km@ @"km/h"@. At the same time, @imem@ started cycling towards her at a speed of @v2km@ @"km/h"@.
+Write an equation to calculate the length of the path @"p"@ that @imez@ traveled until she met @imem@.
 @center@ @equ@
 @vspace@
 Solve the equation. Write the result to one decimal place.

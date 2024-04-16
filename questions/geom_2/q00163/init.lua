@@ -55,12 +55,12 @@ ans = lib.check_number(numb[3],30) .. meas
 
 mycanvas = function(no)
 
-  w = 250
-  ov = 150
-  v = 40
-  ow = 10
+  w = 200
+  ov = 120
+  v = 32
+  ow = 8
 
-  lib.start_canvas(320, 170, "center")
+  lib.start_canvas(260, 140, "center")
 
   lib.add_straight_path (w+v, ow, {{-ov, ov}, {-ov+ow,0}, {ov, -ov}, {ov-ow, 0},}, blue_style, true, false)
 
@@ -75,16 +75,17 @@ mycanvas = function(no)
   lib.add_line(2*v, 2*v, w-v, v-ow, style, false, false)
   lib.add_line(ov, ov, 2*v+ow, -2*v-ow, style, false, false)
   
-  lib.add_circle(2*v, 2*v, 3, style, false, false)
+  lib.add_circle(2*v, 2*v, 2, style, false, false)
   lib.add_text(2*v+ow, 2*v-ow, "D", text_style, false, false) 
-  lib.add_circle(w+v, ov-v, 3, style, false, false)
+  lib.add_circle(w+v, ov-v, 2, style, false, false)
   lib.add_text(w+v, ov-v+ow, "E", text_style, false, false) 
-  lib.add_circle(ov, ov, 3, style, false, false) 
+  lib.add_circle(ov, ov, 2, style, false, false) 
   lib.add_text(ov+ow, ov, "A", text_style, false, false)
-  lib.add_circle(w-ow, v+2*ow, 3, style, false, false) 
+  lib.add_circle(w-ow, v+2*ow, 2, style, false, false) 
   lib.add_text(w, v+2*ow, "C", text_style, false, false)
-  lib.add_circle(2*(w-ov)+3, 2*(v+ow)-3, 3, style, false, false)  
+  lib.add_circle(2*(w-ov)+3, 2*(v+ow)-3, 2, style, false, false)  
   lib.add_text(2*(w-ov)+3, 3*v-ow, "B", text_style, false, false)
 
   lib.end_canvas()
 end            
+                   

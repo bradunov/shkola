@@ -5,7 +5,7 @@ style =
         ["line_color"] = "000",
         ["line_width"] = "1"};
 
-text_style = {["font_size"] = "14"}
+text_style = {["font_size"] = "16"}
 
 magic = {}
 out = {}
@@ -31,7 +31,7 @@ ind = math.random(5)
 
 mycanvas = function()
 
-  lib.start_canvas(300, 200, "center")
+  lib.start_canvas(200, 200, "center")
 
   w = 60
   ow = 10

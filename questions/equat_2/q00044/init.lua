@@ -1,6 +1,6 @@
 
 meas = {"mm", "cm", "dm"}
-meas2 = {"mm\(\small^2\)", "cm\(\small^2\)", "dm\(\small^2\)"}
+meas2 = {"mm²", "cm²", "dm²"} 
 
 gr2 =  "\(\small^2\)"
 equ = ""

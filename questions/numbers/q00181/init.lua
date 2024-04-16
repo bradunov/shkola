@@ -66,43 +66,27 @@ value4 = number[11] - number[3]
 result = number[3]
 
 mycanvas = function(no)
-  lib.start_canvas(500, 150, "center")
+  lib.start_canvas(320, 160, "center")
 
-hscale = 1.2
+hscale = 1
 vscale = 5
 
   lib.add_straight_path(15*hscale, 15*vscale, {{270*hscale, 0}}, style, false, true)
   
   lib.add_straight_path(20*hscale, 14*vscale, {{0, 10}}, style, false, true)
   lib.add_text(10*hscale, 18*vscale, first, text_style) 
-
-  lib.add_straight_path(45*hscale, 14*vscale, {{0, 10}}, style, false, true)
-  lib.add_input(22*hscale, 20*vscale, 50, 33, lib.check_number(number[2],30))  
-  
+  lib.add_straight_path(45*hscale, 14*vscale, {{0, 10}}, style, false, true) 
   lib.add_straight_path(70*hscale, 14*vscale, {{0, 10}}, style, false, true)
   lib.add_input(50*hscale, 20*vscale, 50, 33, lib.check_number(number[3],30))  
-
-  lib.add_straight_path(95*hscale, 14*vscale, {{0, 10}}, style, false, true) 
-  lib.add_input(78*hscale, 20*vscale, 50, 33, lib.check_number(number[4],30))
-
+  lib.add_straight_path(95*hscale, 14*vscale, {{0, 10}}, style, false, true)
   lib.add_straight_path(120*hscale, 14*vscale, {{0, 10}}, style, false, true)  
   lib.add_input(105*hscale, 20*vscale, 50, 33, lib.check_number(number[5],30))  
-
-  lib.add_straight_path(145*hscale, 14*vscale, {{0, 10}}, style, false, true)  
-  lib.add_input(133*hscale, 20*vscale, 50, 33, lib.check_number(number[6],30))
-
-  lib.add_straight_path(170*hscale, 14*vscale, {{0, 10}}, style, false, true)  
-  lib.add_input(160*hscale, 20*vscale, 50, 33, lib.check_number(number[7],30))
-
+  lib.add_straight_path(145*hscale, 14*vscale, {{0, 10}}, style, false, true) 
+  lib.add_straight_path(170*hscale, 14*vscale, {{0, 10}}, style, false, true) 
   lib.add_straight_path(195*hscale, 14*vscale, {{0, 10}}, style, false, true)
   lib.add_text(195*hscale, 18*vscale, middle, text_style)
-
   lib.add_straight_path(220*hscale, 14*vscale, {{0, 10}}, style, false, true)
-  lib.add_input(205*hscale, 20*vscale, 50, 33, lib.check_number(number[9],30))
-
-  lib.add_straight_path(245*hscale, 14*vscale, {{0, 10}}, style, false, true) 
-  lib.add_input(233*hscale, 20*vscale, 50, 33, lib.check_number(number[10],30))
-
+  lib.add_straight_path(245*hscale, 14*vscale, {{0, 10}}, style, false, true)
   lib.add_straight_path(270*hscale, 14*vscale, {{0, 10}}, style, false, true)  
   lib.add_text(275*hscale, 18*vscale, last, text_style)
 

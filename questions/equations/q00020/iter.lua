@@ -28,7 +28,7 @@ if (index == 1) then
 	answ = "x " .. "\(\in\) " .. bracketl
 	for i = 1, stampa do
 		out = solution + i
-	    answ = answ .. lib.check_number(out,20) .. ", "
+	    answ = answ .. lib.check_number(out) .. ", "
 	end		
 	answ = answ .. "..." .. bracketr
 else 
@@ -40,13 +40,7 @@ else
 	end
 	for i = 1, stampa do
 		out = solution - stampa + i - 1
-	    answ = answ .. ", " .. lib.check_number(out,20) 
+	    answ = answ .. ", " .. lib.check_number(out) 
 	end		
 	answ = answ .. bracketr	
 end		
-
-                 
-
-             
-
-             

@@ -1,7 +1,7 @@
-For how much would the surface area of a cube change if the edge of length 
 
-@repeat(3)@
-@center@ @edge@ @measure[ind]@ @change[ind]@ for @dif@ @measure[ind]@?
-@center@ The surface area of the cube would @change[ind]@ by @lib.check_number(result,30)@ @measure2[ind]@. 
+For how much would the surface area of a cube change if the edge of length 
+@repeat(2)@
 @vspace@
+@center@ @edge@ @measure[ind]@ @change[ind]@ for @dif@ @measure[ind]@?
+@center@ The surface area of the cube would @lib.check_one_option_dropdown(change, change[ind])@  by @lib.check_number(result,30)@ @measure2[ind]@. 
 @/repeat@

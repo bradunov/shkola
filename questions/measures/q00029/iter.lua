@@ -1,3 +1,4 @@
+
 index = {1,2,3,4}
 
 ind = lib.math.random_shuffle(index)
@@ -19,9 +20,3 @@ else
     valueleft = number * temp
     valueright = number
 end		          
-                  
-                    
- 
-
-       
- 

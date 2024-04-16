@@ -1,5 +1,5 @@
-How many @padez[ind]@ angles do the lines form in the picture?
 
+How many @padez[ind]@ angles do the lines form in the picture?
 @center@ @lib.check_number(number,15)@
 @vspace@
 Color the circles that belong to the @name[ind]@ angles.

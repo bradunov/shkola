@@ -62,7 +62,7 @@ line_style =
 						
 text_style = {["font_size"] = "14"}		
 
-
+ind = math.random(2)
             
 mycanvas = function(no)
 
@@ -78,10 +78,22 @@ mycanvas = function(no)
          results = results .. " && "
       end
       results = results .. "result[" .. tostring(i-1) .. "] == "
-	  if (i > 8 ) then
+	  if (i > 16 ) then
 		  results = results .. "0"
 	  else
-		  results = results .. "1"
+		  if (ind == 1) then
+		      if (i < 9) then
+				  results = results .. "1"
+			  else
+				  results = results .. "0"	
+              end				  
+		  else
+		  	  if (i > 8) then
+				  results = results .. "1"
+			  else
+				  results = results .. "0"	
+              end	
+		  end
 	  end
   end
 	
@@ -107,35 +119,36 @@ mycanvas = function(no)
     lib.add_line(6*v+2*ow, 2*w-4*v, 0, 3*v, line_style, false, true)
     lib.add_line(2*ov,  2*ov+4*v, 7*v, 0, line_style, false, true)
 	
-	    lib.add_line(2*(v+ow), v+2*ow, v, 2*v, line_style, false, true)
+	lib.add_line(2*(v+ow)+v, 3*v+2*ow, 2*v, 0, line_style, false, true)
+	lib.add_line(2*ov, v+2*ow, v, 0, line_style, false, true)	
+	lib.add_line(2*(w-v), v+2*ow, 2*v, 0, line_style, false, true)	
+	lib.add_line(2*(v+ow)+2*v, ov+3*ow+v, 0, 2*v, line_style, false, true) 
+	lib.add_line(w-3*ow+2*v, w-2*v+ow, 4*v, 0, line_style, false, true) 
+	lib.add_line(w+ov+2*(v+ow), w+ow, 0, -2*v, line_style, false, true) 
+	lib.add_line(2*(v+ow), 2*w-3*v, 0, 2*v, line_style, false, true) 
+	lib.add_line(2*(ov+v),  2*ov+v, 3*v, 0, line_style, false, true) 
+		
+		lib.add_line(2*(v+ow), v+2*ow, v, 2*v, line_style, false, true)
 	    lib.add_line(2*(3*v+ow), v+2*ow, -v, 2*v, line_style, false, true)
-	    lib.add_line(2*(v+ow)+v, 3*v+2*ow, 2*v, 0, line_style, false, true)
 		
 		lib.add_line(2*ov, v+2*ow, -v, 2*v, line_style, false, true)
-	    lib.add_line(2*ov, v+2*ow, v, 0, line_style, false, true)
 	    lib.add_line(2*ov+v, v+2*ow, 2*v, 0, line_style, false, true)
 
 		lib.add_line(2*(w-v), v+2*ow, -v, 2*v, line_style, false, true)
-	    lib.add_line(2*(w-v), v+2*ow, 2*v, 0, line_style, false, true)
 	    lib.add_line(2*(w-v)+2*v, v+2*ow, 2*v, 2*v, line_style, false, true)
 
         lib.add_line(2*(v+ow), ov+3*ow, 2*v,v, line_style, false, true) 
-	    lib.add_line(2*(v+ow)+2*v, ov+3*ow+v, 0, 2*v, line_style, false, true) 
 		lib.add_line(2*(v+ow), ov+3*ow+4*v, 2*v,-v, line_style, false, true) 
 
 		lib.add_line(w-3*ow, w+v+ow, 2*v, -3*v, line_style, false, true) 
-	    lib.add_line(w-3*ow+2*v, w-2*v+ow, 4*v, 0, line_style, false, true) 
 		lib.add_line(w-3*ow+5*v, w+v+ow, v, -3*v, line_style, false, true) 
 
 		lib.add_line(w+ov+2*(v+ow), w+ow, 2*v, 2*v, line_style, false, true) 
-	    lib.add_line(w+ov+2*(v+ow), w+ow, 0, -2*v, line_style, false, true) 
 		lib.add_line(w+ov+2*(v+ow), w+ow-2*v, 2*v, 0, line_style, false, true) 
 
 		lib.add_line(2*(v+ow), 2*w-3*v, 4*v, -v, line_style, false, true) 
-	    lib.add_line(2*(v+ow), 2*w-3*v, 0, 2*v, line_style, false, true) 
 		lib.add_line(2*(v+ow), 2*w-v, 4*v, 0, line_style, false, true) 
 
-		lib.add_line(2*(ov+v),  2*ov+v, 3*v, 0, line_style, false, true) 
 	    lib.add_line(2*(ov+v),  2*ov+v, -2*v, 3*v, line_style, false, true) 
 		lib.add_line(2*(ov+v)+3*v,  2*ov+v, 2*v, 3*v, line_style, false, true) 		
 		

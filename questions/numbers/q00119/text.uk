@@ -1,12 +1,7 @@
 
 The sum of three consecutive numbers has been given. Find those numbers. 
-
-@repeat(4)@
-
-The sum is @summ@. 
-@center@ The numbers are @lib.check_number(numb1)@, @lib.check_number(numb2)@ and @lib.check_number(numb3)@.
-@/repeat@        
-                  
-  
-            
-            
+@repeat(3)@
+@center@ The sum is @summ@. 
+@center@ The numbers are @lib.check_number(numb1)@, @hspacept(3)@  @lib.check_number(numb2)@, @hspacept(3)@  @lib.check_number(numb3)@.
+@/repeat@               
+ 

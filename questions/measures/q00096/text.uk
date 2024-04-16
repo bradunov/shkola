@@ -1,7 +1,6 @@
-@ime@ is celebrating their birthday on @birth@ @day1[ind_d]@ in @month_d[ind_m]@.
 
+@ime@ is celebrating her birthday on @birth@ @day1[ind_d]@ in @month_d[ind_m]@.
 @center@ @mycanvas()@
-
-On what date does @ime@ celebrate their birthday?
-
-@center@ @ime@ is celebrating their birthday on @hspacept(3)@ @lib.check_number(finish_d,20)@. @finish_m@.
+On what date does @ime@ celebrate her birthday?
+@center@  @finish_m@ @lib.check_number(finish_d,20)@
+            

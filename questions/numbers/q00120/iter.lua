@@ -1,3 +1,4 @@
+
 numb = 3 + math.random(15)
 
 choose = lib.math.gcd(ITEM, 2)

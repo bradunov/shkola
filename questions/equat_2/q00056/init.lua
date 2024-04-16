@@ -17,7 +17,3 @@ for i = 1,4 do
 end	
 
 out = lib.math.random_shuffle(sifra)                  
-                   
-            
-            
-                

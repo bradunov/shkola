@@ -1,3 +1,4 @@
+
 include("terms")
 
 style = {["off_color"] = "fff",
@@ -42,7 +43,7 @@ mycanvas = function()
   
   imax = math.ceil((nmb_month[ind_m] - 8 + numb_position[ind_m])/7) + 2
 
-  lib.start_canvas(350, 280, "center")
+  lib.start_canvas(350, 270, "center")
 
   w = 20
   ow = 30
@@ -86,9 +87,3 @@ mycanvas = function()
 
   lib.end_canvas()
 end      
-  
-          
-                  
-                      
-         
-                

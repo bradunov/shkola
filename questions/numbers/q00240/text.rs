@@ -1,20 +1,6 @@
 
 Postavi zagrade tako da budu tačne jednakosti.
-
-@repeat(6)@
-
-@center@ @answ@  
-
+@repeat(5)@
 @vspace@
-
+@center@ @answ@  
 @/repeat@ 
-  
-  
-      
-      
-            
-
-
-
-
-

@@ -157,13 +157,13 @@ if (ind == 1) then
     cr[1] = numb[1][5] * numb[1][7] * numb[2][7]
     cl[2] = numb[1][5] * numb[2][5] * numb[2][7]	
     cr[2] = numb[1][5] * numb[1][7] * numb[2][5]		
-	ans[1] = lib.check_number(cl[1],25) .. "*(" .. term[1]	.. ") " 
+	ans[1] = lib.check_number(cl[1],25) .. " (" .. term[1]	.. ") " 
     if (numb[1][4] ~= 0) then 
-		ans[1] = ans[1] .. opp[1] .. lib.check_number(cl[2],25) .. "*" ..  tostring(math.floor(math.abs(numb[1][4]))) 
+		ans[1] = ans[1] .. opp[1] .. lib.check_number(cl[2],25) .. " · " ..  tostring(math.floor(math.abs(numb[1][4]))) 
 	end
-	ans[1] = ans[1] .. " = " .. lib.check_number(cr[1],25) .. "*(" .. term[2]	.. ") " 
+	ans[1] = ans[1] .. " = " .. lib.check_number(cr[1],25) .. " (" .. term[2]	.. ") " 
     if (numb[2][4] ~= 0) then		
-		ans[1] = ans[1] .. opp[2] .. lib.check_number(cr[2],25) .. "*" ..  tostring(math.floor(math.abs(numb[2][4]))) 
+		ans[1] = ans[1] .. opp[2] .. lib.check_number(cr[2],25) .. " · " ..  tostring(math.floor(math.abs(numb[2][4]))) 
 	end
 	cl[3] = cl[1] * numb[1][1] - cr[1] * numb[2][1]
 	cr[3] = cr[1] * numb[2][2] + cr[2] * numb[2][4] - cl[1] * numb[1][2] - cl[2] * numb[1][4]
@@ -171,7 +171,7 @@ if (ind == 1) then
 else
     cl[1] = numb[1][5] 	
     cr[1] = numb[2][5] 
-	ans[1] = lib.check_number(cl[1],25) .. "*(" .. term[2]	.. ") = " .. lib.check_number(cr[1],25) .. "*(" .. term[1]	.. ")" 
+	ans[1] = lib.check_number(cl[1],25) .. " (" .. term[2]	.. ") = " .. lib.check_number(cr[1],25) .. " (" .. term[1]	.. ")" 
 	cl[3] = cl[1] * numb[2][1] - cr[1] * numb[1][1]
 	cr[3] = cr[1] * numb[1][2] - cl[1] * numb[2][2]
     ans[2] = lib.check_number(cl[3]) .. " x = " .. lib.check_number(cr[3])		
@@ -194,5 +194,4 @@ else
 end
 	
 equ = lib.check_number(aa) .. " x = " .. lib.check_number(bb)      
-           
-           
+                             

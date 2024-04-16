@@ -1,5 +1,4 @@
-day1 = {"ponedeljak", "utorak", "sredu", "četvrtak", "petak", "subotu", "nedelju"}
-day2 = {"ponedeljak", "utorak", "sredu", "cetvrtak", "petak", "subotu", "nedelju"}
+day1 = {"ponedeljak", "utorak", "sreda", "četvrtak", "petak", "subota", "nedelja"}
 choice1 = {"prvog", "drugog", "trećeg", "četvrtog"}
 choice2 = {"prve", "druge", "treće", "četvrte"}
 

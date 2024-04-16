@@ -1,7 +1,8 @@
+
 Reduce the equation to a linear equation with integer coefficients:
 @center@  @term[1]@ =
 @center@  @term[2]@
-(write coefficients as 0 or 1).
+(write also coefficients  0 or 1).
 @center@  @equ@
 Color the line on the graph that represents the solution set of this equation.
 @center@@note@

@@ -1,7 +1,8 @@
+
 Solve the system of linear equations using graphical method.
-@center@  @imp[1]@
-@center@  @imp[2]@.
-
+@center@  @imp[1]@, @hspacept(30)@  @imp[2]@.
 @center@ @mycanvas()@
-
-The solution of the system is @hspacept(8)@ x = @lib.check_number(xpoint, 20)@, @hspacept(8)@ y = @lib.check_number(ypoint, 20)@.
+@vspace@
+The system of equations is @hspacept(10)@ @lib.check_one_option_dropdown(msg, msg[ind])@   
+The solution set of the system is @lib.check_one_option_dropdown(result, result[ind])@ @hspacept(5)@ @sol@
+            

@@ -1,8 +1,9 @@
+
 What angle do the clock hands make at 
-
-@repeat(3)@
-
-@center@ @number@ @name@? @hspacept(20)@ @lib.check_string(reply, 60, ans)@ angle
-
+@vspace@
+@center@ @numb[1]@ @name[1]@ @hspacept(20)@ @lib.check_one_option_dropdown(angle, ans[1])@ angle,
 @vspace@ 
-@/repeat@
+@center@ @numb[2]@ @name[2]@ @hspacept(20)@ @lib.check_one_option_dropdown(angle, ans[2])@ angle,
+@vspace@ 
+@center@ @numb[3]@ @name[3]@ @hspacept(20)@ @lib.check_one_option_dropdown(angle, ans[3])@ angle.
+  

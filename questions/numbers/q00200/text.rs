@@ -1,7 +1,7 @@
 
 Upiši delilac.
 
-@repeat(6)@
+@repeat(5)@
 @center@ @number1@ : @lib.check_number(number2,50)@ = @result@
 @/repeat@ 
 

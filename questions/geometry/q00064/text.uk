@@ -1,7 +1,7 @@
-How many sharp angles are there in the picture? 
-@center@ @mycanvas(result)@
-@vspace@
 
-@center@ How many right angles are there? @hspacept(10)@ @lib.check_number(number,20)@            
-            
-@center@ How many obtuse angles are there? @hspacept(10)@ @lib.check_number(number,20)@
+How many there are in the picture 
+@center@ @mycanvas()@
+@vspace@
+@center@ acute angles @hspacept(10)@ @lib.check_number(numb[1],20)@,                      
+@center@ right angles @hspacept(10)@ @lib.check_number(numb[2],20)@,           
+@center@ obtuse angles @hspacept(10)@ @lib.check_number(numb[3],20)@.  

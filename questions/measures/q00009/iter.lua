@@ -1,6 +1,6 @@
 
 measure = {"m", "dm", "cm", "mm"}
-measure2 = {"m\(^2\)", "dm\(^2\)", "cm\(^2\)","mm\(^2\)"}
+measure2 = {"m²", "dm²", "cm²","mm²"}
 
 quest = {}
 
@@ -43,18 +43,3 @@ for i = 1,2 do
         answ = answ .. lib.check_number(surface_out[i],25) .. measure2[ind-2+i] .. " "   	
     end
 end	
-
-         
-     
-         
-     
-     
-    
-       
-             	
-    
-
-
-     
-               
-

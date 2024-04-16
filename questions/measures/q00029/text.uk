@@ -1,12 +1,7 @@
-                                Write the correct units in the boxes:
-@center@ @measout[1]@, @measout[2]@, @measout[3]@, @measout[4]@
-
+                                
+Choose the correct units in the boxes:
 @repeat(4)@ 
-@center@ @valueleft@ @measure[ind[1]]@ @hspacept(5)@ = @hspacept(5)@ @valueright@ @lib.check_string(measout[ind[2]],120)@ 
-
+@vspace@
+@center@ @valueleft@ @measure[ind[1]]@ @hspacept(5)@ = @hspacept(5)@ @valueright@ @lib.check_one_option_dropdown(measout, measout[ind[2]])@
 @/repeat@       
-                   
-
-
-            
-            
+ 

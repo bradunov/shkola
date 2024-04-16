@@ -4,6 +4,5 @@ Napiši jednačinu kojom ćeš izračunati koliko godina @"x"@ ima @imem@ sada, 
 @vspace@
 @center@ @equ@
 @vspace@
- 
 @center@ @imem@ sada ima @lib.check_number(ym,20)@ @myear@.                   
         

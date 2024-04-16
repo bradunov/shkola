@@ -121,7 +121,7 @@ mycanvas = function()
 	  end
 	end  
 
-	lib.add_text(7*w+ow, 2*ow+14*w, "C I LJ", text_style, false, false) 
+	lib.add_text(7*w+ow, 2*ow+14*w, fig[4], text_style, false, false) 
 	out = lib.math.argsort(number)
 	if (number[out[1]] < number[out[2]]) then  
 	  first = fig[out[1]]

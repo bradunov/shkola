@@ -1,5 +1,5 @@
 
-measure2 = {"mm\(^2\)","cm\(^2\)","dm\(^2\)","m\(^2\)"}
+measure2 = {"mm²", "cm²", "dm²", "m²"} 
 measure = {"mm","cm","dm","m"}
 
 

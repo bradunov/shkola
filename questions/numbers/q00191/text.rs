@@ -1,5 +1,5 @@
 
-Ako je @hspacept(3)@ x + y = @summ@, izračunaj:
+Ako je @hspacept(3)@ x + y = @summ@, izračunaj grupisanjem:
 
 @vspace@
 @center@ (x + @term[1]@) + y  =  (x + y) + @term[1]@  
@@ -13,13 +13,5 @@ Ako je @hspacept(3)@ x + y = @summ@, izračunaj:
 
 @vspace@
 @center@x + (y - @term[4]@) = @lib.check_number(summ,30)@ @lib.check_string(sign[2],15)@ @lib.check_number(term[4],30)@ = @lib.check_number(value[4],30)@ 
- 
-@vspace@
+
        
-          
-       
-          
-               
-              
-                  
-               

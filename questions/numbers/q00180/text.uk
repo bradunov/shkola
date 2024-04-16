@@ -1,11 +1,6 @@
                                 
 Enter the natural numbers which are found between the given numbers:
-
-@repeat(4)@
-@reply@
-@/repeat@   
-                  
- 
-
-            
-            
+@repeat(3)@
+@vspace@
+@center@ @reply@
+@/repeat@  

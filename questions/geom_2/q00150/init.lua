@@ -32,13 +32,13 @@ end
 
 mycanvas = function(no)
 
-	ow = 10
-	w = 250
-	ov = 150
-	v = 40
+	ow = 8
+	w = 200
+	ov = 120
+	v = 32
 	scale = 5*(1 + math.random(4))
 
-	lib.start_canvas(320, 170, "center") 
+	lib.start_canvas(260, 140, "center") 
 	
 		xa = v+4
 		ya = ov-ow		

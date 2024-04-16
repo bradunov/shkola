@@ -1,6 +1,6 @@
 
 addition_table = function()
-  columns = 8
+  columns = 5
 
 
   factor = math.random(5) + 3;

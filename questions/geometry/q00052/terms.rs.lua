@@ -1,4 +1,2 @@
-name = {"jednakokraki", "jednakostranicni", "nejednakostranicni"}
-name2 = {"jednakokraki", "jednakostranični", "nejednakostranični"}
+name = {"jednakokraki", "jednakostranični", "nejednakostranični"}
 answr = { "temena", "stranice"}
-

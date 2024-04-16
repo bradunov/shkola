@@ -1,4 +1,5 @@
-@ime@ makes cardboard boxes that are in the shape of a cube and do not have a lid. The base of the box is a square with an area of @base@@measure2[ind]@, and the height of the box is @height@@measure[ind]@. 
+
+@ime@ makes cardboard boxes that are in the shape of a cuboid and do not have a lid. The base of the box is a square with an area of @base@@measure2[ind]@, and the height of the box is @height@@measure[ind]@. 
 Calculate the surface area of the cardboard needed for @number@ of these boxes to be made @padez@. 
 
 @vspace@

@@ -1,7 +1,5 @@
+
 Who will reach the finish line first?
-
 @center@ @mycanvas()@
-
-@center@ The length of the path for the red figure is @lib.check_number(numb_red, 20)@, for the blue figure is @lib.check_number(numb_blue, 20)@, and for the brown figure is @lib.check_number(numb_brown, 20)@ squares on the grid.
-
+@center@ The length of the path for the red figure is @lib.check_number(number[1], 20)@ for the blue figure is @lib.check_number(number[2], 20)@ and for the brown figure is @lib.check_number(number[3], 20)@ squares on the grid.
 @center@ @answ@

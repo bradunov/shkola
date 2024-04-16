@@ -1,3 +1,4 @@
+
 cifre = {}
 out= {}
            
@@ -11,6 +12,4 @@ value_max = cifre[2]*10 + cifre[1]
 
 summ = value_max + value_min;       
 diff = value_max - value_min;       
-      
-                   
-     
+ 

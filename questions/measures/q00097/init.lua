@@ -21,33 +21,28 @@ numb_position = {3, 6, 7, 3, 5, 1, 3, 6, 2, 4, 7, 2}
 
 ind_m = math.random(12)
 ind_d = math.random(7)
-
-reply = "answer == '" .. day1[ind_d] .. "' "  ..
-        "|| answer == '" .. day2[ind_d] .. "'" ;
-ans = "answer = '" .. day1[ind_d] .. "' ";
-
   
-  ind_or = math.random(4)
-  if (ind_d == 3 or ind_d > 5) then
-      birth = choice2[ind_or]
-  else	
-      birth = choice1[ind_or]  
-  end	
+ind_or = math.random(4)
+if (ind_d == 3 or ind_d > 5) then
+  birth = choice2[ind_or]
+else	
+  birth = choice1[ind_or]  
+end	
 
-  finish_m = month_g[ind_m]
-  
-  temp = ind_d - numb_position[ind_m]
-  if (temp >= 0) then  
-      finish_d = temp + ind_or * 7 - 6
-  else
-      finish_d = temp + ind_or * 7 + 1 
-  end	  
+finish_m = month_g[ind_m]
+
+temp = ind_d - numb_position[ind_m]
+if (temp >= 0) then  
+  finish_d = temp + ind_or * 7 - 6
+else
+  finish_d = temp + ind_or * 7 + 1 
+end	  
  
 mycanvas = function()
   
   imax = math.ceil((nmb_month[ind_m] - 8 + numb_position[ind_m])/7) + 2
 
-  lib.start_canvas(350, 280, "center")
+  lib.start_canvas(350, 270, "center")
 
   w = 20
   ow = 30
@@ -91,9 +86,4 @@ mycanvas = function()
 
   lib.end_canvas()
 end      
-  
-          
-                  
-                      
-         
-                
+ 

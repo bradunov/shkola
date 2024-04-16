@@ -1,20 +1,29 @@
 
 style = 
-       {["off_color"] = "000",
-        ["on_color"] = "000",
+       {["off_color"] = "fff",
+        ["on_color"] = "fff",
         ["line_color"] = "000",
         ["line_width"] = "2"};
 
 dif_style = 
 	{["off_color"] = "fff",
         ["on_color"] = "f90",
+        ["line_color"] = "none",
+        ["off_line_color"] = "none",
+        ["line_width"] = "2"};	
+		
+point_style = 
+	{["off_color"] = "fff",
+        ["on_color"] = "f90",
         ["line_color"] = "000",
         ["off_line_color"] = "000",
-        ["line_width"] = "2"};		
+        ["line_width"] = "2"};				
 
 text_style = {["font_size"] = "16"}
 
 set = {2, 3, 4, 5, 6, 7, 8, 9, 10}
+sign = {"<", ">", "≤", "≥"}
+space = "\( \ \ \ \ \) "
 
 enum = {}
 denom = {}
@@ -25,9 +34,10 @@ qq = {}
 term = {""}
 ch = {}
 
-sign = {"<", ">", "≤", "≥"}
-index = math.random(4) 
+try = {}
+inter = {0, 0, 0}
 
+index = math.random(4)       --[[ izbor relacije]]--
 choice = math.random(2)      --[[ 1 x brojilac, 2 x imenilac]]--
 
 max_range = 20
@@ -62,7 +72,6 @@ if (denom[3] < 0) then
     enum[3] = - enum[3]
     denom[3] = - denom[3]
 end	
-
 
 for i = 1,3 do
     term[i] = ""
@@ -99,7 +108,7 @@ answ1 = ""
 answ2 = ""
 
 if (ch[1] == 1) then	
-        answ1 = lib.check_number(value[1],30)	
+    answ1 = lib.check_number(value[1],30)	
 else 
     if (whl[1] ~= 0) then
         answ1 = lib.check_number(whl[1],20)  
@@ -110,80 +119,148 @@ else
     answ2 = answ2 .. lib.check_fraction_condition(condition2, nil, nil, sln2)
 end
 
-fact = 2
 if (choice == 1) then 
-    neq = "x : " .. "(" .. term[2] .. ")" .. sign[index] .. " " .. term[3]	
+    neq = "x : " .. "(" .. term[2] .. ") " .. sign[index] .. " " .. term[3]	
 	if (value[2] < 0) then
-        fact = 1
-    end
+		if (index < 3) then
+			if (index == 1) then
+				ind = 2
+			else
+				ind = 1
+			end	
+		else		
+			if (index == 3) then
+				ind = 4
+			else
+				ind = 3
+			end	
+		end		
+	else
+		ind = index 
+	end 
+	reply = "x " .. lib.check_one_option_dropdown(sign, sign[ind]) .. " " .. answ1 .. answ2
 else
     neq = "( " .. term[2] .. ") : x " .. sign[index] .. " " .. term[3]		
-    if (value[1] * value[3] > 0) then	
-        fact = 1
-    end		
-end
-  	
-if (fact == 1) then
-    if (index < 3) then
-        if (index == 1) then
-            ind = 2
-        else
-            ind = 1
-        end	
-	else	
-        if (index == 3) then
-            ind = 4
-        else
-            ind = 3
-		end	
-    end		
-else
- 	ind = index 
-end 
-
-reply = "x " .. lib.check_one_option_dropdown(sign, sign[ind]) .. " " .. answ1 .. answ2
-
-zero = 0
-if (choice == 2) then
     if (value[1] < 0 ) then
-	    if (ind == 2 or ind == 4) then
-            reply = lib.check_number(0,20) .. " " .. lib.check_one_option_dropdown(sign, sign[2]) .. " " .. reply 	
-            zero = 2
-		end	
-	else	
-        if ( ind == 1 or ind == 3) then
-            reply = lib.check_number(0,20) .. " " .. lib.check_one_option_dropdown(sign, sign[1]) .. " " .. reply
-            zero = 1
-	    end	
+        try[1] =  1.5*value[1]
+        try[2] = 0.5*value[1]
+        try[3] = 1
+	else
+        try[1] =  -1
+        try[2] = 0.5*value[1]
+        try[3] = 1.5*value[1]	
+	end
+	for i = 1,3 do
+		if (value[2]/try[i] < value[3]) then
+		    if (index == 1 or index == 3) then
+				inter[i] = 1
+			else
+				inter[i] = 0
+            end	
+        else
+		    if (index == 2 or index == 4) then
+				inter[i] = 1
+			else
+				inter[i] = 0
+            end			
+		end
+	end
+	if (index > 2) then
+		rel = sign[3]
+		ind = 3
+	else
+		rel = sign[1]
+		ind = 1			
 	end	
-end	
-
-step = 1
-dist = 2 * step
-leng = 2 * dist
-part = denom[1] 	
-first = whl[1] - dist
-last =  whl[1] + dist
-int = leng * part
-
-if (ind < 3) then
-    if (ind == 2) then
-        results = "result[0] == 0 && result[1] == 1 && result[2] == 0" 
-    else
-        results = "result[0] == 1 && result[1] == 0 && result[2] == 0"	
-    end
-else
-    if (ind == 4 ) then
-        results = "result[0] == 0 && result[1] == 1 && result[2] == 1" 
-    else
-        results = "result[0] == 1 && result[1] == 0 && result[2] == 1"	
+	reply = " "	
+	if (inter[1] == 1 ) then
+		if (value[1] < 0 ) then						
+			reply = "x " .. lib.check_one_option_dropdown(sign, rel) .. " " .. answ1 .. answ2
+        else
+			reply = "x " .. lib.check_one_option_dropdown(sign, sign[1]) .. " " .. lib.check_number(0,20)		
+        end
+    end		
+	if (inter[2] == 1 ) then
+		if (value[1] < 0 ) then	
+			reply = reply .. space .. answ1 .. answ2 .. lib.check_one_option_dropdown(sign, rel) .. " x " .. lib.check_one_option_dropdown(sign, sign[1]) .. " " .. lib.check_number(0,20)
+        else
+			reply = reply .. space .. lib.check_number(0,20) .. lib.check_one_option_dropdown(sign, sign[1]) ..  " x " .. lib.check_one_option_dropdown(sign, rel) .. answ1 .. answ2		
+        end
     end	
+	if (inter[3] == 1 ) then
+		if (value[1] < 0 ) then	
+			reply = reply .. space .. " x " .. lib.check_one_option_dropdown(sign, sign[2]) .. " " .. lib.check_number(0,20)
+        else
+			if (index > 2) then
+				rel = sign[4]
+				ind = 4
+			else
+				rel = sign[2]	
+				ind = 2			
+			end					
+			reply = reply .. space .. "x " .. lib.check_one_option_dropdown(sign, rel) .. " " .. answ1 .. answ2
+        end
+    end		
 end	
+
+part = denom[1]
+step = 1
+if (choice == 1) then
+	dist = 2 * step
+	leng = 2 * dist	
+	first = whl[1] - dist
+	last =  whl[1] + dist
+else
+    if (value[1] < 0) then
+		first = whl[1] -1
+	    last = 1
+	else
+		first = -1
+	    last = whl[1]+1	
+	end
+	dist = math.abs(whl[1])
+    leng = dist + 2	
+end	
+int = leng * part
 	
+results = ""
+if (choice == 1) then
+	if (ind < 3) then
+		if (ind == 2) then
+			results = "result[0] == 0 && result[1] == 1 && result[2] == 0" 
+		else
+			results = "result[0] == 1 && result[1] == 0 && result[2] == 0"	
+		end
+	else
+		if (ind == 4 ) then
+			results = "result[0] == 0 && result[1] == 1 && result[2] == 1" 
+		else
+			results = "result[0] == 1 && result[1] == 0 && result[2] == 1"	
+		end	
+	end	
+else
+	for i = 1, 3 do
+		if i > 1 then
+		 results = results .. " && "
+		end
+		results = results .. "result[" .. tostring(i-1) .. "] == "
+		if (inter[i] == 1 ) then
+		    results = results .. "1"
+		else
+		    results = results .. "0"
+		end
+	end	
+	if (ind > 2) then
+		results = results .. "&& result[3] == 1" 
+    else	
+		results = results .. "&& result[3] == 0" 
+    end	
+	results = results .. "&& result[4] == 0" 	
+end	
 
 mycanvas = function()
-  lib.start_canvas(340, 120, "center", results)
 
+  lib.start_canvas(340, 130, "center", results)
 
   ow = 40
   w = 15
@@ -192,51 +269,41 @@ mycanvas = function()
 
   scale1 = math.floor(300/int)
   scale2 = part * scale1
-  mark = dist*scale2 + sht*scale1 
-  
-  if (zero == 1 and first <= 0 and last > 0) then
-      if (whl[1] >= 0 and whl[1] <= 2 and sht >= 0) then      
-          if (whl[1] == 2) then
-              lib.add_straight_path(w, 2*ow, {{mark, 0}, {0, -ow}, {-mark, 0}, {0, ow} }, dif_style, false, true)  
-	      else
-              if (whl[1] == 1) then
-	              mark = step*scale2 + sht*scale1 
-                  lib.add_straight_path(w+step*scale2, 2*ow, {{mark, 0}, {0, -ow}, {-mark, 0}, {0, ow} }, dif_style, false, true)  
-	          else       
-	  	          mark =  sht*scale1 
-                  lib.add_straight_path(w+dist*scale2, 2*ow, {{mark, 0}, {0, -ow}, {-mark, 0}, {0, ow} }, dif_style, false, true)
-              end	
-          end
-      else
-          lib.add_straight_path(w, 2*ow, {{mark, 0}, {0, -ow}, {-mark, 0}}, dif_style, false, true)
-          lib.add_straight_path(w+8, ow-3, {{-8, 3}, {8, 3}}, style, false, false) 	  
-      end
+
+  if (choice == 1) then
+    mark = dist*scale2 + sht*scale1 
+		lib.add_straight_path(w, ow, {{mark, 0}, {0, ow}}, style, false, false)  			  		
+		lib.add_straight_path(w, 2*ow, {{0, -ow}, {mark, 0}, {0, ow}, {-mark, 0}}, dif_style, false, true)  
+		lib.add_straight_path(w+8, ow-3, {{-8, 3}, {8, 3}}, style, false, false) 
+		lib.add_straight_path(w + mark, 2*ow, {{0, -2*v}, {leng*scale2-mark, 0}}, style, false, false)  			  		
+		lib.add_straight_path(w + mark, 2*ow, {{0, -2*v}, {leng*scale2-mark, 0}, {0, 2*v}, {mark-leng*scale2, 0}}, dif_style, false, true)  
+		lib.add_straight_path(w+leng*scale2-8, 2*ow-2*v-3, {{8, 3}, {-8, 3}}, style, false, false) 			
+        point = mark
   else
-      lib.add_straight_path(w, 2*ow, {{mark, 0}, {0, -ow}, {-mark, 0}}, dif_style, false, true)
-      lib.add_straight_path(w+8, ow-3, {{-8, 3}, {8, 3}}, style, false, false) 
-  end
-  mark = dist*scale2 + sht*scale1 
-  if (zero == 2 and first < 0 and last >= 0) then
-      if (whl[1] <= 0 and whl[1] >= -2 and sht <= 0) then    
-          if (whl[1] == -2) then
-	              mark = -dist*scale2 + sht*scale1		  
-              lib.add_straight_path(w + (leng-dist)*scale2, 2*ow, {{mark, 0}, {0, -2*v}, {-mark, 0}, {0, 2*v} }, dif_style, false, true)  
-	      else
-              if (whl[1] == -1) then
-	              mark = -step*scale2 + sht*scale1 
-                  lib.add_straight_path(w + (leng-step)*scale2, 2*ow, {{mark, 0}, {0, -2*v}, {-mark, 0}, {0, 2*v} }, dif_style, false, true)  
-	          else 
-	  	          mark =  sht*scale1 
-                  lib.add_straight_path(w + leng*scale2, 2*ow, {{mark, 0}, {0, -2*v}, {-mark, 0}, {0, 2*v} }, dif_style, false, true)
-              end
-          end			  
-      else  
-	      lib.add_straight_path(w + leng*scale2, 2*ow, {{-leng*scale2+mark, 0}, {0, -2*v}, {leng*scale2-mark, 0}}, dif_style, false, true)
-          lib.add_straight_path(w+leng*scale2-8, 2*(ow-v)-3, {{8, 3}, {-8, 3}}, style, false, false) 
-      end
-  else	  
-      lib.add_straight_path(w + leng*scale2, 2*ow, {{-leng*scale2+mark, 0}, {0, -2*v}, {leng*scale2-mark, 0}}, dif_style, false, true)
-      lib.add_straight_path(w+leng*scale2-8, 2*(ow-v)-3, {{8, 3}, {-8, 3}}, style, false, false) 
+    mark = dist*scale2 + math.abs(sht)*scale1
+    if (value[1] < 0 ) then
+ 		lib.add_straight_path(w, ow, {{step*scale2+sht*scale1, 0}, {0, ow} }, style, false, false)  
+ 		lib.add_straight_path(w, ow, {{step*scale2+sht*scale1, 0}, {0, ow}, {-step*scale2-sht*scale1, 0}, {0, -ow} }, dif_style, false, true) 		
+		lib.add_straight_path(w+step*scale2+sht*scale1, 2*ow, {{0, -2*v}, {mark, 0}, {0, 2*v} }, style, false, false)  
+		lib.add_straight_path(w+step*scale2+sht*scale1, 2*ow, {{0, -2*v}, {mark, 0}, {0, 2*v}, {mark, 0}}, dif_style, false, true) 
+		lib.add_straight_path(w+(leng-1)*scale2, 2*ow, {{0, -ow}, {step*scale2, 0} }, style, false, false) 
+		lib.add_straight_path(w+(leng-1)*scale2, 2*ow, {{0, -ow}, {step*scale2, 0}, {0, ow}, {-step*scale2, 0} }, dif_style, false, true) 		
+	    lib.add_straight_path(w+8, ow-3, {{-8, 3}, {8, 3}}, style, false, false) 
+        lib.add_straight_path(w+leng*scale2-8, ow-3, {{8, 3}, {-8, 3}}, style, false, false) 		
+        point = step*scale2+sht*scale1 
+		pt0 = (leng-1)*scale2
+	else
+		lib.add_straight_path(w, ow, { {step*scale2, 0}, {0, ow}}, style, false, false)  
+		lib.add_straight_path(w, ow, { {step*scale2, 0}, {0, ow}, {-step*scale2, 0}, {0, -ow}}, dif_style, false, true)		
+		lib.add_straight_path(w+step*scale2, 2*ow, {{0, -2*v}, {mark, 0}, {0, 2*v} }, style, false, false) 
+		lib.add_straight_path(w+step*scale2, 2*ow, {{0, -2*v}, {mark, 0}, {0, 2*v}, {-mark, 0}}, dif_style, false, true) 		
+		lib.add_straight_path(w+(leng-1)*scale2+sht*scale1, 2*ow, {{0, -ow}, {step*scale2-sht*scale1, 0} }, style, false, false) 
+		lib.add_straight_path(w+(leng-1)*scale2+sht*scale1, 2*ow, {{0, -ow}, {step*scale2-sht*scale1, 0}, {0, ow}, {-step*scale2+sht*scale1, 0} }, dif_style, false, true) 		
+	    lib.add_straight_path(w+8, ow-3, {{-8, 3}, {8, 3}}, style, false, false) 
+        lib.add_straight_path(w+leng*scale2-8, ow-3, {{8, 3}, {-8, 3}}, style, false, false) 		
+        point = step*scale2+mark 
+		pt0 = step*scale2	
+	end
   end
 
   lib.add_straight_path(w, 2*ow, {{leng*scale2, 0}}, style, false, false)     
@@ -250,16 +317,11 @@ mycanvas = function()
       lib.add_straight_path(w+(i-1)*scale2, 2*ow, {{0, 10}, {0, -20}}, style, false, false)
       lib.add_input(2+(i-1)*scale2, 2*(ow+w)-ov, 40, 30, lib.check_number(number, 25))	  
   end
-
-  mark = dist*scale2 + sht*scale1    
-  lib.add_circle (w+mark, 2*ow, 4, dif_style, false, true)
-
+   
+  lib.add_circle (w+point, 2*ow, 4, point_style, false, true)
+  if (choice == 2) then
+	  lib.add_circle (w+pt0, 2*ow, 4, point_style, false, true)
+  end
+  
   lib.end_canvas()
 end     
-
-
-
-  
-
-
-  

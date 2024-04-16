@@ -1,14 +1,7 @@
                                 
 Solve the following inequalities. 
-
-@repeat(3)@
+@repeat(2)@
+@vspace@
 @center@ (x @sign2@  @term3@)  @sign@  @term2@  @relat@  @result@, @hspacept(20)@ @neq@,
 @center@ @answ@
-@vspace@
 @/repeat@ 
-
-
-
-
-            
-            

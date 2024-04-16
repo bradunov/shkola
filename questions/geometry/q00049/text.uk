@@ -1,2 +1,7 @@
-Rectangle and square have equal perimeters. Calculate the length of the side of the square if the sides of the rectangle are @edge1@@"cm"@ and @edge2@@"cm"@. 
-The length of the side of the square is @lib.check_number(side)@ @"cm"@.
+
+Rectangle and square have equal perimeters. Calculate the length of the side of the square if the sides of the rectangle are 
+@repeat(2)@
+@vspace@
+@center@ @edge1@@"cm"@ @hspacept(5)@ and @hspacept(5)@ @edge2@@"cm"@. 
+@center@ The length of the side of the square is  @lib.check_number(side)@ @"cm"@. 
+@/repeat@

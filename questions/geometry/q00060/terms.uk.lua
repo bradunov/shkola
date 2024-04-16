@@ -1,2 +1,2 @@
-hour_arr = {"hour", "hours", "hours"}
-angle_arr = {"acute", "sharp", "sharp", "blunt", "right"}
+hour = {"hour", "hours", "hours"}
+angle = {"acute", "right", "obtuse"}

@@ -1,7 +1,7 @@
 
 The sum of two consecutive numbers has been given. Find those two numbers. 
 
-@repeat(4)@
+@repeat(3)@
 
 The sum is @summ@. 
 @center@  The numbers are  @lib.check_number(numb1)@ and  @lib.check_number(numb2)@.

@@ -40,7 +40,7 @@ for i = 1,2 do
 	if (i == 2) then
 		tmp = - tmp	
 	end
-    equ[i] = "y = " .. lib.check_number(tmp, 30) .. "* x " .. lib.check_string(" + ", 10) .. lib.check_number(free[i], 30)	
+    equ[i] = "y = " .. lib.check_number(tmp, 30) .. " x " .. lib.check_string(" + ", 10) .. lib.check_number(free[i], 30)	
 end 
 
 ind = math.random(2)

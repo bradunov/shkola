@@ -4,7 +4,7 @@
 Koji deo od ukupnog broja hamburgera je namazan senfom?
 
 @vspace@
-@center@ Senfom je namazana @lib.check_fraction_condition(is_ok, nil, nil, sln)@ hamburgera.
+@center@ Senfom je namazano @lib.check_fraction_condition(is_ok, nil, nil, sln)@ hamburgera.
     
 
                   

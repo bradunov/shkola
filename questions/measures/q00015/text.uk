@@ -1,12 +1,7 @@
 
 Enter the number that gives you the correct equation.
-
 @repeat(4)@ 
- 
+@vspace@ 
 @center@ @answ@ 
-@vspace@
 @/repeat@           
-        
-      
-            
-            
+ 

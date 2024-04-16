@@ -1,5 +1,6 @@
-Reduce the given functions to explicit form.
 
-@repeat(5)@
+Reduce the given functions to explicit form.
+@repeat(4)@
+@vspace@
 @center@ @imp@ = 0, @hspacept(30)@ @"y = "@ @fun@ 
 @/repeat@

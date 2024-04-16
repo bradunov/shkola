@@ -1,8 +1,6 @@
 
 Upiši broj tako da dobiješ tačnu jednakost.
- 
-@repeat(4)@ 
- 
+@repeat(3)@ 
+@vspace@ 
 @center@ @answ@ 
-@vspace@
 @/repeat@    

@@ -13,8 +13,8 @@ y = {}
 mark = {"a", "b", "c", "d"}
 result = {6, 15, 10}
 
-ow = 15
-ov = 150
+ow = 12
+ov = 120
 
 max = 3
 
@@ -31,7 +31,7 @@ ind = math.random(3)
 value = result[ind]
 
 mycanvas = function(no)
-  lib.start_canvas(300, 200, "center")
+  lib.start_canvas(240, 160, "center")
   
   lib.add_straight_path(ov, ow+ov, {{ov, 0}}, style, true, false)
   lib.add_text(2*ov-ow, ov+2*ow, "m", text_style, false, false)

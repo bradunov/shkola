@@ -1,9 +1,8 @@
+
 Dopuni niz brojevima koji nedostaju.
 
-@repeat(4)@
+@repeat(3)@
 @vspace@
 @center@ @reply@
-
 @/repeat@
-                  
- 
+  

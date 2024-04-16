@@ -1,6 +1,6 @@
 
 measure = {"m", "dm", "cm", "mm"}
-measure2 = {"m\(^2\)", "dm\(^2\)", "cm\(^2\)","mm\(^2\)"}
+measure2 = {"m²", "dm²", "cm²","mm²"}
 
 ind = math.random(3)
 
@@ -15,13 +15,3 @@ surface = edge * edge * 5
 
 surface1 = math.floor(surface/100)
 surface2 = surface - surface1 * 100
-     
-    
-       
-             	
-    
-
-
-     
-               
-

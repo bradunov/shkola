@@ -1,7 +1,7 @@
 
 measure = {"m", "dm", "cm","mm"}
 
-grad3 ="\(^3\)"
+grad3 ="³"
 
 dim = {""}
 number = {};
@@ -21,8 +21,5 @@ for i = 1, stampa do
     dim[i] = measure[ind]
 end		
  
-out = lib.math.argsort(number);
+out = lib.math.argsort(number);     
           
-          
-
-  

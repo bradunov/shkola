@@ -12,7 +12,7 @@ factor2 = factor3 + 3 + math.random(10)
 choice = math.random(4)
 
 if (choice == 1) then   
-    sign2 = "*"
+    sign2 = "·"
     sign1 = operat[ind]	
     factor1 = math.random(15) + 4	
 	if (ind == 1) then
@@ -26,7 +26,7 @@ if (choice == 1) then
 end
 
 if (choice == 2) then  
-    sign2 = "*"
+    sign2 = "·"
     sign1 = operat[ind]	
 	factor1 = math.random(15) + 4
 	if (ind == 1) then
@@ -75,11 +75,3 @@ if (choice == 4) then
 end
 
 result = factor2
-    
-     
-     
-  
-
-
-    
-     

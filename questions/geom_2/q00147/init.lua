@@ -43,12 +43,12 @@ end
 
 mycanvas = function(no)
  
-  lib.start_canvas(310, 170, "center")
+  lib.start_canvas(250, 140, "center")
   
-  ow = 10
-  w = 250
-  ov = 130
-  v = 40
+  ow = 8
+  w = 200
+  ov = 104
+  v = 32
   
   step1 = math.floor(w/numb)
   last = w - v + math.random(2*v)

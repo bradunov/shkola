@@ -1,7 +1,6 @@
+
 Izračunaj.
 
-@repeat(6)@ 
+@repeat(4)@ 
 @center@ @answ@
 @/repeat@
-
-

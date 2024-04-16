@@ -7,6 +7,3 @@ Kolika je površina koju treba okrečiti?
 @vspace@
 Koliko je litara boje potrebno za krečenje sobe ako je za 1@measure2[1]@ potrebno \(\frac{1}{@denom@}\)@"l"@ boje? 
 @center@ Potrebno je @lib.check_number(result,20)@@"l"@ boje.
-               
-             
-                   

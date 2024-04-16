@@ -1,5 +1,5 @@
                                                
-Koje od tvrđenja je tačno? Jednačina 
+Izaberi tvrđenje o rešenju jednačine: 
 @repeat(3)@ 
 @center@ @equ[ITEM]@ 
 @center@ @lib.check_one_option_dropdown(msg, reply[ITEM])@ 

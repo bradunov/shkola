@@ -1,13 +1,6 @@
 
 Upiši  +  ili  -  tako da jednakost bude tačna. 
-
-@repeat(5)@ 
+@repeat(4)@ 
 @center@ @number2@  @lib.check_string(sign, 15)@  @number1@ @hspacept(3)@ =  @hspacept(3)@ @value@
 @/repeat@
-  
-  
-                  
-                            
-                  
-
-
+ 

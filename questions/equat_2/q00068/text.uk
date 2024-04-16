@@ -1,8 +1,10 @@
+
 Paint the line that represents the graph of the linear function
 @center@ @"y = "@ @fun[out[1]]@.
 @vspace@
 @center@ @mycanvas()@
 
 Enter the coordinates of the points where this line intersects 
-@center@ the x-axis @hspacept(4)@ (@point0@, @lib.check_number(y0, 15)@),@hspacept(20)@  the y-axis @hspacept(4)@ (@lib.check_number(x1,15)@, @point1@).
-@center@ y > 0 for @hspacept(3)@ x  @lib.check_string(sg1, 15)@ @sign1@,@hspacept(20)@  y < 0 for  @hspacept(3)@ x @lib.check_string(sg2, 15)@ @sign2@.
+@center@ x-axis @hspacept(4)@ (@point0@, @lib.check_number(y0, 15)@),@hspacept(20)@  y-axis @hspacept(4)@ (@lib.check_number(x1,15)@, @point1@).
+@center@ y > 0 for x  @lib.check_string(sg1, 15)@ @sign1@,@hspacept(20)@  y < 0 for x @lib.check_string(sg2, 15)@ @sign2@.
+            

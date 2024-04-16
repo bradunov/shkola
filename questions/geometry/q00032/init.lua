@@ -14,13 +14,13 @@ marker_style =
 
 mycanvas = function(result)
 
-ow = 10
-vo = 40
-vs = 50
-vp = 60
-vc = 70
+ow = 8
+vo = 32
+vs = 40
+vp = 48
+vc = 56
 
-  lib.start_canvas(350, 330, "center", result)
+  lib.start_canvas(280, 260, "center", result)
 
 --[[  petougao  ]]--
   lib.add_straight_path(2*ow, vs, {{vp, -vo}, {vp, vo}, {-3*ow, vp}, {-vp, 0}, {-3*ow, -vp}}, style,  false, false)
@@ -40,4 +40,4 @@ vc = 70
   
   lib.end_canvas()
 end            
-          
+      

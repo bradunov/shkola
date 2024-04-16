@@ -1,2 +1,2 @@
 sign = {"more", "less"} 
-msg = {"kliker", "klikera"}
+msg = {"marble", "marbles"}

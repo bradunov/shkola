@@ -1,4 +1,6 @@
+
 include("terms")
+
 nmb_month = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 
 ind_s = math.random(6)

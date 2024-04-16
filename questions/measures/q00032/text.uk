@@ -1,12 +1,7 @@
 
-Enter the missing measures so that the equations are correct. 
-   
-@repeat(5)@ 
+Enter the missing measures so that the equations are correct.   
+@repeat(4)@ 
 @vspace@
 @center@ @numleft@ @measure2[indl]@ @hspacept(5)@ = @hspacept(5)@ @numright@ @lib.check_string(measure[indr],25)@\(^2\)
-
 @/repeat@  
-            
-
-
-            
+  

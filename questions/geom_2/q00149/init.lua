@@ -27,13 +27,13 @@ ch = math.random(6)
 
 mycanvas = function(no)
 
-	ow = 10
-	w = 250
-	ov = 150
-	v = 40
+	ow = 8
+	w = 200
+	ov = 120
+	v = 32
 	scale = 5*(1 + math.random(4))
 
-	lib.start_canvas(320, 190, "center") 
+	lib.start_canvas(260, 150, "center") 
 	
 		xa = v+2*ow+5
 		ya = ov+ow		
@@ -159,4 +159,5 @@ mycanvas = function(no)
 	sol = name[ch] .. " = " .. lib.check_number(result) .. meas	  	  
 	
 end            
+          
             

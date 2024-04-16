@@ -1,5 +1,5 @@
 The walls of a room with a length of @edge1@@"cm"@, width of @edge2@@"cm"@, and height of @edge3@@"cm"@ need to be painted. 
-One wall has a window with dimensions of @window1@@"cm"@ and @window2@@"cm"@", and another wall has a door with dimensions of @door1@@"cm"@ and @door2@@"cm"@.
+One wall has a window with dimensions of @window1@@"cm"@ and @window2@@"cm"@, and another wall has a door with dimensions of @door1@@"cm"@ and @door2@@"cm"@.
 @vspace@
 What is the surface area that needs to be painted?
 @center@ The surface area is @lib.check_number(surface_m,20)@@measure2[1]@  @lib.check_number(surface_c,40)@@measure2[3]@.

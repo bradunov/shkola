@@ -324,7 +324,7 @@ if (ind == qst) then
 	else
 		reply[ITEM] = msg[2]	
 	end			
-	sol[ITEM] = lib.check_number(0,20) .. " x " .. lib.check_one_option_dropdown(rel, rel[op]) .. lib.check_number(0,20)	
+	sol[ITEM] = "0 · x " .. lib.check_one_option_dropdown(rel, rel[op]) .. lib.check_number(0,20)	
 end	
 if ((ind == 1 and qst == 2 or ind == 2 and qst == 1) or (ind == 3 and qst == 4 or ind == 4 and qst == 3)) then
 	reply[ITEM] = msg[1]	
@@ -388,7 +388,7 @@ if(math.abs(ind - qst) == 2) then
 		value = - value
 	end
 	rest = 10*value - math.floor(10*value)	
-	sol[ITEM] = lib.check_number(0,20) .. " x " .. lib.check_one_option_dropdown(rel, rel[op])	
+	sol[ITEM] = "0 · x " .. lib.check_one_option_dropdown(rel, rel[op])	
 	if (rest == 0) then
 		sol[ITEM] = sol[ITEM] .. " " .. lib.check_number(lib.math.round_dec(value,1))			
 	else		
@@ -418,8 +418,3 @@ if(math.abs(ind - qst) == 2) then
 		end	
     end		
 end			
-        
-         
-
-
-         

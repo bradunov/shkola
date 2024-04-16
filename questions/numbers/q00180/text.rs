@@ -1,8 +1,7 @@
 
 Napiši prirodne brojeve koji se nalaze između datih brojeva:
-
-@repeat(4)@
-@reply@
-@/repeat@   
-                  
+@repeat(3)@
+@vspace@
+@center@ @reply@
+@/repeat@ 
  

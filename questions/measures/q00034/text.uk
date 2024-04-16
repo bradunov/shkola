@@ -1,14 +1,7 @@
 
-The circumference and one side of a rectangle have been given.
-
-@repeat(3)@
-
-@center@The circumference is @circ@@measure[ind]@, the side is @edge_a@@measure[ind]@. 
-@center@The area of the rectangle is @lib.check_number(surface)@ @measure2[ind]@. 
+The circumference and one side of a rectangle have been given. Calculate the area of the rectangle.
+@repeat(2)@
 @vspace@
+@center@The circumference is @circ@@measure[ind]@, @hspacept(3)@ the side is @edge_a@@measure[ind]@. 
+@center@The area of the rectangle is @lib.check_number(surface)@ @measure2[ind]@. 
 @/repeat@
-  
-   
-            
-            
-            

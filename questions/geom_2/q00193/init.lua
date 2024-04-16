@@ -39,12 +39,12 @@ unit = lib.math.round_dec(unit,1)
 
 mycanvas = function(no)
 
-  lib.start_canvas(300, 210, "center")
+  lib.start_canvas(240, 170, "center")
 
-	w = 80
-	ow = 10
-	v = 70
-	ov =  130
+	w = 64
+	ow = 8
+	v = 56
+	ov =  104
 
         py[1] = 2*ow
 		px[1] = w
@@ -94,3 +94,4 @@ mycanvas = function(no)
   lib.end_canvas()
   
 end          
+           

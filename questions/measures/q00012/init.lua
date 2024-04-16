@@ -6,7 +6,7 @@ ime = musko_ime_nom[r]
 padez = musko_ime_dativ[r]
 
 measure = {"m", "dm", "cm"}
-measure2 = {"m\(^2\)", "dm\(^2\)", "cm\(^2\)"}
+measure2 = {"m²", "dm²", "cm²"}
 
 ind = 3
 number = 4 + math.random(8)

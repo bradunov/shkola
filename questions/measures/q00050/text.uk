@@ -1,16 +1,5 @@
                                                                                                 @ime_m@'s birthday is in @birth_m@, and  @ime_f@'s birthday is @number@ @index@ after. 
-In which month is @ime_f@'s birthday? @hspacept(5)@ 
-
+@ime_m@'s birthday is in @birth_m@, and  @ime_f@'s birthday is @number@ @index@ after. 
+In which month is @ime_f@'s birthday? 
 @vspace@
-
-@center@ @ime_f@'s birthday is in @lib.check_string(birth_f,70)@. 
-
-
-
-
-            
-            
-            
-            
-            
-            
+@center@ @ime_f@'s birthday is in @hspacept(5)@ @lib.check_one_option_dropdown(months, birth_f)@ . 

@@ -1,7 +1,7 @@
 
 answ = {"=", "<", ">"}
 
-measure = {"mm\(^3\)","cm\(^3\)","dm\(^3\)","m\(^3\)"}
+measure = {"mm³","cm³","dm³", "m³"}
 index = {1,2,3,4}
 ind = lib.math.random_shuffle(index)
 

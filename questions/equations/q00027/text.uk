@@ -1,12 +1,7 @@
                                 
 Solve the following inequalities.
-
-@repeat(4)@
+@repeat(3)@
+@vspace@
 @center@  @noneq@,  
 @center@ @answ@ 
-@vspace@
 @/repeat@
-
-
-            
-            

@@ -1,2 +1,2 @@
-period = {"pre", "posle"}
-name = {"čas", "časa", "časova"}
+period = {"pre podne", "posle podne"}
+name = {"čas", "časa", "časova", "minuta"}

@@ -1,11 +1,9 @@
                                                                           
 Calculate the circumference of a rectangle with 
- 
-@repeat(3)@ 
-
-@center@ length @numb[1]@@measure[ind]@ @numb[3]@@measure[ind+1]@, width  @numb[2]@@measure[ind]@ @numb[4]@@measure[ind+1]@
+@repeat(2)@ 
+@vspace@
+@center@ length @numb[1]@@measure[ind]@ @numb[3]@@measure[ind+1]@, @hspacept(20)@ width  @numb[2]@@measure[ind]@ @numb[4]@@measure[ind+1]@
 @center@  @lib.check_number(circ)@@measure[ind+1]@  @answ@
-
 @/repeat@ 
      
     

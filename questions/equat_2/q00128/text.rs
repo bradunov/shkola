@@ -5,9 +5,8 @@ na  linearnu jednačinu sa celobrojnim koeficijentima oblika@hspacept(5)@ @"a x 
 @vspace@
 Oslobađanje od razlomaka:
  @note@
-@center@ @ans[1]@. 
+@center@ @ans[1]@ 
 Grupisanje sabiraka:
-@center@ @ans[2]@.
+@center@ @ans[2]@
 Uprošćena forma jednačine:
-@center@   @equ@ @hspacept(30)@ @remark@.
-            
+@center@   @equ@ @hspacept(30)@ @remark@

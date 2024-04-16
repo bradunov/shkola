@@ -1,9 +1,7 @@
-                                Enter a number so that the equation is correct. 
-   
-@repeat(5)@ 
-
+                                
+Enter a number so that the equation is correct.   
+@repeat(4)@ 
 @center@ @numleft@ @measure[indl]@ @hspacept(5)@ = @hspacept(5)@ @lib.check_number(numright,65)@ @measure[indr]@
-
 @/repeat@              
       
 

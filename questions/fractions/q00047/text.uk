@@ -1,6 +1,5 @@
+
 @ime@ cut the cake into equal parts. She ate one piece which is \(\frac{1}{@imenilac@}\) of the cake.
-
 How many pieces did @ime@ cut the cake into?
-
 @vspace@
 @center@ @ime@ cut the cake into @lib.check_number(imenilac,20)@ @part[ind]@.

@@ -1,5 +1,6 @@
+
 Compare the quantities. Choose the sign = , < or >.
 
-(repeats 6 times)
-(centered) (left number) : (right number) (space) (dropdown with options =, <, >) (space) (left number) : (right number)
-(end of repeat)
+@repeat(5)@
+@center@ @lnumber1@ : @lnumber2@ @hspacept(5)@ @lib.check_one_option_dropdown(answ,sign)@ @hspacept(5)@ @rnumber1@ : @rnumber2@ 
+@/repeat@

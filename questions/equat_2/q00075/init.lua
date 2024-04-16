@@ -1,4 +1,6 @@
 
+include("terms")
+
 style = 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -29,6 +31,10 @@ px = {}
 py = {}
 par = {}
 
+sol = ""
+text = "" 
+ans = ""
+
 numb = 2
 
 dimx = 16
@@ -38,6 +44,7 @@ dimy2 = 5
 xpoint = dimx2 - math.random(dimx-1)
 ypoint = dimy2 - math.random(dimy-1)
 
+sing = math.random(6)
 max_range = 5
 for i = 1,numb do
 	coef[i] = {}
@@ -53,23 +60,29 @@ for i = 1,numb do
 		for j = 1,3 do
 			coef[i][j] = -coef[i][j]
 		end
-	end
-	if (coef[i][1] == 0	and coef[i][2] < 0) then
-		for j = 2,3 do
-			coef[i][j] = -coef[i][j]
+	else
+		if (coef[i][1] == 0) then	
+		    if (coef[i][2] < 0) then
+				for j = 2,3 do
+					coef[i][j] = -coef[i][j]
+				end
+			end
 		end
 	end
 end	
 
-fct = 1 + math.random(4)
-for i = 1,2*numb do	
+if (sing > 4) then
+    fct = 1 + math.random(3)
+    for j = 1,2 do
+        coef[2][j] = coef[1][j]	* fct
+	end
+	if (sing == 6) then
+        coef[2][3] = coef[1][3]	* fct
+    end		
+end	
+
+for i = 1,2 do	
   	imp[i] = ""
-	if (i > numb) then
-	    for j = 1,2 do
-			coef[i][j] = fct * coef[i-numb][j]	
-        end
-		coef[i][3] = coef[i-numb][3]	
-    end	
 	if (coef[i][1] ~= 0) then	
 		if (coef[i][1] ~= 1) then
 			imp[i] = imp[i] .. tostring(coef[i][1]) 
@@ -87,11 +100,52 @@ for i = 1,2*numb do
 		if (math.abs(coef[i][2]) ~= 1) then
 			imp[i] = imp[i] .. tostring(math.abs(coef[i][2])) 
 		end		
-		imp[i] = imp[i] .. "y "	
+		imp[i] = imp[i] .. "y"	
 	end
 	imp[i] = imp[i] .. " = " .. tostring(coef[i][3])		
-end	          
-            
+end	 
+
+
+if ((coef[1][1] == 0 and coef[2][1] == 0) or (coef[1][2] == 0 and coef[2][2] == 0))	then
+	if ((coef[1][1] == 0 and coef[2][1] == 0) and  (coef[1][3]/coef[1][2] == coef[2][3]/coef[2][2])) then
+		sing = 6 
+		text = lib.check_string("y",15) .. " = "
+		ans = lib.check_number(ypoint,20)
+	else	
+		sing = 5
+	end	
+	if ((coef[1][2] == 0 and coef[2][2] == 0) and  (coef[1][3]/coef[1][1] == coef[2][3]/coef[2][1])) then
+		sing = 6 
+		text = lib.check_string("x",15) .. " = "
+		ans = lib.check_number(xpoint,20)	
+	else	
+		sing = 5
+	end			
+else
+	if (coef[1][1]*coef[2][2] == coef[1][2]*coef[2][1]) then 
+		if (coef[1][1]*coef[2][3] == coef[1][3]*coef[2][1]) then
+			sing = 6
+            reply1 = "answer == '" .. imp[1] .. "' "  ..
+					"|| answer == '" .. imp[2] .. "'" ;
+			ans1 = "answer = '" .. imp[1] .. "' ";			
+			text = lib.check_string_case(reply1, 80, ans1)
+		else
+			sing = 5
+		end
+	end	
+end
+if (sing > 4) then
+	if (sing == 6) then
+		sol = text .. " " .. ans
+		ind = 3
+	else
+		sol = ""	
+		ind = 2
+	end
+else
+	sol = "(" .. lib.check_number(xpoint,20) .. ", " .. lib.check_number(ypoint,20) .. ")"	
+    ind = 1
+end
             
 mycanvas = function()
 
@@ -169,3 +223,4 @@ mycanvas = function()
 
   lib.end_canvas()
 end    
+            

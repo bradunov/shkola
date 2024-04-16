@@ -1,1 +1,4 @@
+
 In the empty boxes, write the length of each of the broken lines on the picture.
+@vspace@
+@center@ @mycanvas()@

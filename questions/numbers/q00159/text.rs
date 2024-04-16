@@ -1,18 +1,8 @@
 
-@repeat(2)@
-Dvocifreni brojevi su zapisani ciframa  @out[1]@ i @out[2]@. 
-@center@ Manji broj je  @lib.check_number(value_min,20)@, veći broj je @lib.check_number(value_max,20)@. 
-@center@ Zbir ovih brojeva je @lib.check_number(summ,20)@, razlika je @lib.check_number(diff,20)@.
+Dvocifreni brojevi zapisani su ciframa  @out[1]@ i @out[2]@.
 @vspace@ 
-@/repeat@
-
-
-
-
-
-
-      
-                                 
-                  
-
-                  
+@center@ Manji broj je  @hspacept(8)@ @lib.check_number(value_min,20)@, 
+@center@ veći broj je @hspacept(8)@ @lib.check_number(value_max,20)@. 
+@vspace@ 
+@center@ Zbir ovih brojeva je @hspacept(8)@ @lib.check_number(summ,20)@, 
+@center@ razlika brojeva je  @hspacept(8)@@lib.check_number(diff,20)@.

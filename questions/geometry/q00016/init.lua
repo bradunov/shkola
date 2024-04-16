@@ -107,13 +107,13 @@ if (hor[2] ~= 111 and vert[2] ~= 111) then
 end
 
 		 
-w = 5
-ow = 20
-v = 80
-ov = 240
+w = 4
+ow = 16
+v = 64
+ov = 192
 
 mycanvas = function( )
-  lib.start_canvas(300, 300, "center")
+  lib.start_canvas(240, 230, "center")
  
   for i = 1,3 do
       for j = 1,3 do

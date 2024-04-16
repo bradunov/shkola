@@ -1,3 +1,4 @@
+
 style = 
        {["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -16,10 +17,10 @@ summ_bc = b + c
 
 ind = math.random(3)
 
-w = 30
+w = 25
 
 mycanvas = function(no)
-  lib.start_canvas(300, 250, "center")
+  lib.start_canvas(250, 180, "center")
 
   lib.add_triangle (4*w, 4*w, 5*w, 5*w, style, false, false )
                     
@@ -73,3 +74,4 @@ mycanvas = function(no)
   lib.end_canvas()
 end
            
+     

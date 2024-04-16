@@ -1,6 +1,7 @@
+
 Assertion
 @center@ @title[mod]@ @"x"@ @quest@ 
-Write (in ascending order) in the form 
+write (in ascending order) in the form of
 @"(a)"@ inequalities 
 @center@ @ineq@,  
 @"(b)"@ interval to which the solution belongs 

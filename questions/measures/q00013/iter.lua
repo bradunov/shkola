@@ -1,7 +1,8 @@
+
 include("terms")
 
 measure = {"m", "dm", "cm"}
-measure2 = {"m\(^2\)", "dm\(^2\)", "cm\(^2\)"}
+measure2 = {"m²", "dm²", "cm²"}
 
 ind = math.random(3)
 number = 4 + math.random(8)

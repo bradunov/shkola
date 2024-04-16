@@ -1,12 +1,8 @@
                                                 
 Enter the number that makes the equation correct.
- 
-@repeat(5)@ 
- 
+@repeat(4)@ 
+@vspace@
 @center@ @answ@ 
-
 @/repeat@           
       
-            
-            
-            
+ 

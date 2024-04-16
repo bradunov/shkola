@@ -1,8 +1,9 @@
-@ime1@ has @ad[1]@ @obj@ @sign[ind]@ from @padezg2@. If @ime2@ gave @ad[2]@ clickers in @padezd1@, then @ime1@ would have @fct@ times more clickers than @padezg2@. Write the corresponding system of equations and calculate how many clickers each of them has. 
+
+@ime1@ has @ad[1]@ @obj@ @sign[ind]@ than @padezg2@. If @ime2@ gave @ad[2]@ marbles to @padezd1@, then @ime1@ would have @fct@ times more marbles than @padezg2@. Write the corresponding system of equations and calculate how many marbles each of them has. 
 @vspace@
 @center@  @equ[1]@
 @center@ @equ[2]@
 @vspace@        
-   
-@center@ @ime1@ has @hspacept(3)@ @arg[1]@ = @lib.check_number(numb[1],40)@ clickers,
-@center@ @ime2@ has  @hspacept(3)@ @arg[2]@ = @lib.check_number(numb[2],40)@ clickers.
+@center@ @ime1@ has @hspacept(3)@ @arg[1]@ = @lib.check_number(numb[1],40)@ marbles,
+@center@ @ime2@ has  @hspacept(3)@ @arg[2]@ = @lib.check_number(numb[2],40)@ marbles.
+      

@@ -1,4 +1,6 @@
+
 include("terms")
+
 red_style = {["off_color"] = "f30",
                 ["on_color"] = "f30",
                 ["line_color"] = "000",
@@ -11,17 +13,14 @@ blue_style = {["off_color"] = "0cf",
 			   
 text_style = {["font_size"] = "16"}		
 
-reply = "answer == '" .. angle_str[1] .. "' "  ..
-        "|| answer == '" .. angle_str[2] .. "'" ;
-ans = "answer = '" .. angle_str[2] .. "' ";
-		
-  w = 5
-  ow = 20
-  wy = 70
 	
 mycanvas = function()
 
   lib.start_canvas(300, 120, "center")
+  
+  w = 5
+  ow = 20
+  wy = 70
 
   lib.add_straight_path(ow, ow, {{0, wy}, {3*wy/2, 0}, {-3*wy/2, -wy},}, red_style,  false, false)
    lib.add_text(ow-w, ow+wy+w, "A", text_style, false, false)
@@ -35,7 +34,4 @@ mycanvas = function()
        
   lib.end_canvas()
 end   
-      
-			    
-
-  
+ 

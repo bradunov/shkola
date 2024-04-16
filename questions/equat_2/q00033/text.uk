@@ -1,6 +1,7 @@
-Solutions to the given equations are offered. Which of the listed solutions is correct? Choose an answer.
+
+Are offered  solutions to the given equations correct? Choose an answer.
 @repeat(3)@
+@vspace@
 @center@ @term@, @hspacept(20)@ the solution is @hspacept(3)@  @answ@. 
 @center@ @lib.check_one_option_dropdown(msg, reply)@ 
-@vspace@
 @/repeat@

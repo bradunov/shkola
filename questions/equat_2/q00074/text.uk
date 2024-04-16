@@ -1,7 +1,9 @@
+
 Check if any of the pairs @"(x,y)"@ is a solution of the given equations.
 
 @addition_table()@
 @vspace@
-The system of given equations is @hspacept(10)@ @lib.check_one_option_dropdown(msg, msg[ind])@   
+The system of given equations is 
+@center@ @lib.check_one_option_dropdown(msg, msg[ind])@   
 The set of solutions of the system is 
 @center@ @lib.check_one_option_dropdown(result, result[ind])@ @sol@

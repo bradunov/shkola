@@ -1,6 +1,8 @@
 
 measure = {"m", "dm", "cm"}
 
+space = "\( \ \ \ \)"
+
 edge = {}
 edge_out = {}
 box = {}
@@ -22,9 +24,9 @@ for i = 1,3 do
 	   answ1 = answ1 .. tostring(math.floor(edge_out[i][1])) .. measure[2] 
 	end
 	if(edge_out[i][2] ~= 0) then
-       answ1 = answ1 .. " " .. tostring(math.floor(edge_out[i][2])) .. measure[3] .. ", "
+       answ1 = answ1 .. " " .. tostring(math.floor(edge_out[i][2])) .. measure[3] .. ", " .. space
     else
-       answ1 = answ1 .. ", "   	
+       answ1 = answ1 .. ", " .. space  	
 	end   
 end	
 
@@ -57,16 +59,7 @@ for i = 1,3 do
 	   answ2 = answ2 .. " " .. tostring(math.floor(box_out[j][3])) .. measure[3] 
 	end
 	if (i < 3) then
-        answ2 = answ2 .. ", "   
+        answ2 = answ2 .. ", " .. space   
 	end	   
 end	
-     
-    
-       
-             	
-    
-
-
-     
-               
-
+ 

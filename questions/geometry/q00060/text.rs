@@ -1,16 +1,8 @@
 
-Kakav ugao prave kazaljke na satu u 
-
-@repeat(3)@
-
-@center@ @number@ @name@? @hspacept(20)@ @lib.check_string(reply, 60, ans)@ ugao
-
+Kakav ugao zaklapaju kazaljke na satu u 
+@vspace@
+@center@ @numb[1]@ @name[1]@ @hspacept(20)@ @lib.check_one_option_dropdown(angle, ans[1])@ ugao,
 @vspace@ 
-@/repeat@
-
-
-
-
-
-
-
+@center@ @numb[2]@ @name[2]@ @hspacept(20)@ @lib.check_one_option_dropdown(angle, ans[2])@ ugao,
+@vspace@ 
+@center@ @numb[3]@ @name[3]@ @hspacept(20)@ @lib.check_one_option_dropdown(angle, ans[3])@ ugao.

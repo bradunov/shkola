@@ -1,9 +1,9 @@
-include("terms")
 
-measure = {"m", "dm", "cm","mm"}
-measure2 = {"m\(^2\)", "dm\(^2\)", "cm\(^2\)","mm\(^2\)"}
-
-ind = math.random(2)
+if (ch == 1) then
+	ind = ITEM
+else
+	ind = 3 - ITEM
+end	
 
 min = 5;
 max = 20;
@@ -19,9 +19,4 @@ else
     surface_new = 6 * (edge - dif)^2 
 	result = surface - surface_new
 end    
-              
-
-
-     
-               
-
+ 

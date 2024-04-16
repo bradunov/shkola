@@ -4,7 +4,7 @@ style =
         ["on_color"] = "f00",
         ["line_color"] = "f00",
         ["off_line_color"] = "000",
-        ["line_width"] = "2"};
+        ["line_width"] = "3"};
 
 diff_style = 
 	{["off_color"] = "ff9",

@@ -1,5 +1,5 @@
 addition_table = function()
-  columns = 8
+  columns = 5
   min_range = 101
   max_range = 499
 

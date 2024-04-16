@@ -1,7 +1,11 @@
+
 Complete the sentences. Write the appropriate words in the blank fields.
 
-On the picture is angle @lib.check_string_case(reply, 30, ans)@.
-Ray Ob is one of the arms of the @lib.check_string(krak_str, 50)@ angle.
-Point O is one of the vertices of the @lib.check_string(teme_str, 50)@ angle.
-Point M is located at the @lib.check_string(test[ind], 70)@ angle.
-Point A belongs to the @lib.check_string(pripada_str, 70)@ angle.
+@mycanvas()@
+@vspace@
+@center@ On the picture is the angle @lib.check_string_case(reply, 30, ans)@.
+@center@ Ray Ob is  the  @lib.check_string(krak_str, 50)@ of the angle.
+@center@ Point O is the @lib.check_string(teme_str, 50)@ of the angle.
+@center@ Point M  @lib.check_string(test[ind], 100)@ to the angle.
+@center@ Point A  @lib.check_string(pripada_str, 70)@ to the angle.
+            

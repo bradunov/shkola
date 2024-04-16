@@ -1,3 +1,4 @@
+
 If @hspacept(3)@ x + y = @summ@, calculate:
 
 @vspace@
@@ -12,5 +13,3 @@ If @hspacept(3)@ x + y = @summ@, calculate:
 
 @vspace@
 @center@x + (y - @term[4]@) = @lib.check_number(summ,30)@ @lib.check_string(sign[2],15)@ @lib.check_number(term[4],30)@ = @lib.check_number(value[4],30)@ 
- 
-@vspace@

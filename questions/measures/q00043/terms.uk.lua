@@ -1,2 +1,2 @@
-period = {"before", "after"}
-name = {"hour", "hours", "hours"}
+period = {"AM", "PM"}
+name = {"hour", "hours", "hours", "minutes"}

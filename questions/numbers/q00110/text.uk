@@ -1,12 +1,7 @@
-                                Fill in the missing numbers.
-
-@repeat(4)@
+                                
+Fill in the missing numbers.
+@repeat(3)@
 @vspace@
 @center@ @reply@
-
 @/repeat@
-                  
  
-
-            
-            

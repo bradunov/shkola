@@ -1,5 +1,5 @@
 
-Oboj svakom trapezu veću osnovicu. 
+Oboj svakom trapezu @choice[ind]@ osnovicu. 
                                                                                
 @center@ @mycanvas()@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
@@ -9,34 +9,3 @@ Kojim vrstama pripadaju trapezi na slici?
 @center@ 5. @lib.check_one_option_dropdown(name, name[1])@ @hspacept(30)@ 6. @lib.check_one_option_dropdown(name, name[2])@
 @center@ 7. @lib.check_one_option_dropdown(name, name[2])@ @hspacept(30)@ 8. @lib.check_one_option_dropdown(name, name[3])@
                                                                                                                                                                                                       
-
-
-
-            
-
-
-
-                         
-
-
-
-
-
-
-
-
-
-                         
-
-           
-       
-
-       
-     
-            
-            
-            
-            
-            
-            
-

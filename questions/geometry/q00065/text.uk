@@ -1,13 +1,13 @@
+
 There are two triangles in the picture. 
 @center@ @mycanvas(result)@
 
 In triangle @"ABC"@ one angle is right. 
-@center@ What are the other two angles like? @hspacept(5)@ @lib.check_string(reply,40, ans)@            
+@center@ What are the other two angles like? @lib.check_one_option_dropdown(angle, angle[1])@            
  @vspace@           
 In triangle @"KLM"@ one angle is obtuse. 
-@center@ What are the other two angles like? @hspacept(5)@ @lib.check_string(reply,40, ans)@              
+@center@ What are the other two angles like? @hspacept(5)@ @lib.check_one_option_dropdown(angle, angle[1])@              
  @vspace@    
-Can a triangle have two right angles? 
-@center@  @lib.check_string(ans_str,20)@            
-Can a triangle have two obtuse angles?  
- @center@ @lib.check_string(ans_str,20)@
+Can a triangle have  
+@center@ two right angles  @hspacept(5)@ @lib.check_one_option_dropdown(ans, ans[2])@,           
+@center@ two obtuse angles @hspacept(5)@  @lib.check_one_option_dropdown(ans, ans[2])@. 

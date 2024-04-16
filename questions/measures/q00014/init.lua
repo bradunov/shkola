@@ -1,6 +1,6 @@
 
 measure = {"m", "dm", "cm"}
-measure2 = {"m\(^2\)", "dm\(^2\)", "cm\(^2\)"}
+measure2 = {"m²", "dm²", "cm²"}
 
 ind = 3
 dim = 10^4

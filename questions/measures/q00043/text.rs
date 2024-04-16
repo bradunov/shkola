@@ -1,13 +1,6 @@
 
-Zapiši vreme koje pokazuje časovnik.
+Zapiši vreme koje pokazuje časovnik (@period[index]@).
 @vspace@
-@center@ @period[index]@ podne @hspacept(10)@ @lib.check_number(numb_h,30)@ @hour@ @lib.check_number(numb_m,30)@ minuta.
+@center@  @lib.check_number(numb_h,30)@ @hour@ @lib.check_number(numb_m,30)@ @name[4]@
 @vspace@
 @center@ @mycanvas(result)@ 
-            
-            
-            
-            
-            
-            
-            

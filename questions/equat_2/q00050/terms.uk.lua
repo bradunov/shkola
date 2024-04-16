@@ -1,1 +1,1 @@
-msg = {"vrane", "crow", "grane", "branch"};
+msg = {"crows", "crow", "branches", "branch"};

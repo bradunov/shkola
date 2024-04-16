@@ -1,6 +1,6 @@
 
 measure = {"m", "dm", "cm", "mm"}
-measure2 = {"m\(^2\)", "dm\(^2\)", "cm\(^2\)","mm\(^2\)"}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+measure2 = {"m²", "dm²", "cm²", "mm²"}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 
 ind = math.random(4)
 
@@ -14,15 +14,3 @@ edge3 = min_range -1 + math.random(edge2 - min_range)
 summ = 4 * (edge1 + edge2 + edge3)
 
 surface = (edge1 * edge2 + edge1 * edge3 + edge2 * edge3) * 2 
-
-         
-           
-              
-       
-             	
-    
-
-
-     
-               
-

@@ -1,8 +1,7 @@
-@repeat(4)@
 
-@vspace@
-@work@ number @numb1@ by \(\frac{1}{@fact1@}\) of @numb2@.  @hspacept(5)@ @lib.check_number(result)@
-
+@repeat(3)@
+@center@ @work@ number @numb1@ by \(\frac{1}{@fact1@}\) of @numb2@.  
+@center@ @lib.check_number(result)@
 @/repeat@
 
             

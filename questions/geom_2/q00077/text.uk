@@ -1,5 +1,5 @@
 
-Paint the larger base of each trapezoid. 
+Paint the @choice[ind]@ base of each trapezoid. 
 @center@ @mycanvas()@
 To which types do the trapezoids in the picture belong? 
 @center@ 1. @lib.check_one_option_dropdown(name, name[3])@ @hspacept(30)@ 2. @lib.check_one_option_dropdown(name, name[2])@

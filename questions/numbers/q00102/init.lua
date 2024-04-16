@@ -10,7 +10,7 @@ addition_table = function()
 	  sign2 = "+"	
   end 		
 	
-  columns = 6
+  columns = 5
 
   min = 2;
   max = 6;

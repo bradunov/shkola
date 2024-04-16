@@ -1,3 +1,4 @@
+
 include("terms")
 
 style = 
@@ -10,9 +11,9 @@ text_style = {["font_size"] = "16"}
 
 test = {t_str, t_str, t_str, t_str}
 
-ow = 20
-w = 250
-ov = 180
+ow = 16
+w = 200
+ov = 144
 
 min = 2 * ow
 max = ov - 4 * ow
@@ -34,7 +35,7 @@ else
 end   
 
 mycanvas = function(no)
-  lib.start_canvas(300, 200, "center")
+  lib.start_canvas(240, 160, "center")
   
   lib.add_straight_path(ow, ow, {{w, gdw}}, style, true, false)
   lib.add_straight_path(ow, y, {{w, g}}, style, true, false)  
@@ -46,4 +47,4 @@ mycanvas = function(no)
   
   lib.end_canvas()
 end
-     
+   

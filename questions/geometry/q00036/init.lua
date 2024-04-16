@@ -14,10 +14,10 @@ text_style = {["font_size"] = "16"}
  
   ind = lib.math.random_shuffle(index)
 
-  ow = 15
-  ov = 50
-  wx = 150
-  wy = 110
+  ow = 12
+  ov = 40
+  wx = 120
+  wy = 88
 
   for i = 1,2 do
       x[i] = ow  + (i-1) * wx
@@ -32,7 +32,7 @@ text_style = {["font_size"] = "16"}
  	
 mycanvas = function()
 
-  lib.start_canvas(300, 300, "center")
+  lib.start_canvas(240, 240, "center")
 
   lib.add_straight_path(x[ind[1]], y[ind[1]], {{0, ov}, {ov, 0}}, style,  false, false)
   lib.add_input(x[ind[1]]+2*ow, y[ind[1]]+ow, 30, 30, lib.check_number(2, 15)) 

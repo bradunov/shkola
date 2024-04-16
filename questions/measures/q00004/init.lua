@@ -1,9 +1,10 @@
+
 include("terms")
 
 addition_table = function()
 
-  measure = {measures_str[1].." \( \) cm", measures_str[2].." \( \) cm\(^2\)", measures_str[3].." \( \)  \( \) cm\(^2\)"}  
-  columns = 6
+  measure = {measures_str[1].." \( \) cm", measures_str[2].." \( \) cm²", measures_str[3].." \( \)  \( \) cm²"}  
+  columns = 5
   min_range = 5
   max_range = 20
 
@@ -21,7 +22,7 @@ addition_table = function()
 
   style = {}
   style["text-align"] = "center"
-  style["width"] = "60px"
+  style["width"] = "80px"
   text = lib.start_table()
   text = text .. lib.start_row()
   text = text .. lib.add_cell(measure[1], style)
@@ -43,7 +44,4 @@ addition_table = function()
 
   return text
 end
-     
-         
-            
-  
+ 

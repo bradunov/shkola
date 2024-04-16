@@ -1,12 +1,8 @@
 
-The area and one side of a rectangle have been given.
-
-@repeat(3)@
-
-@center@ The area is @surface@@measure2[ind]@, one side is @edge_a@@measure[ind]@. 
-@center@ The circumference is @lib.check_number(circ)@@measure[ind]@. 
+The area and one side of a rectangle have been given. Calculate the circumference of the rectangle.
+@repeat(2)@
 @vspace@
+@center@ The area is @surface@@measure2[ind]@, @hspacept(3)@ one side is @edge_a@@measure[ind]@. 
+@center@ The circumference is @lib.check_number(circ)@@measure[ind]@. 
 @/repeat@
-            
-            
-            
+ 

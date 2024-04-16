@@ -1,5 +1,5 @@
 
-measure = {"km\(^2\)", "ha", "a", "m\(^2\)","dm\(^2\)","cm\(^2\)"}
+measure = {"km²", "ha", "a", "m²","dm²","cm²"}
 ind = math.random(5)
 
 sign = {"+", "-"}

@@ -1,9 +1,10 @@
+
 include("terms")
 
 addition_table = function()
 
-  measure = {measure_str[1].."  cm", measure_str[2].."  cm", measure_str[3].."  cm", measure_str[4].." cm\(^3\)"} 
-  columns = 6
+  measure = {measure_str[1].."  cm", measure_str[2].."  cm", measure_str[3].."  cm", measure_str[4].." cm³"} 
+  columns = 5
   min_range = 5
   max_range = 20
 
@@ -69,7 +70,4 @@ for i = 1, stampa do
 end		
  
 out = lib.math.argsort(number);
-          
-           
-            
-  
+ 

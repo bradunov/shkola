@@ -1,7 +1,5 @@
-How many angles are in the picture? Write the number in the blank space.
 
-@vspace@
-@center@ @mycanvas()@
-
+How many angles are in the picture? 
 @center@ @lib.check_number(value,15)@
 @vspace@
+@center@ @mycanvas()@

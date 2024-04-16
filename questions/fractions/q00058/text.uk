@@ -1,8 +1,6 @@
 
 Calculate how many times is the number :
-@repeat(4)@
+@repeat(3)@
 @center@ @numb1@ @sign@ then a @part@ of the number @numb2@.  
 @center@ @lib.check_number(result)@
-
 @/repeat@
-  

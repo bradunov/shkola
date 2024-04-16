@@ -1,7 +1,6 @@
 
-measure3 = {"mm\(^3\)","cm\(^3\)","dm\(^3\)","m\(^3\)"}
-measure = {"mm","cm","dm","m"}
-
+measure3 = {"mm³","cm³","dm³", "m³"}
+measure = {"mm", "cm", "dm", "m"}
 
 indl = 1 + math.random(3)
 indr = math.random(indl-1)

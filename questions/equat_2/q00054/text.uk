@@ -1,7 +1,10 @@
-Reduce the given inequality to a linear inequality with integer coefficients of the form @center@ "a x ⋛ b", where a ≥ 0. 
 
-@center@  @quest@ 
+By use of equivalent transformations reduce the inequality 
+@center@  @quest@
+to a linear inequality with integer coefficients of the form 
+@center@ @"a x ⋛ b"@,  @hspace@ a ≥ 0. 
 @vspace@
+The inequality is 
 @center@ @note@
 @center@ @bound[1]@   @hspacept(30)@  @equ[1]@ 
 @center@ @bound[2]@   @hspacept(30)@  @equ[2]@ 

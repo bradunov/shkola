@@ -1,7 +1,7 @@
-@imez@ gave birth to @imea@ in @zyear@. This year she calculated that in @period@ @peryear@ she will be @fct@ times older than @imeg@. 
-Write an equation to calculate how old @"x"@ is now, and solve it. 
+
+@imez@ gave birth to @imea@ in @yz@ @zyear@. This year she calculated that in @period@ @peryear@ she will be @fct@ times older than @imeg@. 
+Write an equation to calculate how old @"x"@ is @imem@ now, and solve it. 
 @vspace@
 @center@ @equ@
 @vspace@
-
-@center@ @imem@ is currently @lib.check_number(ym,20)@ years old.
+@center@ @imem@ is currently @lib.check_number(ym,20)@ @myear@ old.

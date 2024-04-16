@@ -1,11 +1,5 @@
-                                                                  Using every digit only once, write the biggest and smallest even numbers that can be made.  
-
-@repeat(4)@
-
+                                                                
+Using every digit only once, write the biggest and smallest even numbers that can be made.  
+@repeat(3)@
 @center@ @out[1]@, @out[2]@, @out[3]@  @hspace@ @lib.check_number(array_value[order[index]])@ @hspacept(5)@ @lib.check_number(array_value[order[1]])@ 
-
 @/repeat@  
-   
-                  
-                  
-                  

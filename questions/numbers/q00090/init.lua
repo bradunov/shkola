@@ -1,6 +1,6 @@
 
 addition_table = function()
-  columns = 7
+  columns = 5
   min_range = 101
 
   q = {}

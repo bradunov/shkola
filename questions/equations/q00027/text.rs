@@ -1,13 +1,7 @@
 
 Odredi skup rešenja nejednačine. 
-
-@repeat(4)@
+@repeat(3)@
+@vspace@
 @center@  @noneq@,  
 @center@ @answ@ 
-@vspace@
 @/repeat@
-
-     
-
-
-

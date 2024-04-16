@@ -14,9 +14,3 @@ for i = 1,2 do
 		total[i] = 	total[i] + numb[2*(i-1)+j] * price[j]
 	end
 end
-            
-            
-            
-            
-            
-            

@@ -1,5 +1,5 @@
 
-measure = {"m\(^2\)","dm\(^2\)","cm\(^2\)","mm\(^2\)"}
+measure = {"m²", "dm²", "cm²", "mm²"}
 numb = {0, 0, 0, 0}
 
 ind = 1 + math.random(3)

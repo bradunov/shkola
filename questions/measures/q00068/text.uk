@@ -1,11 +1,6 @@
                                 
-Enter the number so that you make the equation correct.
- 
-@repeat(5)@ 
- 
+Enter the number so that you make the equation correct. 
+@repeat(4)@ 
+@vspace@ 
 @center@ @answ@ 
-
 @/repeat@           
-      
-            
-            

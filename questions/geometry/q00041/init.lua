@@ -1,3 +1,4 @@
+
 include("terms")
 
 square_style = 
@@ -22,7 +23,7 @@ ov = 100
 
 
 mycanvas = function(no)
-  lib.start_canvas(300, 180, "center")
+  lib.start_canvas(300, 170, "center")
   
   lib.add_rectangle (ow, 3*ow, ov+ow, v, rectangle_style, true, false)
   lib.add_text(2*ow-w, ov+ow, "A", text_style, false, false) 

@@ -1,8 +1,8 @@
 
 Grafičkom metodom reši sistem linearnih jednačina 
-@center@  @imp[1]@
-@center@  @imp[2]@.       
-           
+@center@  @imp[1]@, @hspacept(40)@  @imp[2]@.       
+          
 @center@ @mycanvas()@     
-        
-Rešenje sistema je @hspacept(8)@ x = @lib.check_number(xpoint, 20)@, @hspacept(8)@ y = @lib.check_number(ypoint, 20)@     
+@vspace@ 
+Sistem jednačina je @hspacept(10)@ @lib.check_one_option_dropdown(msg, msg[ind])@   
+Skup rešenja sistema je  @lib.check_one_option_dropdown(result, result[ind])@ @hspacept(5)@ @sol@  

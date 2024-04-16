@@ -17,7 +17,7 @@ dif_style =
 area_style = 
 	{["off_color"] = "fff",
         ["on_color"] = "f90",
-        ["line_color"] = "000",
+        ["line_color"] = "none",
         ["off_line_color"] = "none",
         ["line_width"] = "2"};		
 

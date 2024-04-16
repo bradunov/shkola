@@ -1,13 +1,6 @@
 
 Calculate by how much is:
-
-@repeat(4)@
-
- \(\frac{1}{@fact1@}\) of the number @numb2@ less than the number @numb1@.   @hspacept(100)@ @lib.check_number(result)@
-
+@repeat(3)@
+@center@  \(\frac{1}{@fact1@}\) of the number @numb2@ less than the number @numb1@.   
+@center@  @lib.check_number(result)@
 @/repeat@
-  
-                  
-                  
-          
-            

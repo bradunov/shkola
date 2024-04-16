@@ -1,3 +1,4 @@
+
 include("terms")
 
 style = 
@@ -13,54 +14,39 @@ teme = {"A", "B", "C"}
 duz = {"AB", "BC", "CA"}
 triang = "ABC"
 
-reply = {}
-ans = {}
 ind = math.random(3)
 
-reply[1] = "answer == '" .. name[1] .. "' "  ..
-        "|| answer == '" .. name2[1] .. "'" ; 
-ans[1] = "answer = '" .. name2[1] .. "' ";		
-reply[2] = "answer == '" .. name[2] .. "' "  ..
-        "|| answer == '" .. name2[2] .. "'" ; 
-ans[2] = "answer = '" .. name2[2] .. "' ";		
-reply[3] = "answer == '" .. name[3] .. "' "  ..
-        "|| answer == '" .. name2[3] .. "'" ;  
-ans[3] = "answer = '" .. name2[3] .. "' "	 		
-		
-
-ow = 20
-w = 5
-v = 100
-ov = 150
-
-if(ind == 1) then
-   x = -v+2*ow
-   y = ov-3*ow/2
-   z = x
-end 
-if(ind == 2) then
-   x = -(v+ow)*0.6
-   y = 1.2*(v+ow)
-   z = x
-end 
-if(ind == 3) then
-   x = -v-ow
-   y = ov+v/2+w
-   z = -v+ow-w
-end   
-
 mycanvas = function(no)
-  lib.start_canvas(300, 240, "center")
+
+  ow = 16
+  w = 4
+  v = 80
+  ov = 120
+
+  if (ind == 1) then
+     x = -v+2*ow
+     y = ov-3*ow/2
+     z = x
+  end 
+  if (ind == 2) then
+     x = -(v+ow)*0.6
+     y = 1.2*(v+ow)
+     z = x
+  end 
+  if (ind == 3) then
+     x = -v-ow
+     y = ov+v/2+w
+     z = -v+ow-w
+  end   
+
+  lib.start_canvas(240, 190, "center")
   
   lib.add_straight_path (ov, 2*ow, {{x, v+ow}, {y, 0}, {z, -v-ow}}, style, true, false)
   lib.add_text(ov+x, v+ov/2, teme[1], text_style, false, false) 
   lib.add_text(ov+x+y, v+ov/2, teme[2], text_style, false, false) 
   lib.add_text(ov, ow+w, teme[3], text_style, false, false)    
-  lib.add_input(ov-v+ow, ov+2*ow, 150, 30, lib.check_string(reply[ind], 140, ans[ind]))
+  lib.add_input(ov-v, 2*v-w, 150, 30, lib.check_one_option_dropdown(name, name[ind]))
   
   lib.end_canvas()
 end       
    
-            
-        
-           

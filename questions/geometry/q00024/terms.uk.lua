@@ -1,2 +1,2 @@
-model = {"cube", "ball", "cylinder", "rectangle", "pyramid", "cone"}
+model = {"cube", "ball", "cylinder", "cuboid", "pyramid", "cone"}
 surf = {"flat", "curved"}

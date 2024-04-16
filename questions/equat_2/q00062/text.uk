@@ -1,5 +1,6 @@
+
 On the electricity bill, the subscription for Radio-television is @tv@ dinars. For every consumed @"kW"@, @coef@ dinars are paid. The amounts on the bill for @quest@ @"kW"@ are shown on the graph. Enter the missing data on the graph. 
 What formula is used to calculate these amounts? 
-@center@   @"y ="@ @lib.check_number(coef, 20)@ @"* x "@ @lib.check_string("+", 10)@  @lib.check_number(tv, 30)@.
+@center@   @"y ="@ @lib.check_number(coef, 20)@ @" x "@ @lib.check_string("+", 10)@  @lib.check_number(tv, 30)@.
 @vspace@           
 @center@ @mycanvas()@

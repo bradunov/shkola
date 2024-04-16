@@ -1,20 +1,6 @@
 
 Reši jednačine. 
-
-@repeat(4)@
-
-@center@ @answ@ @hspacept(15)@ x =  @lib.check_number(result)@ 
-
+@repeat(3)@
 @vspace@
-
+@center@ @answ@ @hspacept(15)@ x =  @lib.check_number(result)@ 
 @/repeat@  
-      
- 
-      
- 
-                  
-
-
-
-
-

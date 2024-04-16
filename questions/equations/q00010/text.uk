@@ -1,20 +1,7 @@
-                                            Solve the equations: 
-
-@repeat(4)@
-
-@center@ @answ@ @hspace@ x =  @lib.check_number(result)@ 
-
+                                            
+Show the procedure for solving the equations:
+@repeat(3)@
 @vspace@
-
-@/repeat@  
-
- 
-                  
-
-
-
-
-
-
-                  
-                  
+@center@@answ1@ @hspacept(8)@ @answ2@ 
+@center@ x =  @lib.check_number(result,20)@ 
+@/repeat@

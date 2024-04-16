@@ -1,3 +1,4 @@
+
 include("terms")
 include("names")
 
@@ -24,9 +25,4 @@ if (sat > 0 and sat < 5 ) then
         meas = meas_arr[3]
     end
 end
-      
-            
   
-
-
-                 

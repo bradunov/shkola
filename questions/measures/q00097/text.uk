@@ -1,7 +1,7 @@
-@ime@ has a birthday on @finish_d@. @finish_m@.
 
+@ime@ has a birthday on  @finish_m@ @finish_d@.
 @center@ @mycanvas()@
-
 On which day of the week is @ime@'s birthday?
 @vspace@
-@center@ @ime@'s birthday is on @hspacept(3)@  @lib.check_string(reply, 70, ans)@.
+@center@  @lib.check_one_option_dropdown(day1, day1[ind_d])@
+            

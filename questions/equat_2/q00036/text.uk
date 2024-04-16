@@ -1,4 +1,5 @@
-Which of the following statements is true? Equation:
+
+Choose the statesment about the solution  of the equation:
 @repeat(3)@
 @center@ @equ[ITEM]@
 @center@ @lib.check_one_option_dropdown(msg, reply[ITEM])@

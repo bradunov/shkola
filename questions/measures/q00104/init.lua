@@ -7,7 +7,7 @@ line_style = {["off_color"] = "fff",
 text_style = {["font_size"] = "16"}
 
 
-meas2 = "cm\(^2\)"
+meas2 = "cm²"
 
 x = 5 + math.random(12)
 y = math.floor(x*5/2)
@@ -22,11 +22,11 @@ area = edge_a * right + edge_b * left
 
 mycanvas = function()
 
-  lib.start_canvas(360, 280, "center")
+  lib.start_canvas(300, 230, "center")
   
-  v = 5
-  ow = 20
-  ov = 50
+  v = 4
+  ow = 16
+  ov = 40
 
 dimup = tostring(edge_a) .. " cm"
 dimdown = tostring(edge_b) .. " cm"
@@ -36,8 +36,8 @@ dimright = tostring(right) .. " cm"
   lib.add_straight_path(ov-ow, ov-ow, {{5*ov,0}, {0,3*ow}, {-2*ow,0}, {0,3*ov}, {-3*ov-ow,0}, {0,-3*ov}, {-2*ow,0}, {0,-3*ow}}, line_style, false, false)
   lib.add_text(3*ov+v, ow-v, dimup, text_style)
   lib.add_text(3*ov+v, 5*ov, dimdown, text_style)
-  lib.add_text(ov-v, 3*ov, dimleft, text_style)
-  lib.add_text(6*ov+v, 3*ow, dimright, text_style)
+  lib.add_text(ov-2*v, 3*ov, dimleft, text_style)
+  lib.add_text(6*ov+2*v, 3*ow, dimright, text_style)
 
 
   lib.end_canvas()

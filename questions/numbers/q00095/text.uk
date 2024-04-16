@@ -1,15 +1,8 @@
                                                 
-@repeat(3)@
+@repeat(2)@
 
 How many times is the number @term1@ @sign[ind]@ than @term2@? @hspacept(5)@ @lib.check_number(result1)@ 
 How much @sign[ind]@ is the number @term3@ than @term4@? @hspacept(5)@ @lib.check_number(result2)@ 
 
 @vspace@
 @/repeat@ 
-
-                  
-    
-
-            
-            
-            

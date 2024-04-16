@@ -1,22 +1,13 @@
 
 Date zapremine poređaj od najmanje do najveće.
-
 @vspace@
-
-@center@ @value[1]@@dim[1]@@grad3@, @hspacept(5)@ @value[2]@@dim[2]@@grad3@, @hspacept(5)@ @value[3]@@dim[3]@@grad3@,  
-@center@ @value[4]@@dim[4]@@grad3@, @hspacept(5)@ @value[5]@@dim[5]@@grad3@, @hspacept(5)@ @value[6]@@dim[6]@@grad3@
-
+@center@ @value[1]@@dim[1]@@grad3@, @hspacept(10)@ @value[2]@@dim[2]@@grad3@, @hspacept(10)@ @value[3]@@dim[3]@@grad3@,  
+@center@ @value[4]@@dim[4]@@grad3@, @hspacept(10)@ @value[5]@@dim[5]@@grad3@, @hspacept(10)@ @value[6]@@dim[6]@@grad3@
 @vspace@
 @vspace@
-
-
-@center@ @lib.check_number(value[out[1]],70)@ @lib.check_string(dim[out[1]],22)@@grad3@, @hspacept(5)@ @lib.check_number(value[out[2]],70)@ @lib.check_string(dim[out[2]],22)@@grad3@, 
-
-@center@ @lib.check_number(value[out[3]],70)@ @lib.check_string(dim[out[3]],22)@@grad3@, @hspacept(5)@  @lib.check_number(value[out[4]],70)@ @lib.check_string(dim[out[4]],22)@@grad3@,
- 
-@center@ @lib.check_number(value[out[5]],70)@ @lib.check_string(dim[out[5]],22)@@grad3@, @hspacept(5)@ @lib.check_number(value[out[6]],70)@ @lib.check_string(dim[out[6]],22)@@grad3@                
- 
-                                 
-   
-                  
+@center@ @lib.check_number(value[out[1]],70)@ @lib.check_string(dim[out[1]],22)@@grad3@, @hspacept(10)@ @lib.check_number(value[out[2]],70)@ @lib.check_string(dim[out[2]],22)@@grad3@, 
+@vspace@
+@center@ @lib.check_number(value[out[3]],70)@ @lib.check_string(dim[out[3]],22)@@grad3@, @hspacept(10)@  @lib.check_number(value[out[4]],70)@ @lib.check_string(dim[out[4]],22)@@grad3@,
+@vspace@ 
+@center@ @lib.check_number(value[out[5]],70)@ @lib.check_string(dim[out[5]],22)@@grad3@, @hspacept(10)@ @lib.check_number(value[out[6]],70)@ @lib.check_string(dim[out[6]],22)@@grad3@                
  

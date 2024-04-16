@@ -1,5 +1,6 @@
+
 Write down the largest decade unit with which the number is divisible.
 
-@repeat(6)@
+@repeat(5)@
 @center@ @number1@ is divisible by @lib.check_number(number2,50)@ 
 @/repeat@

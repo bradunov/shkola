@@ -1,6 +1,6 @@
 
 measure = {"m", "dm"}
-measure1 = {"m\(^3\)", "dm\(^3\)"}
+measure1 = {"m³", "dm³"}
 measure2 = {"hl", "l"}
 
 volume_out = {}
@@ -32,14 +32,3 @@ answ2 = ""
 if (volw_out[2] > 0) then
     answ2 = answ2 .. lib.check_number(volw_out[2] ,25) .. measure2[2]
 end
-   
-     
-    
-       
-             	
-    
-
-
-     
-               
-
