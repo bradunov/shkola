@@ -1,0 +1,440 @@
+{
+  "name": "5 geometrija",
+  "level": "5",
+  "level_short": "5",
+  "theme": "geometrija",
+  "language": "sl",
+  "rank_theme": "3",
+  "questions": [
+    {
+      "name": "geom_2/q00001",
+      "random": "6",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "tačka, prava, duž",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00002",
+      "random": "6",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "tačka, prava, duž",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00003",
+      "random": "6",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "tačka, prava, duž",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00004",
+      "random": "6",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "tačka, prava, duž",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00005",
+      "random": "6",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "tačka, prava, duž",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00006",
+      "random": "10",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "krug",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00008",
+      "random": "10",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "krug",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00009",
+      "random": "10",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "krug",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00010",
+      "random": "2",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "krug",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00011",
+      "random": "10",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "krug",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00012",
+      "random": "2",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "preslikavanje",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00013",
+      "random": "5",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "preslikavanje",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00014",
+      "random": "5",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "preslikavanje",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00015",
+      "random": "5",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "preslikavanje",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00016",
+      "random": "5",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "preslikavanje",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00017",
+      "random": "5",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "preslikavanje",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00018",
+      "random": "10",
+      "period": "1",
+      "subtheme": "osnovni pojmovi",
+      "topic": "preslikavanje",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00019",
+      "random": "5",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "pojam, upoređivanje, vrste",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00020",
+      "random": "5",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "pojam, upoređivanje, vrste",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00021",
+      "random": "5",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "pojam, upoređivanje, vrste",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00022",
+      "random": "10",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "pojam, upoređivanje, vrste",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00023",
+      "random": "6",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "pojam, upoređivanje, vrste",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00024",
+      "random": "10",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "računanje sa uglovima",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00025",
+      "random": "10",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "računanje sa uglovima",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00026",
+      "random": "10",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "računanje sa uglovima",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00027",
+      "random": "10",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "računanje sa uglovima",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00028",
+      "random": "10",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "računanje sa uglovima",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00029",
+      "random": "10",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "računanje sa uglovima",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00030",
+      "random": "5",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "pojam, upoređivanje, vrste",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00031",
+      "random": "5",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "računanje sa uglovima",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00032",
+      "random": "5",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "računanje sa uglovima",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00033",
+      "random": "10",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "translacija i uglovi",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00034",
+      "random": "10",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "translacija i uglovi",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00035",
+      "random": "10",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "translacija i uglovi",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00036",
+      "random": "10",
+      "period": "2",
+      "subtheme": "kot",
+      "topic": "translacija i uglovi",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00037",
+      "random": "5",
+      "period": "3",
+      "subtheme": "osna simetrija",
+      "topic": "osna simetrija figure",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00038",
+      "random": "5",
+      "period": "3",
+      "subtheme": "osna simetrija",
+      "topic": "osna simetrija figure",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00039",
+      "random": "5",
+      "period": "3",
+      "subtheme": "osna simetrija",
+      "topic": "osna simetrija figure",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00040",
+      "random": "10",
+      "period": "3",
+      "subtheme": "osna simetrija",
+      "topic": "simetrala duži i ugla",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00041",
+      "random": "10",
+      "period": "3",
+      "subtheme": "osna simetrija",
+      "topic": "simetrala duži i ugla",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00042",
+      "random": "10",
+      "period": "3",
+      "subtheme": "osna simetrija",
+      "topic": "simetrala duži i ugla",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00043",
+      "random": "5",
+      "period": "3",
+      "subtheme": "osna simetrija",
+      "topic": "simetrala duži i ugla",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00044",
+      "random": "6",
+      "period": "3",
+      "subtheme": "osna simetrija",
+      "topic": "simetrala duži i ugla",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    }
+  ]
+}

@@ -1,0 +1,800 @@
+{
+  "name": "2 števili",
+  "level": "2",
+  "level_short": "2",
+  "theme": "števila",
+  "language": "sl",
+  "rank_theme": "1",
+  "questions": [
+    {
+      "name": "fractions/q00001",
+      "random": "0",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "pojem",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00002",
+      "random": "10",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "izračun dele dane količine",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00005",
+      "random": "10",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "pojem",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00006",
+      "random": "0",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "pojem",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00006",
+      "random": "0",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "primerjava ulomkov",
+      "rank_subtheme": "6",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00007",
+      "random": "0",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "pojem",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00007",
+      "random": "0",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "primerjava ulomkov",
+      "rank_subtheme": "6",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00009",
+      "random": "0",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "pojem",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00010",
+      "random": "6",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "pojem",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00011",
+      "random": "0",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "pojem",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00012",
+      "random": "0",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "izračun dele dane količine",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00013",
+      "random": "4",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "pojem",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00014",
+      "random": "0",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "pojem",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00015",
+      "random": "6",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "pojem",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00016",
+      "random": "10",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "izračun dele dane količine",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00017",
+      "random": "10",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "izračun dele dane količine",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "fractions/q00044",
+      "random": "6",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "pojem",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00080",
+      "random": "10",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "izračun dele dane količine",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00081",
+      "random": "10",
+      "period": "3",
+      "subtheme": "ulomki",
+      "topic": "izračun dele dane količine",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00009",
+      "random": "0",
+      "period": "3",
+      "subtheme": "številski izraz",
+      "topic": "besedilna naloga",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "numbers/q00012",
+      "random": "10",
+      "period": "3",
+      "subtheme": "števila do 100",
+      "topic": "številski niz",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00021",
+      "random": "10",
+      "period": "1",
+      "subtheme": "številski izraz",
+      "topic": "besedilna naloga",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00022",
+      "random": "10",
+      "period": "3",
+      "subtheme": "številski izraz",
+      "topic": "besedilna naloga",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00023",
+      "random": "10",
+      "period": "3",
+      "subtheme": "števila do 100",
+      "topic": "številski niz",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00033",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "seštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00034",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "odštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00035",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "seštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00036",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "odštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00037",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "seštevanje in odštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00037",
+      "random": "10",
+      "period": "1",
+      "subtheme": "števila do 100",
+      "topic": "primerjava števil",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00038",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "seštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00039",
+      "random": "10",
+      "period": "1",
+      "subtheme": "števila do 100",
+      "topic": "primerjava števil",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "numbers/q00039",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "seštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00040",
+      "random": "10",
+      "period": "1",
+      "subtheme": "številski izraz",
+      "topic": "vrstni red računskih operacij",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00041",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "seštevanje in odštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00042",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "seštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00043",
+      "random": "10",
+      "period": "2",
+      "subtheme": "računske operacije",
+      "topic": "množenje",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00044",
+      "random": "10",
+      "period": "2",
+      "subtheme": "računske operacije",
+      "topic": "deljenje",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00045",
+      "random": "10",
+      "period": "2",
+      "subtheme": "številski izraz",
+      "topic": "besedilna naloga",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00049",
+      "random": "10",
+      "period": "2",
+      "subtheme": "številski izraz",
+      "topic": "besedilna naloga",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00050",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "seštevanje in odštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00096",
+      "random": "10",
+      "period": "3",
+      "subtheme": "številski izraz",
+      "topic": "besedilna naloga",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "numbers/q00097",
+      "random": "10",
+      "period": "3",
+      "subtheme": "številski izraz",
+      "topic": "besedilna naloga",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "numbers/q00122",
+      "random": "10",
+      "period": "2",
+      "subtheme": "računske operacije",
+      "topic": "deljenje",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00135",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "seštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00136",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "odštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00140",
+      "random": "10",
+      "period": "1",
+      "subtheme": "števila do 100",
+      "topic": "rimski števili",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00156",
+      "random": "10",
+      "period": "1",
+      "subtheme": "števila do 100",
+      "topic": "primerjava števil",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00157",
+      "random": "10",
+      "period": "1",
+      "subtheme": "števila do 100",
+      "topic": "rimski števili",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00158",
+      "random": "10",
+      "period": "3",
+      "subtheme": "številski izraz",
+      "topic": "vrstni red računskih operacij",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00159",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "seštevanje in odštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00160",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "seštevanje in odštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00161",
+      "random": "10",
+      "period": "3",
+      "subtheme": "računske operacije",
+      "topic": "množenje in deljenje",
+      "rank_subtheme": "2",
+      "rank_topic": "6",
+      "difficulty": "3"
+    },
+    {
+      "name": "numbers/q00163",
+      "random": "10",
+      "period": "2",
+      "subtheme": "računske operacije",
+      "topic": "množenje in deljenje",
+      "rank_subtheme": "2",
+      "rank_topic": "6",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00164",
+      "random": "10",
+      "period": "2",
+      "subtheme": "številski izraz",
+      "topic": "vrstni red računskih operacij",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "numbers/q00165",
+      "random": "10",
+      "period": "3",
+      "subtheme": "računske operacije",
+      "topic": "množenje",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00166",
+      "random": "10",
+      "period": "3",
+      "subtheme": "računske operacije",
+      "topic": "deljenje",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "numbers/q00169",
+      "random": "10",
+      "period": "1",
+      "subtheme": "števila do 100",
+      "topic": "zapis števila, številski prav",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00172",
+      "random": "10",
+      "period": "1",
+      "subtheme": "števila do 100",
+      "topic": "številski niz",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00220",
+      "random": "8",
+      "period": "3",
+      "subtheme": "podatki",
+      "topic": "tabela in stolpičasti diagram",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00221",
+      "random": "8",
+      "period": "1",
+      "subtheme": "številski izraz",
+      "topic": "besedilna naloga",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "numbers/q00223",
+      "random": "8",
+      "period": "3",
+      "subtheme": "podatki",
+      "topic": "tabela in stolpičasti diagram",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00224",
+      "random": "10",
+      "period": "1",
+      "subtheme": "števila do 100",
+      "topic": "zapis števila, številski prav",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00225",
+      "random": "10",
+      "period": "1",
+      "subtheme": "števila do 100",
+      "topic": "zapis števila, številski prav",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00227",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "odštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00230",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "odštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00231",
+      "random": "10",
+      "period": "1",
+      "subtheme": "računske operacije",
+      "topic": "odštevanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00232",
+      "random": "10",
+      "period": "2",
+      "subtheme": "računske operacije",
+      "topic": "množenje",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00233",
+      "random": "10",
+      "period": "2",
+      "subtheme": "računske operacije",
+      "topic": "deljenje",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00239",
+      "random": "10",
+      "period": "2",
+      "subtheme": "računske operacije",
+      "topic": "množenje",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "numbers/q00244",
+      "random": "10",
+      "period": "3",
+      "subtheme": "številski izraz",
+      "topic": "besedilna naloga",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "numbers/q00245",
+      "random": "10",
+      "period": "3",
+      "subtheme": "številski izraz",
+      "topic": "besedilna naloga",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "equations/q00013",
+      "random": "10",
+      "period": "1",
+      "subtheme": "enačbe",
+      "topic": "seštevanje in odštevanje",
+      "rank_subtheme": "5",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equations/q00014",
+      "random": "10",
+      "period": "1",
+      "subtheme": "enačbe",
+      "topic": "seštevanje in odštevanje",
+      "rank_subtheme": "5",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00015",
+      "random": "10",
+      "period": "1",
+      "subtheme": "enačbe",
+      "topic": "seštevanje in odštevanje",
+      "rank_subtheme": "5",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equations/q00016",
+      "random": "10",
+      "period": "1",
+      "subtheme": "enačbe",
+      "topic": "seštevanje in odštevanje",
+      "rank_subtheme": "5",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00017",
+      "random": "10",
+      "period": "3",
+      "subtheme": "enačbe",
+      "topic": "množenje in deljenje",
+      "rank_subtheme": "5",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equations/q00018",
+      "random": "10",
+      "period": "3",
+      "subtheme": "enačbe",
+      "topic": "množenje in deljenje",
+      "rank_subtheme": "5",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equations/q00019",
+      "random": "10",
+      "period": "1",
+      "subtheme": "enačbe",
+      "topic": "množenje in deljenje",
+      "rank_subtheme": "5",
+      "rank_topic": "2",
+      "difficulty": "1"
+    }
+  ]
+}
