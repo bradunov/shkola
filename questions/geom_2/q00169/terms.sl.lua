@@ -1,0 +1,1 @@
+colour = {"bela ravan", "plava ravan", "rdeča ravan", "pink ravan", "rumena ravan", "zelena ravan"}

@@ -1,6 +1,8 @@
 import argparse
 import os
 import openai
+from openai import OpenAI
+
 import json
 import time
 import logging
@@ -62,6 +64,7 @@ def is_auto(directory, filename, short_lang, update=False):
 
 
 def translate_text(text, source_language, target_language):
+    global client
     prompt = f"""
 Translate the following {source_language} text into {target_language}, 
 but do not translate code or special tags 
@@ -74,25 +77,23 @@ Here is the text:
 
 {text}
     """
-    
+
     finished = False
     while not finished:
       try:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant that translates text."},
-                {"role": "user", "content": prompt}
-            ],
-            max_tokens=1500,
-            n=1,
-            stop=None,
-            temperature=0.5,
-        )
+        response = client.chat.completions.create(model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant that translates text."},
+            {"role": "user", "content": prompt}
+        ],
+        max_tokens=1500,
+        n=1,
+        stop=None,
+        temperature=0.5)
 
         translation = response.choices[0].message.content.strip()
         finished = True
-      except openai.error.RateLimitError:
+      except openai.RateLimitError:
         print("RateLimitError: Sleeping 10s")
         time.sleep(10)
         pass
@@ -101,7 +102,7 @@ Here is the text:
         print("Sleeping 20s")
         time.sleep(20)
         pass
-      
+
 
     return translation
 
@@ -168,7 +169,7 @@ if __name__ == "__main__":
   parser = argparse.ArgumentParser(
     prog='translate_question', 
     epilog="Example: translate_questions.py equat_2/q00026 uk")
-  parser.add_argument("path", help="The path to questions relative to questions folder", type=str)
+  parser.add_argument("path", help="The path to questions relative to questions folder (set to . for all questions)", type=str)
   parser.add_argument("language", help="The language (two letter abbreviation)", type=str)
   parser.add_argument("-r", "--repeat", help="Translate questions again if translation exists", action="store_true")
   parser.add_argument("-l", "--log_level", help="The log level (e.g. debug, info, warning, error)", default="info", type=str)
@@ -182,7 +183,7 @@ if __name__ == "__main__":
     logging.error('OPENAI_API_KEY environment variable not defined')
     raise SystemExit
   else:
-    openai.api_key = os.getenv("OPENAI_API_KEY")
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
   # Access input arguments

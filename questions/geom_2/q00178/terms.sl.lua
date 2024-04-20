@@ -1,0 +1,1 @@
+text = {"površina većeg dijagonalnog preseka", "površina manjeg dijagonalnog preseka"}

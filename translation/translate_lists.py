@@ -1,6 +1,9 @@
 import argparse
 import os
 import openai
+from openai import OpenAI
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 import json
 import time
 import logging
@@ -27,7 +30,7 @@ def accumulate_names(text, d, params):
   list = json.loads(text)
   d[list["name"].strip().lower()] = ""
   d[list["theme"].strip().lower()] = ""
-  
+
   for q in list["questions"]:
     d[q["subtheme"].strip().lower()] = ""
     d[q["topic"].strip().lower()] = ""
@@ -42,7 +45,7 @@ def translate_list(text, d, short_lang):
   list["name"] = d[list["name"].strip().lower()]
   list["theme"] = d[list["theme"].strip().lower()]
   list["language"] = short_lang
-  
+
   for q in list["questions"]:
     q["subtheme"] = d[q["subtheme"].strip().lower()]
     q["topic"] = d[q["topic"].strip().lower()]
@@ -79,23 +82,21 @@ Translate each string in the following python list from {source_language} into {
   finished = False
   while not finished:
     try:
-      response = openai.ChatCompletion.create(
-          model="gpt-3.5-turbo",
-          messages=[
-              {"role": "system", "content": "You are a helpful assistant that translates text."},
-              {"role": "user", "content": prompt}
-          ],
-          # These are output tokens:
-          # We have to have enough to send the prompt, so that the sum of len(prompt) + max_tokens < 5000
-          max_tokens=2000,
-          n=1,
-          stop=None,
-          temperature=0.5,
-      )
+      response = client.chat.completions.create(model="gpt-3.5-turbo",
+      messages=[
+          {"role": "system", "content": "You are a helpful assistant that translates text."},
+          {"role": "user", "content": prompt}
+      ],
+      # These are output tokens:
+      # We have to have enough to send the prompt, so that the sum of len(prompt) + max_tokens < 5000
+      max_tokens=2000,
+      n=1,
+      stop=None,
+      temperature=0.5)
 
       translation = response.choices[0].message.content.strip()
       finished = True
-    except openai.error.RateLimitError:
+    except openai.RateLimitError:
       print("RateLimitError: Sleeping 10s")
       time.sleep(10)
       pass
@@ -104,7 +105,7 @@ Translate each string in the following python list from {source_language} into {
       print("Sleeping 20s")
       time.sleep(20)
       pass
-    
+
   # print("---Prompt:", prompt, "|")
   # print("---Response:", response, "|")
   # print("---Translation:", translation, "|")
@@ -179,7 +180,6 @@ if __name__ == "__main__":
     logging.error('OPENAI_API_KEY environment variable not defined')
     raise SystemExit
   else:
-    openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
   # Access input arguments

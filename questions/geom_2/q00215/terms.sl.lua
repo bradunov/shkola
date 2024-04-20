@@ -1,0 +1,1 @@
+name = {"trokotnik", "štirikotnik", "šestkotnik"}

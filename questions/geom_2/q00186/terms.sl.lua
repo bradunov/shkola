@@ -1,0 +1,1 @@
+name = {"trostrane", "štiri-strani", "šest-strani"}

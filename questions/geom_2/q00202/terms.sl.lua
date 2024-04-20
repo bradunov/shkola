@@ -1,0 +1,2 @@
+name = {"trokotna", "štiri-stranska", "šest-stranska"}		
+elem = {"osnovna stran", "višina", "obseg osnove", "površina osnove", "obseg stranice", "površina stranice", "stranska stran", "diagonalni prerezi" }

@@ -1,0 +1,1 @@
+msg = "Trikotniki so enakokraki, kot 𝛾 je pri vrhu."

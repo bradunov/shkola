@@ -1,0 +1,1 @@
+msg = {"enaka dela", "enakih delov"}

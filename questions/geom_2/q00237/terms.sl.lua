@@ -1,0 +1,1 @@
+direct = {"pozitivno", "negativno"}

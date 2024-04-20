@@ -1,0 +1,1 @@
+msg = {"določen", "nemogoč", "neodločen"}

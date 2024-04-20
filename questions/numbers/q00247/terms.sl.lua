@@ -1,0 +1,1 @@
+meas = { "desetinama tisoč", "stotinama tisoč", "milionoma"}

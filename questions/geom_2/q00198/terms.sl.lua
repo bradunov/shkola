@@ -1,0 +1,2 @@
+name = {"trostrane", "štiristrane", "šeststrane"}		
+elem = {"osnovna stran", "višina", "obseg osnove", "površina osnove", "obseg bočne strane", "površina bočne strane", "bočna stran", "diagonalni prerezi" }

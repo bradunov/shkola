@@ -1,0 +1,1 @@
+msg = {"Skup rešitev je prazen.", "Vsak par števil je rešitev."}

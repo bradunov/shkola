@@ -1,0 +1,1 @@
+position = {"prvi", "pred modrim avtomobilom", "za modrim avtomobilom", "zadnji"}

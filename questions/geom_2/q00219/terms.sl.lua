@@ -1,0 +1,2 @@
+name = {"enakostranični trikotnik", "pravokotni trikotnik", "toplostranski trikotnik s topim kotom enakim 120°"}		
+elem = {"polmer osnove", "višina", "polovičar", "obseg osnove", "obseg prerezne ploskve", "površina prerezne ploskve"}

@@ -1,0 +1,1 @@
+msg = {"iste strane", "različnih strani"}
