@@ -3,7 +3,6 @@ import os
 import openai
 from openai import OpenAI
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 import json
 import time
 import logging
@@ -54,14 +53,14 @@ def translate_list(text, d, short_lang):
 
 
 
-USE_CHATGPT_4 = True
+USE_CHATGPT_4 = False
 DEBUG = """
-["2 measurement and units", "measurement and units", "length measurement", "comparison of measures", "conversion of one measure to another", "time measurement", "arithmetic operations", "7 algebra", "algebra", "algebraic expressions", "concept", "polynomials", "addition and subtraction of polynomials", "multiplication of polynomials", "factoring", "square of a binomial", "difference of squares", "7 real numbers", "real numbers", "irrational numbers", "square of a rational number", "square root", "multiplication and division", "decimal representation", "approximate value", "absolute error", "addition and subtraction", "numerical expression", "power", "operations with powers", "power of a product, quotient, and power", "6 geometry", "geometry", "quadrilateral", "parallelogram", "triangle", "concept, elements, types", "sides and angles", "congruence", "concept, types, angles", "trapezoid", "area of a figure", "congruent figures", "rectangle, square", "parallelogram, triangle, trapezoid, deltoid", "vector", "5 algebra", "equations", "application of fractions", "inequalities", "6 data processing", "data processing", "application of rational numbers", "percentage", "proportion", "data representation by diagrams", "bar", "coordinate system", "data representation", "line", "data interpretation", "graphically represented", "represented in a table", "5 natural numbers", "natural numbers", "fractions", "concept, number line", "expansion, reduction, and comparison", "divisibility of numbers", "properties of divisibility", "common divisor and common multiple", "divisibility by 2, 3, 4, 5, 9, 10", "prime and composite numbers", "numerical expressions", "sets", "notation", "subset, equal sets", "union, intersection", "difference", "union, intersection, difference", "1 numbers", "numbers", "numbers up to 10", "counting", "addition", "subtraction", "number comparison", "numbers up to 20", "numbers up to 100", "number writing", "number sequence", "dinar, banknotes up to 100 dinars", "expression in different denominations", "number line", "8 algebra", "linear equations with one unknown", "solution", "equivalent equations", "equivalent transformations", "solving", "application", "linear inequalities with one unknown", "equivalent inequalities", "linear function", "graph", "implicit function", "1 geometry", "position, size, and shape", "spatial relations", "size of objects and beings", "geometric figures and solids", "line", "straight, curved, broken line", "open, closed line", "external, internal area", "2 geometry", "straight line", "point, line, ray, segment", "broken line", "open, closed", "length of a broken line", "figures", "perimeter", "symmetry", "3 numbers", "comparing fractions", "word problem", "decimal representation of a number", "numbers up to 1000", "number notation, number ray", "order of arithmetic operations", "multiplication", "division", "Roman numerals", "all arithmetic operations", "1 measurement and units", "measurement with nonstandard units", "length and weight measurement", "7 data processing", "line and polygon", "extended proportion", "direct proportionality function", "sample", "average value, median, mode", "distance between points in coord. system", "6 algebra", "with integers", "with rational numbers", "6 numbers", "rational numbers", "comparison", "concept, representation on the number line", "whole numbers", "representation on the number line, comparison", "concept, opposite number, absolute value", "3 measurement and measures", "measurement of liquid volume", "measurement of mass", "4 numbers", "number notation, number line", "4 measurement and measures", "surface area of a square and a rectangle", "surface area of a rectangle", "surface area of a square", "surface area of a cube and a cuboid", "surface area of a cube", "surface area of a cuboid", "measurement of volume", "measurement of surface area", "volume of a cube and a cuboid", "volume of a cube", "volume of a cuboid", "5 data processing", "ratio", "arithmetic mean", "display and data processing", "table", "pie chart", "5 geometry", "basic concepts", "point, line, segment", "circle", "mapping", "angle", "concept, comparison, types", "calculations with angles", "translation and angles", "axial symmetry", "axial symmetry of a figure", "perpendicular bisector of a segment and an angle", "6 coordinate system", "dependence among magnitudes", "coordinates of points", "7 geometry", "significant lines and points of a triangle", "Pythagorean theorem", "polygon", "types, elements", "regular polygon", "perimeter and area", "central and peripheral angle", "perimeter, length of a circular arc", "area of a circle, circular sector and circular ring", "2 numbers", "calculating part of a given size", "number notation, number line", "data", "table and bar diagram", "3 geometry", "concept, elements", "perimeter of geometric figures", "square", "rectangle", "measurement of area with a given measure", "line", "mutual position of lines", "types of angles", "circle and disk", "4 geometry", "geometric solids", "angular, round", "cuboid and cube", "net", "elements, properties"]
+["5 obdelava podatkov", "obdelava podatkov", "uporaba ulomkov", "odstotek", "razmerje", "aritmetično povprečje", "prikaz in obdelava podatkov", "tabela", "krožni diagram", "3 merjenje in mere", "merjenje in mere", "merjenje dolžine", "primerjava mer", "merjenje časa", "računske operacije", "pretvarjanje ene mere v drugo", "merjenje volumna tekočin", "merjenje mase", "7 algebra", "algebra", "algebrski izrazi", "pojem", "polinomi", "seštevanje in odštevanje polinomov", "množenje polinomov", "razcep na faktorje", "kvadrat binoma", "razlika kvadratov", "4 geometrija", "geometrija", "geometrijska telesa", "rogljasta, okrogla", "kvader in kocka", "mreža", "elementi, lastnosti", "3 geometrija", "pravokotnik, kvadrat", "pojem, elementi", "obseg geometrijskih figur", "trikotnik", "kvadrat", "pravokotnik", "površina figure", "merjenje površine z dano mero", "ravnina", "medsebojna lega premic", "kot", "vrste kotov", "krožnica in krog", "pojem, elementi, vrste", "1 geometrija", "položaj, velikost in oblika", "prostorski odnosi", "velikost predmetov in bitij", "geometrijske figure in telesa", "črta", "ravna, ukrivljena, lomljena črta", "odprta, zaprta črta", "zunanje, notranje območje", "2 geometrija", "ravna črta", "točka, premica, polpremica, daljica", "lomljena črta", "odprta, zaprta", "dolžina lomljene črte", "figure", "obseg", "podobnost", "simetrija", "4 števila", "števila", "ulomki", "besedilna naloga", "primerjava ulomkov", "decimalni zapis števila", "naravna števila", "zapis števila, številska prava", "številski niz", "primerjava števil", "seštevanje", "seštevanje in odštevanje", "rimski števili", "množenje", "odštevanje", "številski izraz", "vrstni red računskih operacij", "deljenje", "množenje in deljenje", "enačbe", "neenačbe", "vse računske operacije", "5 algebra", "6 obdelava podatkov", "uporaba racionalnih števil", "razmerje", "prikaz podatkov s diagrami", "stolpčni", "koordinatni sistem", "prikaz podatkov", "linijski", "podatkovno tolmačenje", "prikazano grafično", "prikazano z tabelo", "6 algebra", "z celimi števili", "z racionalnimi števili", "2 števili", "izračun dele dane količine", "števila do 100", "zapis števila, številski prav", "podatki", "tabela in stolpičasti diagram", "3 števili", "števila do 1000", "zapis števila, številski polprav", "8 geometrija", "podobnost", "talejeva izrek", "podobni trikotniki", "uporabe", "točka, premica, ravnina", "odnos točke, premice in ravnine", "ortogonalna projekcija", "polieder", "prizma", "površina", "volumen", "uporaba", "piramida", "valj", "površina, volumen", "kupa", "krogla", "krogla in sfera", "površina in volumen krogle", "8 algebra", "linearni enačbe z eno neznanko", "rešitev", "ekvivalentne enačbe", "ekvivalentne transformacije", "reševanje", "linearne neenačbe z eno neznanko", "ekvivalentne neenačbe", "linearna funkcija", "graf", "implicitna funkcija", "sistemi linearnih enačb z dvema neznankama", "reševanje sistemov", "6 geometrija", "četverokotnik", "paralelogram", "stranice i uglovi", "pojam, vrste, uglovi", "trapez", "podudarne figure", "paralelogram, trougao, trapez, deltoid", "vektor", "1 merenje i mere", "merenje nestandardnim jedinicama mere", "merenje dužine i težine", "4 merenje i mere", "površina kvadrata i pravougaonika", "površina pravougaonika", "površina kvadrata", "površina kocke i kvadra", "površina kocke", "površina kvadra", "merenje zapremine", "merenje površine", "zapremina kocke i kvadra", "zapremina kocke", "zapremina kvadra", "1 brojevi", "brojevi do 10", "brojanje", "brojevi do 20", "pisanje brojeva", "dinar, novčanice do 100 dinara", "izražavanje različitim apoenima", "brojevna prava", "5 prirodni brojevi", "pojam, brojevna prava", "proširivanje, skraćivanje i upoređivanje", "decimalni zapis", "deljivost brojeva", "svojstva deljivosti", "zajednički delilac i sadržalac", "deljivost sa 2, 3, 4, 5, 9, 10", "prosti i složeni brojevi", "brojevni izrazi", "skupovi", "zapis", "podskup, jednaki skupovi", "unija, presek", "razlika", "unija, presek, razlika", "5 geometrija", "osnovni pojmovi", "tačka, prava, duž", "krug", "preslikavanje", "pojam, upoređivanje, vrste", "računanje sa uglovima", "translacija i uglovi", "osna simetrija", "osna simetrija figure", "simetrala duži i ugla", "7 obrada podataka", "duž i mnogougao", "produžena proporcija", "funkcija direktne proporcionalnosti", "uzorak", "srednja vrednost, medijana, mod", "rastojanje tačaka u koord.sistemu", "7 realni brojevi", "realni brojevi", "iracionalni brojevi", "kvadrat racionalnog broja", "kvadratni koren", "približna vrednost", "apsolutna greška", "stepen", "operacije sa stepenima", "stepen proizvoda, količnika i stepena", "7 geometrija", "značajne duži i tačke trougla", "pitagorina teorema", "mnogougao", "vrstе, elementi", "pravilni mnogougao", "obim i površina", "centralni i periferijski ugao", "obim, dužina kružnog luka", "površina kruga, kružnog isečka i kružnog prstena", "rotacija", "2 merenje i mere", "6 brojevi", "racionalni brojevi", "upoređivanje", "pojam, prikaz na brojevnoj pravoj", "celi brojevi", "prikaz na brojevnoj pravoj, upoređivanje", "pojam, suprotan broj, apsolutna vrednost"]
 """
 
 
-
 def translate(src_text, params):
+  global client
 
   source_language = params["src_lang"]
   target_language = params["dst_lang"]
@@ -180,6 +179,7 @@ if __name__ == "__main__":
     logging.error('OPENAI_API_KEY environment variable not defined')
     raise SystemExit
   else:
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
   # Access input arguments
@@ -199,7 +199,6 @@ if __name__ == "__main__":
     logging.error(f"Language {language} not in the list.")
     raise SystemExit
 
-
   params = {
     "directory" : "../lists/",
     "src_lang" : 'Serbian',
@@ -208,6 +207,7 @@ if __name__ == "__main__":
     "dst_short" : language
   }
 
+  logging.info(f"Translating into {language}({params['dst_lang']}).")
 
   if not file:
     # Translate all lists
@@ -259,7 +259,7 @@ if __name__ == "__main__":
     logging.info(f"Processing list {src_path} -> {dst_path}")
 
     if not os.path.isfile(dst_path):
-      logging.info(f"List {dst_list} doesn't exist, creating...")
+      logging.info(f"List {dst_path} doesn't exist, creating...")
 
     with open(src_path, 'r') as file:
         file_contents = file.read().strip()
@@ -284,7 +284,11 @@ if __name__ == "__main__":
       dst_icons = {}
 
       for k,v in src_icons.items():
-        dst_icons[d[k.strip().lower()]] = v
+        dst_key = k.strip().lower()
+        if dst_key in d.keys():
+          dst_icons[d[dst_key]] = v
+        else:
+          logging.error(f"Couldn't find {dst_key} in translation, skipping")
 
       with open(dst_path, 'w') as file:
           json.dump(dst_icons, file, indent=2, ensure_ascii=False)
