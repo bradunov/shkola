@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang='{{template_params["lang"]}}'>
+  <head>
+
+    {% import 'elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+    {{ elements.init_elements() }}
+    {{ elements.standard_background(template_params) }}
+
+    <meta name="page" content="year">
+
+  </head>
+
+  <body style="overscroll-behavior: none">
+    {{ elements.standard_body(template_params) }}
+
+    <!-- MOBILE MENU START -->
+    {% import 'menu.html.j2' as menu %}
+    {{ menu.include() }}
+    {{ menu.head(template_params) }}
+    {{ menu.dropdowns(template_params) }}
+    <!-- MENU END -->
+
+
+    <script>
+      tab_ids = {};
+      tab_titles = {};
+      tab_unds = {};
+
+      function tab_set_line(tab, inc) {
+        // Set the length based on the actual text
+        var tab_title = document.getElementById(tab_titles[tab]);
+        var tab_und = document.getElementById(tab_unds[tab]);
+        var tab_width = tab_title.clientWidth;
+        var tab_offset = (parseInt(tab_title.clientWidth) + inc).toString();
+        //console.log("D:", tab_title.clientWidth, parseInt(tab_title.clientWidth), toString(parseInt(tab_title.clientWidth)))
+        tab_und.style.width = tab_width + "px";
+        tab_und.style.marginLeft = "-" + tab_offset + "px";
+      }
+
+      function tab_select(tab) {
+        var ks = Object.keys(tab_ids);
+        for (var i=0; i<ks.length; i++) {
+          var tab_id = document.getElementById(tab_ids[ks[i]]);
+          var tab_title = document.getElementById(tab_titles[ks[i]]);
+          var tab_und = document.getElementById(tab_unds[ks[i]]);
+          if (ks[i] == tab) {
+            tab_id.style.display = "block";
+            tab_und.style.display = "inline-block";
+            tab_title.style.fontWeight = 'bold';
+            if (i == 0) tab_set_line(tab, 0);
+            else tab_set_line(tab, 5);
+          } else {
+            tab_id.style.display = "none";
+            tab_und.style.display = "none";
+            tab_title.style.fontWeight = 'normal';
+          }
+        }
+      }
+
+    </script>
+
+    
+
+    <div style="display:block; position:fixed; top: 50px; left: 0px; z-index: 0; height: calc(100% - 50px); width:100%; overflow-y: auto; overflow-x: auto; ">
+      <div style="display:block; 
+                  width: 290px; 
+                  height: 90px; 
+                  margin:auto; margin-top: 30px; margin-bottom: 4px; 
+                  background-color: #148f91;">
+        <div class="sh_lato_font" style="
+                  display:inline-block; 
+                  width: 188px; height: 65px; 
+                  vertical-align: top;
+                  margin-top: 25px; margin-bottom: 10px; margin-left: 20px;
+                  font-size: 18px; color: #ffffff">
+          Upoznaj TATA MATU 
+        </div>
+
+        <div style="display:inline-block; 
+                    vertical-align: top;
+                    height: 65px; margin-top: 15px">
+          <svg xmlns="http://www.w3.org/2000/svg" width="61.073" height="60.363" viewBox="0 0 61.073 60.363">
+            <defs>
+                <style>
+                    .cls-1{fill:#148f91;stroke:#fff}
+                </style>
+            </defs>
+            <g id="noun_Potato_Zombie_Monster_1885200" data-name="noun_Potato Zombie Monster_1885200" transform="translate(.508 .526)">
+                <g id="Group_94" data-name="Group 94">
+                    <path id="Path_265" d="M28.7 14.9a1.538 1.538 0 0 0 1.5-1.5.6.6 0 0 0-.1-.4.764.764 0 0 1-.5.2.645.645 0 0 1-.6-.6.55.55 0 0 1 .3-.5 1.421 1.421 0 0 0-.6-.2 1.5 1.5 0 1 0 0 3zm-.4-1.4a.4.4 0 0 1 0 .8c-.2 0-.3-.2-.3-.4s.1-.4.3-.4z" class="cls-1" data-name="Path 265" transform="translate(-2.661 -1.973)"/>
+                    <path id="Path_266" d="M60.719 18.723a4.976 4.976 0 0 0-1.594-.749 5.617 5.617 0 0 0 1.125.187c.563-.094.656-.656.188-.843a2.054 2.054 0 0 0-2.063.281c.094-.187.281-.187.375-.468.188-.843-.75-.656-1.125.094a2.346 2.346 0 0 0 .188 2.061 7.386 7.386 0 0 1-1.219 3.092c-2.719 3.279-5.157 3.279-7.125 2.436h.281a3.921 3.921 0 0 1-2.344-2.061 7.339 7.339 0 0 1-.469-1.312 32.946 32.946 0 0 0 .469-4.778c7.219-4.778 5.063-10.118 5.063-10.212-.938-2.623-.938-1.874-1.313-2.529A7.753 7.753 0 0 0 47.124 1.3c-.375-.094-.75.656-.469.843 2.344 2.248 3 5.808-1.031 6.745-.469.094-.938.094-1.5.187a12.612 12.612 0 0 0-4.031-2.248c1.313-.937-.281-.843-1.594-.468-.188-.094-.469-.094-.75-.187 1.781-2.811-.094-1.686-1.313-.281A43.635 43.635 0 0 0 31 5.42a30.952 30.952 0 0 0-5.438.468c-1.219-1.593-3.375-2.9-1.313.281-.188 0-.281.094-.469.094-1.5-.468-3.563-.656-1.781.562a12.612 12.612 0 0 0-4.031 2.248 7.292 7.292 0 0 1-1.5-.187c-4.031-.843-3.375-4.5-1.031-6.745.281-.281-.094-1.031-.469-.843A9.254 9.254 0 0 0 12.059 2.7a6.829 6.829 0 0 0-1.5 1.593c-.188.187-.375.468-1.031 2.155 0 .094-2.156 5.434 5.063 10.212a34.367 34.367 0 0 0 .469 4.872 5.415 5.415 0 0 1-.469 1.312 3.921 3.921 0 0 1-2.344 2.061h.281c-1.969.843-4.5.843-7.125-2.436a8.223 8.223 0 0 1-1.219-3.092 2.685 2.685 0 0 0 .188-2.061c-.375-.749-1.313-.937-1.125-.094.094.187.281.281.375.468a2.082 2.082 0 0 0-2.063-.281c-.563.094-.563.562.094.656a2.2 2.2 0 0 0 1.125-.187 7.96 7.96 0 0 0-1.594.749c-.844.656.75.375 1.125 0-.375.468-.375.281-.656.937s.469.375.938-.094a.99.99 0 0 1 .469-.187c1.781 8.994 5.532 10.867 12.376 9.462a1.028 1.028 0 0 0 .75 0v.094c-1.031 1.967-.563 18.643.469 21.266V53.2l.563 1.405c0-.094 0-.094.094-.187a11.763 11.763 0 0 0 1.031 2.623 2.9 2.9 0 0 0-3.283-.841.092.092 0 0 0-.094.094c-.094 0-.094.094-.188.094s-.094.094-.188.094-.094.094-.188.094l-.281.281-.094.094-.281.281a.327.327 0 0 0-.094.187.71.71 0 0 0-.188.375l-.094.094-.281.562a6.452 6.452 0 0 0-.281.749c-.188.656.094 1.405.469 1.405h4.688c.938 0 1.688.094 2.156-.375.375-.375.563-1.031.563-2.342v-.097c0-.656.188-2.248.375-4.122v-.188c0 .375.094.749.094 1.124a7.647 7.647 0 0 1 2.719-4.122 10.986 10.986 0 0 1-.469 1.031c3.282-2.713 10.597-3.747 15.097 0a10.985 10.985 0 0 0-.469-1.031 7.647 7.647 0 0 1 2.718 4.118c0-.375.094-.749.094-1.124v.187c.188 1.874.375 3.56.375 4.122a3.381 3.381 0 0 0 .563 2.342c.469.468 1.219.375 2.156.375h4.688c.469 0 .75-.749.469-1.405-.094-.281-.188-.468-.281-.749l-.281-.562-.094-.094a.71.71 0 0 1-.188-.375c0-.094-.094-.094-.094-.187l-.281-.281-.094-.094-.281-.281c-.094-.094-.094-.094-.188-.094s-.094-.094-.188-.094-.094-.094-.188-.094a.092.092 0 0 1-.094-.094 2.646 2.646 0 0 0-3.281.843 13.916 13.916 0 0 0 1.031-2.623c0 .094 0 .094.094.187l.563-1.405v-3.086c1.125-2.623 1.5-19.205.469-21.266v-.094h.75c6.844 1.405 10.594-.468 12.376-9.462.094 0 .469.094.469.187.469.468 1.313.749.938.094-.281-.656-.375-.468-.656-.937.374.564 2.061.843 1.124.187zM35.311 8.98a3.66 3.66 0 0 1 3.656 3.654 3.656 3.656 0 0 1-7.313 0 3.66 3.66 0 0 1 3.657-3.654zM26.5 8.793a3.66 3.66 0 0 1 3.656 3.654A3.722 3.722 0 0 1 26.5 16.1a3.66 3.66 0 0 1-3.656-3.654A3.722 3.722 0 0 1 26.5 8.793zm15.843 10.492c-.094 1.686-1.406 4.591-3.188 4.122-.375-.094-.656-.937-.75-1.593a9.809 9.809 0 0 1-2.156 1.218c.281.656.656 1.5.469 1.874-.656 1.405-3.375 2.342-4.5 1.312-.281-.281-.188-1.312-.094-2.061-.375 0-.75.094-1.125.094h-.75c.188.749.375 1.78 0 2.061-1.313 1.405-4.782.187-5.438-1.5-.188-.375.188-1.218.563-1.874a7.133 7.133 0 0 1-1.781-1.124c-.188.656-.375 1.5-.75 1.593-1.781.468-3.094-2.436-3.188-4.122a4.457 4.457 0 0 1 .469-1.312 10.175 10.175 0 0 1-1.224-3.184c5.907 9.743 18.282 9.931 24.283 0a13.146 13.146 0 0 1-1.219 3.185 9.607 9.607 0 0 1 .379 1.311z" class="cls-1" data-name="Path 266" transform="translate(-.941 -1.268)"/>
+                    <path id="Path_267" d="M37.1 15a1.538 1.538 0 0 0 1.5-1.5.6.6 0 0 0-.1-.4.764.764 0 0 1-.5.2.645.645 0 0 1-.6-.6.55.55 0 0 1 .3-.5 1.421 1.421 0 0 0-.6-.2 1.538 1.538 0 0 0-1.5 1.5 1.473 1.473 0 0 0 1.5 1.5zm-.4-1.3a.4.4 0 1 1-.4.4.366.366 0 0 1 .4-.4z" class="cls-1" data-name="Path 267" transform="translate(-3.211 -1.98)"/>
+                </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+
+      <div style="display:block; margin:auto; text-align: center; width: 290px; margin-top: 35px; margin-bottom: 4px; ">
+
+        <!-- Site -->
+        <script>
+          tab_ids[ "tab_site" ] = 'tab_id_site';
+          tab_titles[ "tab_site" ] = 'tab_name_site';
+          tab_unds[ "tab_site" ] = 'tab_und_site';
+        </script>
+
+        <div id="tab_name_site" class="sh_lato_font" 
+            style="display:inline-block; font-weight: bold; cursor: pointer; font-size: 14px; margin-left: 3px; margin-right: 3px; color: #148f91"
+            onclick="tab_select('tab_site')">
+          O TATA MATI
+          <div id="tab_und_site" style="display:inline-block; margin-left:-20px; width:20px; overflow:hidden; vertical-align:middle">
+            <svg width="200px" height="5px">
+              <rect width="200px" height="5px" style="
+                opacity: 0.52;
+                -webkit-filter: blur(1.2px);
+                filter: blur(1.2px);
+                fill:#f3b051;
+                " />
+            </svg>
+          </div>
+        </div>
+
+        <script>
+          // Set the length based on the actual text
+          tab_set_line('tab_site', 0);
+        </script>
+
+
+        <!-- Us -->
+
+        <script>
+          tab_ids[ "tab_us" ] = 'tab_id_us';
+          tab_titles[ "tab_us" ] = 'tab_name_us';
+          tab_unds[ "tab_us" ] = 'tab_und_us';
+        </script>
+
+        <div id="tab_name_us" class="sh_lato_font" 
+            style="display:inline-block; font-weight: normal; cursor: pointer; font-size: 14px; margin-left: 3px; margin-right: 3px; color: #148f91"
+            onclick="tab_select('tab_us')">
+          O NAMA
+        </div>
+        <div id="tab_und_us" style="display:none; margin-left:-20px; width:20px;overflow:hidden; vertical-align:middle">
+          <svg width="200px" height="5px">
+            <rect width="200px" height="5px" style="
+              opacity: 0.52;
+              -webkit-filter: blur(1.2px);
+              filter: blur(1.2px);
+              fill:#f3b051;
+              " />
+          </svg>
+        </div>
+
+        <script>
+          // Set the length based on the actual text
+          tab_set_line('tab_us', 0);
+        </script>
+
+
+
+        <!-- Privatnost -->
+
+        <script>
+          tab_ids[ "tab_private" ] = 'tab_id_private';
+          tab_titles[ "tab_private" ] = 'tab_name_private';
+          tab_unds[ "tab_private" ] = 'tab_und_private';
+        </script>
+
+        <div id="tab_name_private" class="sh_lato_font" 
+            style="display:inline-block; font-weight: normal; cursor: pointer; font-size: 14px; margin-left: 3px; margin-right: 3px; color: #148f91"
+            onclick="tab_select('tab_private')">
+          PRIVATNOST
+        </div>
+        <div id="tab_und_private" style="display:none; margin-left:-20px; width:20px;overflow:hidden; vertical-align:middle">
+          <svg width="200px" height="5px">
+            <rect width="200px" height="5px" style="
+              opacity: 0.52;
+              -webkit-filter: blur(1.2px);
+              filter: blur(1.2px);
+              fill:#f3b051;
+              " />
+          </svg>
+        </div>
+
+        <script>
+          // Set the length based on the actual text
+          tab_set_line('tab_private', 0);
+        </script>
+
+      </div>
+
+
+
+      <div id="tab_id_site"
+           style="display:block; 
+                  width: 290px; 
+                  margin:auto; margin-top: 15px; margin-bottom: 4px">
+
+        <div style="display:block; 
+                    background-color: white;
+                    width: 290px; 
+                    margin:0px 0px 0px 0px;">
+          <div class="sh_lato_font" style="display:inline-block; 
+                      background-color: white;
+                      font-size: 13px;
+                      margin:16px 16px 10px 16px;">
+            Dobro došli kod TATA MATE!
+            <br><br>
+            Matematiku često nepravedno predstave kao jako tešku, dosadnu ili kao pravo čudovište. 
+            <br>
+            Mi znamo da to nije tako. Matematika ume da bude zabavna i zanimljiva i TATA MATA bi da vam pokaže kako. 
+            Uz malo vežbe, videćete, postane baš lako.
+            <br><br>
+            Trenutno TATA MATA ima spremljene zadatke za osnovce od 1. do 7. razreda, 
+            ali uskoro, i starije tata mate mogu da očekuju svoju vežbaonicu. 
+            <br><br>
+            Naravno, niko nije savršen, pa ni TATA MATA. 
+            Greške uvek mogu da se dese, pa ako primetite da nešto nije kako treba - od dugmića i opcija, 
+            do netačnih rešenja (što je, ipak, malo verovatno pa bolje proverite još jednom), javite nam. 
+            Jednostavno je, samo treba da pritisnite na zastavicu kod tog zadatka. 
+            <br><br>
+            Ako ste zainteresovani da saznate više o TATA MATI, video prezentaciju 
+            o našem softveru možete pogledati <a href="https://youtu.be/rSYrRwMJ4Vg">ovde</a>.
+            <br><br>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="tab_id_us"
+           style="display:none; 
+                  width: 290px; 
+                  margin:auto; margin-top: 15px; margin-bottom: 4px">
+
+        <div style="display:block; 
+                    background-color: white;
+                    width: 290px; 
+                    margin:0px 0px 0px 0px;">
+          <div class="sh_lato_font" style="display:inline-block; 
+                      background-color: white;
+                      font-size: 13px;
+                      margin:16px 16px 0px 16px;">
+            <b> Zdravo! </b> 
+            <br>
+            <br>
+            TATA MATU čini jedna vesela ekipa volontera svih generacija: 
+            od iskusnih nastavnika i profesora koji smišljaju zadatke, 
+            preko istraživača, softverskih gurua i dizajnera koji pakuju zadatke u igru. 
+            <br>
+            <br>
+            <b>Naša misija</b> - da pokažemo zabavnu stranu matematike! 
+            Ideja nam je da se deca igraju i uživaju u rešavanju matematičkih zavrzlama. 
+            Zato je ova aplikacija potpuno besplatna.
+            <br>
+            <br>
+            Upoznajte tim:
+            <br>
+            <br>
+          </div>
+        </div>
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white;">
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto;" 
+                    src='{{ template_params["item_path"] }}images/us/desa.jpg'>
+            </div>
+          </div>
+
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      text-align: left;
+                      background-color: white; 
+                      vertical-align: top;
+                      margin: 22px -30px 22px 9px;
+                      width: 180px;
+                      height: 52px;">
+            <div style="display:flex; height: 52px; align-items:center"><div>
+              <a href="http://poincare.matf.bg.ac.rs/~dradun/"> Desanka Radunović </a> <br> 
+              profesor matematike, izmišlja zadatke.               
+            </div></div>
+          </div>
+
+          <div style="display: inline-block; margin-left=-30px; width=28px">
+            <svg xmlns="http://www.w3.org/2000/svg" id="noun_Monster_3288402" width="27.305" height="32.091" viewBox="0 0 27.305 32.091">
+                <path id="Path_219" style="fill:#148f91" d="M21.545 29.762c2.179 2.2 5.92-1.863 7.4-3.044a19.223 19.223 0 0 1 4.119-2.968 8.507 8.507 0 0 1 .279 1.09.921.921 0 0 0 1.771-.5c-.408-1.422-.878-2.987-2.668-2.357a5.586 5.586 0 0 0-.724.321 21.029 21.029 0 0 0-2.844 2.1c-.992.781-1.977 1.576-2.966 2.372a7.014 7.014 0 0 1-2.433 1.61c-1.753.351-.724-3.869-.533-4.827.187-.916.408-1.833.654-2.738l.489-.505.426 1.49 1.5-1.328 1.385-5.612c.151-.117.294-.238.445-.347.474-.343 2.37-1.882 3.01-1.46.514.343-.066 2.557-.121 2.961l-.4 3.062-.176 1.335a1.051 1.051 0 0 0 1.04 1.184.71.71 0 0 0 .731-.683l.32-2.421a34.343 34.343 0 0 0 .581-4.775 2.65 2.65 0 0 0-.878-2.169c-1.205-.916-2.866-.26-4.377.758a7.173 7.173 0 0 0-.176-.932l2.925-3.819c.408-.536.29-.664-.261-.29L26.634 9.6a6.54 6.54 0 0 0-3.943-2.979 6.35 6.35 0 0 0-4.847.694l-1.933-3.73c-.312-.6-.474-.543-.36.128l.8 4.8a6.725 6.725 0 0 0-1.6 2.961l-.169.694C12.06 9.875 9.8 6.745 9.686 3.362a.919.919 0 0 0-1.837 0c.143 4.3 3.032 8.112 6.236 10.824l-.739 3 .7 1.9.739-.762a32.1 32.1 0 0 0-1.437 14.339h-2.87a.945.945 0 0 0 0 1.886h3.982a.947.947 0 0 0 .886-1.192c-1.084-4.771-.191-10.126 1.3-14.837l.386 1.346 1.066-1.1.426 1.49 1.076-1.114.43 1.5 1.062-1.1.426 1.486.165-.17q-.3 1.165-.537 2.342c-.366 1.836-1.115 5.031.399 6.562zM19.9 13.334a2.987 2.987 0 0 1-2.1-3.621 2.894 2.894 0 0 1 3.524-2.153 2.987 2.987 0 0 1 2.1 3.621 2.894 2.894 0 0 1-3.524 2.153z" class="cls-1" transform="translate(-7.848 -2.453)"/>
+                <path id="Path_220" style="fill:#148f91" d="M40.2 19.611a1.364 1.364 0 1 0 .986 1.658 1.363 1.363 0 0 0-.986-1.658zm-.328.906a.307.307 0 1 1-.6-.15.307.307 0 0 1 .6.15z" class="cls-1" transform="translate(-27.628 -13.245)"/>
+            </svg>
+          </div>
+        </div>
+
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div style="display: inline-block; margin-left=-30px; width=28px">
+            <svg xmlns="http://www.w3.org/2000/svg" id="noun_Monster_3288353" width="26.053" height="31.725" viewBox="0 0 26.053 31.725">
+                <path id="Path_257" style="fill:#f3b051" d="M26.364 10.6a5.936 5.936 0 0 1 .167.629l1.142 5.6-.007.011c.569 1.043 1.106 2.107 1.592 3.187.758 1.687 2.158 4.387 1.316 6.271-1.193 2.674-5.254.088-6.839-.589q-1.643-.708-3.285-1.412-.462 1.141-.928 2.283c-.388.959-1.82.688-1.82-.15a.94.94 0 0 1 .073-.337l1.313-3.234a.928.928 0 0 1 1.334-.545c.762.326 1.523.655 2.288.98 1.646.706 3.3 1.569 5 2.129.754.249 1.12.472 1.266-.23.344-1.635-1.237-4.215-1.922-5.6-.312-.629-.638-1.251-.972-1.87l-.181-.2-.482 1.423-1.019-1.129-.486 1.43-1-1.112-.482 1.423-1.008-1.123-.49 1.434-1-1.116-.486 1.423-1.008-1.12-.9.977-.37 6.355q-.18 3.035-.355 6.066a.928.928 0 0 1-.907.915h-4.176a.915.915 0 0 1 0-1.829h3.322l.315-5.4q.18-3.024.355-6.044l-.682-.651-.751-3.68c-.181.1-.859.472-.939.523-.091.234-.236.5-.286.637q-1.006 2.7-2.005 5.4l3.862 3.216a.766.766 0 0 1 .308.6.98.98 0 0 1-1.588.7q-2.149-1.784-4.293-3.571a.887.887 0 0 1-.232-.893c.787-2.122 1.563-4.251 2.364-6.369a4.312 4.312 0 0 1 2.415-2.18 6.522 6.522 0 0 1 .185-3.245l-2.727-3.858c-.377-.534-.257-.655.268-.267L14.9 8.876a6.362 6.362 0 0 1 8.761-1.818l2.071-3.527c.334-.567.49-.5.352.139l-1 4.613a6.278 6.278 0 0 1 .464.611l8-7.013c.878-.768 2.165.52 1.284 1.291Q30.6 6.887 26.364 10.6zm-2.658-.52a2.866 2.866 0 1 0-2.23 3.413 2.866 2.866 0 0 0 2.23-3.417z" class="cls-1" transform="translate(-9.077 -1.645)"/>
+                <path id="Path_258" style="fill:#f3b051" d="M46.347 25.669a1.749 1.749 0 1 1 1.361-2.069 1.745 1.745 0 0 1-1.361 2.069zm-.03-2.71a.4.4 0 0 0-.3.464.389.389 0 0 0 .464.3.393.393 0 0 0 .309-.464.4.4 0 0 0-.473-.3z" class="cls-1" transform="translate(-33.561 -15.546)"/>
+            </svg>
+          </div>
+
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      text-align: right;
+                      margin: 22px 6px 22px -30px;
+                      width: 180px;
+                      height: 52px;">
+            <div style="display:flex; height: 52px; align-items:center; justify-content: flex-end;"><div>
+              <a href="https://github.com/bradunov"> Božidar Radunović </a> <br>
+              programer, prikazuje zadatke
+            </div></div>
+          </div>
+
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto;" 
+                    src='{{ template_params["item_path"] }}images/us/boki.jpg'>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto;" 
+                    src='{{ template_params["item_path"] }}images/us/vladap.png'>
+            </div>
+          </div>
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      background-color: white; 
+                      text-align: left;
+                      margin: 22px -30px 22px 9px;
+                      width: 180px;
+                      height: 52px;">
+              <div style="display:flex; height: 52px; align-items:center"><div>
+                <a href="https://github.com/vladap2013"> Vladimir Petrović </a> <br>
+                programer, prikazuje zadatke
+              </div></div>
+          </div>
+          <div style="display: inline-block; margin-left=-30px; width=28px">
+            <svg xmlns="http://www.w3.org/2000/svg" id="noun_Monster_3288502" width="28.906" height="28.449" viewBox="0 0 28.906 28.449">
+                <path id="Path_245" style="fill:#8f53cb" d="M30.22 26.688c-.761-.2-1.557.079-2.5 1.142-1.07 1.21-2.1 2.438-3.238 3.592-.519.528-.49.518-.8-.157-.906-1.964-.949-4.563-.949-6.812l.533-.907.743 1.264 1.1-1.574v-5.577c0-.05-.007-.1-.007-.143a12.948 12.948 0 0 1 4.752 8.084.726.726 0 0 0 .5.607.963.963 0 0 0 1.215-1.082 14.017 14.017 0 0 0-7-10.007 6.292 6.292 0 0 0-11.363-.418c-3.33-1.672-5.441-5.3-6.088-8.9-.2-1.128-1.916-.65-1.713.475.746 4.149 3.323 8.258 7.193 10.107a6.3 6.3 0 0 0-.131 1.275v5.577l1.1 1.574.743-1.264.533.907c0 2.249-.043 4.848-.949 6.812-.313.675-.174.475-.572.378-.615-.143-1.542-1.582-1.987-2.081-.462-.521-.906-1.057-1.365-1.585-.579-.668-1.308-1.528-2.292-1.5-1.237.032-2.289 1.521-3.078 2.3a.891.891 0 0 0 1.255 1.264c.7-.689 1.5-1.9 2.466-1.26a9.3 9.3 0 0 1 1.336 1.564 12.624 12.624 0 0 0 3.01 3.02c1.265.668 2.282-.157 2.808-1.31a18.635 18.635 0 0 0 1.14-7.353l.679-1.153.743 1.264.75-1.271.75 1.271.743-1.264.679 1.153a18.635 18.635 0 0 0 1.141 7.354c.508 1.107 1.482 1.956 2.726 1.353a10.952 10.952 0 0 0 2.882-2.82 11.021 11.021 0 0 1 1.546-1.807c.952-.639 1.77.571 2.466 1.26a.891.891 0 0 0 1.255-1.264 7.2 7.2 0 0 0-2.755-2.088zM18.786 20.28a2.82 2.82 0 1 1 2.808-2.82 2.815 2.815 0 0 1-2.808 2.82z" class="cls-1" transform="translate(-4.333 -5.158)"/>
+                <path id="Path_246" style="fill:#8f53cb" d="M42.611 35.532a1.689 1.689 0 1 0 1.689 1.691 1.693 1.693 0 0 0-1.689-1.691zm-.5 1.571a.379.379 0 1 1 .377-.381.38.38 0 0 1-.375.378z" class="cls-1" transform="translate(-28.562 -24.685)"/>
+            </svg>
+          </div>
+        </div>
+
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div style="display: inline-block; margin-left=-30px; width=28px">
+            <svg xmlns="http://www.w3.org/2000/svg" id="noun_Monster_3288274" width="33.806" height="32.643" viewBox="0 0 33.806 32.643">
+                <path id="Path_305" style="fill:#148f91" d="M37.97 10.158a12.762 12.762 0 0 0-5.07 6.192 35.885 35.885 0 0 0-1.316 4.14c-.171.64-.252 1.3-.392 1.947a8.648 8.648 0 0 1-.3 1.16c-.093.243-.33.887-.652.9-.291 0-1.627-2.194-2.031-2.972-.019-.039-.039-.081-.062-.12a4.44 4.44 0 0 0 .78-1.083 5.333 5.333 0 0 0-.567-5.351l3.14-2.218c.606-.428.524-.582-.179-.343l-3.953 1.33a8.926 8.926 0 0 0-1.588-1.268l1.608-4.819c.237-.7.078-.779-.349-.173l-2.932 4.16a8.907 8.907 0 0 0-1.973-.509l-1.28-3.945c-.229-.705-.4-.675-.388.066l.085 3.824a5.419 5.419 0 0 0-4.66 2.741 5.349 5.349 0 0 0 .582 5.378c-.408.644-.831 1.276-1.278 1.9a12.058 12.058 0 0 1-2.217 2.537c-.73.574-.959.69-1.285-.224-.633-1.777-.439-3.959-.761-5.821A26.584 26.584 0 0 0 9.407 12.1a11.841 11.841 0 0 0-2.163-3.74c-.866-.9-2.237.467-1.375 1.365C7.388 11.3 8.1 13.89 8.607 15.934c.6 2.421.582 4.9 1.064 7.329a3.43 3.43 0 0 0 1.53 2.595c2.392 1.168 4.97-2.275 6.655-5.073.217.193.443.378.687.555L15.7 30.2q-.53 1.665-1.068 3.327a12.955 12.955 0 0 0-.648 1.77 9.106 9.106 0 0 0-1.126.69l-2.792 1.538c-1.091.6-.113 2.267.982 1.662l2.788-1.538c.718-.393 1.576-.679 1.969-1.419a31.024 31.024 0 0 0 1.553-4.842q1.456-4.534 2.908-9.071a8.839 8.839 0 0 0 3.126.752q-1.3 7.518-2.606 15.031a.978.978 0 0 0 .936 1.218h5.475a.964.964 0 0 0 0-1.928h-4.33q1.258-7.246 2.512-14.488a6.344 6.344 0 0 0 1.165-.386c.047.089.089.177.136.266.7 1.3 1.841 3.616 3.568 3.728 2.2.139 2.613-3.3 3.009-4.769 1.048-3.851 2.1-7.653 5.692-9.923 1.051-.661.081-2.33-.979-1.66zm-14.286 5.926a2.213 2.213 0 0 1-2.955.972 2.174 2.174 0 0 1-.975-2.93 2.2 2.2 0 0 1 2.951-.972 2.178 2.178 0 0 1 .979 2.93z" class="cls-1" transform="translate(-5.595 -6.676)"/>
+                <path id="Path_306" style="fill:#148f91" d="M42.04 24.47a1.022 1.022 0 1 0 .453 1.375 1.02 1.02 0 0 0-.453-1.375z" class="cls-1" transform="translate(-26.391 -17.265)"/>
+            </svg>
+          </div>
+
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      text-align: right;
+                      margin: 22px 6px 22px -30px;
+                      width: 180px;
+                      height: 52px;">
+              <div style="display:flex; height: 52px; align-items:center; justify-content: flex-end;"><div>
+              Marija Kisa Minić <br>
+              Dizajner, voli da ubacuje čudovišta u tata-matu  
+              </div></div>
+            </div>
+
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto; " 
+                    src='{{ template_params["item_path"] }}images/us/madza.jpg'>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto;" 
+                    src='{{ template_params["item_path"] }}images/us/emi.jpg'>
+            </div>
+          </div>
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      background-color: white; 
+                      text-align: left;
+                      margin: 22px -30px 22px 9px;
+                      width: 180px;
+                      height: 52px;">
+              <div style="display:flex; height: 52px; align-items:center"><div>
+                Emilia Greetham <br> 
+                Prevela zadatke na Engleski.
+              </div></div>
+          </div>
+          <div style="display: inline-block; margin-left=-30px; width=28px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="29.857" height="28.849" viewBox="0 0 29.857 28.849">
+                <g id="noun_Monster_3288415" transform="translate(-6.642 -7.936)">
+                    <path id="Path_832" style="fill:#df367c" d="M8.493 27.216q2.633-3.847 5.266-7.7v3.02l1.2 1.716.813-1.378.817 1.378.7-1.187V34.84h-2.464a.973.973 0 0 0 0 1.946h3.436a.989.989 0 0 0 .973-.973V23.2l.623 1.051.817-1.385.821 1.385.813-1.378.817 1.378.821-1.385.817 1.385.424-.716q2.066 1.693 4.133 3.382l-5.351 5.351a.987.987 0 0 0 0 1.378l2.195 2.195a.973.973 0 0 0 1.374-1.378l-1.505-1.503q2.714-2.709 5.421-5.421a.975.975 0 0 0 0-1.374q-2.031-1.67-4.067-3.331l.206-.3v-4.09q3.6 2.849 7.192 5.7c.973.771 2.358-.6 1.378-1.378q-4.3-3.4-8.589-6.807a6.856 6.856 0 0 0-.872-2.88l2.043-4.592c.284-.638.132-.739-.339-.222l-2.93 3.23a6.865 6.865 0 0 0-9.6 0l-2.93-3.23c-.471-.518-.623-.416-.339.222l2.043 4.592a6.871 6.871 0 0 0-.88 2.977L6.812 26.233c-.712 1.037.977 2.01 1.681.983zm10.236-15.995a3.074 3.074 0 1 1-3.075 3.079 3.074 3.074 0 0 1 3.075-3.079z" class="cls-1"/>
+                    <path id="Path_845" style="fill:#df367c" d="M8.493 27.216q2.633-3.847 5.266-7.7v3.02l1.2 1.716.813-1.378.817 1.378.7-1.187V34.84h-2.464a.973.973 0 0 0 0 1.946h3.436a.989.989 0 0 0 .973-.973V23.2l.623 1.051.817-1.385.821 1.385.813-1.378.817 1.378.821-1.385.817 1.385.424-.716q2.066 1.693 4.133 3.382l-5.351 5.351a.987.987 0 0 0 0 1.378l2.195 2.195a.973.973 0 0 0 1.374-1.378l-1.505-1.503q2.714-2.709 5.421-5.421a.975.975 0 0 0 0-1.374q-2.031-1.67-4.067-3.331l.206-.3v-4.09q3.6 2.849 7.192 5.7c.973.771 2.358-.6 1.378-1.378q-4.3-3.4-8.589-6.807a6.856 6.856 0 0 0-.872-2.88l2.043-4.592c.284-.638.132-.739-.339-.222l-2.93 3.23a6.865 6.865 0 0 0-9.6 0l-2.93-3.23c-.471-.518-.623-.416-.339.222l2.043 4.592a6.871 6.871 0 0 0-.88 2.977L6.812 26.233c-.712 1.037.977 2.01 1.681.983zm10.236-15.995a3.074 3.074 0 1 1-3.075 3.079 3.074 3.074 0 0 1 3.075-3.079z" class="cls-1"/>
+                    <path id="Path_833" style="fill:#df367c" d="M35.214 23.368a1.586 1.586 0 1 0-1.584-1.584 1.584 1.584 0 0 0 1.584 1.584zm-.467-2.409a.356.356 0 1 1-.358.354.356.356 0 0 1 .357-.354z" class="cls-1" transform="translate(-16.485 -7.489)"/>
+                </g>
+            </svg>
+          </div>
+        </div>
+
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div style="display: inline-block; margin-left=-30px; width=28px">
+            <svg xmlns="http://www.w3.org/2000/svg" id="noun_Monster_3288468" width="35.755" height="35.11" viewBox="0 0 35.755 35.11">
+                <path id="Path_243" style="fill:#6ab288" d="M40.2 26.172a1.71 1.71 0 1 0 1.736 1.708 1.724 1.724 0 0 0-1.736-1.708zm-.516 1.586a.384.384 0 1 1 .392-.382.386.386 0 0 1-.394.382z" class="cls-1" transform="translate(-23.71 -17.912)"/>
+                <path id="Path_244" style="fill:#6ab288" d="M44.378 27.642V13.205a1.23 1.23 0 0 0-2.457 0v11.637q-2.234-2.06-4.457-4.114v-1.32a8.736 8.736 0 0 0-17.471 0v.112l-7.151.5q-.914-5.1-1.823-10.191c-.28-1.539-2.649-.886-2.374.648l2 11.15a1.229 1.229 0 0 0 1.184.9q4.084-.285 8.163-.565v5.059l1.514 2.147 1.032-1.724 1.027 1.724.5-.828v5.818l-7.706-6a1.25 1.25 0 0 0-1.926.248q-1 1.884-2 3.778c-.732 1.388 1.386 2.619 2.123 1.232.447-.847.894-1.7 1.342-2.546q4.261 3.323 8.527 6.641a1.25 1.25 0 0 0 2.1-.862v-8.964l.147-.248 1.027 1.724 1.037-1.733 1.032 1.733.649-1.086 5.868 15.065a1.253 1.253 0 0 0 1.809.73q1.666-1.161 3.337-2.322c1.283-.9.059-3-1.238-2.1q-1.076.745-2.143 1.49l-5.229-13.429.044-.078 1.035 1.73 1.027-1.724 1.027 1.724 1.514-2.147v-2.96l4.816 4.45a1.246 1.246 0 0 0 2.094-.862zm-19.088-4.48a3.847 3.847 0 1 1 3.882-3.846 3.86 3.86 0 0 1-3.882 3.846z" class="cls-1" transform="translate(-8.623 -8.948)"/>
+            </svg>
+          </div>
+
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      text-align: right;
+                      margin: 22px 6px 22px -30px;
+                      width: 180px;
+                      height: 52px;">
+              <div style="display:flex; height: 52px; align-items:center; justify-content: flex-end;"><div>
+              Jelena Rusić <br>
+              Učiteljica, izmišlja zadatke 
+              </div></div>
+            </div>
+
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto; " 
+                    src='{{ template_params["item_path"] }}images/us/JelenaR.png'>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto;" 
+                    src='{{ template_params["item_path"] }}images/us/ivan.jpg'>
+            </div>
+          </div>
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      background-color: white; 
+                      text-align: left;
+                      margin: 22px -30px 22px 9px;
+                      width: 180px;
+                      height: 52px;">
+              <div style="display:flex; height: 52px; align-items:center"><div>
+                Ivan Minić <br>
+                Statističar, prati rezultate
+              </div></div>
+          </div>
+          <div style="display: inline-block; margin-left=-30px; width=28px">
+            <svg xmlns="http://www.w3.org/2000/svg" id="noun_Monster_3288342" width="32.388" height="27.629" viewBox="0 0 32.388 27.629">
+                <path id="Path_259" style="fill:#ec8e43" d="M27.673 24.041a6.534 6.534 0 0 0 .1-1.454c4.648-2.526 8.624-7.2 8.193-12.515-.1-1.2-2.054-1.2-1.956 0 .356 4.412-2.755 8.209-6.526 10.495l2.758-3.876c.4-.558.262-.678-.293-.27l-3.478 2.556a6.954 6.954 0 0 0-4.4-2.68 7.153 7.153 0 0 0-5.1 1.027l-2.32-3.565c-.372-.57-.54-.5-.372.154l1.193 4.7c-.11.127-.215.262-.313.4C11.686 16.5 8.677 12.913 8 8.824c-.2-1.188-2.082-.686-1.886.495.759 4.592 4.226 8.617 8.138 11.376a6.554 6.554 0 0 0-.266.967l-1.092 5.761.876 1.833 1.053-1.166.481 1.244q-1.485 1.794-2.966 3.587-1.878-5.1-3.76-10.191a1 1 0 0 0-1.2-.656l-3.095 1.034c-1.182.394-.673 2.208.52 1.807.747-.247 1.491-.5 2.238-.746q2.007 5.448 4.018 10.9c.219.592 1.139 1.012 1.636.416l5.458-6.593.466 1.207 1.06-1.173.56 1.454 1.053-1.166.56 1.447.681-.753 4.3 5.2c.5.6 1.416.176 1.636-.416q2.007-5.448 4.022-10.9l2.234.746c1.193.4 1.706-1.409.52-1.807L32.157 21.7a1 1 0 0 0-1.205.656q-1.878 5.092-3.752 10.19c-.516-.622-1.029-1.241-1.542-1.863l.927-.881zm-4.155-2.365a3.083 3.083 0 0 1-3.592 2.384 2.973 2.973 0 0 1-2.492-3.441 3.087 3.087 0 0 1 3.6-2.388 2.976 2.976 0 0 1 2.484 3.445z" class="cls-1" transform="translate(-3.612 -8.144)"/>
+                <path id="Path_260" style="fill:#ec8e43" d="M43.412 36.785a1.5 1.5 0 1 0 1.208 1.746 1.5 1.5 0 0 0-1.208-1.746zm-.685 1.293a.339.339 0 1 1 .391-.273.339.339 0 0 1-.392.273z" class="cls-1" transform="translate(-27.569 -25.949)"/>
+            </svg>
+          </div>
+        </div>
+
+
+        <div class="sh-std-button" style="display:block; width: 100%; text-align: center; background-color: white; margin-top: 15px">
+          <div style="display: inline-block; margin-left=-40px; width=39px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38.374" height="37.73" viewBox="0 0 38.374 37.73">
+                <g id="noun_Monster_3288326" transform="translate(-11.527 -12.091)">
+                    <path id="Path_847" style="fill:#148f91" d="M48.016 45.174l-3.916 1.79q-3.46-8.274-6.931-16.558a6.022 6.022 0 0 0 2.228-4.525c0-.089-.01-.173-.01-.261q5.058-5.693 10.125-11.392c1.055-1.183-.685-2.928-1.74-1.74L38.507 22.9a7.609 7.609 0 0 0-2.593-2.45l2.145-4.05c.419-.784.246-.907-.375-.276L34.2 19.665a10.441 10.441 0 0 0-2.371-.508l-.882-6.024c-.128-.877-.335-.877-.463 0l-.884 6.024a10.5 10.5 0 0 0-2.371.508l-3.485-3.539c-.621-.631-.789-.508-.375.276l2.149 4.052a7.546 7.546 0 0 0-2.618 2.479q-4.621-5.087-9.243-10.169c-1.07-1.178-2.8.567-1.74 1.74l10.125 11.145v.232a6.017 6.017 0 0 0 2.223 4.525q-3.468 8.281-6.931 16.558l-3.919-1.789c-1.434-.656-2.687 1.469-1.247 2.129q2.6 1.183 5.181 2.366a1.266 1.266 0 0 0 1.814-.734q3.594-8.6 7.192-17.194a10.732 10.732 0 0 0 8.725 0q3.593 8.592 7.2 17.194a1.26 1.26 0 0 0 1.809.734q2.588-1.183 5.181-2.366c1.43-.661.181-2.785-1.254-2.13zm-17.3-18.416a2.615 2.615 0 1 1 2.618-2.613 2.615 2.615 0 0 1-2.62 2.613z" class="cls-1"/>
+                    <circle id="Ellipse_81" style="fill:#148f91" cx=".803" cy=".803" r=".803" class="cls-1" transform="translate(29.91 23.342)"/>
+                </g>
+            </svg>
+          </div>
+
+          <div class="sh_lato_font" 
+                style="display: inline-block;
+                      cursor: pointer;
+                      font-size: 13px;
+                      text-align: right;
+                      margin: 22px 6px 22px -40px;
+                      width: 180px;
+                      height: 52px;">
+              <div style="display:flex; height: 52px; align-items:center; justify-content: flex-end;"><div>
+              Nebojša Petković <br> 
+              Reklamira sajt.
+              </div></div>
+            </div>
+
+          <div style="display:inline-block; 
+                      vertical-align: bottom;
+                      background-color: #eeeeee ;
+                      height: 96px;
+                      width: 90px;">
+            <div style="display:flex; height: 96px; align-items:center; justify-content: center;">
+              <img style="width: 72px; height: auto; " 
+                    src='{{ template_params["item_path"] }}images/us/nebojsa.jpg'>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+      <div id="tab_id_private"
+           style="display:none; 
+                  width: 290px; 
+                  margin:auto; margin-top: 15px; margin-bottom: 4px">
+
+        <div style="display:block; 
+                    background-color: white;
+                    width: 290px; 
+                    margin:0px 0px 0px 0px;">
+          <div class="sh_lato_font" style="display:inline-block; 
+                      background-color: white;
+                      font-size: 13px;
+                      margin:16px 16px 16px 16px;">
+            TATA MATA je potpuno besplatna aplikacija bez reklama. 
+            Možeš je koristiti u potpunosti anonimno kao gost. 
+            Ipak, za idealno korišćenje bilo bi dobro da imaš Google nalog i da se preko njega uloguješ. 
+            Tako ćeš najbolje moći da pratiš rezultate i napredak.
+            <br>
+            <br>
+            Najbitnije, ne brini, TATA MATA je napravljen tako da 
+            pamti samo tvoje prvo ima i Google slicicu (da bi mogao da ih prikaze na ekranu). 
+            TATA MATA ne skuplja nikakve druge podatke o tebi i ne deli tvoje rezultate ni sa kim. 
+            Ako ti odlučiš da podeliš svoj uspeh s drugarima, tatom, mamom, ili učiteljima moraćeš da im pokažeš lično. 
+          </div>
+        </div>
+
+        <div style="display:block; 
+                    background-color: white;
+                    width: 290px; 
+                    margin:15px 0px 0px 0px;">
+          <div class="sh_lato_font" style="display:inline-block; 
+                      background-color: white;
+                      width: 240px;
+                      font-size: 13px;
+                      margin:16px 16px 16px 16px;">
+            Slatka mala čudovišta koja koristimo u TATA MATI su preuzeta sa sajta 
+            the <A href="https://thenounproject.com">Noun Project</A>, i hvala iconcheesu što ih je nacrtao.
+          </div>
+          <div style="display:inline-block; margin: -28px 0px 0px 238px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38.409" height="49.698" viewBox="0 0 38.409 49.698">
+                <defs>
+                    <style>
+                        .cls-1{fill:#148f91}
+                    </style>
+                </defs>
+                <g id="noun_Monster_169452" transform="translate(-15.199 -5)">
+                    <g id="Group_363" transform="translate(15.199 5)">
+                        <path id="Path_821" d="M39.9 5c-7.678 0-13.26 5.471-13.26 13.762v.5s.5 7.074-2.432 9.064c-2.874 1.99-7.019 1.824-5.471-3.04a9.851 9.851 0 0 1 3.482-4.919A4.68 4.68 0 0 0 24.1 17.38c0-1.769-2.1-2.6-3.371-2.874-2.321-.608-3.924-.442-3.206.5.608.718 4.7.663 4.421 2.321-.166.94-5.527 4.587-6.522 8.9a5.6 5.6 0 0 0 .774 4.864c2.6 3.261 7.351 2.1 10.169.829a8.37 8.37 0 0 0 2.266-1.437v.166h.111a29.789 29.789 0 0 0 12.435 1.879c1.824-.055 3.648-.166 5.471-.387a25.106 25.106 0 0 0 2.819-.5 7.5 7.5 0 0 0 2.211-.774.251.251 0 0 1 .276 0 98.74 98.74 0 0 0 1.6-11.661C54.274 10.306 47.586 5 39.9 5zm-8.065 15.585a2.819 2.819 0 1 1 2.819-2.819 2.831 2.831 0 0 1-2.819 2.819zm6.687 0a2.819 2.819 0 1 1 2.819-2.819 2.867 2.867 0 0 1-2.819 2.819zm6.578-.055a2.819 2.819 0 1 1 2.819-2.819A2.831 2.831 0 0 1 45.1 20.53z" class="cls-1" transform="translate(-15.199 -5)"/>
+                        <path id="Path_822" d="M43.225 62.816a3.073 3.073 0 0 0-2.155-1.879 3.36 3.36 0 0 0-1.05-.055c-.221.055-.5.111-.608.276l-.055.055a23.5 23.5 0 0 1 .553 4.145c.276 3.371.718 5.693-.829 8.677-.663 1.271-3.924 3.371-1.769 3.7a5.7 5.7 0 0 0 4.2-2.045c1.382-2.155 1.437-4.587 1.769-7.627.166-1.548-.055-4.2.166-5.2-.111.063-.222.063-.222-.047z" class="cls-1" transform="translate(-24.765 -29.987)"/>
+                        <path id="Path_823" d="M74.982 61.671a2.454 2.454 0 0 0-1.105.055 3 3 0 0 0-2.155 1.824.221.221 0 0 1-.221.111c.221 1.216.221 3.427.332 5.25a14.905 14.905 0 0 0 1.934 7.074 5.885 5.885 0 0 0 4.145 2.045c2.155-.276-.718-2.377-1.326-3.7-1.161-2.487-1.161-5.858-1.105-8.677A26.578 26.578 0 0 1 75.756 62a.054.054 0 0 1-.055-.055 1.931 1.931 0 0 0-.719-.274z" class="cls-1" transform="translate(-40.384 -30.334)"/>
+                        <path id="Path_824" d="M65.711 63.387a3.752 3.752 0 0 0-.663-.663 4.568 4.568 0 0 0-.718-.387 2.919 2.919 0 0 0-1.934.221 1.208 1.208 0 0 0-.276.166l-.332.332a1.261 1.261 0 0 0-.332.663c0 .055 0 .055-.055.055.276 1.382 0 4.09.111 6.743.166 3.427-.5 4.7 1.713 7.793 1.326 1.769 3.261 2.266 4.035 1.879 1.382-.663-1.382-3.095-1.824-4.919-.5-1.934.055-7.3.166-9.285a20.968 20.968 0 0 1 .332-2.1l-.055-.055a.735.735 0 0 0-.168-.443z" class="cls-1" transform="translate(-35.866 -30.613)"/>
+                        <path id="Path_825" d="M53.569 63.513a2.9 2.9 0 0 0-1.05-1.271 2.78 2.78 0 0 0-1.492-.442 1.638 1.638 0 0 0-1.326.553 2.5 2.5 0 0 0-.608.94.193.193 0 0 1-.055.111 2.738 2.738 0 0 1 .387 1.492c.055 2.045.387 8.014-.111 10-.442 1.824-3.206 4.256-1.824 4.919.829.387 2.708-.111 4.035-1.879 2.211-3.095 1.6-4.7 1.713-8.18a38.553 38.553 0 0 1 .442-6.19c-.056.003-.056.003-.111-.053z" class="cls-1" transform="translate(-29.472 -30.408)"/>
+                        <circle id="Ellipse_74" cx=".94" cy=".94" r=".94" class="cls-1" transform="translate(15.697 11.827)"/>
+                        <circle id="Ellipse_75" cx=".94" cy=".94" r=".94" class="cls-1" transform="translate(22.384 11.827)"/>
+                        <circle id="Ellipse_76" cx=".94" cy=".94" r=".94" class="cls-1" transform="translate(28.961 11.717)"/>
+                        <g id="Group_358" transform="translate(24.982 26.418)">
+                            <path id="Path_826" d="M67.032 54.126c-1.824.221-3.648.332-5.471.387H60.4v2.045a4.811 4.811 0 0 1 1.769 1.382 2.866 2.866 0 0 1 1.658-.166 2.907 2.907 0 0 1 1.437.829 1.764 1.764 0 0 1 .5.884v.113a3.114 3.114 0 0 0 .718 0v-.055a3.369 3.369 0 0 1 2.429-2.045 2.748 2.748 0 0 1 1.161-.055c.276.055.663.111.663.332h.111a13.9 13.9 0 0 0 1.381-4.977 15.662 15.662 0 0 1-5.195 1.326z" class="cls-1" transform="translate(-60.4 -52.8)"/>
+                        </g>
+                        <g id="Group_359" transform="translate(13.427 26.252)">
+                            <path id="Path_827" d="M45.466 59.077a2.153 2.153 0 0 1 .718-1.105 2.262 2.262 0 0 1 1.437-.608A2.95 2.95 0 0 1 49 57.64a4.3 4.3 0 0 1 1.769-1.161v-2.045A28.756 28.756 0 0 1 39.553 52.5H39.5a12.356 12.356 0 0 0 .995 4.642l.055.055a1.164 1.164 0 0 1 .718-.276 3.012 3.012 0 0 1 1.216.055 3.446 3.446 0 0 1 2.316 2.046v.111a2.208 2.208 0 0 0 .718.111c-.052-.057-.107-.112-.052-.167z" class="cls-1" transform="translate(-39.494 -52.5)"/>
+                        </g>
+                        <g id="Group_360" transform="translate(23.158 30.397)">
+                            <path id="Path_828" d="M59.255 62.6a2.292 2.292 0 0 1 1.05-1.326.054.054 0 0 0 .055-.055A3.88 3.88 0 0 0 58.758 60a3.715 3.715 0 0 0-1.658 1.05l.055.055a3.543 3.543 0 0 1 1.161 1.382.106.106 0 0 1-.055.166 1.387 1.387 0 0 0 .553.111 1.041 1.041 0 0 0 .442-.111c-.001.055-.056 0-.001-.053z" class="cls-1" transform="translate(-57.1 -60)"/>
+                        </g>
+                        <g id="Group_361" transform="translate(25.921 32.166)">
+                            <path id="Path_829" d="M62.432 63.2l-.332.332a.938.938 0 0 1 .332-.332z" class="cls-1" transform="translate(-62.1 -63.2)"/>
+                        </g>
+                        <g id="Group_362" transform="translate(29.127 32.055)">
+                            <path id="Path_830" d="M68.618 63.718a1.465 1.465 0 0 0-.276-.332A3.159 3.159 0 0 0 67.9 63a4.417 4.417 0 0 1 .718.718z" class="cls-1" transform="translate(-67.9 -63)"/>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div style="display:block; 
+                  width: 290px; 
+                  text-align: center;
+                  margin:auto; margin-top: 50px; margin-bottom: 12px;">
+        <div class="sh_lato_font" style="
+                  display:inline-block; 
+                  font-size: 14px">
+          <a href="https://github.com/bradunov/shkola"> <img src="https://github.githubassets.com/favicons/favicon.svg" width='20'> </a> 
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </body>
+</html>

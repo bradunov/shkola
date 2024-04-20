@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang='{{template_params["lang"]}}'>
+  <head>
+
+    {% import 'elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+    {{ elements.init_elements() }}
+    {{ elements.standard_background(template_params) }}
+
+    <meta name="page" content="intro">
+
+  </head>
+
+  <body style="overscroll-behavior: none">
+    {{ elements.standard_body(template_params) }}
+
+    {# <div style="display:block; width: 100%; text-align: left; margin-top: 23px; ">
+      <div style="display: inline-block; cursor: pointer; width: 23px; height: 23px; margin-left: 37px">
+        <a href='{{template_params["next"]}}'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
+            <path id="prefix__Icon_material-close" d="M30.5 9.816L28.184 7.5 19 16.684 9.816 7.5 7.5 9.816 16.684 19 7.5 28.184 9.816 30.5 19 21.316l9.184 9.184 2.316-2.316L21.316 19z" data-name="Icon material-close" transform="translate(-7.5 -7.5)" style="fill:#148f91"/>
+          </svg>
+        </a>
+      </div>
+    </div> #}
+
+    {# Dummy functions currently needed by skip_icon and help_icon #}
+    <script>
+      function popup_toggle_skip() {}
+      function popup_toggle_reveal() {}
+      function popup_toggle_report_problem() {}
+
+      function second_popup() {
+        document.getElementById('prvi').style.display = "none";
+        document.getElementById('drugi').style.display = "block";
+      }
+
+      function first_popup() {
+        document.getElementById('drugi').style.display = "none";
+        document.getElementById('prvi').style.display = "block";
+      }
+    </script>
+
+
+    {% set width=4 %}
+
+
+    <!-- Prvi prozor -->
+
+    <div id="prvi" style="display:block; width: 100%; text-align: center; margin-top: 50px; overflow-x: hidden;">
+      <div style="display: inline-block; text-align: center; 
+                  width: calc(100% - 70px); margin: 0 35px 0 35px; min-height: 433px; border: 3px solid #148f91">
+
+        <div style="display: inline-block; text-align: center; width: 100%; height: 28px; margin-top: 25px">
+          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
+            Dobrodošli u TATAMATIN test!
+            <br><br>
+            Samo da znaš…..
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content:center; width: 100%; margin-top: 6px">
+        <div style="display: flex; align-items:baseline; width: 290px; ">
+          <div class="sh_lato_font" style="display: flex; margin-left: 15px; margin-right: 7px; 
+                      color: #636661; font-size: 18px;">
+            Neki zadaci će biti laki
+          </div>
+          <div class="sh_lato_font" style="display: flex; margin: 0px 8px 4px 8px; flex-grow: 4">
+          </div>
+          <div style="display: flex; margin-right: 15px; margin-left: 4px;">
+            <div style="display: inline-block; margin: 0 0 0 {{3*width}}px;">
+              <svg xmlns="http://www.w3.org/2000/svg" id="prefix__Icon_material-star" 
+                      width="21" height="21" data-name="Icon material-star" viewBox="0 0 21 21">
+                  <path id="prefix__Icon_material-star-2" 
+                      d="M13.5 19.877L19.989 24l-1.722-7.77L24 11l-7.549-.674L13.5 3l-2.95 7.328L3 11l5.733 5.23L7.011 24z" 
+                      data-name="Icon material-star" transform="translate(-3 -3)" style="fill:#f3b051"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div style="display: flex; justify-content:center; width: 100%; margin-top: 6px">
+        <div style="display: flex; align-items:baseline; width: 290px;" >
+          <div class="sh_lato_font" style="display: flex; margin-left: 15px; margin-right: 11px; 
+                      color: #636661; font-size: 18px;">
+            Neki umereno teški
+          </div>
+          <div class="sh_lato_font" style="display: flex; margin: 0px 8px 4px 8px; flex-grow: 4">
+          </div>
+          <div style="display: flex; margin-right: 15px; margin-left: 4px;">
+            <div style="display: inline-block; margin: 0 {{width}}px 0 {{width}}px; ">
+              <svg xmlns="http://www.w3.org/2000/svg" id="prefix__Icon_material-star" 
+                      width="21" height="21" data-name="Icon material-star" viewBox="0 0 21 21">
+                  <path id="prefix__Icon_material-star-2" 
+                      d="M13.5 19.877L19.989 24l-1.722-7.77L24 11l-7.549-.674L13.5 3l-2.95 7.328L3 11l5.733 5.23L7.011 24z" 
+                      data-name="Icon material-star" transform="translate(-3 -3)" style="fill:#6ab288"/>
+              </svg>
+            </div>
+            <div style="display: inline-block; margin: 0 0 0 {{width}}px; ">
+              <svg xmlns="http://www.w3.org/2000/svg" id="prefix__Icon_material-star" 
+                      width="21" height="21" data-name="Icon material-star" viewBox="0 0 21 21">
+                  <path id="prefix__Icon_material-star-2" 
+                      d="M13.5 19.877L19.989 24l-1.722-7.77L24 11l-7.549-.674L13.5 3l-2.95 7.328L3 11l5.733 5.23L7.011 24z" 
+                      data-name="Icon material-star" transform="translate(-3 -3)" style="fill:#6ab288"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div style="display: flex; justify-content:center; width: 100%; margin-top: 6px">
+        <div style="display: flex; align-items:baseline; width: 290px;" >
+          <div class="sh_lato_font" style="display: flex; margin-left: 15px; margin-right: 12px; 
+                      color: #636661; font-size: 18px;">
+            A neki baš teški
+          </div>
+          <div class="sh_lato_font" style="display: flex; margin: 0px 8px 4px 8px; flex-grow: 4">
+          </div>
+          <div style="display: flex; margin-right: 15px; margin-left: 4px;">
+            <div style="display: inline-block; margin: 0 {{width}}px 0 0; ">
+              <svg xmlns="http://www.w3.org/2000/svg" id="prefix__Icon_material-star" 
+                      width="21" height="21" data-name="Icon material-star" viewBox="0 0 21 21">
+                  <path id="prefix__Icon_material-star-2" 
+                      d="M13.5 19.877L19.989 24l-1.722-7.77L24 11l-7.549-.674L13.5 3l-2.95 7.328L3 11l5.733 5.23L7.011 24z" 
+                      data-name="Icon material-star" transform="translate(-3 -3)" style="fill:#dc3d39"/>
+              </svg>
+            </div>
+            <div style="display: inline-block; margin: 0 {{width}}px 0 {{width}}px; ">
+              <svg xmlns="http://www.w3.org/2000/svg" id="prefix__Icon_material-star" 
+                      width="21" height="21" data-name="Icon material-star" viewBox="0 0 21 21">
+                  <path id="prefix__Icon_material-star-2" 
+                      d="M13.5 19.877L19.989 24l-1.722-7.77L24 11l-7.549-.674L13.5 3l-2.95 7.328L3 11l5.733 5.23L7.011 24z" 
+                      data-name="Icon material-star" transform="translate(-3 -3)" style="fill:#dc3d39"/>
+              </svg>
+            </div>
+            <div style="display: inline-block; margin: 0 0 0 {{width}}px; ">
+              <svg xmlns="http://www.w3.org/2000/svg" id="prefix__Icon_material-star" 
+                      width="21" height="21" data-name="Icon material-star" viewBox="0 0 21 21">
+                  <path id="prefix__Icon_material-star-2" 
+                      d="M13.5 19.877L19.989 24l-1.722-7.77L24 11l-7.549-.674L13.5 3l-2.95 7.328L3 11l5.733 5.23L7.011 24z" 
+                      data-name="Icon material-star" transform="translate(-3 -3)" style="fill:#dc3d39"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div style="display: inline-block; text-align: center; width: 100%; height: 28px; margin-top: 21px">
+          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
+            To je skroz OK!
+          </div>
+        </div>
+
+
+        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); margin: 21px 25px 32px 25px">
+          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
+              TATA MATA ti predlaže da probaš da uradiš svaki zadatak. <br> <br>
+
+              Ovde <b>NEMA</b> ocena! <br> <br>
+
+              A ako ti je baš mnogo teško, preskoči taj zadatak  
+              ili pogledaj rešenje pa probaj kasnije. 
+          </div>
+        </div>
+
+        {{ elements.scooter_back_fwd("sc_back_1", 'location.href = "' ~ template_params["back"] ~ '"', 
+              "sc_fwd_1", 'second_popup()') }}
+
+      </div>
+      
+    </div>
+
+
+
+
+    <!-- Drugi prozor -->
+
+    <div id="drugi" style="display:none; width: 100%; text-align: center; margin-top: 50px; overflow-x: hidden;">
+      <div style="display: inline-block; text-align: center; 
+                  width: calc(100% - 70px); margin: 0 35px 0 35px; min-height: 433px; border: 3px solid #148f91">
+
+        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); height: 28px; margin: 25px 25px 0px 25px">
+          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
+            Ok, ako ti je zadatak bas težak, možeš da ga: 
+          </div>
+        </div>
+
+        <div style="display: flex; align-items:baseline; width: calc(100% - 50px); margin: 12px 25px 12px 25px">
+          <div class="sh_lato_font" style="display: flex; color: #636661; font-size: 18px;">
+              preskočiš 
+          </div>
+          <div class="sh_lato_font" style="display: flex; border-bottom: dotted 2px black; margin: 0px 8px 4px 8px; flex-grow: 4">
+          </div>
+          <div class="sh_lato_font" style="display: flex; color: #636661; font-size: 18px; ">
+              {{ elements.skip_icon("Preskoči zadatak") }}
+          </div>
+        </div>
+
+        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); height: 28px; margin: 25px 25px 0px 25px">
+          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
+            ako te baš mnogo muči, a ti onda:
+          </div>
+        </div>
+
+        <div style="display: flex; align-items:baseline; width: calc(100% - 50px); margin: 12px 25px 12px 25px">
+          <div class="sh_lato_font" style="display: flex; color: #636661; font-size: 18px;">
+              vidi rešenje 
+          </div>
+          <div class="sh_lato_font" style="display: flex; border-bottom: dotted 2px black; margin: 0px 8px 4px 8px; flex-grow: 4">
+          </div>
+          <div class="sh_lato_font" style="display: flex; color: #636661; font-size: 18px; ">
+              {{ elements.help_icon("Pomoć") }}
+          </div>
+        </div>
+
+        <div style="display: inline-block; text-align: center; width: calc(100% - 50px); height: 28px; margin: 45px 25px 0px 25px">
+          <div class="sh_lato_font" style="color: #636661; font-size: 18px;">
+            A ako primetiš da zadatak nije jasan ili da ima grešku, onda samo
+          </div>
+        </div>
+
+        <div style="display: flex; align-items:baseline; width: calc(100% - 50px); margin: 12px 25px 12px 25px">
+          <div class="sh_lato_font" style="display: flex; color: #636661; font-size: 18px;">
+              prijavi problem 
+          </div>
+          <div class="sh_lato_font" style="display: flex; border-bottom: dotted 2px black; margin: 0px 8px 4px 8px; flex-grow: 4">
+          </div>
+          <div class="sh_lato_font" style="display: flex; color: #636661; font-size: 18px; ">
+              {{ elements.feedback_icon("Prijavi problem") }}
+          </div>
+        </div>
+
+
+
+
+        {{ elements.scooter_back_fwd("sc_back_2", 'first_popup()', 
+              "sc_fwd_2", 'location.href = "' ~ template_params["next"] ~ '"') }}
+
+      </div>
+      
+    </div>
+
+
+
+
+
+
+
+
+    <div style="display:block; width: 100%; text-align: center; margin-top: -3px; overflow-x: hidden;">
+      <svg xmlns="http://www.w3.org/2000/svg" id="monster" width="124.844" height="148.127" viewBox="0 0 124.844 148.127">
+          <defs>
+              <style>
+                  .prefix__cls-1{fill:#148f91}
+              </style>
+          </defs>
+          <path id="monster_body" d="M100.328 99.339l5.649-8.154V65.853Q120.585 38.866 135.21 11.9c2.824-5.214-5.1-9.892-7.923-4.66q-11.746 21.687-23.492 43.36a32.445 32.445 0 0 0-60.833 0Q31.243 28.909 19.487 7.238C16.663 2.005 8.74 6.665 11.564 11.9q14.608 26.984 29.215 53.953v25.332l5.649 8.154 3.851-6.546L53.1 97.62c-1.082 3.125-2.182 6.25-3.264 9.393-1.742 5.011-5.429 11.594-5.887 16.9-.385 4.77 4.988 9.3 7.758 12.74 1.944 2.385 3.87 4.789 5.8 7.174H50.7c-5.905 0-5.924 9.245 0 9.245h16.4a4.324 4.324 0 0 0 4.42-4.549 5.355 5.355 0 0 0-1.174-3.347q-8.421-10.427-16.821-20.876 4.594-13.23 9.207-26.478l2.953-5.029 3.833 6.546 3.87-6.583 3.87 6.583 3.833-6.546 2.953 5.029q4.594 13.258 9.207 26.478-8.418 10.456-16.836 20.876a5.322 5.322 0 0 0-1.155 3.328 4.324 4.324 0 0 0 4.4 4.567h16.414c5.905 0 5.905-9.245 0-9.245h-6.8c1.926-2.385 3.851-4.789 5.777-7.174 2.788-3.458 8.161-7.97 7.758-12.74-.44-5.288-4.145-11.926-5.869-16.9q-1.651-4.715-3.265-9.393l2.825-4.825zM73.387 75.875a14.608 14.608 0 1 1 14.489-14.608 14.532 14.532 0 0 1-14.489 14.608z" class="prefix__cls-1" data-name="Path 168" transform="translate(-10.965 -4.946)"/>
+          <path id="monster_eye" d="M43.73 31.335a2.8 2.8 0 1 0 2.8 2.8 2.8 2.8 0 0 0-2.8-2.8zm-.833 2.6a.63.63 0 1 1 .633-.633.63.63 0 0 1-.63.635z" class="prefix__cls-1" data-name="Path 169" transform="translate(18.686 22)"/>
+          {# transform="translate(18.686 13.93)" #}
+      </svg>
+    </div>
+
+
+    <script>
+      try{
+        var monster = document.getElementById("monster");
+        var monster_eye = document.getElementById("monster_eye");
+        var transform = monster.createSVGMatrix();
+        var m_x = 18.686;
+        var m_y = 14.0;
+        transform = transform.translate(m_x,m_y);
+        monster_eye.transform.baseVal.getItem(0).setMatrix(transform);
+        var m_r = (22.0-14.0);
+        var m_a = 0.0;
+
+        let monster_timer = setInterval(function() {
+          var old_a = m_a;
+          m_a = m_a + 0.2;
+          transform = transform.translate(- m_r * (Math.sin(m_a) - Math.sin(old_a)), - m_r * (Math.cos(m_a) - Math.cos(old_a)));
+          monster_eye.transform.baseVal.getItem(0).setMatrix(transform);
+        }, 100); // change colors every 500ms
+      } catch (e) {
+        // Some browsers seem to have an issue with transform.baseVal so don't do animation
+      }
+    </script>
+
+  </body>
+</html>

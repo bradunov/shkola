@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang='{{template_params["lang"]}}'>
+  <head>
+
+    {% import 'elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+    {{ elements.init_elements() }}
+    {{ elements.standard_background(template_params) }}
+
+    <meta name="page" content="theme">
+
+  </head>
+
+  <body style="overscroll-behavior: none">
+    {{ elements.standard_body(template_params) }}
+
+    <!-- MOBILE MENU START -->
+    {% import 'menu.html.j2' as menu %}
+    {{ menu.include() }}
+    {{ menu.head(template_params) }}
+    {{ menu.dropdowns(template_params) }}
+    <!-- MENU END -->
+
+
+    {% macro test_icon() %}
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="57.458" height="79.408" viewBox="0 0 57.458 79.408">
+        <defs>
+            <clipPath id="clip">
+                <use xlink:href="#fill"/>
+            </clipPath>
+            <style>
+                .cls-1{fill:#148f91}
+            </style>
+        </defs>
+        <g id="brojevi_do_20_icon" data-name="brojevi do 20 icon" transform="translate(-250 -357.878)">
+            <g id="noun_Monster_3288292" transform="translate(261 397)">
+                <path id="Path_253" d="M12.176 14.161v10.957a1.315 1.315 0 0 0 1.233 1.347h8.108a7.259 7.259 0 0 0-.059.873 7.535 7.535 0 0 0 2.634 5.61q1.916 8.755 3.832 17.5H24.55c-1.583 0-1.588 2.695 0 2.695h4.937a1.3 1.3 0 0 0 1.223-1.38 1.491 1.491 0 0 0-.035-.329q-1.827-8.343-3.655-16.7a10.875 10.875 0 0 0 7.96 0l-3.655 16.7a1.571 1.571 0 0 0-.035.334 1.3 1.3 0 0 0 1.223 1.374h4.932c1.588 0 1.588-2.695 0-2.695h-3.366q1.909-8.747 3.827-17.5a7.535 7.535 0 0 0 2.634-5.61 7.266 7.266 0 0 0-.059-.873h8.108a1.315 1.315 0 0 0 1.233-1.347V14.161a1.235 1.235 0 1 0-2.466 0v9.609h-7.788a8.272 8.272 0 0 0-1.494-1.892c.035-.1.069-.2.1-.307a6.214 6.214 0 0 0 .252-2.15 4.542 4.542 0 0 0-.641-2.037 4.806 4.806 0 0 0-1.1-1.266 7.6 7.6 0 0 0-.9-.636l-.355-.194c-.528-.286-.834-.313-.873-.237-.049.1.173.313.592.706 0 0 .1.1.286.264a8.2 8.2 0 0 1 .651.771 3.443 3.443 0 0 1 .72 2.6 3.869 3.869 0 0 1-.444 1.207 10.892 10.892 0 0 0-10.727 0 3.859 3.859 0 0 1-.439-1.207 3.4 3.4 0 0 1 .72-2.6 7.5 7.5 0 0 1 .651-.771l.281-.264c.424-.393.641-.6.592-.706-.039-.075-.345-.049-.868.237 0 0-.133.07-.36.194a8.028 8.028 0 0 0-.9.636 4.8 4.8 0 0 0-1.1 1.266 4.6 4.6 0 0 0-.641 2.037 6.213 6.213 0 0 0 .252 2.15l.1.307a8.268 8.268 0 0 0-1.494 1.892h-7.787v-9.609a1.235 1.235 0 1 0-2.466 0zM31 22.725a3.157 3.157 0 1 1-2.875 3.142A3.017 3.017 0 0 1 31 22.725z" class="cls-1" data-name="Path 253" transform="translate(-12.176 -12.858)"/>
+                <path id="Path_254" d="M45 35.157a1.539 1.539 0 1 0-1.539-1.539A1.538 1.538 0 0 0 45 35.157z" class="cls-1" data-name="Path 254" transform="translate(-26.178 -21.876)"/>
+            </g>
+            <g id="Group_149" data-name="Group 149" transform="translate(-807 -2602.527)">
+                <path id="Path_436" fill="none" stroke="#148f91" d="M11.086 93.5a3.371 3.371 0 0 0 3.386 3.357h33.862A3.371 3.371 0 0 0 51.72 93.5L55.326 74H7.48zm34.708-14.421a.847.847 0 0 1 1.693 0v8.465a.847.847 0 0 1-1.693 0zm-5.079 0a.847.847 0 1 1 1.693 0v8.465a.847.847 0 0 1-1.693 0zm-5.079 0a.847.847 0 1 1 1.693 0v8.465a.847.847 0 0 1-1.693 0zm-5.079 0a.847.847 0 0 1 1.693 0v8.465a.847.847 0 0 1-1.693 0zm-5.079 0a.847.847 0 1 1 1.693 0v8.465a.847.847 0 0 1-1.693 0zm-5.079 0a.847.847 0 0 1 1.693 0v8.465a.847.847 0 0 1-1.693 0zm-5.079 0a.847.847 0 1 1 1.693 0v8.465a.847.847 0 0 1-1.693 0z" data-name="Path 436" transform="translate(1055.466 2903.287)"/>
+                <path id="Path_443" fill="#8f53cb" d="M67.67 21.251c.152-.512.531-1.37 1.367-1.37v-.544a1.748 1.748 0 0 0-1.517.914 2.837 2.837 0 0 0-3.489-1.742 2.947 2.947 0 0 0 3.214 2.3 3.866 3.866 0 0 0-.164.536c-6.2-2.388-5.725 6.279-2.263 8.41.939.475 1.049-.159 2.453-.292 1.406.133 1.507.767 2.452.292 3.411-2.1 3.866-10.537-2.053-8.504z" data-name="Path 443" transform="translate(1015.993 2944.833)"/>
+                <path id="Path_445" fill="#f3b051" d="M66.911 21.292c-.154-.519-.538-1.39-1.386-1.39v-.552a1.773 1.773 0 0 1 1.539.927A2.877 2.877 0 0 1 70.6 18.51a2.989 2.989 0 0 1-3.259 2.337 3.921 3.921 0 0 1 .166.543c6.284-2.421 5.806 6.368 2.295 8.529-.953.482-1.064-.161-2.488-.3-1.426.135-1.529.778-2.487.3-3.458-2.132-3.919-10.689 2.084-8.627z" data-name="Path 445" transform="translate(1007.342 2942.43)"/>
+                <path id="Path_446" fill="#df367c" d="M67.578 21.2c.149-.5.521-1.347 1.344-1.347v-.533a1.718 1.718 0 0 0-1.491.9A2.789 2.789 0 0 0 64 18.506a2.9 2.9 0 0 0 3.159 2.265A3.8 3.8 0 0 0 67 21.3c-6.09-2.347-5.627 6.171-2.224 8.266.923.467 1.031-.156 2.411-.287 1.382.131 1.481.754 2.41.287C72.949 27.5 73.4 19.2 67.578 21.2z" data-name="Path 446" transform="translate(1031.502 2942.833)"/>
+                <path id="Path_447" fill="#dc3d39" d="M67.592 21.209c.15-.5.523-1.351 1.347-1.351v-.536a1.723 1.723 0 0 0-1.5.9A2.8 2.8 0 0 0 64 18.507a2.9 2.9 0 0 0 3.167 2.271 3.81 3.81 0 0 0-.162.528c-6.106-2.353-5.642 6.188-2.23 8.288.926.468 1.034-.157 2.418-.288 1.385.132 1.485.756 2.416.288 3.368-2.073 3.816-10.388-2.017-8.385z" data-name="Path 447" transform="translate(998.691 2944.444)"/>
+                <path id="Path_448" fill="#489cba" d="M67.4 21.6c-.171-.575-.6-1.538-1.534-1.538v-.611a1.962 1.962 0 0 1 1.7 1.026 3.184 3.184 0 0 1 3.916-1.955 3.308 3.308 0 0 1-3.607 2.587 4.339 4.339 0 0 1 .184.6c6.954-2.68 6.425 7.047 2.539 9.438-1.054.533-1.178-.178-2.753-.328-1.578.15-1.692.861-2.752.328-3.822-2.358-4.333-11.826 2.307-9.547z" data-name="Path 448" transform="translate(1039.555 2942.028)"/>
+                <g id="Rectangle_196" fill="#e4e4e4" stroke="#e4e4e4" data-name="Rectangle 196" transform="translate(1057 2974.527)">
+                    <rect id="fill" width="53" stroke="none"/>
+                    <path fill="none" d="M0-.5h53m0 1H0M.5 0" clip-path="url(#clip)"/>
+                </g>
+                <path id="Path_444" fill="#6ab288" d="M66.268 20.886c-.133-.447-.463-1.2-1.193-1.2v-.475a1.526 1.526 0 0 1 1.324.8 2.476 2.476 0 0 1 3.046-1.521 2.573 2.573 0 0 1-2.805 2.01 3.374 3.374 0 0 1 .143.468c5.408-2.084 5 5.481 1.975 7.341-.82.414-.916-.139-2.142-.255-1.227.117-1.316.67-2.14.255-2.976-1.833-3.376-9.198 1.792-7.423z" data-name="Path 444" transform="translate(1024.838 2943.394)"/>
+                <path id="Path_435" fill="#fff" stroke="#148f91" d="M50.792 56H3.386C1.515 56 0 57.139 0 58.54v3.386h54.178V58.54c0-1.401-1.515-2.54-3.386-2.54z" data-name="Path 435" transform="translate(1059.78 2914.515)"/>
+            </g>
+        </g>
+    </svg>
+    {% endmacro %}
+
+
+
+    <script>
+      el_list_link = {};
+      el_list_state = {};
+      el_list_parent = {};
+      el_list_tick = {};
+      el_list_rect = {};
+      el_list_roll = {};
+
+      tab_ids = {};
+      tab_titles = {};
+      tab_unds = {};
+
+      function tab_set_line(tab, inc) {
+        // Set the length based on the actual text
+        var tab_title = document.getElementById(tab_titles[tab]);
+        var tab_und = document.getElementById(tab_unds[tab]);
+        var tab_width = tab_title.clientWidth;
+        var tab_offset = (parseInt(tab_title.clientWidth) + inc).toString();
+        //console.log("D:", tab_title.clientWidth, parseInt(tab_title.clientWidth), toString(parseInt(tab_title.clientWidth)))
+        tab_und.style.width = tab_width + "px";
+        tab_und.style.marginLeft = "-" + tab_offset + "px";
+      }
+
+      function tab_select(tab) {
+        var ks = Object.keys(tab_ids);
+        for (var i=0; i<ks.length; i++) {
+          try { 
+            var tab_id = document.getElementById(tab_ids[ks[i]]);
+            var tab_title = document.getElementById(tab_titles[ks[i]]);
+            var tab_und = document.getElementById(tab_unds[ks[i]]);
+            if (ks[i] == tab) {
+              tab_id.style.display = "block";
+              tab_und.style.display = "inline-block";
+              tab_title.style.fontWeight = 'bold';
+              if (i == 0) tab_set_line(tab, 0);
+              else tab_set_line(tab, 5);
+            } else {
+              tab_id.style.display = "none";
+              tab_und.style.display = "none";
+              tab_title.style.fontWeight = 'normal';
+            }
+          } catch(err) {
+            // Custom error handler as it sometimes happens that tab_ids, ... are not well set.
+            let type = "JS_ERROR";
+            var feedback = {};
+            feedback['type'] = type;
+            feedback['href'] = window.location.href;
+            feedback['q_id'] = "themes";
+            feedback['comment'] = JSON.stringify({"i": i, "tab_ids": tab_ids, "tab_titles": tab_titles, "tab_unds": tab_unds});
+            sendHTTPFeedback(feedback);
+          }
+        }
+      }
+
+      function subtheme_onclick(b) {
+        console.log("Test:", el_list_link[b]);
+        location.href = el_list_link[b];
+        /*
+        var ks = Object.keys(el_list_state);
+        for (var i=0; i<ks.length; i++) {
+          var b = ks[i];
+          if (el_list_state[b]) {
+            //console.log("Test:", el_list_link[b]);
+            location.href = el_list_link[b];
+          }
+        }
+        */
+      }
+
+      function unselect_all() {
+        var ks = Object.keys(el_list_state);
+        for (var i=0; i<ks.length; i++) {
+          var b = ks[i];
+          var button = document.getElementById(b);
+          var tick = document.getElementById(el_list_tick[b]);
+          var rec = document.getElementById(el_list_rect[b]);
+          el_list_state[b] = false;
+          button.style.opacity = 1;
+          tick.style.display = "none";
+          if (rec != undefined) rec.style.fill = "white";
+        }
+      }
+
+      function shaded_all() {
+        var ks = Object.keys(el_list_state);
+        for (var i=0; i<ks.length; i++) {
+          var b = ks[i];
+          var button = document.getElementById(b);
+          button.style.opacity = 0.4;
+        }
+      }
+
+
+      function select(button_id) {
+        var button = document.getElementById(button_id);
+        var tick = document.getElementById(el_list_tick[button_id]);
+        if (el_list_parent[button_id].length == 0) {
+          // Theme
+          shaded_all();
+          button.style.opacity = 1;
+          tick.style.display = "inline";
+          var rec = document.getElementById(el_list_rect[button_id]);
+          rec.style.fill = "#148f91";
+        } else {
+          // Subtheme
+          shaded_all();
+          button.style.opacity = 1;
+          tick.style.display = "inline";
+          var parent = document.getElementById(el_list_parent[button_id]);
+          var parent_rect = document.getElementById(el_list_rect[el_list_parent[button_id]]);
+          parent.style.opacity = 1;
+          parent_rect.style.fill = "#148f91";
+        }
+      }
+
+      function el_select_list(button_id, callback) {
+        var button = document.getElementById(button_id);
+        if (el_list_state[button_id] == undefined) {
+          el_list_state[button_id] = false;
+        }
+        var button_state = el_list_state[button_id];
+        unselect_all();
+        el_list_state[button_id] = !(button_state);
+        if (el_list_state[button_id]) {
+          select(button_id);
+        }
+        callback(el_list_state[button_id], button_id);
+      }
+
+
+      function roll(roll_id) {
+        var roll = document.getElementById(roll_id);
+        //var roll_on = document.getElementById(roll_id + "_on");
+        //var roll_off = document.getElementById(roll_id + "_off");
+        //console.log("R: ", roll, el_list_roll[roll_id]);
+        if (el_list_roll[roll_id] == undefined) {
+          el_list_roll[roll_id] = false;
+        }
+        el_list_roll[roll_id] = !el_list_roll[roll_id];
+        if (el_list_roll[roll_id]) {
+          roll.style.display = "block";
+          //roll_on.style.display = "inline"
+          //roll_off.style.display = "none";
+        } else {
+          roll.style.display = "none";
+          //roll_on.style.display = "none";
+          //roll_off.style.display = "inline"
+        }
+      }
+    </script>
+
+
+
+    <div style="display:block; position:fixed; top: 50px; left: 0px; z-index: 0; height: calc(100% - 50px); width:100%; overflow-y: auto; overflow-x: auto; ">
+
+      <div style="display:block; 
+                  width: 290px; 
+                  height: 90px; 
+                  margin:auto; margin-top: 30px; margin-bottom: 4px; 
+                  background-color: #148f91;">
+        <div style="display:inline-block; 
+                  margin-top: 12px; margin-bottom: 10px; margin-left: 20px;
+                  width: 188px; height: 65px; ">
+          <div style="display:table; width: 188px; height: 65px; ">
+            <div class="sh_lato_font" style="
+                      display:table-cell; 
+                      vertical-align: middle;
+                      font-size: 18px; color: #ffffff">
+              <!-- Odaberi zadatke za <span style="color: #dc3d39"> {{template_params['year'].upper()}} </span> razred -->
+              Kaži TATAMATI sa kojim zadacima bi da počneš? 
+            </div>
+          </div>
+        </div>
+
+        <div style="display:inline-block; 
+                    vertical-align: top;
+                    height: 65px; margin-top: 15px">
+          <svg xmlns="http://www.w3.org/2000/svg" width="61.073" height="60.363" viewBox="0 0 61.073 60.363">
+            <defs>
+                <style>
+                    .cls-1{fill:#148f91;stroke:#fff}
+                </style>
+            </defs>
+            <g id="noun_Potato_Zombie_Monster_1885200" data-name="noun_Potato Zombie Monster_1885200" transform="translate(.508 .526)">
+                <g id="Group_94" data-name="Group 94">
+                    <path id="Path_265" d="M28.7 14.9a1.538 1.538 0 0 0 1.5-1.5.6.6 0 0 0-.1-.4.764.764 0 0 1-.5.2.645.645 0 0 1-.6-.6.55.55 0 0 1 .3-.5 1.421 1.421 0 0 0-.6-.2 1.5 1.5 0 1 0 0 3zm-.4-1.4a.4.4 0 0 1 0 .8c-.2 0-.3-.2-.3-.4s.1-.4.3-.4z" class="cls-1" data-name="Path 265" transform="translate(-2.661 -1.973)"/>
+                    <path id="Path_266" d="M60.719 18.723a4.976 4.976 0 0 0-1.594-.749 5.617 5.617 0 0 0 1.125.187c.563-.094.656-.656.188-.843a2.054 2.054 0 0 0-2.063.281c.094-.187.281-.187.375-.468.188-.843-.75-.656-1.125.094a2.346 2.346 0 0 0 .188 2.061 7.386 7.386 0 0 1-1.219 3.092c-2.719 3.279-5.157 3.279-7.125 2.436h.281a3.921 3.921 0 0 1-2.344-2.061 7.339 7.339 0 0 1-.469-1.312 32.946 32.946 0 0 0 .469-4.778c7.219-4.778 5.063-10.118 5.063-10.212-.938-2.623-.938-1.874-1.313-2.529A7.753 7.753 0 0 0 47.124 1.3c-.375-.094-.75.656-.469.843 2.344 2.248 3 5.808-1.031 6.745-.469.094-.938.094-1.5.187a12.612 12.612 0 0 0-4.031-2.248c1.313-.937-.281-.843-1.594-.468-.188-.094-.469-.094-.75-.187 1.781-2.811-.094-1.686-1.313-.281A43.635 43.635 0 0 0 31 5.42a30.952 30.952 0 0 0-5.438.468c-1.219-1.593-3.375-2.9-1.313.281-.188 0-.281.094-.469.094-1.5-.468-3.563-.656-1.781.562a12.612 12.612 0 0 0-4.031 2.248 7.292 7.292 0 0 1-1.5-.187c-4.031-.843-3.375-4.5-1.031-6.745.281-.281-.094-1.031-.469-.843A9.254 9.254 0 0 0 12.059 2.7a6.829 6.829 0 0 0-1.5 1.593c-.188.187-.375.468-1.031 2.155 0 .094-2.156 5.434 5.063 10.212a34.367 34.367 0 0 0 .469 4.872 5.415 5.415 0 0 1-.469 1.312 3.921 3.921 0 0 1-2.344 2.061h.281c-1.969.843-4.5.843-7.125-2.436a8.223 8.223 0 0 1-1.219-3.092 2.685 2.685 0 0 0 .188-2.061c-.375-.749-1.313-.937-1.125-.094.094.187.281.281.375.468a2.082 2.082 0 0 0-2.063-.281c-.563.094-.563.562.094.656a2.2 2.2 0 0 0 1.125-.187 7.96 7.96 0 0 0-1.594.749c-.844.656.75.375 1.125 0-.375.468-.375.281-.656.937s.469.375.938-.094a.99.99 0 0 1 .469-.187c1.781 8.994 5.532 10.867 12.376 9.462a1.028 1.028 0 0 0 .75 0v.094c-1.031 1.967-.563 18.643.469 21.266V53.2l.563 1.405c0-.094 0-.094.094-.187a11.763 11.763 0 0 0 1.031 2.623 2.9 2.9 0 0 0-3.283-.841.092.092 0 0 0-.094.094c-.094 0-.094.094-.188.094s-.094.094-.188.094-.094.094-.188.094l-.281.281-.094.094-.281.281a.327.327 0 0 0-.094.187.71.71 0 0 0-.188.375l-.094.094-.281.562a6.452 6.452 0 0 0-.281.749c-.188.656.094 1.405.469 1.405h4.688c.938 0 1.688.094 2.156-.375.375-.375.563-1.031.563-2.342v-.097c0-.656.188-2.248.375-4.122v-.188c0 .375.094.749.094 1.124a7.647 7.647 0 0 1 2.719-4.122 10.986 10.986 0 0 1-.469 1.031c3.282-2.713 10.597-3.747 15.097 0a10.985 10.985 0 0 0-.469-1.031 7.647 7.647 0 0 1 2.718 4.118c0-.375.094-.749.094-1.124v.187c.188 1.874.375 3.56.375 4.122a3.381 3.381 0 0 0 .563 2.342c.469.468 1.219.375 2.156.375h4.688c.469 0 .75-.749.469-1.405-.094-.281-.188-.468-.281-.749l-.281-.562-.094-.094a.71.71 0 0 1-.188-.375c0-.094-.094-.094-.094-.187l-.281-.281-.094-.094-.281-.281c-.094-.094-.094-.094-.188-.094s-.094-.094-.188-.094-.094-.094-.188-.094a.092.092 0 0 1-.094-.094 2.646 2.646 0 0 0-3.281.843 13.916 13.916 0 0 0 1.031-2.623c0 .094 0 .094.094.187l.563-1.405v-3.086c1.125-2.623 1.5-19.205.469-21.266v-.094h.75c6.844 1.405 10.594-.468 12.376-9.462.094 0 .469.094.469.187.469.468 1.313.749.938.094-.281-.656-.375-.468-.656-.937.374.564 2.061.843 1.124.187zM35.311 8.98a3.66 3.66 0 0 1 3.656 3.654 3.656 3.656 0 0 1-7.313 0 3.66 3.66 0 0 1 3.657-3.654zM26.5 8.793a3.66 3.66 0 0 1 3.656 3.654A3.722 3.722 0 0 1 26.5 16.1a3.66 3.66 0 0 1-3.656-3.654A3.722 3.722 0 0 1 26.5 8.793zm15.843 10.492c-.094 1.686-1.406 4.591-3.188 4.122-.375-.094-.656-.937-.75-1.593a9.809 9.809 0 0 1-2.156 1.218c.281.656.656 1.5.469 1.874-.656 1.405-3.375 2.342-4.5 1.312-.281-.281-.188-1.312-.094-2.061-.375 0-.75.094-1.125.094h-.75c.188.749.375 1.78 0 2.061-1.313 1.405-4.782.187-5.438-1.5-.188-.375.188-1.218.563-1.874a7.133 7.133 0 0 1-1.781-1.124c-.188.656-.375 1.5-.75 1.593-1.781.468-3.094-2.436-3.188-4.122a4.457 4.457 0 0 1 .469-1.312 10.175 10.175 0 0 1-1.224-3.184c5.907 9.743 18.282 9.931 24.283 0a13.146 13.146 0 0 1-1.219 3.185 9.607 9.607 0 0 1 .379 1.311z" class="cls-1" data-name="Path 266" transform="translate(-.941 -1.268)"/>
+                    <path id="Path_267" d="M37.1 15a1.538 1.538 0 0 0 1.5-1.5.6.6 0 0 0-.1-.4.764.764 0 0 1-.5.2.645.645 0 0 1-.6-.6.55.55 0 0 1 .3-.5 1.421 1.421 0 0 0-.6-.2 1.538 1.538 0 0 0-1.5 1.5 1.473 1.473 0 0 0 1.5 1.5zm-.4-1.3a.4.4 0 1 1-.4.4.366.366 0 0 1 .4-.4z" class="cls-1" data-name="Path 267" transform="translate(-3.211 -1.98)"/>
+                </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+
+
+
+
+      <div style="display:block; margin:auto; text-align: center; width: 290px; margin-top: 35px; margin-bottom: 4px; ">
+        {% for t in template_params['themes'] %}             
+          {% set theme_loop = loop.index %}
+          {% set theme_tab = "tab_{}".format(theme_loop) %}
+          {% set theme_tab_id = "tab_id_{}".format(theme_loop) %}
+          {% set theme_tab_name = "tab_name_{}".format(theme_loop) %}
+          {% set theme_tab_underline = "tab_und_{}".format(theme_loop) %}
+          <script>
+            tab_ids[ "{{theme_tab}}" ] = '{{theme_tab_id}}';
+            tab_titles[ "{{theme_tab}}" ] = '{{theme_tab_name}}';
+            tab_unds[ "{{theme_tab}}" ] = '{{theme_tab_underline}}';
+          </script>
+          {% if theme_loop == 1 %}
+            <div id="{{theme_tab_name}}" class="sh_lato_font" 
+                style="display:inline-block; font-weight: bold; cursor: pointer; font-size: 14px; margin-left: 3px; margin-right: 3px; color: #148f91"
+                onclick="tab_select('{{theme_tab}}')">
+              {{ t['title'] }}
+              <div id="{{theme_tab_underline}}" style="display:inline-block; margin-left:-20px; width:20px; overflow:hidden; vertical-align:middle">
+                <svg width="200px" height="5px">
+                  <rect width="200px" height="5px" style="
+                    opacity: 0.52;
+                    -webkit-filter: blur(1.2px);
+                    filter: blur(1.2px);
+                    fill:#f3b051;
+                    " />
+                </svg>
+              </div>
+            </div>
+          {% else %}
+            <div id="{{theme_tab_name}}" class="sh_lato_font" 
+                style="display:inline-block; font-weight: normal; cursor: pointer; font-size: 14px; margin-left: 3px; margin-right: 3px; color: #148f91"
+                onclick="tab_select('{{theme_tab}}')">
+              {{ t['title'] }}
+            </div>
+              <div id="{{theme_tab_underline}}" style="display:none; margin-left:-20px; width:20px;overflow:hidden; vertical-align:middle">
+                <svg width="200px" height="5px">
+                  <rect width="200px" height="5px" style="
+                    opacity: 0.52;
+                    -webkit-filter: blur(1.2px);
+                    filter: blur(1.2px);
+                    fill:#f3b051;
+                    " />
+                </svg>
+              </div>
+          {% endif %}
+          <script>
+            // Set the length based on the actual text
+            tab_set_line('{{theme_tab}}', 0);
+          </script>
+        {% endfor %}
+      </div>
+
+
+      {% for t in template_params['themes'] %}             
+        {% set theme_loop = loop.index %}
+        {% set theme_tab_id = "tab_id_{}".format(theme_loop) %}
+        {% if theme_loop == 1 %}
+          <div id="{{theme_tab_id}}" style="display:block; margin:auto; text-align: center; width: 290px; ">
+        {% else %}
+          <div id="{{theme_tab_id}}" style="display:none; margin:auto; text-align: center; width: 290px; ">
+        {% endif %}
+          {% for st in t['subthemes'] %}             
+            {% set subtheme_loop = loop.index %}
+            {% set subtheme_button = "button_{}_{}".format(theme_loop, subtheme_loop) %}
+            {% set subtheme_tick = "tick_{}_{}".format(theme_loop, subtheme_loop) %}
+            {% set subtheme_rect = "rec_{}_{}".format(theme_loop, subtheme_loop) %}
+            {% set subtheme_roll = "roll_{}_{}".format(theme_loop, subtheme_loop) %}
+            <script>
+              el_list_link[ "{{subtheme_button}}" ] = '{{st['link']}}';
+              el_list_state[ "{{subtheme_button}}" ] = false;
+              el_list_parent[ "{{subtheme_button}}" ] = "";
+              el_list_tick[ "{{subtheme_button}}" ] = "{{subtheme_tick}}";
+              el_list_rect[ "{{subtheme_button}}" ] = "{{subtheme_rect}}";
+            </script>
+
+            <div class="sh-std-button" style="display:block; width: 100%; text-align: center; margin-top: 20px; ">
+              <div id="{{subtheme_button}}"
+                  style="display: inline-block;
+                          cursor: pointer;
+                          text-align: left;
+                          background-color: white; 
+                          vertical-align: top;
+                          margin-right:-5px;
+                          width: 200px;
+                          height: 90px;"
+                          onclick="roll('{{subtheme_roll}}')">
+                <div class="sh_lato_font" style="display: inline-block;
+                          font-size: 14px; 
+                          color: #707070;
+                          vertical-align: top;
+                          height: 43px;
+                          margin-left: 15px; margin-top: 12px; 
+                          text-align: left;">
+                  <!-- elements.color_string(st['title'], -6) -->
+                  {{ st['title'] }}
+                </div>
+                <br>
+                <div class="sh_lato_font" style="display: inline-block;
+                            border-radius: 5px;
+                            height: 18px; 
+                            margin-left: 15px;
+                            border: 1px solid {{ template_params['year_color'] }};
+                            background-color: white;">
+                  <div class="sh_lato_font" style="display: block;
+                            font-size: 9px; 
+                            margin-top:4.2px; margin-right: 10.5px; margin-left: 10.5px;  
+                            color: {{ template_params['year_color'] }};
+                            text-align: left;">
+                    {{ template_params['year'] }}. RAZRED
+                  </div>
+                </div>
+                <div style="display: inline-block;
+                            width: 30px;
+                            height: 13px;
+                            margin:auto;
+                            margin-left: 80px;
+                            vertical-align: center;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="18" viewBox="0 0 35 18">
+                      <defs>
+                          <linearGradient id="linear_gradient_{{theme_loop}}_{{subtheme_loop}}" x1="7.329" x2="8.329" y1="16.187" y2="16.187" gradientUnits="objectBoundingBox">
+                              <stop offset="0" stop-color="#148f91"/>
+                              <stop offset="1" stop-color="#babdc1"/>
+                          </linearGradient>
+                          <filter id="path_{{theme_loop}}_{{subtheme_loop}}" width="34.726" height="27.342" x="0" y="1.638" filterUnits="userSpaceOnUse">
+                              <feOffset dy="3"/>
+                              <feGaussianBlur result="blur" stdDeviation="3"/>
+                              <feFlood flood-opacity=".161"/>
+                              <feComposite in2="blur" operator="in"/>
+                              <feComposite in="SourceGraphic"/>
+                          </filter>
+                      </defs>
+                      <g id="arrow_down_{{theme_loop}}_{{subtheme_loop}}" data-name="arrow down" transform="translate(4)">
+                          <g id="arrow_down_{{theme_loop}}_{{subtheme_loop}}-2" data-name="arrow down" filter="url(#path_{{theme_loop}}_{{subtheme_loop}})" transform="translate(-4 -.002)">
+                              <path id="path_{{theme_loop}}_{{subtheme_loop}}-2" fill="url(#linear_gradient_{{theme_loop}}_{{subtheme_loop}})" fill-rule="evenodd" d="M3.43 1041.047a1.408 1.408 0 0 0-1.315.758 1.194 1.194 0 0 0 .27 1.4l6.951 6.768a1.484 1.484 0 0 0 2.029 0l6.951-6.768a1.2 1.2 0 0 0 .35-1.255 1.349 1.349 0 0 0-1.032-.887 1.473 1.473 0 0 0-1.348.4l-5.936 5.78-5.936-5.78a1.453 1.453 0 0 0-.985-.413z" data-name="path_{{theme_loop}}_{{subtheme_loop}}" transform="translate(7 -1033.39)"/>
+                          </g>
+                          <path id="Rectangle_{{theme_loop}}_{{subtheme_loop}}_98" fill="none" d="M0 0H27V24.3H0z" data-name="Rectangle 98"/>
+                      </g>
+                  </svg>
+                </div>
+              </div>
+              <div style="display:inline-block; 
+                          vertical-align: bottom;
+                          background-color: #eeeeee; 
+                          height: 90px;
+                          width: 90px;">
+
+                <div style="display: table-cell;background-color: #eeeeee; height: 90px;
+                            width: 90px; vertical-align: middle; text-align: center;"> 
+                  <div style="display: inline-block;">
+                    {# {{test_icon()}} #}
+                    {{ st['icon'] }}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div id="{{subtheme_roll}}" class="sh-std-button" style="display:none; background: white; width: 100%; text-align: left; margin-top: -9px">
+            {% for tp in st['topics'] %}             
+              {% set topic_loop = loop.index %}
+              {% set topic_button = "button_st_{}_{}_{}".format(theme_loop, subtheme_loop, topic_loop) %}
+              {% set topic_tick = "tick_st_{}_{}_{}".format(theme_loop, subtheme_loop, topic_loop) %}
+              {% if topic_loop == 1 %}
+                {% set topic_space_top = 10 %}
+              {% else %}
+                {% set topic_space_top = 5 %}
+              {% endif %}
+              {% if topic_loop == st['topics']|length %}
+                {% set topic_space_bottom = 10 %}
+              {% else %}
+                {% set topic_space_bottom = 5 %}
+              {% endif %}
+
+              <script>
+                el_list_link[ "{{topic_button}}" ]= '{{tp['link']}}';
+                el_list_state[ "{{topic_button}}" ] = false;
+                el_list_parent[ "{{topic_button}}" ] = "{{subtheme_button}}";
+                el_list_tick[ "{{topic_button}}" ] = "{{topic_tick}}";
+              </script>
+
+              <div style="display:inline-block; width: 100%; text-align: left; 
+                          margin-top: {{topic_space_top}}px; margin-bottom: {{topic_space_bottom}}px">
+                <div id="{{topic_button}}"  
+                    style="display: inline-block;
+                            background: white; 
+                            width: 290px;
+                            height: 15px;
+                            cursor: pointer;"
+                            onclick="subtheme_onclick('{{topic_button}}')">
+                  <div class="sh_lato_font" style="margin-left: 25px;  
+                            width: 100%; 
+              {% if 'font-size' in tp.keys() %}
+                            font-size: {{ tp['font-size'] }};
+              {% else %}
+                            font-size: 12px;
+              {% endif %}
+              {% if 'font-weight' in tp.keys() %}
+                            font-weight: {{ tp['font-weight'] }};
+              {% endif %}
+                            display: inline-block;
+                            margin-top: {{topic_space_top}}px;
+              {% if 'color' in tp.keys() %}
+                            color: {{ tp['color'] }};
+              {% else %}
+                            color: #666666;
+              {% endif %}
+                            text-align: left;">                      
+                    {{ tp['title'] }}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+        <div style="display: inline-block; height=10px"> </div>
+      </div>
+
+
+
+    {# <div style="display:block; position: fixed; z-index: 0;  
+                top: calc(100% - 110px); left: 0px; z-index: 0; height: 40px; width:100%; ">
+      {{ elements.next("subtheme_onclick()", "NASTAVI") }}
+    </div> #}
+
+
+    {# {{ elements.footer(1, template_params['url_year'], "") }} #}
+
+  </body>
+</html>

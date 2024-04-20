@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang='{{template_params["lang"]}}'>
+  <head>
+
+    {% import 'elements.html.j2' as elements %}
+    {{ elements.head(template_params) }}
+    {{ elements.init_elements() }}
+    {{ elements.standard_background(template_params) }}
+
+    <meta name="page" content="question">
+
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+
+  </head>
+
+  <body style="overscroll-behavior: none">
+    {{ elements.standard_body(template_params) }}
+
+    <!-- MOBILE MENU START -->
+    {% import 'menu.html.j2' as menu %}
+    {{ menu.include() }}
+    {{ menu.start_head() }}
+
+      <div style="display:inline-block; text-align:left; height: 36px; margin-left: 37px; margin-top: 8px">
+        <div class="sh_lato_font" style="display:inline-block; color: #dc3d39; font-size: 14px;">
+          {{template_params["year"].upper()}}
+        </div> 
+        <div class="sh_lato_font" style="display:inline-block; color: #636661; font-size: 14px;">
+          razred
+        </div> 
+        <br>
+        <div class="sh_chalk_font" style="display:inline-block;color: #489cba; font-size: 14px;">
+          {{ elements.color_string(template_params["theme"], -4) }}
+        </div>
+        {% if template_params["subtheme"].strip() != "*" %}
+        <div class="sh_lato_font" style="display:inline-block;color: #636661; font-size: 14px;">
+          / {{template_params["subtheme"].capitalize()}}
+        </div>
+        {% endif %}
+      </div>
+
+    {{ menu.end_head(template_params) }}
+    {{ menu.dropdowns(template_params) }}
+    <!-- MENU END -->
+
+
+    <script>
+      var solved = false;
+      var showed_sol = false;
+      //var showed_wrong = false;
+
+      function toggle_feedback(visible) {
+          var feedback_form = document.getElementById("feedback");
+          var sad_mosnter = document.getElementById("sad_monster");
+          if (visible) {
+            feedback_form.style.display = "inline-block";
+            sad_mosnter.style.display = "none";
+          } else {
+            feedback_form.style.display = "none";
+            sad_mosnter.style.display = "inline-block";
+          }
+      }
+
+      function question_onnext() {
+        if (document.getElementById("wr_report").checked) {
+          // Only send if one of the options is selected
+          if (document.getElementById('fb_problem').checked || 
+              document.getElementById('fb_unclear').checked || 
+              document.getElementById('fb_difficult').checked || 
+              document.getElementById('fb_easy').checked ||
+              document.getElementById('fb_other').checked) 
+          {
+            sendFeedbackToServer('{{template_params['root']}}', 
+                document.getElementById('fb_problem').checked?'problem':(
+                  document.getElementById('fb_unclear').checked?'unclear':(
+                  document.getElementById('fb_difficult').checked?'unclear':(
+                  document.getElementById('fb_easy').checked?'unclear':'other'))), 
+                '{{template_params['q_id']}}', '{{template_params['l_id']}}', 
+                '{{template_params['language']}}', 
+                document.getElementById('fb_komentar').value); 
+
+            toggle_feedback(false);
+            document.getElementById('wr_report').checked = false;
+            document.getElementById('wr_report_option').style.display='none';
+          }
+          return;
+        }
+        if (solved || showed_sol) {
+          location.href = "{{template_params["next"]}}";
+          return;
+        }
+        var check = false;
+        if (document.getElementById("popup_wrong_answer").style.visibility == "hidden") {
+          // No need to (re-)check if the wrong answer form is open as the answers didn't change   
+          check = checkAll("SUBMIT", "{{template_params["root"]}}", "TEST", 
+                              "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}"); 
+        }
+        if (document.getElementById("popup_skip").style.visibility == "visible") {
+          checkAll("SKIP", "{{template_params["root"]}}", "TEST", 
+                              "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}"); 
+          location.href = "{{template_params["next"]}}";
+          return;
+        } 
+        if (check) {
+          solved = true;
+          
+          // Prevent accidental Next after correct solution
+          var but_next = document.getElementById("but_next");
+          but_next.style.visibility = "hidden";
+
+          make_monster_visible();
+          document.getElementById("cup1").style.visibility = "visible";
+          document.getElementById("cup2").style.visibility = "visible";
+          document.getElementById("cup3").style.visibility = "visible";
+          document.getElementById("cup4").style.visibility = "visible";
+          document.getElementById("cup5").style.visibility = "visible";
+          document.getElementById("next_text").innerHTML = "NASTAVI";
+        } else {
+          //if (!showed_wrong) {
+          if (document.getElementById("popup_wrong_answer").style.visibility == "hidden") {
+            //document.getElementById("wrong_answer").style.visibility = "visible";
+            popup_toggle_wrong_answer("visible");
+            document.getElementById("next_text").innerHTML = "NASTAVI";
+            //showed_wrong = true;
+          } else {
+            if (document.getElementById("wr_again").checked) {
+              //document.getElementById("wrong_answer").style.visibility = "hidden";
+              popup_toggle_wrong_answer("hidden");
+              document.getElementById("next_text").innerHTML = "PROVERI";
+              //showed_wrong = false;
+              // Delete all wrong answers
+              clearAll();
+            } else if (document.getElementById("wr_solution").checked) {
+              //document.getElementById("wrong_answer").style.visibility = "hidden";
+              popup_toggle_wrong_answer("hidden");
+              popup_toggle_reveal("visible");
+              document.getElementById("next_text").innerHTML = "NASTAVI";
+              //showed_wrong = false;
+              clearAll();
+              addSolutionAll();
+              showed_sol = true;
+            } else if (document.getElementById("wr_skip").checked) {
+              popup_toggle_wrong_answer("hidden");
+              popup_toggle_skip("visible");
+              document.getElementById("next_text").innerHTML = "NASTAVI";
+              return;
+            }
+          }
+        }
+      }
+    </script>
+
+
+    <!-- QUESTION START -->
+    <div style="height: calc(100% - 90px); width:100%; overflow-y: auto; overflow-x: auto; ">
+      <div style="display:inline-block; width: 100%; text-align: center; margin-top: 30px; ">
+        {{ elements.stats("bar", template_params["bar"]["star1"], template_params["bar"]["star2"], 
+                                template_params["bar"]["star3"], template_params["bar"]["missed"]) }} 
+      </div>
+
+      <div style="display:inline-block; width: 100%; text-align: center; margin-top: 12px; background: white; overflow-x: auto; ">
+        {# DEBUG  #}
+        {# {% if "debug" in template_params.keys() %}
+          <div style="display:inline-block; width: 100%; text-align: left; margin-top: 0px; color: #aaaaaa">
+            {{template_params["debug"]}}
+          </div>
+        {% endif %} #}
+
+        <div style="display:inline-block; width: 25%; text-align: left; margin-top: 10px; ">
+          <div style="display:inline-block; margin-left: 20px; ">
+            {{elements.stars(template_params["difficulty"])}}
+          </div>
+        </div>
+        <div style="display:inline-block; width: 73%; text-align: right; margin-top: 10px; ">
+          <div style="display:inline-block; margin-right: 20px; ">
+
+            <!-- Preskoči zadatak -->
+            <div title="Preskoči zadatak" 
+                style="display:inline-block; cursor: pointer; margin-right: 4px;"
+                onclick='popup_toggle_skip()'>
+            P
+            </div>
+
+            <!-- Pomoć -->
+            <div title="Pomoć" style="display:inline-block; cursor: pointer; margin-right: 4px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19.659" height="22.385" viewBox="0 0 19.659 22.385">
+                  <g>
+                      <g>
+                          <path fill="#148f91" d="M17.83 954.362a.467.467 0 0 0-.468.466v1.865a.468.468 0 0 0 .936 0v-1.865a.467.467 0 0 0-.468-.466zm-6.619 2.733a.466.466 0 0 0-.329.794l1.324 1.319a.465.465 0 1 0 .658-.656l-1.324-1.319a.465.465 0 0 0-.329-.138zm13.238 0a.465.465 0 0 0-.329.138l-1.32 1.319a.465.465 0 0 0 .658.656l1.324-1.319a.466.466 0 0 0-.329-.794zm-6.619 1.465a5.517 5.517 0 0 0-5.617 5.327c0 3.818 2.705 4.789 3.013 7.265h5.207c.308-2.476 3.013-3.447 3.013-7.265a5.517 5.517 0 0 0-5.616-5.328zm-1.441 1.414h.044a.466.466 0 0 1 .161.9 3.507 3.507 0 0 0-2.216 2.66.468.468 0 0 1-.922-.168 4.42 4.42 0 0 1 2.8-3.359.464.464 0 0 1 .132-.036zm-7.921 3.716a.466.466 0 1 0 0 .933h1.872a.466.466 0 1 0 0-.933zm16.851 0a.466.466 0 1 0 0 .933h1.872a.466.466 0 1 0 0-.933zm-10.064 8.394v.933H20.4v-.933zm0 1.865v.466a.936.936 0 0 0 .936.933h.7v.466a.936.936 0 0 0 1.872 0v-.466h.7a.936.936 0 0 0 .936-.933v-.466z" transform="translate(-8 -2) translate(8 2) translate(-8 -954.362)"/>
+                      </g>
+                  </g>
+              </svg>
+            </div>
+
+            <!-- Prijavi problem -->
+            <div title="Prijavi problem" style="display:inline-block; cursor: pointer; ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12.371" height="19.026" viewBox="0 0 12.371 19.026">
+                  <g>
+                      <g>
+                          <path fill="#148f91" stroke="#148f91" d="M21.673 957.862a.593.593 0 0 0-.577.608.6.6 0 0 0 .192.443v16.165h-.421a.414.414 0 0 0-.367.424.409.409 0 0 0 .4.386h1.539a.405.405 0 0 0 0-.81h-.385v-9.247c6.417-2.11 3.587 2.516 9.812.133v-6.481c-6.389 2.374-4.525-2.208-9.812-.158v-.411a.6.6 0 0 0 .192-.443.593.593 0 0 0-.577-.608z" transform="translate(-19.999 -5) translate(20.5 5.5) translate(-20.5 -957.862)"/>
+                      </g>
+                  </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="sh_lato_font" 
+             style="display:inline-block; width: calc(100% - 16px); text-align: center; margin: 11px 8px 8px 8px; font-size: 18px;">
+
+          {{template_params["question"]}}
+
+        </div>
+
+      </div>
+    </div>
+    <!-- QUESTION END -->
+
+    {{ elements.next("question_onnext()", "NASTAVI") }}
+
+    <script>
+      {% if template_params["debug_checkall"] %}
+        function checkAll(a,b,c,d) {return false;}
+        function sendFeedbackToServer(a,b,c) {};
+      {% endif %}
+
+      document.getElementById("next_text").innerHTML = "PROVERI";
+
+      // Immediately enable next
+      next_callback(true, "");
+    </script>
+
+
+    {# {{elements.start_popup("skip", "width: 300px; text-align:center;")}}
+      <div class='sh-font' style='display:inline-block; margin: 12px 8px 8px 8px; font-size:18px'> 
+        Mozda da ipak pokusas? 
+      </div><br>
+      <div style='display:inline-block;padding-left:0px;padding-right:0px;padding-bottom:12px'>
+        <input type='button' class='sh-font' style='font-size: 14px;' onclick='popup_toggle_skip()' value='Hocu da pokusam'/>
+        <div style='display:inline-block;padding-left:6px;padding-right:6px'></div>
+        <input type='button' class='sh-font' style='font-size: 14px; '
+                             onclick='checkAll("SKIP", "{{template_params["root"]}}", 
+                                  "{{template_params["q_id"]}}", "{{template_params["l_id"]}}", "{{template_params["language"]}}"); 
+                             location.href = "{{template_params["next"]}}"'
+            value='Ipak preskoci'/>
+      </div>
+    {{elements.end_popup()}} #}
+
+
+
+    {{elements.cup("cup1", 20, 10)}} 
+    {{elements.cup("cup2", 80, 50)}} 
+    {{elements.cup("cup3", 20, 70)}} 
+    {{elements.cup("cup4", 55, 60)}} 
+    {{elements.cup("cup5", 70, 30)}} 
+
+
+    {% set monster_opt = (range(3) | random) %}
+
+    {% if monster_opt == 0 %}
+      {{elements.bravo("Jeeej!")}}
+    {% elif monster_opt == 1 %}
+      {{elements.bravo2("Tako je.", "Super si!")}}
+    {% else %}
+      {{elements.bravo3("Bravo.", "Super si!")}}
+    {% endif %}
+
+
+
+    <!-- WRONG POPUP -->
+    {{elements.start_popup("wrong_answer", "top: 127px; left: 0%; 
+         max-height: calc(100% - 170px);
+         width: 100%; text-align: center; background: white; overflow-y: auto;
+         border-radius: 10px; border: 0px solid #000000; box-shadow: 0px 5px 5px #dddddd;", 
+         "calc(100% - 100px)", "50px")}}
+
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: center; 
+                  margin-top: 17px; font-size: 18px;'>
+        Eh, rešenje nije skroz tačno.
+      </div><br>
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;   
+                  margin-top: 22px; font-size: 18px;'>
+        <label>
+          <input type='radio' id='wr_again' name="wr_input" 
+                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)' checked> 
+          Hoću još jednu šansu! 
+        </label>
+      </div><br>
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;  
+                  margin-top: 15px; font-size: 18px;'>
+        <label>
+          <input type='radio' id='wr_solution' name="wr_input" 
+                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
+          Daj da vidim rešenje! 
+        </label>
+      </div><br>
+      <div class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;  
+                  margin-top: 15px; font-size: 18px;'>
+        <label>
+          <input type='radio' id='wr_skip' name="wr_input" 
+                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(false)'> 
+          Ja bih da preskočim. 
+        </label>
+      </div><br>
+      <div id='wr_report_option' class="sh_chalk_font" style='display:inline-block; width: 250px; text-align: left;  
+                  margin-top: 15px; font-size: 18px;'>
+        <label>
+          <input type='radio' id='wr_report' name="wr_input" 
+                style='text-align: left; margin-right: 19px;' onclick='toggle_feedback(true)'> 
+          Ovaj zadatak ima problem. 
+        </label>
+      </div><br>
+
+      <!-- Feedback form -->
+      <div id="feedback" style='display:none; width: 250px; text-align: left; border: 2px solid #148f91; margin-top: 26px; '>
+        <div class="sh_chalk_font" style='display:inline-block; text-align: left; margin: 12px 12px 0 12px; font-size: 18px;'>
+          <label>
+            <input type='radio' id='fb_problem' name="fb_input" style='text-align: left; margin-right: 19px;'> Ima grešku 
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_unclear' name="fb_input" style='text-align: left; margin-right: 19px;'> Nije jasan 
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_difficult' name="fb_input" style='text-align: left; margin-right: 19px;'> Pretezak 
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_easy' name="fb_input" style='text-align: left; margin-right: 19px;'> Prelak 
+          </label> <br>
+          <label>
+            <input type='radio' id='fb_other' name="fb_input" style='text-align: left; margin-right: 19px;'> Drugo 
+          </label> <br>
+          <div style='display:inline-block; margin: 12px 0 12px 0'> Dodatni komentar: </div>
+          <input type='text' id='fb_komentar' style='width: 219px'> <br> <br>
+        </div>
+      </div>
+
+
+      <!-- Sad monster -->
+      <div id="sad_monster" style='display:inline-block; width: 100%; text-align: center; margin-top: 38px;'>
+        <svg xmlns="http://www.w3.org/2000/svg" id="prefix__noun_Monster_3288518" width="100.042" height="127.92" viewBox="0 0 100.042 127.92">
+          <path id="prefix__Path_186" d="M109.972 21.469H87.639C82.463 13.37 73.788 8.04 64 8.04s-18.463 5.33-23.639 13.429H18.028A4.2 4.2 0 0 0 14 25.8l8.8 88.083c.548 5.486 8.627 5.538 8.062 0q-4.185-41.87-8.369-83.757h14.03a32.614 32.614 0 0 0-1.193 8.67v27.026l4.983 7.632 1.048-1.9q6.289 27.879 12.61 55.757H40.683c-5.192 0-5.208 8.653 0 8.653H59.1a4.194 4.194 0 0 0 4-4.4 4.965 4.965 0 0 0-.113-1.073L49.2 69.56l1.258-2.267 3.4 6.161 3.37-6.126 3.37 6.126L64 67.293l3.4 6.161 3.37-6.126 3.37 6.126 3.4-6.161 1.26 2.267q-6.893 30.474-13.787 60.932a4.965 4.965 0 0 0-.113 1.073 4.194 4.194 0 0 0 4 4.4h18.417c5.192 0 5.208-8.653 0-8.653H74.03q6.313-27.879 12.61-55.757l1.048 1.9 4.983-7.632V38.791a32.614 32.614 0 0 0-1.193-8.67h14.029l-8.369 83.757c-.564 5.538 7.514 5.486 8.062 0l8.8-88.083a4.211 4.211 0 0 0-4.028-4.326zM64 43.5c-7.03 0-12.739-6.126-12.739-13.688 0-7.545 5.708-13.671 12.739-13.671s12.739 6.124 12.739 13.669c0 7.562-5.709 13.69-12.739 13.69z" 
+              style="fill:#f3b051" data-name="Path 186" transform="translate(-13.979 -8.04)"/>
+          <path id="prefix__Path_187" d="M45 16.55a4.075 4.075 0 1 0 4.08 4.07A4.076 4.076 0 0 0 45 16.55zm-1.2 3.78a.915.915 0 1 1 .91-.91.915.915 0 0 1-.91.91z" 
+              style="fill:#f3b051" data-name="Path 187" transform="translate(5.021 -8.04)"/>
+        </svg>
+      </div>
+    </div>
+
+    {{elements.end_popup()}}
+    <!-- END WRONG POPUP -->
+
+
+
+
+    <!-- START DO YOU WANT TO SKIP POPUP -->
+    {{elements.start_popup("skip", "top: 127px; left: 0%; 
+         max-height: calc(100% - 170px);
+         width: 100%; text-align: center; background: white; overflow-y: auto;
+         border-radius: 10px; border: 0px solid #000000; box-shadow: 0px 5px 5px #dddddd;",
+         "calc(100% - 100px)", "50px")}}
+
+
+      <div style="display:block; width: 100%; text-align: left; margin-top: 23px; ">
+        <div style="display: inline-block; cursor: pointer; width: 23px; height: 23px; margin-left: 37px"
+             onclick="popup_toggle_skip()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
+            <path id="prefix__Icon_material-close" d="M30.5 9.816L28.184 7.5 19 16.684 9.816 7.5 7.5 9.816 16.684 19 7.5 28.184 9.816 30.5 19 21.316l9.184 9.184 2.316-2.316L21.316 19z" data-name="Icon material-close" transform="translate(-7.5 -7.5)" style="fill:#148f91"/>
+          </svg>
+        </div>
+      </div>
+
+      {% set width=4 %}
+
+      <div style="display:block; width: calc(100% - 6px); text-align: center; margin-top: 14px; ">
+        <div style="display: inline-block; text-align: center; 
+                width: calc(100% - 70px); margin: 0 35px 0 35px; border: 3px solid #148f91">
+
+          <div style="display: inline-block; text-align: center; width: calc(100% - 50px); margin: 25px 25px 35px 25px">
+            <div class="sh_chalk_font" style="color: #636661; font-size: 18px;">
+              Ovaj zadatak ti se neće računati kao urađen. <br>
+              Da li si siguran da nećeš da pokušaš? <br><br>
+              Ako ne, ništa strašno, nastavi i probaj neki drugi zadatak. 
+            </div>
+          </div>
+
+          {# <div style="display:inline-block; width: 100%; text-align: center; margin-top: 14px; margin-bottom: 25px">
+            <div style="display:inline-block; width: 49%; text-align: left; ">
+              <!-- PREV BUTTON -->
+              <div id='but_prev' style="display:inline-block;cursor: pointer; height:21px; margin-left: 35px; margin-bottom: 8px;"
+                  onclick='popup_toggle_skip()'>                  
+                  {{elements.back("Ipak ću da pokušam", "#636661", 80)}}
+              </div>
+              <!-- END PREV BUTTON --> 
+            </div>
+            <div style="display:inline-block; width: 49%; text-align: right;">
+              <!-- NEXT BUTTON -->
+              <div id='but_next' style="display:inline-block;cursor: pointer; height:19px; 
+                                        margin-right: 35px; margin-bottom: 8px;"
+                  onclick='location.href = "{{template_params["next"]}}"'>
+                  {{elements.skip("Preskoči ovaj zadatak", "#636661", 80)}}
+              </div>
+              <!-- END NEXT BUTTON -->
+            </div>
+          </div> #}
+
+
+        </div>
+      </div>
+
+
+      <div style="display:block; width: 100%; text-align: right; margin-top: -3px; ">
+        <svg xmlns="http://www.w3.org/2000/svg" id="prefix__noun_Monster_3288402" 
+             width="84.305" height="91.091" viewBox="0 0 84.305 91.091" style="margin-right:35px">
+            <defs>
+                <style>
+                    .prefix__cls-1{fill:#148f91}
+                </style>
+            </defs>
+            <path id="prefix__Path_219" d="M50.136 79.97c6.728 6.241 18.278-5.288 22.839-8.639 3.869-2.837 8.078-6.648 12.719-8.425A22.581 22.581 0 0 1 86.556 66c1.021 3.3 6.5 1.895 5.469-1.424-1.259-4.036-2.712-8.478-8.237-6.691a18.047 18.047 0 0 0-2.235.91c-3.165 1.563-6.081 4.025-8.782 5.973-3.063 2.216-6.1 4.475-9.156 6.733-1.986 1.467-4.856 4.089-7.511 4.571-5.412 1-2.235-10.983-1.645-13.7.579-2.6 1.259-5.2 2.02-7.772l1.509-1.435 1.312 4.228 4.618-3.768L68.2 37.7c.465-.332.908-.674 1.373-.985 1.464-.974 7.318-5.342 9.292-4.143 1.588.974-.2 7.258-.374 8.4q-.613 4.336-1.248 8.693l-.545 3.79a3.091 3.091 0 0 0 3.211 3.361 2.133 2.133 0 0 0 2.258-1.938L83.152 48c.635-4.421 1.849-9.078 1.793-13.553-.034-2.312-.647-4.721-2.712-6.155-3.721-2.6-8.85-.739-13.513 2.152a18.9 18.9 0 0 0-.545-2.644l9.065-10.855c1.259-1.52.9-1.884-.806-.824l-10.584 6.63a20.086 20.086 0 0 0-12.174-8.457 21.1 21.1 0 0 0-14.965 1.97L32.743 5.676c-.964-1.7-1.464-1.542-1.112.364l2.485 13.617a18.685 18.685 0 0 0-4.947 8.4l-.522 1.97c-7.795-6.509-14.772-15.394-15.124-25-.125-3.436-5.8-3.447-5.673 0 .443 12.222 9.36 23.034 19.25 30.731l-2.281 8.511 2.156 5.385 2.28-2.162c-4.357 12.942-6.819 27.416-4.436 40.7h-8.857a2.677 2.677 0 1 0 0 5.353h12.3A2.737 2.737 0 0 0 31 90.161c-3.347-13.542-.59-28.743 4.028-42.114l1.191 3.822 3.29-3.126 1.316 4.229 3.313-3.147 1.327 4.25 3.279-3.115 1.316 4.218.511-.482q-.94 3.304-1.66 6.647c-1.135 5.213-3.449 14.281 1.225 18.627zm-5.083-46.632a8.436 8.436 0 0 1-6.49-10.277 9 9 0 0 1 10.892-6.113 8.436 8.436 0 0 1 6.49 10.277 9 9 0 0 1-10.892 6.113z" class="prefix__cls-1" data-name="Path 219" transform="translate(-7.848 -2.453)"/>
+            <path id="prefix__Path_220" d="M43.58 19.694a4.079 4.079 0 1 0 2.95 4.96 4.077 4.077 0 0 0-2.95-4.96zM42.6 22.4a.918.918 0 1 1-1.78-.45.918.918 0 0 1 1.78.45z" class="prefix__cls-1" data-name="Path 220" transform="translate(-3.214 -1.118)"/>
+        </svg>
+      </div>
+
+
+    {{elements.end_popup()}}
+    <!-- END DO YOU WANT TO SKIP POPUP -->
+
+
+
+
+    <!-- START REVEAL SOLUTION POPUP -->
+    {{elements.start_popup("reveal", "top: 127px; left: 0%; 
+         max-height: calc(100% - 170px);
+         width: 100%; text-align: center; background: white; overflow-y: auto;
+         border-radius: 10px; border: 0px solid #000000; box-shadow: 0px 5px 5px #dddddd;")}}
+
+
+      <div style="display:block; width: 100%; text-align: left; margin-top: 23px; ">
+        <div style="display: inline-block; cursor: pointer; width: 23px; height: 23px; margin-left: 37px"
+             onclick="popup_toggle_reveal()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
+            <path id="prefix__Icon_material-close" d="M30.5 9.816L28.184 7.5 19 16.684 9.816 7.5 7.5 9.816 16.684 19 7.5 28.184 9.816 30.5 19 21.316l9.184 9.184 2.316-2.316L21.316 19z" data-name="Icon material-close" transform="translate(-7.5 -7.5)" style="fill:#148f91"/>
+          </svg>
+        </div>
+      </div>
+
+      {% set width=4 %}
+
+      <div style="display:block; width: calc(100% - 6px); text-align: center; margin-top: 14px; ">
+        <div style="display: inline-block; text-align: center; 
+                width: calc(100% - 70px); margin: 0 35px 0 35px; border: 3px solid #148f91">
+
+          <div style="display: inline-block; text-align: center; width: 100%-50px; margin: 25px 25px 35px 25px">
+            <div class="sh_chalk_font" style="color: #636661; font-size: 18px;">
+            Ovaj zadatak ti se neće računati kao urađen. <br>
+            U nekom trenutku ćeš opet da naletiš na njega pa ti TATA MATA savetuje da obratiš pažnju na rešenje. <br>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div style="display:block; width: 100%; text-align: right; margin-top: -3px; ">
+        <svg xmlns="http://www.w3.org/2000/svg" id="prefix__noun_Monster_3288402" 
+             width="84.305" height="91.091" viewBox="0 0 84.305 91.091" style="margin-right:35px">
+            <defs>
+                <style>
+                    .prefix__cls-1{fill:#148f91}
+                </style>
+            </defs>
+            <path id="prefix__Path_219" d="M50.136 79.97c6.728 6.241 18.278-5.288 22.839-8.639 3.869-2.837 8.078-6.648 12.719-8.425A22.581 22.581 0 0 1 86.556 66c1.021 3.3 6.5 1.895 5.469-1.424-1.259-4.036-2.712-8.478-8.237-6.691a18.047 18.047 0 0 0-2.235.91c-3.165 1.563-6.081 4.025-8.782 5.973-3.063 2.216-6.1 4.475-9.156 6.733-1.986 1.467-4.856 4.089-7.511 4.571-5.412 1-2.235-10.983-1.645-13.7.579-2.6 1.259-5.2 2.02-7.772l1.509-1.435 1.312 4.228 4.618-3.768L68.2 37.7c.465-.332.908-.674 1.373-.985 1.464-.974 7.318-5.342 9.292-4.143 1.588.974-.2 7.258-.374 8.4q-.613 4.336-1.248 8.693l-.545 3.79a3.091 3.091 0 0 0 3.211 3.361 2.133 2.133 0 0 0 2.258-1.938L83.152 48c.635-4.421 1.849-9.078 1.793-13.553-.034-2.312-.647-4.721-2.712-6.155-3.721-2.6-8.85-.739-13.513 2.152a18.9 18.9 0 0 0-.545-2.644l9.065-10.855c1.259-1.52.9-1.884-.806-.824l-10.584 6.63a20.086 20.086 0 0 0-12.174-8.457 21.1 21.1 0 0 0-14.965 1.97L32.743 5.676c-.964-1.7-1.464-1.542-1.112.364l2.485 13.617a18.685 18.685 0 0 0-4.947 8.4l-.522 1.97c-7.795-6.509-14.772-15.394-15.124-25-.125-3.436-5.8-3.447-5.673 0 .443 12.222 9.36 23.034 19.25 30.731l-2.281 8.511 2.156 5.385 2.28-2.162c-4.357 12.942-6.819 27.416-4.436 40.7h-8.857a2.677 2.677 0 1 0 0 5.353h12.3A2.737 2.737 0 0 0 31 90.161c-3.347-13.542-.59-28.743 4.028-42.114l1.191 3.822 3.29-3.126 1.316 4.229 3.313-3.147 1.327 4.25 3.279-3.115 1.316 4.218.511-.482q-.94 3.304-1.66 6.647c-1.135 5.213-3.449 14.281 1.225 18.627zm-5.083-46.632a8.436 8.436 0 0 1-6.49-10.277 9 9 0 0 1 10.892-6.113 8.436 8.436 0 0 1 6.49 10.277 9 9 0 0 1-10.892 6.113z" class="prefix__cls-1" data-name="Path 219" transform="translate(-7.848 -2.453)"/>
+            <path id="prefix__Path_220" d="M43.58 19.694a4.079 4.079 0 1 0 2.95 4.96 4.077 4.077 0 0 0-2.95-4.96zM42.6 22.4a.918.918 0 1 1-1.78-.45.918.918 0 0 1 1.78.45z" class="prefix__cls-1" data-name="Path 220" transform="translate(-3.214 -1.118)"/>
+        </svg>
+      </div>
+
+
+    {{elements.end_popup()}}
+    <!-- END REVEAL SOLUTION POPUP -->
+
+
+
+  </body>
+</html>
