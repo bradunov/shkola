@@ -129,6 +129,9 @@ class PageLanguage(Enum):
     RS = "rs"
     RSC = "rsc"             # Serbian cyrillic
     UK = "uk"
+    SL = "sl"
+    MK = "mk"
+  
 
     # TODO: remove this method
     @classmethod
