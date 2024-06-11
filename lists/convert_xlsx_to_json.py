@@ -24,7 +24,7 @@ if path[-1] != "/":
   path += "/"
 
 
-known_languages = ["rs", "uk"]
+known_languages = ["rs", "uk", "sl"]
 
 try:
   language = file_name.split(".")[-2]
