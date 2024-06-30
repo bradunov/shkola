@@ -1,4 +1,6 @@
 
+op = "&middot"
+
 number = 11 + math.random(87)
 numb_p = number + 1
 numb_m = number - 1
@@ -11,5 +13,3 @@ res_m = numb_m * number
 
 index = {1, 2, 3, 4}
 ind = lib.math.random_shuffle(index) 
-           
-          

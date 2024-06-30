@@ -1,3 +1,4 @@
-Obarvaj figuro, ki se nahaja @place@.
+
+Pobarvaj lik, ki se nahaja @place@.
 
 @center@ @mycanvas()@

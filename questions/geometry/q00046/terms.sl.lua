@@ -1,1 +1,1 @@
-place = {"notranjost", "zunanjost"}
+place = {"znotraj", "zunaj"}

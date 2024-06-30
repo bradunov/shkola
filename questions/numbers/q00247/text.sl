@@ -1,3 +1,4 @@
+
 Število prebivalcev po popisu je @value@.
 Koliko je to približno prebivalcev izraženo v @meas[ind]@?
 @vspace@

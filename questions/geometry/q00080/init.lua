@@ -1,3 +1,4 @@
+
 include("terms")
 
 rect_style = 
@@ -25,12 +26,9 @@ ind_edge = math.random(12)
 side = {"ABCD", "ABFE", "EFGH", "GHDC", "AEHD", "BFGC"}
 ind_side = math.random(6)
 
-
-
 ow = 10
 v = 70
 ov = 100
-
 
 mycanvas = function(no)
 

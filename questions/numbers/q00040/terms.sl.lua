@@ -1,1 +1,1 @@
-array_operation = {"Razlike", "Vsote"}
+array_operation = {"Razliku", "Vsotu"}

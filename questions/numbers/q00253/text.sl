@@ -1,4 +1,5 @@
-Knjiga ima @book@ @pg@. Ako @ime@ čita @numb@ stranica svaki dan, za koliko dana će pročitati knjigu?
+
+Knjiga ima @book@ @pg@. Če @ime@ vsak dan prebere @numb@ strani, v koliko dneh bo prebrala knjigo?
 @vspace@
-@ime@ će prebrati knjigo za 
-@center@ @lib.check_number(period)@ @hspacept(3)@ @term@.
+@ime@ bo knjigo prebrala čez 
+@center@ @lib.check_number(period)@ @hspacept(3)@ @term@.    

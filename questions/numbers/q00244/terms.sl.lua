@@ -1,2 +1,3 @@
-comp = {"več", "manj"}
-msg = {"stran", "strani", "strani"}
+comp = {"več", "manj"} 
+msg = {"strani", "strani", "strani"} 
+

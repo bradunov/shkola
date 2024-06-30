@@ -1,7 +1,7 @@
-operation = {"seštevanje", "odštevanje", "množenje", "deljenje"}
-work = {"povečaj", "zmanjšaj"}
-brojeva_str = " številk "
+operation = {"vsoto", "razliku", "produkt", "količnik"}
+work = {"povečaj", "zmanjšaj za"}
+brojeva_str = " števil "
 i_str = " in "
 za_str = " za "
 broj_str = " število "
-puta_str = " krat"
+puta_str = "-krat"

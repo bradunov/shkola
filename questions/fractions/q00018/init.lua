@@ -1,7 +1,8 @@
 
 include("names")
 
-include("set_names")
+r = math.random(#zensko_ime_nom);
+ime = zensko_ime_nom[r];
 
 imenilac1 = math.random(8) + 2;
 imenilac2 = math.random(imenilac1 - 2) + 1;

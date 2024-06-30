@@ -1,1 +1,0 @@
-dim = {"dolžina ", "širina ", "višina "}

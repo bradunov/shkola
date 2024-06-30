@@ -1,5 +1,4 @@
-Oboj @name@ prekinjene črte.
 
+Pobarvaj @name@ lomljene črte.
 @vspace@
-
 @center@ @mycanvas(result)@

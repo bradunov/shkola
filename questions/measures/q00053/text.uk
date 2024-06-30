@@ -1,11 +1,4 @@
 
 @repeat(5)@ 
-@center@ How many @term2@ are in @term1@? @hspacept(5)@ @lib.check_number(value[ITEM],20)@  
-
+@center@ How many @term2@ are in @term1@? @hspacept(20)@ @lib.check_number(value[ITEM],20)@  
 @/repeat@   
-
-            
-            
-            
-            
-            

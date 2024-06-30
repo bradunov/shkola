@@ -1,6 +1,5 @@
-Express a fraction as a decimal number.
 
+Express a fraction as a decimal number.
 @repeat(5)@
-@center@    \(\frac{@brojilac@}{@imenilac@}\) @hspacept(3)@ = @hspacept(3)@ @lib.check_number(result,30)@ 
- 
+@center@    \(\frac{@brojilac@}{@imenilac@}\) @hspacept(3)@ = @hspacept(3)@ @lib.check_number(result,30)@  
 @/repeat@

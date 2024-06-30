@@ -5,7 +5,3 @@ name_straight = "samo pravim"
 name_curved = "i krivim"
 
 offset = 0
-
-
-
-

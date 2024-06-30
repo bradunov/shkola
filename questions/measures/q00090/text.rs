@@ -6,5 +6,3 @@ Koliko je bilo sati kada je avion sleteo?
 
 @center@ Avion je sleteo u 
 @center@  @lib.check_number(finish_h,20)@@"h"@ @answ[2]@.       
-                            
-                           

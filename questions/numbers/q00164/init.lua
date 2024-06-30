@@ -1,6 +1,6 @@
 
 addition_table = function()
-  columns = 5
+  columns = 4
 
   min = 0;
   max = 4;
@@ -10,8 +10,8 @@ addition_table = function()
   q = {}
   for i=0,columns-1 do
     q[i] = {}
-    term1 = math.random(4)
-    term2 = min + math.random(5 - term1)
+    term1 = math.random(5)
+    term2 = min + math.random(6 - term1)
     q[i][1] = devide * term1 * 5
     q[i][2] = devide * term2 * 5
     q[i][3] = q[i][1] + q[i][2]
@@ -57,7 +57,7 @@ addition_table = function()
   text = text .. lib.end_table()
 
   return text
-end        
+end       
   
   
      

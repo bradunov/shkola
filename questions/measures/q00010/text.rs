@@ -1,8 +1,7 @@
 
 Kolika je  visina kvadra ako su njegovi 
-
 @repeat(2)@
-@vspace@
+@ITEM@.
 @center@ dužina @edge1@@measure[ind]@,  
 @center@ širina @edge2@@measure[ind]@ 
 @center@ površina @surface@@measure2[ind]@ 

@@ -1,8 +1,6 @@
+
 Color the @fig[ind]@ in the picture.
-
 @center@ @mycanvas()@  
-
 @center@ @fig1[ind]@ is limited by a broken line made up of segments @ans@.
-
 @center@ The perimeter of @fig2[ind]@ is @lib.check_number(circ[ind], 20)@ the length of the grid squares.  
 @center@ @remark@

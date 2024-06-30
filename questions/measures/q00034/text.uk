@@ -1,5 +1,5 @@
 
-The circumference and one side of a rectangle have been given. Calculate the area of the rectangle.
+The circumference and the length of one side of a rectangle have been given. Calculate the area of the rectangle.
 @repeat(2)@
 @vspace@
 @center@The circumference is @circ@@measure[ind]@, @hspacept(3)@ the side is @edge_a@@measure[ind]@. 

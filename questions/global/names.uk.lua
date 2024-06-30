@@ -9,6 +9,7 @@ musko_ime_instrum = musko_ime_nom;
 musko_ime_lokativ = musko_ime_nom;
 
 musko_pridev = musko_ime_nom;
+musko_mpridev = musko_ime_nom;
 
 zensko_ime_nom = {"Anna", "Clara", "Hannah", "Arabella", "Lois", "Abigale", "Phoebe"}; 
 zensko_ime_gen = zensko_ime_nom;
@@ -18,3 +19,4 @@ zensko_ime_instrum = zensko_ime_nom;
 zensko_ime_lokativ = zensko_ime_nom;
 
 zensko_pridev = zensko_ime_nom;
+zensko_mpridev = zensko_ime_nom;

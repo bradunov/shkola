@@ -1,6 +1,6 @@
 
 @repeat(2)@
-The edge of a cube is @edge@@measure[ind]@. @answ@
+@ITEM@. @hspace@ The edge of a cube is @edge@@measure[ind]@. @answ@
 @center@ What is the surface area of the cuboid? 
 @center@ @lib.check_number(surface,40)@@measure2[ind]@
 @vspace@

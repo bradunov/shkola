@@ -4,10 +4,4 @@ At the bookstore, @ime@ bought a book for @blok@ pounds and a rubber for @gumica
 
 @vspace@
 @center@ How many pounds did @ime@ have left? @hspace@  @lib.check_number(ostalo)@ 
-   
-
-                                 
-
-                  
-                  
-                  
+ 

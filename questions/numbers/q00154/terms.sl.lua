@@ -1,1 +1,1 @@
-operation = {"dodaš", "odvzameš"}
+operation = {"seštevate", "odštevate"}

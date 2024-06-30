@@ -1,6 +1,7 @@
+
 In the empty frames on the picture, write labels for points @tacka[1]@, @tacka[2]@, and @tacka[3]@ so that:
 @vspace@ 
-@center@ point @tacka[1]@ is located on the side @"Oc"@,
+@center@ point @tacka[1]@ is located on the side @"Oc"@ of the angle,
 @center@ point @tacka[2]@ is located inside the triangle @"aOb"@, 
 @center@ but not inside the triangle @"cOb"@,
 @center@ point @tacka[3]@ is located inside the triangle @"cOb"@.

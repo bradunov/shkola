@@ -1,7 +1,6 @@
-Dopolni niz s številkami, ki manjkajo.
 
-@repeat(4)@
+Dopolni niz s številkami, ki manjkajo.
+@repeat(3)@
 @vspace@
 @center@ @reply@
-
 @/repeat@

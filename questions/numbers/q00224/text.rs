@@ -1,8 +1,6 @@
 
 Napiši ciframa broj: 
-
 @repeat(5)@
-
-@center@ @array_name[2]@ @array_name[3]@ @hspace@ @lib.check_number(value)@
-@/repeat@   
+@center@ @quest@  @hspacept(30)@ @lib.check_number(value)@   
+@/repeat@  
                   

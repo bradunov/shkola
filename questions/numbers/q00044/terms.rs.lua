@@ -1,1 +1,0 @@
-sign = {"više", "manje"}            

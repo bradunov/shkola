@@ -7,17 +7,17 @@ imez = zensko_ime_nom[rz];
 
 lesson = (2 + math.random(6)) * 5;
 
-number = 2;
-pause = 20
-
-if(lesson > 20 and lesson < 35) then  
+if( lesson <= 25) then  
    number = 3
    pause = 5
-end
-
- if( lesson < 25) then  
-   number = 4
-   pause = 5
+else 
+	if(lesson > 25 and lesson <= 35) then  
+	   number = 4
+	   pause = 5
+	else
+		number = 2;
+		pause = 20	
+	end  
 end
 
 total = number * lesson + (number - 1) * pause

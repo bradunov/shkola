@@ -1,3 +1,4 @@
+
 value = math.random(7777)+ 2222;
 number1 = math.random(value - 2000) + 1511;
 

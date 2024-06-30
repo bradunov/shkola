@@ -1,1 +1,1 @@
-msg_str = {"obseg ene stranice kocke je enak ", "vsota dolžin robov kocke je enaka "}
+msg_str = {"obseg ene strani kocke enak ", "vsota dolžin robov kocke enaka "}

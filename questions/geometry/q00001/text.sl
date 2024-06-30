@@ -1,3 +1,4 @@
-Prebarvaj streho hiše, ki se nahaja @position[ind]@.
+
+Pobarvaj streho hiše, ki se nahaja @position[ind]@.
 
 @center@ @mycanvas()@

@@ -6,6 +6,7 @@ musko_ime_instrum = {"Milanom", "Nikolom", "Petrom", "Dejanom", "Vladom", "Jovan
 musko_ime_lokativ = {"Milanu", "Nikoli", "Petru", "Dejanu", "Vladi", "Jovanu"};
 
 musko_pridev = {"Milanova", "Nikolina", "Petrova", "Dejanova", "Vladina", "Jovanova"}; 
+musko_mpridev = {"Milanov", "Nikolin", "Petrov", "Dejanov", "Vladin", "Jovanov"}; 
 
 zensko_ime_nom = {"Milka", "Branka", "Ana", "Jelena", "Milica", "Ljubica", "Milena"}; 
 zensko_ime_gen = {"Milke", "Branke", "Ane", "Jelene", "Milice", "Ljubice", "Milene"}; 
@@ -15,3 +16,4 @@ zensko_ime_instrum = {"Milkom", "Brankom", "Anom", "Jelenom", "Milicom", "Ljubic
 zensko_ime_lokativ = {"Milki", "Branki", "Ani", "Jeleni", "Milici", "Ljubici", "Mileni"}; 
 
 zensko_pridev = {"Milkina", "Brankina", "Anina", "Jelenina", "Milicina", "Ljubicina", "Milenina"}; 
+zensko_mpridev = {"Milkin", "Brankin", "Anin", "Jelenin", "Milicin", "Ljubicin", "Milenin"}; 

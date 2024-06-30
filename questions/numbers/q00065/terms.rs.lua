@@ -4,3 +4,6 @@ tens = {"deset", "dvadeset", "trideset", "četrdeset", "pedeset", "šezdeset", "
 tens2 = {"deset", "dvadeset", "trideset", "cetrdeset", "pedeset", "sezdeset", "sedamdeset", "osamdeset", "devedeset"}
 hundreds = {"sto", "dvesta", "trista", "četiristo", "petsto", "šesto", "sedamsto", "osamsto", "devetsto"}
 hundreds2 = {"sto", "dvesta", "trista", "cetiristo", "petsto", "sesto", "sedamsto", "osamsto", "devetsto"}
+mid = {"deset", "jedanaest", "dvanaest", "trinaest", "četrnaest", "petnaest", "šesnaest", "sedamnaest", "osamnaest", "devetnaest"}
+mid2 = {"deset", "jedanaest", "dvanaest", "trinaest", "cetrnaest", "petnaest", "sesnaest", "sedamnaest", "osamnaest", "devetnaest"}
+lang = 1

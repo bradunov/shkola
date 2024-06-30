@@ -1,10 +1,5 @@
-                                                                  Write in some numbers so that the equalities are correct.
-
+                                                                  
+Write in some numbers so that the equalities are correct.
 @repeat(5)@
-
 @center@ @sabirak@ @hspace@ + @hspace@ @lib.check_number(rezultat)@ @hspace@ = @hspace@ @suma@ 
 @/repeat@
-
-                  
-                  
-                  

@@ -1,1 +1,2 @@
-meas_arr = {"ur", "ura", "ure"}
+meas_arr = {"ur", "uro", "uri", "ure"}
+lang = 2

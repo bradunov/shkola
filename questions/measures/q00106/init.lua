@@ -30,11 +30,24 @@ ime[1] = zensko_ime_nom[rz1];
 ime[4] = zensko_ime_nom[rz2];
 
 lap = 2 + math.random(4)
-if (lap < 5) then
-   path = circ[1]
+if (lang == 1) then
+	if (lap < 5) then
+	   path = circ[1]
+	else
+	   path = circ[2]
+	end
 else
-   path = circ[2]
-end
+    if (lap == 2) then
+	    path = circ[1]
+    else		
+		if (lap < 5) then
+		   path = circ[2]
+		else
+		   path = circ[3]
+		end
+	end
+end	
+	
 for i = 1,4 do
 	numb_m[i] = math.random(3)
 	if (numb_m[i] == 2) then	

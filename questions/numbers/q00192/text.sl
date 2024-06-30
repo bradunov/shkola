@@ -1,3 +1,4 @@
+
 @ime@ je imel na računu v banki @bank@ dinarjev. Dvignil je @car@ dinarjev, da bi kupil avto.
 @vspace@
 Koliko denarja mu je ostalo na računu? @hspacept(3)@ @lib.check_number(value, 50)@ dinarjev

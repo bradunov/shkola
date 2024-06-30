@@ -1,7 +1,6 @@
-Prepiši številke tako, da dobijo pravilno enakost.
 
-@repeat(5)@
-
-@center@ @answ@
-
-@/repeat@
+V kvadrat zapiši število, da dobite natančno enakost.
+@repeat(4)@ 
+@vspace@
+@center@ @answ@ 
+@/repeat@     

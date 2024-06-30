@@ -1,4 +1,4 @@
-Na sliki so narisana figura in štiri premice.
-V razmerju do katerih premic je dana figura simetrična?
 
+Na sliki so narisani lik in štiri premic.
+Katere premic so simetrale lika?
 @center@ @mycanvas()@

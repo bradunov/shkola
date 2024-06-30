@@ -1,2 +1,2 @@
-quest = {"prodaja tako da v silosu ostane ", "doda v silos, če lahko v silosu stoji "}
+quest = {"prodamo, da ostane v silosu ", "dodamo, če silos sprejme "}
 relat = {" manj ", " več ", " ne več ", " ne manj "}

@@ -1,3 +1,4 @@
+
 Letalo je vzletelo ob @start_h@@"h"@ @answ[1]@. Let je trajal @last_h@ ur in @last_m@ minut. 
 Koliko je bilo ur, ko je letalo pristalo?
 

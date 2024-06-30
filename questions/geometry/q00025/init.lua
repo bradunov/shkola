@@ -1,3 +1,4 @@
+
 include("terms")
 
 style = 
@@ -46,7 +47,12 @@ mycanvas = function()
   lib.add_text(5*ow+2*wh, 7*ow , title[4], text_style)
   
   for i = 1,dim do
-   	  lib.add_text(5*ow, (i+2)*wv-ow, object[ind[i]], text_style)
+  	  if (ind[i] == dim) then
+		  lib.add_text(5*ow, (i+2)*wv-2*ow, object[dim+1], text_style)
+		  lib.add_text(5*ow, (i+2)*wv, object[dim], text_style)		  
+      else
+		  lib.add_text(5*ow, (i+2)*wv-ow, object[ind[i]], text_style)	  
+      end	  
       for j = 1,2 do
 	      temp = out[j][ind[i]]
           if (i == 1) then 		      
@@ -59,6 +65,5 @@ mycanvas = function()
 
   lib.end_canvas()
 end
-      
                 
                 

@@ -1,4 +1,5 @@
-Na sliki so geometrijska telesa in geometrijske figure. 
-Oboj krogec poleg @name@. 
+
+Na sliki so geometrijska telesa in geometrijske like. 
+Pobarvaj krogec poleg @name@. 
 
 @center@ @mycanvas(result)@

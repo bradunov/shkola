@@ -1,5 +1,5 @@
-V prazne okvire vpiši obsege figure na sliki izmerjene s pomočjo dolžine kvadratkov mreže.
-Oglej si primer zelene figure.
 
-@vspace@
+V prazne okvire vpiši obsege liki na sliki izmerjene s pomočjo dolžine kvadratkov mreže.
+Oglej si primer zelenega lika.
+
 @center@ @mycanvas()@

@@ -1,4 +1,5 @@
-Trocifreno število je zapisano s številko, na primer @"ccc"@. Količnik tega števila in trojne vrednosti števila @"c"@ ne odvisi od tega, katera številka je @"c"@.
+
+Število je zapisano s eno številko, na primer @"ccc"@. Količnik tega števila in trojne vrednosti števila @"c"@ ne odvisi od tega, katera številka je @"c"@.
 @center@ Kakšen je ta količnik?  @hspacept(30)@ @lib.check_number(37,20)@
 @vspace@
 Obrazložitev.

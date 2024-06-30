@@ -1,7 +1,7 @@
-Koliko @padež[ind]@ kotov tvorijo pravokotniki na sliki?
 
+Koliko @padez[ind]@ kotov tvorijo premici na sliki?
 @center@ @lib.check_number(number,15)@ 
 @vspace@
-Obarvaj kroge, ki pripadajo @name[ind]@ kotom. 
+Pobarvaj kroge, ki ležijo v @name[ind]@ kotih. 
 
 @center@ @mycanvas(result)@

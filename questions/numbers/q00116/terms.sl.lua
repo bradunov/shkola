@@ -1,1 +1,1 @@
-value = {"enote", "desetice", "stotine", "tisoč enot", "deset tisoč", "stotisoč", "milijon"}
+value = {"enice", "desetice", "stotice", "tisočice", "desettisočice", "stotisočice", "milijon"}

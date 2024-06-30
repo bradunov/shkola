@@ -1,2 +1,4 @@
-name_curved = "ukrivljene"
-name_straight = "ravne"
+name_curved = "krive"
+name_straight = "lomljene"
+
+offset = 0

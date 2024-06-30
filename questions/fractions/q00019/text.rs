@@ -1,3 +1,4 @@
+
 Oboj deo figure napisan razlomkom:
 
 @repeat(3)@
@@ -9,6 +10,3 @@ Poređaj razlomke od najmanjeg do najvećeg:
    @lib.check_fraction_condition(is_ok[indices[1]], false, nil, solution[indices[1]])@ \(\leq\) \
    @lib.check_fraction_condition(is_ok[indices[2]], false, nil, solution[indices[2]])@ \(\leq\) \
    @lib.check_fraction_condition(is_ok[indices[3]], false, nil, solution[indices[3]])@
-   
-                  
-                  

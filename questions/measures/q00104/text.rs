@@ -1,5 +1,5 @@
 
-Izračunaj obim i površinu figure na slici.
+Izračunaj obim @"(O)"@ i površinu @"(P)"@ figure na slici.
 
 @vspace@
 @center@ @mycanvas()@                  

@@ -1,1 +1,1 @@
-msg = {"vrane", "vrana", "grane", "grana"};
+msg = {"vrana", "vrane", "vrana", "grana", "grane", "grana"};

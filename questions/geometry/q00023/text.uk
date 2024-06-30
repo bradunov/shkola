@@ -1,5 +1,6 @@
-In the empty boxes below the pictures, write the number that indicates whether the body is horned or rounded. 
-@hspacept(20)@ 1 Horned body
-@hspacept(20)@ 2 Rounded body
+
+In the empty squares below the pictures, write the number that indicates whether the body is horned or rounded. 
+@center@ 1 @hspace@ Horned body
+@center@ 2 @hspace@ Rounded body
 
 @center@ @mycanvas(result)@

@@ -1,4 +1,5 @@
-Piktogram predstavlja število prodanih pogačic v pekarni. Vsak simbol predstavlja @factor@ prodanih pogačic.
+
+Figurni prikaz predstavlja število prodanih žemlji v pekarni. Vsak simbol predstavlja @factor@ prodanih žemlji.
 
 @center@ @mycanvas()@ 
-V tabelo vpiši, koliko pogačic je bilo prodanih v navedenih dneh.
+V tabelo vpiši, koliko žemlji je bilo prodanih v navedenih dneh.

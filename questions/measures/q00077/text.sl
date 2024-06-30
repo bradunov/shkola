@@ -1,5 +1,5 @@
-Izpolni tabelo, ki vsebuje navedene mere kocke.
+
+Izpolnite tabelo z navedenimi merami kocke.
 
 @vspace@
 @addition_table()@
-@vspace@

@@ -104,7 +104,7 @@ if (ch == 3) then
 end  
 
 if (ch == 4) then 
-  lib.add_rectangle(120, 70, 80, 90, blue_style, false, true)
+  lib.add_rectangle(120, 70, 80, 100, blue_style, false, true)
   lib.add_rectangle(50, 180, 70, 30, blue_style, false, true) 
   lib.add_rectangle(200, 180, 70, 30, blue_style, false, true) 
 
@@ -123,4 +123,3 @@ end
 
   lib.end_canvas()
 end
-  

@@ -1,4 +1,4 @@
 apoen = {"bankovec", "kovancek"}
-plural = {"bankovci", "kovanci"}
-od = " od "
-valute = {"dinar. ", "dinara, "}
+plural = {"bankovca", "kovanca"}
+od = " za "
+valute = {"dinar ", "dinarjev "}

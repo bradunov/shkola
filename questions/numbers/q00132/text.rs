@@ -5,8 +5,3 @@ Oboj kružić u dnu ekrana pored tačnog odgovora.
 @center@ @mycanvas(result)@
 
 @center@ @lib.check_one_option_radio(answ,index)@
-
-
-
-
-

@@ -1,6 +1,8 @@
-ones = {"dve", "tri", "četiri", "pet", "šest", "sedem", "osem", "devet"}
+ones = {"dve", "tri", "štiri", "pet", "šest", "sedem", "osem", "devet"}
 tens = {"dvajset", "trideset", "štirideset", "petdeset", "šestdeset", "sedemdeset", "osemdeset", "devetdeset"}
 
 msg_two = "dva"
-msg_hundred = {"stotine", "stotina"}
-msg_thousand = {"tisoče", "tisoč"}
+msg_hundred = "sto"
+msg_thousand = {"tisoč", "tisoč"}
+
+lang = 2

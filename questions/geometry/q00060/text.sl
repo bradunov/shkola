@@ -1,8 +1,9 @@
-Kakšen kot naredijo kazalci na uri v 
 
-@repeat(3)@
-
-@center@ @number@ @name@? @hspacept(20)@ @lib.check_string(reply, 60, ans)@ kot
-
+Kakšen kot tvorijo kazalci na uri v 
+@vspace@
+@center@ @numb[1]@ @name[1]@ @hspacept(20)@ @lib.check_one_option_dropdown(angle, ans[1])@ kot,
 @vspace@ 
-@/repeat@
+@center@ @numb[2]@ @name[2]@ @hspacept(20)@ @lib.check_one_option_dropdown(angle, ans[2])@ kot,
+@vspace@ 
+@center@ @numb[3]@ @name[3]@ @hspacept(20)@ @lib.check_one_option_dropdown(angle, ans[3])@ kot.
+            

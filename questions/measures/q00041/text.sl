@@ -1,6 +1,5 @@
-V kvadrat vpišite ustrezno mersko enoto: @hspacept(3)@ @measure[1]@, @hspacept(3)@ @measure[2]@, @hspacept(3)@ @measure[3]@.
 
+V kvadrat vpišite ustrezno mersko enoto: @hspacept(3)@ @measure[1]@, @hspacept(3)@ @measure[2]@, @hspacept(3)@ @measure[3]@.
 @repeat(4)@ 
 @center@ @valueleft@ @measure[ind[1]]@ @hspacept(5)@ = @hspacept(5)@ @valueright@ @lib.check_string(measure[ind[2]],20)@ 
-
 @/repeat@

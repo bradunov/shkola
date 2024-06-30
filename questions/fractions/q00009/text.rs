@@ -1,5 +1,5 @@
-Obojene delove izrazi razlomkom:
 
+Obojene delove izrazi razlomkom:
 
 @center@ @lib.start_table({["text-align"] = "inline"})@ 
   @lib.start_row()@ 

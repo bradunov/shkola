@@ -6,21 +6,3 @@ Who is left with more money after buying sweets?
 @vspace@
 
 @center@ The person with the most money left over after buying sweets is @lib.check_string(reply,50, ans)@.         
-                     
-                   
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-             
-                  
-
-                  
-                  

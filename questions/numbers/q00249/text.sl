@@ -1,7 +1,10 @@
-Dat je broj @value@.
+
+Dato je število @value@. 
 @vspace@
-@center@ Broj je za @lib.check_number(numb[1])@ @rel[ch]@ od @numb[2]@.
-@center@ Jednak je @oper[op]@ @numb[3]@ i @lib.check_number(numb[4])@.
-@center@ Jednak je @lib.check_number(val[3])@ tisoč.
-@center@ Jednak je @lib.check_number(val[2])@ sto.
-@center@ Jednak je @lib.check_number(val[1])@ deset.
+@center@ Število je za @lib.check_number(numb[1])@ @rel[ch]@ od @numb[2]@.
+@center@ Enako je @oper[op]@ @numb[3]@ i @lib.check_number(numb[4])@. 
+@center@ Enako je @lib.check_number(val[3])@ tisoč.
+@center@ Enako je @lib.check_number(val[2])@ stotin. 
+@center@ Enako je @lib.check_number(val[1])@ desetic.
+            
+            

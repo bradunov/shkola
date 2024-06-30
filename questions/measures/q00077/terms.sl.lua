@@ -1,1 +1,1 @@
-measure_str = {" rob", "površina stranice", "površina kocke", "volumen"}
+measure_str = {" rob", "ploščina strane", "površina kocke", "prostornina"}

@@ -1,1 +1,1 @@
-operation = {"večji", "manjši"}
+operation = {"večja", "manjša"}

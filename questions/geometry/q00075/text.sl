@@ -1,3 +1,4 @@
-Oboj pravu v razmerju do katere je dana figura simetrična.
+
+Obarvaj premic, katera je simetrala lika.
 
 @center@ @mycanvas()@

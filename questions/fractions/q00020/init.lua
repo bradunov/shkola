@@ -1,3 +1,4 @@
+
 include("names")
 
 index_ime = math.random(#musko_ime_nom);    
@@ -11,9 +12,4 @@ put2 = put1 * (deo - 1);
 put = put1 + put2
 
 vreme = put2 * 6; 
-        
-                     
-
-                  
-                     
-
+ 

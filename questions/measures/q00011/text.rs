@@ -4,7 +4,7 @@ Kolika je površina kutije oblika kvadra čije dimenzije su @edge1@@measure[ind]
 
 @repeat(2)@
 @vspace@
-@quest[ITEM]@ 
+@ITEM@. @hspace@ @quest[ITEM]@ 
 @center@ @answ[ITEM]@
 @center@ Površina izmenjene kutije je @lib.check_number(surface1[ITEM],40)@@measure2[ind]@.
 @/repeat@   

@@ -5,5 +5,3 @@ Koliko vremena provede @imez@ na probi hora?
 
 @center@ @imez@ na probi hora provede ukupno
 @center@ @answ@
-                  
-                  

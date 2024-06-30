@@ -1,4 +1,5 @@
-@ime@ je @kliker@ klikera razporedil v @box@ škatle, tako da ima v vsaki škatli enako število klikerjev.
+
+@ime@ je @kliker@ frnikola razporedil v @box@ škatli, tako da ima v vsaki škatli enako število frnikola.
 
 @vspace@
-@center@ Koliko klikerjev je v @part@ @name@? @hspacept(5)@ @lib.check_number(value)@
+@center@ Koliko frnikola je v @part@ @name@? @hspacept(5)@ @lib.check_number(value)@

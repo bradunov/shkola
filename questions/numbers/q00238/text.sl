@@ -1,4 +1,5 @@
-Prepiši manjkajoče številke, da bo produkt pravilen. 
+
+Vpišite manjkajoče števke, da bo produkt pravilen.
 
 @vspace@
 @center@ @mycanvas()@

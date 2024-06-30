@@ -2,11 +2,5 @@
 @ime@ runs on a @put@ km long track. He has already run \(\frac{1}{@deo@}\) of the track. 
 
 How long will it take him to finish the track if he runs @500@ meters in @3@ minutes ?
-
 @vspace@
-
 @center@ He needs @lib.check_number(vreme,20)@ more minutes.  
-
-                  
-
-

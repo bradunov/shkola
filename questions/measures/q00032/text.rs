@@ -1,6 +1,6 @@
 
-Upiši odgovarajuće jedinice mere tako da jednakost bude tačna.    
+Upiši odgovarajuće merne jedinice  tako da jednakost bude tačna.    
 @repeat(4)@ 
 @vspace@
-@center@ @numleft@ @measure2[indl]@ @hspacept(5)@ = @hspacept(5)@ @numright@ @lib.check_string(measure[indr],25)@\(^2\)
+@center@ @numleft@ @measure2[indl]@ @hspacept(5)@ = @hspacept(5)@ @numright@ @lib.check_one_option_dropdown(measure2, measure2[indr])@
 @/repeat@       

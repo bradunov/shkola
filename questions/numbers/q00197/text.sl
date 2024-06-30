@@ -1,5 +1,6 @@
-Izračunaj.
 
-@repeat(6)@
+Izračunajte:
+
+@repeat(5)@
 @center@ @number1@ · @number2@ = @lib.check_number(result,60)@
 @/repeat@

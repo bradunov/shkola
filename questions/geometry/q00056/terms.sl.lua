@@ -1,1 +1,1 @@
-place = {"zaprti", "odprti"}
+place = {"sklenjene", "nesklenjene"}

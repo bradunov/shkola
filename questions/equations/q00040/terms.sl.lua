@@ -1,2 +1,2 @@
 operation = {"povečan", "zmanjšan"}
-comp = {"večji", "manjši", " ne manjši ", " ne večji "}
+comp = {"večje", "manjše", " ni manjše ", " ne večje "}

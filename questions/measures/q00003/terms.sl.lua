@@ -1,1 +1,1 @@
-measures_str = {"stranica", "obseg", "površina"}
+measures_str = {"stranica", "obseg", "ploščina"}

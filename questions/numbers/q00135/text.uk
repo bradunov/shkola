@@ -1,5 +1,5 @@
 
-Calculate gradually, as in the example:
+Calculate step by step, as in the example:
 @center@ @sab1@ + @sab2@ = @sab1@ + @val1@ + @val2@ = @s@ + @val2@ = @rez@ 
 
 @repeat(2)@

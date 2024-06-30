@@ -1,8 +1,6 @@
+
 Rešite enačbe.
-
-@repeat(5)@
-
-@center@  @answ@,   @hspacept(15)@ x = @lib.check_number(solution)@
-
+@repeat(4)@
 @vspace@
+@center@  @answ@,   @hspacept(15)@ x = @lib.check_number(solution)@
 @/repeat@

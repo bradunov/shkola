@@ -1,3 +1,4 @@
+
 Dopolni:
 
 @lib.start_table({["text-align"] = "center"})@
@@ -13,7 +14,6 @@ Dopolni:
 
 @center@ Obarvana je @lib.check_number(1)@ četrtina.
 @center@ Zapišemo z ulomkom @lib.check_fraction_simple(1, 4)@
-
 
 @lib.start_table({["text-align"] = "center"})@
   @lib.start_row()@

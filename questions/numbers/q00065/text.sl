@@ -1,5 +1,7 @@
-Napiši besedno števila:
+
+Napišite s besedami številke:
 
 @repeat(5)@
-@center@ @value@  @hspace@ @lib.check_string(reply,180,answer)@ 
-@/repeat@
+@center@ @value@  @hspace@ @quest@   
+@/repeat@ 
+            

@@ -1,3 +1,4 @@
+
 Vnesi znak + ali - tako, da bo enakost pravilna. 
 
 @repeat(5)@ 

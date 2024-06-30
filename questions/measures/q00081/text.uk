@@ -1,8 +1,8 @@
 
-The edge of a cube is @edge@@measure[1]@. The cuboid consists of @tostring(number1)@ such cubes.
+1.@hspace@  The edge of a cube is @edge@@measure[1]@. The cuboid consists of @tostring(number1)@ such cubes stacked on top of each other.
 @center@ Volume of the cuboid is @hspacept(3)@ @lib.check_number(volume1,40)@@measure2[1]@.  
 @vspace@
 
-The edge of a cube is @edge@@measure[2]@. Cuboid has the same  length and width as the cube, and its height is @tostring(number2)@ times longer then the edge of the cube. 
+2.@hspace@ The edge of a cube is @edge@@measure[2]@. Cuboid has the same  length and width as the cube, and its height is @tostring(number2)@ times longer then the edge of the cube. 
 @center@ Volume of the cuboid is @hspacept(3)@ @lib.check_number(volume2,40)@@measure2[2]@.  
  

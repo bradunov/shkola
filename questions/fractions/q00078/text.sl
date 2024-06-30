@@ -1,4 +1,5 @@
-Kateri del figure je pobarvan? Zapiši zlomkom.
+
+Kateri del figure je pobarvan? Zapiši ulomkom.
 
 @repeat(4)@
 @center@ @lib.select_objects(denom, 1, "table", "", style_table_current)@ \
@@ -7,4 +8,4 @@ Kateri del figure je pobarvan? Zapiši zlomkom.
     "numerator="..tostring(enum)..";denominator="..tostring(denom)..";")@
 @/repeat@
             
-Opazi, da so ti zlomki enaki.
+Opazi, da so ti ulomki enaki.

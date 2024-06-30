@@ -1,4 +1,5 @@
-Izrazite dano mero kot ulomek in decimalno število z večjo mero.
+
+Izrazite dano mero kot ulomek in decimalno število z večjo mersko enoto.
 
 @repeat(5)@
 @center@ @result@ @measure2[ITEM]@ @hspacept(3)@ = @hspacept(3)@ \

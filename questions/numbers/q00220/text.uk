@@ -1,5 +1,4 @@
-In the bag there are colorful candies. The graph shows the number of candies sorted by color. 
-In the table, write down how many candies there are of each color. 
 
-@vspace@
+There are colorful candies in the bag. The graph shows the number of candies sorted by color. 
+Write down in the table how many candies there are of each color. 
 @center@ @mycanvas()@

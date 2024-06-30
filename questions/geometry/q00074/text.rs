@@ -1,9 +1,4 @@
 
 Oboj slova koja su simetrična.
-
-@vspace@
- 
+@vspace@ 
 @center@ @mycanvas(all, results)@
-
-
-

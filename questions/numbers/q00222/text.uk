@@ -1,6 +1,9 @@
+
 @ime1@ and @ime2@ received money from their parents to buy sweets. 
-@ime1@ has @quest[1]@  
-@ime2@ has @quest[2]@
+@ime1@ has 
+@center@@quest[1]@.  
+@ime2@ has 
+@center@@quest[2]@.
 
 @vspace@
 @center@ Who has more money and by how much?

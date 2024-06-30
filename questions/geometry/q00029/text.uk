@@ -1,4 +1,5 @@
-Color the circles on the drawings that represent a grid of cubes.
+
+Color the circles on the drawings that represent a grid of cuboid.
 
 @vspace@
 @center@ @mycanvas()@

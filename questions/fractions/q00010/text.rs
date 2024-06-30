@@ -1,3 +1,4 @@
+
 Obojeni deo figure zapiši razlomkom:            
 
 @center@ @lib.select_objects(3, 2, "triangle", "", style_triangle)@ \

@@ -1,15 +1,8 @@
-                                Select the circle next to the correct answer.
+                                
 The area of the rectangle in the picture is:
-
 @center@ @mycanvas()@                  
-
 @center@ @lib.check_one_option_radio(answ,ind)@
+Select the circle next to the correct answer.
 @vspace@
-
-What units are we using for the area? 
-Write the full name in words.
+What units are we using for the area? Write the full name in words.
 @center@ @lib.check_string("centimetre squared", 130)@
-
-       
-            
-            

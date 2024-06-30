@@ -1,3 +1,4 @@
+
 @ime@ ima @number@ @pad@. Vsak dan poje do \(\frac{@1@}{@fact@}\) marelic, ki so preostale, ker poje samo cel del izračunanega števila marelic. Preostale marelice pusti za jutri. Zadnji dan poje vse preostale marelice.
 
 @vspace@                

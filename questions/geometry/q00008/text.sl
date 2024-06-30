@@ -1,3 +1,4 @@
-Na kateri sliki so figure, ki jim je treba nadaljevati začeti niz?  
+
+Na kateri sliki so figure, ki jim je treba nadaljevati začeti niz? 
 @center@ @mycanvas()@
-Oboj krogec pod ustrezno risbo.
+Pobarvaj krogec pod ustrezno risbo.

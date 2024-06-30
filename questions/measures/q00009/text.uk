@@ -1,7 +1,7 @@
 
 Calculate the surface area of a cuboid whose dimensions are:
 @repeat(2)@
-@vspace@
+@ITEM@.
 @center@ length @hspacept(3)@ @quest[1]@ 
 @center@ width @hspacept(3)@ @quest[2]@
 @center@ height @hspacept(3)@ @quest[3]@

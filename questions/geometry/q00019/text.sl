@@ -1,7 +1,8 @@
-Obseg trikotnika je @circ@ @"cm"@. Dve strani trikotnika sta dolge @side[1]@ @"cm"@ in @side[2]@ @"cm"@.
+
+Obseg trikotnika je @circ@ @"cm"@. Dve stranice trikotnika sta dolge @side[1]@ @"cm"@ in @side[2]@ @"cm"@.
 
 Kolika je dolžina tretje stranice trikotnika?
-Obkroži krog ob pravilnem odgovoru.
+Pobarvaj krog ob pravilnem odgovoru.
 
 @vspace@
 @vspace@

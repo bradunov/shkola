@@ -1,6 +1,5 @@
-Izrazite ulomek s decimalnim številom.
 
+Izrazite ulomek kot decimalno število.
 @repeat(5)@
-@center@    \(\frac{@brojnik@}{@imenovalec@}\) @hspacept(3)@ = @hspacept(3)@ @lib.check_number(rezultat,30)@ 
- 
-@/repeat@
+@center@    \(\frac{@brojilac@}{@imenilac@}\) @hspacept(3)@ = @hspacept(3)@ @lib.check_number(rezult,30)@ 
+@/repeat@ 

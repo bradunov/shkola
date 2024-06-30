@@ -1,15 +1,6 @@
  
 @ime@ was reading a book with @strane@ pages. She read  \(\frac{1}{@imenilac1@}\) of the book on the first day, and  \(\frac{1}{@imenilac2@}\) of the book on the second day. 
 How much does @ime@ have left to read?
-
-@vspace@
-  
+@vspace@ 
 @center@ @ime@ has  \
 @lib.check_fraction_condition(is_ok, nil, nil, sln)@ of the book left to read, which is  @lib.check_number(ostalo)@  pages.
-                
-                  
-                  
-                  
-                  
-                  
-                  

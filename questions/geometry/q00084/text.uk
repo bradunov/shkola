@@ -1,6 +1,4 @@
 
 Color @name@.
-
 @vspace@
-
 @center@ @mycanvas(result)@

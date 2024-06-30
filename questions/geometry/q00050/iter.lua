@@ -24,13 +24,3 @@ else
       mes_s = ind+1
    end  
 end	
-
-
-            
-            
-           
-
-
-     
-               
-

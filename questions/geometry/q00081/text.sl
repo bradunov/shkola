@@ -1,3 +1,4 @@
-Obarvaj figure, ki se nahajajo @position@ zaprte krivulje linije.
+
+Pobarvaj like, ki se nahajajo @position@ sklenjene krive črte.
 
 @center@ @mycanvas(result)@

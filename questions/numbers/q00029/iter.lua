@@ -1,3 +1,4 @@
+
 factor1 = math.random(8);
 factor2 = math.random(9 - factor1);
 

@@ -1,9 +1,7 @@
+
 Color the circle in front of the correct answer.
-
 @vspace@
-
 @center@ @mycanvas()@
 The image shows an angle.
 @vspace@   
 @center@ @lib.check_one_option_radio(answ,ind)@ 
-@vspace@

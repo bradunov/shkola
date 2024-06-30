@@ -1,3 +1,4 @@
+
 include("terms")
 
 style = 
@@ -96,12 +97,10 @@ for i = 1,7 do
 		  x = 0
 		  answ = t_str		  
       end
-      lib.add_text(3*ow, 2*ow+i*(wv+ow), object[ind], colour_style)
-   	  lib.add_text(8*ow+wh-x, 2*ow+i*(wv+ow), reply[i], text_style)	  	  
+      lib.add_text(3*ow, ow+i*(wv+ow), object[ind], colour_style)
+   	  lib.add_text(wh+wv, 3*ow+i*(wv+ow), reply[i], text_style)	  	  
 	  lib.add_input(2*(wv+wh+ow), ow+i*(wv+ow),40, 40, lib.check_string(answ,15))	  
   end 
 
   lib.end_canvas()
 end
-    
-          

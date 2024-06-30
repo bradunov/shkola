@@ -1,3 +1,4 @@
+
 Napiši izraz in izračunaj glede na dano številsko premico. 
 Dopisi manjkajoča števila.
 

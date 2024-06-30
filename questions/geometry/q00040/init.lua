@@ -1,3 +1,4 @@
+
 include("terms")
 
 style = 
@@ -39,31 +40,3 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end
-     
-                   
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
- 

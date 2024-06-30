@@ -1,1 +1,1 @@
-place = {"pravo", "polpravo", "dolžino"}
+place = {"premico", "poltrak", "daljico"}

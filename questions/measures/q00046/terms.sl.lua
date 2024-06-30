@@ -1,1 +1,1 @@
-dolžina = { "dolžine", "dolžina" }
+duzina = { "dolžinam", "dolžinam" }

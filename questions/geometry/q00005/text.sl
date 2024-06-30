@@ -1,3 +1,4 @@
-Obarvaj @choice[ind]@ figuro:
+
+Pobarvaj @choice[ind]@ figuro:
 
 @center@ @mycanvas()@

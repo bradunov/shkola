@@ -1,3 +1,4 @@
-Koliko kvadratkov manjka vsaki od modrih figur, da bi imela površino kot rdeči pravokotnik?
+
+Koliko kvadratov manjka vsakemu modremu liku, da bo imel površino kot rdeči pravokotnik?
 @vspace@
 @center@ @mycanvas()@

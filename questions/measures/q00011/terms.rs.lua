@@ -11,5 +11,3 @@ msg_9 = " Površina bi se uvećala "
 msg_10 = "puta."
 msg_11 = " umanjile "
 msg_12 = " Površina bi se umanjila "
-
-

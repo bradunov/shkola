@@ -1,1 +1,1 @@
-ans_str = "normalne"
+ans_str = "pravokotnice"

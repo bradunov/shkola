@@ -1,9 +1,6 @@
-Rešite enačbe.
 
-@repeat(5)@
-
-@center@ @answ@ @hspacept(10)@ x =  @lib.check_number(result)@ 
-
+Rešite enačbe. 
+@repeat(4)@
 @vspace@
-
-@/repeat@
+@center@ @answ@ @hspacept(10)@ x =  @lib.check_number(result)@ 
+@/repeat@   

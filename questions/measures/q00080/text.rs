@@ -1,13 +1,7 @@
 
-Izračunaj zapreminu kvadra čija je:
+Izračunaj zapreminu kvadra čije ivice su dužine:
 @repeat(2)@
-@center@ @quest[1]@, 
-@center@ @quest[2]@, 
-@center@ @quest[3]@.
-@center@ Zapremina je @answ@.
 @vspace@
-@/repeat@  
-   
-                  
-          
-                   
+@ITEM@. @hspacept(50)@ @quest[1]@, @hspace@ @quest[2]@, @hspace@ @quest[3]@.
+@center@ Zapremina je @answ@.
+@/repeat@ 

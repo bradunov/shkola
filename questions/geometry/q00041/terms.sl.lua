@@ -1,1 +1,1 @@
-answ = {"pravokotnik", "kvadrat", "ogljišča", "nasprotne", "sosednje"}
+answ = {"pravokotnik", "kvadrat", "oglišča", "nasprotne", "sosednje"}

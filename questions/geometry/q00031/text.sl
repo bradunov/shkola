@@ -1,4 +1,5 @@
-Pred vsako trditev napiši če je trditev pravilna (t) ali napačna (n).
+
+Pred vsako trditev napišite če je trditev pravilna (t) ali napačna (n).
 
 @vspace@
 @center@ @mycanvas()@

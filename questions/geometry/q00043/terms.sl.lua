@@ -1,1 +1,1 @@
-model = {"valjek", "kocka", "žoga", "kvader", "piramida", "kupa"}
+model = {"valj", "kocka", "krogla", "kvader", "piramida", "stožec"}

@@ -5,13 +5,19 @@ include("terms")
 rf = math.random(#zensko_ime_dativ);
 rm = math.random(#musko_ime_dativ)
 
-ime_f = zensko_ime_dativ[rf];
-ime_m = musko_ime_dativ[rm] 
+include("names")
+include("terms")
+
+rf = math.random(#zensko_ime_nom);
+rm = math.random(#musko_ime_nom)
+
+ime_f = zensko_ime_nom[rf];
+ime_m = musko_ime_nom[rm] 
 
 ind = math.random(12)
 birth_m = months[ind]
 
-number = math.random(11)
+number = 1+math.random(10)
 temp = (ind + number)%12
 
 if (temp == 0) then
@@ -25,4 +31,5 @@ if (number < 5) then
 else
 	index = padez[2]
 end	
-          
+        
+        

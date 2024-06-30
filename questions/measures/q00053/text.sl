@@ -1,3 +1,4 @@
-@repeat(6)@
-@center@ Koliko v @term1@ je @term2@? @hspacept(5)@ @lib.check_number(value[ITEM],20)@
+
+@repeat(5)@
+@center@ Koliko @term2@ je v @term1@? @hspacept(20)@ @lib.check_number(value[ITEM],20)@
 @/repeat@

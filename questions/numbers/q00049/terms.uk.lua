@@ -1,1 +1,1 @@
-kutije = { "boxes", "box" }
+kutije = { "boxes", "boxes" }

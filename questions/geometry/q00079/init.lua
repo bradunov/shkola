@@ -40,7 +40,7 @@ text_style = {["font_size"] = "16"}
 
 mycanvas = function()
 
-  lib.start_canvas(380, 250, "center", results)
+  lib.start_canvas(320, 250, "center", results)
 
   w = 20
   ow = 15

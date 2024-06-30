@@ -1,1 +1,1 @@
-name = "ostatak"
+name = "ostanek"

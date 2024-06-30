@@ -1,3 +1,4 @@
+
 @ime@ je šel k babici. Prešel je \(\frac{1}{@deo@}\) poti. Ostalo mu je, da prehodi še @put2@ metrov.
 
 @vspace@

@@ -1,4 +1,5 @@
-Natisnjeni so bili časopisi v nakladi @number@ izvodov. Če časopis vsebuje @paper@ @strana@, koliko listov papirja je bilo uporabljenih za tisk celotne naklade?
+
+Časopise so tiskali v nakladi @number@ izvodov. Če časopis vsebuje @paper@ @strana@, koliko listov papirja je bilo uporabljenih za tisk celotne naklade?
 (Ne pozabite, da se na enem listu natisneta dve strani.)
 
 @vspace@

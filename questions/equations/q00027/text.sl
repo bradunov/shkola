@@ -1,7 +1,7 @@
-Določite skup rešitev neenačbe. 
 
-@repeat(4)@
+Določite množico rešitev neenačbe 
+@repeat(3)@
+@vspace@
 @center@  @noneq@,  
 @center@ @answ@ 
-@vspace@
 @/repeat@

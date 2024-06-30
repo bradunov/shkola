@@ -1,14 +1,6 @@
 
 Write the given numbers as roman numerals: 
-
 @repeat(5)@
-
 @center@ @value@  @hspacept(30)@ @lib.check_string_case(reply,60,ans)@ 
 @/repeat@                 
-          
-               
-               
-                  
-                  
-            
-            
+ 

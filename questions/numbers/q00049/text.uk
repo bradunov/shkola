@@ -3,10 +3,3 @@
 @vspace@ 
 How many marbles are there in @part@ of the boxes? 
 @center@  @lib.check_number(value)@
-
-                  
-                  
-                  
-                  
-                  
-                  

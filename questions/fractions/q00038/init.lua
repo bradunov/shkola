@@ -18,11 +18,28 @@ minut = vreme - sat * 60
 
 meas = meas_arr[1]
 
-if (sat > 0 and sat < 5 ) then
-    if (sat == 1) then
-        meas = meas_arr[2]
-    else
-        meas = meas_arr[3]
-    end
-end
-  
+if (lang == 2) then
+	if (sat == 0 or sat > 4 ) then
+		meas = meas_arr[1]
+	else
+		if (sat == 1) then
+			meas = meas_arr[2]
+		else
+			if (sat == 2) then
+				meas = meas_arr[3]
+			else
+				meas = meas_arr[4]	
+			end					
+		end
+	end
+else
+	if (sat > 0 and sat < 5 ) then
+		if (sat == 1) then
+			meas = meas_arr[2]
+		else
+			meas = meas_arr[3]
+		end
+	else
+		meas = meas_arr[1]
+	end
+end	

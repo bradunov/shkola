@@ -1,16 +1,9 @@
 
 Ako je
-@center@ @number@ @"*"@  @number@ = @prod@
-
-ne množeći, samo korišćenjem svojstva računskih operacija
-@center@ @"(a + b) * (c + d) = a*b + a*c + b*c + b*d"@,
+@center@ @number@ @op@  @number@ = @prod@
+ne množeći, samo korišćenjem svojstava računskih operacija
+@center@ @"(a + b)"@ @op@ @"(c + d) = a"@ @op@ @"b + a"@ @op@ @"c + b"@ @op@ @"c + b"@ @op@ @"d"@,
 izračunaj: 
-
 @repeat(4)@
-@center@ @first@ @"*"@  @second@ @hspacept(3)@ = @hspacept(3)@ @lib.check_number(reply,30)@
+@center@ @first@ @op@  @second@ @hspacept(3)@ = @hspacept(3)@ @lib.check_number(reply,30)@
 @/repeat@
-
-            
-
- 
- 

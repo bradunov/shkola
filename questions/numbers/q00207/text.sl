@@ -1,4 +1,5 @@
-Izračunaj kvocient.
+
+Izračunajte količnik.
 
 @vspace@
 @center@ @mycanvas()@

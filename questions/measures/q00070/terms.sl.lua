@@ -1,2 +1,2 @@
-measure = {"dolžine", "mase", "zapremine tekočin", "časa"}
-name = {"meter", "gram", "liter", "sekunda"}
+measure = {"dolžine", "mase", "prostornine tekočin", "časa"}
+name = {"meter", "gram", "liter", "sekund"}

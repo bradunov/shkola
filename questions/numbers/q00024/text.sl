@@ -1,4 +1,5 @@
-Napišite po vrstnem redu od najmanjšega do največjega vse dvomestne številke, v katerih se števka @hspace8pt@ @number@ @hspace8pt@ pojavi enkrat.
+
+Napišite po vrstnem redu od najmanjšega do največjega vse dvomestne številke, v katerih se številka @hspace8pt@ @number@ @hspace8pt@ pojavi enkrat.
 
 @vspace@
 

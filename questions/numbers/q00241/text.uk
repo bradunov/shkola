@@ -1,10 +1,9 @@
+
 If 
-@center@ @number@ @"*"@  @number@ = @prod@
-
+@center@ @number@ @op@  @number@ = @prod@
 without multiplication, only using the property of arithmetic operations
-@center@ @"(a + b) * (c + d) = a*b + a*c + b*c + b*d"@,
+@center@ @"(a + b)"@ @op@ @"(c + d) = a"@ @op@ @"b + a"@ @op@ @"c + b"@ @op@ @"c + b"@ @op@ @"d"@,
 calculate:
-
 @repeat(4)@
-@center@ @first@ @"*"@  @second@ @hspacept(3)@ = @hspacept(3)@ @lib.check_number(reply,30)@
+@center@ @first@ @op@  @second@ @hspacept(3)@ = @hspacept(3)@ @lib.check_number(reply,30)@
 @/repeat@

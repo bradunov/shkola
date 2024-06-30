@@ -1,4 +1,5 @@
-Izračunaj obseg in površino figure na sliki.
+
+Izračunajte obseg @"(O)"@ in ploščino @"(P)"@ lika na sliki.
 
 @vspace@
 @center@ @mycanvas()@                  

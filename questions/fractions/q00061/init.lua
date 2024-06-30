@@ -1,3 +1,4 @@
+
 include("names")
 include("terms")
 
@@ -21,17 +22,4 @@ value_s = fract_j * fact1 * fact2
 value_j = fract_s * fact1 * fact2
 
 result = value - value_s - value_j
-       
-     
-                
-    
-             
-
-
-
-           
-
-
-  
-
-     
+ 

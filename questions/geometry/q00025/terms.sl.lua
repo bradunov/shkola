@@ -1,2 +1,2 @@
-title = {"Ime", "Številka", "telesa", "površina", "ravnih", "krivih"}
-object = {"kocka", "kvader", "valj", "žoga", "stožec", "piramida"}
+title = {"Ime", "Število", "telesa", "ploskev", "ravnih", "ukrivljenih"}
+object = {"kocka", "kvader", "valj", "krogla", "stožec", "piramida", "4-strana"}

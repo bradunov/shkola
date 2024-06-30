@@ -1,3 +1,4 @@
+
 style = 
        {["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -24,7 +25,7 @@ ow = 60
 y = ow + w
 
 mycanvas = function(no)
-  lib.start_canvas(400, 200, "center")
+  lib.start_canvas(350, 200, "center")
 
     if (indm == 1) then 
 	    sign[1] = "·"

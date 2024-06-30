@@ -1,4 +1,5 @@
-Izračunaj razliko števil @number1@ in @number2@. Nato, ne da bi računali, določite vrednost neznane številke x s stalno razliko.
+
+Izračunajte razliko števil @number1@ in @number2@. Nato, brez računanja, določite vrednost neznanega števila x s pomočjo konstante razlike.
 @center@ @number1@ - @number2@ = @lib.check_number(result,30)@
 
 @vspace@

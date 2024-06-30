@@ -1,7 +1,8 @@
+
 include("terms")
 
 measure = {"m", "dm", "cm","mm"}
-measure2 = {"m\(^2\)", "dm\(^2\)", "cm\(^2\)","mm\(^2\)"}
+measure2 = {"m²", "dm²", "cm²","mm²"}
 
 ind = math.random(4)
 
@@ -18,10 +19,4 @@ else
     circ = edge * 12
     quest = msg_str[2] .. tostring(math.floor(circ)) .. measure[ind] .. "."
 end            
-             	
-    
-
-
-     
-               
-
+ 

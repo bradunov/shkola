@@ -1,1 +1,2 @@
-change = {"povečala", "zmanjšala"}
+change = {"povečal", "zmanjšal"}
+changep = {"povečala", "zmanjšala"}

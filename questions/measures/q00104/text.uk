@@ -1,12 +1,9 @@
 
-Calculate the  circumference and the area of the  figure on the picture.
+Calculate the  circumference @"(O)"@ and the area @"(P)"@ of the  figure on the picture.
 
 @vspace@
 @center@ @mycanvas()@                  
 
 @center@ O = @lib.check_number(circ,30)@ cm
 @center@ P = @lib.check_number(area,40)@ @meas2@
-                
-       
-            
-            
+ 

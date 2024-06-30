@@ -1,4 +1,5 @@
-Izrazite zlomkom, kateri del kroga predstavlja en kos:
+
+Izrazite ulomkom kateri del kroga predstavlja en kos:
 @vspace@
 @center@ @lib.fraction_circle(number)@ 
 @vspace@

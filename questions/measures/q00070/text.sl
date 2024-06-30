@@ -1,3 +1,4 @@
+
 Osnovna enota za merjenje:
 @vspace@   
 @center@ @measure[ind[1]]@ je @lib.check_string(name[ind[1]],50)@, označena z  @lib.check_string(sign[ind[1]],20)@,

@@ -1,17 +1,19 @@
-musko_ime_nom = {"Milan", "Nikola", "Peter", "Dejan", "Vlada", "Jovan"};
-musko_ime_gen = {"Milana", "Nikole", "Petra", "Dejana", "Vlade", "Jovana"};
-musko_ime_dativ = {"Milanu", "Nikoli", "Petru", "Dejanu", "Vladi", "Jovanu"};
-musko_ime_akuzativ = {"Milana", "Nikolo", "Petra", "Dejana", "Vlado", "Jovana"};
-musko_ime_instrum = {"Milanom", "Nikolo", "Petrom", "Dejanom", "Vladom", "Jovanom"};
-musko_ime_lokativ = {"Milanu", "Nikoli", "Petru", "Dejanu", "Vladi", "Jovanu"};
+musko_ime_nom = {"Ivan", "Nikola", "Peter", "Danilo", "Janez", "Jože"};
+musko_ime_gen = {"Ivana", "Nikole", "Petra", "Danila", "Janeza", "Joža"};
+musko_ime_dativ = {"Ivanu", "Nikoli", "Petru", "Danilu", "Janezu", "Joži"};
+musko_ime_akuzativ = {"Ivana", "Nikolu", "Petra", "Danila", "Janeza", "Jožu"};
+musko_ime_instrum = {"Ivanom", "Nikolom", "Petrom", "Danilom", "Janezom", "Jožom"};
+musko_ime_lokativ = {"Ivanu", "Nikoli", "Petru", "Danilu", "Janezu", "Joži"};
 
-musko_pridev = {"Milanov", "Nikolin", "Peter", "Dejanov", "Vladin", "Jovanov"};
+musko_pridev = {"Ivanova", "Nikolina", "Petrova", "Danilova", "Janezova", "Jožina"};
+musko_mpridev = {"Ivanov", "Nikolin", "Petrov", "Danilov", "Janezov", "Jožin"};
 
-zensko_ime_nom = {"Milka", "Branka", "Ana", "Jelena", "Milica", "Ljubica", "Milena"};
-zensko_ime_gen = {"Milke", "Branke", "Ane", "Jelene", "Milice", "Ljubice", "Milene"};
-zensko_ime_dativ = {"Milki", "Branki", "Ani", "Jeleni", "Milici", "Ljubici", "Mileni"};
-zensko_ime_akuzativ = {"Milko", "Branko", "Ano", "Jeleno", "Milico", "Ljubico", "Mileno"};
-zensko_ime_instrum = {"Milkom", "Brankom", "Ano", "Jelenom", "Milicom", "Ljubicom", "Milenom"};
-zensko_ime_lokativ = {"Milki", "Branki", "Ani", "Jeleni", "Milici", "Ljubici", "Mileni"};
+zensko_ime_nom = {"Irena", "Branka", "Ana", "Jelena", "Marija", "Maruša", "Jožica"};
+zensko_ime_gen = {"Irene", "Branke", "Ane", "Jelene", "Marije", "Maruše", "Jožice"};
+zensko_ime_dativ = {"Ireni", "Branki", "Ani", "Jeleni", "Mariji", "Maruši", "Jožici"};
+zensko_ime_akuzativ = {"Irenu", "Branko", "Ano", "Jeleno", "Marija", "Marušu", "Jožica"};
+zensko_ime_instrum = {"Irenom", "Brankom", "Ano", "Jelenom", "Marijom", "Marušom", "Jožicom"};
+zensko_ime_lokativ = {"Ireni", "Branki", "Ani", "Jeleni", "Mariji", "Maruši", "Jožici"};
 
-zensko_pridev = {"Mlkin", "Brankin", "Anin", "Jelenin", "Milicin", "Ljubicin", "Milenin"};
+zensko_pridev = {"Irenina", "Brankina", "Anina", "Jelenina", "Marijina", "Marušina", "Jožicina"};
+zensko_mpridev = {"Irenin", "Brankin", "Anin", "Jelenin", "Marijin", "Marušin", "Jožicin"};

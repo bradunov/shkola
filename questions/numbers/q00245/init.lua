@@ -24,6 +24,9 @@ text_style = {["font_size"] = "16"}
 r = math.random(#musko_ime_nom)
 ime = musko_ime_nom[r] 
 padez = musko_ime_dativ[r]
+if (lang == 2) then
+	padez = ime
+end
 
 small = {2, 2, 3, 3, 4, 4, 5, 5, 5 ,5}
 big  =  {7, 9, 7, 8, 7, 9, 6, 7, 8, 9}

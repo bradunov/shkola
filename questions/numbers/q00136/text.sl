@@ -1,8 +1,9 @@
-Izračunaj postepeno, kao u primeru:
+
+Računajte postopoma, kot v primeru:
 @center@ @nik@  -  @lac@ @hspacept(3)@  = @hspacept(3)@ @nik@  - @cif2@ - @val2@  
 @center@ @hspacept(30)@ =  @hspacept(3)@ @val1@  -  @val2@ @hspacept(3)@  = @hspacept(3)@ @rez@
 
-@repeat(3)@
+@repeat(2)@
 @vspace@
 @center@  @umanjenik@  -  @umanjilac@ @hspacept(3)@  = @hspacept(3)@ @lib.check_number(umanjenik,20)@  - @lib.check_number(cifra2,20)@ - @lib.check_number(value2,20)@  
 @center@ @hspacept(60)@  = @hspacept(3)@ @lib.check_number(value1,20)@  -  @lib.check_number(value2,20)@   = @lib.check_number(rezultat,20)@

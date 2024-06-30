@@ -1,4 +1,4 @@
-name1 = { "laksa", "lakša"}
-name2 = { "teza", "teža"}
-colour = {"plava", "crvena", "zelena", "Plava", "Crvena", "Zelena"}
+name1 = { "lazja", "lažja"}
+name2 = { "tezja", "težja"}
+colour = {"modra", "rdeča", "zelena", "Modra", "Rdeča", "Zelena"}
 padez = {"modre", "rdeče", "zelene"}

@@ -1,15 +1,7 @@
 
+How much 
 @repeat(3)@
-
-How much @opersecond@ is the @namefirst@ of the numbers @term1@ and @term2@ than the number @term3@.
+@opersecond@ is the @namefirst@ of the numbers @term1@ and @term2@ than the number @term3@?
 @center@ The answer is  @lib.check_number(result)@. 
-@/repeat@                                                     
-          
-                  
-             
-              
-                  
-               
-
-            
-            
+@/repeat@                                                  
+ 

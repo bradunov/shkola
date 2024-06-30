@@ -1,3 +1,4 @@
+
 Upiši u prvi kvadratić najbližu deseticu manju od datog broja, a u drugi veću od datog broja.
 
 @vspace@

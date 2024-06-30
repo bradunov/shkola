@@ -1,9 +1,7 @@
 
-Izračunaj površinu pravougaonika ako je njegova  
+Izračunaj površinu pravougaonika ako su njegove stranice jednake  
 @repeat(2)@ 
 @vspace@
-@center@ dužina @hspacept(3)@ @numb[1]@@measure[ind]@ @numb[3]@@measure[ind+1]@, @hspacept(15)@ širina @hspacept(3)@ @numb[2]@@measure[ind]@ @numb[4]@@measure[ind+1]@
-@center@ @lib.check_number(value[1])@@measure2[ind+1]@  @answ@
-@/repeat@      
-
-    
+@center@  @numb[1]@@measure[ind]@ @numb[3]@@measure[ind+1]@ @hspacept(10)@ i @hspacept(10)@ @numb[2]@@measure[ind]@ @numb[4]@@measure[ind+1]@
+@center@ Površina je @hspacept(3)@ @lib.check_number(value[1])@@measure2[ind+1]@  @answ@
+@/repeat@  

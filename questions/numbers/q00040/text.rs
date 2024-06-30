@@ -4,5 +4,3 @@
 @center@ Rezultat je  @lib.check_number(result)@ 
 @vspace@
 @/repeat@         
-                  
-               

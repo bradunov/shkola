@@ -1,14 +1,13 @@
 
 @center@ The crows have flown, 
 @center@ they spotted the branches;
-@center@ @nv1@ crows on a branch,  @vfree@ crows more,
-@center@ @nv2@ crows on a branch,  @ng@ branches more.
+@center@ @nv1@ @text[1]@ on a branch,  @vfree@ @text[2]@ more,
+@center@ @nv2@ @text[3]@ on a branch,  @ng@ @text[4]@ more.
 @vspace@
-Write an equation to calculate how many branches @"g"@ there were.
+Write an equation to calculate how many branches @"g"@ were there.
 @center@ @equ@
 @vspace@
-Solve the equation and answer:
+Solve the equation and answer.
 @center@ How many branches were there? @hspacept(5)@ @lib.check_number(grane)@
 @center@ How many crows were there? @hspacept(5)@ @lib.check_number(vrane)@
-
-            
+      

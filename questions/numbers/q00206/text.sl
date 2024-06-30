@@ -1,4 +1,5 @@
-Izračunaj produkt.
+
+Izračunajte produkt.
 
 @vspace@
 @center@ @mycanvas()@

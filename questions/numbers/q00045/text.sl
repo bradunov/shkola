@@ -1,3 +1,4 @@
+
 Vpiši številko, ki jo dobiš, ko številko:
 
 @vspace@ 

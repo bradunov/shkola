@@ -1,3 +1,4 @@
+
 @repeat(2)@
 On the ship there are @total@ passengers. If a certain number of passengers @text1[ITEM]@ in the port, on the ship there will be @text2[ITEM]@ @number@ passengers. How many passengers are @text3[ITEM]@ in the port?
 Set up and solve an equation.

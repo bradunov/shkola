@@ -2,4 +2,4 @@
 @ime@ trains for marathon. He is running on a track that is @put@@"km"@ long. He has already run  \(\frac{1}{@deo@}\) of the track. 
 How long will it take him to finish the track, if it took him one hour to run  10 kilometers? 
 @vspace@
-@center@ It takes him @lib.check_number(sat,20)@ @meas@ i @lib.check_number(minut,20)@ minutes.  
+@center@ It takes him @lib.check_number(sat,20)@ @meas@ and @lib.check_number(minut,20)@ minutes.  

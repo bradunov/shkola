@@ -1,8 +1,7 @@
-Calculate the volume of a cuboid with:
+
+Calculate the volume of the cube with lengths of edges:
 @repeat(2)@
-@center@ @quest[1]@,
-@center@ @quest[2]@,
-@center@ @quest[3]@.
-@center@ The volume is @answ@.
 @vspace@
-@/repeat@
+@ITEM@. @hspacept(50)@ @quest[1]@, @hspace@ @quest[2]@, @hspace@ @quest[3]@.
+@center@ The volume is @answ@.
+@/repeat@ 

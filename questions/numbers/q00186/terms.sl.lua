@@ -1,2 +1,2 @@
-operat1 = {"Razlika", "Vsota"}
+operat1 = {"Razliko", "Vsoto"}
 operat2 = {"zmanjšaj", "povečaj"}

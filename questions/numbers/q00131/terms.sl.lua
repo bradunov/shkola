@@ -1,1 +1,1 @@
-header_arr = { "Decimalna", "enota", "Podati", "številko", "Zaokroženo", " število" }
+header_arr = { "Desetiška", "enota", "Podata", "številka", "Zaokrožena", " številka" }

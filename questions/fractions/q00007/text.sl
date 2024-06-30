@@ -1,3 +1,4 @@
+
 Opazuj sliko in odgovori:
 
 @center@ @fraction_table(3)@

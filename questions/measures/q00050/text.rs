@@ -1,5 +1,5 @@
 
-@ime_m@ je rođendan u @birth_m@, a  @ime_f@ za @number@ @index@. 
-U kom mesecu je @ime_f@  rođendan? @hspacept(5)@ 
+@ime_m@ slavi rođendan u @birth_m@, a  @ime_f@ posle @number@ @index@. 
+U kom mesecu @ime_f@ slavi rođendan?  
 @vspace@
-@center@ @ime_f@ je rođendan u @hspacept(5)@ @lib.check_one_option_dropdown(months, birth_f)@.  
+@center@ @ime_f@ slavi rođendan u @hspacept(5)@ @lib.check_one_option_dropdown(months, birth_f)@.  

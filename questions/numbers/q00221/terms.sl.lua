@@ -1,1 +1,1 @@
-food = {"paradižnik", "sir", "oljke", "šunka", "gobe", "salama"}
+food = {"paradižnik", "sir", "oljke", "šunku", "gobe", "salamu"}

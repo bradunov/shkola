@@ -1,4 +1,5 @@
-Zapišite del slike z ulomkom:
+
+Obarvajte del figure zapisan z ulomkom:
 
 @repeat(3)@
 @center@ \(\frac{1}{@denom@}\) = \

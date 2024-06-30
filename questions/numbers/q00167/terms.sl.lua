@@ -1,2 +1,2 @@
-msg_note = {" bankovcev v vrednosti ", " bankovca v vrednosti "}
+msg_note = {" bankovec v vrednosti ", " bankovcev v vrednosti "}
 msg_val = " dinarjev, "

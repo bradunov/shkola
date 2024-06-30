@@ -1,5 +1,5 @@
 
-Upiši cifre koje nedostaju tako da dati proizvod bude tačan.
+Upiši cifre koje nedostaju tako da  proizvod bude tačan.
 
 @vspace@
 @center@ @mycanvas()@

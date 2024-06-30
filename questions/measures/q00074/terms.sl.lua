@@ -1,4 +1,4 @@
-comp = {"najdaljši", "najkrajši"}
+comp = {"najdaljše", "najkrajše"}
 year = {"tretjina", "četrtina", "petina", "šestina",  "sedmina", "osmina"}
 
 msg_day = " dni"

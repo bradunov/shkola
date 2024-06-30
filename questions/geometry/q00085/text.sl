@@ -1,5 +1,4 @@
-Prebarvaj črke, ki imajo prave kote.
 
+Pobarvaj črke, ki imajo prave kote.
 @vspace@
-
 @center@ @mycanvas(all, results)@

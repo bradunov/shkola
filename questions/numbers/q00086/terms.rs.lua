@@ -1,1 +1,2 @@
-sign = {"više", "manje"}            
+sign = {"više", "manje"}
+lang = 1            

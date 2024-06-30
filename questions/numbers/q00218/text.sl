@@ -1,4 +1,5 @@
-Izračunaj vrednost izraza.
+
+Izračunajte vrednost izraza.
 
 @repeat(4)@
 @vspace@

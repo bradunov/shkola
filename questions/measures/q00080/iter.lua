@@ -1,6 +1,4 @@
 
-include("terms")
-
 measure = {"m", "dm", "cm", "mm"}
 measure2 = {"m³","dm³","cm³", "mm³"}
 quest = {}
@@ -21,7 +19,7 @@ volume_out[2] = volume - 1000 * volume_out[1]
 
 
 for i = 1,3 do
-    quest[i] = dim[i]
+    quest[i] = ""
     edge_out[i] = {}
     edge_out[i][1] = math.floor(edge[i]/10)
     edge_out[i][2] = edge[i] - 10 * edge_out[i][1]

@@ -1,5 +1,4 @@
-Oboji @name@.
 
+Pobarvaj @name@.
 @vspace@
-
 @center@ @mycanvas(result)@

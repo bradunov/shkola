@@ -1,4 +1,5 @@
-Prebarvajte vsa pisma, ki se pišejo v @name@ vrsticah.
+
+Prebarvajte vse črke, ki se pišejo v @name@ črt.
 
 @vspace@
 

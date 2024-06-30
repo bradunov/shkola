@@ -1,5 +1,5 @@
 
-In the rectangles write a number that makes the equality correct. 
+In the rectangles write a number that makes the inequality correct. 
 
 @repeat(4)@
 @center@ @hund@ @lib.check_number(decade, 15)@ @unit@ @hspacept(3)@ @znak@ @hspacept(3)@ @number@

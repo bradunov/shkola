@@ -1,11 +1,10 @@
+
 In the empty frames on the picture, write labels for the lines @area_line[1]@, @area_line[2]@, @area_line[3]@, and @area_line[4]@ and points @area_dot[1]@ and @area_dot[2]@ so that:
 @hspacept(50)@ lines @area_line[1]@ and @area_line[2]@ are parallel,
 @hspacept(50)@ line @area_line[4]@ is perpendicular to line @area_line[1]@,
 @hspacept(50)@ point @area_dot[2]@ belongs to lines @area_line[2]@ and @area_line[3]@;
 @hspacept(50)@ point @area_dot[1]@ belongs to lines @area_line[1]@ and @area_line[4]@;
-
 @vspace@
 @center@ @mycanvas()@
-
 @center@ What is the relationship between lines @area_line[2]@ and @area_line[4]@?
 @center@ Lines @area_line[2]@ and @area_line[4]@ are @lib.check_string(ans_str,60)@.

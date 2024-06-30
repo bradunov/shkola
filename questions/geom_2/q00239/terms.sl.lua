@@ -1,3 +1,4 @@
-direction = {"pozitivno", "negativno"}
-point = {"C", "O(0,0)", "S (sredina duži BC)"}
+		
+direction = {"pozitivna", "negativna"}
+point = {"C", "O(0,0)", "S (sredina daljice BC)"}
 answ = {"da", "ne"}

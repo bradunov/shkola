@@ -1,3 +1,4 @@
+
 Zapiši razlomkom koliko delova je obojeno.
 
 @center@ @lib.start_table({["text-align"] = "inline"})@ 
@@ -39,8 +40,3 @@ Zapiši razlomkom koliko delova je obojeno.
   @lib.end_row()@
 @lib.end_table()@ \
 @hspace@  @lib.check_fraction_simple(4, 4)@
-
-
-
-                  
-                  

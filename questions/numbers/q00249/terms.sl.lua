@@ -1,2 +1,2 @@
-rel = {"veči", "manjši"}
-oper = {"zbiru", "razlici"}
+rel = {"većje", "manjše"}
+oper = {"vsoti", "razlici"}

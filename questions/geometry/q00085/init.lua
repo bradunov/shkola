@@ -44,7 +44,7 @@ end
 
 
 mycanvas = function(all, results)
-  lib.start_canvas(300, 330, "center", results)
+  lib.start_canvas(300, 300, "center", results)
 
   out = math.floor(stampa/5)
   rest = stampa - 5*out

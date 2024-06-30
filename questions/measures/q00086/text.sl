@@ -1,3 +1,4 @@
+
 Teniški dvoboj se je začel ob @start_h@@"h"@ @answ[1]@ in trajal @last_h@ ur in @last_m@ minut. 
 Kdaj se je končal?
 

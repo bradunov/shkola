@@ -1,9 +1,9 @@
-Calculate the height of a cuboid whose
 
+Calculate the height of a cuboid whose measures are
 @repeat(2)@
-@center@ length @hspacept(3)@ @quest[1]@ 
-@center@ width @hspacept(3)@ @quest[2]@
-@center@ surface area @hspacept(3)@ @quest[3]@
-@center@ The height is @answ@.
 @vspace@
-@/repeat@
+@ITEM@. @hspacept(60)@ surface area  @hspace@ @quest[3]@
+@center@ length @hspacept(3)@ @quest[1]@,  @hspacept(20)@ width @hspacept(3)@ @quest[2]@
+@vspace@
+@center@ The height is @hspacept(3)@ @answ@.
+@/repeat@ 

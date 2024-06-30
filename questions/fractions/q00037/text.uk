@@ -1,6 +1,5 @@
 
 Fill in the gaps: 
-
 @repeat(5)@
-@center@ @rezultat@ @hspacept(3)@ is @hspacept(3)@\(\frac{@brojilac@}{@imenilac@}\) @hspacept(3)@ then @hspacept(3)@ @lib.check_number(broj)@   
+@center@ @rezultat@ @hspacept(3)@ is @hspacept(3)@\(\frac{@brojilac@}{@imenilac@}\) @hspacept(3)@ from @hspacept(3)@ @lib.check_number(broj)@   
 @/repeat@          

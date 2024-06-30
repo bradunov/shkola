@@ -1,3 +1,4 @@
+
 factor = math.random(9)
 
 sabirak2 = math.random(9);

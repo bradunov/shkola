@@ -1,3 +1,4 @@
-Vnesite imena geometrijskih teles v prazna polja pod njimi. Obarvajte kroge na @name@ površinah.
+
+Vnesite imena geometrijskih teles v prazna polja pod njimi. Pobarvajte kroge na @name@ ploskev.
 
 @center@ @mycanvas(result)@

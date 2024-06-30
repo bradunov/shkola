@@ -1,5 +1,5 @@
 
-Napiši redom od najmanjeg do najvećeg  sve dvocifrene brojeve u kojima se cifara @hspace8pt@ @number@ @hspace8pt@  javlja jedanput.
+Napiši redom od najmanjeg do najvećeg  sve dvocifrene brojeve u kojima se cifra @hspace8pt@ @number@ @hspace8pt@  javlja jedanput.
 
 @vspace@
 

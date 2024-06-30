@@ -1,5 +1,5 @@
 msg1 = "Obseg kvadrata je "
-msg2 = ". Kakšna je njegova površina?"
+msg2 = ". Kakšna je njegova ploščina?"
 msg3 = "Obseg pravokotnika je "
-msg4 = ". Eno od njegovih stranic je "
-msg5 = " krat krajša od druge. Kakšna je površina pravokotnika?"
+msg4 = ". Ena njegova stranica je "
+msg5 = " - krat krajša od druge. Kakšna je ploščina pravokotnika?"

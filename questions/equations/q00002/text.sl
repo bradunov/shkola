@@ -1,8 +1,6 @@
+
 Reši enačbe.
-
-@repeat(5)@
-
-@center@  @term@ @hspacept8@ @sign@ @hspacept8@ x  @hspacept8@ = @hspacept8@ @value@,  @hspace@ x = @lib.check_number(solution)@
-
+@repeat(4)@
 @vspace@
+@center@  @term@ @hspacept8@ @sign@ @hspacept8@ x  @hspacept8@ = @hspacept8@ @value@,  @hspacept(30)@ x = @lib.check_number(solution)@
 @/repeat@

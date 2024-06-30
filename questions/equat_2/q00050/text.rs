@@ -6,7 +6,7 @@
 Napiši jednačinu kojom ćeš izračunati koliko je bilo grana  @"g"@.
 @center@ @equ@
 @vspace@
-Reši jednačinu i odgovori:
-@center@ koliko je bilo grana? @hspacept(5)@ @lib.check_number(grane)@
-@center@ koliko je bilo vrana? @hspacept(5)@ @lib.check_number(vrane)@   
+Reši jednačinu i odgovori.
+@center@ Koliko je bilo grana? @hspacept(5)@ @lib.check_number(grane)@
+@center@ Koliko je bilo vrana? @hspacept(5)@ @lib.check_number(vrane)@   
   

@@ -1,2 +1,2 @@
-angle_str = {"ostra", "oštra"}
-ans_str = "ne"
+angle = {"ostra", "prava", "topa"}
+ans = {"da", "ne"}

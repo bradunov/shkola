@@ -1,7 +1,6 @@
-Izrazite prostornino v navedeni enoti.
 
-@repeat(5)@ 
+Izrazite prostornino v navedeni merni enoti.
+@repeat(4)@ 
 @vspace@ 
 @center@ @answ@  =  @lib.check_number(value,60)@ @measure[ind2]@
-
 @/repeat@

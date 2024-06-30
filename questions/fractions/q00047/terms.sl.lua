@@ -1,1 +1,1 @@
-part = {"koščki", "koščkih"}
+part = {"kosov", "kosov"}

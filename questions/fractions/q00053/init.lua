@@ -11,11 +11,3 @@ put = put1 * deo;
 put2 = put - put1
 
 putkm = put/1000
-
-
-
-
-
-
-                  
-                     

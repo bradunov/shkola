@@ -1,1 +1,1 @@
-position = {"drugi", "peti", "deseti", "tretji", "četrti", "šesti", "sedmi", "osmi", "deveti"}
+position = {"drugo", "peto", "deseto", "tretjo", "četrto", "šesto", "sedmo", "osmo", "deveto"}

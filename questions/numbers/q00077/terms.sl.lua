@@ -1,2 +1,2 @@
-array_operfirst = {"Razlika", "Vsota"}
+array_operfirst = {"Razliko", "Vsoto"}
 array_opersecond = {"povečaj", "zmanjšaj"}

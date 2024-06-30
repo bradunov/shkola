@@ -1,4 +1,5 @@
-Obarvaj @name@ črte.
+
+Pobarvaj @name@ črte.
 
 @vspace@
 

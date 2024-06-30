@@ -2,10 +2,5 @@
 On one street there are odd house numbers on the left side from @odd_min@ to @odd_max@, and on the right side there are even house numbers from @even_min@ to @even_max@. 
 How many houses are there on this street?
 Select the circle next to the correct answer. 
-
 @vspace@
-
 @center@ @lib.check_one_option_radio(answ,ind)@ 
-
-            
-            

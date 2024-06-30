@@ -1,7 +1,7 @@
-Provide one line, one ray, one line segment, and one point that are located on the given image.
-@vspace@
-@center@ @mycanvas()@
 
+Provide one line, one ray, one line segment, and one point that are located on the image.
+
+@center@ @mycanvas()@
 @center@ line @hspacept(10)@ @lib.check_string_case(reply[1], 30, ans[1])@
 @center@ ray @hspacept(10)@ @lib.check_string_case(reply[2], 30, ans[2])@
 @center@ line segment @hspacept(10)@ @lib.check_string_case(reply[3], 30, ans[3])@

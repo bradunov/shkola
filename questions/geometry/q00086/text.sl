@@ -1,4 +1,5 @@
-Kolikšen je obseg vsake od figur, podanih na sliki, izražen s stranico kvadratka mreže?
-Odgovore zapišite v prazne okvirje na figurah.
+
+Kolikšen je obseg vsakog lika, podanog na sliki, izražen s stranico kvadratka mreže?
+Odgovore zapišite v prazne kvadrate na likah.
 @vspace@
 @center@ @mycanvas()@

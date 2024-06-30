@@ -1,5 +1,6 @@
-Označi kroglicu pored točnega odgovora.
-Obseg pravokutnika na sliki je:
+
+Pobarvaj krog  pored točnega odgovora.
+Obseg pravokotnika na sliki je:
 
 @center@ @mycanvas()@
 

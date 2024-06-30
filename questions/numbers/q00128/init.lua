@@ -1,7 +1,9 @@
+
 temp = {}
 cifre = {};
 out = {};
 order = {}
+numb = {}
 
 max = 8
 
@@ -17,25 +19,46 @@ end
                   
 order = lib.math.argsort(cifre)                   
                   
-numb = cifre[order[max]]
+for i = 1,2 do
+	numb[i] = cifre[order[i]]
+	for j = 1,3 do
+		numb[i] = numb[i]  + cifre[order[i+2*j]] * 10^j
+	end	
+end	
+value_max1 = numb[1] 
+value_max = numb[2] 
+summ_max = value_max + value_max1
 
 for i = 1,2 do
-    numb = numb * 10 + cifre[order[max-i]]
-end	
-value_max = numb * 10 + cifre[order[max - 3]] 
-value_max1 = numb * 10 + cifre[order[max - 4]] 
-
+	if (cifre[order[i]] == 0) then    
+		numb[i] = cifre[order[i+2]] * 10
+		for j = 2,3 do
+			numb[i] = numb[i] * 10 + cifre[order[i+2*j]]
+		end			
+	else
+		numb[i] = cifre[order[i]]
+		for j = 1,3 do
+			numb[i] = numb[i] * 10 + cifre[order[i+2*j]]
+		end	
+	end		
+end
+value_min1 = numb[1]
+value_min = numb[2]
+summ_min = value_min  + value_min1
 
 if (cifre[order[1]] == 0) then    
-    numb = (cifre[order[2]] * 10 + cifre[order[1]]) * 10 + cifre[order[3]]  
+	numb[2] = cifre[order[2]]
 else
-    numb = (cifre[order[1]] * 10 + cifre[order[2]]) * 10 + cifre[order[3]]       
+	numb[2] = cifre[order[1]]
 end
+numb[1] = cifre[order[max]]
+for j = 1,3 do
+	numb[1] = numb[1] * 10 + cifre[order[max-j]]
+	if (cifre[order[1]] == 0 and j == 1) then
+		numb[2] = numb[2] * 10
+	else
+		numb[2] = numb[2] * 10 + cifre[order[1+j]]
+	end
+end			
+diff_max = numb[1]  - numb[2] 
 
-value_min = numb * 10 + cifre[order[4]]
-value_min1 = numb * 10 + cifre[order[5]]
-
-summ_max = value_max + value_max1
-summ_min = value_min  + value_min1
-diff_max = value_max  - value_min 
-   

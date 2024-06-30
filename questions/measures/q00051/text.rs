@@ -5,5 +5,4 @@ Koliko vremena provede @imez@ na dodatnoj nastavi?
 
 @center@ @imez@ na dodatnoj nastavi provede ukupno
 @center@ @answ@
-                
-                  
+ 

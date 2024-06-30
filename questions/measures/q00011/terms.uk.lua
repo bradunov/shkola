@@ -8,6 +8,6 @@ msg_6 = "How many times would the surface area of the box change if all dimensio
 msg_7 = " were increased "
 msg_8 = " times?"
 msg_9 = " The surface area would increase "
-msg_10 = "times."
+msg_10 = " times."
 msg_11 = " were decreased "
 msg_12 = " The surface area would decrease "

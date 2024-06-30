@@ -1,5 +1,5 @@
 msg1 = "Obseg kvadrata je "
 msg2 = " cm. Kakšna je dolžina njegove stranice?"
 msg3 = "Obseg pravokotnika je "
-msg4 = " cm. Eno njegovo stran je "
+msg4 = " cm. Ena njegova stranica je "
 msg5 = " krat krajša od druge. Kakšna je dolžina krajše stranice tega pravokotnika?"

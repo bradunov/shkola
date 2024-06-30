@@ -1,3 +1,4 @@
+
 Obojeni deo figure zapiši razlomkom:
 
 @center@ @lib.start_table({["text-align"] = "inline"})@

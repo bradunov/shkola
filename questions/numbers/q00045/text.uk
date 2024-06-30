@@ -6,16 +6,3 @@ Write the answer you get when the number:
 @center@ @term1@ is multiplied by @term2@ @hspacept(8)@ @lib.check_number(prod)@
 @center@ @term1@ is decreased by @term2@  @hspacept(8)@ @lib.check_number(diff)@
 @center@ @term1@ is divided by @term2@ @hspacept(8)@ @lib.check_number(div)@
-
-
-
-
-
-                  
-
-
-
-                  
-                  
-                  
-                  

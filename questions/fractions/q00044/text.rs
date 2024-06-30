@@ -1,3 +1,4 @@
+
 Oboj deo figure zapisan razlomkom:
 
 @repeat(3)@

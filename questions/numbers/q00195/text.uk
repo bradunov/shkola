@@ -1,3 +1,4 @@
+
 Calculate the difference between the numbers @number1@ and @number2@. Then, without calculating, determine the value of the unknown number x using the constant difference. 
 @center@ @number1@ - @number2@ = @lib.check_number(result,30)@
 

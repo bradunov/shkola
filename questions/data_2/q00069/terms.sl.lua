@@ -1,4 +1,4 @@
-money = {"evrima", "€"}
-town = {"Budimpešta", "Ljubljana", "Sarajevo"} 
-name = {"odrasli", "deca", "jedan", "smer", "povratna"} 
-padez = {"Budimpeštu", "Ljubljana", "Sarajevo"}
+money = {"eurima", "€"}
+town = {"Budimpešta", "Beograd", "Sarajevo"} 
+name = {"odrasli", "otroci", "ena", "smer", "povrtno"} 
+padez = {"Budimpeštu", "Beograd", "Sarajevo"}

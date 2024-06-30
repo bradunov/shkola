@@ -1,4 +1,4 @@
-array_operfirst = {"razlika", "zbir"}
+array_operfirst = {"razlika", "vsota"}
 
-msg_less = {"manjša", "manjši"}
-msg_great = {"večja", "večji"}
+msg_less = {"manjša", "manjša"}
+msg_great = {"večja", "večja"}

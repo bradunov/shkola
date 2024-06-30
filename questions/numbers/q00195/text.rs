@@ -14,12 +14,3 @@ Izračunaj razliku brojeva @number1@ i @number2@. Zatim, ne računajući, odredi
 
 @center@ (@number1@ - @term[4]@) - (@number2@ - x) = @result@  
 @center@ x = @lib.check_number(term[4],30)@
- 
- 
-         
-       
-          
-               
-              
-                  
-               

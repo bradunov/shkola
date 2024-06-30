@@ -14,10 +14,4 @@ if (leftdiff > rightdiff) then sign = ">"
 end
 if (leftdiff < rightdiff) then sign = "<"
 end
-                
-              
-                       
-                                   
-
-           
-                                   
+ 

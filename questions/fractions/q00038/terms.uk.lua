@@ -1,1 +1,2 @@
-meas_arr = {"hours", "hour", "hour"} 
+meas_arr = {"hours", "hour", "hours", "hours"}
+leng = 1 

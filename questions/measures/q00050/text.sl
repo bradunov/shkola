@@ -1,6 +1,6 @@
+
 @ime_m@ ima rojstni dan v @birth_m@, @ime_f@ pa ima rojstni dan čez @number@ @index@. 
-V katerem mesecu je rojstni dan @ime_f@? @hspacept(5)@ 
-
+V katerem mesecu  @ime_f@ ima rojstni dan? 
 @vspace@
-
-@center@ Rojstni dan @ime_f@ je v @lib.check_string(birth_f,70)@.
+@center@ @ime_f@ ima rojstni dan  v @hspacept(5)@ @lib.check_one_option_dropdown(months, birth_f)@.
+            

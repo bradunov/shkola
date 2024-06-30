@@ -1,3 +1,4 @@
+
 V piceriji lahko k pici dodate naslednje priloge: @quest@
 @ime@ želi naročiti pico z dvema prilogama.
 

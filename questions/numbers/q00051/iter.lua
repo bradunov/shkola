@@ -1,3 +1,4 @@
+
 sabirak1 = math.random(79);
 sabirak2 = math.random(90 - sabirak1);
 sabirak1 = sabirak1*10 + 100;

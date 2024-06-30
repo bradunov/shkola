@@ -1,8 +1,7 @@
-Izračunaj prostornino kvadra čija je:
+
+Izračunajte prostornino kvadra, katereg robovi so dolžine
 @repeat(2)@
-@center@ @quest[1]@, 
-@center@ @quest[2]@, 
-@center@ @quest[3]@.
-@center@ Prostornina je @answ@.
 @vspace@
-@/repeat@
+@ITEM@. @hspacept(50)@ @quest[1]@, @hspace@ @quest[2]@, @hspace@ @quest[3]@.
+@center@ Prostornina je @answ@.
+@/repeat@ 

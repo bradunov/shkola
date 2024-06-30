@@ -3,6 +3,4 @@ Piktograf predstavlja broj prodatih pogačica u jednoj pekari. Svaki simbol pred
 
 @center@ @mycanvas()@ 
 U tabelu upiši koliko je pogačica prodato u navedenim danima.
-                  
-
-                
+ 

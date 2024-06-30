@@ -1,5 +1,4 @@
+
 Color the @name@ broken lines.
-
 @vspace@
-
 @center@ @mycanvas(result)@

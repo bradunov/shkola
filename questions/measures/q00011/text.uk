@@ -4,7 +4,7 @@ What is the surface area of a cuboid box  with dimensions of @edge1@@measure[ind
 
 @repeat(2)@
 @vspace@
-@quest[ITEM]@
+@ITEM@. @hspace@ @quest[ITEM]@
 @center@ @answ[ITEM]@
 @center@ The surface area of the modified box is @lib.check_number(surface1[ITEM],40)@@measure2[ind]@.
 @/repeat@

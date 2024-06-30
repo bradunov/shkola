@@ -1,10 +1,13 @@
-@ime@ je spekla kruhke in jih pakira v enakem številu v vrečke. Če vstavi enako število v:
-@center@ @bag[1]@ vrečko, ji bo ostalo @rest[1]@,
-@center@ @bag[2]@ vrečki, ji bo ostalo @rest[2]@,
-@center@ @bag[3]@ vrečke, ji bo ostalo @rest[3]@,
-@center@ @bag[4]@ vrečke, ji bo ostalo @rest[4]@,
+
+@ime@ je spekla žemle in jih pakira v enakem številu v vrečke. Če da enako število žemljic v:
+@center@ @bag[1]@ vrečk, ji bo ostalo @rest[1]@,
+@center@ @bag[2]@ vrečk, ji bo ostalo @rest[2]@,
+@center@ @bag[3]@ vrečk, ji bo ostalo @rest[3]@,
+@center@ @bag[4]@ vrečk, ji bo ostalo @rest[4]@,
 @center@ @bag[5]@ vrečk, ji bo ostalo @rest[5]@ 
-kruhkov. @ime@ je spekla več kot @min_range@, a manj kot @max_range@ kruhkov.
+kruhkov. @ime@ je spekla več kot @min_range@, a manj kot @max_range@ žemljic.
 @vspace@
-Koliko kruhkov je spekla @ime@?
-@center@ @lib.check_number(total)@
+Koliko žemljic je spekla @ime@?
+@center@ @lib.check_number(total)@  
+            
+            

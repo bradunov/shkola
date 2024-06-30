@@ -1,2 +1,2 @@
-name = {"pravilni", "ostrinski", "topi"}
-padez = {"pravilnih", "ostrinskih", "topih"}
+name = {"pravih", "ostrih", "topih"}
+padez = {"pravih", "ostrih", "topih"}

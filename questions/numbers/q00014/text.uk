@@ -1,9 +1,5 @@
-                                            Write the numbers before and after the given numbers.
-
+                                            
+Write the numbers before and after the given numbers.
 @repeat(5)@
-
 @center@   @lib.check_number(prethodnik)@ @hspace@ @broj@  @hspace@ @lib.check_number(sledbenik)@
 @/repeat@
-
-                  
-                  

@@ -1,6 +1,7 @@
-Rešite neenačbe. 
 
-@repeat(5)@
-@center@ @answ@ @hspacept(15)@ x @lib.check_one_option_dropdown(compare,relatsol)@  @lib.check_number(result)@ 
+Rešite neenačbe. 
+@repeat(3)@
 @vspace@
-@/repeat@
+@center@ @answ@ 
+@center@ x @lib.check_one_option_dropdown(compare,relatsol)@  @lib.check_number(result)@ 
+@/repeat@  

@@ -13,8 +13,8 @@ text2_style = {["line_color"] = "f30",
 include("terms")
 include("names")
 
-rm = math.random(#musko_ime_dativ); 
-ime = musko_ime_dativ[rm];
+rm = math.random(#musko_mpridev); 
+ime = musko_mpridev[rm];
 
 nmb_month = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 numb_position = {3, 6, 7, 3, 5, 1, 3, 6, 2, 4, 7, 2}

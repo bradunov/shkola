@@ -1,3 +1,4 @@
+
 include("terms")
 include("names")
 
@@ -13,8 +14,13 @@ r = lib.math.random_shuffle(index)
 ime1 = musko_ime_nom[r[1]]
 ime2 = musko_ime_nom[r[2]] 
 ime3 = musko_ime_nom[r[3]]
-padezg1 = musko_ime_gen[r[1]]
-padezg2 = musko_ime_gen[r[2]]   
+if (lang == 1) then
+	padezg1 = musko_ime_gen[r[1]]
+	padezg2 = musko_ime_gen[r[2]]   
+else
+	padezg1 = ime1
+	padezg2 = ime2  
+end	
 
 value = {}
 add = {}

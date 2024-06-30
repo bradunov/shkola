@@ -1,11 +1,6 @@
 
 Write the year that
-
 @repeat(5)@
 @center@ @begin[index]@ the @numb_decade[ind_dec]@ decade @numb_century[ind_cent]@ century.  @lib.check_number(year,40)@  
-
 @/repeat@
-  
-
-            
-            
+ 

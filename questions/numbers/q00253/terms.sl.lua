@@ -1,2 +1,2 @@
-msg = {"dana", "dan"}
-modif = {"stranico", "stranične", "stranica"}
+msg = {"dni", "dni"}
+modif = {"strani", "strani", "strani"}

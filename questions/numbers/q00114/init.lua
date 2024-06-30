@@ -1,3 +1,4 @@
+
 include("terms")
 value = {}
   
@@ -17,10 +18,10 @@ if (numb == 2) then
 end
 
 if (numb < 5) then
-    name_2 = msg_hundred[1]
+    name_2 = msg_hundred
 	name_3 = msg_thousand[1]
 else 
-    name_2 = msg_hundred[2]
+    name_2 = msg_hundred
 	name_3 = msg_thousand[2]	
 end	
 

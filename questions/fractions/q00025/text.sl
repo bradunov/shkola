@@ -1,7 +1,6 @@
-Kateri del slike je pobarvan? Zapiši zlomkom.
+Kateri del slike je pobarvan? Zapiši ulomkom.
 
 @repeat(4)@
-
 @center@ @lib.select_objects(denom, 1, "table", "", style_table_current)@ \
 @hspace@=@hspace@ @lib.check_fraction_condition(\
     "is_ok = (numerator/denominator == "..tostring(enum).."/"..tostring(denom)..")", false, {},\

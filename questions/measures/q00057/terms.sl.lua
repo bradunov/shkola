@@ -1,2 +1,2 @@
-numb_decade = {"prva", "druga", "tretja", "četrta", "peta", "šesta", "sedma", "osma", "deveta", "deseta"}
-begin = {"začela", "končala"}
+numb_decade = {"prvo", "drugo", "tretje", "četrto", "peto", "šesto", "sedmo", "osmo", "deveto", "deseto"}
+begin = {"začelo", "končalo"}

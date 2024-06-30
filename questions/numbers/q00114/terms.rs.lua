@@ -4,7 +4,7 @@ ones_L = {"dve", "tri", "cetiri", "pet", "sest", "sedam", "osam", "devet"}
 tens_L = {"dvadeset", "trideset", "cetrdeset", "pedeset", "sezdeset", "sedamdeset", "osamdeset", "devedeset"}
 
 msg_two = "dva"
-msg_hundred = {"stotine", "stotina"}
+msg_hundred = "sto"
 msg_thousand = {"hiljade", "hiljada"}
 
-
+lang = 1

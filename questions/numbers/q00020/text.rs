@@ -6,6 +6,3 @@
 @vspace@ 
 Prodavac je vratio @padez@ kusur u sledećim novčanicama (najmanji broj novčanica u apoenima od 50, 20, 10, 5, 2 i 1 dinar):
 @center@ @answ@
-
-
-
