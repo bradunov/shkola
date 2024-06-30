@@ -1,0 +1,8 @@
+Given are the elements of a cylinder: 
+@center@ @quest1@,
+@center@ @quest2@.
+@vspace@
+calculate the surface area and volume of the cylinder (to one decimal place). Take @"π"@ = @"22/7"@.
+@vspace@
+@center@ The surface area of the cylinder is @hspacept(3)@ @lib.check_number(area,50)@@meas[2]@,
+@center@ The volume of the cylinder is @hspacept(3)@ @lib.check_number(vol,50)@@meas[3]@.

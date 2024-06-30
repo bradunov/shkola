@@ -1,0 +1,7 @@
+Flat parallel base intersects a cone so that the @elem[ch]@ base of the cone is @fct@ times the @name[ch]@ of @elem[ch+2]@ parallel section. The height of the cone is @numb[2]@@"cm"@.
+What is the height of the smaller cone whose base is a parallel section, and the vertex is shared with the given cone?
+@center@ The height of the smaller cone (to one decimal place) is 
+@center@ @lib.check_number(numb[3])@@"cm"@. 
+@vspace@
+What is the relationship between the areas of the base sections of the given and smaller cones?                                                                                                                                                                                                                  
+@center@ The area of the base section of the given cone is @hspacept(3)@ @lib.check_number(numb[4])@ @hspacept(3)@ times larger than the area of the base section of the smaller cone.

@@ -1,0 +1,8 @@
+Roof of the warehouse has the shape of a true quadrangular pyramid, @name[ind]@ = @lib.dec_to_str(data)@@meas[1]@. The opposite sides of the roof, corresponding to the edge @"a" @, are inclined @slope[ch[1]]@@meas[4]@ towards the base, and the other two sides are inclined @slope[ch[2]]@@meas[4]@ towards the base.
+To cover one square meter of the roof, @numb@ tiles are needed.
+@vskip@
+How many tiles are needed to cover the roof?
+@center@ It is necessary @hspacept(3)@ @lib.check_number(area,40)@  @hspacept(3)@tiles.
+@vskip@
+What is the volume of the attic (pyramid) (to one decimal place)?
+@center@ The volume of the attic is @hspacept(5)@ @"V = "@ @lib.check_number(vol,50)@@meas[3]@.

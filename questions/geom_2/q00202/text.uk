@@ -1,0 +1,6 @@
+In a correct @name[ind]@ pyramid, the code is: 
+@center@ @quest1@
+@center@ @quest2@
+@vspace@
+Calculate the volume of the pyramid (to one decimal place).
+@center@ @"V = "@ @lib.check_number(vol,50)@@meas[3]@

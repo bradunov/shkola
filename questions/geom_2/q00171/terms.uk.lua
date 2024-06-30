@@ -1,0 +1,1 @@
+msg = {"same side", "various sides"}

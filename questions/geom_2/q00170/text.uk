@@ -1,0 +1,6 @@
+Points @"A"@ and @"B"@ are on plane π. The distance of point @"A"@ from the plane is @numb[1]@ @"cm"@, and the distance of point @"B"@ from the plane is @numb[2]@@"cm"@.
+@center@ @mycanvas()@
+If the length of segment @"AB"@ = @numb[3]@@"cm"@, determine the length of its orthogonal projection on π (to one decimal place).
+
+The length of the orthogonal projection @"AB"@ on π is
+@center@ @point[3]@@point[4]@ = @lib.check_number(numb[4])@@"cm"@.

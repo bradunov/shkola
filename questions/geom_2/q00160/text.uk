@@ -1,0 +1,7 @@
+Inscribed in triangle @"ABC"@ is the square @"MNPQ"@.
+@center@ @mycanvas()@
+Calculate the length of the square side if the length of side @"AB"@ and the area @"P"@ of the triangle are given:
+@center@ @quest@.
+@vspace@
+@center@ The side of the square is (to one decimal place)
+@center@ @lib.check_number(val)@@meas[1]@.

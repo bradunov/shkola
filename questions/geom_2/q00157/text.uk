@@ -1,0 +1,6 @@
+In triangle @"ABC"@, rhombus @"ADEF"@ is inscribed. Calculate the length of the rhombus side if the
+@center@ @quest@
+@center@ @mycanvas()@
+
+The length of the rhombus side is (to one decimal place)
+@center@ @lib.check_number(sol, 30)@@"cm"@.

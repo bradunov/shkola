@@ -1,0 +1,9 @@
+The tent is in the shape of a regular prism with a pyramid-shaped roof (image).
+@center@ @mycanvas()@
+The edge of the base @"a"@ is @numb[1]@@meas[1]@, the height of the prism @"H"@ is @numb[2]@@meas[1]@, and the lateral edge @"s"@ of the roof (pyramid) is @numb[3]@@meas[1]@.
+
+How much canvas was used to make the tent (with the bottom)?
+@center@ @hspacept(3)@ @lib.check_number(area, 50)@@meas[2]@ @hspacept(3)@ of canvas was used.
+What is the volume of the tent?
+@center@ @hspacept(3)@ @lib.check_number(vol, 50)@@meas[3]@.
+Write the results to one decimal place.

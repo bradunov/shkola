@@ -1,0 +1,5 @@
+What is the mass of a wooden beam with a length of @numb[2]@@meas[2]@ and a cross-sectional area of @numb[1]@@meas[1]@, if we know that the density of the wood is @lib.dec_to_str(lib.math.round_dec(dens,2))@@meas[3]@ per @meas[5]@.
+Write the result to one decimal place.
+Take @"π"@ = @"22/7"@.
+@vspace@
+@center@ The mass of the beam is @hspacept(3)@ @lib.check_number(weight)@@meas[4]@.

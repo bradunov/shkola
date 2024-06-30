@@ -1,0 +1,5 @@
+Correct @name[ind]@ prism has a height of @numb@@meas[1]@. The surface area of the lateral surface is @fct@ times @comp[ch]@ the base area.
+What is the surface area of the prism?
+@vspace@
+The surface area of the prism is (to two decimal places)
+@center@ @"P = "@ @lib.check_number(area,50)@@meas[2]@

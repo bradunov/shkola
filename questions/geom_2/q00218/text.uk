@@ -1,0 +1,4 @@
+Fill in the table that contains elements of a right circular cone: @edge[1]@ is the radius of the base, @edge[2]@ is the height, @edge[3]@ is the slant height, @edge[4]@ is the circumference of the base, and @edge[5]@ is the lateral surface area (in @"cm"@), while @edge[6]@ is the base area (in @"cm²"@).
+(Let @"π"@ = @"22/7"@; write the results to one decimal place.)
+
+@addition_table()@

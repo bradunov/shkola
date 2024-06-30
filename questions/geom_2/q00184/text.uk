@@ -1,0 +1,6 @@
+In a correct @name[ind]@ prism, the formula is: 
+@center@ @quest1@
+@center@ @quest2@
+@vspace@
+Calculate the volume of the prism (to two decimal places).
+@center@ @"V = "@ @lib.check_number(vol,60)@@meas[3]@

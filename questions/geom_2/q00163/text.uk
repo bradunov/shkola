@@ -1,0 +1,6 @@
+Observer  @"E"@ calculated the width of the river @"AD"@ using the tree @"D"@ on the opposite bank. 
+@center@ @mycanvas()@
+He measured the distances 
+@center@ @quest@,
+and calculated that the width of the river (rounding the result to the nearest whole number)
+@center@ @ans@.

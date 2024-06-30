@@ -1,0 +1,5 @@
+@center@ @mycanvas()@ 
+Are the two right-angled triangles similar in the picture? Marked with the symbol @ang[2]@ if @ang[1]@@"DOA"@ is a right angle.
+@center@ @lib.check_one_option_dropdown(msg, msg[ind])@ 
+@note@ 
+@center@ @reply@

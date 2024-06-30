@@ -1,0 +1,5 @@
+The granite pillar has the shape of a regular hexagonal prism. The length of the base edge is @numb[1]@@meas[1]@, and the height of the pillar is @numb[2]@@meas[2]@.
+If the mass of the pillar is @numb[3]@@meas[5]@, what is the density of granite (density is expressed in grams per @meas[3]@)? 
+@vspace@
+The density of granite is (to one decimal place)
+@center@ @lib.check_number(result)@ @meas[4]@ per @meas[3]@.

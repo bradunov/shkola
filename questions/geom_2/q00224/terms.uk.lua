@@ -1,0 +1,2 @@
+name = {"equilateral triangle", "right triangle", "obtuse triangle with an obtuse angle equal to 120°"}		
+elem = {"@radius of the base@", "height", "slant height", "circumference of the base", "circumference of the lateral surface", "area of the lateral surface"}

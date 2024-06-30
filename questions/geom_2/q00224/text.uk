@@ -1,0 +1,7 @@
+The base of the cone is @name[ch]@.
+@center@ @mycanvas()@
+If it is @quest@,
+calculate the surface area and volume of the cone. (Take @"π"@ = @"22/7"@, write the results to one decimal place.)
+@vspace@
+@center@ The surface area of the cone is @hspacept(3)@ @lib.check_number(area,40)@@meas[2]@.
+@center@ The volume of the cone is @hspacept(3)@ @lib.check_number(vol,40)@@meas[3]@.

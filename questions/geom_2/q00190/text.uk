@@ -1,0 +1,9 @@
+In a tank in the shape of a cube
+@center@ @quest[1]@, @hspacept(6)@ @quest[2]@, @hspacept(6)@ @quest[3]@,
+there is @vol@ liters of water (1 liter = 1@meas[3]@). A concrete cube with edges of @edge@@meas[1]@ was lowered into the tank.
+By how many centimeters did the water level in the tank rise, and what is the depth of the water after the cube is submerged (calculate to one decimal place)?
+@vspace@
+@center@ The water level in the tank rose by
+@center@ @lib.check_number(dif,40)@@hspacept(5)@@meas[1]@.
+@center@ The depth of the water after submerging the cube is
+@center@ @lib.check_number(result,40)@@hspacept(5)@@meas[1]@.

@@ -1,0 +1,7 @@
+In the sphere with a diameter of @numb@@meas[1]@ @text@, there is @name[ind]@. Calculate the surface area and volume of the sphere and the surface area and volume of the inscribed shape.
+(Take @"π"@ = @"22/7"@, write the results to two decimal places.)
+@vspace@
+@center@ The surface area of the sphere is @hspacept(5)@  @lib.check_number(area,50)@@meas[2]@.
+@center@ The volume of the sphere is @hspacept(5)@  @lib.check_number(vol,50)@@meas[3]@.
+@center@ The surface area of @padez[ind]@ is @hspacept(5)@  @lib.check_number(surf,50)@@meas[2]@.
+@center@ The volume of @padez[ind]@ is @hspacept(5)@  @lib.check_number(body,50)@@meas[3]@.

@@ -1,0 +1,5 @@
+The wrapper of the cylinder is obtained by bending the rectangle sides @numb1@@meas[1]@ and @numb2@@meas[1]@ so that its @elem[ind]@ sides match.
+Calculate the surface areas of the axial and cross-sectional cuts of that cylinder (to two decimal places). Assume that @"π"@ = @"22/7"@.
+@vspace@
+@center@ The surface area of the axial cut is @hspacept(3)@@lib.check_number(q,40)@@meas[2]@,
+@center@ The surface area of the cross-sectional cut is @hspacept(3)@@lib.check_number(p,40)@@meas[2]@.

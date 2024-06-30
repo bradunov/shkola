@@ -1,0 +1,4 @@
+Polyhedron in the picture
+@center@ @mycanvas()@
+has
+@center@ @lib.check_number(point, 20)@ vertices, @hspacept(20)@  @lib.check_number(side, 20)@ @name@, @hspacept(15)@  @lib.check_number(line, 20)@ edges.

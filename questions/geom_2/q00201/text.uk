@@ -1,0 +1,5 @@
+Correct @name[ind]@ pyramid has a lateral edge length of @numb@@meas[1]@. The surface area of the pyramid is @fct@ times greater than the base area. 
+What is the surface area of the pyramid?
+@vspace@
+The surface area of the pyramid is (to two decimal places)
+@center@ @"P = "@ @lib.check_number(area,50)@@meas[2]@

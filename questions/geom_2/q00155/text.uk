@@ -1,0 +1,7 @@
+The lengths of the sides @orig[1]@, @orig[2]@, and @orig[3]@ of triangle @"ABC"@ are given. In a similar triangle @"PQR"@, the length of one corresponding side is given. Determine the lengths of the other two sides of triangle @"PQR"@.
+
+@repeat(2)@ 
+@vspace@
+@center@ @orig[1]@ = @numb[1]@@"cm"@, @hspacept(15)@ @orig[2]@ = @numb[2]@@"cm"@, @hspacept(15)@ @orig[3]@ = @numb[3]@@"cm"@, 
+@center@ @ans@
+@/repeat@

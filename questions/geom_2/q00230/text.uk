@@ -1,0 +1,8 @@
+Through the extreme point of the ball's diameter, a plane is set up, towards which this diameter is inclined at an angle of @angle[ch]@@meas[3]@. The diameter of the ball is @diam@@meas[1]@. 
+What are the circumference and the surface area of the intersection of the plane and the ball?
+What is the distance of the intersection from the center of the ball?
+(Take @"π"@ = @"22/7"@, write the results to one decimal place.) 
+@vspace@
+@center@ The circumference of the intersection is @hspacept(5)@  @lib.check_number(circ)@@meas[1]@.
+@center@ The surface area of the intersection is @hspacept(5)@  @lib.check_number(area)@@meas[2]@.
+@center@ The distance of the intersection from the center of the ball is @hspacept(5)@  @lib.check_number(numb[3])@@meas[1]@.

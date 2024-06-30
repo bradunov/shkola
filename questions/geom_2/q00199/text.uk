@@ -1,0 +1,3 @@
+Fill in the table that contains dimensions (in cm) of a straight quadrilateral pyramid. The base is a rectangle with sides @edge[1]@ and @edge[2]@, @edge[3]@ is the height of the pyramid, @edge[4]@ and @edge[5]@ are the heights of the corresponding lateral sides, and @edge[6]@ is its surface area. (Enter numbers to one decimal place.)
+
+@addition_table()@

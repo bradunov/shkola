@@ -1,0 +1,6 @@
+In a correct @name[ind]@ prism, the code is:
+@center@ @quest1@
+@center@ @quest2@
+@vspace@
+Calculate the surface area of the prism (to two decimal places).
+@center@ @"P = "@ @lib.check_number(area,50)@@meas[2]@

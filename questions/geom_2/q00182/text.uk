@@ -1,0 +1,5 @@
+All edges of the right @name[ind]@ prism have a length of @numb@@meas[1]@.
+What is the surface area of the prism?
+@vspace@
+The surface area of the prism is (to two decimal places)
+@center@ @"P = "@ @lib.check_number(area,50)@@meas[2]@

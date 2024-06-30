@@ -1,0 +1,1 @@
+msg = "Triangles are isosceles, angle 𝛾 is at the top."

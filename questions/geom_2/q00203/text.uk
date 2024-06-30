@@ -1,0 +1,4 @@
+Fill in the table that contains dimensions (in cm) of a rectangular pyramid. The base is a rectangle with sides @edge[1]@ and @edge[2]@, @edge[3]@ is the height, @edge[4]@ is the slant height, and @edge[5]@ is the volume of the pyramid.
+(Round the numbers to one decimal place.)
+
+@addition_table()@

@@ -1,0 +1,7 @@
+Around a right triangular @name[ind]@ prism, a cylinder is described so that the bases of the cylinder are circles described around the bases of the prism. 
+If the edge of the prism is @edge@@meas[1]@, calculate the surface area and volume of the cylinder (to one decimal place). Assume that @"π"@ = @"22/7"@.
+@center@ The surface area of the cylinder is @hspacept(3)@ @lib.check_number(area_v,50)@@meas[2]@,
+@center@ The volume of the cylinder is @hspacept(3)@ @lib.check_number(vol_v,50)@@meas[3]@.
+What is the ratio of the surface areas and volumes of the prism and the cylinder.
+@center@ The surface area of the prism is @lib.check_number(prop_p)@% of the surface area of the cylinder.
+@center@ The volume of the prism is @lib.check_number(prop_v)@% of the volume of the cylinder.

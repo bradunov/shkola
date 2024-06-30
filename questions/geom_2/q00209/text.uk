@@ -1,0 +1,6 @@
+Rectangle with sides @edge[1]@ and @edge[2]@ rotates around side @edge[ind]@. Rotation results in a cylinder with a base diameter of @edge[4]@, height @edge[3]@, and axis cross-section @edge[5]@ (image).
+@center@ @mycanvas()@
+If
+@center@ @quest@
+determine
+@center@ @ans@.

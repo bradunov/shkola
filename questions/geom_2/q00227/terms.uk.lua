@@ -1,0 +1,2 @@
+name = {"equilateral", "quadrilateral", "hexagonal"}		
+angle = {"equilateral triangle", "right triangle", "obtuse triangle with an obtuse angle equal to 120°"}

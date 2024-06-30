@@ -1,0 +1,9 @@
+The pot has the shape of a right cylinder with a depth of @numb@@meas[1]@.
+@vspace@
+How much sheet metal is used for its production?
+@center@ Approximately @hspacept(3)@ @lib.check_number(area)@@meas[2]@ of sheet metal is used.
+@vspace@
+How many liters of water can be poured into the pot?
+@center@ @hspacept(3)@ @lib.check_number(vol)@ liters of water can be poured.
+@vspace@
+(Write the results to one decimal place; take @"π"@ = @"22/7"@.)

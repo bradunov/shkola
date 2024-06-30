@@ -1,0 +1,7 @@
+In triangle @"ABC"@, there is an inscribed green square.
+@center@ @mycanvas()@
+Calculate the area of the orange triangle if 
+@center@ @quest@.
+@vspace@
+@center@ The area of the triangle is (to one decimal place)
+@center@ @lib.check_number(area, 40)@@meas[2]@.

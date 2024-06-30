@@ -1,0 +1,7 @@
+Right-angled triangle with legs  @"a"@ = @numb[1]@@meas[1]@ and @"b"@ = @numb[2]@@meas[1]@ rotates around the hypotenuse @"c"@. Rotation produces a solid body in the shape of a cone - two right cones with a common base (figure).
+@center@ @mycanvas()@
+What is the surface area of the cone?
+@center@ The surface area of the cone is @hspacept(3)@ @lib.check_number(area,40)@@meas[2]@.      
+If the cone is made of wood with a density of @lib.dec_to_str(lib.math.round_dec(dens,2))@@meas[4]@ per @meas[3]@, what is the mass of the cone?
+@center@ The mass of the cone is @hspacept(3)@ @lib.check_number(mass,40)@@meas[4]@.       
+(Take @"π"@ = @"22/7"@. Write the results to one decimal place.)

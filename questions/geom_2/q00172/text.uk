@@ -1,0 +1,6 @@
+The slope of line @"AB"@ with respect to the plane π is ω, and its orthogonal projection onto π is the line @point[1]@@point[2]@.  
+@center@ @mycanvas()@
+If points @"A"@ and @"B"@ are on the plane π and 
+@center@ @quest@
+calculate (to one decimal place) the length
+@center@ @ans@.

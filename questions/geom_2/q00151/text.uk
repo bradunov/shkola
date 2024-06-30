@@ -1,0 +1,9 @@
+In the picture, @ang@@"SOD"@ is intersected by four parallel lines.
+
+@center@ @mycanvas()@
+
+Knowing that @hspacept(5)@@text@,
+@center@ @quest[1]@
+@center@ @quest[2]@
+determine the lengths of segments
+@center@ @ans@.

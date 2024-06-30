@@ -1,0 +1,6 @@
+In a right triangle @"ABC"@, the height corresponding to the hypotenuse is @"h"@. The hypotenuse is  @hspacept(3)@ @"c = p + q"@.  
+@center@ @mycanvas()@
+If 
+@center@ @quest@
+calculate (to one decimal place) the lengths of the sides 
+@center@ @ans@

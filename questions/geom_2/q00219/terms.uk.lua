@@ -1,0 +1,2 @@
+name = {"equilateral triangle", "right triangle", "obtuse triangle with an obtuse angle equal to 120°"}		
+elem = {"base radius", "height", "apothem", "base perimeter", "cross-section perimeter", "cross-section area"}
