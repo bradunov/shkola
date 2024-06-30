@@ -21,7 +21,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "fractions",
-      "topic": "expansion, reduction and comparison",
+      "topic": "expansion, reduction, and comparison",
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "2"
@@ -41,7 +41,7 @@
       "random": "8",
       "period": "1",
       "subtheme": "fractions",
-      "topic": "expansion, reduction and comparison",
+      "topic": "expansion, reduction, and comparison",
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "1"
@@ -51,7 +51,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "fractions",
-      "topic": "expansion, reduction and comparison",
+      "topic": "expansion, reduction, and comparison",
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "1"
@@ -61,7 +61,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "fractions",
-      "topic": "expansion, reduction and comparison",
+      "topic": "expansion, reduction, and comparison",
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "2"
@@ -71,7 +71,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "fractions",
-      "topic": "expansion, reduction and comparison",
+      "topic": "expansion, reduction, and comparison",
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "1"
@@ -81,7 +81,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "fractions",
-      "topic": "expansion, reduction and comparison",
+      "topic": "expansion, reduction, and comparison",
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "1"
@@ -231,7 +231,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "fractions",
-      "topic": "expansion, reduction and comparison",
+      "topic": "expansion, reduction, and comparison",
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "1"
@@ -241,7 +241,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "fractions",
-      "topic": "expansion, reduction and comparison",
+      "topic": "expansion, reduction, and comparison",
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "1"
@@ -251,7 +251,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "fractions",
-      "topic": "expansion, reduction and comparison",
+      "topic": "expansion, reduction, and comparison",
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "2"
@@ -611,7 +611,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "divisibility of numbers",
-      "topic": "divisibility properties",
+      "topic": "properties of divisibility",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -621,7 +621,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "divisibility of numbers",
-      "topic": "common divisor and factor",
+      "topic": "common divisor and multiple",
       "rank_subtheme": "1",
       "rank_topic": "5",
       "difficulty": "1"
@@ -651,7 +651,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "divisibility of numbers",
-      "topic": "divisibility properties",
+      "topic": "properties of divisibility",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -701,7 +701,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "divisibility of numbers",
-      "topic": "divisibility properties",
+      "topic": "properties of divisibility",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -711,7 +711,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "divisibility of numbers",
-      "topic": "divisibility properties",
+      "topic": "properties of divisibility",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -721,7 +721,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "divisibility of numbers",
-      "topic": "common divisor and factor",
+      "topic": "common divisor and multiple",
       "rank_subtheme": "1",
       "rank_topic": "5",
       "difficulty": "1"
@@ -771,7 +771,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "divisibility of numbers",
-      "topic": "common divisor and factor",
+      "topic": "common divisor and multiple",
       "rank_subtheme": "1",
       "rank_topic": "5",
       "difficulty": "1"
@@ -781,7 +781,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "divisibility of numbers",
-      "topic": "common divisor and factor",
+      "topic": "common divisor and multiple",
       "rank_subtheme": "1",
       "rank_topic": "5",
       "difficulty": "2"
@@ -801,7 +801,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "divisibility of numbers",
-      "topic": "common divisor and factor",
+      "topic": "common divisor and multiple",
       "rank_subtheme": "1",
       "rank_topic": "5",
       "difficulty": "1"
@@ -811,7 +811,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "divisibility of numbers",
-      "topic": "common divisor and factor",
+      "topic": "common divisor and multiple",
       "rank_subtheme": "1",
       "rank_topic": "5",
       "difficulty": "2"
@@ -831,7 +831,7 @@
       "random": "6",
       "period": "1",
       "subtheme": "divisibility of numbers",
-      "topic": "divisibility properties",
+      "topic": "properties of divisibility",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
@@ -841,7 +841,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "divisibility of numbers",
-      "topic": "common divisor and factor",
+      "topic": "common divisor and multiple",
       "rank_subtheme": "1",
       "rank_topic": "5",
       "difficulty": "2"
@@ -851,7 +851,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "divisibility of numbers",
-      "topic": "divisibility properties",
+      "topic": "properties of divisibility",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -861,7 +861,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "divisibility of numbers",
-      "topic": "common divisor and factor",
+      "topic": "common divisor and multiple",
       "rank_subtheme": "1",
       "rank_topic": "5",
       "difficulty": "3"
@@ -871,7 +871,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "divisibility of numbers",
-      "topic": "common divisor and factor",
+      "topic": "common divisor and multiple",
       "rank_subtheme": "1",
       "rank_topic": "5",
       "difficulty": "3"
@@ -881,7 +881,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "divisibility of numbers",
-      "topic": "common divisor and factor",
+      "topic": "common divisor and multiple",
       "rank_subtheme": "1",
       "rank_topic": "5",
       "difficulty": "2"

@@ -1,8 +1,8 @@
 {
-  "name": "2 measurement and measures",
+  "name": "2 measurement and units",
   "level": "2",
   "level_short": "2",
-  "theme": "measurement and measures",
+  "theme": "measurement and units",
   "language": "uk",
   "rank_theme": "4",
   "questions": [
@@ -21,7 +21,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "length measurement",
-      "topic": "conversion of one measure to another",
+      "topic": "conversion of one unit to another",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
@@ -31,7 +31,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "length measurement",
-      "topic": "conversion of one measure to another",
+      "topic": "conversion of one unit to another",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -41,7 +41,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "length measurement",
-      "topic": "conversion of one measure to another",
+      "topic": "conversion of one unit to another",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
@@ -51,7 +51,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "time measurement",
-      "topic": "conversion of one measure to another",
+      "topic": "conversion of one unit to another",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -61,7 +61,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "time measurement",
-      "topic": "conversion of one measure to another",
+      "topic": "conversion of one unit to another",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -101,7 +101,7 @@
       "random": "8",
       "period": "1",
       "subtheme": "time measurement",
-      "topic": "conversion of one measure to another",
+      "topic": "conversion of one unit to another",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -181,7 +181,7 @@
       "random": "8",
       "period": "1",
       "subtheme": "time measurement",
-      "topic": "conversion of one measure to another",
+      "topic": "conversion of one unit to another",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -191,7 +191,7 @@
       "random": "8",
       "period": "1",
       "subtheme": "time measurement",
-      "topic": "conversion of one measure to another",
+      "topic": "conversion of one unit to another",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"

@@ -61,7 +61,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "extended proportion",
-      "topic": "function of direct proportionality",
+      "topic": "directly proportional function",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -81,7 +81,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "extended proportion",
-      "topic": "function of direct proportionality",
+      "topic": "directly proportional function",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -91,7 +91,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "extended proportion",
-      "topic": "function of direct proportionality",
+      "topic": "directly proportional function",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "2"
@@ -111,7 +111,7 @@
       "random": "8",
       "period": "1",
       "subtheme": "extended proportion",
-      "topic": "function of direct proportionality",
+      "topic": "directly proportional function",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -121,7 +121,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "extended proportion",
-      "topic": "function of direct proportionality",
+      "topic": "directly proportional function",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -140,8 +140,8 @@
       "name": "data_2/q00058",
       "random": "10",
       "period": "1",
-      "subtheme": "sample",
-      "topic": "average, median, mode",
+      "subtheme": "pattern",
+      "topic": "mean, median, mode",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"
@@ -150,8 +150,8 @@
       "name": "data_2/q00059",
       "random": "10",
       "period": "1",
-      "subtheme": "sample",
-      "topic": "average, median, mode",
+      "subtheme": "pattern",
+      "topic": "mean, median, mode",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"
@@ -160,8 +160,8 @@
       "name": "data_2/q00060",
       "random": "10",
       "period": "1",
-      "subtheme": "sample",
-      "topic": "average, median, mode",
+      "subtheme": "pattern",
+      "topic": "mean, median, mode",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "2"
@@ -170,8 +170,8 @@
       "name": "data_2/q00061",
       "random": "10",
       "period": "1",
-      "subtheme": "sample",
-      "topic": "average, median, mode",
+      "subtheme": "pattern",
+      "topic": "mean, median, mode",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "3"
@@ -181,7 +181,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "coordinate system",
-      "topic": "distance of points in coordinate system",
+      "topic": "distance between points in coordinate system",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -191,7 +191,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "coordinate system",
-      "topic": "distance of points in coordinate system",
+      "topic": "distance between points in coordinate system",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"

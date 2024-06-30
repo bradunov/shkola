@@ -161,7 +161,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "decimal notation of a number",
+      "topic": "decimal representation of number",
       "rank_subtheme": "6",
       "rank_topic": "3",
       "difficulty": "3"
@@ -201,7 +201,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "decimal notation of a number",
+      "topic": "decimal representation of number",
       "rank_subtheme": "6",
       "rank_topic": "4",
       "difficulty": "2"
@@ -211,7 +211,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "decimal notation of a number",
+      "topic": "decimal representation of number",
       "rank_subtheme": "6",
       "rank_topic": "4",
       "difficulty": "2"
@@ -221,7 +221,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "decimal notation of a number",
+      "topic": "decimal representation of number",
       "rank_subtheme": "6",
       "rank_topic": "4",
       "difficulty": "1"
@@ -231,7 +231,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "decimal notation of a number",
+      "topic": "decimal representation of number",
       "rank_subtheme": "6",
       "rank_topic": "4",
       "difficulty": "2"
@@ -241,7 +241,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "decimal notation of a number",
+      "topic": "decimal representation of number",
       "rank_subtheme": "6",
       "rank_topic": "4",
       "difficulty": "2"
@@ -251,7 +251,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "fractions",
-      "topic": "decimal notation of a number",
+      "topic": "decimal representation of number",
       "rank_subtheme": "6",
       "rank_topic": "4",
       "difficulty": "1"
@@ -291,7 +291,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "natural numbers",
-      "topic": "comparison of numbers",
+      "topic": "comparing numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -331,7 +331,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "natural numbers",
-      "topic": "comparison of numbers",
+      "topic": "comparing numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -421,7 +421,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "natural numbers",
-      "topic": "comparison of numbers",
+      "topic": "comparing numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
@@ -731,7 +731,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numerical expression",
-      "topic": "order of arithmetic operations",
+      "topic": "order of operations",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"
@@ -751,7 +751,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numerical expression",
-      "topic": "order of arithmetic operations",
+      "topic": "order of operations",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"
@@ -781,7 +781,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "natural numbers",
-      "topic": "comparison of numbers",
+      "topic": "comparing numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -811,7 +811,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "natural numbers",
-      "topic": "comparison of numbers",
+      "topic": "comparing numbers",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -941,7 +941,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numerical expression",
-      "topic": "order of arithmetic operations",
+      "topic": "order of operations",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "2"
@@ -951,7 +951,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numerical expression",
-      "topic": "order of arithmetic operations",
+      "topic": "order of operations",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "2"
@@ -961,7 +961,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numerical expression",
-      "topic": "order of arithmetic operations",
+      "topic": "order of operations",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "2"
@@ -991,7 +991,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "numerical expression",
-      "topic": "order of arithmetic operations",
+      "topic": "order of operations",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "3"
