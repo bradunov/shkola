@@ -1,0 +1,40 @@
+{
+  "name": "1 merjenje in mere",
+  "level": "1",
+  "level_short": "1",
+  "theme": "merjenje in mere",
+  "language": "sl",
+  "rank_theme": "4",
+  "questions": [
+    {
+      "name": "measures/q00045",
+      "random": "5",
+      "period": "2",
+      "subtheme": "merjenje s nestandardnimi enotami mere",
+      "topic": "merjenje dolžine in teže",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00046",
+      "random": "5",
+      "period": "2",
+      "subtheme": "merjenje s nestandardnimi enotami mere",
+      "topic": "merjenje dolžine in teže",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "measures/q00047",
+      "random": "3",
+      "period": "2",
+      "subtheme": "merjenje s nestandardnimi enotami mere",
+      "topic": "merjenje dolžine in teže",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    }
+  ]
+}

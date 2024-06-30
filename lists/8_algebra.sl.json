@@ -1,0 +1,590 @@
+{
+  "name": "8 algebra",
+  "level": "8",
+  "level_short": "8",
+  "theme": "algebra",
+  "language": "sl",
+  "rank_theme": "1",
+  "questions": [
+    {
+      "name": "equat_2/q00032",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "rešitev",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00033",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "rešitev",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00034",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "ekvivalentne enačbe",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00035",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "ekvivalentne enačbe",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00036",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "rešitev",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00037",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "ekvivalentne transformacije",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00038",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "reševanje",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00039",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "reševanje",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00040",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "ekvivalentne transformacije",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00041",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "reševanje",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00042",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "reševanje",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "3"
+    },
+    {
+      "name": "equat_2/q00043",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "uporaba",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00044",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "uporaba",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00045",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "uporaba",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00046",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "uporaba",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00047",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "uporaba",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00048",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "uporaba",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00049",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "uporaba",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00050",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "uporaba",
+      "rank_subtheme": "1",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00051",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearne neenačbe z eno neznanko",
+      "topic": "reševanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00052",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearne neenačbe z eno neznanko",
+      "topic": "ekvivalentne neenačbe",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00053",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearne neenačbe z eno neznanko",
+      "topic": "ekvivalentne neenačbe",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00054",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearne neenačbe z eno neznanko",
+      "topic": "ekvivalentne neenačbe",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "equat_2/q00055",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearne neenačbe z eno neznanko",
+      "topic": "reševanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "equat_2/q00056",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearne neenačbe z eno neznanko",
+      "topic": "reševanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00057",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearne neenačbe z eno neznanko",
+      "topic": "reševanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00058",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearne neenačbe z eno neznanko",
+      "topic": "uporaba",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00059",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearne neenačbe z eno neznanko",
+      "topic": "uporaba",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00060",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearne neenačbe z eno neznanko",
+      "topic": "uporaba",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00061",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearne neenačbe z eno neznanko",
+      "topic": "reševanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00062",
+      "random": "10",
+      "period": "2",
+      "subtheme": "linearna funkcija",
+      "topic": "pojem",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00063",
+      "random": "10",
+      "period": "2",
+      "subtheme": "linearna funkcija",
+      "topic": "pojem",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00064",
+      "random": "10",
+      "period": "2",
+      "subtheme": "linearna funkcija",
+      "topic": "pojem",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00065",
+      "random": "10",
+      "period": "2",
+      "subtheme": "linearna funkcija",
+      "topic": "graf",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00066",
+      "random": "10",
+      "period": "2",
+      "subtheme": "linearna funkcija",
+      "topic": "graf",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00067",
+      "random": "10",
+      "period": "2",
+      "subtheme": "linearna funkcija",
+      "topic": "graf",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00068",
+      "random": "10",
+      "period": "2",
+      "subtheme": "linearna funkcija",
+      "topic": "graf",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00069",
+      "random": "10",
+      "period": "2",
+      "subtheme": "linearna funkcija",
+      "topic": "implicitna funkcija",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00070",
+      "random": "10",
+      "period": "2",
+      "subtheme": "linearna funkcija",
+      "topic": "implicitna funkcija",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00071",
+      "random": "10",
+      "period": "2",
+      "subtheme": "linearna funkcija",
+      "topic": "implicitna funkcija",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00072",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "pojem",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00073",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "pojem",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "equat_2/q00074",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "pojem",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00075",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "reševanje sistema",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00076",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "reševanje sistema",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00077",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "reševanje sistema",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00078",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "reševanje sistema",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00079",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "reševanje sistema",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00080",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "reševanje sistema",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00081",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "uporaba",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00082",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "uporaba",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00083",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "uporaba",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00084",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "uporaba",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00085",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "uporaba",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "equat_2/q00086",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "uporaba",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00087",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "uporaba",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00088",
+      "random": "10",
+      "period": "3",
+      "subtheme": "sistemi linearnih enačb z dvema neznankama",
+      "topic": "uporaba",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00128",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearna enačba z eno neznanko",
+      "topic": "ekvivalentne transformacije",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    }
+  ]
+}

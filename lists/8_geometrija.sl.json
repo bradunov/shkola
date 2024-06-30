@@ -1,0 +1,900 @@
+{
+  "name": "8 geometrija",
+  "level": "8",
+  "level_short": "8",
+  "theme": "geometrija",
+  "language": "sl",
+  "rank_theme": "2",
+  "questions": [
+    {
+      "name": "geom_2/q00147",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "talejeva izrek",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00148",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "talejeva izrek",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00149",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "talejeva izrek",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00150",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "podobni trikotniki",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00151",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "talejeva izrek",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00152",
+      "random": "8",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "podobni trikotniki",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00153",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "podobni trikotniki",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00154",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "podobni trikotniki",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00155",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "podobni trikotniki",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00156",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "podobni trikotniki",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00157",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "podobni trikotniki",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00158",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "uporabe",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00159",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "podobni trikotniki",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00160",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "uporabe",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00161",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "uporabe",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00162",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "uporabe",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00163",
+      "random": "10",
+      "period": "1",
+      "subtheme": "podobnost",
+      "topic": "uporabe",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00164",
+      "random": "8",
+      "period": "1",
+      "subtheme": "točka, premica, ravnina",
+      "topic": "razmerje točke, premice in ravnine",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00165",
+      "random": "8",
+      "period": "1",
+      "subtheme": "točka, premica, ravnina",
+      "topic": "razmerje točke, premice in ravnine",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00166",
+      "random": "8",
+      "period": "1",
+      "subtheme": "točka, premica, ravnina",
+      "topic": "razmerje točke, premice in ravnine",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00167",
+      "random": "8",
+      "period": "1",
+      "subtheme": "točka, premica, ravnina",
+      "topic": "razmerje točke, premice in ravnine",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00168",
+      "random": "8",
+      "period": "1",
+      "subtheme": "točka, premica, ravnina",
+      "topic": "ortogonalna projekcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00169",
+      "random": "8",
+      "period": "1",
+      "subtheme": "točka, premica, ravnina",
+      "topic": "ortogonalna projekcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00170",
+      "random": "10",
+      "period": "1",
+      "subtheme": "točka, premica, ravnina",
+      "topic": "ortogonalna projekcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00171",
+      "random": "10",
+      "period": "1",
+      "subtheme": "točka, premica, ravnina",
+      "topic": "ortogonalna projekcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00172",
+      "random": "10",
+      "period": "1",
+      "subtheme": "točka, premica, ravnina",
+      "topic": "ortogonalna projekcija",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00173",
+      "random": "10",
+      "period": "1",
+      "subtheme": "točka, premica, ravnina",
+      "topic": "polieder",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00174",
+      "random": "8",
+      "period": "1",
+      "subtheme": "točka, premica, ravnina",
+      "topic": "polieder",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00175",
+      "random": "8",
+      "period": "1",
+      "subtheme": "točka, premica, ravnina",
+      "topic": "polieder",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00176",
+      "random": "8",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "pojem, elementi, vrste",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00177",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "pojem, elementi, vrste",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00178",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "pojem, elementi, vrste",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00179",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "pojem, elementi, vrste",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00180",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "površina",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00181",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "površina",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00182",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "površina",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00183",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "površina",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00184",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "volumen",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00185",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "volumen",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00186",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "volumen",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00187",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "volumen",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00188",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "uporaba",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00189",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "uporaba",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00190",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "uporaba",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00191",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "uporaba",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00192",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "uporaba",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00193",
+      "random": "10",
+      "period": "2",
+      "subtheme": "prizma",
+      "topic": "uporaba",
+      "rank_subtheme": "3",
+      "rank_topic": "4",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00194",
+      "random": "8",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "pojem, elementi, vrste",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00195",
+      "random": "10",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "pojem, elementi, vrste",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00196",
+      "random": "10",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "pojem, elementi, vrste",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00197",
+      "random": "10",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "pojem, elementi, vrste",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00198",
+      "random": "10",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "površina",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00199",
+      "random": "10",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "površina",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00200",
+      "random": "10",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "površina",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00201",
+      "random": "10",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "površina",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00202",
+      "random": "10",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "volumen",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00203",
+      "random": "10",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "volumen",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00204",
+      "random": "10",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "volumen",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00205",
+      "random": "10",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "uporaba",
+      "rank_subtheme": "4",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00206",
+      "random": "10",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "uporaba",
+      "rank_subtheme": "4",
+      "rank_topic": "4",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00207",
+      "random": "10",
+      "period": "2",
+      "subtheme": "piramida",
+      "topic": "uporaba",
+      "rank_subtheme": "4",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00208",
+      "random": "8",
+      "period": "3",
+      "subtheme": "valj",
+      "topic": "pojem, elementi",
+      "rank_subtheme": "5",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00209",
+      "random": "10",
+      "period": "3",
+      "subtheme": "valj",
+      "topic": "pojem, elementi",
+      "rank_subtheme": "5",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00210",
+      "random": "10",
+      "period": "3",
+      "subtheme": "valj",
+      "topic": "pojem, elementi",
+      "rank_subtheme": "5",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00211",
+      "random": "10",
+      "period": "3",
+      "subtheme": "valj",
+      "topic": "pojem, elementi",
+      "rank_subtheme": "5",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00212",
+      "random": "10",
+      "period": "3",
+      "subtheme": "valj",
+      "topic": "površina, volumen",
+      "rank_subtheme": "5",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00213",
+      "random": "10",
+      "period": "3",
+      "subtheme": "valj",
+      "topic": "površina, volumen",
+      "rank_subtheme": "5",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00214",
+      "random": "10",
+      "period": "3",
+      "subtheme": "valj",
+      "topic": "površina, volumen",
+      "rank_subtheme": "5",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00215",
+      "random": "10",
+      "period": "3",
+      "subtheme": "valj",
+      "topic": "površina, volumen",
+      "rank_subtheme": "5",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00216",
+      "random": "10",
+      "period": "3",
+      "subtheme": "valj",
+      "topic": "površina, volumen",
+      "rank_subtheme": "5",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00217",
+      "random": "10",
+      "period": "3",
+      "subtheme": "valj",
+      "topic": "površina, volumen",
+      "rank_subtheme": "5",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00218",
+      "random": "10",
+      "period": "3",
+      "subtheme": "kupa",
+      "topic": "pojem, elementi",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00219",
+      "random": "10",
+      "period": "3",
+      "subtheme": "kupa",
+      "topic": "pojem, elementi",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00220",
+      "random": "10",
+      "period": "3",
+      "subtheme": "kupa",
+      "topic": "pojem, elementi",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00221",
+      "random": "8",
+      "period": "3",
+      "subtheme": "kupa",
+      "topic": "pojem, elementi",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00222",
+      "random": "10",
+      "period": "3",
+      "subtheme": "kupa",
+      "topic": "pojem, elementi",
+      "rank_subtheme": "6",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00223",
+      "random": "10",
+      "period": "3",
+      "subtheme": "kupa",
+      "topic": "površina, volumen",
+      "rank_subtheme": "6",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00224",
+      "random": "10",
+      "period": "3",
+      "subtheme": "kupa",
+      "topic": "površina, volumen",
+      "rank_subtheme": "6",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00225",
+      "random": "10",
+      "period": "3",
+      "subtheme": "kupa",
+      "topic": "površina, volumen",
+      "rank_subtheme": "6",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00226",
+      "random": "10",
+      "period": "3",
+      "subtheme": "kupa",
+      "topic": "površina, volumen",
+      "rank_subtheme": "6",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00227",
+      "random": "10",
+      "period": "3",
+      "subtheme": "kupa",
+      "topic": "površina, volumen",
+      "rank_subtheme": "6",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00228",
+      "random": "8",
+      "period": "3",
+      "subtheme": "krogla",
+      "topic": "krogla in sfera",
+      "rank_subtheme": "7",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00229",
+      "random": "10",
+      "period": "3",
+      "subtheme": "krogla",
+      "topic": "krogla in sfera",
+      "rank_subtheme": "7",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00230",
+      "random": "10",
+      "period": "3",
+      "subtheme": "krogla",
+      "topic": "krogla in sfera",
+      "rank_subtheme": "7",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00231",
+      "random": "10",
+      "period": "3",
+      "subtheme": "krogla",
+      "topic": "krogla in sfera",
+      "rank_subtheme": "7",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00232",
+      "random": "10",
+      "period": "3",
+      "subtheme": "krogla",
+      "topic": "površina in volumen krogle",
+      "rank_subtheme": "7",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00233",
+      "random": "10",
+      "period": "3",
+      "subtheme": "krogla",
+      "topic": "površina in volumen krogle",
+      "rank_subtheme": "7",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00234",
+      "random": "10",
+      "period": "3",
+      "subtheme": "krogla",
+      "topic": "površina in volumen krogle",
+      "rank_subtheme": "7",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00235",
+      "random": "10",
+      "period": "3",
+      "subtheme": "krogla",
+      "topic": "površina in volumen krogle",
+      "rank_subtheme": "7",
+      "rank_topic": "2",
+      "difficulty": "3"
+    }
+  ]
+}

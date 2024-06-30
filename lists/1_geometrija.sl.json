@@ -1,0 +1,280 @@
+{
+  "name": "1 geometrija",
+  "level": "1",
+  "level_short": "1",
+  "theme": "geometrija",
+  "language": "sl",
+  "rank_theme": "3",
+  "questions": [
+    {
+      "name": "geometry/q00001",
+      "random": "3",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "prostorski odnosi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00002",
+      "random": "3",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "prostorski odnosi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00003",
+      "random": "3",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "velikost predmetov in bitij",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00004",
+      "random": "4",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "geometrijske figure in telesa",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00005",
+      "random": "3",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "velikost predmetov in bitij",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00006",
+      "random": "6",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "prostorski odnosi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00007",
+      "random": "0",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "prostorski odnosi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00008",
+      "random": "0",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "prostorski odnosi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00009",
+      "random": "8",
+      "period": "2",
+      "subtheme": "črta",
+      "topic": "ravnina, krivulja, lomljena črta",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00009",
+      "random": "8",
+      "period": "2",
+      "subtheme": "črta",
+      "topic": "odprta, zaprta črta",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00010",
+      "random": "3",
+      "period": "2",
+      "subtheme": "črta",
+      "topic": "ravnina, krivulja, lomljena črta",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00011",
+      "random": "3",
+      "period": "2",
+      "subtheme": "črta",
+      "topic": "ravnina, krivulja, lomljena črta",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00012",
+      "random": "10",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "geometrijske figure in telesa",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00013",
+      "random": "3",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "geometrijske figure in telesa",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00014",
+      "random": "6",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "prostorski odnosi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00015",
+      "random": "10",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "prostorski odnosi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00043",
+      "random": "0",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "geometrijske figure in telesa",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00044",
+      "random": "0",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "geometrijske figure in telesa",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00045",
+      "random": "8",
+      "period": "2",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "prostorski odnosi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00045",
+      "random": "8",
+      "period": "2",
+      "subtheme": "črta",
+      "topic": "zunanje, notranje območje",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00046",
+      "random": "3",
+      "period": "2",
+      "subtheme": "črta",
+      "topic": "zunanje, notranje območje",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00056",
+      "random": "6",
+      "period": "2",
+      "subtheme": "črta",
+      "topic": "odprta, zaprta črta",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00077",
+      "random": "0",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "prostorski odnosi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00081",
+      "random": "8",
+      "period": "2",
+      "subtheme": "črta",
+      "topic": "zunanje, notranje območje",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00082",
+      "random": "8",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "velikost predmetov in bitij",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00083",
+      "random": "6",
+      "period": "1",
+      "subtheme": "položaj, velikost in oblika",
+      "topic": "prostorski odnosi",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00084",
+      "random": "3",
+      "period": "2",
+      "subtheme": "črta",
+      "topic": "ravnina, krivulja, lomljena črta",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    }
+  ]
+}

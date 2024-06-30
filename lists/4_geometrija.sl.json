@@ -1,0 +1,100 @@
+{
+  "name": "4 geometrija",
+  "level": "4",
+  "level_short": "4",
+  "theme": "geometrija",
+  "language": "sl",
+  "rank_theme": "3",
+  "questions": [
+    {
+      "name": "geometry/q00023",
+      "random": "0",
+      "period": "2",
+      "subtheme": "geometrijska telesa",
+      "topic": "ravna, zaobljena",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00024",
+      "random": "4",
+      "period": "2",
+      "subtheme": "geometrijska telesa",
+      "topic": "ravna, zaobljena",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00025",
+      "random": "3",
+      "period": "2",
+      "subtheme": "geometrijska telesa",
+      "topic": "ravna, zaobljena",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00026",
+      "random": "9",
+      "period": "2",
+      "subtheme": "geometrijska telesa",
+      "topic": "ravna, zaobljena",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00027",
+      "random": "6",
+      "period": "2",
+      "subtheme": "kvader in kocka",
+      "topic": "mreža",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00028",
+      "random": "8",
+      "period": "2",
+      "subtheme": "kvader in kocka",
+      "topic": "elementi, lastnosti",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00029",
+      "random": "0",
+      "period": "2",
+      "subtheme": "kvader in kocka",
+      "topic": "mreža",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00078",
+      "random": "6",
+      "period": "2",
+      "subtheme": "kvader in kocka",
+      "topic": "mreža",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00080",
+      "random": "3",
+      "period": "2",
+      "subtheme": "kvader in kocka",
+      "topic": "elementi, lastnosti",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    }
+  ]
+}

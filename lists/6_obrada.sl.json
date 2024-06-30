@@ -1,0 +1,280 @@
+{
+  "name": "6 obdelava podatkov",
+  "level": "6",
+  "level_short": "6",
+  "theme": "obdelava podatkov",
+  "language": "sl",
+  "rank_theme": "4",
+  "questions": [
+    {
+      "name": "data_2/q00010",
+      "random": "10",
+      "period": "3",
+      "subtheme": "uporaba racionalnih števil",
+      "topic": "odstotek",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00011",
+      "random": "10",
+      "period": "3",
+      "subtheme": "uporaba racionalnih števil",
+      "topic": "odstotek",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00012",
+      "random": "10",
+      "period": "3",
+      "subtheme": "uporaba racionalnih števil",
+      "topic": "odstotek",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00013",
+      "random": "10",
+      "period": "3",
+      "subtheme": "uporaba racionalnih števil",
+      "topic": "odstotek",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00014",
+      "random": "10",
+      "period": "3",
+      "subtheme": "uporaba racionalnih števil",
+      "topic": "odstotek",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00021",
+      "random": "10",
+      "period": "3",
+      "subtheme": "uporaba racionalnih števil",
+      "topic": "odstotek",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00021",
+      "random": "10",
+      "period": "3",
+      "subtheme": "uporaba racionalnih števil",
+      "topic": "razmerje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00022",
+      "random": "10",
+      "period": "3",
+      "subtheme": "uporaba racionalnih števil",
+      "topic": "razmerje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00023",
+      "random": "6",
+      "period": "3",
+      "subtheme": "uporaba racionalnih števil",
+      "topic": "razmerje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00033",
+      "random": "10",
+      "period": "3",
+      "subtheme": "prikaz podatkov s diagrami",
+      "topic": "stolpčni",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00034",
+      "random": "10",
+      "period": "3",
+      "subtheme": "prikaz podatkov s diagrami",
+      "topic": "stolpčni",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00037",
+      "random": "10",
+      "period": "2",
+      "subtheme": "uporaba racionalnih števil",
+      "topic": "odstotek",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00038",
+      "random": "10",
+      "period": "2",
+      "subtheme": "uporaba racionalnih števil",
+      "topic": "odstotek",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00040",
+      "random": "10",
+      "period": "2",
+      "subtheme": "uporaba racionalnih števil",
+      "topic": "razmerje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00041",
+      "random": "10",
+      "period": "3",
+      "subtheme": "koordinatni sistem",
+      "topic": "prikaz podatkov",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00042",
+      "random": "10",
+      "period": "3",
+      "subtheme": "koordinatni sistem",
+      "topic": "prikaz podatkov",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00044",
+      "random": "10",
+      "period": "3",
+      "subtheme": "koordinatni sistem",
+      "topic": "prikaz podatkov",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00045",
+      "random": "8",
+      "period": "3",
+      "subtheme": "prikaz podatkov s diagrami",
+      "topic": "linijski",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00045",
+      "random": "8",
+      "period": "3",
+      "subtheme": "obdelava podatkov",
+      "topic": "prikazani s grafikonom",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00046",
+      "random": "10",
+      "period": "3",
+      "subtheme": "prikaz podatkov s diagrami",
+      "topic": "stolpčni",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "data_2/q00047",
+      "random": "8",
+      "period": "3",
+      "subtheme": "obdelava podatkov",
+      "topic": "prikazani s grafikonom",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00047",
+      "random": "8",
+      "period": "3",
+      "subtheme": "prikaz podatkov s diagrami",
+      "topic": "linijski",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00048",
+      "random": "10",
+      "period": "3",
+      "subtheme": "obdelava podatkov",
+      "topic": "prikazani s grafikonom",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00049",
+      "random": "10",
+      "period": "3",
+      "subtheme": "obdelava podatkov",
+      "topic": "prikazani s tabelo",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "data_2/q00050",
+      "random": "10",
+      "period": "3",
+      "subtheme": "obdelava podatkov",
+      "topic": "prikazani s tabelo",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00050",
+      "random": "10",
+      "period": "3",
+      "subtheme": "obdelava podatkov",
+      "topic": "prikazani s grafikonom",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00051",
+      "random": "10",
+      "period": "3",
+      "subtheme": "obdelava podatkov",
+      "topic": "prikazani s grafikonom",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    }
+  ]
+}
