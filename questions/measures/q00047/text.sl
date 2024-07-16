@@ -1,5 +1,5 @@
 
-Opazuj sliko in vpiši pravilne odgovore.
+Opazujte sliko in vpišite pravilne odgovore.
 
 @center@ @mycanvas(result)@
 

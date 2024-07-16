@@ -1,6 +1,3 @@
 
-Pobarvaj @name@ črte.
-
-@vspace@
-
+Pobarvajte @name@ črte.
 @center@ @mycanvas(result)@

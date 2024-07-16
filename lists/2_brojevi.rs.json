@@ -12,7 +12,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -22,7 +22,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Računanje dela date veličine",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "3",
       "difficulty": "2"
     },
@@ -32,7 +32,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -42,7 +42,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -52,7 +52,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Upoređivanje razlomaka",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "2",
       "difficulty": "1"
     },
@@ -62,7 +62,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -72,7 +72,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Upoređivanje razlomaka",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "2",
       "difficulty": "1"
     },
@@ -82,7 +82,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -92,7 +92,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -102,7 +102,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -112,7 +112,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Računanje dela date veličine",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "3",
       "difficulty": "1"
     },
@@ -122,7 +122,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -132,7 +132,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -142,7 +142,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -152,7 +152,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Računanje dela date veličine",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "3",
       "difficulty": "2"
     },
@@ -162,7 +162,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Računanje dela date veličine",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "3",
       "difficulty": "2"
     },
@@ -172,7 +172,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Pojam",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -182,7 +182,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Računanje dela date veličine",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "3",
       "difficulty": "1"
     },
@@ -192,7 +192,7 @@
       "period": "3",
       "subtheme": "Razlomci",
       "topic": "Računanje dela date veličine",
-      "rank_subtheme": "6",
+      "rank_subtheme": "5",
       "rank_topic": "3",
       "difficulty": "1"
     },
@@ -600,10 +600,10 @@
       "name": "numbers/q00220",
       "random": "8",
       "period": "3",
-      "subtheme": "Podaci",
-      "topic": "Tabela i stubičasti dijagram",
-      "rank_subtheme": "4",
-      "rank_topic": "1",
+      "subtheme": "Brojevi do 100",
+      "topic": "Brojevni niz",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
       "difficulty": "1"
     },
     {
@@ -620,10 +620,10 @@
       "name": "numbers/q00223",
       "random": "8",
       "period": "3",
-      "subtheme": "Podaci",
-      "topic": "Tabela i stubičasti dijagram",
-      "rank_subtheme": "4",
-      "rank_topic": "1",
+      "subtheme": "Brojevi do 100",
+      "topic": "Brojevni niz",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
       "difficulty": "1"
     },
     {

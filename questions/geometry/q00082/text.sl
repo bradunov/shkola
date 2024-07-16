@@ -1,3 +1,4 @@
-Pobarvaj streho @choice[ind]@ hiše:
+
+Pobarvajte streho @choice[ind]@ hiše.
 
 @center@ @mycanvas()@

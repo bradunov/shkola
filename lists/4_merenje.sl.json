@@ -535,6 +535,16 @@
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "2"
+    },
+    {
+      "name": "measures/q00109",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Ploščina kvadrata i pravokotnika",
+      "topic": "Ploščina kvadrata",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
     }
   ]
 }

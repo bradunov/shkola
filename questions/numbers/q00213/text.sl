@@ -1,6 +1,6 @@
 
-Napiši izraz in izračunaj glede na dano številsko premico. 
-Dopiši manjkajoče številke.
+Napišite izraz in izračunajte glede na dano številsko premico. 
+Dopišite manjkajoče številke.
 
 @center@ @mycanvas()@
 

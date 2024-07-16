@@ -1,5 +1,4 @@
 
-Napiši, koliko je rumenih in koliko zelenih krogcev.
-Primerjaj njihovo število, izberi znak = , < ali > .
-@vspace@
+Napišite, koliko je rumenih in koliko zelenih krogcev.
+Primerjajte njihovo število, izberite znak = , < ali > .
 @center@ @mycanvas(no)@

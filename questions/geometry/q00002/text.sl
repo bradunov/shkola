@@ -1,4 +1,4 @@
 
-Pobarvaj avto, ki vozi @position[ind]@.
+Pobarvajte avto, ki vozi @position[ind]@.
  
 @center@ @mycanvas()@

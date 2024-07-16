@@ -1,3 +1,3 @@
 
-Pobarvaj @name[ind]@ črte.
+Pobarvajte @name[ind]@ črte.
 @center@ @mycanvas()@

@@ -1,4 +1,4 @@
 
-Pobarvaj puščico, ki kaže @direction[ind]@.
+Pobarvajte puščico, ki kaže @direction[ind]@.
 
 @center@ @mycanvas()@

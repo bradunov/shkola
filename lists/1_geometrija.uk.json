@@ -275,6 +275,16 @@
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
+    },
+	{
+      "name": "geometry/q00087",
+      "random": "5",
+      "period": "2",
+      "subtheme": "line",
+      "topic": "straight, curved, broken line",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
     }
   ]
 }

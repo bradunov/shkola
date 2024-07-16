@@ -1,4 +1,4 @@
 
-Pobarvaj like, ki se nahajajo @position@ sklenjene krive črte.
+Pobarvajte like, ki se nahajajo @position@ sklenjene krive črte.
 
 @center@ @mycanvas(result)@

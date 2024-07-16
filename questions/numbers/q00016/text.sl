@@ -1,6 +1,6 @@
 
-Napiši:
+Napišite:
 @repeat(4)@
-@center@  @izbor@ števila @name@ desetice 
+@center@  @izbor@ število @name@ desetice 
 @center@ @lib.check_number(value)@ 
 @/repeat@

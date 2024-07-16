@@ -1,4 +1,4 @@
 
-Pobarvaj @figure[ind]@ na sliki.
+Pobarvajte @figure[ind]@ na sliki.
 
 @center@ @mycanvas()@

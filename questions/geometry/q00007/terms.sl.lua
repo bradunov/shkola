@@ -1,1 +1,1 @@
-msg = {"za", "poleg", "pred", "pod", "nad", "med dvema"}
+msg = {"za kocko", "poleg kocke", "pred kocko", "pod kocko", "nad kocko", "med dvema kockama"}

@@ -4,7 +4,7 @@
   "level_short": "1",
   "theme": "measurement and units",
   "language": "uk",
-  "rank_theme": "4",
+  "rank_theme": "3",
   "questions": [
     {
       "name": "measures/q00045",
@@ -35,6 +35,16 @@
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"
-    }
+    },
+    {
+      "name": "measures/q00108",
+      "random": "4",
+      "period": "2",
+      "subtheme": "measurement with non-standard units",
+      "topic": "measurement of length and weight",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    }	
   ]
 }

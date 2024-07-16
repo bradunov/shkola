@@ -1,4 +1,4 @@
 
-Pobarvaj @name@.
+Pobarvajte @name@.
 @vspace@
 @center@ @mycanvas(result)@

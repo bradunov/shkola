@@ -1,4 +1,4 @@
 
-Obarvaj vsako @place@ številko, kot je označeno. (Klikni poleg številke.)
+Obarvajte vsako @place@ številko, kot je označeno. (Kliknite poleg številke.)
 
 @center@ @mycanvas()@

@@ -1,4 +1,5 @@
-Primerjaj število rdečih in modrih kvadratkov.
-Izberi znak = , < ali > .
+
+Primerjajte število rdečih in modrih kvadratkov.
+Izberite znak = , < ali > .
 
 @center@ @mycanvas(no)@

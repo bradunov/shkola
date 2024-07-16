@@ -1,4 +1,5 @@
-Katera figura je @msg[ind]@ kocke? 
-Obkroži ustrezno kocko.
+
+Katera figura je @msg[ind]@? 
+Pobarvajte krog na ustrezni kocki.
 
 @center@ @mycanvas()@

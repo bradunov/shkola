@@ -1,5 +1,6 @@
 
 include("names")
+
 r1 = math.random(#musko_ime_nom)
 r2 = math.random(#musko_ime_nom-1)
 if (r2 >= r1) then r2 = r2 + 1 end
@@ -13,8 +14,3 @@ padezd2 = musko_ime_dativ[r2];
 imenilac1 = math.random(5) + 1;
 imenilac2 = imenilac1 + math.random(4);
 brojilac = math.random(imenilac1-1);
-	
-reply = "answer == '" .. padezd2 .. "' ";
-ans = "answer = '" .. padezd2 .. "' "; 
-             
-  

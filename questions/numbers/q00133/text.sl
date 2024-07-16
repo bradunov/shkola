@@ -1,5 +1,5 @@
 
-S katerim bankovcem lahko zamenjaš naslednje bankovce?
-Obkroži krog na dnu zaslona nad pravilnim odgovorom. 
+S katerim bankovcem lahko zamenjate naslednje bankovce?
+Obarvajte kroglico na dnu zaslona nad pravilnim odgovorom. 
 
 @center@ @mycanvas(result)@
