@@ -1,0 +1,10 @@
+
+The gift is packed in a box with 
+@center@ dimensions of the base @hspacept(3)@@quest1@,
+@center@ and volume @hspacept(3)@@quest2@,    
+decorated with a ribbon (picture).
+@center@ @mycanvas()@ 
+If the length of the ribbon is @strip_out@@meas[1]@, how much ribbon is left for the bow?
+@vspace@
+@center@ It remains for the bow 
+@center@ @lib.check_number(ribbon)@@meas[3]@.

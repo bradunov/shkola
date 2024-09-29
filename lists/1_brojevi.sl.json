@@ -10,7 +10,7 @@
       "name": "numbers/q00001",
       "random": "10",
       "period": "1",
-      "subtheme": "števila do 10",
+      "subtheme": "Števila do 10",
       "topic": "štetje",
       "rank_subtheme": "1",
       "rank_topic": "1",
@@ -20,7 +20,7 @@
       "name": "numbers/q00002",
       "random": "10",
       "period": "1",
-      "subtheme": "števila do 10",
+      "subtheme": "Števila do 10",
       "topic": "seštevanje",
       "rank_subtheme": "1",
       "rank_topic": "3",
@@ -41,7 +41,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "števila do 10",
-      "topic": "primerjava števil",
+      "topic": "primerjanje števil",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -71,7 +71,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "števila do 10",
-      "topic": "primerjava števil",
+      "topic": "primerjanje števil",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -101,7 +101,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "števila do 10",
-      "topic": "primerjava števil",
+      "topic": "primerjanje števil",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -131,7 +131,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "števila do 100",
-      "topic": "pisanje števil",
+      "topic": "zapis števil",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"
@@ -141,7 +141,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "števila do 100",
-      "topic": "številski niz",
+      "topic": "Številčno zaporedje",
       "rank_subtheme": "3",
       "rank_topic": "3",
       "difficulty": "2"
@@ -151,7 +151,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "števila do 100",
-      "topic": "številski niz",
+      "topic": "Številčno zaporedje",
       "rank_subtheme": "3",
       "rank_topic": "3",
       "difficulty": "2"
@@ -201,7 +201,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "dinar, bankovci do 100 dinarjev",
-      "topic": "izražanje z različnimi apoeni",
+      "topic": "izražanje v različnih bankovcah",
       "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "2"
@@ -211,7 +211,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "števila do 100",
-      "topic": "številski niz",
+      "topic": "Številčno zaporedje",
       "rank_subtheme": "3",
       "rank_topic": "3",
       "difficulty": "2"
@@ -311,7 +311,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "števila do 100",
-      "topic": "številski niz",
+      "topic": "Številčno zaporedje",
       "rank_subtheme": "3",
       "rank_topic": "3",
       "difficulty": "1"
@@ -320,8 +320,8 @@
       "name": "numbers/q00132",
       "random": "10",
       "period": "3",
-      "subtheme": "dinar, bankovci do 100 dinarjev",
-      "topic": "izražanje z različnimi apoeni",
+      "subtheme": "Denar, bankovci do 100 dinarja",
+      "topic": "izražanje v različnih bankovcah",
       "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "2"
@@ -330,8 +330,8 @@
       "name": "numbers/q00133",
       "random": "10",
       "period": "3",
-      "subtheme": "dinar, bankovci do 100 dinarjev",
-      "topic": "izražanje z različnimi apoeni",
+      "subtheme": "Denar, bankovci do 100 dinarja",
+      "topic": "izražanje v različnih bankovcah",
       "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "2"
@@ -341,7 +341,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "števila do 100",
-      "topic": "številski niz",
+      "topic": "Številčno zaporedje",
       "rank_subtheme": "3",
       "rank_topic": "3",
       "difficulty": "1"
@@ -351,7 +351,7 @@
       "random": "6",
       "period": "2",
       "subtheme": "števila do 20",
-      "topic": "številske pravice",
+      "topic": "številska premica",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "3"
@@ -371,7 +371,7 @@
       "random": "6",
       "period": "2",
       "subtheme": "števila do 20",
-      "topic": "številske pravice",
+      "topic": "številska premica",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "2"
@@ -391,7 +391,7 @@
       "random": "6",
       "period": "2",
       "subtheme": "števila do 20",
-      "topic": "številske pravice",
+      "topic": "številska premica",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "2"
@@ -420,8 +420,8 @@
       "name": "numbers/q00222",
       "random": "10",
       "period": "3",
-      "subtheme": "dinar, bankovci do 100 dinarjev",
-      "topic": "izražanje z različnimi apoeni",
+      "subtheme": "Denar, bankovci do 100 dinarja",
+      "topic": "izražanje v različnih bankovcah",
       "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "2"
@@ -431,7 +431,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "števila do 100",
-      "topic": "pisanje števil",
+      "topic": "zapis števil",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"
@@ -451,7 +451,7 @@
       "random": "6",
       "period": "2",
       "subtheme": "števila do 20",
-      "topic": "številske pravice",
+      "topic": "številska premica",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"

@@ -1,0 +1,6 @@
+
+The dots on the dice for board games are printed according to the following rule: the sum of the dots on the two opposite sides is always 7.
+@center@ @mycanvas()@
+The cube is moved to field @"D"@ of the grid so that it passes fields @"A"@, @"B"@ and @"C"@ by rotating around the corresponding edges by 90°.
+If the initial position of the cube is as in the picture, what number is on the top side of the cube in position @"D"@?
+@center@ @lib.check_number(numb)@

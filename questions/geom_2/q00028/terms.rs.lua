@@ -1,2 +1,1 @@
-msg = {"komplementan", "unakrsni", "uporedni", "suplementan"}
-
+msg = {"komplementan", "unakrsni", "uporedni", "suplementan", "spoljašnji"}

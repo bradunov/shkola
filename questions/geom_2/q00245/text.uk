@@ -1,0 +1,5 @@
+
+The black line is mirrored symmetrically in relation to the line @"PQ"@ (image).
+@center@ @mycanvas()@
+What color is the line obtained by this mapping?
+@center@@lib.check_one_option_dropdown(colour, colour[ch])@

@@ -1,0 +1,2 @@
+
+colour = {"rdeča", "modra", "zelena"}

@@ -1,0 +1,5 @@
+
+The black line rotates around the point @"O"@ by @ang@° in the @dir@ direction (image).
+@center@ @mycanvas(result)@
+What color is the line obtained by the rotation?
+@center@@lib.check_one_option_dropdown(colour, colour[ch])@

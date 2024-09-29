@@ -29,11 +29,15 @@ for i = 1,3 do
     end	
 end	
 
-ind = math.random(4)
+ind = math.random(5)
 name = msg[ind]
 
 if (ind > 2) then
-    value[2] = 648000 - value[1]	
+    if (ind < 5) then
+		value[2] = 648000 - value[1]	
+	else
+		value[2] = 1296000 - value[1]
+	end	
 else
     if (ind == 1) then
         value[2] = 324000  - value[1]

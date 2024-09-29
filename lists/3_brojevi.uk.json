@@ -307,6 +307,16 @@
       "difficulty": "2"
     },
     {
+      "name": "fractions/q00085",
+      "random": "10",
+      "period": "3",
+      "subtheme": "fractions",
+      "topic": "word problem",
+      "rank_subtheme": "6",
+      "rank_topic": "4",
+      "difficulty": "3"
+    },	
+    {
       "name": "numbers/q00047",
       "random": "10",
       "period": "1",

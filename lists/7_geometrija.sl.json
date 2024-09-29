@@ -461,7 +461,7 @@
       "random": "8",
       "period": "3",
       "subtheme": "krog",
-      "topic": "rotacija",
+      "topic": "Vrtež",
       "rank_subtheme": "4",
       "rank_topic": "4",
       "difficulty": "1"
@@ -471,7 +471,7 @@
       "random": "8",
       "period": "3",
       "subtheme": "krog",
-      "topic": "rotacija",
+      "topic": "Vrtež",
       "rank_subtheme": "4",
       "rank_topic": "4",
       "difficulty": "1"
@@ -481,7 +481,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "krog",
-      "topic": "rotacija",
+      "topic": "Vrtež",
       "rank_subtheme": "4",
       "rank_topic": "4",
       "difficulty": "3"
@@ -491,7 +491,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "krog",
-      "topic": "rotacija",
+      "topic": "rVrtež",
       "rank_subtheme": "4",
       "rank_topic": "4",
       "difficulty": "2"
@@ -501,10 +501,30 @@
       "random": "8",
       "period": "3",
       "subtheme": "krog",
-      "topic": "rotacija",
+      "topic": "Vrtež",
       "rank_subtheme": "4",
       "rank_topic": "4",
       "difficulty": "2"
-    }
+    },
+	{
+      "name": "geom_2/q00243",
+      "random": "8",
+      "period": "3",
+      "subtheme": "krog",
+      "topic": "Vrtež",
+      "rank_subtheme": "4",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+	{
+      "name": "geom_2/q00244",
+      "random": "8",
+      "period": "3",
+      "subtheme": "krog",
+      "topic": "Vrtež",
+      "rank_subtheme": "4",
+      "rank_topic": "4",
+      "difficulty": "3"
+    }	
   ]
 }

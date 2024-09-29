@@ -1,1 +1,1 @@
-msg = {"complementary", "cross", "parallel", "supplementary"}
+msg = {"complementary", "cross", "parallel", "supplementary", "outer"}

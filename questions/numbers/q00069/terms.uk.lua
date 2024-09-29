@@ -1,0 +1,1 @@
+comp = {"descending", "ascending"}

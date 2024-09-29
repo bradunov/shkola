@@ -435,6 +435,16 @@
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "1"
-    }
+    },
+    {
+      "name": "geom_2/q00245",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Osna simetrija",
+      "topic": "Osna simetrija figure",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "3"
+    }	
   ]
 }

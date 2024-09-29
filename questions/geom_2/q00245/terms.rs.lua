@@ -1,0 +1,1 @@
+colour = {"crvena", "plava", "zelena"}

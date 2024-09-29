@@ -1,0 +1,5 @@
+
+It took @time1@ minutes to fill the \(\frac{@enum@}{@denom@}\) pool with @vol1@ @"l"@ water. The pool was supposed to be full, but it was noticed that the water was draining through the drain. The drain is closed and the pool is filled in @time2@ minutes.
+How much water swelled into the drain in the first @time1@ minutes?
+@vspace@
+@center@ @lib.check_number(result)@ @"l"@ of water swelled into the drain.

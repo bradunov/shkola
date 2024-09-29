@@ -1,5 +1,4 @@
 
-Vpiši številko, s katero je označena @choice@ vrstica.
-@center@ @lib.check_number(index,15)@
+Pobarvajte @name[ind]@ črte.
 
 @center@ @mycanvas()@

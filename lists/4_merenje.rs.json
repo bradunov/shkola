@@ -545,6 +545,26 @@
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
+    },
+    {
+      "name": "measures/q00110",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Zapremina kocke i kvadra",
+      "topic": "Zapremina kvadra",
+      "rank_subtheme": "5",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "measures/q00111",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Zapremina kocke i kvadra",
+      "topic": "Zapremina kvadra",
+      "rank_subtheme": "5",
+      "rank_topic": "2",
+      "difficulty": "3"
     }	
   ]
 }
