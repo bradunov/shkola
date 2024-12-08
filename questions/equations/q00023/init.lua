@@ -1,6 +1,3 @@
-
-include("terms")
-
 quest = {""}
 answ = {""}
 
@@ -19,12 +16,10 @@ if (ind == 1) then
 		term = temp
 	end    
     value = solution - term
-    quest[ind] = operation[4] 
 end	
                   
 if (ind == 2) then	
     value = term + solution;
-    quest[ind] = operation[3]
 end	                  
 
 if (ind == 3) then
@@ -34,12 +29,10 @@ if (ind == 3) then
 		term = temp
 	end    	
     value = term - solution
-    quest[ind] = operation[2]
 end	                
 
 if (ind == 4) then	
     value = term + solution;
-    quest[ind] = operation[1]
 end	
             
 answ[1] = "x - " .. tostring(math.floor(term)) .. " = " .. tostring(math.floor(value))           

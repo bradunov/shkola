@@ -1,4 +1,13 @@
-@quest[ind]@ What is the @term@ needed to obtain the number @value@?
+@if ind == 1@
+What number should be added to the number @term@ to get the number @value@?
+@elif ind == 2@
+What number should be subtracted from the number @term@ to get the number @value@?
+@elif ind == 3@
+To which number should the number @term@ be added to get the number @value@?
+@else@
+From which number should the number @term@ be subtracted to get the number @value@?
+@endif@
+
 
 @vspace@
 By which equation will you calculate the required number? Color the circle next to the correct answer.
