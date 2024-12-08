@@ -407,43 +407,57 @@ class Question(object):
                 cmd = btext[indices[ind]["start"]+1 : indices[ind+1]["start"]]
 
                 ### Repeat/end
-                if (param := extract_parameter(cmd, "repeat")) is not None and param[0] == "(" and param[-1] == ")":
-                    if not repeat_start_index is None:
-                        raise Exception("Nested repeat in text: {}".format(cmd))
-                    no_iter = int(param[1:len(param)-1])
-                    items.append({"type" : "repeat", "no_iter" : no_iter})
-                    strings.append("")
-                    repeat_start_index = ind
+                # This may be a better version for python3.8+, but we need to support python3.5
+                #if (param := extract_parameter(cmd, "repeat")) is not None and param[0] == "(" and param[-1] == ")":
+                if extract_parameter(cmd, "repeat") is not None:
+                    param = extract_parameter(cmd, "repeat")
+                    if param[0] == "(" and param[-1] == ")":
+                        if not repeat_start_index is None:
+                            raise Exception("Nested repeat in text: {}".format(cmd))
+                        no_iter = int(param[1:len(param)-1])
+                        items.append({"type" : "repeat", "no_iter" : no_iter})
+                        strings.append("")
+                        repeat_start_index = ind
+                    else:
+                        raise Exception("Repeat without parameter in (text): {}".format(cmd))
 
-                elif (param := extract_parameter(cmd, "/repeat")) is not None and not param:
-                    if repeat_start_index is None:
-                        raise Exception("Repeat ended without starting")
-                    items.append({"type" : "repeat_end", "start" : repeat_start_index})
-                    strings.append("")
-                    repeat_start_index = None
+                elif extract_parameter(cmd, "/repeat") is not None:
+                    param = extract_parameter(cmd, "/repeat")
+                    if not param:
+                        if repeat_start_index is None:
+                            raise Exception("Repeat ended without starting")
+                        items.append({"type" : "repeat_end", "start" : repeat_start_index})
+                        strings.append("")
+                        repeat_start_index = None
+                    else:
+                        raise Exception("Repeat end with parameter in text: {}".format(cmd))
 
 
                 ### If/elif/else/end
-                elif (param := extract_parameter(cmd, "if")) is not None:
+                elif extract_parameter(cmd, "if") is not None:
+                    param = extract_parameter(cmd, "if")
                     if not if_start_index is None:
                         raise Exception("Nested if in text: {}".format(cmd))
                     items.append({"type" : "if", "param" : param})
                     strings.append("")
                     if_start_index = ind
 
-                elif (param := extract_parameter(cmd, "elif")) is not None:
+                elif extract_parameter(cmd, "elif") is not None:
+                    param = extract_parameter(cmd, "elif")
                     if if_start_index is None:
                         raise Exception("elif without if in text: {}".format(cmd))
                     items.append({"type" : "elif", "param" : param, "start" : if_start_index})
                     strings.append("")
 
-                elif (param := extract_parameter(cmd, "else")) is not None:
+                elif extract_parameter(cmd, "else") is not None:
+                    param = extract_parameter(cmd, "else")
                     if if_start_index is None:
                         raise Exception("else without if in text: {}".format(cmd))
                     items.append({"type" : "else", "start" : if_start_index})
                     strings.append("")
 
-                elif (param := extract_parameter(cmd, "endif")) is not None:
+                elif extract_parameter(cmd, "endif") is not None:
+                    param = extract_parameter(cmd, "endif")
                     if if_start_index is None:
                         raise Exception("/if without if in text: {}".format(cmd))
                     items.append({"type" : "if_end", "start" : if_start_index})
