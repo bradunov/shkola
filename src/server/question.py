@@ -389,34 +389,70 @@ class Question(object):
             indices.append({"start" : cstart, "type" :  "code"})
             indices.append({"start" : cend, "type" : "text"})
 
-            
+        # For a command of type @KEYWORD parameter@ extract the parameter 
+        # if the keyword matches, otherwise return None
+        def extract_parameter(input, keyword):
+            if (len(input) >= len(keyword) and input[0 : len(keyword)] == keyword):
+                return input[len(keyword) : len(input)].strip()
+            else:
+                return None
+
         # Find repeates
         items = []
         strings = []
-        start_index = None
+        repeat_start_index = None
+        if_start_index = None
         for ind in range(0, len(indices)-1):
             if (indices[ind]["type"] == "code"):
-                if (indices[ind+1]["start"] - indices[ind]["start"] - 1 > len("repeat()") and
-                    btext[indices[ind]["start"]+1 : indices[ind]["start"]+1+len("repeat")] == "repeat" and
-                    btext[indices[ind]["start"]+1+len("repeat")] == "(" and
-                    btext[indices[ind+1]["start"]-1] == ")"):
-                    if not start_index is None:
-                        raise Exception("Nested repeat in text: {}".
-                                        format(btext[indices[ind]["start"]+1 :
-                                                         indices[ind]["start"]+1+len("repeat")]))
-                    no_iter = int(btext[indices[ind]["start"]+1+len("repeat(") : indices[ind+1]["start"]-1])
+                cmd = btext[indices[ind]["start"]+1 : indices[ind+1]["start"]]
+
+                ### Repeat/end
+                if (param := extract_parameter(cmd, "repeat")) is not None and param[0] == "(" and param[-1] == ")":
+                    if not repeat_start_index is None:
+                        raise Exception("Nested repeat in text: {}".format(cmd))
+                    no_iter = int(param[1:len(param)-1])
                     items.append({"type" : "repeat", "no_iter" : no_iter})
                     strings.append("")
-                    start_index = ind
+                    repeat_start_index = ind
 
-                elif (indices[ind+1]["start"] - indices[ind]["start"] - 1 == len("/repeat") and
-                    btext[indices[ind]["start"]+1 : indices[ind]["start"]+1+len("/repeat")] == "/repeat"):
-                    if start_index is None:
+                elif (param := extract_parameter(cmd, "/repeat")) is not None and not param:
+                    if repeat_start_index is None:
                         raise Exception("Repeat ended without starting")
-                    items.append({"type" : "end", "start" : start_index})
+                    items.append({"type" : "repeat_end", "start" : repeat_start_index})
                     strings.append("")
-                    start_index = None
+                    repeat_start_index = None
 
+
+                ### If/elif/else/end
+                elif (param := extract_parameter(cmd, "if")) is not None:
+                    if not if_start_index is None:
+                        raise Exception("Nested if in text: {}".format(cmd))
+                    items.append({"type" : "if", "param" : param})
+                    strings.append("")
+                    if_start_index = ind
+
+                elif (param := extract_parameter(cmd, "elif")) is not None:
+                    if if_start_index is None:
+                        raise Exception("elif without if in text: {}".format(cmd))
+                    items.append({"type" : "elif", "param" : param, "start" : if_start_index})
+                    strings.append("")
+
+                elif (param := extract_parameter(cmd, "else")) is not None:
+                    if if_start_index is None:
+                        raise Exception("else without if in text: {}".format(cmd))
+                    items.append({"type" : "else", "start" : if_start_index})
+                    strings.append("")
+
+                elif (param := extract_parameter(cmd, "endif")) is not None:
+                    if if_start_index is None:
+                        raise Exception("/if without if in text: {}".format(cmd))
+                    items.append({"type" : "if_end", "start" : if_start_index})
+                    strings.append("")
+                    if_start_index = None
+
+
+
+                ### Inlined Lua code
                 else:
                     items.append({"type" : "code",
                                   "string" : btext[indices[ind]["start"]+1 :
@@ -429,8 +465,13 @@ class Question(object):
                                                    indices[ind+1]["start"]]})
                 strings.append(btext[indices[ind]["start"]+1 :
                                          indices[ind+1]["start"]])
-                
-            
+
+
+        if repeat_start_index is not None:
+            raise Exception("Repeat loop not ended")
+
+        if if_start_index is not None:
+            raise Exception("If loop not ended")
 
 
         # Eval code
@@ -546,7 +587,7 @@ class Question(object):
                 code = code + "ITEM = {}\n".format(loop)
                 code = code + self.iter_code + "\n"
 
-            elif item["type"] == "end":
+            elif item["type"] == "repeat_end":
                 loop = loop + 1
                 if loop == no_iter + 1:
                     loop = 1
@@ -555,6 +596,25 @@ class Question(object):
                     code = code + "ITEM = {}\n".format(loop)
                     code = code + self.iter_code + "\n"
                     ind = start_repeat
+
+            elif item["type"] == "if":
+                if not item["param"]:
+                    code = code + "if true then\n"
+                else:
+                    code = code + "if {} then\n".format(item["param"])
+
+            elif item["type"] == "elif":
+                if not item["param"]:
+                    code = code + "elseif true then\n"
+                else:
+                    code = code + "elseif {} then\n".format(item["param"])
+
+            elif item["type"] == "else":
+                code = code + "else\n"
+
+            elif item["type"] == "if_end":
+                code = code + "end\n"
+
             ind = ind + 1
 
 
