@@ -1,1 +1,1 @@
-title = {"digit one even number.", "sum of digits divisible by 3.", "digit one is 0 or 5.", "even number and sum of digits divisible by 3.", "sum of digits divisible by 9.", "digit one is 0.", "two-digit ending divisible by 4."}
+title = {"the digit ones is even number.", "the sum of digits is divisible by 3.", "the digit ones is 0 or 5.", "it is even  and ", "the sum of digits is divisible by 9.", "the digit ones is 0.", "its two-digit end is divisible by 4.", "if", "the sum of digits is divisible by 3."}

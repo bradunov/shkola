@@ -1,0 +1,1 @@
+msg = {"krog", "kroga", "krogov"}

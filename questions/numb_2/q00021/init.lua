@@ -1,4 +1,6 @@
 
+include("terms")
+
 style = 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -9,8 +11,6 @@ text_style = {["font_size"] = "16"}
 
 colour_style = {["off_color"] = "f90",
                 ["font_size"] = "16"}
-
-include("terms")
 
 div = {2, 3, 5, 6, 9, 10, 4}
 
@@ -27,6 +27,7 @@ mycanvas = function()
   wh = 100
   wv = 40
   ow = 10
+  v = 5
   
     lib.add_line(2, ow, 3*ow+3*wh+8, 0, style, false, false)
 
@@ -37,15 +38,19 @@ mycanvas = function()
   lib.add_line(2, ow, 0, y, style, false, false)
   lib.add_line(4*ow, ow, 0, y, style, false, false)
   lib.add_line(4*ow+3*wh, ow, 0, y, style, false, false) 
-  lib.add_text(wh-2*ow, 3*ow, "ako je ", text_style)
+  lib.add_text(wh-2*ow, 3*ow, title[8], text_style)
 
   
   for i = 1,stampa do
       lib.add_input(ow/2, ow+i*(wv+ow),30, 30, lib.check_number(div[out[i]],15))  
-      lib.add_text(2*wh-ow, 2*ow+i*(wv+ow), title[out[i]], text_style, false, false)  
-   
+      lib.add_text(2*wh-ow, 2*ow+i*(wv+ow)-v, title[out[i]], text_style, false, false)  
+     if (out[i] == 4) then
+        lib.add_text(2*wh-ow, 2*ow+i*(wv+ow)+ow, title[9], text_style, false, false)  
+     else
+        lib.add_text(2*wh-ow, 2*ow+i*(wv+ow)+ow, "", text_style, false, false) 
+     end 
   end
 
   lib.end_canvas()
 end
-          
+         

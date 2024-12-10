@@ -1,7 +1,7 @@
 
 @repeat(3)@
-The quotient of two numbers is @prod@. If the dividend is @operat[ind]@ for @number@, the quotient will be @result@.
+The quotient of two numbers is @prod@. If the first number is @operat[ind]@ by @number@, the quotient will be @result@.
 
-@center@ The dividend is @lib.check_number(factor2, 40)@ and the divisor is @lib.check_number(factor1, 30)@.
+@center@ The numbers are @lib.check_number(factor2, 40)@ and  @lib.check_number(factor1, 30)@.
 @vspace@
 @/repeat@         

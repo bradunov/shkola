@@ -67,7 +67,7 @@ value4 = number[3] - number[5]
 result = number[3]
 
 mycanvas = function(no)
-  lib.start_canvas(500, 150, "center")
+  lib.start_canvas(350, 150, "center")
 
 hscale = 1.2
 vscale = 5
@@ -117,4 +117,4 @@ vscale = 5
 
   lib.end_canvas()
 end
-                   
+               

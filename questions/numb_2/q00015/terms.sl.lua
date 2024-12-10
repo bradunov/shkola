@@ -1,1 +1,1 @@
-operat = {"zmanjšajmo", "povečajmo"}
+operat = {"zmanjšamo", "povečamo"}

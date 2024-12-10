@@ -1,6 +1,6 @@
 @"A"@ in @"B"@ sta poljubni množici. Pred vsako enačbo napiši 
-@hspacept(15)@ t, če je enačba pravilna, ali 
-@hspacept(15)@ n, če enačba ni pravilna. 
+@hspacept(15)@ @"t"@, če je enačba pravilna, ali 
+@hspacept(15)@ @"n"@, če enačba ni pravilna. 
 
 @vspace@
 

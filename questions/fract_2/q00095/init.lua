@@ -1,6 +1,5 @@
 
 include("terms")
-
 include("names")
 
 style = 
@@ -116,26 +115,42 @@ mycanvas = function(no)
 	x[2] = ov + r
 	y[1] = ow + r
 	y[2] = y[1]
-		
+	
 	for i = 1,2 do
-	    px[i] = {}
-	    py[i] = {}
+		px[i] = {}
+		py[i] = {}
+		for j = 1, imen[i] do
+			dx = math.cos(j*arg[i]) 
+			dy = math.sin(j*arg[i])	
+			px[i][j] = x[i] + r*dx 
+			py[i][j]= y[i] - r*dy	
+		end
+	end
+	
+	for i = 1,2 do
+		if (imen[i] ~= 2) then
+			lib.add_line(x[i]+r, y[i], px[i][1]-x[i]-r, py[i][1]-y[i], dif_style, false, false)
+			for j = 1, imen[i]-1 do
+				lib.add_line(px[i][j], py[i][j], px[i][j+1]-px[i][j], py[i][j+1]-py[i][j], dif_style, false, false)
+			end
+		else
+			lib.add_straight_path (x[i]+r, y[i], {{-r, -r}, {-r, r}}, dif_style,  false, false)	
+			lib.add_straight_path (x[i]+r, y[i], {{-r, r}, {-r, -r}}, dif_style,  false, false)					
+		end
+	end		
+	for i = 1,2 do
 		if (imen[i] ~= 2) then
 			for j = 1, imen[i] do
-				dx = math.cos(j*arg[i]) 
-				dy = math.sin(j*arg[i])	
-				px[i][j] = x[i] + r*dx 
-				py[i][j]= y[i] - r*dy	
 				if (j > 1) then			
-					lib.add_straight_path (x[i], y[i], {{px[i][j-1]-x[i], py[i][j-1]-y[i]}, {px[i][j]-px[i][j-1], py[i][j]-py[i][j-1]}, {x[i]-px[i][j], y[i]-py[i][j]}}, box_style,  false, true)												
+					lib.add_straight_path (x[i], y[i], {{px[i][j-1]-x[i], py[i][j-1]-y[i]}, {px[i][j]-px[i][j-1], py[i][j]-py[i][j-1]}, {x[i]-px[i][j], y[i]-py[i][j]}}, box_style,  false, true)													
 				else
 					lib.add_straight_path (x[i], y[i], {{r, 0}, {px[i][1]-x[i]-r, py[i][1]-y[i]}, {x[i]-px[i][1], y[i]-py[i][1]}}, box_style,  false, true)												
 				end			
 			end
 		else
-        lib.add_curved_path (x[i]-r-5, y[i], {{r+5, -2*r, 2*r+ow, 0}}, box_style,  false, true)	        
-        lib.add_curved_path (x[i]-r-5, y[i], {{r+5, 2*r, 2*r+ow, 0}}, box_style,  false, true)				
-		end
+			lib.add_straight_path (x[i]+r, y[i], {{-r, -r}, {-r, r}}, box_style,  false, true)	
+			lib.add_straight_path (x[i]+r, y[i], {{-r, r}, {-r, -r}}, box_style,  false, true)									
+		end		
     end
 
 	for i = 1, 2 do		
@@ -151,5 +166,5 @@ mycanvas = function(no)
 	
   lib.end_canvas()
   
-end                    
-            
+end 
+           

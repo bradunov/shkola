@@ -1,1 +1,1 @@
-operat = {"decrease", "increase"}
+operat = {"decreased", "increased"}

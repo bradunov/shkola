@@ -1,5 +1,7 @@
 
+include("terms")
 include("names")
+
 r1 = math.random(#musko_ime_nom)
 r2 = math.random(#musko_ime_nom-1)
 if (r2 >= r1) then r2 = r2 + 1 end
@@ -18,7 +20,6 @@ q = {}
 quest = {}
 value = {}
 word = {}
-
 
 numbmax = 200
 numbmin = 60
@@ -101,25 +102,16 @@ for i = 1,ind do
 	rest = value[i] - 10 * temp
 	if (temp ~= 1) then
 	    if (rest > 4) then
-	        word[i] = "krugova"
+	        word[i] = msg[3]
 	    else
             if (rest > 1) then	
-	            word[i] = "kruga"
+	            word[i] = msg[2]
 	        else     
-	            word[i] = "krug"
+	            word[i] = msg[1]
 	        end
 	    end
 	else
-	    word[i] = "krugova"	
+	    word[i] = msg[3]	
 	end	
 end	    
-          
-  
-            
-            
-            
-   
-        
-       
-             
-       
+      

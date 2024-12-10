@@ -61,7 +61,7 @@ dif = lib.math.round_dec((cost[2*first-1] - cost[2*second-1]) *numb[3],1)
 
 mycanvas = function()
 
-  lib.start_canvas(400, 200, "center")
+  lib.start_canvas(350, 200, "center")
  
   v = 35
   ov = 80
