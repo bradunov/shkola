@@ -251,16 +251,18 @@ class Repository(object):
                     d[dir] = {}                
 
                 for file in filenames:
-                    if file[len(file)-1:] == "~":
+                    if file[len(file)-1:] == "~" or file == "requirements.txt":
                         print("Skipping:", file)
                         continue
                     #if len(file) > len(".json") and file[len(file)-len(".json"):] == ".json":
                     if self.check_extension(file, ".json"):
+                        print("FILE: ", file)
                         try:
                             key = file[:len(file)-len(".json")]
                             d[key] = json.load(open(dirpath + "/" + file, 'r', encoding='utf-8'))
+                            print("KEY: ", key)
                         except Exception as e:
-                            logging.warn( \
+                            logging.error( \
                                 "\n\n**********************************************\n" + \
                                 "Error parsing JSON file {}: {}\n".format(file, e) + \
                                 "**********************************************\n"\
@@ -276,7 +278,7 @@ class Repository(object):
                             with open(dirpath + "/" + file, encoding='utf-8') as f_text:
                                 text = f_text.read()
                         except Exception as e:
-                            logging.warn( \
+                            logging.error( \
                                 "\n\n**********************************************\n" + \
                                 "Error parsing file {}: {}\n".format(file, e) + \
                                 "**********************************************\n"\
