@@ -256,11 +256,9 @@ class Repository(object):
                         continue
                     #if len(file) > len(".json") and file[len(file)-len(".json"):] == ".json":
                     if self.check_extension(file, ".json"):
-                        print("FILE: ", file)
                         try:
                             key = file[:len(file)-len(".json")]
                             d[key] = json.load(open(dirpath + "/" + file, 'r', encoding='utf-8'))
-                            print("KEY: ", key)
                         except Exception as e:
                             logging.error( \
                                 "\n\n**********************************************\n" + \
