@@ -1,16 +1,7 @@
 
 Solve the equations and check the solutions. 
-
 @repeat(3)@
 @center@ @quest@ 
 @center@ @answ1@, @hspacept(10)@@answ2@ 
 @vspace@
-@/repeat@  
-         
-
-
-
-
-
-                  
-                  
+@/repeat@    

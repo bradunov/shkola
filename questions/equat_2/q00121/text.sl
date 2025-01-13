@@ -1,5 +1,6 @@
-Enakosti predstavljajo kvadriranje binoma. Dopolni prazna mesta v monomih.
 
-@repeat(4)@
-@center@ @quest@ = @result@
+Enakosti predstavljajo kvadriranje dvočlenika. Dopolni prazna mesta v enočleniki.
+@repeat(3)@ 
+@vspace@
+@center@ @quest@ = @result@    
 @/repeat@

@@ -1,1 +1,1 @@
-msg = {"pogoj ", "neenakost"}
+msg = "pogoj"

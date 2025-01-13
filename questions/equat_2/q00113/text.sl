@@ -1,5 +1,5 @@
-Določite produkt monomov.
 
-@repeat(4)@
+Določite produkt enočlenika.
+@repeat(3)@
 @center@  @quest@
 @/repeat@

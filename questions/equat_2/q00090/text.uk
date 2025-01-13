@@ -1,0 +1,26 @@
+
+Assertion:
+@if ind == 1@
+@center@ @title[mod]@ @"x"@ is @choice@ than @point@,
+@elif ind == 2@
+@center@ @title[mod]@ @"x"@ is @choice@ than @point@,
+@elif ind == 3@
+@center@ @title[mod]@ @"x"@ is not @choice@ than @point@,
+@elif ind == 4@
+@center@ @title[mod]@ @"x"@ is not @choice@ than @point@,
+@elif ind == 5@
+@center@ @title[mod]@ @"x"@ is @choice@ than @numbl@ and @choice1@ than @numbd@, 
+@elif ind == 6@
+@center@ @title[mod]@ @"x"@ is not @choice@ than @numbl@ and is @choice@ than @numbd@ , 
+@elif ind == 7@
+@center@ @title[mod]@ @"x"@ is not @choice@ than @numbl@ and is not @choice1@ than @numbd@, 
+@else@
+@center@ @title[mod]@ @"x"@ is @choice@ than @numbl@ and is not @choice@ than @numbd@, 
+@endif@   
+write (in ascending order) in the form of
+@"(a)"@ inequalities 
+@center@ @ineq@,  
+@"(b)"@ interval to which the solution belongs 
+@center@ @set@,  
+@"(c)"@ color the area on the number line and write the limits
+@center@ @mycanvas()@

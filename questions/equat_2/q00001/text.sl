@@ -1,5 +1,6 @@
-Vnesite manjkajočo številko.
 
-@repeat(6)@
+Vnesite manjkajoče številke.
+
+@repeat(4)@
 @center@ @answ1@ @sign@  @answ2@ @hspacept(3)@ = @hspacept(3)@ @reply@
 @/repeat@

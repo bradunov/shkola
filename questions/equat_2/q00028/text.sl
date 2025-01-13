@@ -1,7 +1,8 @@
-Reši neenakost
+
+Rešite neenačbo
 @center@ @neq@.
 
-Rešitve neenakosti so
+Rešitve neenačbe so
 @center@ @reply@
 Rešitve prikaži na številski premici.
 Krog označuje mejno vrednost območja rešitve. Obarvaj krog, če mejna točka spada v območje rešitve.

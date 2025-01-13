@@ -1,6 +1,15 @@
 
-@quest[ind]@ @factor[2]@ to obtain the number @value@?
+@if ind == 1@
+What number should be added to the number @factor[2]@ to get the number @value@?
+@elif ind == 2@
+What number should be subtracted from the number @factor[2]@ to get the number @value@?
+@elif ind == 3@
+To what number should the number @factor[2]@ be added to get the number @value@?
+@else@
+From which number should the number @factor[2]@ be subtracted to get the number @value@?
+@endif@
 What equation will you use to calculate the required number? Color the circle next to the correct answer.
 @center@ @lib.check_one_option_radio(reply,index-1,true)@ 
+@vspace@
 Solve the equation.
 @center@   x = @lib.check_number(factor[1],40)@

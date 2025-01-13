@@ -1,5 +1,5 @@
-Determine the product of binomials.
 
+Determine the product of binomials.
 @repeat(2)@
 @center@ @quest@ = @result@
 @vspace@

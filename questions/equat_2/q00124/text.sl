@@ -1,5 +1,5 @@
-Razliko kvadratov zapišite kot produkt dveh binomov.
 
+Razliko kvadratov zapišite kot produkt dva dvočlenika.
 @repeat(2)@ 
 @center@ @result@ = 
 @center@   @quest@    

@@ -1,6 +1,6 @@
 
-Solve equations and check solutions. 
-If there is one field for writing the solution, write it in the form of a decimal number with one decimal place. If there are more than one fields, write the solution in the form of a fraction. 
+Solve the equations and check the solutions. 
+If there is one field for writing the solution, write the solution in the form of a decimal number with one decimal place. If more than one field is given, write the solution as a fraction.
 @repeat(2)@
 @center@ @quest@ 
 @center@  x = @answ1@ @answ2@

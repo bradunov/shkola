@@ -1,3 +1,2 @@
-comp = {" smaller ", " greater ", " not greater ", " not smaller "}
-oper = {" divide ", " multiply " }
-msg = { "Which number", "By which number", "number", "number"}
+comp = {" less ", " greater ", " no greater ", " not less "}
+oper = {" divided ", " multiplied " }

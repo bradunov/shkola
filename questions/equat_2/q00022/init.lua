@@ -1,8 +1,5 @@
 
-include("terms")
-
 factor = {}
-quest = {""}
 answ = {""}
 qq = {}
 out = {}
@@ -27,9 +24,7 @@ end
 if (test == 0) then
     ch = math.random(2)
 	factor[ch] = -factor[ch]
-end
-
-quest[ind] = operation[ind]                
+end          
 
 if (ind == 1) then	
     value = factor[2] + factor[1]
@@ -63,7 +58,4 @@ for i = 1,4 do
 	    index = i
 	end	
 end	
-    
-
-      
-         
+ 

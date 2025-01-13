@@ -59,3 +59,5 @@ end
 equ = ""
 equ =  lib.check_number(nv1, 20) .. " " .. lib.check_string("g", 20) .. lib.check_string("+", 15) .. lib.check_number(vfree, 20).. " = " .. lib.check_number(nv2,20) .. "( " .. lib.check_string("g", 20) .. lib.check_string("-", 15) .. lib.check_number(ng,20) .. " )"              
           
+            
+           

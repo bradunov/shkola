@@ -1,9 +1,10 @@
-Ekvivalentnim transformacijama zmanjšamo enačbo 
+
+Reducirajte enačbo  
 @center@  @quest[1]@  
 @center@ = @quest[2]@
 na enačbo oblike
 @center@ @"P(x) = 0"@,
-kjer je @"P(x)"@ polinom po padajočih stopnjah spremenljivke @"x"@ s celimi koeficienti. 
+kjer je @"P(x)"@ algebarski izraz po padajočih potenci spremenljivke @"x"@, s celimi koeficienti. 
 @vspace@
 @center@  @equ@  = 0 
 @vspace@

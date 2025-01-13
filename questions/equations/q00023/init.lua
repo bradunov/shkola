@@ -1,4 +1,4 @@
-quest = {""}
+
 answ = {""}
 
 ind = math.random(4)
@@ -54,6 +54,3 @@ if (ind ~=4 and value < term) then
 else 
     answ[4] = tostring(math.floor(term)) .. " + x = " .. tostring(math.floor(value))  
 end	
-             
-            
-            

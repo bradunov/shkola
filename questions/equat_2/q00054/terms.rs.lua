@@ -1,1 +1,1 @@
-msg = {"uslov ", "nejednačina"}
+msg = "uslov "

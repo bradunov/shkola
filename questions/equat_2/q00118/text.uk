@@ -1,6 +1,5 @@
 
-Arrange the polynomials in decreasing order of the variable's degree. Write down the summands whose coefficients are different from 0.
-
+Write the product of polynomials by decreasing degrees of the variable. Write down the terms whose coefficients are different from 0.
 @repeat(2)@
 @vspace@
 @center@  @quest@ = @result@   

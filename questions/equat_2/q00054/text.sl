@@ -1,9 +1,11 @@
-Ekvivalentnim transformacijama pretvori podanu neenakost v linearno neenakost s celimi koeficienti oblike 
-@center@ @"a x ⋛ b"@, @hspace@ a ≥ 0. 
 
+Z ekvivalentnimi transformacijami spravite podano neenačbo 
 @center@ @quest@
+v linearno neenačbo s celimi koeficienti oblike 
+@center@ @"a x ⋛ b"@, @hspace@ a ≥ 0. 
 @vspace@
-@center@ @note@
-@center@ @bound[1]@   @hspacept(30)@  @equ[1]@ 
-@center@ @bound[2]@   @hspacept(30)@  @equ[2]@ 
-@center@ @bound[3]@   @hspacept(30)@  @equ[3]@
+@center@ Neenačba  @hspacept(50)@ @note@
+@center@ @equ[1]@  @hspacept(20)@ @bound[1]@ 
+@center@ @equ[2]@  @hspacept(20)@ @bound[2]@
+@center@ @equ[3]@  @hspacept(20)@ @bound[3]@ 
+            

@@ -577,6 +577,16 @@
       "difficulty": "1"
     },
     {
+      "name": "equat_2/q00090",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Linearne nejednačine sa jednom nepoznatom",
+      "topic": "Rešavanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },	
+    {
       "name": "equat_2/q00128",
       "random": "10",
       "period": "1",

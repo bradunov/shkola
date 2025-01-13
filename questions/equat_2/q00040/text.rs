@@ -1,5 +1,5 @@
 
-Ekvivalentnim transformacijama svedi jednačinu 
+Svedi jednačinu 
 @center@  @quest[1]@  
 @center@ = @quest[2]@
 na jednačinu oblika

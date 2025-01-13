@@ -1,4 +1,5 @@
-@result[ind]@ the sum of two numbers @"a"@ and @"b"@ is @numb[1][3]@. If the first number @operat[op[1]]@	@sum[1]@ @fct[1]@ @pro[1]@, and the second @operat[op[2]]@ @sum[2]@ @fct[2]@ @pro[2]@ the result will be @newn3@.
+
+@result[ind]@ of two numbers @"a"@ and @"b"@ is @numb[1][3]@. If the first number is @operat[op[1]]@	@sum[1]@ @fct[1]@ @pro[1]@, and the second number is @operat[op[2]]@ @sum[2]@ @fct[2]@ @pro[2]@ the result will be @newn3@.
 Write the corresponding system of equations (enter all coefficients that are different from 0), simplify it and solve it.
 @center@  @eq[1]@
 @center@  @eq[2]@

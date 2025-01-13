@@ -1,4 +1,5 @@
-Metodom suprotnih koeficientov reši sistem linearnih enačb (upiši vse koeficiente, ki so različni od 0).
+
+Za rešitev sistema linearnih enačb uporabite metodo nasprotnih koeficientov (vnesite vse koeficiente, ki so različni od 0).
 @center@  @imp[1]@
 @center@  @imp[2]@. 
 @center@  @separ@
@@ -11,3 +12,4 @@ Metodom suprotnih koeficientov reši sistem linearnih enačb (upiši vse koefici
 @center@  @eq[5]@
 @vskip@
 Sistem enačb je @hspacept(10)@ @lib.check_one_option_dropdown(msg, msg[sing])@
+ 

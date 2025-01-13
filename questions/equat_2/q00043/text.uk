@@ -1,6 +1,8 @@
-All fifth-grade students train only one of the following sports: football, basketball, volleyball, or swimming. @swim@ students train swimming, @volper@ percent of the total number of students train volleyball, and @basvol@ students @note@ more than volleyball train basketball. The number of students who train football is equal to \(\frac{@enum@}{@denom@}\) of the total number of students who train volleyball and basketball. 
+
+All fifth-grade students train only one of the following sports: football, basketball, volleyball, or swimming. @swim@ students train swimming, @volper@ percent of the total number of students train volleyball, and @basvol@ students @note@ than volleyball train basketball. The number of students who train football is equal to \(\frac{@enum@}{@denom@}\) of the total number of students who train volleyball and basketball. 
 Write an equation to calculate the total number of fifth-grade students @"x"@ and solve it.
 @vspace@
 @center@ @equ1@
 @center@ @equ2@
 @center@ The total number of fifth-grade students is @lib.check_number(number)@.
+          

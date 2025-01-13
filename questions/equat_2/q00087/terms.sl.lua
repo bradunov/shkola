@@ -1,2 +1,2 @@
 sign = {"več", "manj"} 
-msg = {"kliker", "klikera"}
+msg = {"frnikol", "frnikola"}

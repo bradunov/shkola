@@ -1,1 +1,1 @@
-msg = {"decimalke", "decimalke"}
+msg = {"decimalko", "decimalke"}

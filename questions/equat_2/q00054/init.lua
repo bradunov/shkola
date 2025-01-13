@@ -62,7 +62,7 @@ end
 
 if (ind == 2) then
 	fct = 1 + math.random(4)
-	note = msg[1] .. space .. space .. msg[2]
+	note = msg
     numb[2][4] = fct * numb[1][4]   
     numb[2][7] = fct * numb[1][7] 
 	for j = 1,2 do

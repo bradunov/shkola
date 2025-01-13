@@ -1,6 +1,7 @@
-Izračunaj kvadrat binoma.
 
-@repeat(3)@
-@quest@ =
-@center@ @result@
+Izračunaj kvadrat dvočlenika.
+@repeat(2)@
+@vspace@
+@center@ @quest@ =  
+@center@ @result@   
 @/repeat@

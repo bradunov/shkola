@@ -1,5 +1,6 @@
-V prazna mesta vpišite ustrezne monome.
 
-@repeat(4)@  
+V prazna mesta vpišite ustrezne enočlenike (vpišite tudi potenco 1).
+@repeat(3)@  
+@vspace@
 @center@  @quest@   
 @/repeat@

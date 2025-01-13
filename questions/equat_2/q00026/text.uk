@@ -1,3 +1,13 @@
-@operation[ind]@ @hspacept(2)@@term[2]@@hspacept(2)@ in order to obtain the number @hspacept(2)@@term[3]@?
-If only one field is given for the answer, write the result as a decimal number with one decimal place. If more than one field is given, write the answer in the form of a fraction.
+
+@if ind == 1@
+Which number should be multiplied by the number @term[2]@ in order to obtain the number @term[3]@?
+@elif ind == 2@
+Which number should multiply the number @term[2]@ in order to obtain the number @term[3]@?
+@elif ind == 3@
+Which number should be divided by the number @term[2]@ in order to obtain the number @term[3]@?
+@else@
+Which number should divide the number @term[2]@ in order to obtain the number @term[3]@?
+@endif@
+If there is one field for writing the solution, write the solution in the form of a decimal number with one decimal place. If more than one field is given, write the solution as a fraction.
 @center@   That number is @hspacept(3)@ @answ1@@answ2@.
+  

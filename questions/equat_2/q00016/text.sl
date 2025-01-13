@@ -1,7 +1,9 @@
-Za katere naravne številke @"n"@ velja neenakost?
-Številke zapišite v naraščajočem vrstnem redu.
 
-@repeat(4)@
+Za katere naravne številke @"n"@ velja neenačba?
+Številke zapišite v naraščajočem vrstnem redu. Če je številk več kot pet, se vneseta samo najmanjši in največji dve, ostale pa se nadomestijo z ... .
+
+@repeat(2)@
 @vspace@
-@center@ @neq@,  @hspacept(15)@ @reply@  
+@center@ @neq@,  
+@center@ @reply@  
 @/repeat@

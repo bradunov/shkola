@@ -1,5 +1,5 @@
-Write the degree of the given polynomial and determine whether the given polynomial is a monomial, binomial, or trinomial.
 
+Write the degree of the given polynomial and determine whether the given polynomial is a monomial, binomial, or trinomial.
 @vspace@
 @center@ @quest[1]@   @hspacept(20)@ @lib.check_number(qq[1], 15)@ @hspacept(10)@ @lib.check_one_option_dropdown(name, answ[1])@       
 @vspace@

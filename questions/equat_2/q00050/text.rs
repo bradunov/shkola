@@ -9,4 +9,4 @@ Napiši jednačinu kojom ćeš izračunati koliko je bilo grana  @"g"@.
 Reši jednačinu i odgovori.
 @center@ Koliko je bilo grana? @hspacept(5)@ @lib.check_number(grane)@
 @center@ Koliko je bilo vrana? @hspacept(5)@ @lib.check_number(vrane)@   
-  
+         

@@ -1,1 +1,1 @@
-msg = {"določen", "nemogoč", "neodločen"}
+msg = {"določen", "nemogoč", "nedoločen"}

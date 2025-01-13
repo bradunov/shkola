@@ -45,25 +45,25 @@ if (ind == 2) then
     numb[2][7] = fct * numb[1][7] 
 	tmp1 = -numb[1][2]/ numb[1][1]
 	if (tmp1 == lib.math.round(tmp1)) then
-		note = note .. lib.check_number(lib.math.round(tmp1),20)  .. " , "
+		note = note .. lib.check_number(lib.math.round(tmp1),20)  .. ", "
     else
 		if (tmp1 < 0) then
 			broj1 = -math.abs(numb[1][2])
 		else
 			broj1 = math.abs(numb[1][2])	
 		end		
-		note = note .. lib.check_fraction_simple(broj1, math.abs(numb[1][1])) .. " , "	
+		note = note .. lib.check_fraction_simple(broj1, math.abs(numb[1][1])) .. ", "	
 	end
 	tmp2 = -numb[2][2]/ numb[2][1]
 	if (tmp2 == lib.math.round(tmp2)) then
-		note = note .. lib.check_number(lib.math.round(tmp2),20)  .. " , "
+		note = note .. lib.check_number(lib.math.round(tmp2),20)  .. "."
     else	
 		if (tmp2 < 0) then
 			broj2 = -math.abs(numb[2][2])
 		else
 			broj2 = math.abs(numb[2][2])	
 		end		
-		note = note .. lib.check_fraction_simple(broj2, math.abs(numb[2][1])) .. " , " 
+		note = note .. lib.check_fraction_simple(broj2, math.abs(numb[2][1])) .. "." 
 	end
 end	
 
@@ -152,5 +152,10 @@ else
 	end
 end
 	
-equ = lib.check_number(aa,30) .. " x = " .. lib.check_number(bb,30)      
-                       
+equ = lib.check_number(aa) .. " x = " .. lib.check_number(bb) 
+if (note == "") then
+    equ = equ .. "."
+else
+    equ = equ .. ","    	
+end                      
+

@@ -5,5 +5,5 @@ Solve a system of linear equations using graphical method.
 @center@ @mycanvas()@
 Color the lines representing the graphs of given linear functions.
 The system of equations is @hspacept(10)@ @lib.check_one_option_dropdown(msg, msg[ind])@   
-The solution set of the system is @lib.check_one_option_dropdown(result, result[ind])@ @hspacept(5)@ @sol@
-                    
+The solution set of the system is @lib.check_one_option_dropdown(result, result[ind])@ 
+@center@ @sol@

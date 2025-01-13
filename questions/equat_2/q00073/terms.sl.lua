@@ -1,1 +1,1 @@
-msg = {"Skup rešitev je prazen.", "Vsak par števil je rešitev."}
+msg = {"Množica rešitev je prazna.", "Vsak par števil je rešitev."}

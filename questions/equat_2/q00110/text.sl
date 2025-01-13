@@ -1,4 +1,5 @@
-Določi @task[op]@ polinoma @"P"@ in @"Q"@.
+
+Določi @task[op]@ algebrskih izraza @"P"@ in @"Q"@.
 
 @center@ @"P"@ = @term[1]@,  
 @center@ @"Q"@ = @term[2]@,  

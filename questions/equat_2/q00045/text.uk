@@ -1,7 +1,11 @@
-@quest@.
+
+@if index == 1@
+A number a, @relat[6-ch]@ for @term[1]@ @note@, is for @coef@ @sign@ than @term[2]@  of the number a.
+@else@
+@term[1]@  of the number a is for @coef@ @sign@ than @term[2]@ of the number a. 
+@endif@
 How much is @"a"@?
 Write an equation to calculate the unknown number @"a"@ and solve it.
 @vspace@
 @center@ @equ@
-
 @center@ The requested number is a = @lib.check_number(numb)@.

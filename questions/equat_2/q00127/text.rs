@@ -1,6 +1,5 @@
 
-Date razlike kvdrata rastavi na činioce.
- 
+Rastavi na činioce razlike kvdrata. 
 @repeat(2)@ 
 @vspace@
 @center@  @result@ =  

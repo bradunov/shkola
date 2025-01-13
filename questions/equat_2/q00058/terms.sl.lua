@@ -1,1 +1,1 @@
-msg = {"Skup sklepov je  ", "Ni sklepov "}
+msg = {"Množica rešitev je  ", "Ni rešitev"}

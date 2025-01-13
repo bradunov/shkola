@@ -1,9 +1,10 @@
-Reši neenakost
+
+Rešite neenačbo
 @center@ @neq@.
 
-Rešitve neenakosti so
+Rešitve neenačbe so
 @center@ @reply@
 @vspace@
-Rešitve prikaži na številčni premici tako, da območje rešitev obarvaš.
-Obarvaj tudi krog, če mejna točka pripada območju rešitev.
+Rešitve prikaži na številčni premici tako, da območje rešitev pobarvaš.
+Pobarvaj tudi krog, če mejna točka pripada območju rešitev.
 @center@ @mycanvas()@

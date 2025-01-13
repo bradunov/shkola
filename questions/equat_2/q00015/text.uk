@@ -1,4 +1,9 @@
-@repeat(1)@
-@quest@? Determine the unknown number @"x"@.
+
+@if index == 1@
+How many times can the number @term1@ be @oper[sign]@ to get a number @comp[sg]@ than @term3@?
+@else@
+What number can be @oper[sign]@ @term2@ times to get a number that is @comp[sg]@ than @term3@?
+@endif@
+
+Determine the unknown numbers @"x"@.
 @center@ @reply@.
-@/repeat@

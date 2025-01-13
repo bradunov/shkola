@@ -1,1 +1,1 @@
-msg = {"uslov x ≠ ", "x ≠ "}
+msg = {"condition x ≠ ", "x ≠ "}

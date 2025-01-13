@@ -1,7 +1,14 @@
 
-For how many is the @oper[ind]@ between the numbers @term1@ and @term2@ @comp[ind]@ than the number @term3@?
+@if ind == 1@
+For how many is the sum of numbers @term1@ and @term2@ greater than the number @term3@?
+@elif ind == 2@
+For how many is the sum of numbers @term1@ and @term2@ less than the number @term3@?
+@elif ind == 3@
+For how many is the difference of numbers @term1@ and @term2@ less than the number @term3@?
+@else@
+For how many is the difference of numbers @term1@ and @term2@ greater than the number @term3@?
+@endif@
 
-@vspace@
 Which equation will you use to calculate the required number? Color the circle next to the correct answer.
 @vspace@
 @center@ @lib.check_one_option_radio(answ,ind-1,true)@ 

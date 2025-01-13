@@ -1,5 +1,6 @@
-Uredi polinome po padajočih stopnjah spremenljivke. Vpiši vsote, pri katerih so koeficienti različni od 0.
- 
-@repeat(3)@ 
+
+Zapišite zmnožek algebarskih izrazov v padajočih potencah spremenljivke. Zapišite člene, katerih koeficienti so različni od 0. 
+@repeat(2)@ 
+@vspace@
 @center@  @quest@ = @result@   
 @/repeat@

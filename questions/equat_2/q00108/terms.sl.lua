@@ -1,1 +1,1 @@
-name = {"monom", "binom", "trinom"}
+name = {"enočlenik", "dvočlenik", "veččlenik"}

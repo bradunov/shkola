@@ -1,4 +1,5 @@
-Reši neenačbo
+
+Rešite neenačbo
 @center@ @neq@.
 
 Rešitve neenačbe so

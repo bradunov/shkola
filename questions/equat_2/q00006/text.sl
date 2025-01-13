@@ -1,5 +1,6 @@
+
 Rešite enačbe.
 
-@repeat(4)@
+@repeat(3)@
 @center@ @quest@  =  @ans@, @hspacept(20)@ x = @reply@ 
 @/repeat@

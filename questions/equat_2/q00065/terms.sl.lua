@@ -1,2 +1,2 @@
-msg = {"linearna funkcija", "rast (r/o)", "nula (x,0)", "presek s y-osjo (0,y)"}
-sign = {"r", "o"}
+msg = {"linearna funkcija", "narašč. (n/p)", "ničlo (x,0)", "presečiš. s y-oso (0,y)"}
+sign = {"n", "p"}

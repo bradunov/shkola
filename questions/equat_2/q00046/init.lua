@@ -7,7 +7,6 @@ value = {}
 ind = {}
 term = {""}
 note = ""
-quest = ""
 equ = ""
 
 dim = 3
@@ -97,16 +96,12 @@ else
 	brojilac = enum[2] * denom[3] - enum[3] * denom[2]	
 end	
 if (index == 2) then
-	quest = term[1]	.. text[1] .. text[2]	
 	equ = lib.check_fraction_simple(enum[1], denom[1]) .. lib.check_string("a", 15)
 	broj = (enum[1] * imenilac - brojilac * denom[1]) * numb	   
 else	
-	quest = text[4] 
 	if (ch == 1) then
-		quest = quest .. relat[5]
 		brojper = 100 + enum[1]			
     else 
- 		quest = quest .. relat[4] 
 		brojper = 100 - enum[1]		
     end	
 	broj = (brojper * imenilac - brojilac * denom[1]) * numb
@@ -119,7 +114,6 @@ else
 			note = part[8]		
 		end
 	end
-	quest = quest .. relat[1] .. term[1] .. " " .. note .. ", " .. text[2]
 	equ = lib.check_number(lib.math.round_dec(brojper/denom[1],2)) .. lib.check_string("a", 15)
 end	
 
@@ -142,8 +136,7 @@ else
 	broj = math.floor(broj/qq)
 	imen = math.floor(imen/qq)	
 	coef = "\(\frac{" .. tostring(math.abs(broj)) .."}{" .. tostring(imen) .. "}\)"				
-end		
-quest = quest .. relat[1] .. coef      	
+end		   	
 if (broj < 0) then
 	if (index == 1) then
 		sign = relat[6]		
@@ -159,7 +152,6 @@ else
 	end	
 	op = " - "			
 end
-quest = quest .. sign .. text[3] 	
 equ = equ .. lib.check_string(op,15)	
 if (math.abs(rest) < 1e-7) then
 	equ = equ .. lib.check_number(lib.math.round_dec(math.abs(fct),2))	
@@ -168,13 +160,12 @@ else
 end
 
 if (sg == 1) then
-    sign = relat[8]
+    sign1 = relat[8]
 	op = " + "
 else
-    sign = relat[9]	
+    sign1 = relat[9]	
 	op = " - "	
 end	
-quest = quest .. sign .. term[2] .. text[5] .. term[3] .. text[1]
 equ = equ .. " " .. "="
 for i = 2,3 do
 	if (ind[i] == 1) then
@@ -186,4 +177,4 @@ for i = 2,3 do
 	    equ = equ .. lib.check_string(op,15) 
 	end
 end	
-       
+            

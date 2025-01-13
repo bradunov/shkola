@@ -1,8 +1,9 @@
 
 This is a graph of a linear function. 
 @center@ @mycanvas()@
-Write down the coordinates of points @"A"@ and @"B"@ from the picture.
+Write down the coordinates of points @"A"@ and @"B"@ from the picture
 @center@ @"A = ("@ @lib.check_number(ax, 20)@, @lib.check_number(ay, 20)@ ),@hspacept(20)@  @"B = ("@ @lib.check_number(bx, 20)@, @lib.check_number(by, 20)@ ).
 The equation of the line is 
 @center@   @"y ="@ @coef@ @"x"@@free@.
-The x-intercept of the function is @hspacept(20)@ @"x ="@ @zero@.        
+The abscissa of the function zero is @hspacept(5)@ @"x ="@ @zero@.        
+            

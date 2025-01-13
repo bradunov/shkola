@@ -1,1 +1,0 @@
-task = {"sum", "difference"}

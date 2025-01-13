@@ -1,7 +1,7 @@
-Ali so trditve, da sta identiteta in enakost enaki, kjer je leva stran 
-@center@ @term_left@ @" = "@ 
-in so navedeni izrazi na desni strani, pravilne? 
 
+Ali drži trditev, da je identiteta enakost, katere leva stran je 
+@center@ @term_left@ @" = "@ 
+desna pa dani izraz?
 @repeat(4)@ 
 @center@ @term_right@ @hspacept(30)@  @lib.check_one_option_dropdown(msg, reply)@ 
 @/repeat@

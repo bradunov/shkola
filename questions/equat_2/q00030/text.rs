@@ -7,6 +7,4 @@ Rešenja nejednačine su
 @vspace@
 Rešenja prikaži na brojevnoj pravoj. Kružić označava graničnu vrednost oblasti rešenja. Oboj i kružić ukoliko granična tačka pripada oblasti rešenja. Unesi celobrojne vrednosti oko tačke označene kružićem  i oboj oblast rešenja.
 @center@ @mycanvas()@         
-                       
-                   
-                    
+ 

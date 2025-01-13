@@ -137,7 +137,7 @@ for j = 1, dgrmax + 1 do
 	rest = 10*valabs - math.floor(10*valabs)  
 	if (j == 1) then
 	    if (rest == 0) then
-	        result = lib.check_number(lib.math.round_dec(value,1),25)
+	        result = lib.check_number(lib.math.round_dec(value,1))
 	    else	
 			result = lib.frac_start() .. lib.check_number(broj, 20) .. lib.frac_mid() .. lib.check_number(imen,20) .. lib.frac_end()
 	    end	
@@ -151,7 +151,7 @@ for j = 1, dgrmax + 1 do
 				abr = -broj	
 			end					
 			if (rest == 0) then
-				result = result .. lib.check_string(sign,10) .. lib.check_number(lib.math.round_dec(abr/imen,1),25) .. arg  
+				result = result .. lib.check_string(sign,10) .. lib.check_number(lib.math.round_dec(abr/imen,1)) .. arg  
 			else	
 				result = result .. lib.check_string(sign,10) .. lib.frac_start() .. lib.check_number(abr, 20) .. lib.frac_mid() .. lib.check_number(imen,20) .. lib.frac_end()  .. arg  
 			end	

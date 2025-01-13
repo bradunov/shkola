@@ -1,4 +1,2 @@
-comp = {" večji ", " manjši ", " ne manjši ", " ne večji "} 
+comp = {" večje ", " manjše ", " ne manjše ", " ne večje "} 
 oper = {" povečati ", " zmanjšati "}
-msg1 = {"Kolikokrat je potrebno ", " število ", " pomnožiti, da se dobi ", " od "}
-msg2 = {"Kolikokrat je potrebno množiti število ", " , da se dobi "}

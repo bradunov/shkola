@@ -3,7 +3,7 @@ include("terms")
 
 addition_table = function()
 
-  columns = 5
+  columns = 4
 
   fun = {""}
   fun_en = {}
@@ -156,7 +156,3 @@ addition_table = function()
 
   return text
 end     
- 
-        
-    
-    

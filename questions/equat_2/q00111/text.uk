@@ -1,9 +1,9 @@
-Polynomials are given:
- 
+
+For given polynomials
 @center@  @"P"@ = @term[1]@,  
 @center@ @"Q"@ = @term[2]@,  
-@center@ @"R"@ = @term[3]@.
+@center@ @"R"@ = @term[3]@,
 @vspace@
-Calculate
+calculate
 @center@ @quest@ = 
 @center@  @result@

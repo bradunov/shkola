@@ -1,9 +1,8 @@
 
-Arrange the polynomial in descending order of the variable degree. Write down the coefficients that are different from 0 as the summands. 
-
+Write the resulting polynomial in descending degrees of the variable. Write down the terms whose coefficients are different from 0.
 @vspace@ 
 @center@  @quest[3]@  
 @center@  @quest[2]@ 
 @center@  @quest[1]@ 
 @vspace@
-@center@  @result@   
+@center@  @result@    

@@ -1,6 +1,5 @@
 
 Equalities represent binomial squaring. Fill in the blanks in the monomials.
-
 @repeat(3)@ 
 @vspace@
 @center@ @quest@ = @result@    

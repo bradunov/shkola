@@ -577,6 +577,16 @@
       "difficulty": "1"
     },
     {
+      "name": "equat_2/q00090",
+      "random": "10",
+      "period": "1",
+      "subtheme": "linearne neenačbe z eno neznanko",
+      "topic": "reševanje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },	
+    {
       "name": "equat_2/q00128",
       "random": "10",
       "period": "1",

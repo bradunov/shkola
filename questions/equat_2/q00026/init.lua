@@ -1,6 +1,4 @@
 
-include("terms")
-
 enum = {}
 denom = {}
 whl = {}

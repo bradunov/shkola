@@ -1,5 +1,10 @@
+
 @repeat(2)@
-Ali potrebujemo @oper[op]@ @msg[neq+2]@ @term[2]@ dva krat, da dobimo število @comp[index]@ iz števila @term[3]@?
-@sredina@ @reply@
+@if neq == 1@
+Katero število  @"x"@ je treba  @oper[op]@ s številom   @term[2]@  da dobimo število @comp[index]@ od  @term[3]@?
+@else@
+S katerim številom @"x"@ je treba  @oper[op]@ število   @term[2]@  da dobimo število @comp[index]@ od  @term[3]@?
+@endif@
+@center@ @reply@
 @vspace@
 @/repeat@

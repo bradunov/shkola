@@ -1,1 +1,0 @@
-operation = {"Katero število je potrebno pomnožiti s številom", "S katerim številom je potrebno pomnožiti število", "Katero število je potrebno deliti s številom", "S katerim številom je potrebno deliti število"}

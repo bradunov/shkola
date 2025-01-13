@@ -1,8 +1,9 @@
 
-@ime@ has picked @rezultat@ apples. In the morning she sold \(\frac{1}{@imenilac1@}\) of the apples, in the afternoon she sold \(\frac{1}{@imenilac2@}\) of the apples.
+@ime@ has picked @rezultat@@"kg"@ apples. She sold \(\frac{1}{@imenilac1@}\) of the apples on the first day, and \(\frac{1}{@imenilac2@}\) on the second day.
 @vspace@
 How many apples did @ime@ sell? 
-@center@ @lib.check_number(brojp)@
+@center@ @lib.check_number(brojp)@@"kg"@ 
 @vspace@
 What part of the apples did she not sell? 
 @center@ @lib.check_fraction_condition("is_ok = math.eq(numerator/denominator, "..tostring(vrednost)..");", nil, nil, solution)@ 
+      

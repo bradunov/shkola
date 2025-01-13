@@ -4,6 +4,4 @@ Ako je za upis rešenja dato jedno polje rešenje zapiši u obliku decimalnog br
 @repeat(2)@
 @center@ @quest@ 
 @center@  x = @answ1@ @answ2@
-@/repeat@            
-            
-            
+@/repeat@

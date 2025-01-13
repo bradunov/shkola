@@ -1,6 +1,7 @@
-Izračunaj kolika je cena za kilogram jabuka, a kolika za kilogram krušaka, ako
-@numb[1]@@"kg"@ jabuka i @numb[2]@@"kg"@ krušaka košta @total[1]@ dinara, 
-@numb[3]@@"kg"@ jabuka i @numb[4]@@"kg"@ krušaka košta @total[2]@ dinara: 
+
+Izračunajte ceno kilograma jabolk in kilograma hrušk, če 
+@numb[1]@@"kg"@ jabolk in @numb[2]@@"kg"@ hrušk stane @total[1]@ dinarjev, 
+@numb[3]@@"kg"@ jabolk in @numb[4]@@"kg"@ hrušk stane @total[2]@ dinarjev: 
 @vspace@
-@center@ jabuke @lib.check_number(price[1])@ din/@"kg"@, 
-@center@ kruške @lib.check_number(price[2])@ din/@"kg"@
+@center@ jabolke @hspacept(3)@ @lib.check_number(price[1])@ din/@"kg"@, 
+@center@ hruške @hspacept(3)@ @lib.check_number(price[2])@ din/@"kg"@

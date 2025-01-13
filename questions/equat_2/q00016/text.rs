@@ -7,8 +7,3 @@ Brojeve upiši rastućim redosledom. Ako brojeva ima više od pet upisuju se sam
 @center@ @neq@,  
 @center@ @reply@  
 @/repeat@
-
-
-   
-   
-          

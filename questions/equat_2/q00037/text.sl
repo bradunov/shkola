@@ -1,7 +1,8 @@
-Ekvivalentnim transformacijamam pretvorite dano enačbo v linearno enačbo s celimi koeficienti oblike
-@center@ @"a x = b"@, @hspace@ a ≥ 0.
 
+Z ekvivalentnimi transformacijami spravite podane enačbe v linearne enačbe s celimi koeficienti oblike
+@center@ @"a x = b"@, @hspace@ a ≥ 0.
 @repeat(2)@
 @center@  @quest@ 
-@center@ @note@   @hspacept(30)@  @equ@ 
-@/repeat@
+@center@  Enačba @hspacept(3)@ @equ@  @hspacept(15)@ @note@ 
+@vspace@
+@/repeat@  

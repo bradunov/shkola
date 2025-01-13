@@ -1,2 +1,2 @@
 operat = {"večji", "manjši"}
-activ = {"za", "puta"}
+activ = {"za", "-krat"}

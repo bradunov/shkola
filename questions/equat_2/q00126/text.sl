@@ -1,5 +1,7 @@
-Uporabljajoč formulo za razliko kvadratov izračunaj in poenostavi dobljeni polinom. Napiši vsoto, pri kateri so koeficienti različni od 0. 
 
-@repeat(3)@
-@center@  @quest@  =  @result@   
+Uporabljajoč formulo za razliko kvadratov izračunajte in poenostavite dobljeni algebarski izraz. Zapišite člene, katerih koeficienti so različni od 0.     
+@repeat(2)@ 
+@vspace@
+@center@  @quest@  =  
+@center@ @result@   
 @/repeat@

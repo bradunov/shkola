@@ -1,6 +1,22 @@
 
 Assertion
-@center@ @title[mod]@ @"x"@ @quest@ 
+@if ind == 1@
+@center@ number @"x"@ is negative,
+@elif ind == 2@
+@center@ number @"x"@ is positive,
+@elif ind == 3@
+@center@ number @"x"@ is non-negative,
+@elif ind == 4@
+@center@ number @"x"@ is negative and greater than @numbl@,
+@elif ind == 5@
+@center@ number @"x"@ is not less than @numbl@ and not positive, 
+@elif ind == 6@
+@center@ number @"x"@ is non-negative and less than @numbd@, 
+@elif ind == 7@
+@center@ number @"x"@ is positive and not greater than @numbd@, 
+@else@
+@center@ number @"x"@ is non-negative and not greater than @numbd@, 
+@endif@
 write (in ascending order) in the form of
 @"(a)"@ inequalities 
 @center@ @ineq@,  

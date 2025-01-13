@@ -1,6 +1,0 @@
-
-include("terms")
-           
-numb = {}
-value = {}  
-            

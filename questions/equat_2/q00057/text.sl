@@ -1,4 +1,5 @@
-Reši neenakost
+
+Reši neenačbo
 
 @center@  @quest[1]@  
 @center@  @quest[2]@

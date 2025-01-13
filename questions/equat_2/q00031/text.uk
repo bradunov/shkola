@@ -1,5 +1,10 @@
+
 @repeat(2)@
-Does @"x"@ need to be @oper[op]@ @msg[neq+2]@ @term[2]@ to get the @comp[index]@ number from the number @term[3]@?
+@if neq == 1@
+What number  @"x"@ should be  @oper[op]@ by the number @term[2]@ to get the number @comp[index]@ than @term[3]@?
+@else@
+By what number @"x"@ should the number @term[2]@ be @oper[op]@ to get a number @comp[index]@ than @term[3]@?
+@endif@
 @center@ @reply@
 @vspace@
 @/repeat@

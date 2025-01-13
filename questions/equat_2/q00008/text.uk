@@ -1,5 +1,12 @@
-When a certain number @oper[ind]@ is combined with \(\frac{@enum@}{@denom@}\), the resulting @operation[ind]@ is @comp[sign]@ @numb@ of that number.
+
+@if ind == 1@
+When we multiply a certain number by \(\frac{@enum@}{@denom@}\), the product is @numb@ @comp[sign]@ than that number.
+@else@
+When we divide a certain number by \(\frac{@enum@}{@denom@}\), the quotient is @numb@ @comp[sign]@ than that number.
+@endif@
 What number is that?
 
 @vspace@
 @center@ That number is @lib.check_number(result,30)@.
+            
+            

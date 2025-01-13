@@ -1,1 +1,1 @@
-task = {"od najmanjega do največjega", "od največjega do najmanjega"}
+task = {"od najmanjšega do največjega", "od največjega do najmanjšega"}

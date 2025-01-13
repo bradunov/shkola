@@ -9,6 +9,4 @@ Metodom zamene promenljivih reši sistem linearnih jednačina (upiši sve koefic
 @center@  @separ@   
 @center@ @sol@  
 Sistem jednačina je @hspacept(10)@ @lib.check_one_option_dropdown(msg, msg[sing])@                  
-                 
-                 
-            
+ 

@@ -36,4 +36,3 @@ else
 	end	
 	result = factor * broj	
 end	
-

@@ -1,1 +1,0 @@
-operation = {"Which number should be multiplied by", "Which number should multiply the number", "Which number should be divided by", "Which number should divide the number"}

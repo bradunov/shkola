@@ -1,4 +1,4 @@
-operat = {"increase", "decrease"}
+operat = {"increased", "decreased"}
 activ = {"by", "times"}
-result = {"Sum", "Difference", "Quotient"}
+result = {"The sum", "The difference", "The quotient"}
 msg = {"determined", "impossible", "indeterminate"}

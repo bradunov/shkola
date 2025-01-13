@@ -1,8 +1,11 @@
+
 @name[1]@ and @name[2]@ can complete a task if @name[1]@ works for @coef[1]@ and @name[2]@ for @coef[2]@ days, or if @name[1]@ works for @coef[3]@ and @name[2]@ for @coef[4]@ days. In how many days could each of them complete the task alone? 
 Write the corresponding system of equations and write the solution to one decimal place.
 @vspace@
 @center@  @equ[1]@
 @center@ @equ[2]@
 @vspace@        
-@name[1]@ would finish the task alone in @hspacept(3)@ @arg[1]@ = @lib.check_number(numb[1],40)@ days,
-@name[2]@ would finish the task alone in @hspacept(3)@ @arg[2]@ = @lib.check_number(numb[2],40)@ days.
+@name[1]@ would finish the task alone in 
+@center@ @arg[1]@ = @lib.check_number(numb[1],40)@ days,
+@name[2]@ would finish the task alone in 
+@center@ @arg[2]@ = @lib.check_number(numb[2],40)@ days.

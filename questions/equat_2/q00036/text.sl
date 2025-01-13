@@ -1,3 +1,4 @@
+
 Katere izmed trditev je pravilnih? Enačba 
 @repeat(3)@ 
 @center@ @equ[ITEM]@ 

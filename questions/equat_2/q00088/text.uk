@@ -3,5 +3,5 @@ Calculate the price per kilogram of apples and pears, if
 @numb[1]@@"kg"@ of apples and @numb[2]@@"kg"@ of pears cost @total[1]@ dinars, 
 @numb[3]@@"kg"@ of apples and @numb[4]@@"kg"@ of pears cost @total[2]@ dinars: 
 @vspace@
-@center@ apples @lib.check_number(price[1])@ din/kg, 
-@center@ pears @lib.check_number(price[2])@ din/kg
+@center@ apples @hspacept(3)@ @lib.check_number(price[1])@ din/kg, 
+@center@ pears @hspacept(3)@ @lib.check_number(price[2])@ din/kg

@@ -1,4 +1,4 @@
-operat = {"uvečaš", "umanjiš"}
-activ = {"za", "puta"}
-result = {"Zbir", "Razlika", "Količnik"}
-msg = {"određen", "nemoguć", "neodređen"}
+operat = {"povečate", "zmanjšate"}
+activ = {"za", "-krat"}
+result = {"Vsota", "Razlika", "Količnik"}
+msg = {"določen", "nemogoč", "nedoločen"}

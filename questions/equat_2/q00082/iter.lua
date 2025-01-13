@@ -49,11 +49,11 @@ if (rest ~= 0) then
 	numb[2][3] = numb[2][3] + 60 - rest
 end	
  
-coef = activ[ind] .. space
+coef = activ[ind]
 if (ind == 1) then
     for i = 1,3 do  
         if (numb[3][i] ~= 0) then
-		    coef = coef .. " " .. tostring(numb[3][i]) .. measure[i]	
+		    coef = coef .. space .. " " .. tostring(numb[3][i]) .. measure[i]	
 		end
     end	
 else   

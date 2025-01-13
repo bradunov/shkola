@@ -1,1 +1,1 @@
-answ = {"narašča", "upada"}
+answ = {"narašča", "pada"}

@@ -1,2 +1,2 @@
-msg = {"određen", "nemoguć", "neodređen"}
-result = {"par", "prazan", "prava"}
+msg = {"določen", "nemogoč", "nedoločen"}
+result = {"par", "prazna", "premica"}

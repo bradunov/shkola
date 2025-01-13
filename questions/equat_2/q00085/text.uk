@@ -1,8 +1,12 @@
+
 Two workers can finish a job in @coef[2]@ days. Since they worked together for @coef[1]@ days, the first worker got sick and the second finished the job in the next @coef[3]@ days. In how many days could each worker finish the job if they worked alone? 
 Write the corresponding system of equations and write the solution to one decimal place. 
 @vspace@
 @center@  @equ[1]@
 @center@ @equ[2]@
 @vspace@        
-The first worker would finish the job alone in @hspacept(3)@ @arg[1]@ = @lib.check_number(numb[1],40)@ days, 
-and the second worker would finish the job alone in @hspacept(3)@ @arg[2]@ = @lib.check_number(numb[2],40)@ days.
+The first worker would finish the job alone in 
+@center@ @arg[1]@ = @lib.check_number(numb[1],40)@ days, 
+the second worker would finish the job alone in 
+@center@ @arg[2]@ = @lib.check_number(numb[2],40)@ days.
+            

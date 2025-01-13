@@ -1,5 +1,5 @@
-Metodom zamenjave reši sistem linearnih enačb (upiši vse koeficiente, ki so različni od 0).
 
+Rešite sistem linearnih enačb z metodo zamenjave spremenljivk (vnesite vse koeficiente, ki so različni od 0).
 @center@  @imp[1]@
 @center@  @imp[2]@. 
 @center@  @separ@
