@@ -81,9 +81,14 @@ Here is the text:
     finished = False
     while not finished:
       try:
-        response = client.chat.completions.create(model="gpt-3.5-turbo",
+        response = client.chat.completions.create(model=os.environ.get('OPENAI_MODEL'),
         messages=[
-            {"role": "system", "content": "You are a helpful assistant that translates text."},
+            {"role": "system", "content": """
+You are a helpful software developer who translates text.
+The text is in a special format for a web site. 
+The format will be described in the prompt. 
+Respect the prompt and just translate the text, do not leave any other comments.  
+             """},
             {"role": "user", "content": prompt}
         ],
         max_tokens=1500,
@@ -181,6 +186,9 @@ if __name__ == "__main__":
   # Check for OPENAI_API_KEY environment variable
   if not os.environ.get('OPENAI_API_KEY'):
     logging.error('OPENAI_API_KEY environment variable not defined')
+    raise SystemExit
+  elif not os.environ.get('OPENAI_MODEL'):
+    logging.error('OPENAI_MODEL environment variable not defined')
     raise SystemExit
   else:
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
