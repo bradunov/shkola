@@ -134,13 +134,11 @@ for isheet in range(0, book.nsheets):
 
         themes[subtheme] = ""
 
+#print(json.dumps(lists, indent=2))
+for file_name, content in lists.items():
+  with open(file_name, 'w') as outfile:
+    json.dump(content, outfile, indent=2, ensure_ascii=False)
 
 if dump_topics:
   print("\n\nLista tema:\n")
   print(json.dumps(themes, indent=2))
-
-  #print(json.dumps(lists, indent=2))
-  for file_name, content in lists.items():
-    with open(file_name, 'w') as outfile:
-      json.dump(content, outfile, indent=2, ensure_ascii=False)
-
