@@ -76,6 +76,7 @@ class Storage_sql:
         query = "UPDATE {} SET ".format(table_name)
 
         vals = list(data.values())[:]
+        vals = ["" if v is None else v for v in list(data.values())]
 
         query_list = ["{} = ?".format(f) for f in data.keys()]
         query += ", ".join(query_list)
@@ -110,7 +111,7 @@ class Storage_sql:
         self.db.commit()
         
 
-    def update_session(self, session_id, **data):
+    def update_session(self, session_id, data):
         self._update_data("sessions", "id", session_id, data)
         
 
@@ -212,7 +213,9 @@ class Storage_sql:
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS sessions (
                 id TEXT PRIMARY KEY,
+                state_id TEXT,
                 user_id TEXT,
+                valid BOOLEAN,
                 data TEXT,
                 FOREIGN KEY(user_id) REFERENCES users(user_id)
             )
