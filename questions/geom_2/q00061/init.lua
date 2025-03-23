@@ -1,4 +1,6 @@
 
+include("terms")
+
 style = 
 	{["off_color"] = "none",
         ["on_color"] = "none",
@@ -36,14 +38,10 @@ blue_style =
 dot_style = {["font_size"] = "30"}	
 text_style = {["font_size"] = "16"}
 
-trian = "\(\small\triangle\)"
-eq =  "\(\small\cong\)"
-
-circ = {"K\(\small_1\)(S,r\(\small_1\))", "K\(\small_2\)(T,r\(\small_2\))"} 
+circ = {"K₁(S,r₁)", "K₂(T,r₂)"} 
 cent = {"S", "T"}
 pt = {"C", "D", "A", "B", "E"}
 name = {"ASB", "CSD", "CTD", "DTE"}
-rule = {"SSS", "SUS", "USU", "SSU"}
 
 reply = ""
 ans = ""
@@ -88,30 +86,4 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end   
-
-
    
-
-   
-       
-       
-
- 
-     
-           
-              
-            
-          
-                   
-         
-        
-       
-            
-    
-          
-          
-    
-    
-                  
-                
-                

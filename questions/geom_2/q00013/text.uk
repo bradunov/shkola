@@ -1,4 +1,6 @@
-The picture shows four circles: @center@ @name[1]@, @hspacept(2)@ @name[2]@, @hspacept(2)@ @name[3]@, @hspacept(2)@ @name[4]@. 
+
+The picture shows four circles: 
+@center@ @name[1]@, @hspacept(2)@ @name[2]@, @hspacept(2)@ @name[3]@, @hspacept(2)@ @name[4]@. 
 Five points @"A, B, C, D, E"@ are midpoints of the segments connecting the centers of these circles.
 
 @center@ @mycanvas(result)@

@@ -1,2 +1,2 @@
-elem = {"površina", "obseg", "površine", "obsega"}
-name = {"veća", "veči"}
+elem = {"ploščina", "obseg", "ploščine", "obsega"}
+name = {"večja", "večji"}

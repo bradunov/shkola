@@ -1,9 +1,10 @@
-Od lesene krogle s polmerom @numb[1]@ cm je izrezana pravilna @name[ind]@ piramida iste višine. Osni presek krogle je @angle[ch]@.
+
+Iz lesenega stožca s polmerom @numb[1]@ cm je izrezana pravilna @name[ind]@ enako visoka piramida. Osni prerez stožca je @angle[ch]@.
 @vspace@
-Kolikšen je odstotek lesa, ki je bil zavržen?
+Kolikšen odstotek lesa je bil zavržen?
 @center@ Zavržen je @lib.check_number(prop_v)@% lesa.
 @vspace@
-Kakšno je razmerje med površinama piramide in krogle?
-@center@ Površina piramide je @lib.check_number(prop_p)@% površine krogle.
+Kakšno je razmerje med površinama piramide in stožca?
+@center@ Površina piramide je @lib.check_number(prop_p)@% površine stožca.
 @vspace@
-(Vzemi, da je @"π"@ = @"22/7"@, rezultate zapiši na eno decimalno mesto.)
+Vzemite da je @"π"@ = @"22/7"@, rezultate zapiši na eno decimalno mesto.

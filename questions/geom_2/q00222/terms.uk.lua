@@ -1,2 +1,2 @@
-elem = {"area", "circumference", "areas", "perimeters"}
-name = {"larger", "larger"}
+elem = {"surface area", "circumference", "surface area", "circumference"}
+name = {"greater", "greater"}

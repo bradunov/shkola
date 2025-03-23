@@ -1,4 +1,7 @@
-Bungalow in the shape of a regular hexagonal prism, whose base edge is @lib.dec_to_str(numb[1])@@meas[2]@ and length is @lib.dec_to_str(numb[2])@@meas[2]@, has two round windows with a diameter of @lib.dec_to_str(numb[5])@@meas[2]@ and rectangular doors with a width of @numb[3]@@meas[1]@ and a height of @lib.dec_to_str(numb[4])@@meas[2]@ (image).
+
+The bungalow is in the shape of a regular hexagonal prism, the length of the base edge is @lib.dec_to_str(numb[1])@@meas[2]@ and the length of the bungalow is @lib.dec_to_str(numb[2])@@meas[2]@. It has two round windows with a diameter of @lib.dec_to_str(numb[5])@@meas[2]@ and a rectangular door with a width of @numb[3]@@meas[1]@ and a height of @lib.dec_to_str(numb[4])@@meas[2]@ (picture).
 @center@ @mycanvas()@
-The bungalow needs to be painted (the floor does not get painted). If 1@meas[4]@ of paint covers @lib.dec_to_str(unit)@@meas[3]@, how much paint is needed to paint the entire bungalow?  
-@center@ To paint the bungalow, (rounded to one decimal place) @hspacept(8)@ @lib.check_number(result)@ @meas[4]@ @hspacept(8)@ of paint is needed.
+The bungalow needs to be painted (the floor is not painted). If 1@meas[4]@ of paint covers @lib.dec_to_str(unit)@@meas[3]@, how much paint is needed to paint the entire bungalow?  
+@center@ To paint the bungalow (to one decimal place)
+@center@ @lib.check_number(result)@ @meas[4]@ @hspacept(5)@ of paint is needed.
+ 

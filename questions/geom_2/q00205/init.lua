@@ -37,15 +37,14 @@ rel_v = 6
 area = lib.math.round_dec(area, 1)	
 vol = lib.math.round_dec(vol,1)
    
-
 mycanvas = function(no)
 
-  lib.start_canvas(350, 160, "center")
+  lib.start_canvas(280, 130, "center")
 
-	w = 100
-	ow = 10
-	v = 70
-	ov =  130
+	w = 80
+	ow = 8
+	v = 56
+	ov =  104
 
     lib.add_straight_path(ov-2*ow, 2*ow, {{w, w}, {-4*ow, -v}, {-v+ow, -3*ow}}, dif_style,  true, false) 
    lib.add_straight_path(ov-2*ow, 2*ow, {{v-ow, 3*ow}, {4*ow, v},{0, -w}, {-w,0}}, dig_style,  true, false) 
@@ -56,12 +55,10 @@ mycanvas = function(no)
     lib.add_rectangle (ov-2*ow, 2*ow, w, w, line_style, true, false)
     lib.add_straight_path(v, ov+2*ow, {{4*ow, -3*ow}}, line_style,  false, false) 
  
-
-
      lib.add_text(2*v, v-ow, "a", text_style, false, false) 
      lib.add_text(2*w+2*ow, v+ow, "s", text_style, false, false)  
-	lib.add_text(2*(w-ow), 3*ow, "O", text_style, false, false)   
 
   lib.end_canvas()
 end
+      
       

@@ -1,7 +1,7 @@
-The table provides the lengths of longer sides @"a"@", @"b"@", and @"c"@" in centimeters. 
-In the last column, write 
-@hspacept(10)@ t if these lengths can be sides of a triangle, 
-@hspacept(10)@ n if they cannot be sides of a triangle.
 
+The table provides the lengths of line segments @"a"@", @"b"@", and @"c"@" in centimeters. 
+In the last column, write 
+t @hspacept(10)@ if these segments can be sides of a triangle, 
+n @hspacept(10)@ if they cannot be sides of a triangle.
 @vspace@
 @addition_table()@

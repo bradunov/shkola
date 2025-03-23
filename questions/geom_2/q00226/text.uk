@@ -1,7 +1,9 @@
-The surface of the cone is a segment of a circle. The area of that circle is @numb[4]@@meas[2]@. Calculate the surface area and volume of the cone.
+
+The envelope of the cone is a cutout of 1/@fct@ of a circle . The area of that circle is @numb[4]@@meas[2]@. Calculate the surface area and volume of the cone.
 @vspace@
 @center@ The surface area of the cone is @hspacept(3)@ @lib.check_number(area)@@meas[2]@.
 @vspace@
 @center@ The volume of the cone is @hspacept(3)@ @lib.check_number(vol)@@meas[2]@.
 @vspace@
-(Write the results to one decimal place; assume that @"π"@ = @"22/7"@.)
+Assume that @"π"@ = @"22/7"@; write the results to one decimal place.
+            

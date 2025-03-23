@@ -1,3 +1,3 @@
-Obarvaj @msg[ind]@ krog na sliki.
 
+Obarvaj @msg[ind]@ na krog na sliki.
 @center@ @mycanvas()@

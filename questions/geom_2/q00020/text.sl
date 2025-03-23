@@ -1,5 +1,6 @@
-Vrhovi petkotnika na sliki so vrhovi več konveksnih kotov.
-Vpiši vse konveksne kote, katerih vrh je točka @point@.
+
+Vrhovi petkotnika na sliki so vrhovi več udrtih kotov.
+Vpiši vse udrte kote, katerih vrh je točka @point@.
 @vspace@
 @center@ @mycanvas()@
   

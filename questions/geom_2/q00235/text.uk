@@ -1,6 +1,11 @@
-The float is composed of a hemisphere with a radius @"R"@ = @numb[1]@@meas[1]@ and a cone with a height @"H"@ = @numb[2]@@meas[1]@ (image). Calculate the surface area and volume of this object (take @"π"@ = @"22/7"@. Write the results to one decimal place).  
-@center@ The surface area of the float is @hspacept(3)@ @lib.check_number(area,40)@@meas[2]@. 
-@center@ The volume of the float is @hspacept(3)@ @lib.check_number(vol,40)@@meas[3]@. 
-@center@ @mycanvas()@     
-If the float is made of wood with a density of @lib.dec_to_str(lib.math.round_dec(dens,2))@@meas[4]@ per @meas[3]@, what is the mass of the float? 
-@center@ The mass of the float is @hspacept(3)@ @lib.check_number(mass,40)@@meas[4]@.
+
+The float is composed of a halfball with a radius @"R"@=@numb[1]@@meas[1]@ and a cone with a height @"H"@ = @numb[2]@@meas[1]@ (picture). 
+@center@ @mycanvas()@ 
+Calculate the surface area and volume of the float. 
+@center@ The surface area is @hspacept(5)@ @lib.check_number(area,40)@@meas[2]@. 
+@center@ The volume is @hspacept(5)@ @lib.check_number(vol,40)@@meas[3]@. 
+@vspace@    
+If the float is made of wood whose density is @lib.dec_to_str(lib.math.round_dec(dens,2))@@meas[4]@ per @meas[3]@, what is the mass of the float? 
+@center@ The mass of the float is @hspacept(5)@ @lib.check_number(mass,40)@@meas[4]@.
+Take @"π"@ = @"22/7"@, write the results to one decimal place.  
+         

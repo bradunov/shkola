@@ -8,8 +8,8 @@ style =
         ["line_width"] = "2"};
 								
 
-meas = {"\(^\circ\)", "'"}
-numb = {"\(\small\alpha\)", "\(\small\beta\)", "\(\small\gamma\)", "\(\small\alpha_1\)", "\(\small\beta_1\)", "\(\small\gamma_1\)" }
+meas = {"°", "'"}
+numb = {"α", "β", "γ", "α₁", "β₁", "γ₁"}    
 
 name = {"BC", "AB", "AC"}
 answ = {"=", ">", "<"}

@@ -33,10 +33,9 @@ grid_style =
 	{["off_color"] = "none",
         ["on_color"] = "none",
         ["line_color"] = "000",
-        ["line_width"] = "0.1"};	
+        ["line_width"] = "0.3"};	
 							
-meas = {"cm", "cm\(\small^2\)"}
-sp = "\(   \) "
+meas = {"cm", "cm²"}
 	
 area = {}
 

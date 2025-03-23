@@ -1,7 +1,7 @@
 
 addition_table = function()
 
-  measure = {"a  \( \ \) cm", "b  \( \ \) cm", "c  \( \ \) cm",  "h  \( \ \) cm", "O  \( \ \) cm", "P \( \ \ \) cm\(\small^2\)"} 
+  measure = {"a  \( \ \) cm", "b  \( \ \) cm", "c  \( \ \) cm",  "h  \( \ \) cm", "O  \( \ \) cm", "P \( \ \ \) cm²"} 
 
   ea = {3, 5, 8, 7}
   eh = {4, 12, 15, 24}
@@ -42,7 +42,7 @@ addition_table = function()
 
   style = {}
   style["text-align"] = "center"
-  style["width"] = "50px"
+  style["width"] = "45px"
   text = lib.start_table()
   text = text .. lib.start_row()
   text = text .. lib.add_cell(measure[1], style)
@@ -68,8 +68,3 @@ addition_table = function()
   return text
 end  
     
-    
-    
-    
-                  
-         

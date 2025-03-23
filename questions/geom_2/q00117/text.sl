@@ -1,3 +1,4 @@
+
 Oznake elementov paralelograma so podane na sliki. @"O"@ je obseg in @"P"@ je ploščina paralelograma.
 @center@ @mycanvas()@ 
 Na podlagi podatkov 

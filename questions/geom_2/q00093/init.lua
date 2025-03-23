@@ -2,7 +2,7 @@
 addition_table = function()
 
   hc = "h\(\small_c\)"
-  measure = {"a  \( \ \) cm", "b  \( \ \) cm", "c  \( \ \) cm",  "h\(\small_c\)  \( \ \)cm", "r  \( \ \) cm", "O  \( \ \)cm", "P \( \ \ \) cm\(^2\)"} 
+  measure = {"a  \( \ \) cm", "b  \( \ \) cm", "c  \( \ \) cm",  "h\(\small_c\)  \( \ \)cm", "r  \( \ \ \) cm", "O  \( \ \)cm", "P \( \ \ \)cm²"} 
 
 ea = {3, 5, 8, 7}
 eb = {4, 12, 15, 24}
@@ -77,9 +77,3 @@ ec = {5, 13, 17, 25}
 
   return text
 end  
-    
-    
-    
-    
-                  
-         

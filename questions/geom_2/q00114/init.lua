@@ -1,7 +1,7 @@
 
 addition_table = function()
 
-  measure = {"a  \( \ \ \ \) cm", "c  \( \ \ \ \) cm", "h\(\small_c \ \ \ \)cm",  "r  \( \ \ \ \)cm", "O  \( \ \ \ \)cm", "P \( \ \ \ \) cm\(^2\)"} 
+  measure = {"a  \( \ \ \ \) cm", "c  \( \ \ \ \) cm", "h\(\small_c \ \ \ \)cm",  "r  \( \ \ \ \)cm", "O  \( \ \ \ \)cm", "P \( \ \ \ \) cm²"} 
  
   r2 = lib.math.round_dec(math.sqrt(2),3)
  

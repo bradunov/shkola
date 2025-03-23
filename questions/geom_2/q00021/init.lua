@@ -44,7 +44,6 @@ lin = {"SP", "TP", "AB", "CD", "PQ"}
 ang = {"QSP", "QTP", "ASB", "DTC"}
 
 answ = {"=", "<", ">"}
-symb = "\(\angle\)"
 
 ind = math.random(4)
 
@@ -144,24 +143,3 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end     
-       
-
- 
-     
-           
-              
-            
-          
-                   
-         
-        
-       
-            
-    
-          
-          
-    
-    
-                  
-                
-                

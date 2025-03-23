@@ -57,19 +57,18 @@ mycanvas = function(no)
 
   lib.add_straight_path (3*v-2*ow, ov-v-ow, {{v-2, -2*ow-2}, {v+2*ow+2, 2*v-3}, {-2*(v+ow), -v-ow-5} }, orange_style, true, false)
   lib.add_straight_path (2*(v+ow-2), 2*ow+4, {{v+2, v+ow+4}, {3*v-ow+2, -2*v+ow+4}, {-ov-4, ow+2} }, green_style, true, false)
-  lib.add_text(3*v-ow+2, ov-v-ow, "α", text_style, false, false)
-  lib.add_text(3*v-ow, 3*ow, "α", text_style, false, false)
-  
-  lib.add_circle (2*(v+ow-2), 2*ow+4, 3, style, false, false)
+  lib.add_input(3*(v-ow), 2*v+ow, 50, 30, "α")
+  lib.add_input(3*(v-ow), 2*ow, 50, 30,"α")
+  lib.add_circle (2*(v+ow-2), 2*ow+4, 2, style, false, false)
   lib.add_text(2*v+5, 2*ow+5, "B", text_style, false, false)
-  lib.add_circle (w, ow+2, 3, style, false, false) 
+  lib.add_circle (w, ow+2, 2, style, false, false) 
   lib.add_text(w, 2*ow+5, "C", text_style, false, false)
-  lib.add_circle (ov-ow-2, 2*v-2, 3, style, false, false) 
+  lib.add_circle (ov-ow-2, 2*v-2, 2, style, false, false) 
   lib.add_text(ov, 2*v, "O", text_style, false, false)
-  lib.add_circle (3*v-2*ow, ov-v-ow, 3, style, false, false) 
+  lib.add_circle (3*v-2*ow, ov-v-ow, 2, style, false, false) 
   lib.add_text(2*v+5, w-ov, "A", text_style, false, false)
-  lib.add_circle (ov+v+ow, ov+5, 3, style, false, false) 
+  lib.add_circle (ov+v+ow, ov+5, 2, style, false, false) 
   lib.add_text(w-v, ov, "D", text_style, false, false)
     
   lib.end_canvas()
-end             
+end         

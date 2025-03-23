@@ -6,3 +6,5 @@ Na osnovu datih podataka
 izračunaj: 
 @center@  @name[out[1]]@ = @lib.check_number(ans1,35)@@meas[4]@, @hspacept(10)@ @name[out[4]]@ = @lib.check_number(ans2,35)@@meas[5]@.
 (Računaj sa tri decimale, a rezultate upiši na jednu decimalu).              
+
+            

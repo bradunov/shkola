@@ -1,2 +1,2 @@
-msg1 = "depressed"
-msg2 = "stretched"
+msg1 = "straight"
+msg2 = "straight"

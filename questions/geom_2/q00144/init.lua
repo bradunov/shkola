@@ -1,5 +1,5 @@
 
-meas = {"r (cm)", "φ (\(\small^\circ\))", "α (\(\small^\circ\))", "l (cm)", "P (cm\(\small^2\))"} 
+meas = {"r (cm)", "φ (°)", "α (°)", "l (cm)", "P (cm²)"} 
 
 pi = 22 / 7
 

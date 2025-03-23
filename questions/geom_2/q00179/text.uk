@@ -1,8 +1,10 @@
-In a proper @name[ind]@ prism, the code is:
+
+In a regular @name[ind]@ prism is:
 @center@ @quest1@
 @center@ @quest2@
 @vspace@
-Calculate (to two decimal places):
+Calculate (to two decimals):
 @center@ @ans1@
 @center@ @ans2@
 @center@ @ans3@
+@center@ @ans4@

@@ -1,4 +1,4 @@
-Fill in the table that contains the radius of the circle @"r" @, diameter @"2r" @, central angle @"α" @ and the length of the corresponding arc @"l" @, and the circumference @"O" @.
+Fill in the table that contains the radius of the circle @"r" @, diameter @"2r" @, central angle @"α" @ and the length of the corresponding arc @"l" @, and the perimeter @"O" @.
 Assume that @"π"@ = \(\frac{22}{7}\). Write the numbers to one decimal place.
 
 @addition_table()@

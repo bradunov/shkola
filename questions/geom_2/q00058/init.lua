@@ -20,8 +20,8 @@ colour_style =
 		
 text_style = {["font_size"] = "16"}	
 
-trian = "\(\small\triangle\)"
-eq =  "\(\small\cong\)"
+trian = "△"
+eq =  "≅"
 
 name_1 = {"AOB", "AOC", "AOD", "AOE", "BOC", "BOD", "BOE", "COD", "COE", "DOE"}	
 name_2 = {"POQ", "POR", "POS", "POT", "QOR", "QOS", "QOT", "ROS", "ROT", "SOT"}	
@@ -169,29 +169,4 @@ mycanvas = function()
 
   lib.end_canvas()
 end               
-         
-   
-       
-        
-          
-         
-          
-            
-            
-            
-          
-         
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-     
+ 

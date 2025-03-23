@@ -1,1 +1,1 @@
-name = {"pravokotnega", "enakostraničnega"}
+name = {"pravokotnega", "enakokrakega"}

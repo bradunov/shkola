@@ -1,9 +1,11 @@
-On the picture there are two polygons. 
-@center@  "a"  @hspacept(100)@ "b"                                                                        
+
+On the picture there are two polygons.  
+@center@  @"(a)"@ @hspacept(100)@ @"(b)"@                                                                       
 @center@ @mycanvas()@
 Complete the sentences:
-@center@ "a" is an @lib.check_one_option_dropdown(msg, con1)@ @lib.check_one_option_dropdown(numb, edge1)@ angle. 
-@center@ "P" is an inner point of polygon "a".
+@center@ @"(a)"@ is @lib.check_one_option_dropdown(msg, con1)@ @lib.check_one_option_dropdown(numb, edge1)@. 
+@center@ @"P"@ @lib.check_one_option_dropdown(point, ptp)@ an inner point of polygon @"(a)"@.
 @vspace@
-@center@ "b" is a @lib.check_one_option_dropdown(msg, con2)@ @lib.check_one_option_dropdown(numb, edge2)@ angle. 
-@center@ "Q" is an inner point of polygon "b".
+@center@ @"(b)"@ is @lib.check_one_option_dropdown(msg, con2)@ @lib.check_one_option_dropdown(numb, edge2)@. 
+@center@ @"Q"@ @lib.check_one_option_dropdown(point, ptq)@ an inner point of polygon @"(b)"@.
+ 

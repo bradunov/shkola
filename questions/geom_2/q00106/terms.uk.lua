@@ -1,1 +1,1 @@
-name = {"kateta", "hypotenuse"}
+name = {"leg", "hypotenuse"}

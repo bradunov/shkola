@@ -10,4 +10,4 @@ answ = {
   " pairs of parallel lines that intersect at 4 points divide the plane into ", 
   " lines that intersect at 3 points divide the plane into " 
 }
-msg = {"a line.", "lines.", "a common point.", "rays.", "line segments.",  "regions.", "half-rays.", "line segments.", "lines." }
+msg = {"line.", "lines.", "a common point.", "rays.", "line segments.",  "regions.", "rays.", "line segments.", "lines." }

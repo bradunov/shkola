@@ -1,8 +1,9 @@
-@phi@ is the central, and @alpha@ is the peripheral angle of a circle above the same chord. 
-If:
 
-@repeat(3)@ 
+@phi@ is the central, and @alpha@ is the peripheral angle of a circle above the same chord. 
+@center@ @mycanvas()@
+If:
+@repeat(2)@ 
 @center@ @quest@ @hspacept(15)@ calculate 
 @center@ @answ@ @hspacept(15)@ @answ2@
 @vspace@
-@/repeat@
+@/repeat@ 

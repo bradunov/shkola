@@ -23,8 +23,8 @@ red_style =
 										
 text_style = {["font_size"] = "16"}		
 	
-meas = "\(^\circ\)"
-symb = "\(\small\angle\)"
+meas = "°"
+symb = "∠"
 
 index = {0, 0, 1, 2, 3}
 value = {60, 60, 30, 15, 7.5}
@@ -111,14 +111,3 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end               
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            

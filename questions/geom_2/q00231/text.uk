@@ -1,6 +1,7 @@
-The ball is cut by two parallel planes, which are at a distance of @"H"@ = @numb[4]@@"cm"=. The intersections of radii @"r₁"@ = @numb[2]@@"cm"@ and @"r₂"@ = @numb[3]@@"cm"@ are obtained (image).
+
+The ball is cut by two parallel planes, which are at a distance of @"H"@ = @numb[4]@@"cm"@. The cross-sections of radius @"r₁"@ = @numb[2]@@"cm"@ and @"r₂"@ = @numb[3]@@"cm"@ are obtained (picture).
 @center@ @mycanvas()@ 
 What are the radius and circumference of the ball?
-(Take @"π"@ = @"22/7"@, write the results to one decimal place.)
 @center@ The radius of the ball is @hspacept(5)@ @lib.check_number(numb[1])@@"cm"@.
 @center@ The circumference of the ball is @hspacept(5)@ @lib.check_number(circ)@@"cm"@.
+Take @"π"@ = @"22/7"@, write the results to one decimal place. 

@@ -1,8 +1,11 @@
-Rectangle sides @edge[1]@ and @edge[2]@, perimeter @edge[6]@ and area @edge[5]@ rotate around side @edge[ind]@. Rotation results in a cylinder (image).
+
+A rectangle with sides @edge[1]@ and @edge[2]@, perimeter @edge[6]@ and surface area @edge[5]@ rotates around side @edge[ind]@. The rotation results in a cylinder (picture).
 @center@ @mycanvas()@
-If
+If it is
 @center@ @quest@
-calculate the surface area and volume of the cylinder (to one decimal place). Assume that @"π"@ = @"22/7"@.
+calculate the surface area and volume of the cylinder (to one decimal place).
+ Assume that @"π"@ = @"22/7"@.
 @vspace@
 @center@ The surface area of the cylinder is @hspacept(3)@ @lib.check_number(area,50)@@meas[2]@,
 @center@ The volume of the cylinder is @hspacept(3)@ @lib.check_number(vol,50)@@meas[3]@.
+            

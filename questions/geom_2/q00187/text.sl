@@ -1,6 +1,7 @@
-Kod pravilne @name[ind]@ prizme je: 
+
+Pri pravilni @name[ind]@ prizmi je: 
 @center@ @quest1@
 @center@ @quest2@
 @vspace@
-Izračunaj @result@  prizme (na jednu decimalu).
+Izračunajte @result@  prizme (na eno decimalno mesto).
 @center@ @ans@

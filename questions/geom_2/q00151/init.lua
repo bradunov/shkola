@@ -41,12 +41,12 @@ sing = 0
 
 mycanvas = function(no)
  
-  lib.start_canvas(320, 180, "center")
+  lib.start_canvas(320, 140, "center")
   
-	ow = 10
-	w = 250
-	ov = 130
-	v = 40
+	ow = 8
+	w = 200
+	ov = 104
+	v = 32
 	scale = 2 *(1 + math.random(4))
 
 	step1 = math.floor((w-v)/total)

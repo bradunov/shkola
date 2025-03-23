@@ -1,1 +1,1 @@
-name = {"trostrana", "four-sided", "šestostrana"}
+name =  {"triangular", "quadrilateral ", "hexagonal"}

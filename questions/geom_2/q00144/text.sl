@@ -1,3 +1,4 @@
-Zapolnite tabelo, ki vsebuje polmer kroga @"r"@, osrednji kot @"φ"@, periferni kot nad istim lokom @"α"@ in dolžino ustreznega loka @"l"@ ter površino krožnega izseka @"P"@. Predpostavimo, da je @"π"@ = \(\frac{22}{7}\). Številke zapišite na eno decimalno mesto.
 
+Izpolnite tabelo, ki vsebuje polmer kroga @"r"@, središčni kot @"φ"@ in obodni kot @"α"@ nad istim lokom @"l"@ ter ploščino krožnega izseka @"P"@.
+Vzamimo da je @"π"@ = \(\frac{22}{7}\). Številke zapišite na eno decimalno mesto.
 @addition_table()@

@@ -1,7 +1,15 @@
-Calculate the surface area and volume of a sphere with a diameter of @numb@@meas[1]@. Then calculate the volumes of a cube, a regular cylinder, and a regular cone, which have the same surface area as the sphere. (Take @"π"@ = @"22/7"@, write the results to one decimal place.)  
-@center@ The surface area of the sphere is @hspacept(5)@  @lib.check_number(area,50)@@meas[2]@.
-@center@ The volume of the sphere is @hspacept(5)@  @lib.check_number(vol,50)@@meas[3]@.
-What is the ratio of the volumes of these shapes to the volume of the sphere? 
-@center@ The volume of the cube is @lib.check_number(out[1])@% of the volume of the sphere.   
-@center@ The volume of the cylinder is @lib.check_number(out[2])@% of the volume of the sphere.
-@center@ The volume of the cone is @lib.check_number(out[3])@% of the volume of the sphere.
+
+Calculate the surface area and volume of a ball with a diameter of @numb@@meas[1]@.  
+@center@ The surface area of the ball is @hspacept(5)@  @lib.check_number(area,50)@@meas[2]@.
+@center@ The volume of the ball is @hspacept(5)@  @lib.check_number(vol,50)@@meas[3]@.
+@vspace@
+Calculate the volumes of the cube, the equilateral cylinder and the equilateral cone, which have the same surface area as the ball. 
+What is the ratio of the volumes of these bodies to the volume of the ball? 
+The volume of the 
+@center@ cube is @hspacept(5)@  @lib.check_number(out[1])@% ,
+@center@ cylinder is @hspacept(5)@  @lib.check_number(out[2])@% ,
+@center@ cone is @hspacept(5)@  @lib.check_number(out[3])@% , 
+of the volume of the ball.
+@vspace@
+Take @"π"@ = @"22/7"@, write the results to one decimal place.   
+    

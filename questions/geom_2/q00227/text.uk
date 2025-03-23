@@ -1,9 +1,11 @@
-From a wooden cone with a radius of @numb[1]@"cm", a regular pyramid of the same height is cut out. The cone's base angle is @angle[ch]@.
+
+From a wooden cone with a radius of @numb[1]@ cm, a regular pyramid of the same height is cut out. The axial cross-section of the cone is a @angle[ch]@.
 @vspace@
 What percentage of the wood is discarded? 
 @center@ @lib.check_number(prop_v)@% of the wood is discarded.
 @vspace@
-What is the relationship between the surface areas of the pyramid and the cone?
+What is the ratio of the surface areas of the pyramid and the cone?
 @center@ The surface area of the pyramid is @lib.check_number(prop_p)@% of the cone's surface area.
 @vspace@
-(Take @"π"@ = @"22/7"@, and round the results to one decimal place.)
+Take @"π"@ = @"22/7"@, and round the results to one decimal place.
+            

@@ -13,26 +13,26 @@ quest = {}
 reply = {}
 ans = {}
 
-quest[1] = "a \(\small\cap\) d " 
-quest[2] = "f \(\small\cap\) a " 
-quest[3] = "a \(\small\cap\) c " 
-quest[4] = "b \(\small\cap\) d " 
-quest[5] = "c \(\small\cap\) b "
-quest[6] = "b \(\small\cap\) f " 
-quest[7] = "f \(\small\cap\) d " 
-quest[8] = "c \(\small\cap\) f " 
-quest[9] = "EG \(\small\cup\) FP "
-quest[10] = "EG \(\small\cap\) FP " 
-quest[11] = "DH \(\small\cup\) CD "
-quest[12] = "BG \(\small\cap\) BD " 
-quest[13] = "CF \(\small\cap\) DH "
-quest[14] = "CF \(\small\cup\) DH " 
-quest[15] = "EP \(\small\cup\) EG "
-quest[16] = "BG \(\small\cap\) CF " 
-quest[17] = "BG \(\small\cap\) EP " 
-quest[18] = "(CF \(\small\cup\) EF) \(\small\cap\) BG "
-quest[19] = "(a \(\small\cap\) b) \(\small\cup\) f "
-quest[20] = "(a \(\small\cap\) c) \(\small\cup\) AE " 
+quest[1] = "a ∩ d " 
+quest[2] = "f ∩ a " 
+quest[3] = "a ∩ c " 
+quest[4] = "b ∩ d " 
+quest[5] = "c ∩ b "
+quest[6] = "b ∩ f " 
+quest[7] = "f ∩ d " 
+quest[8] = "c ∩ f " 
+quest[9] = "EG ∪ FP "
+quest[10] = "EG ∩ FP " 
+quest[11] = "DH ∪ CD "
+quest[12] = "BG ∩ BD " 
+quest[13] = "CF ∩ DH "
+quest[14] = "CF ∪ DH " 
+quest[15] = "EP ∪ EG "
+quest[16] = "BG ∩ CF " 
+quest[17] = "BG ∩ EP " 
+quest[18] = "(CF ∪ ∩ BG "
+quest[19] = "(a ∩ b) ∪ f "
+quest[20] = "(a ∩ c) ∪ AE " 
 
 
 reply[1] = "answer == '" .. "B" .. "' "  ..
@@ -143,5 +143,3 @@ mycanvas = function(no)
     
   lib.end_canvas()
 end
-
-          

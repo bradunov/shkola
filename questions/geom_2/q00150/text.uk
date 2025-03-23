@@ -1,10 +1,9 @@
+
 In the right-angled triangle @"ABC"@, a square @"DBEF"@ is inscribed.
 @center@ @mycanvas()@
-
-If
+If it is
 @center@ @quest@
 calculate (to one decimal place)
 @center@ @sol@.
-@vspace@
 The ratio of the areas of the square and the triangle is
 @center@ @"P"@@sym[2]@ @hspacept(3)@ : @hspacept(3)@ @"P"@@sym[1]@ @hspacept(3)@ = @lib.check_number(areas)@  : @lib.check_number(areat)@ = @lib.check_number(prop)@

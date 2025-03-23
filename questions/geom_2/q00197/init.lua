@@ -10,10 +10,11 @@ quest2 = ""
 ans1 = ""
 ans2 = ""
 ans3 = ""
+ans4 = ""
 
 ind = math.random(3)
 ch = math.random(5) - 1
-ch=3
+
 fct = 4 - ind
 coef = ind/fct
 
@@ -26,7 +27,8 @@ end
  						
 if (ch < 3) then
 	if (ch == 1) then
-		bound = numb[1] + 2*numb[4]
+                tmp = math.sqrt(numb[1]^2 + numb[2]^2)
+		bound = numb[1] + 2*math.ceil(tmp)
 	else
 		bound = (ind + 2) * numb[1]		
 		if (ind == 3) then
@@ -132,7 +134,9 @@ ans2 = elem[7] .. space .. " s = " .. lib.check_number(numb[4],40) .. meas[1]
 if (ind == 1) then
 	ans2 = ans2 .. "."
 	ans3 = ""
+	ans4 = ""
 else
 	ans2 = ans2 .. "," 	
-	ans3 = elem[8] .. space .. " Q = " .. lib.check_number(numb[5],50) .. meas[2] .. "." 
+	ans3 = elem[8]
+	ans4 = " Q = " .. lib.check_number(numb[5],50) .. meas[2] .. "." 
 end

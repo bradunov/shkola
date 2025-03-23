@@ -1,7 +1,8 @@
+
 How many convex angles are there in the picture?
 
 @center@ @mycanvas()@
 
 Enter the number in the blank frame. @hspacept(10)@ @hspacept(10)@ @lib.check_number(value,15)@
 @vspace@
-What is the @symb@@"mOn"@ like? @hspacept(25)@ @lib.check_string(reply, 60, ans)@
+What is the ∠@"mOn"@ like? @hspacept(25)@ @lib.check_string(reply, 60, ans)@

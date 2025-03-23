@@ -1,20 +1,19 @@
-title = {" Koliko najviše pravih notranjih kotov lahko ima mnogokotnik z več kot 4 stranicami?",
-         " Koliko največ pravih notranjih kotov lahko ima mnogokotnik s 4 stranicami?",
-         " Iz katerega kota mora biti manjši ali enak najmanjši notranji kot šestkotnika?",
-         " Koliko največ ostrih kotov lahko ima mnogokotnik?",
-         " Ali obstaja mnogokotnik s tremi ostrimi koti, manjšimi od 60°?",
-         " Ali obstaja sedemkotnik, ki ima tri prave in vsaj en oster kot?",
-         " Ali obstaja šestkotnik, ki ima tri prave in tri tupo kote?",
-         " Koliko največ ostrih kotov lahko ima mnogokotnik?",
+title = {" Koliko pravih notranjih kotov ima lahko večkotnika z več kot 4 stranicami?",
+         " Koliko največ pravih notranjih kotov lahko ima večkotnika s 4 stranicami?",
+         " Kakšnemu kotu mora biti najmanjši notranji kot šestkotnika manjši ali enak?",
+         " Ali obstaja večkotnika s tremi ostrimi koti, manjšimi od 60°?",
+         " Ali obstaja sedemkotnik, ki ima tri prave kote in vsaj en oster kot?",
+         " Ali obstaja šesterokotnik s tremi pravimi in tremi topimi koti?",
+         " Koliko največ ostrih kotov ima lahko večkotnika?",
          " Koliko diagonal lahko potegnemo iz enega oglišča mnogokotnika z n stranicami?",
-         " Kateri mnogokotnik ima toliko diagonal kot stranic?",
-         " Kolikokrat je število diagonal pri mnogokotniku z n stranicami večje od števila kotov?",
+         " Kateri večkotnika ima toliko diagonal kot stranic?",
+         " Kolikokrat je število diagonal večje od števila kotov v mnogokotniku z n stranicami?",
          " Koliko diagonal ima trikotnik?",
-         " Koliko diagonal ima mnogokotnik z n stranicami?",
-         " Kakšna je vsota notranjih kotov mnogokotnika z n stranicami?",
-         " Kakšna je vsota zunanjih kotov mnogokotnika?",
-         " Ali je trikotnik mnogokotnik?",
-         " Ali je trikotnik vedno konveksen mnogokotnik?"			 
+         " Koliko diagonal ima večkotnika z n stranicami?",
+         " Kolikšna je vsota notranjih kotov mnogokotnika z n stranicami?",
+         " Kolikšna je vsota zunanjih kotov mnogokotnika?",
+         " Ali je trikotnik večkotnika?",
+         " Ali je trikotnik vedno konveksen večkotnika?"			 
 		} 
 
-reply = {"3", "4", "120", "3", "ne", "ne", "da", "3", "n-3", "petkotnik", "(n-3)/2", "0", "n(n-3)/2", "(n-2)*180", "360", "da", "da"}
+reply = {"3", "4", "120", "ne", "ne", "da", "3", "n-3", "petkotnik", "(n-3)/2", "0", "n*(n-3)/2", "(n-2)*180", "360", "da", "da"}

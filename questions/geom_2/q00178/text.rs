@@ -3,6 +3,7 @@ Ako su poznate dužine duži pravilne šestostrane prizme na slici (@"d"@ je ve�
 @center@ @quest@,
 @center@ @mycanvas()@
 izračunaj (na jednu decimalu):
-@center@ dužina duži @hspacept(5)@ @ans@,
+@center@ dužina duži 
+@center@ @ans@,
 @center@ @note@ 
-@center@ @ans2@         
+@center@ @ans2@     

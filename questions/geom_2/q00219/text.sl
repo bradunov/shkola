@@ -1,7 +1,9 @@
-Osni presek prave kupe je @name[ch]@.
+
+Osni prerez pokončnega stožca je @name[ch]@.
 @center@ @mycanvas()@
-Ako je  @quest@, 
-izračunaj:
+Če je   
+@center@ @quest@, 
+izračunajte:
 @center@ @ans[1]@,
 @center@ @ans[2]@.
-(Uzmi da je @"π"@ = @"22/7"@, rezultate zapiši na jednu decimalu.)
+Vzamite da je @"π"@ = @"22/7"@, rezultate zapišite na eno decimalno mesto.

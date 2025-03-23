@@ -1,5 +1,5 @@
-@ime@ is tall @numb@@meas[2]@. She measured that her shadow is long @girl[2][1]@@meas[1]@ @girl[2][2]@, and the shadow of the tree @tree[2][1]@@meas[1]@ @quest@.  
+
+@ime@ is @numb@@meas[2]@ tall. She measured that her shadow is @girl[2][1]@@meas[1]@ @girl[2][2]@@meas[2]@ long, and the tree's shadow is @tree[2][1]@@meas[1]@ @quest@ long.  
 How tall is the tree? 
 @center@ @mycanvas()@
-
 @center@ The tree is tall @hspacept(5)@@ans@.

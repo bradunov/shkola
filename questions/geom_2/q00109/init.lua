@@ -13,7 +13,7 @@ dif_style =
 				
 text_style = {["font_size"] = "14"}	
 
-unit = {"cm", "cm\(\small^2\)"}
+unit = {"cm", "cm²"}
 name = {"a", "b", "c", "P", "t", "R", "r", "O", "h"}
 
 val = {}

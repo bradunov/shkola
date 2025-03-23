@@ -21,9 +21,7 @@ blue_style =
 		
 text_style = {["font_size"] = "14"}		
 
-meas = {"\(^\circ\)", "'"}
-symb = "\(\small\angle\)"
-
+meas = {"°", "'"}
 numb = {"α", "β", "ω", "γ", "δ"}
 
 ang_g = {}
@@ -142,25 +140,3 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end 
-         
-         
-  
-  
-      
-       
-  
-
-       
-
-      
-      
-      
-       
-  
-
-       
-
-            
-            
-            
-          

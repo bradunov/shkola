@@ -1,4 +1,6 @@
-Fill in the table containing the measures of a rhombus: the side @"a" @, diagonals @"d\(\small_1\)"@ and @"d\(\small_2\)"@, height @"h" @, perimeter @"O" @, and area @"P" @.
+
+Fill in the table containing the measures of a rhombus: diagonals @"d₁"@ and @"d₂"@, the side @"a" @, height @"h" @, perimeter @"O" @, and area @"P" @.
 (Calculate with three decimal places and write the results to one decimal place).
 
 @addition_table()@
+            

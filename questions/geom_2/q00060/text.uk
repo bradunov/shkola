@@ -1,4 +1,4 @@
-Triangles @"ABC"@ and @"RST"@ are axisymmetric. 
-Write the missing measurements of sides and angles on the picture. 
 
+Triangles @"ABC"@ and @"RST"@ are axisymmetric. 
+Write the missing side and angle sizes in the picture.
 @center@ @mycanvas()@

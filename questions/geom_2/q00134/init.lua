@@ -32,7 +32,7 @@ yelow_style =
 dot_style = {["font_size"] = "35"}	
 text_style = {["font_size"] = "16"}
 
-meas = "\(\small^\circ\)"
+meas = "°"
 spc = "\(\ \ \ \ \ \)"
 ang_y = {"ζ", "φ", "α"}
 ang_n = {"x", "y", "z"}

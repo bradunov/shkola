@@ -113,7 +113,7 @@ br = 0
 for i = 1, dim do
     if (ind[i] == 1) then
 	    br = br + 1
-        answ[br] = lib.check_string_case(point[i], 10) .. " i " .. lib.check_string_case(points[i], 10) 
+        answ[br] = lib.check_string_case(point[i], 10) .. " - " .. lib.check_string_case(points[i], 10) 
 	end			
 end		
 
@@ -131,9 +131,9 @@ end
 
 
 mycanvas = function(no)
-  lib.start_canvas(350, 330, "center", results)  
+  lib.start_canvas(300, 280, "center", results)  
   
-  w = 23
+  w = 20
   ow = 10
 
   for i = 1,grid+1 do
@@ -185,4 +185,5 @@ mycanvas = function(no)
 	
   lib.end_canvas()
 end  
+     
      

@@ -1,3 +1,1 @@
 msg = {"oštrougli", "pravougli", "tupougli"}
-
- 

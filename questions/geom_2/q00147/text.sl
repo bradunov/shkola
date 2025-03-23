@@ -1,8 +1,7 @@
-Data duž @"AB"@ podeljena je paralelnim pravama na @numb@ @text@. 
 
+Daljica @"AB"@ je razdeljena na @numb@ @text@ z vzporednimi premicami. 
 @center@ @mycanvas()@
-
-Odredi  proporcije: 
+Določite razmerja:
 @center@ @ans[1]@
 @center@ @ans[2]@
 @center@ @ans[3]@

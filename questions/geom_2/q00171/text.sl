@@ -1,6 +1,8 @@
-Duž @point[1]@@point[2]@ je ortogonalna projekcija duži @"AB"@ na ravan π. Rastojanje tačke @"A"@ od π je @numb[1]@@"cm"@.
+
+Daljica @point[1]@@point[2]@ je pravokotna projekcija daljice @"AB"@ na ravnino π. Oddaljenost točke @"A"@ od π je @numb[1]@ @"cm"@.
 @center@ @mycanvas()@
-Ako su tačke @"A"@ i @"B"@ sa @note@ ravni π i
+Če sta točki @"A"@ in @"B"@ na @note@  ravnine π, in
 @center@ @quest@,
-izračunaj (na jednu decimalu) duž
+izračunajte (na eno decimalno mesto) dolžino daljice
+@vspace@
 @center@ @ans@.

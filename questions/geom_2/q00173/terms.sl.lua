@@ -1,1 +1,1 @@
-element = {"število oglišč", "broj strana", "število robov"}
+element = {"število oglišč", "število ploskev", "število robov"}

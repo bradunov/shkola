@@ -1,2 +1,2 @@
-elem = {"teme", "stranica", "linija", "notranji", "notranji"} 
-elem2 = {"teme", "stranica", "linija", "notranji", "notranji"}
+elem = {"oglišče", "stranica", "črta", "notranji ", "območju"} 
+elem2 = {"oglisce", "stranica", "crta", "notranji", "obmocju"}

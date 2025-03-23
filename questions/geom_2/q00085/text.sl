@@ -1,3 +1,3 @@
-Obarvaj ustrezne kroge na sliki, ki imajo površino enako površini rdečega kvadrata.
 
+Z barvanjem ustreznih krog označite na sliki liki, katerih ploščina je enaka ploščini rdečega kvadrata.
 @center@ @mycanvas()@

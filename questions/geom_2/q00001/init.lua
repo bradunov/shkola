@@ -9,11 +9,6 @@ dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "16"}		
 
 par = "\(\small\parallel\)";   
-elem = "\(\small\in\)";
-con = "\(\small\ni\)";    
-sect = "\(\small\cap\)";
-uni = "\(\small\cup\)";
-incl = "\(\small\supset\)";
 
 ind = math.random(7)
 
@@ -34,9 +29,9 @@ mycanvas = function(no)
   if (ind > 5) then
      lib.add_text(w+v-ow, 3*ow+5, "a", text_style, false, false)  
   else
-     lib.add_input(w+ow, ow, 50, 30, lib.check_string_case("a", 10)) 
+     lib.add_input(w+ow, 2*ow, 50, 30, lib.check_string_case("a", 10)) 
   end
-  lib.add_input(w+ow, v+2*ow, 50, 30, lib.check_string_case("b", 10))
+  lib.add_input(w+ow, v+3*ow, 50, 30, lib.check_string_case("b", 10))
   if (ind == 7) then
      lib.add_text(v, ov+2*ow, "c", text_style, false, false)
   else 	 
@@ -59,34 +54,29 @@ mycanvas = function(no)
   if (ind == 4 or ind == 6) then  
       lib.add_text(v, ov-v+ow, "P", text_style, false, false)
   else	  
-      lib.add_input(ow, ov-v-ow-5, 50, 30, lib.check_string_case("P", 10)) 
+      lib.add_input(ow, ov-v, 50, 30, lib.check_string_case("P", 10)) 
   end
   
   lib.add_text(w-ow-2, 2*(v+ow)-2, ".", dot_style, false, false)
   if (ind == 2) then  
       lib.add_text(w-ow, 2*v+ow+5, "Q", text_style, false, false)  
   else	  
-      lib.add_input(ov+2*v-ow-2, 2*v-ow-2, 50, 30, lib.check_string_case("Q", 10)) 
+      lib.add_input(ov+2*v-ow-2, 2*v, 50, 30, lib.check_string_case("Q", 10)) 
   end
 
   lib.add_text(2*v-3, 2*v-ow, ".", dot_style, false, false)
   if (ind == 1 or ind == 5) then 
       lib.add_text(2*v-ow, 2*v-ow, "R", text_style, false, false)
   else	  
-      lib.add_input(v, v, 50, 30, lib.check_string_case("R", 10))
+      lib.add_input(v, v+2*ow, 50, 30, lib.check_string_case("R", 10))
   end
   
   lib.add_text(ov+2*ow, v+ow+5, ".", dot_style, false, false)
   if (ind < 4 ) then 
       lib.add_text(ov+v-ow-5, v+ow+3, "S", text_style, false, false)
   else  
-      lib.add_input(ov+ow-5, v-ow, 50, 30, lib.check_string_case("S", 10))
+      lib.add_input(ov+ow-5, v+5, 50, 30, lib.check_string_case("S", 10))
   end
   
   lib.end_canvas()
 end
-
-            
-            
-            
-          

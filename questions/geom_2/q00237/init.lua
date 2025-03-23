@@ -49,13 +49,13 @@ reply = pt[rot]
 
 mycanvas = function(no)
 
-  lib.start_canvas(300, 240, "center")  
+  lib.start_canvas(240, 200, "center")  
   
-	w = 60
-	ow = 10
-	ov = 130
+	w = 48
+	ow = 8
+	ov = 104
 
-	r = 100
+	r = 80
 	xc = w + r
 	yc = 2*ow + r
 	lib.add_circle (xc, yc, r, style, true, false)
@@ -88,3 +88,4 @@ mycanvas = function(no)
   lib.end_canvas()
   
 end    
+            

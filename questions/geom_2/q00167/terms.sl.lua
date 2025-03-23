@@ -1,4 +1,4 @@
-colour = {"zelene", "crvene", "žute"}
-msg_line = {"se seku ", "su mimoilazne", "su paralelne"}
-msg_plane = {"pripada ravni", "prodire ravan", "paralelna je sa ravni"}
-text = "i"
+colour = {"zelene", "rdeče", "rumene"}
+msg_line = {"se sekata ", "su mimoidoče", "su vzporedne"}
+msg_plane = {"leži v ravnini", "seka ravnino", "je vzporedna z ravnino"}
+text = "in"

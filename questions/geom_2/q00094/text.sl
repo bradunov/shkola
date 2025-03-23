@@ -1,5 +1,3 @@
-Izpolni tabelo, ki vsebuje mere enakokrakega trapeza: osnovici @"a"@ in @"b"@, krak @"c"@, višina @"h"@, obseg @"O"@ in površina @"P"@.
 
-@vspace@
+Izpolni tabelo, ki vsebuje mere enakokrakega trapeza: osnovnici @"a"@ in @"b"@, krak @"c"@, višina @"h"@, obseg @"O"@ in ploščina @"P"@.
 @addition_table()@
-@vspace@

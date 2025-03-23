@@ -7,5 +7,5 @@ Koliko je lima utrošeno za njegovu izradu?
 Koliko litara vode može da se nalije u lonac?
 @center@ Može da se nalije @hspacept(3)@ @lib.check_number(vol)@ litara vode.
 @vspace@
-(Rezultate zapiši na jednu decimalu; uzeti da je @"π"@ = @"22/7"@.)
+Rezultate zapiši na jednu decimalu; uzeti da je @"π"@ = @"22/7"@.
         

@@ -1,5 +1,5 @@
-Triangles @"ABC"@ and @"PQR"@ are similar. Based on the given angles, determine the remaining angles. The angles of triangle @"PQR"@ are written below the corresponding angles of triangle @"ABC"@.
 
+Triangles @"ABC"@ and @"PQR"@ are similar. Based on the given angles, determine the remaining angles. The angles of triangle @"PQR"@ are written below the corresponding angles of triangle @"ABC"@.
 @repeat(2)@ 
 @ITEM@)  @hspacept(5)@ @note@
 @center@ @ans[1]@, 

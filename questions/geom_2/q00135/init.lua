@@ -8,7 +8,7 @@ style =
 red_style = 
 	{["off_color"] = "none",
         ["on_color"] = "none",
-        ["line_color"] = "f30",
+        ["line_color"] = "009",
         ["line_width"] = "2"}; 	
 
 blue_style = 
@@ -377,5 +377,3 @@ mycanvas = function()
 
   lib.end_canvas()
 end
-                              
-            

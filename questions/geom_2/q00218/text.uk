@@ -1,4 +1,5 @@
-Fill in the table that contains elements of a right circular cone: @edge[1]@ is the radius of the base, @edge[2]@ is the height, @edge[3]@ is the slant height, @edge[4]@ is the circumference of the base, and @edge[5]@ is the lateral surface area (in @"cm"@), while @edge[6]@ is the base area (in @"cm²"@).
-(Let @"π"@ = @"22/7"@; write the results to one decimal place.)
 
+Fill in the table that contains elements of a right cone: @edge[1]@ is the radius of the base face, @edge[2]@ is the height, @edge[3]@ is the generatrix, @edge[4]@ is the circumference of the base face and @edge[5]@ is the perimeter of the axial section (in @"cm"@), while @edge[6]@ is the surface area of the axial section (in @"cm²"@).
+(Let @"π"@ = @"22/7"@; write the results to one decimal place.)
 @addition_table()@
+            

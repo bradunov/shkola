@@ -1,3 +1,3 @@
-name = {"cube", "cuboid", "triangular pyramid"}
-padez = {"cubes", "cuboid", "triangular pyramid" }
+name = {"cube", "equilateral cylinder", "equilateral cone"}
+padez = {"cube", "cylinder", "cone" }
 rod = {"inscribed", "inscribed" }

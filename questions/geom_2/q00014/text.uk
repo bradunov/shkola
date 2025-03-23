@@ -1,6 +1,6 @@
+
 There are points on the network.
 @center@ @mycanvas()@
-
+How many vectors are determined by these points? Mark the circle in front of the correct answer.
 @vspace@
-@center@ How many vectors are determined by these points?
 @center@ @lib.check_one_option_radio(out,index)@

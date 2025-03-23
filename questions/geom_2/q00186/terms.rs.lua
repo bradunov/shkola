@@ -1,2 +1,1 @@
-
 name = {"trostrane", "četvorostrane", "šestostrane"}			

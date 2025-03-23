@@ -1,1 +1,1 @@
-msg = "Dolžina stranic trikotnika ne more biti daljša."
+msg = "Dane daljice ne morejo biti stranice trikotnika."

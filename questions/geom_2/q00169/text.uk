@@ -1,5 +1,6 @@
-The faces of the cube @"ABCDEFGH"@ in the image are marked with different colors: yellow, green, blue, red, pink, and let the front face be white (transparent).
+
+The faces of the cube @"ABCDEFGH"@ in the picture are marked with different colors: yellow, green, blue, red, pink, and let the front face be white (transparent).
 @center@ @mycanvas()@
-Observe the image and choose the correct answers (the symbol "∅" indicates that the lines are parallel).
+Observe the picture and choose the correct answers (the symbol "∅" indicates that the lines are skew).
 @center@ @ans[1]@,
 @center@ @ans[2]@.

@@ -1,1 +1,0 @@
-choice = {"za", "krat"}

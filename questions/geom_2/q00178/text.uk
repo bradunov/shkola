@@ -1,7 +1,9 @@
-If the lengths of the longer sides of a regular hexagonal prism are known in the picture (@"d"@ is larger, and @"d₁"@ is the smaller diagonal):
+
+If lengths of segments of a regular hexagonal prism  in the picture are known  (@"d"@ is larger, and @"d₁"@ is the smaller diagonal):
 @center@ @quest@,
 @center@ @mycanvas()@
 calculate (to one decimal place):
-@center@ length of longer side @hspacept(5)@ @ans@,
+@center@ the length of the segment  
+@center@ @ans@,
 @center@ @note@ 
-@center@ @ans2@
+@center@ @ans2@    

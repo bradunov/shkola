@@ -1,4 +1,4 @@
 
-Obojen enakostranični trikotnik (označen s črnim krogom na sliki) je rotiran okoli svojega centra za kot @angle@. 
-Kateri risba prikazuje trikotnik po rotaciji? Obarvaj krogec pod ustrezno risbo. 
+Barvani enakostranični trikotnik (označen s črnim krogom na sliki) je transformiran z vrtežom okoli svojega središča za kot @angle@. 
+Kateri risba prikazuje trikotnik po vrtežu? Obarvaj krogec pod ustrezno risbo. 
 @center@ @mycanvas()@

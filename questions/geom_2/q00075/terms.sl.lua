@@ -1,2 +1,2 @@
-name = {"kvadrat", "romb", "Notranji kot romba  "} 
+name = {"kvadrat", "romb", "Notranji kot romba je "} 
 padez = {"kvadrata", "romba"}

@@ -17,7 +17,7 @@ addition_table = function()
 
   style = {}
   style["text-align"] = "center"
-  style["width"] = "50px"
+  style["width"] = "80px"
   text = lib.start_table()
   text = text .. lib.start_row()
   text = text .. lib.add_cell(element[1], style)
@@ -39,6 +39,4 @@ addition_table = function()
 
   return text
 end
-       
-            
-  
+     

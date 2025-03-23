@@ -1,3 +1,5 @@
-Kateri trikotniki s temeni @"O, P, Q, R, S"@ in T so enaki trikotniku @value@? 
-Obkroži kroglico pred pravilnim odgovorom. 
+
+Kateri trikotniki s ogliščami @"O, P, Q, R, S"@ in T so skladni trikotniku @value@ (rdeči)? 
+Obarvaj kroglico pred pravilnim odgovorom. 
 @center@ @mycanvas()@
+            

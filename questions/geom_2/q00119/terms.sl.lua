@@ -1,1 +1,1 @@
-msg = {"pravokotni trapez", "enakostranični trapez", "trapez"}
+msg = {"pravokotni trapez", "enakokraki trapez", "trapez"}

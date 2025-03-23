@@ -1,4 +1,7 @@
-The diagonals of an isosceles trapezoid are mutually perpendicular. If the bases of the trapezoid are @edge_a@@meas@ and @edge_b@@meas@, calculate its height.
 
+The diagonals of an isosceles trapezoid are mutually perpendicular. If the bases of the trapezoid are 
+@center@ @edge_a@@meas@ @hspacept(3)@ and @hspacept(3)@  @edge_b@@meas@, 
+calculate its height.
 @vspace@
 @center@ The height of the trapezoid is @hspacept(3)@ @lib.check_number(heigh,20)@@meas@.
+            

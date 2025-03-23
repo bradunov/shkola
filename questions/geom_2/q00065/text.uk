@@ -1,8 +1,11 @@
-The lengths of the sides of triangle @"ABC"@ are @"AB"@ = @edge[3]@@meas[2]@, @"BC"@ = @edge[1]@@meas[2]@, and @"CA"@ = @edge[2]@@meas[2]@. Points @"D, E"@ and @"F"@ are the midpoints of the sides of the triangle, and point @"H"@ is the foot of the altitude from vertex @"B"@ (see picture). 
+
+The lengths of sides of the triangle @"ABC"@ are 
+@center@ @"AB"@ = @edge[3]@@meas[2]@, @hspacept(10)@ @"BC"@ = @edge[1]@@meas[2]@, @hspacept(10)@ @"CA"@ = @edge[2]@@meas[2]@. 
+Points @"D, E"@ and @"F"@ are the midpoints of the sides of the triangle, and point @"H"@ is the foot of the altitude from vertex @"B"@ (picture). 
 @center@ @mycanvas()@ 
-@center@ Calculate @hspacept(20)@ @"DH"@ = @lib.check_number(value, 20)@@meas[2]@. 
+@center@ Calculate @hspacept(40)@ @"DH"@ = @lib.check_number(value, 20)@@meas[2]@. 
 @vspace@   
-Explain. @hspacept(8)@ Triangle @"CHE"@ is @lib.check_string_case(msg, 90)@
-@center@ @symb@@"HED"@ = @ang[3]@ = @symb@@lib.check_string_case(reply1, 30, ans1)@,  @hspacept(8)@ @"EH"@ = @"EC"@ = @lib.check_string_case(reply2, 20, ans2)@          
-@center@ By the rule @lib.check_one_option_dropdown(rule, "SUS")@, @hspacept(8)@ triangle @"@name[6]@" is congruent to @"@lib.check_string_case(name[7], 30)@". 
-@center@ It follows that @"DH"@ = @lib.check_string_case(reply3, 20, ans3)@.
+Explanation. @hspacept(30)@ △@"CHE"@ @hspacept(5)@ is @lib.check_one_option_dropdown(msg,msg[2])@
+@center@ ∠@"HED"@ = @ang[3]@ = ∠@lib.check_string_case(reply1, 30, ans1)@,  @hspacept(30)@ @"EH"@ = @"EC"@ = @lib.check_string_case(reply2, 20, ans2)@          
+@center@ By the rule @lib.check_one_option_dropdown(rule,  rule[2])@, @hspacept(20)@ △@name[6]@ ≅ △@lib.check_string_case(name[7], 30)@. 
+@center@ It follows that @hspacept(10)@ @"DH"@ = @lib.check_string_case(reply3, 20, ans3)@.

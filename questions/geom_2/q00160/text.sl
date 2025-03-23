@@ -1,6 +1,7 @@
-V trikotniku @"ABC"@ je vpisan kvadrat @"MNPQ"@.  
+
+V trikotnik @"ABC"@ je včrtan kvadrat @"MNPQ"@. 
 @center@ @mycanvas()@
-Izračunaj dolžino stranice kvadrata, če sta podani dolžina stranice @"AB"@ in površina @"P"@ trikotnika: 
+Izračunaj dolžino stranice kvadrata, če sta podani dolžina stranice @"AB"@ in ploščina @"P"@ trikotnika:
 @center@ @quest@.
 @vspace@
 @center@ Stranica kvadrata je (na eno decimalno mesto)

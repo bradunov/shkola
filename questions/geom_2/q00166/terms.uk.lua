@@ -1,1 +1,1 @@
-msg = {"prodire", "mimoilazi", "∥", "∈"}
+msg = {"intersects", "skews", "∥", "∈"}

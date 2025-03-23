@@ -1,1 +1,1 @@
-element = {"dolžina (cm)", "širina (cm)", "visina (cm)", "površina (cm²)"}
+element = {"dolžina (cm)", "širina (cm)", "višina (cm)", "površina (cm²)"}

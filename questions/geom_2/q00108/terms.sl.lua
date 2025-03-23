@@ -1,1 +1,1 @@
-name = {"ostrokotni", "toplotni", "pravokotni", "brez trikotnika"}
+name = {"ostrokotni", "topokotni", "pravokotni", "ni trikotnika"}

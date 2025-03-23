@@ -1,4 +1,4 @@
-Fill in the table that contains the radius of the circle '@"r"@', central angle '@"φ"@', peripheral angle above the same arc '@"α"@', length of the corresponding arc '@"l"@', and the area of the circular section '@"P"@'.
-Assume that '@"π"@' = \(\frac{22}{7}\). Write the numbers to one decimal place.
 
+Fill in the table containing the radius of the circle @"r"@, the central angle @"φ"@ and the peripheral angle @"α"@ over the same arc @"l"@ and the area of ​​the circle section @"P"@.
+Assume that @"π"@ = \(\frac{22}{7}\). Write the numbers to one decimal place.
 @addition_table()@

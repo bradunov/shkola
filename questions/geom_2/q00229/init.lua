@@ -201,7 +201,11 @@ end
 out = lib.math.random_shuffle(index)
 for i = 1,2 do
 	tmp = lib.math.round_dec(numb[out[i]], 1)
-    ans[i] = elem[out[i]] .. space .. edge[out[i]] .. " = " 
+    if (out[i] > 4) then
+        ans[i] = elem[out[i]] .. " " .. edge[out[i]] .. " = " 
+    else 
+        ans[i] = elem[out[i]] .. space .. edge[out[i]] .. " = " 
+    end
 	if (out[i] == 5 or out[i] == 7) then
 	    ans[i] = ans[i] .. lib.check_number(tmp,40) .. meas[2]
 	else
@@ -211,12 +215,12 @@ end
 
 mycanvas = function(no)
 
-  lib.start_canvas(300, 140, "center")
+  lib.start_canvas(240, 110, "center")
 
-	w = 80
-	ow = 10
-	v = 70
-	ov =  130
+    w = 64
+	ow = 8
+	v = 56
+	ov =  104
 	rt = 2
 	scal = 0.75
 
@@ -259,6 +263,3 @@ mycanvas = function(no)
   lib.end_canvas()
 end            
     
-    
-            
-            

@@ -40,20 +40,19 @@ space = "\( \ \ \ \ \) "
 
 numb = {}
 
-index = math.random(2)
+index = math.random(3)
 if (index == 2) then 
     note = msg[2]
 else
     note = msg[1]	
 end	
 
-numb[1] = math.random(10) - 1
+if (index == 3) then
+	numb[1] = 0
+else
+	numb[1] = math.random(10)
+end
 numb[2] = numb[1] + math.random(10) - 1
-
-if (numb[1] == 0) then 
-    index = 3
-    note = msg[1]	
-end	
 
 if (index == 2) then
     tmp = - numb[2]
@@ -126,7 +125,3 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end   
-            
- 
-     
-            

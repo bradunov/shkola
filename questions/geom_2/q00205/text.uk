@@ -1,8 +1,9 @@
-Side edges of a regular triangular pyramid are mutually perpendicular and have lengths @edge[1]@ = @numb@@meas[1]@ (image). 
-@center@ @mycanvas()@
-Calculate (to one decimal place) the surface area @edge[3]@ and the volume @edge[4]@ (in blue) of the pyramid:
-@center@ @edge[3]@ = @lib.check_number(area)@@meas[2]@, @hspacept(20)@  @edge[4]@ = @lib.check_number(vol)@@meas[3]@. 
 
-If the edge of a cube is equal to the side edge of the pyramid, 
-@center@ the surface area of the cube is greater than the surface area of the envelope @"O"@ of the pyramid @hspacept(10)@  @lib.check_number(rel_p)@ @hspacept(10)@ times,
+The lateral edges of a right triangular pyramid are mutually perpendicular and have a length of @edge[1]@ = @numb@@meas[1]@ (blue body in the picture). 
+@center@ @mycanvas()@
+Calculate (to one decimal place) the surface area @edge[3]@ and the volume @edge[4]@ of the pyramid:
+@center@ @edge[3]@ = @lib.check_number(area)@@meas[2]@, @hspacept(20)@  @edge[4]@ = @lib.check_number(vol)@@meas[3]@. 
+@vspace@
+If the edge of a cube is equal to the lateral edge of the pyramid, 
+@center@ the surface area of the cube is greater than the surface area of the envelope of the pyramid @hspacept(10)@  @lib.check_number(rel_p)@ @hspacept(10)@ times,
 @center@ the volume of the cube is greater than the volume of the pyramid @hspacept(10)@  @lib.check_number(rel_v)@ @hspacept(10)@ times.

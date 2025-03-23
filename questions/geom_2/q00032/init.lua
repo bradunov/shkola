@@ -1,3 +1,4 @@
+
 include("terms")
 
 style = 
@@ -29,7 +30,7 @@ blue_line =
 dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "14"}
 
-meas = {"\(^\circ\)", "'"}
+meas = {"°", "'"}
 ang = {}
 
 ind_h = math.random(12) - 1
@@ -57,6 +58,16 @@ ang_h = 30 * ind_h + 5*ind_m/2
 tmp = math.abs (ang_m - ang_h)
 ang[1] = math.floor(tmp)
 ang[2] = (tmp - ang[1]) * 60
+
+ 
+if (ang[1] >= 180) then
+	if (ang[2] == 0) then
+		ang[1] = 360 - ang[1]	
+	else    
+		ang[1] = 359 - ang[1] 
+		ang[2] = 60 - ang[2]  
+    end		
+end	
 
 answ = ""
 for i = 1,2 do 
@@ -237,13 +248,4 @@ mycanvas = function()
        
   lib.end_canvas()
 end      
-         
-             
-                           
-                       
-       
-     
-                
-                            
-                       
-    
+ 

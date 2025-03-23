@@ -1,1 +1,1 @@
-name = {"pravokotnike", "trapeze", "deltoid", "kvadrate", "paralelograme", "nekonveksne štirikotnike", "rombe"}
+name = {"pravokotnike", "trapeze", "deltoide", "kvadrate", "paralelograme", "nekonveksne štirikotnike", "rombe"}

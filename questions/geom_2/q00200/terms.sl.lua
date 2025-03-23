@@ -1,2 +1,2 @@
-name = {"trokotne", "štirikotne", "šestkotne"}	
-text = {"Površina piramide je P = ", "Takva piramida nije moguča, H = "}
+name = {"tristranske", "štiristranske", "šeststranske"}	
+text = {"Površina piramide je P = ", "Takšna piramida ni mogoča, H = "}

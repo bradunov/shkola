@@ -1,4 +1,4 @@
-@center@ @mycanvas()@
 
-Color the picture and write down pairs of points that are symmetric with respect to the line @"s"@ (in alphabetical order of points below @"s"@).
+@center@ @mycanvas()@
+Color in the picture and write below the picture the pairs of points that are symmetric with respect to the line @"s"@ (in alphabetical order of points below @"s"@).
 @center@ @answ[1]@, @hspacept(4)@ @answ[2]@, @hspacept(4)@ @answ[3]@, @hspacept(4)@ @answ[4]@, @hspacept(4)@ @answ[5]@

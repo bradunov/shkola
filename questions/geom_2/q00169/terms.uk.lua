@@ -1,1 +1,1 @@
-colour = {"white surface", "blue surface", "red surface", "pink surface", "yellow surface", "green surface"}
+colour = {"white face", "blue face", "red face", "pink face", "yellow face", "green face"}

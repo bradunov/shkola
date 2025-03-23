@@ -1,7 +1,5 @@
-The quadrilateral @"ABCD"@ is a parallelogram. @quest[ch]@ (see image). If @numb[3]@ = @dat@, determine the interior angles of the given parallelogram.
 
+The quadrilateral @"ABCD"@ is a parallelogram. @quest[ch]@ (picture). If @numb[3]@ = @dat@, determine the interior angles of the given parallelogram.
 @center@ @mycanvas()@
-
 The interior angles of parallelogram @"ABCD"@ are:
-
-@center@ @numb[1]@ = @answ[1]@ @hspacept(25)@ @numb[2]@ = @answ[2]@
+@center@ @numb[1]@ = @answ[1]@ @hspacept(30)@ @numb[2]@ = @answ[2]@   

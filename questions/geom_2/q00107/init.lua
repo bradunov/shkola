@@ -1,7 +1,7 @@
 
 addition_table = function()
 
-  measure = {"a  \( \ \) cm", "b  \( \ \) cm", "t\(\small_c\)  \( \ \)cm",  "h\(\small_c\)  \( \ \)cm", "O  \( \ \)cm", "P \( \ \ \) cm\(^2\)"} 
+  measure = {"a  \( \ \) cm", "b  \( \ \) cm", "t\(\small_c\)  \( \ \)cm",  "h\(\small_c\)  \( \ \)cm", "O  \( \ \)cm", "P \( \ \ \) cm²"} 
 
   columns = 5
   max_range = 5
@@ -61,3 +61,4 @@ addition_table = function()
 
   return text
 end  
+        

@@ -1,7 +1,21 @@
 
+@center@ @mycanvas()@
 Which
-@repeat(3)@ 
-@center@ @quest@   
-@center@  @answ@
-@vspace@
+@repeat(2)@ 
+@if ch == 1@
+part of the circular line corresponds to the central angle
+@center@ @phi@ = @angc@@meas@ ?
+@center@ @lib.check_fraction_denominator(1, part[ind])@ @hspacept(5)@ kružne linije.
+@elif ch == 2@
+part of the circular line corresponds to the peripheral angle
+@center@ @alpha@ = @angp@@meas@ ?
+@center@ @lib.check_fraction_denominator(1, part[ind])@ @hspacept(5)@ kružne linije.
+@elif ch == 3@
+the central angle corresponds to  \(\frac{@1@}{@tostring(part[ind])@}\) @hspacept(5)@ of the circular line?
+@center@ @phi@ = @lib.check_number(angc,40)@@meas@ 
+@else@
+peripheral angle corresponds to \(\frac{@1@}{@tostring(part[ind])@}\) @hspacept(5)@ of the circular line?
+@center@ @alpha@ = @lib.check_number(angp,40)@@meas@
+@endif@
 @/repeat@ 
+

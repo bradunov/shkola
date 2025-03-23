@@ -1,6 +1,8 @@
-Along @point[1]@@point[2]@ is the orthogonal projection of the line @"AB"@ onto the plane π. The distance of point @"A"@ from π is @numb[1]@@"cm"@.
+
+Segment @point[1]@@point[2]@ is the orthogonal projection of the segment @"AB"@ onto the plane π. The distance of point @"A"@ from π is @numb[1]@@"cm"@.
 @center@ @mycanvas()@
-If the points @"A"@ and @"B"@ are on the plane π and
+If the points @"A"@ and @"B"@ are on the @note@ of the plane π, and
 @center@ @quest@,
-calculate (to one decimal place) the length
-@center@ @ans@.
+calculate (to one decimal place) the length of the segment
+@vspace@
+@center@ @ans@.   

@@ -1,7 +1,8 @@
-V trikotnik @"ABC"@ je vrisan zelen kvadrat.
+
+V trikotnik @"ABC"@ je včrtan zelen kvadrat.
 @center@ @mycanvas()@
-Izračunaj površino oranžnega trikotnika, če je
+Izračunajte ploščino oranžnega trikotnika, če je
 @center@ @quest@.
 @vspace@
-@center@ Površina trikotnika je (na eno decimalno mesto)
+@center@ Ploščina trikotnika je (na eno decimalno mesto)
 @center@ @lib.check_number(area, 40)@@meas[2]@.

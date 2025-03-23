@@ -1,1 +1,1 @@
-text = {"površina većeg dijagonalnog preseka", "površina manjeg dijagonalnog preseka"}
+text = {"ploščina večjega diagonalnega prereza", "ploščina manjšega diagonalnega prereza"}

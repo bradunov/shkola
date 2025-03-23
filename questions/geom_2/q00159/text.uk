@@ -1,7 +1,8 @@
-Longer lines @"AC"@ and @"BD"@ have a common point @"O"@.
+
+Segments @"AC"@ and @"BD"@ have a common point @"O"@.
 @center@ @mycanvas()@
 If
 @center@ @quest@
-what is the length of line @reply@ (to one decimal place)?
+what is the length of segment @reply@ (to one decimal place)?
 @vspace@
 @center@ @ans@.

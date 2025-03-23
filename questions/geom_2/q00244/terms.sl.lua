@@ -1,2 +1,2 @@
-direction = {"pozitivnoj", "negativnoj"}
+direction = {"pozitivni", "negativni"}
 colour = {"rdeča", "modra", "zelena"}

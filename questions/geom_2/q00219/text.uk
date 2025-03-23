@@ -1,7 +1,9 @@
+
 The main section of the cone is @name[ch]@.
 @center@ @mycanvas()@
-If it is @quest@,
+If it is 
+ @center@ @quest@,
 calculate:
 @center@ @ans[1]@,
 @center@ @ans[2]@.
-(Take @"π"@ = @"22/7"@, write the results to one decimal place.)
+Take @"π"@ = @"22/7"@, write the results to one decimal place.

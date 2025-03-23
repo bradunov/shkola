@@ -1,1 +1,1 @@
-colour = {"bela ravan", "plava ravan", "rdeča ravan", "pink ravan", "rumena ravan", "zelena ravan"}
+colour = {"bela ploskev", "modra ploskev", "rdeča ploskev", "roza ploskev", "rumena ploskev", "zelena ploskev"}

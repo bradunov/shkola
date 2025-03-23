@@ -1,2 +1,1 @@
-
 elem = {"manje", "veće"}		

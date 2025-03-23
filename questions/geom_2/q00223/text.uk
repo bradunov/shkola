@@ -1,4 +1,4 @@
-Fill in the table containing elements of a cone: @edge[1]@ is the radius of the base, @edge[2]@ is the height, and @edge[3]@ is the slant height (in cm), @edge[4]@ is the lateral surface area, and @edge[5]@ is the surface area of the cone (in cm²), and @edge[6]@ is the volume of the cone (in cm³).
-(Take @"π"@ = @"22/7"@; write the results to one decimal place.)
 
+Fill in the table containing elements of a cone: @edge[1]@ is the radius of the base, @edge[2]@ is the height and @edge[3]@ is the generatrix (in cm), @edge[4]@ is the surface area of the axial cross-section and @edge[5]@ is the surface area of the cone (in cm²), and @edge[6]@ is the volume of the cone (in cm³).
+(Take @"π"@ = @"22/7"@; write the results to one decimal place.)
 @addition_table()@

@@ -1,8 +1,6 @@
 
 Upiši na slici oznake koje nedostaju.
-
 @center@ @mycanvas()@
-
 Dopuni  prazna polja u rečenicama.
 @center@ Na slici je trougao @lib.check_string_case("ABC", 40)@.
 @center@ Tačka A je @lib.check_string(elem[1], 40)@ trougla.

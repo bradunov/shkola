@@ -1,3 +1,3 @@
 msg = {"konveksni ", "nekonveksni "}   
-numb = {"četvoro", "peto", "šesto", "sedmo", "osmo", "deveto", "deseto", "dvanaesto", "šesnaesto"}
+numb = {"četvorougao", "petougao", "šestougao", "sedmougao", "osmougao", "devetougao", "desetougao", "dvanaestougao", "šesnaestougao"}
 point = {"jeste", "nije"}

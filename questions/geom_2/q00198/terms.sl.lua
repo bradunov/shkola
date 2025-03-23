@@ -1,2 +1,2 @@
-name = {"trostrane", "štiristrane", "šeststrane"}		
-elem = {"osnovna stran", "višina", "obseg osnove", "površina osnove", "obseg bočne strane", "površina bočne strane", "bočna stran", "diagonalni prerezi" }
+name = {"tristranski", "štiristranski", "šeststranski"}		
+elem = {"osnovni rob", "višina", "obseg osnovne ploskev", "ploščina osnovne ploskev", "obseg stranske ploskev", "ploščina stranske ploskev,", "stranski rob", "ploščina diagonalnog preseka"}

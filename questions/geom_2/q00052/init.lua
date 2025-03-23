@@ -17,7 +17,7 @@ if (ind < 4) then
 else
    name = msg1[2]  
    quest = "" 
-   reply = numb .. "cm " .. msg2[2] .. pp .. ":" .. qq .. "."  
+   reply = numb .. "cm" .. msg2[2] .. pp .. ":" .. qq .. "."  
 end
 
 if (ind == 1) then

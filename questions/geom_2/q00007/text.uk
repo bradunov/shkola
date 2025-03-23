@@ -1,8 +1,9 @@
-Radii are given and the mutual position of circles is specified 
-@center@ @circ1@ @hspacept(3)@ and @hspacept(3)@ @circ2@ . 
-Determine the distance between their centers @"AB"@. 
-@vspace@
-@repeat(3)@
+
+The mutual position of circles 
+@center@ @circ1@ @hspacept(3)@ and @hspacept(3)@ @circ2@ 
+is specified and their radii are given. 
+Determine the distance between their centers @"A"@ and @"B"@. 
+@repeat(2)@
 @place[ind]@
 @center@ @rad1@ = @numb1@@meas@ , @hspacept(3)@ @rad2@ = @numb2@@meas@. @hspacept(15)@ @reply@ 
 @/repeat@

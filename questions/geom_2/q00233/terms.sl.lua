@@ -1,3 +1,3 @@
-name = {"kocka", "ravnostrani valjak", "ravnostrana kupa"}
-padez = {"kocke", "valjka", "kupe" }
-rod = {"upisana", "upisan" }
+name = {"kocka", "enakostranični valj", "enakostranični stožec"}
+padez = {"kocke", "valja", "stožca" }
+rod = {"včrtana", "včrtan" }

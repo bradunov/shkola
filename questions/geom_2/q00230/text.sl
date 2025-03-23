@@ -1,8 +1,10 @@
-Kroz krajnju tačku prečnika lopte postavljena je ravan, prema kojoj je ovaj prečnik nagnut pod uglom od @angle[ch]@3°. Prečnik lopte je @diam@1@. 
-Koliki su obim i površina preseka ravni i lopte?
-Koliko je rastojanje preseka od centra lopte?
-(Uzmi da je π = 22/7, rezultate zapiši na jednu decimalu.) 
+
+Skozi končno točko kroglinega premera poteka ravnina, proti kateri je ta premer nagnjen pod kotom  @angle[ch]@@meas[3]@. Premer krogle je @diam@@meas[1]@. 
 @vspace@
-@center@ Obim preseka je @hspacept(5)@  @lib.check_number(circ)@1@.
-@center@ Površina preseka je @hspacept(5)@  @lib.check_number(area)@2@.
-@center@ Rastojanje preseka od centra lopte je @hspacept(5)@  @lib.check_number(numb[3])@1@.
+Kolikšna sta obseg in ploščina presečišča ravnine in krogle?
+@center@ Obseg je @hspacept(5)@  @lib.check_number(circ)@@meas[1]@.
+@center@ Ploščina je @hspacept(5)@  @lib.check_number(area)@@meas[2]@.
+@vspace@
+Kolikšna je oddaljenost presečišča od središča krogle?
+@center@ Oddaljenos je @hspacept(5)@  @lib.check_number(numb[3])@@meas[1]@.
+Vzamite da je @"π"@ = @"22/7"@, rezultate zapišite na eno decimalno mesto.

@@ -1,5 +1,4 @@
-What angle does the @choice[ch]@ hand (@colour[ch]@) make in @number@ @vreme@? 
 
-@center@ @mycanvas(result)@ 
-            
-@center@ The hand makes an angle of @hspacept(3)@ @lib.check_number(ang,30)@ @meas@.
+What angle does the @choice[ch]@ hand (@colour[ch]@) make in @number@ @vreme@? 
+@center@ @mycanvas(result)@     
+@center@ The hand makes an angle of @hspacept(3)@ @lib.check_number(ang,30)@°.

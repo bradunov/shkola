@@ -1,7 +1,9 @@
-Če so znane dolžine daljic pravilne šeststranske prizme na sliki (@"d"@ je večja, a @"d₁"@ manjša diagonala):
+
+Če so znane dolžine daljic pravilne šeststranske prizme na sliki (@"d"@ je večja in @"d₁"@ manjša diagonala):
 @center@ @quest@,
 @center@ @mycanvas()@
-izračunaj (na eno decimalno mesto):
-@center@ dolžina daljic @hspacept(5)@ @ans@,
+izračunajte (na eno decimalno mesto):
+@center@ dolžina daljice 
+@center@ @ans@,
 @center@ @note@ 
-@center@ @ans2@
+@center@ @ans2@     

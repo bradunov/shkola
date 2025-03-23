@@ -100,10 +100,8 @@ else
         else
 			ans2 = elem[4]  		
         end
-		ans2 = ans2 .. space .. " P = " .. lib.check_number(numb[3],50)
+		ans2 = ans2 .. space .. " P = " .. lib.check_number(numb[3],50) .. meas[2]
 	else
 		ans2 = elem[6] .. space .. " Q = " .. lib.check_number(numb[4],50) .. meas[2]
     end
-end	
-            
-            
+end

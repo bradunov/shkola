@@ -1,2 +1,2 @@
-msg = {"kome su unutrašnji uglovi ", "čiji je zbir unutrašnjih uglova "}   
+msg = {"čiji su unutrašnji uglovi ", "čiji je zbir unutrašnjih uglova "}   
 reply = {"da", "ne"}

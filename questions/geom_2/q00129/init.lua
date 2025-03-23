@@ -13,7 +13,7 @@ grid_style =
 							
 text_style = {["font_size"] = "16"}
 
-meas =  {"cm", "cm\(\small^2\)"}
+meas =  {"cm", "cm²"}
 
 numb = {}
 

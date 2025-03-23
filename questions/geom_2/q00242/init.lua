@@ -26,11 +26,11 @@ denom = 2*numb*numb
 
 mycanvas = function()
 	 		  
-  lib.start_canvas(250, 200, "center")   
+  lib.start_canvas(200, 160, "center")   
   
-	w = 200/grid
-	ow = 5
-	v = 20
+	w = 160/grid
+	ow = 4
+	v = 16
 
 	lib.add_rectangle (v, v, (grid-1)*w, (grid-1)*w, style, false, false) 
 	lib.add_straight_path(v+(grid-1)*w, v, {{-(grid-1)*w,((grid-1)-1)*w}, {w,w}, {(grid-2)*w, -(grid-1)*w}}, dif_style, true, false)  

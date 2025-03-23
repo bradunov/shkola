@@ -11,26 +11,25 @@ dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "16"}		
 
 index = {}
-answ = {}
 
-answ = {"a \(\small\cap\) d = O",
-  "O \(\small\in\) a", 
-  "O \(\small\not\in\) d",  
-  "b \(\small\ni\) N", 
-  "b \(\small\not\ni\) M",   
-  "a \(\small\parallel\) c", 
-  "a \(\small\not\parallel\) d",   
-  "b \(\small\parallel\) a", 
-  "b \(\small\perp\) c",  
-  "d \(\small\perp\) c",  
-  "d \(\small\not\parallel\) c",  
-  "M \(\small\in\) d", 
-  "{P, Q} \(\small\subset\) b", 
-  "{P, Q} \(\small\supset\) b",
-  "N \(\small\in\) c",
-  "M \(\small\not\in\) a \(\small\cup\) b \(\small\cup\) c \(\small\cup\) d",   
-  "{N, P, Q} \(\small\subset\) b \(\small\cup\) c",   
-  "Q = b \(\small\cap\) c" 
+answ = {"a ∩ d = O",
+  "O ∈ a", 
+  "O ∉ d",  
+  "b ∋ N", 
+  "b ∌ M",   
+  "a ∥ c", 
+  "a ∦ d",   
+  "b ∥ a", 
+  "b ⟂ c",  
+  "d ⟂ c",  
+  "d ∦ c",  
+  "M ∈ d", 
+  "{P, Q} ⊂ b", 
+  "{P, Q} ⊃ b",
+  "N ∈ c",
+  "M ∉ a ∪ b ∪ c ∪ d",   
+  "{N, P, Q} ⊂ b ∪ c",   
+  "Q = b ∩ c" 
 }
 
 for i = 1,18 do
@@ -71,6 +70,3 @@ mycanvas = function(no)
   lib.end_canvas()
 end
       
-       
-         
-            

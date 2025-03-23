@@ -1,1 +1,0 @@
-choice = {"for", "times"}

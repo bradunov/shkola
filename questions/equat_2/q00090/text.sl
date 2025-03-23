@@ -9,7 +9,7 @@ Trditev:
 @elif ind == 4@
 @center@ @title[mod]@ @"x"@ ni @choice@ od @point@,
 @elif ind == 5@
-@center@ @title[mod]@ @"x"@ je @choice@ od @numbl@ in @choice1@ in @numbd@, 
+@center@ @title[mod]@ @"x"@ je @choice@ od @numbl@ in @choice1@ od @numbd@, 
 @elif ind == 6@
 @center@ @title[mod]@ @"x"@ ni @choice@ od @numbl@ in @choice@ je od @numbd@ , 
 @elif ind == 7@

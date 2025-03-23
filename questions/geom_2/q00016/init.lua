@@ -75,13 +75,13 @@ end
 
 if (sign == 0) then
     results = "result[0] == 1 && result[1] == 1 && result[2] == 1"
-    answ = lib.check_string(msg, 60)	
+    answ = lib.check_string(msg, 80)	
     first = rect_pt[1]	
 	second = rect_pt[2]
     point = rect_pt[3]	
 else
     results = "result[0] == 1 && result[1] == 1 && result[2] == 1 && result[3] == 1"
-    answ = lib.check_string_case(rect_pt[4], 60)
+    answ = lib.check_string_case(rect_pt[4], 80)
     first = rect_pt[sign]
     if (sign == 1) then
         op = math.random(2)
@@ -156,7 +156,3 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end
-
-      
-
-         

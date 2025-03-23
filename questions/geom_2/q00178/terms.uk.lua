@@ -1,1 +1,1 @@
-text = {"area of the larger diagonal section", "area of the smaller diagonal section"}
+text = {"the area of the larger diagonal section", "the area of the smaller diagonal section"}

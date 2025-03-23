@@ -1,1 +1,1 @@
-elem = {"smaller", "larger"}
+elem = {"shorter", "longer"}

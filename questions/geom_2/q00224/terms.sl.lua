@@ -1,2 +1,2 @@
-name = {"jednakostranični trikotnik", "pravokotni trikotnik", "toplotni trikotnik s topim kotom enakim 120°"}
-elem = {"polmer osnove", "višina", "vzporednica", "obseg osnove", "obseg preseka", "površina preseka"}
+name = {"enakostranični trikotnik", "pravokotni trikotnik", "topokotni trikotnik s topim kotom enakim 120°"}		
+elem = {"polmer osnovne ploskev", "višina", "izvodnica", "obseg osnovne ploskev", "obseg osnega prereza", "ploščina osnega prereza"}

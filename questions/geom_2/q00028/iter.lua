@@ -1,7 +1,7 @@
 
 include("terms")
 
-measure = {"\(^\circ\)", "'", "''"}
+measure = {"°", "'", "''"}
 
 numb = {}
 index = {}

@@ -93,12 +93,12 @@ vol = lib.math.round_dec(vol,1)
   
 mycanvas = function(no)
 
-  lib.start_canvas(300, 160, "center")
+  lib.start_canvas(240, 130, "center")
 
-	w = 80
-	ow = 10
-	v = 70
-	ov =  130
+	w = 64
+	ow = 8
+	v = 56
+	ov =  104
 	rt = 2
 
 	px[1] = w  + ov/2
@@ -132,3 +132,4 @@ mycanvas = function(no)
  
   lib.end_canvas()
 end                        
+     

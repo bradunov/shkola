@@ -1,3 +1,3 @@
 colour = {"blue", "red"}
-choice = {"minute", "hourly"}
+choice = {"minute", "hour"}
 name = {"minute", "hour", "hours", "hour"}

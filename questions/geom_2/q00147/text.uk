@@ -1,8 +1,7 @@
-Data duž @"AB"@ podeljena je paralelnim pravama na @numb@ @text@. 
 
+The segment @"AB"@ is divided to @numb@ @text@ by parallel lines. 
 @center@ @mycanvas()@
-
-Odredi  proporcije: 
+Determine the proportions: 
 @center@ @ans[1]@
 @center@ @ans[2]@
 @center@ @ans[3]@

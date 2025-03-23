@@ -1,3 +1,4 @@
+
 Vemo, kako konstruirati kot z @"60"@@meas@ in simetralo kateregakoli kota, tj. kako določiti polovico kateregakoli kota.
 
 @center@ @mycanvas()@

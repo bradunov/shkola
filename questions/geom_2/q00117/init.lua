@@ -13,8 +13,8 @@ dif_style =
 				
 text_style = {["font_size"] = "16"}	
 
-unit = {"cm", "cm\(\small^2\)"}
-name = {"a", "b", "h\(\small_a\)", "d\(\small_1\)", "d\(\small_2\)", "O", "P"}
+unit = {"cm", "cm²"}
+name = {"a", "b", "h\(\small_a\)", "d₁", "d₂", "O", "P"}
 
 val = {}
 ind = {}
@@ -92,4 +92,4 @@ mycanvas = function(no)
     
   lib.end_canvas()
 end 
-         
+   

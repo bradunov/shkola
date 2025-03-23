@@ -3,7 +3,7 @@ addition_table = function()
 
   ha = "h\(\small_a\)"
   hb = "h\(\small_b\)"
-  measure = {"a  \( \ \) cm", "b  \( \ \) cm", "h\(\small_a\)  \( \ \)cm",  "h\(\small_b\)  \( \ \)cm", "O  \( \ \)cm", "P \( \ \ \) cm\(^2\)"} 
+  measure = {"a  \( \ \) cm", "b  \( \ \) cm", "h\(\small_a\)  \( \ \)cm",  "h\(\small_b\)  \( \ \)cm", "O  \( \ \)cm", "P \( \ \ \) cm²"} 
 
   columns = 5
   min_range = 5
@@ -80,6 +80,4 @@ addition_table = function()
 
   return text
 end  
-        
-                  
-         
+ 

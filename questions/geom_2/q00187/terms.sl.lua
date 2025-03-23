@@ -1,3 +1,3 @@
-name = {"trokotne", "štiri-stranske", "šest-stranske"}		
-elem = {"osnovna stran", "višina", "površina", "volumen"}
-padez = {"površino", "volumen"}
+name = {"tristranske", "štiristranske", "šeststranske"}		
+elem = {"osnovni rob", "višina", "površina", "prostornina" }
+padez = {"površino", "prostornino"}

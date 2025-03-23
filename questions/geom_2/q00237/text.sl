@@ -1,5 +1,5 @@
 
-Katera točka predstavlja sliko točke @point@ dobivene z rotacijo za @direct[ch]@ orientiran kot za @angle@° glede na center rotacije O?
+Katera točka predstavlja sliko točke @point@, ki jo dobimo z vrtenjem za @direct[ch]@ usmerjen kot  @angle@° glede na središče vrtenja O?
 @vspace@
 @center@ @mycanvas()@   
 @vspace@

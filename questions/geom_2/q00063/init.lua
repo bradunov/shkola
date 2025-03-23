@@ -17,7 +17,3 @@ for i = 1,dim do
    	answ[i] = title[ind[i]]	  
 	result[i] = reply[ind[i]]	  
 end        
-
-                   
-  
-          

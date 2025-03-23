@@ -3,7 +3,4 @@
 
 Oboj sliku plavog trougla @value_pt[1]@@value_pt[2]@@value_pt[3]@  odeđenu  translacijom koja preslikava tačku @origin@ u @picture@.
 
-@answ@ 
-
-  
-           
+@center@@answ@ 

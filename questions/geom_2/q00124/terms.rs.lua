@@ -1,8 +1,6 @@
-
 title = {" Koliko najviše pravih unutrašnjih uglova može imati mnogougao sa više od 4 stranice?",
          " Koliko najviše pravih unutrašnjih uglova može imati mnogougao sa  4 stranice?",
-         " Od kog ugla mora biti manji ili jednak najmanji unutrašnji ugao šestougla?",
-         " Koliko najviše oštrih uglova može imati mnogougao?",	 
+         " Od kog ugla mora biti manji ili jednak najmanji unutrašnji ugao šestougla?", 
          " Da li postoji mnogougao koji ima tri oštra ugla manja od 60°?",
 		 " Da li postoji sedmougao koji ima tri prava i bar jedan oštar ugao?",
          " Da li postoji šestougao koji ima tri prava i tri tupa ugla?",
@@ -18,4 +16,4 @@ title = {" Koliko najviše pravih unutrašnjih uglova može imati mnogougao sa v
          " Da li je trougao uvek konveksni mnogougao?"			 
 		} 
 
-reply = {"3", "4", "120", "3", "ne", "ne", "da", "3", "n-3", "petougao", "(n-3)/2", "0", "n(n-3)/2", "(n-2)*180", "360", "da", "da"}
+reply = {"3", "4", "120", "ne", "ne", "da", "3", "n-3", "petougao", "(n-3)/2", "0", "n*(n-3)/2", "(n-2)*180", "360", "da", "da"}

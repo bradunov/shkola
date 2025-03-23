@@ -7,6 +7,3 @@ Pet tačaka @"A, B, C, D, E"@ su sredine duži koje spajaju centre ovih krugova.
 
 @center@ Krugovi @first@ i @second@ su simetrični u odnosu na tačku @lib.check_string_case(simc, 15)@. 
 Oboj ove krugove i liniju koja spaja njihove centre.
-
-
-

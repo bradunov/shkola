@@ -1,6 +1,7 @@
-Kod pravilne @name[ind]@ prizme je: 
+
+Pri pravilni @name[ind]@ prizmi je:
 @center@ @quest1@
 @center@ @quest2@
 @vspace@
-Izračunaj površinu prizme (na dve decimale).
+Izračunajte površino prizme (na dva decimalna mesta).
 @center@ @"P = "@ @lib.check_number(area,50)@@meas[2]@

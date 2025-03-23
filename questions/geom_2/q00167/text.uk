@@ -1,5 +1,6 @@
-In the picture is a cuboid. The lines to which its edges belong are marked with letters, and the visible sides are colored green, red, and yellow.
+
+The picture shows a cuboid. The lines to which its edges belong are marked with letters, and the visible faces are colored green, red, and yellow.
 @center@ @mycanvas()@
 Observe the picture and choose the correct answers.
 @center@ Lines  @term@.
-@center@ Line  @edge[ch[1]]@ @lib.check_one_option_dropdown(msg_plane, reply2)@ @colour[ch[2]]@ sides.
+@center@ Line  @edge[ch[1]]@ @lib.check_one_option_dropdown(msg_plane, reply2)@ the plane of @colour[ch[2]]@ face.

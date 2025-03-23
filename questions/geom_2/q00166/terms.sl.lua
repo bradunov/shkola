@@ -1,1 +1,1 @@
-msg = {"prodre", "mimoide", "∥", "∈"}
+msg = {"seka", "mimoidoče", "∥", "∈"}

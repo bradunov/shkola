@@ -1,10 +1,11 @@
-The sphere of radius @"R"@ is cut by a plane that is at a distance @"H"@ from the center of the sphere. The radius of the circular section is @"r"@ (picture). 
+
+The ball of radius @"R"@ is cut by a plane that is at a distance @"H"@ from the center of the ball. The radius of the cross-section is @"r"@ (picture). 
 @center@ @mycanvas()@
-If
+If it is
 @center@ @quest[1]@,
 @center@ @quest[2]@,
 @vspace@
-calculate (to one decimal place):
+calculate
 @center@ @ans[1]@,
 @center@ @ans[2]@.
-Take @"π"@ = @"22/7"@.
+Take @"π"@ = @"22/7"@, write the results to one decimal place.  

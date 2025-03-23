@@ -1,7 +1,8 @@
-Flat parallel base intersects a cone so that the @elem[ch]@ base of the cone is @fct@ times the @name[ch]@ of @elem[ch+2]@ parallel section. The height of the cone is @numb[2]@@"cm"@.
-What is the height of the smaller cone whose base is a parallel section, and the vertex is shared with the given cone?
-@center@ The height of the smaller cone (to one decimal place) is 
-@center@ @lib.check_number(numb[3])@@"cm"@. 
+
+A plane parallel to the base cuts the right cone so that the @elem[ch]@ of the base is @fct@ times @name[ch]@ than the @elem[ch+2]@ of the parallel cross-section. The height of the cone is @numb[2]@@"cm"@.
+What is the height of the smaller cone whose base is the parallel cross-section and the apex is common to the given cup?
+@center@ The height of the smaller cone (to one decimal place) is @hspacept(3)@ @lib.check_number(numb[3])@@"cm"@. 
 @vspace@
-What is the relationship between the areas of the base sections of the given and smaller cones?                                                                                                                                                                                                                  
-@center@ The area of the base section of the given cone is @hspacept(3)@ @lib.check_number(numb[4])@ @hspacept(3)@ times larger than the area of the base section of the smaller cone.
+What is the ratio of the base surface areas of the given and smaller cone?                                                                                                                                                                                                                  
+@center@ The base surface area of the given cone is @hspacept(3)@ @lib.check_number(numb[4])@ @hspacept(3)@ times larger than the base surface area of the smaller cone.       
+     

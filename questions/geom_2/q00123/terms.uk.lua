@@ -1,2 +1,2 @@
-msg = {"who has the interior angles", "what is the sum of the interior angles"}   
+msg = {"whose interior angles are", "whose sum of interior angles is "}   
 reply = {"yes", "no"}

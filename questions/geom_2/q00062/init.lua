@@ -11,10 +11,7 @@ dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "14"}	
 letter_style = {["font_size"] = "16"}	
 
-meas = "\(^\circ\)"
-symb = "\(\angle\)"
-trian = "\(\small\triangle\)"
-eq =  "\(\small\cong\)"
+meas = "°"
 
 numb = {}
 ang = {}

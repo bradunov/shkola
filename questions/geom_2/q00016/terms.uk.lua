@@ -1,1 +1,1 @@
-msg = "from picture"
+msg = "out of image"

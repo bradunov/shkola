@@ -9,8 +9,7 @@ style =
 						
 text_style = {["font_size"] = "14"}		
 
-meas = {"\(^\circ\)", "'"}
-symb = "\(\small\angle\)"
+symb = "∠"
 numb = {"α", "β", "γ"}
 ang = {"BAC", "CBA", "ACB"}
 name = {"BC", "AC", "AB"}

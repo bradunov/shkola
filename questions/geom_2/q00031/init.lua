@@ -30,9 +30,6 @@ blue_line =
 dot_style = {["font_size"] = "40"}
 text_style = {["font_size"] = "14"}
 
-
-meas = "\(^\circ\)"
-
 ch = math.random(2)
 
 index = 1    --[[math.random(2)]]--
@@ -247,13 +244,3 @@ mycanvas = function()
        
   lib.end_canvas()
 end      
-      
-             
-                           
-                       
-       
-     
-                
-                            
-                       
-    

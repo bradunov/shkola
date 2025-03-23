@@ -1,5 +1,5 @@
 
-U jednakokrakom trouglu dat je jedan ugao (vidi sliku)
+U jednakokrakom trouglu dat je jedan ugao (slika)
 @center@ @numb[ch]@ = @quest@ 
 @vspace@ 
 @center@ @mycanvas()@ 

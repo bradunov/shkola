@@ -7,6 +7,4 @@ Koliki je procenat drveta odbačen?
 Kakav je odnos površina piramide i kupe?
 @center@ Površina piramide je @lib.check_number(prop_p)@% površine kupe.
 @vspace@
-(Uzmi da je @"π"@ = @"22/7"@, rezultate zapiši na jednu decimalu.)  
-
-            
+Uzmi da je @"π"@ = @"22/7"@, rezultate zapiši na jednu decimalu.  

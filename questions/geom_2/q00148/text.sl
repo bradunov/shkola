@@ -1,7 +1,9 @@
+
 @center@ @mycanvas()@ 
-Prava @name[4]@ je paralelna pravoj @name[1]@.
-Ako je 
+Premica @name[4]@ je vzporedna s premico @name[1]@.
+Če je 
 @center@ @quest@
 @vspace@
-izračunaj  dolžino (na eno decimalno mesto)
+izračunajte dolžino (na eno decimalno mesto)
+@vspace@
 @center@ @sol@.

@@ -1,8 +1,7 @@
-
 text = {"Kupa je oblo telo.",
 		"Kupa je rogljasto telo.", 	
 		"Kupa je obrtno telo.",        		
-		"Prava koja rotira oko kruga i sadrži datu tačku van ravni kruga opisuje konusnu površ .", 		
+		"Prava koja rotira oko kruga i sadrži datu tačku van ravni kruga opisuje konusnu površ.", 		
         "Konusna površ je ravan.", 
         "Vrh konusne površi je centar rotacije prave koja opisuje konusnu površ.", 		
         "Kupa ili konus je telo ograničeno krugom i delom konusne površi između kruga i vrha.", 		

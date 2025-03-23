@@ -1,7 +1,8 @@
+
 @center@ @mycanvas()@
 
 Determine the point to which point @point@ is mapped by a translation that maps point @first@ to @second@. 
-If the point is outside of the image, write the answer as: @msg@. 
+If the point is out of the image, write the answer: @msg@. 
 @vspace@
 @center@ Point @point@ is mapped to point @answ@. 
 @center@ Color these four (three) points on the image.

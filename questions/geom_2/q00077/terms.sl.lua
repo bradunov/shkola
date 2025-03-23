@@ -1,1 +1,2 @@
-name = {"kosinusni", "pravokotni", "enakostranični"}
+name = {"splošni ", "pravokotni", "enakokraki"}
+choice = {"daljšo", "krajšo"}

@@ -1,7 +1,7 @@
 
 addition_table = function()
 
-  measure = {"a  \( \ \ \ \) cm", "d  \( \ \ \ \) cm", "R  \( \ \ \ \)cm",  "r  \( \ \ \ \)cm", "O  \( \ \ \ \)cm", "P \( \ \ \) cm\(^2\)"} 
+  measure = {"a  \( \ \ \ \) cm", "d  \( \ \ \ \) cm", "R  \( \ \ \ \)cm",  "r  \( \ \ \ \)cm", "O  \( \ \ \ \)cm", "P \( \ \ \) cm²"} 
  
   r2 = math.sqrt (2)
  
@@ -49,3 +49,4 @@ addition_table = function()
 
   return text
 end 
+           

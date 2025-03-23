@@ -1,6 +1,8 @@
-Let the legs of a right triangle be @"a"@ and @"b"@, the hypotenuse be @"c"@, its height be @"h"@, its centroid line be @"t"@, the radius of the circumscribed circle be @"R"@, the radius of the inscribed circle be @"r"@, the perimeter be @"O"@, and the area be @"P"@. 
+
+In a right triangle @"a"@ and @"b"@ are the legs, @"c"@ is the hypotenuse and @"h"@ and  @"t"@ are its height and centroid line respectively, @"R"@ is the radius of the circumscribed circle, @"r"@ is the radius of the inscribed circle, @"O"@ is the perimeter and @"P"@ is the area (picture). 
 @center@ @mycanvas()@ 
 Based on the given data, 
-@center@ @name[qst1]@ = @val[qst1]@@meas[1]@, @hspacept(30)@  @name[qst2]@ = @val[qst2]@@meas[2]@, 
+@center@ @name[qst1]@ = @val[qst1]@@meas[1]@, @hspacept(40)@  @name[qst2]@ = @val[qst2]@@meas[2]@, 
 calculate (to two decimal places) 
-@center@  @name[ans1]@ = @lib.check_number(val[ans1],40)@@meas[3]@, @hspacept(30)@ @name[ans2]@ = @lib.check_number(val[ans2],40)@@meas[4]@.
+@center@  @name[ans1]@ = @lib.check_number(val[ans1],40)@@meas[3]@, @hspacept(40)@ @name[ans2]@ = @lib.check_number(val[ans2],40)@@meas[4]@. 
+                       

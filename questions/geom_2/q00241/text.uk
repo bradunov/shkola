@@ -1,5 +1,5 @@
 
-The square is divided into four triangles (see picture). Calculate the area of the colored triangle @"P"@, if dimensions are given in @meas[1]@. 
+The square is divided into four triangles (picture). Calculate the area of the colored triangle @"P"@, if dimensions are given in @meas[1]@. 
 @center@ @mycanvas()@
-The area of the colored triangle is 
+@center@ The area of the colored triangle is 
 @center@ @lib.check_number(area,40)@@meas[2]@ 

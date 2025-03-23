@@ -1,7 +1,8 @@
-From the mixed clay, solid bricks are made
-@center@ @quest[1]@,
-@center@ @quest[2]@,
-@center@ @quest[3]@.
-When manufacturing, @lib.dec_to_str(proc)@% of material is wasted. How many brick pieces can be made from @total@@meas[2]@ of clay?
+
+Solid bricks of the following sizes are made from the mixed clay: 
+@center@ length @hspacept(20)@ @numb[1]@ cm,
+@center@ width @hspacept(20)@ @numb[2]@ cm,
+@center@ thickness @hspacept(20)@ @numb[3]@ cm.
+During production,  @lib.dec_to_str(proc)@% of the material is wasted. How many pieces of brick can be made from @total@ m³ of clay?
 @vspace@
-@center@ It is possible to make @hspacept(5)@ @lib.check_number(result,40)@@hspacept(5)@ brick pieces.
+@center@ It can be made @hspacept(5)@ @lib.check_number(result,40)@@hspacept(5)@ brick pieces.

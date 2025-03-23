@@ -1,4 +1,5 @@
-Correct @name[ind]@ prism has a height of @numb@@meas[1]@. The surface area of the lateral surface is @fct@ times @comp[ch]@ the base area.
+
+A regular @name[ind]@ prism has a height of @numb@@meas[1]@. The  area of its envelope is @fct@ times @comp[ch]@ than the area of the base.
 What is the surface area of the prism?
 @vspace@
 The surface area of the prism is (to two decimal places)

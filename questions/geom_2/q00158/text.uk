@@ -1,4 +1,5 @@
-In triangle @"ABC"@, there is an inscribed green square.
+
+A green square is inscribed in triangle ABC.
 @center@ @mycanvas()@
 Calculate the area of the orange triangle if 
 @center@ @quest@.

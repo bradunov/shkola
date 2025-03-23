@@ -1,8 +1,9 @@
-If the angles of a triangle are given as  
+
+If the angles of a triangle (picture) are given as  
 @center@    @name[5]@ = @ang[fst]@@meas[1]@, @hspacept(3)@  @name[6]@ = @ang[sec]@@meas[1]@, @hspacept(10)@ and @hspacept(3)@ @quest@ @hspacept(3)@ @name[ch]@ = @out[ch]@@meas[2]@, 
-(see labels on the picture)
 @center@ @mycanvas()@ 
 calculate the perimeter @"O"@ and the area @"P"@ of the triangle. Round the results to one decimal place.
+@vspace@
 @center@ @"O"@ = @lib.check_number(circ,40)@@meas[2]@, @hspacept(30)@ @"P"@ = @lib.check_number(area,40)@@meas[3]@.
 @vspace@
 (Take @"√2 = 1.414"@ and @"√3 = 1.732"@, calculate with three decimal places.)

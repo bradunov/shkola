@@ -1,6 +1,5 @@
 
-In front of each statement write @hspacept(3)@ t @hspacept(3)@ if the statement is true or @hspacept(3)@ n @hspacept(3)@ if the statement is not true.
-
+In front of each statement, write @hspacept(3)@ t @hspacept(3)@ if the statement is true or @hspacept(3)@ n @hspacept(3)@ if the statement is false.
 @repeat(4)@
 @lib.check_string(result[ITEM], 15)@  @hspacept(5)@  @answ[ITEM]@       
 @/repeat@  

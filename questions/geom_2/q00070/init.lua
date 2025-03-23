@@ -19,10 +19,8 @@ blue_style =
 		
 text_style = {["font_size"] = "14"}		
 
-meas = {"\(^\circ\)", "'"}
-
-numb = {"α", "β", "γ", "δ", "α\(\small_1\)", "β\(\small_1\)", "γ\(\small_1\)", "δ\(\small_1\)"}
-
+meas = {"°", "'"}
+numb = {"α", "β", "γ", "δ", "α₁", "β₁", "γ₁", "δ₁"}
 
 ang_g = {}
 ang_m = {}
@@ -110,22 +108,21 @@ mycanvas = function(no)
   end	  
 
   lib.add_straight_path(6*ow+5, ov-7*ow+6, {{-2*ow+4, 3*ow-6 }, {3*ow, 0}}, ang_style[1], true, false) 
-  lib.add_input(v+3, 2*v-ow,  50, 30, numb[1]) 
+  lib.add_input(v+3, 2*v+ow,  50, 30, numb[1]) 
   lib.add_straight_path(w-ow-2, ov-v, {{4*ow-2, 0}, {-3*ow+2, -3*ow}}, ang_style[2], true, false) 
-  lib.add_input(w-2*ow-5,2*v-ow, 50, 30, numb[2]) 
+  lib.add_input(w-2*ow-5,2*v+ow, 50, 30, numb[2]) 
   lib.add_straight_path(w-2*v+2, 4*ow, {{3*ow, 0}, {2*ow, 2*ow}}, ang_style[3], true, false) 
-  lib.add_input(w-2*v+5, 2*ow+2, 50, 30, numb[3])  
+  lib.add_input(w-2*v+5, v-5, 50, 30, numb[3])  
   lib.add_straight_path(2*v, 2*v-ow-3, {{2*ow-3, -3*ow+3}, {4*ow, 0}}, ang_style[4], true, false) 
-  lib.add_input(2*v, 2*ow+2, 50, 30, numb[4])  
+  lib.add_input(2*v, v-5, 50, 30, numb[4])  
   lib.add_straight_path(ow, ov-4*ow, {{4*ow, 0}, {2*ow-4, -3*ow+5}}, ang_style[5], true, false) 
-  lib.add_input(ow+5, 2*v-ow, 50, 30, numb[5]) 
-	     lib.add_straight_path(w-ow, v+3*ow+3, {{4*ow-4, 4*ow-3}, {4*ow, 0}}, ang_style[6], true, false) 
-  lib.add_input(w+ow, 2*v-ow, 50, 30, numb[6]) 
+  lib.add_input(ow+5, 2*v+ow, 50, 30, numb[5]) 
+  lib.add_straight_path(w-ow, v+3*ow+3, {{4*ow-4, 4*ow-3}, {4*ow, 0}}, ang_style[6], true, false) 
+  lib.add_input(w+ow, 2*v+ow, 50, 30, numb[6]) 
   lib.add_straight_path(w-ow, v, {{-3*ow-6, 0}, {2*ow, 3*ow-8}}, ang_style[7], true, false) 
-  lib.add_input(w-v-5, 2*ow+2, 50, 30, numb[7])  
-
+  lib.add_input(w-v-5, v-5, 50, 30, numb[7])  
   lib.add_straight_path(v+ow+6, v, {{v, 0}, {-2*ow, 3*ow+3}}, ang_style[8], true, false) 
-  lib.add_input(v+ow, 2*ow+2,  50, 30, numb[8])
+  lib.add_input(v+ow, v-5,  50, 30, numb[8])
     
   lib.add_straight_path(ov+2*ow, ow, {{w-ov+v, ov-2*ow}}, style, true, false)
   lib.add_straight_path(ov-v, 2*ow, {{-2*v, ov-3*ow}}, style, true, false) 
@@ -139,13 +136,3 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end  
-
-      
-  
-
-       
-
-            
-            
-            
-          

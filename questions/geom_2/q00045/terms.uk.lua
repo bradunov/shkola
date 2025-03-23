@@ -1,2 +1,2 @@
-elem = {"vertices", "page", "line", "inner", "within"}
-elem2 = {"vertices", "page", "line", "inner", "within"}
+elem = {"vertex", "side", "line", "inner", "interior"}
+elem2 = {"vertex", "side", "line", "inner", "interior"}

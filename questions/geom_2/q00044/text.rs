@@ -1,5 +1,5 @@
 
-Prava @"s"@ je simetrala @symb@@"aOb"@?
+Prava @"s"@ je simetrala ∠@"aOb"@?
 @vspace@                                                                                                                                                                                                                
 @center@ @mycanvas()@
 

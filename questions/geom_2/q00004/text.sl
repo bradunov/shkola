@@ -1,3 +1,4 @@
+
 Dopolni trditve.
 @vspace@
 @numb[out[1]]@ @answ[out[1]]@  @hspacept(2)@ @lib.check_number(result[out[1]],15)@  @hspacept(2)@ @reply[out[1]]@

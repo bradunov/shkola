@@ -1,2 +1,2 @@
-name = {"trostrana", "four-sided", "šestostrana"}
-comp = {"larger", "manja"}
+name = {"triangular", "quadrilateral ", "hexagonal"}
+comp = {"larger", "smaller"}

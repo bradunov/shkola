@@ -1,3 +1,3 @@
-name = {"three-sided", "four-sided", "six-sided"}		
-elem = {"base edge", "height", "area", "volume"}
-padez = {"area", "volume"}
+name = {"triangular", "quadrilateral ", "hexagonal"}		
+elem = {"the base edge", "the height", "the surface area", "the volume"}
+padez = {"the surface area", "the volume"}

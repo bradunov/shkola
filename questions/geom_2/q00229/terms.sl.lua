@@ -1,1 +1,1 @@
-elem = {"polmer žoge", "polmer prereza", "razdalja prereza od središča", "obseg žoge", "površina velikega kroga", "obseg preseka", "površina preseka"}
+elem = {"polmer krogle", "polmer preseka", "razdalja preseka od središča", "obseg krogle", "ploščina velikega kroga ", "obseg preseka ", "ploščina preseka "}

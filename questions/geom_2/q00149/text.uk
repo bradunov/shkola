@@ -1,7 +1,8 @@
+
 @center@ @mycanvas()@
-The line @name[4]@ is parallel to the line @name[1]@.
-If
+Line @name[4]@ is parallel to line @name[1]@.
+If it is
 @center@ @quest@
-@vspace@
 calculate the length (to one decimal place)
+@vspace@
 @center@ @sol@.

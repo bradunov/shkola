@@ -15,7 +15,7 @@ dif_style =
 text_style = {["font_size"] = "14"}		
 
 meas = {"m", "dm", "cm"}
-meas2 = {"m\(^2\)", "dm\(^2\)", "cm\(^2\)"}
+meas2 = {"m²", "dm²", "cm²"}
 area = {}
 edge = {}
 name_edge = {"AE", "CH"}
@@ -69,16 +69,3 @@ mycanvas = function(no)
   lib.end_canvas()
 end     
   
-  
-       
-       
-  
-      
-  
-
-       
-
-            
-            
-            
-          

@@ -1,6 +1,4 @@
 
-What (convex) angle do the small (red) and large (blue) hands of the clock form at the moment when it is @numb_h@ @hour@ and @numb_m@ minutes?
-
+What is the (convex) angle formed by the small (red) and large (blue) hands on the clock at the moment when it is @numb_h@ @hour@ and @numb_m@ minutes?
 @center@ @mycanvas(result)@ 
-
-@center@ The hands form an angle of @hspacept(3)@ @answ@.
+@center@ The hands form an angle of @hspacept(3)@ @answ@

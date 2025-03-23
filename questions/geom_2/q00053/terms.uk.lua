@@ -1,1 +1,1 @@
-msg = "Sides cannot be longer than the length of the other two sides of a triangle."
+msg = "The given line segments cannot be the sides of a triangle."

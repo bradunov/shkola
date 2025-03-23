@@ -1,1 +1,1 @@
-msg = {"iste strane", "različnih strani"}
+msg = {"isti strani", "različnih straneh"}

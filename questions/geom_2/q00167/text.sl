@@ -1,5 +1,6 @@
-Na sliki je kvader. Površine kojima pripadaju njegove ivice označene su slovima, a vidljive strane obojene zeleno, crveno i rumeno.
+
+Na sliki je kvader. Premice, ki jim pripadajo robovi, so označene s črkami, vidne mejne ploskvi, pa so obarvane zeleno, rdeče in rumeno. 
 @center@ @mycanvas()@
-Posmatraj sliku i izberi točne odgovore.
-@center@ Površine  @term@.
-@center@ Površina  @edge[ch[1]]@ @lib.check_one_option_dropdown(msg_plane, reply2)@ @colour[ch[2]]@ strane.
+Oglejte si sliko in izberite pravilne odgovore.
+@center@ Premice  @term@.
+@center@ Premica  @edge[ch[1]]@ @lib.check_one_option_dropdown(msg_plane, reply2)@ @colour[ch[2]]@ mejni ploskvi.

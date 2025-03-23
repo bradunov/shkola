@@ -1,6 +1,8 @@
-Nagib duži @"AB"@ prema ravni π je ω, a njena ortogonalna projekcija na  π je duž @point[1]@@point[2]@.  
+
+Kot med daljicom @"AB"@ in ravnino π je ω, njena pravokotna projekcija na π pa je daljica @point[1]@@point[2]@.  
 @center@ @mycanvas()@
-Ako su tačke @"A"@ i @"B"@ sa @note@ ravni π i 
+Če sta točki @"A"@ in @"B"@ na @note@  ravnine π, in
 @center@ @quest@
-izračunaj (na eno decimalno mesto) duži
+izračunajte (na eno decimalno mesto) dolžine daljic
+@vspace@
 @center@ @ans@.

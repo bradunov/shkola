@@ -1,1 +1,1 @@
-measures_str = {"page", "height", "circumference", "area"}
+measures_str = {"side", "height", "perimeter", "area"}

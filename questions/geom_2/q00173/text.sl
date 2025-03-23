@@ -1,5 +1,3 @@
-Popolnite tabelo, ki vsebuje število oglišč, stranic in robov poliedra.
 
-@vspace@
+Dopolnite tabelo, ki vsebuje število oglišč, ploskev in robov poliedra.
 @addition_table()@
-@vspace@

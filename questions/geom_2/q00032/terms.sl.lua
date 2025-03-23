@@ -1,1 +1,1 @@
-name = {"čas", "časa", "časov"}
+name = {"uro", "uri", "uri"}

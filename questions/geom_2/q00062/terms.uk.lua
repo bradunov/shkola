@@ -1,1 +1,1 @@
-msg = {"similar", "matching"}
+msg = {"similar", "congruent"}

@@ -1,1 +1,1 @@
-elem = {"radius of the base", "height", "circumference of the base", "surface area of the base", "surface area of the lateral surface", "cross-section"}
+elem = {"radius of the base", "height", "circumference of the base", "surface area of the base", "surface area of the envelope", "cross-section"}

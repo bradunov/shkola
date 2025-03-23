@@ -1,7 +1,8 @@
-If the lengths of the sides of a rectangle in the picture are known:
+
+If lengths of segments of a cuboid in the picture are known:
 @center@ @quest@,
 @center@ @mycanvas()@
 calculate (to one decimal place):
-@center@ length of the side @hspacept(5)@ @edge[ind]@ = @lib.check_number(numb[ind])@@meas[1]@,
-@center@ area of the diagonal section  
+@center@  the length of the segment @hspacept(5)@ @edge[ind]@ = @lib.check_number(numb[ind])@@meas[1]@,
+@center@  the area of the diagonal section  
 @center@  @"P = "@ @lib.check_number(area,50)@@meas[2]@.

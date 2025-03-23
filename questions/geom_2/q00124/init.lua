@@ -6,20 +6,17 @@ ind = {}
 quest = {""}
 answ = {""}
 
-for i = 1,17 do
+for i = 1,16 do
     index[i] = i
 end	
 ind = lib.math.random_shuffle(index)
 
-dim = 4
+dim = 3
 
 for i = 1,dim do 
    	quest[i] = title[ind[i]]		
-	answ[i] = lib.check_string(reply[ind[i]], 50)	 
-	if (ind[i] == 3 or ind[i] == 14 or ind[i] == 15) then
+	answ[i] = lib.check_string(reply[ind[i]], 60)	 
+	if (ind[i] == 3 or ind[i] == 13 or ind[i] == 14) then
 	    answ[i] = answ[i] .. "°"
 	end	
 end           
-  
-  
-          

@@ -76,7 +76,7 @@ mycanvas = function()
   reply = ""
   note = ""
   if (ind == 1) then
-	  lib.add_text((min +1)*w+ow+2, (max+2)*w-ow, ang[2], symb_style) 
+	  lib.add_input((min -1)*w+ow+5,(max+2)*w-ow-5, 50, 50, ang[2]) 
 	  note = text
 	  reply = ang[1] .. "BAO".. lib.check_one_option_dropdown(ans, ans[ind]) .. ang[1] .. lib.check_string_case("COD", 30) .. ", " .. space .. ang[1] .. "AOB" .. lib.check_one_option_dropdown(ans, ans[ind]) .. ang[1] .. lib.check_string_case("ODC", 30) 
   end  
@@ -93,5 +93,4 @@ mycanvas = function()
   lib.add_circle (ow+(min+1)*w+(xx)*w, 2*ow+(max+pt+1)*w+5, 3, style,false, false )   
  
   lib.end_canvas()
-end           
-            
+end        

@@ -1,1 +1,1 @@
-name = {"acute", "obtuse", "right", "no triangle"}
+name = {"acute-angled", "obtuse-angled", "right-angled", "no triangle"}

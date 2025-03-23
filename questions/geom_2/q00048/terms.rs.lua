@@ -1,2 +1,2 @@
-msg = {"duž a", "duž b", "duž c", "t/n"} 
+msg = {"dužina a", "dužina b", "dužina c", "t/n"} 
 check = {"t", "n"}

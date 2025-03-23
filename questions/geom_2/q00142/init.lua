@@ -17,7 +17,7 @@ grid_style =
         ["line_color"] = "000",
         ["line_width"] = "0.3"};	
 							
-meas =  {"cm", "cm\(\small^2\)"}
+meas =  {"cm", "cm²"}
 numb = {}
 
 grid = math.random(9)

@@ -1,5 +1,6 @@
-All edges of the pyramid named @name[ind]@ have a length of @numb@@meas[1]@.
+
+All edges of a right @name[ind]@ pyramid  have a length of @numb@@meas[1]@.
 What is the surface area of the pyramid (to two decimal places)?
 @vspace@
- 
-@center@ @lib.check_one_option_dropdown(text, ans)@ @hspacept(3)@ @lib.check_number(area,50)@  @measure@
+@center@ @lib.check_one_option_dropdown(text, ans)@ 
+@center@ @lib.check_number(area,50)@  @measure@

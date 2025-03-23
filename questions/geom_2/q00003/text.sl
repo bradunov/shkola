@@ -1,3 +1,4 @@
+
 Dopolni enakosti:
 @vspace@
 @center@ @mycanvas()@

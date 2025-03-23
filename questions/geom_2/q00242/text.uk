@@ -1,4 +1,4 @@
 
 The triangle is inscribed in the square (picture). Calculate the ratio of the areas of the triangle and the square.
 @center@ @mycanvas()@
-The area of the triangle is @hspacept(3)@ @lib.check_fraction_simple(enum,denom)@ @hspacept(3)@ areas of a square.
+@center@ The area of the triangle is @hspacept(3)@ @lib.check_fraction_simple(enum,denom)@ @hspacept(3)@ areas of a square.

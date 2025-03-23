@@ -1,1 +1,1 @@
-msg = {"side", "sides"}
+msg = {"faces", "faces"}

@@ -1,5 +1,4 @@
-
-name = {"kosougli", "pravougli", "jednakokraki"}
-choice = {"veću", "manju"}
+name = {"opšti", "pravougli", "jednakokraki"}
+choice = {"dužu", "kraću"}
 
 		 

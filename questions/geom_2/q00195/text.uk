@@ -1,7 +1,9 @@
-If the lengths of the longer edges of a straight quadrilateral pyramid with a rectangular base are known (see image):
+
+If the lengths of segments of the right four-sided pyramid, whose base is a rectangle, are known (picture):
 @center@ @quest@,
 @center@ @mycanvas()@
 calculate (to one decimal place):
-@center@ length of the longer edge @hspacept(5)@ @edge[ind]@ = @lib.check_number(numb[ind])@@meas[1]@,
-@center@ surface area of the diagonal section  
+@center@ the length of the segment @hspacept(5)@ @edge[ind]@ = @lib.check_number(numb[ind])@@meas[1]@,
+@center@ the surface area of the diagonal section  
 @center@  @"Q = "@ @lib.check_number(area,50)@@meas[2]@.
+            

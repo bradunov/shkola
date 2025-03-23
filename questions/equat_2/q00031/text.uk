@@ -1,6 +1,6 @@
 
 @repeat(2)@
-@if neq == 1@
+@if choice == 1@
 What number  @"x"@ should be  @oper[op]@ by the number @term[2]@ to get the number @comp[index]@ than @term[3]@?
 @else@
 By what number @"x"@ should the number @term[2]@ be @oper[op]@ to get a number @comp[index]@ than @term[3]@?

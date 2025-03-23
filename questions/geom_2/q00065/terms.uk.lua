@@ -1,3 +1,2 @@
-msg = "jednakokraki"
-
-Translation: "jednakokraki" (This is already in English. No translation needed.)
+msg = {"scalene", "isosceles", "equilateral"}
+rule = {"SSS", "SAS", "ASA", "SSA"} 

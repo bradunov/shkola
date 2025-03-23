@@ -1,1 +1,1 @@
-elem = {"polmer osnove", "višina", "obseg osnove", "površina osnove", "površina plašča", "osni prerez"}
+elem = {"polmer osnove", "višina", "obseg osnove", "ploščina osnove", "ploščina plašča", "osni prerez"}

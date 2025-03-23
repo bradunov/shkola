@@ -1,1 +1,1 @@
-msg = {"rectangular", "isosceles", "oblique"}
+msg = {"rectangular", "isosceles", "general"}

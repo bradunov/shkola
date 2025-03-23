@@ -1,3 +1,4 @@
-Fill in the table that contains measurements of squares: side @"a" @, diagonal @"d" @, radius of circumscribed circle @"R" @, radius of inscribed circle @"r" @, circumference @"O" @ and area @"P" @. (Write the results to two decimal places).
 
+Fill in the table that contains measurements of squares: side @"a"@, diagonal @"d" @, radius of circumscribed circle @"R" @, radius of inscribed circle @"r" @, perimeter @"O" @ and area @"P" @. 
+(Write the results to two decimal places).
 @addition_table()@

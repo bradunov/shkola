@@ -1,5 +1,5 @@
-Which vectors are equal to the sum of vectors 
-@first@  + @second@ ? 
-Color the circles in front of the correct answer. 
 
-@mycanvas()@
+Which vectors are equal to the sum of vectors 
+@center@ @first@  + @second@ ? 
+Color the circles in front of the correct answer. 
+@center@ @mycanvas()@

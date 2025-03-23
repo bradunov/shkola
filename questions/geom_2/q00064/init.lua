@@ -1,8 +1,6 @@
 
 include("terms")
 
-meas = "\(^\circ\)"
-trian = "\(\small\triangle\)"
 symb = {"α", "β", "γ", "δ"}
 sp = "\(\ \)"
 

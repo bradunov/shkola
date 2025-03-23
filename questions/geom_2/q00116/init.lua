@@ -1,5 +1,5 @@
 
-measure = {"d\(\small_1\) cm", "d\(\small_2\) cm", "a cm",  "h cm", "O cm", "P \( \ \ \) cm\(\small^2\)"} 
+measure = {"d₁ cm", "d₂ cm", "a cm", "h cm", "O cm", "P \( \ \) cm²"} 
                                                                                                                                                                                                                                                                                                                                                                                                 
 addition_table = function()
 
@@ -58,5 +58,5 @@ addition_table = function()
 
   return text
 end   
-        
+       
         

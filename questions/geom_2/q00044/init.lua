@@ -113,9 +113,10 @@ mycanvas = function(no)
   lib.add_line(2*ow, 2*(ov-ow)+v, ov+4*ow, 0, style, true, false)
   lib.add_text(2*(ov-ow), 2*(ov-ow), "a", text_style, false, false)
    			 
-  lib.add_text (2*ow, 2*(ov-ow), ".", dot_style, false, false)
+
   lib.add_text(2*ow, 2*ov-ow+3, "O", text_style, false, false)
 --[[ 
+  lib.add_text (2*ow, 2*(ov-ow), ".", dot_style, false, false)
   for i = 1,15 do
     lib.add_line(ow, v+(i-1)*ow, 14*ow, 0, grid_style, false, false)
   end

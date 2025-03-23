@@ -16,49 +16,36 @@ symb = "\(\angle\)"
 
 ind = math.random(5)
 
-reply = ""
-answ = "" 
 if (ind == 1) then
     first = ang[4]
 	second = ang[5]
     results = "result[0] == 0 && result[1] == 0 && result[2] == 0 && result[3] == 1 && result[4] == 1 && result[5] == 0"
-    reply = "answer == '" .. msg[1] .. "' "  ..
-            "|| answer == '" .. msg[6] .. "'" ;
-    ans = "answer = '" .. msg[1] .. "' ";	
+
 end
 if (ind == 2) then
     first = ang[6]
 	second = ang[1]
     results = "result[0] == 1 && result[1] == 0 && result[2] == 0 && result[3] == 0 && result[4] == 0 && result[5] == 1"
-    reply = "answer == '" .. msg[2] .. "' "  ..
-            "|| answer == '" .. msg[5] .. "'" ;
-    ans = "answer = '" .. msg[2] .. "' ";		
+	
 end
 if (ind == 3) then
     first = ang[1]
 	second = ang[5]
     results = "result[0] == 1 && result[1] == 0 && result[2] == 0 && result[3] == 0 && result[4] == 1 && result[5] == 0"
-    reply = "answer == '" .. msg[3] .. "' "  ..
-            "|| answer == '" .. msg[6] .. "'" ;
-    ans = "answer = '" .. msg[3] .. "' ";		
+	
 end
 if (ind == 4) then
     first = ang[2]
 	second = ang[5]
     results = "result[0] == 0 && result[1] == 1 && result[2] == 0 && result[3] == 0 && result[4] == 1 && result[5] == 0"
-    reply = "answer == '" .. msg[4] .. "' "  ..
-            "|| answer == '" .. msg[4] .. "'" ;
-    ans = "answer = '" .. msg[4] .. "' ";		
+	
 end
 if (ind == 5) then
     first = ang[4]
 	second = ang[6]
     results = "result[0] == 0 && result[1] == 0 && result[2] == 0 && result[3] == 1 && result[4] == 0 && result[5] == 1"
-    reply = "answer == '" .. msg[5] .. "' "  ..
-            "|| answer == '" .. msg[5] .. "'" ;
-    ans = "answer = '" .. msg[5] .. "' ";		
+	
 end
-
 mycanvas = function(no)
 
   lib.start_canvas(300, 220, "center", results)
@@ -87,9 +74,4 @@ mycanvas = function(no)
   lib.add_text(ow+ov, v+2*ow, "O", text_style, false, false)
  		
   lib.end_canvas()
-end                
-
-                    
-              
-       
-            
+end           

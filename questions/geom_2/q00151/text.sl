@@ -1,9 +1,9 @@
-Na sliki je @ang@@"SOD"@ presečen s štirimi vzporednimi premicami.
 
+@ang@@"SOD"@ sekajo štiri vzporedne premice (slika).
 @center@ @mycanvas()@
-
-Znajući da je @hspacept(5)@@text@,
+Če veste da je  @hspacept(5)@@text@, in
 @center@ @quest[1]@
 @center@ @quest[2]@
-odredi dolžine duži
+določite dolžine daljic (na eno decimalno mesto)
+@vspace@
 @center@ @ans@.

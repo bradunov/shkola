@@ -1,3 +1,3 @@
-colour = {"modra", "rdeča"}
-choice = {"minutna", "urna"}
+colour = {"modri", "rdeč"}
+choice = {"minutni", "urni"}
 name = {"minuta", "ure", "ure", "ura"}

@@ -1,3 +1,3 @@
-Fill in the table that contains the elements of a convex polygon: @meas[1]@ - number of sides, @meas[2]@ - number of diagonals, @meas[3]@@grad@ - sum of interior angles, @meas[4]@@grad@ - size of one interior angle, @meas[5]@@grad@ - size of the central angle.
 
+Fill in the table that contains the elements of a regular convex polygon: @meas[1]@ - number of sides, @meas[2]@ - number of diagonals, @meas[3]@@grad@ - sum of interior angles, @meas[4]@@grad@ - size of the interior angle, @meas[5]@@grad@ - size of the central angle.
 @addition_table()@

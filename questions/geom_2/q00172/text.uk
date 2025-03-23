@@ -1,6 +1,8 @@
-The slope of line @"AB"@ with respect to the plane π is ω, and its orthogonal projection onto π is the line @point[1]@@point[2]@.  
+
+The angle between segment @"AB"@ and the plane π is ω, and its orthogonal projection on π is @point[1]@@point[2]@.  
 @center@ @mycanvas()@
-If points @"A"@ and @"B"@ are on the plane π and 
+If points @"A"@ and @"B"@ are on the @note@ of the plane π, and 
 @center@ @quest@
-calculate (to one decimal place) the length
+calculate (to one decimal place) lengths of segments
+@vspace@
 @center@ @ans@.

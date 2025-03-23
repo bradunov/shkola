@@ -1,6 +1,7 @@
-Kod pravilne @name[ind]@ prizme je: 
+
+Pri pravilni @name[ind]@ prizmi je: 
 @center@ @quest1@
 @center@ @quest2@
 @vspace@
-Izračunaj zapreminu prizme (na dve decimale).
+Izračunajte prostornino prizme (na dva decimalna mesta):
 @center@ @"V = "@ @lib.check_number(vol,60)@@meas[3]@

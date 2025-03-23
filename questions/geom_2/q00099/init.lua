@@ -3,7 +3,7 @@ style =
 	{["off_color"] = "none",
         ["on_color"] = "fff",
         ["line_color"] = "000",
-        ["line_width"] = "0.1"};
+        ["line_width"] = "0.3"};
 
 dif_style = 
 	{["off_color"] = "fff",
@@ -23,7 +23,7 @@ red_style = {["off_color"] = "f30",
 
 text_style = {["font_size"] = "14"}
 
-meas = {"cm", "cm\(\small^2\)"}
+meas = {"cm", "cm²"}
 
 ind = {}			   
 for i = 1,3 do
@@ -180,11 +180,4 @@ mycanvas = function()
    
   lib.end_canvas()
 end  
-            
-            
-            
-            
-            
-            
-            
             

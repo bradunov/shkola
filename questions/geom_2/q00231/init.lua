@@ -96,10 +96,10 @@ mycanvas = function(no)
 	lib.add_straight_path(px[5],py[5], {{-scal*f1-7, 0}}, line_style,  false, false)
 	lib.add_straight_path(px[5],py[5], {{px[4]-px[5], py[4]-py[5]}}, line_style,  false, false)
 
-	lib.add_text(ov+5, 5*ow, "H", text_style, false, false) 
-	lib.add_text(ov-ow, 2*ow, "r₁", text_style, false, false) 
-	lib.add_text(ov-ow, ov-2*ow-3, "r₂", text_style, false, false) 
-	lib.add_text(2*(w+ow), v-ow, "R", text_style, false, false) 
+	lib.add_input(ov, 5*ow, 50, 30, "H") 
+	lib.add_input(ov-3*ow, ow, 50, 30, "r₁") 
+	lib.add_input(ov-3*ow, ov-3*ow-3, 50, 30, "r₂") 
+	lib.add_input(2*w, v-2*ow, 50, 30, "R") 
 
 	lib.add_circle (px[2], py[2], rt, point_style, true, false)
 	lib.add_circle (px[4], py[4], rt, point_style, true, false)
@@ -107,6 +107,3 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end            
-    
-    
-                               

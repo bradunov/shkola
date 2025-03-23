@@ -1,8 +1,8 @@
 
 include("terms")
 
-meas = {"\(^\circ\)", "cm"}
-symb = "\(\small\angle\)"
+meas = {"°", "cm"}
+symb = "∠"
 
 numb = 3 + math.random(5)
 
@@ -21,20 +21,3 @@ end
 
 circ = 4 * edge          
             
-            
-  
-
-       
-
-      
-      
-      
-       
-  
-
-       
-
-            
-            
-            
-          

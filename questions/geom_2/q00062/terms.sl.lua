@@ -1,1 +1,1 @@
-msg = {" podobni", " ujemajoči"}
+msg = {" podobni", " skladni" }

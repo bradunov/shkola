@@ -1,4 +1,4 @@
 
-measure = {"\(^\circ\)", "'", "''"}
-al = "\(\small\alpha\)"
-bt = "\(\small\beta\)"  
+measure = {"°", "'", "''"}
+al = "α"
+bt = "β" 

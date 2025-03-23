@@ -1,5 +1,7 @@
-Determine a triangle with sides expressed in whole numbers in centimeters, so that the 
-@center@ triangle is @name@ and has a perimeter of @quest@ @reply@
+
+Determine a triangle with sides expressed as whole numbers in centimeters, such that  
+@center@ the triangle is @name@ and has a @quest@ perimeter @reply@
 @vspace@
 @center@ The lengths of the sides of that triangle are
-@center@ @"a"@ = @lib.check_number(edge1,20)@@"cm"@, @hspacept(8)@ @"b"@ = @lib.check_number(edge2,20)@@"cm"@, @hspacept(8)@ @"c"@ = @lib.check_number(edge3,20)@@"cm"@.
+@center@ @"a"@ = @lib.check_number(edge1,20)@@"cm"@, @hspacept(15)@ @"b"@ = @lib.check_number(edge2,20)@@"cm"@, @hspacept(15)@ @"c"@ = @lib.check_number(edge3,20)@@"cm"@.
+           

@@ -13,9 +13,9 @@ dif_style =
 				
 text_style = {["font_size"] = "14"}	
 
-meas = "\(^\circ\)"
-trian = "\(\small\triangle\)"
-symb = "\(\small\angle\)"
+meas = "°"
+trian = "△"
+symb = "∠"
 ang = {"α", "β", "γ"}
  
 name = {"BAH", "CAH", "BCT", "CTM"}

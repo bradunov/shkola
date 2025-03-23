@@ -1,7 +1,8 @@
+
 In an isosceles trapezoid, one of the angles is 
 @center@ 60@meas[1]@. 
-If one leg is @edge_c@@meas[2]@ and the median is @edge_m@@meas[2]@, determine the bases of the trapezoid. 
+If one leg is @edge_c@@meas[2]@ and the median line is @edge_m@@meas[2]@, determine the bases of the trapezoid. 
 @vspace@
-@center@  @"a"@ = @lib.check_number(edge_a,30)@@meas[2]@, @hspacept(20)@ @"b"@ = @lib.check_number(edge_b,30)@@meas[2]@.
+@center@  @"a"@ = @lib.check_number(edge_a,30)@@meas[2]@, @hspacept(30)@ @"b"@ = @lib.check_number(edge_b,30)@@meas[2]@.
 @vspace@
-@center@ The perimeter of the trapezoid is @lib.check_number(circ, 30)@@meas[2]@.
+@center@ The perimeter of the trapezoid is @hspacept(5)@ @lib.check_number(circ, 30)@@meas[2]@.

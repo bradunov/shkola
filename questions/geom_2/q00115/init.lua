@@ -17,7 +17,7 @@ text_style = {["font_size"] = "16"}
 
 name = {"a", "b", "c", "h", "α", "β"}
 ang = {30, 45, 60}
-meas = {"\(^\circ\)", "cm", "cm\(\small^2\)"}
+meas = {"°", "cm", "cm²"}
 
 r2 = lib.math.round_dec(math.sqrt(2),3)
 r3 = lib.math.round_dec(math.sqrt(3),3)

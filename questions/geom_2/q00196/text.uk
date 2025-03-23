@@ -1,6 +1,8 @@
-In a regular hexagonal pyramid, @edge[1]@ is a side, @edge[2]@ is the height, @edge[3]@ is the lateral edge, @edge[5]@ is the greater diagonal of the base, and @edge[4]@ is the diagonal intersection (image).
+
+In a regular hexagonal pyramid, @edge[1]@ is the base edge, @edge[2]@ is the height, @edge[3]@ is the lateral edge, @edge[5]@ is the larger diagonal of the base, and @edge[4]@ is the diagonal section (picture).
 @center@ @mycanvas()@
-If
+If it is 
 @center@ @quest@
 calculate (to one decimal place):
 @center@ @ans@.
+            

@@ -16,9 +16,7 @@ dot_style =
 red_style = 
 	{["off_color"] = "fff",
         ["on_color"] = "f30",
-        ["line_color"] = "f30",
-        ["off_line_color"] = "000",
-        ["line_width"] = "0.2"};	
+        ["line_color"] = "none"};
 		
 blue_style = 
 	{["off_color"] = "0cf",
@@ -63,9 +61,9 @@ max = 16
 
 --[[ prvo teme]]--
 ind[1] = min + math.random(max)
-    rect_pt[1] = pt[ind[1]]
-    rect_x[1] = xd[ind[1]]
-    rect_y[1] = yd[ind[1]]
+rect_pt[1] = pt[ind[1]]
+rect_x[1] = xd[ind[1]]
+rect_y[1] = yd[ind[1]]
 
 --[[ drugo teme]]--
 if (rect_x[1] > math.floor(xnet/2) ) then
@@ -198,12 +196,18 @@ end
     
 answ = ""
 if (nr == 2 ) then
-    answ = msg1	
+    answ = msg	
 end
 
 if (err == 0 ) then
-    answ = msg2	
+	for i = 1,3 do
+		value_pt[i] = rect_pt[i]
+		value_x[i] = rect_x[i]
+		value_y[i] = rect_y[i] 
+    end		
+    answ = msg	
 end
+
 
 mycanvas = function(no)
 
@@ -246,8 +250,3 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end  
-    
-
-      
-
-         

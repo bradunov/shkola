@@ -23,17 +23,17 @@ for i = 1,5 do
 end	
 
 mycanvas = function(no)
-  lib.start_canvas(350, 250, "center")  
+  lib.start_canvas(250, 200, "center")  
   
-  w = 20
+  w = 15
   ow = 10
 
   for i = 1,12 do
-    lib.add_line(w, i*w, 14*w, 0, style, false, false)
+    lib.add_line(w, (i+1)*w-ow, 14*w, 0, style, false, false)
   end
 
   for i = 1,15 do
-    lib.add_line(i*w, w, 0, 11*w, style, false, false)
+    lib.add_line(i*w, 2*w-ow, 0, 11*w, style, false, false)
   end
 
   lib.add_text(12*w, 8*w+ow, ".", dot_style, false, false)
@@ -60,7 +60,3 @@ mycanvas = function(no)
 	
   lib.end_canvas()
 end
-      
-            
-            
-            

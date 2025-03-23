@@ -1,3 +1,3 @@
-Obojica imata pravico v zvezi s figuro, ki je osno simetrična. 
 
+Pobarvajte premico, glede katere je dani lik simetričen.
 @center@ @mycanvas()@

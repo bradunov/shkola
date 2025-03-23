@@ -38,7 +38,7 @@ grid_style =
 							
 text_style = {["font_size"] = "16"}
 
-meas =  {"cm", "cm\(\small^2\)", "\(\small^\circ\)"}
+meas =  {"cm", "cm²", "°"}
 dat = {"π", "√2", "√3"}
 name = {"P\(\small_o\)", "P\(\small_u\)", "P\(\small_p\)", "P\(\small_i\)"}
 

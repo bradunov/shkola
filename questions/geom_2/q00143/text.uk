@@ -1,3 +1,4 @@
-Fill in the table that contains the radius of a circle @"r" @, diameter @"2r" @, circumference @"O" @, and area @"P" @. Take @"π" @ = \(\frac{22}{7}\). Write the numbers to one decimal place.
 
+Fill in the table that contains the radius of a circle @"r" @, diameter @"2r" @, perimeter @"O" @, and area @"P" @. 
+Take @"π" @ = \(\frac{22}{7}\). Write the numbers to one decimal place.
 @addition_table()@

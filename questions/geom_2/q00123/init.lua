@@ -1,6 +1,6 @@
 
 include("terms")
 
-meas = "\(\small^\circ\)"
+meas = "°"
 space = "\( \ \) "                 
             

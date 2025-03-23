@@ -1,1 +1,1 @@
-msg = {"stran", "strani"}
+msg = {"ploskev", "ploskev"}

@@ -1,3 +1,3 @@
 msg = {"da", "ne"} 
 ans = {"=", "≠"}
-text = "Obrazloži odgovor:"
+text = "Pojasnite odgovor:"

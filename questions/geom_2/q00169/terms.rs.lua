@@ -1,2 +1,2 @@
 
-colour = {"bela ravan", "plava ravan", "crvena ravan", "pink ravan", "žuta ravan", "zelena ravan"}
+colour = {"bela strana", "plava strana", "crvena strana", "roza strana", "žuta strana", "zelena strana"}

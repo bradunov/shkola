@@ -1,3 +1,3 @@
-Obarvaj središčno simetrično figuro.
 
+Pobarvajte osno simetrični liki.
 @center@ @mycanvas(result)@

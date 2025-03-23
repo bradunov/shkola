@@ -2,7 +2,6 @@
 include("terms")
 
 meas = {"cm", "cm²"} 
-space = "\( \ \ \ \) "
 ans = ""
 
 ind = math.random(3)
@@ -22,5 +21,4 @@ else
     area = 0
 	ans = text[2] 
 	measure = meas[1]	
-end     
-            
+end    

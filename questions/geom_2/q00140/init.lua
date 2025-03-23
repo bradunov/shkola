@@ -31,7 +31,7 @@ grid_style =
 							
 text_style = {["font_size"] = "16"}
 
-meas =  {"cm", "\(\small^\circ\)"}
+meas =  {"cm", "°"}
 dat = {"R", "φ", "l" }
 pi = "π"
 con = lib.math.round_dec(math.pi, 3)
@@ -150,3 +150,4 @@ mycanvas = function()
   lib.end_canvas()
 end
               
+      

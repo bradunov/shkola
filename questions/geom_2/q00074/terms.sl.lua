@@ -1,3 +1,3 @@
-quest = {"Iz vrha A so potegnjeni višini AP in AQ na stranici BC in CD",
-         "Iz vrha D je potegnjena višina DP na stranico AB", 
-         "Iz vrha D so potegnjeni višini DP in DQ na stranici AB in BC"}
+quest = {"Iz oglišča A so potegnjeni višini AP in AQ na stranici BC in CD",
+         "Iz oglišča D je potegnjena višina DP na stranico AB", 
+         "Iz oglišča D so potegnjeni višini DP in DQ na stranici AB in BC"}

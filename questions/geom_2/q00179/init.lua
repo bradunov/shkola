@@ -10,6 +10,7 @@ quest2 = ""
 ans1 = ""
 ans2 = ""
 ans3 = ""
+ans4 = ""
 
 ind = math.random(3)
 ch = math.random(4)
@@ -117,10 +118,10 @@ if (ind == 1) then
     ans1 = ans1 .. "."
 	ans2 = ""
 	ans3 = ""
+	ans4 = ""	
 else
     ans1 = ans1 .. ","
 	ans2 = elem[7] .. space .. " d = " .. lib.check_number(numb[4],40) .. meas[1] .. "," 	
-	ans3 = elem[8] .. space .. " Q = " .. lib.check_number(numb[5],50) .. meas[2] .. "." 
+	ans3 = elem[8] 
+	ans4 = " Q = " .. lib.check_number(numb[5],50) .. meas[2] .. "." 
 end
-
-            

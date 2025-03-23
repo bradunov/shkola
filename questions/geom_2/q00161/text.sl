@@ -1,6 +1,7 @@
-V pravokotnem trikotniku @"ABC"@ je višina, ki ustreza hipotenuzi, @"h"@. Hipotenuza je  @hspacept(3)@ @"c = p + q"@.  
+
+V pravokotnem trikotniku @"ABC"@ višina @"h"@ ustreza hipotenuzi. Hipotenuza je  @hspacept(3)@ @"c = p + q"@.  
 @center@ @mycanvas()@
 Če je 
 @center@ @quest@
-izračunaj (z eno decimalko) dolžine daljic 
+izračunaj (na eno decimalno mesto) dolžine daljic 
 @center@ @ans@

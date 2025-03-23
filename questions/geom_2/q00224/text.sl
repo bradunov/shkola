@@ -1,7 +1,9 @@
-Osnovni presek prave kupe je @name[ch]@. 
+
+Osni prerez pokončnega stožca je @name[ch]@. 
 @center@ @mycanvas()@
-Če je @quest@, 
-izračunaj površino in volumen kupe. (Vzemi, da je @"π"@ = @"22/7"@, rezultate zapiši na eno decimalno mesto.) 
-@vspace@
-@center@ Površina kupe je @hspacept(3)@ @lib.check_number(area,40)@@meas[2]@. 
-@center@ Volumen kupe je @hspacept(3)@ @lib.check_number(vol,40)@@meas[3]@.
+Če je 
+@center@  @quest@,
+izračunajte: 
+@center@ površina stožca je @hspacept(3)@ @lib.check_number(area,40)@@meas[2]@. 
+@center@ prostornina stožca je @hspacept(3)@ @lib.check_number(vol,40)@@meas[3]@.
+Vzamite da je @"π"@ = @"22/7"@, rezultate zapiši na eno decimalno mesto. 

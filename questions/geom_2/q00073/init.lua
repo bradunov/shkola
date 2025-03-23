@@ -7,9 +7,11 @@ style =
 						
 text_style = {["font_size"] = "14"}		
 
-meas = {"\(^\circ\)", "'"}
+meas = {"°", "'"}
 numb = {"α", "β", "γ", "δ", "ω"}
-rel = "\(\small\leq\)"
+rel = "≤"
+
+
 
 
 

@@ -1,11 +1,11 @@
 
 On the picture there are several colored triangles marked with letters.
-
 @center@ @mycanvas()@  
-
-In the given pair, which transformation maps one triangle onto the other? 
-In the empty box write: @hspacept(2)@ t if it is a translation, @hspacept(2)@ s if it is a central symmetry, @hspacept(2)@ n if it is neither.
-
+In the given pair, which transformation maps one triangle onto the other? In the empty box write: 
+ t @hspacept(8)@ if it is a translation, 
+ s @hspacept(8)@ if it is a point symmetry, 
+ n @hspacept(8)@ if it is neither one nor the other.
+@vspace@
 @center@ @reply[1]@ @hspacept(30)@ @reply[2]@ @hspacept(30)@ @reply[3]@ 
 @center@ @reply[4]@ @hspacept(30)@ @reply[5]@ @hspacept(30)@ @reply[6]@
-          
+                      

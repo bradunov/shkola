@@ -1,1 +1,1 @@
-name = {"osnove a", "višine H"}
+name = {"osnovnega roba a", "višine H"}

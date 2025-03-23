@@ -1,7 +1,6 @@
 
-Given long  @"AB"@, ( @"A"@(@ptx[1]@,@pty[1]@),  @"B"@(@ptx[2]@,@pty[2]@) ) by rotation in the coordinate system is mapped to the long @"PQ"@.
-If the rotation angle is @angle@° and @direction[sg]@ oriented, and the center of rotation is the point  @point[ind]@, enter the coordinates of the ends of the long  @"PQ"@ (to one decimal place).
+Given segment  @"AB"@, (@"A"@(@ptx[1]@,@pty[1]@),  @"B"@(@ptx[2]@,@pty[2]@)) by rotation in the coordinate system is mapped to the segment @"PQ"@.
+If the rotation angle is @angle@° and @direction[sg]@ oriented, and the center of rotation is the point  @point[ind]@, write the coordinates of the ends of the segment  @"PQ"@ (to one decimal place).
 @center@ @mycanvas()@   
 @center@ @"P = ("@ @lib.check_number(ptx[3])@, @lib.check_number(pty[3])@),@hspacept(20)@  @"Q = ("@ @lib.check_number(ptx[4])@, @lib.check_number(pty[4])@).
-            
-            
+ 

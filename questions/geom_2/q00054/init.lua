@@ -7,7 +7,7 @@ style =
 						
 text_style = {["font_size"] = "14"}		
 
-meas = {"\(^\circ\)", "'"}
+meas = {"°", "'"}
 numb = {"α", "β", "γ"}
 
 name = {"BC", "AC", "AB"}
@@ -34,4 +34,4 @@ mycanvas = function(no)
     lib.add_text(w+ow, 2*ow, numb[3], text_style)	
      
   lib.end_canvas()
-end   
+end  

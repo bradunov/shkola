@@ -1,6 +1,7 @@
-Kod pravilne @name[ind]@ piramide je:
+
+Pri pravilni @name[ind]@ piramidi je:
 @center@ @quest1@
 @center@ @quest2@
 @vspace@
-Izračunaj @result@ piramide (na jednu decimalo).
+Izračunajte @result@ piramide (na eno decimalno mesto).
 @center@ @ans@

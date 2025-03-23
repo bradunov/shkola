@@ -1,5 +1,5 @@
 
-meas = {"cm", "cm\(\small ^2\)"} 
+meas = {"cm", "cm²"}  
 dif = {}
 r2 = lib.math.round_dec(math.sqrt (2),3)
 

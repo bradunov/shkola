@@ -1,2 +1,2 @@
-msg = {"komu so notranji koti ", "katerih je vsota notranjih kotov "}   
+msg = {"katerega notranji koti so", "katerega vsota notranjih kotov je "}   
 reply = {"da", "ne"}

@@ -1,1 +1,1 @@
-msg = {"same side", "various sides"}
+msg = {"same side", "different sides"}

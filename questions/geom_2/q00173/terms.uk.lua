@@ -1,1 +1,1 @@
-element = {"number of vertices", "number of sides", "number of edges"}
+element = {"number of vertices", "number of faces", "number of edges"}

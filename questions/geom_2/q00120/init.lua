@@ -17,10 +17,10 @@ yelow_style =
 			
 text_style = {["font_size"] = "16"}
 
-unit = {"cm", "cm\(\small^2\)", "°"} 
+unit = {"cm", "cm²", "°"}  
 
 pt = {"A", "B", "C", "D"}
-name = {"AD", "BC", "AB", "CD", "O", "P", "\(\small\angle\)DBC"}
+name = {"AD", "BC", "AB", "CD", "O", "P", "∠DBC"}
 
 val = {}
 ind = {}

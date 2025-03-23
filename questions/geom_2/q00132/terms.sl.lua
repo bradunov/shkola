@@ -1,1 +1,0 @@
-task = {"osrednji kot ", "osrednjem kotu ", "periferni kot ", "perifernem kotu ", "krožne linije ", "delu ", "ustreza "}

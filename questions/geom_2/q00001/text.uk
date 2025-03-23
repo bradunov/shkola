@@ -1,7 +1,6 @@
+
 Finish marking the points and lines on the picture so that it is:
-
-@center@ @"a"@ = @"RS"@,  @hspacept(20)@ @"c"@ includes {@"P"@, @"R"@}, @hspacept(20)@ @"d"@ intersects @"S"@  
-@center@ @"b"@ parallel to @"a"@, @hspacept(20)@ @"c"@ intersects @"d"@ = {@"O"@},  @hspacept(20)@ @"Q"@ is on @"b"@.   
-
+@center@ @"a"@ = @"RS"@,  @hspacept(20)@ @"c"@ ⊃ {@"P"@, @"R"@}, @hspacept(20)@ @"d"@  ∋ @"S"@  
+@center@ @"b"@ @par@ @"a"@, @hspacept(20)@ @"c"@ ∩ @"d"@ = {@"O"@},  @hspacept(20)@ @"Q"@ ∈ @"b"@.
 @vspace@
 @center@ @mycanvas()@

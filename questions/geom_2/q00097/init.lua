@@ -51,7 +51,7 @@ grid_style =
 	{["off_color"] = "none",
         ["on_color"] = "none",
         ["line_color"] = "000",
-        ["line_width"] = "0.1"};	
+        ["line_width"] = "0.3"};	
 
 line_style = 
 	{["off_line_color"] = "fff",
@@ -60,8 +60,8 @@ line_style =
 						
 text_style = {["font_size"] = "14"}		
 
-meas = {"cm", "cm\(\small^2\)"}
-sp = "\(   \) "
+meas = {"cm", "cm²"}
+sp = "\( \ \ \ \)"
 	
 name = {"1", "2", "3", "4", "5", "6", "7", "8"}
 area = {1.5, 1.875, 2.5, 2, 2.5, 2, 2.625, 3.5}
@@ -78,7 +78,7 @@ end
 qq = lib.math.random_shuffle(ch)
 
 for i = 1,4 do
-    answ[i] = name[qq[i]] .. sp .. sp .. sp .. lib.check_number(area[qq[i]],35) .. meas[2]
+    answ[i] = name[qq[i]] .. sp .. lib.check_number(area[qq[i]],35) .. meas[2]
 end	
 
 
@@ -120,21 +120,3 @@ mycanvas = function()
      	
   lib.end_canvas()
 end 
-
-
-          
-         
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-     

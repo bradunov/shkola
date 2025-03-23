@@ -1,2 +1,2 @@
-name = {"trostrane", "four-sided", "six-sided"}		
-elem = {"base edge", "height", "base perimeter", "base area", "side perimeter", "side area", "diagonal", "diagonal section" }
+name = {"triangular", "quadrilateral ", "hexagonal"}		
+elem = {"base edge", "height", "base perimeter", "base area", "lateral face perimeter", "lateral face area", "diagonal", "area of the diagonal section" }

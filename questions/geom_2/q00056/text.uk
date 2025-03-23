@@ -1,11 +1,10 @@
 
-One angle is given in an isosceles triangle (see picture).
+One angle is given in an isosceles triangle (picture).
 @center@ @numb[ch]@ = @quest@ 
 @vspace@ 
 @center@ @mycanvas()@ 
 To which type (according to angles) does the triangle belong?
 @center@ The triangle is @hspacept(3)@@lib.check_one_option_dropdown(msg, out)@.
-
 @vspace@
 Arrange the sides of the triangle in ascending order (label the sides with vertices).
 @center@ @reply@

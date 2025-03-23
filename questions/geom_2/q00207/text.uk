@@ -1,4 +1,5 @@
-The tent is in the shape of a regular prism with a pyramid-shaped roof (image).
+
+The tent is in the shape of a regular prism with a pyramid-shaped roof (picture).
 @center@ @mycanvas()@
 The edge of the base @"a"@ is @numb[1]@@meas[1]@, the height of the prism @"H"@ is @numb[2]@@meas[1]@, and the lateral edge @"s"@ of the roof (pyramid) is @numb[3]@@meas[1]@.
 

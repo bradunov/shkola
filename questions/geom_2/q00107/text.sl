@@ -1,5 +1,4 @@
-Izpolnite tabelo, ki vsebuje mere pravokotnega trikotnika: kateti @"a"@ in @"b"@, hipotenuzo, težiščno črto @"t\(\small_c\)"@ in višino @"h\(\small_c\)"@, obseg @"O"@ in površino @"P"@. 
-(Rezultate zapišite na eno decimalno mesto).
 
-@vspace@
+Izpolnite tabelo z merami pravokotnega trikotnika: katete @"a"@ in @"b"@, težišnica @"t\(\small_c\)"@ in višina @"h\(\small_c\)"@, ki ustrezata hipotenuzi, obseg @"O"@ in ploščina @"P"@. 
+(Rezultate zapišite na eno decimalno mesto).
 @addition_table()@

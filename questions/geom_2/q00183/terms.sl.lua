@@ -1,2 +1,2 @@
-name = {"trostrana", "štiristrana", "šestorobna"}
-comp = {"veća", "manjša"}
+name = {"tristranska", "štiristranska", "šeststranska"}
+comp = {"večja", "manjša"}

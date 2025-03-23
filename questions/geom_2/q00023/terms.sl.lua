@@ -1,1 +1,1 @@
-msg = {"sosednji", "vzporedni", "prečni", "komplementarni", "dopolnilni", "enaki"}
+msg = {"sosedni", "vzporedni", "nasprotni", "komplementarni", "suplementarni"}

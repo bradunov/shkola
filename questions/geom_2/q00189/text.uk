@@ -1,9 +1,9 @@
-In a tank in the shape of a cube
-@center@ @quest[1]@, @hspacept(6)@ @quest[2]@,@hspacept(6)@ @quest[3]@,
-there is @vol@ liters of water (1 liter = 1@meas[3]@). 
+
+There is @vol@ liters of water (1 liter = 1@meas[3]@) in a cuboid-shaped tank with dimensions:
+@center@ length @numb[1]@@meas[2]@, @hspacept(10)@ width @numb[2]@@meas[1]@, @hspacept(10)@ depth @numb[3]@@meas[2]@. 
 @vspace@
 What is the depth of the water in the tank?
 @center@ The depth of the water in the tank is @hspacept(5)@ @lib.check_number(numb[4],40)@@hspacept(5)@@meas[2]@. 
 @vspace@
 What is the percentage of the tank filled with water (calculated to one decimal place)?           
-@center@ The tank filled with water is @hspacept(5)@ @lib.check_number(proc)@%.
+@center@ @lib.check_number(proc)@% @hspacept(3)@ of the tank is filled with water.

@@ -1,4 +1,5 @@
-In a right triangle @"ABC"@, the height corresponding to the hypotenuse is @"h"@. The hypotenuse is  @hspacept(3)@ @"c = p + q"@.  
+
+In a right-angled triangle @"ABC"@, the height corresponding to the hypotenuse is @"h"@. The hypotenuse is  @hspacept(3)@ @"c = p + q"@.  
 @center@ @mycanvas()@
 If 
 @center@ @quest@

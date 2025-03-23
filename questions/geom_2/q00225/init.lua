@@ -48,12 +48,12 @@ mass = lib.math.round_dec(mass,1)
 
 mycanvas = function(no)
 
-  lib.start_canvas(300, 160, "center")
+  lib.start_canvas(240, 130, "center")
 
-	w = 80
-	ow = 10
-	v = 70
-	ov =  130
+	w = 64
+	ow = 8
+	v = 56
+	ov =  104
 	rt = 2
 	ch = 2     --[[ pozicija cigre 1/2]]--
 if (ch == 1) then
@@ -106,8 +106,8 @@ else
 	lib.add_straight_path(px[1],py[1], {{px[5]-px[1], py[5]-py[1]}}, line_style,  false, false)
 	lib.add_ellipse(px[4], py[4], f1, f2, line_style,  false, false) 
 
-	lib.add_text(2*w+3*ow, ov-2*ow, "a", text_style, false, false) 
-	lib.add_text(w, ov-2*ow, "b", text_style, false, false) 
+	lib.add_text(2*w+3*ow, ov-ow, "a", text_style, false, false) 
+	lib.add_text(w, ov-ow, "b", text_style, false, false) 
 	lib.add_text(ov-ow, v, "c", text_style, false, false) 
 end
 
@@ -119,7 +119,4 @@ end
 ]]--
  
   lib.end_canvas()
-end                     
-     
-            
-    
+end            

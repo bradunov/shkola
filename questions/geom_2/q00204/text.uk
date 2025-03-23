@@ -1,6 +1,7 @@
-In a correct @name[ind]@ pyramid, the code is:
+
+In a regular @name[ind]@ pyramid is:
 @center@ @quest1@
 @center@ @quest2@
 @vspace@
-Calculate the @result@ pyramid (to one decimal place).
+Calculate @result@ of the pyramid (to one decimal place).
 @center@ @ans@

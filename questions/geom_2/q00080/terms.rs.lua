@@ -1,5 +1,1 @@
-msg = {"pravougli", "jednakokraki", "kosougli"}
-
-
-
-		 
+msg = {"pravougli", "jednakokraki", "opšti"}

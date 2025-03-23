@@ -1,7 +1,5 @@
-Pretvori izraze uglova v stopinje, minute in sekunde.
 
-@repeat(5)@
-
+Podane kote izrazite v stopinjah, minutah in sekundah.
+@repeat(4)@
 @center@ @value@ @measure[3]@ = @answ@
-
 @/repeat@

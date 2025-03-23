@@ -3,7 +3,7 @@ style =
 	{["off_color"] = "none",
         ["on_color"] = "none",
         ["line_color"] = "000",
-        ["line_width"] = "0.1"};	
+        ["line_width"] = "0.3"};	
 colour_style = 
 	{["off_color"] = "fff",
         ["on_color"] = "6f6",
@@ -11,7 +11,7 @@ colour_style =
         ["line_width"] = "2"};			
 		
 text_style = {["font_size"] = "14"}
-meas = {"cm", "cm\(\small^2\)"}
+meas = {"cm", "cm²"}
 sp = "\(   \) "
 	
 name = {"ABFE", "BCGF", "CDHG", "EHKJ", "DRMH", "EJNI", "INQP", "JKOQ", "ORTQ", "STYX", "TRZY"}
@@ -155,23 +155,4 @@ mycanvas = function()
 	
   lib.end_canvas()
 end 
-     
-     
-            
-            
-          
-         
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
      

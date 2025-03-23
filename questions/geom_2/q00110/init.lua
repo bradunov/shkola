@@ -1,7 +1,7 @@
 
 addition_table = function()
 
-    measure = {"a  \( \ \) cm", "b  \( \ \) cm", "d  \( \ \ \)cm",  "R  \( \ \ \)cm", "O  \( \ \)cm", "P \( \ \ \) cm\(^2\)"} 
+    measure = {"a  \( \ \) cm", "b  \( \ \) cm", "d  \( \ \ \)cm",  "R  \( \ \ \)cm", "O  \( \ \)cm", "P \( \ \ \) cm²"} 
 
   columns = 5
   max_range = 5

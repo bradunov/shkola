@@ -28,14 +28,9 @@ bl_style =
 text_style = {["font_size"] = "14"}	
 
 meas = {"\(^\circ\)", "cm"}
-trian = "\(\small\triangle\)"
-symb = "\(\small\angle\)"
-eq =  "\(\small\cong\)"
-simil =  "\(\small\sim\)"
-ort = "h\(\small_B\)"
+
 ang = {"α", "β", "γ"}
 name = {"DF", "FD", "EF", "FE", "FDE", "EDF", "DEH" }
-rule = {"SSS", "SUS", "USU", "SSU"} 
 
 edge = {}
 
@@ -97,11 +92,3 @@ mycanvas = function(no)
    
   lib.end_canvas()
 end 
-  
-  
-  
-          
-            
-            
-            
-          

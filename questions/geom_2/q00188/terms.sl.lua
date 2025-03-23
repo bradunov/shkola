@@ -1,1 +1,0 @@
-elem = {"dolžine", "širine", "debljine"}

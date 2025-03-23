@@ -10,7 +10,7 @@ style =
 text_style = {["font_size"] = "16"}	
 dot_style = {["font_size"] = "40"}	
 
-ang = {"\(\small\alpha\)", "\(\small\beta\)", "\(\small\gamma\)"}
+ang = {"α", "β", "γ"}
 
 reply1 = "answer == '" .. elem[4] .. "' "  ..
         "|| answer == '" .. elem2[4] .. "'" ;

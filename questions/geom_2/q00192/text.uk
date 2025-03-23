@@ -1,4 +1,5 @@
-Metal lever with a length of @numb[2]@@meas[2]@ has the shape of a right triangular prism. The base of the prism is an isosceles right triangle with a leg length of @numb[1]@@meas[1]@.
+
+The @numb[2]@@meas[2]@ long metal lever has the shape of a right triangular prism. The base of the prism is an isosceles right triangle with a leg length of @numb[1]@@meas[1]@.
 If the density of the metal is @density@@meas[4]@ per @meas[3]@, what is the mass of the lever? 
 @vspace@
 The mass of the lever is (to one decimal place)

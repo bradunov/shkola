@@ -1,10 +1,18 @@
 
 include("terms")
 
-meas = "\(^\circ\)"
-trian = "\(\small\triangle\)"
+style = 
+	{["off_color"] = "fff",
+        ["on_color"] = "fff",
+        ["line_color"] = "000",
+        ["line_width"] = "2"};
+		
+text_style = {["font_size"] = "14"}		
+		
+
+meas = "°"
 symb = {"α", "β", "γ", "δ", "ω"}
-sp = "\(\ \)"
+sp = "\(\ \ \ \ \)"
 
 index = {2, 3, 4, 5, 6, 9, 12, 15, 18, 24, 30, 45}
 dim = 12
@@ -85,8 +93,7 @@ for i = 1,4 do
 	end	
 end	
 name = msg[sign]
-
-           
+          
 quest = ""
 for i = 1,4 do
     if (numb[i] == 1) then
@@ -94,6 +101,33 @@ for i = 1,4 do
 	else
         text = tostring( math.floor(numb[i]))
     end	
-    quest = quest .. sp .. sp .. sp .. symb[i] .. " = " .. text .. symb[5] .. ", " 
+    quest = quest .. sp .. symb[i] .. " = " .. text .. symb[5] .. ", " 
 end	   
+        
+mycanvas = function(no)
+
+  ow = 6
+  w = 150
+  ov = 90
+  v = 24
+
+  lib.start_canvas(200, 100, "center")
+  
+  lib.add_straight_path(ov+v, 2*ow, {{w-ov, ov-ow}}, style, true, false)
+  lib.add_straight_path(ov-v, v+ow, {{-2*v, ov-3*ow}}, style, true, false) 
+  lib.add_straight_path(v, 2*v, {{ov+v, -v}}, style, true, false)   
+  lib.add_straight_path(ow, ov-ow, {{w+v, 0}}, style, true, false)  
+  
+  lib.add_input(v-5, 2*v-5,  50, 30, symb[1])
+  lib.add_input(w-v, 2*v-5, 50, 30, symb[2])
+  lib.add_input(ov+ow, ow-3, 50, 30, symb[3]) 
+  lib.add_input(2*v-ow, 3*ow, 50, 30, symb[4])  
+	
+  lib.add_text(v+ow, ov+5, "A", text_style) 
+  lib.add_text(w+2*ow+5, ov+5, "B", text_style)
+  lib.add_text(w-v, 3*ow, "C", text_style)
+  lib.add_text(w-ov-ow, v+ow, "D", text_style)
+
+  lib.end_canvas()
+end 
         

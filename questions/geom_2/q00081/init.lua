@@ -1,5 +1,5 @@
 
-meas = {"\(^\circ\)", "cm"}
+meas = {"°", "cm"}
 
 temp = 5 + math.random(17)
 edge_c = 2 * temp

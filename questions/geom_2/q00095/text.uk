@@ -1,3 +1,4 @@
+
 @center@ @mycanvas()@
 
 If the sides of the squares of the square grid are @lib.dec_to_str(1/2)@@meas[1]@, calculate the areas of the colored quadrilaterals in the picture. 

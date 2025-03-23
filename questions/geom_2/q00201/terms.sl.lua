@@ -1,1 +1,1 @@
-name = {"trostranska", "štiristranska", "šeststranska"}
+name = {"tristranska", "štiristranska", "šeststranska"}

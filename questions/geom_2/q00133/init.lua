@@ -1,5 +1,5 @@
 
-meas = "\(\small^\circ\)"
+meas = "°"
 ang = {"α", "β", "γ"} 
 spc = "\(\ \)" 
 

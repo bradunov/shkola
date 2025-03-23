@@ -1,6 +1,5 @@
 
-Express in seconds given angles.
-
+Express the given angles in seconds.
 @repeat(4)@ 
 @center@    @answ@ = @lib.check_number(value,50)@ @measure[3]@
 @/repeat@   

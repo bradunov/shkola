@@ -1,5 +1,6 @@
-Pravilna @name[ind]@ piramida ima bočnu ivicu dužine @numb@@meas[1]@. Površina omotača je @fct@ puta veća od površine osnove. 
-Kolika je površina piramide?
+
+Pravilna @name[ind]@ piramida ima stranski rob dolžine @numb@@meas[1]@. Ploščina plašča je @fct@-krat večja od ploščine osnovne ploskev. 
+Kakšna je površina piramide?
 @vspace@
-Površina piramide je (na dve decimale)
+Površina piramide je (na dve decimalne mesti)
 @center@ @"P = "@ @lib.check_number(area,50)@@meas[2]@

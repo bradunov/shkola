@@ -1,4 +1,5 @@
-Pred vsako trditev napiši t, če je trditev pravilna, ali n, če trditev ni pravilna.
+
+Pred vsako trditev napiši p, če je trditev pravilna, ali n, če trditev ni pravilna.
  
 @vspace@
 @center@ @mycanvas()@

@@ -1,4 +1,5 @@
-Determine the type of triangle to which the sides (in @"cm"@) belong:
+
+The lengths of the sides of a triangle are given (in @"cm"@). What kind of triangle is it? 
 @repeat(4)@
 @center@ @out[1]@, @hspacept(15)@ @out[2]@, @hspacept(15)@ @out[3]@, @hspacept(40)@ @lib.check_one_option_dropdown(name, name[ind])@
 @/repeat@

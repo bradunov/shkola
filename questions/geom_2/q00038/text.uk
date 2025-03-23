@@ -1,4 +1,5 @@
 
-Color all letters that @choice[ch]@ symmetrical. 
+Color letters that @choice[ch]@ symmetrical to the line. 
 @vspace@
 @center@ @mycanvas(all, results)@
+            

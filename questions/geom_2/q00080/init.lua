@@ -1,8 +1,8 @@
 
 include("terms")
 
-meas = "\(^\circ\)"
-sp = "\(\ \)"
+meas = "°"
+sp = "\(\ \ \ \)"
 
 index = {5, 6, 9, 12, 15, 18}
 dim = 6
@@ -63,11 +63,12 @@ quest = ""
 if (sign == 2) then
     quest = out[1] .. meas
 else
-    quest = out[1] .. meas .. ", " .. sp .. sp .. out[2] .. meas
+    quest = out[1] .. meas .. ", " .. sp .. out[2] .. meas
 end	
 
 if (sign == 2) then
     qq = 4
 else	
     qq = 3
-end   
+end        
+     

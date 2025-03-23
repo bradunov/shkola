@@ -1,9 +1,11 @@
 
 Osni presek prave kupe je @name[ch]@. 
 @center@ @mycanvas()@
-Ako je  @quest@, 
+Ako je  
+@center@  @quest@, 
 izračunaj:
 @center@ @ans[1]@,
 @center@ @ans[2]@.                                                                                                                                                                                                                                              
-(Uzmi da je @"π"@ = @"22/7"@, rezultate zapiši na jednu decimalu.)       
+Uzmi da je @"π"@ = @"22/7"@, rezultate zapiši na jednu decimalu.  
+            
                                                                       

@@ -1,2 +1,3 @@
-msg1 = "potrt"
-msg2 = "obljubljen"
+msg1 = "iztegnjeni"
+msg2 = "iztegnjeni"
+

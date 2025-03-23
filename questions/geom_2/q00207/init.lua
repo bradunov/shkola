@@ -57,12 +57,12 @@ vol = lib.math.round_dec(vol, 1)
 
 mycanvas = function(no)
 
-  lib.start_canvas(320, 170, "center")
+  lib.start_canvas(260, 140, "center")
 
-	w = 80
-	ow = 10
-	v = 70
-	ov =  130
+	w = 64
+	ow = 8
+	v = 56
+	ov =  104
     rt = 2
 
 	if (ind < 3) then	

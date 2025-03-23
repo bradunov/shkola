@@ -1,1 +1,1 @@
-msg = "izven slike"
+msg = "ven sliki"

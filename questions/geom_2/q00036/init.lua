@@ -1,6 +1,4 @@
 
-include("terms")
-
 style = 
 	{["off_color"] = "cff",
         ["on_color"] = "cff",
@@ -9,9 +7,7 @@ style =
 		
 text_style = {["font_size"] = "16"}	
 
-meas = {"\(^\circ\)", "'"}
-symb = "\(\angle\)"
-
+meas = {"°", "'"}
 
 numb = {}
 ang_g = {}
@@ -35,12 +31,11 @@ if (ind == 1) then
     angle_g = 60 +(2 - sign) * math.random(9)
     angle_m = 2 * (math.random(30) - 1)
 	angle = angle_g * 60 + angle_m
-    dat = choice[1]
     if (angle_g ~= 0) then
-        dat= dat .. " " .. angle_g .. meas[1] .. " "
+        dat= dat .. angle_g .. meas[1]
     end	
     if (angle_m ~= 0) then
-        dat = dat .. angle_m .. meas[2] .. " "
+        dat = dat .. " " .. angle_m .. meas[2]
     end	
 else
     sign = math.random(dim)
@@ -51,9 +46,9 @@ else
 	factor = math.floor(enum/denom)
     rest = enum - factor * denom
 	if (rest == 0) then
-        dat = factor .. " " .. choice[2]
+        dat = factor 
 	else
-        dat = "\(\frac{" .. enum .. "}{" .. denom .. "}\)" .. " " .. choice[2]
+        dat = "\(\frac{" .. enum .. "}{" .. denom .. "}\)"
     end		
 end
 
@@ -109,13 +104,3 @@ mycanvas = function(no)
  
   lib.end_canvas()
 end  
-
-        
-      
-
-  
-          
-            
-            
-            
-          

@@ -1,14 +1,14 @@
-title = {"Če sta dva kota komplementarna, eden izmed njiju lahko biti oster.", 
+title = {"Če sta dva kota komplementarna, je lahko eden od njiju oster.", 
          "Vzporedni koti so suplementarni.",
-         "Če sta dva kota komplementarna, eden izmed njiju lahko biti pravi.",   
-         "Če sta dva kota suplementarna, eden izmed njiju lahko biti oster, drugi pa top.",		 
-         "Če sta dva kota komplementarna, eden izmed njiju lahko biti top.", 
-         "Če sta dva kota suplementarna, oba lahko bita ostra.",     
-         "Če sta dva kota suplementarna, oba lahko bita prava.", 
-         "Če sta dva kota suplementarna, oba lahko bita topa.",
+         "Če sta dva kota komplementarna, je lahko eden od njiju pravi.",   
+         "Če sta dva kota suplementarna, je lahko eden od njiju oster, drugi pa top.",		 
+         "Če sta dva kota komplementarna, je lahko eden od njiju top.", 
+         "Če sta dva kota suplementarna, sta lahko oba ostra.",     
+         "Če sta dva kota suplementarna, sta lahko oba prava kota.", 
+         "Če sta dva kota suplementarna, sta lahko oba topa.",
          "Vzporedni koti so komplementarni.",  
-         "Če sta dva kota križana, eden izmed njiju lahko biti oster, drugi pa top.",
-         "Če sta dva kota komplementarna, oba morata biti ostra.",		 
-         "Če sta dva kota križana, oba lahko bita prava."} 
+         "Če se dva kota nasprotna, je lahko eden od njiju oster, drugi pa top.",
+         "Če sta dva kota komplementarna, morata biti oba ostra.",		 
+         "Če sta dva kota nasprotna, sta lahko oba prava kota."} 
 
 reply = {"t", "t", "n", "t", "n", "n", "t", "n", "n", "n", "t", "t"}

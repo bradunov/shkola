@@ -1,4 +1,6 @@
+
 Circle with a diameter of @numb@@meas[1]@ rotates around its diameter. What are the surface area and volume of the body formed by rotation?
-(Take @"π"@ = @"22/7"@, write the results to two decimal places.) 
+@vspace@ 
 @center@ Surface area is @hspacept(5)@  @lib.check_number(area,50)@@meas[2]@.
 @center@ Volume is @hspacept(5)@  @lib.check_number(vol,50)@@meas[3]@.
+Take @"π"@ = @"22/7"@, write the results to two decimal places.

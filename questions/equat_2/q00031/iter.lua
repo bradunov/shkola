@@ -31,12 +31,10 @@ end
 choice = math.random(2)
 op = math.random(2)
 if (op == 2) then
-	neq = math.random(2)
     value[3] = value[1] * value[2]
 	denom[3] = denom[1] * denom[2]
     enum[3] = enum[1] * enum[2]
 else
-    neq = choice
     if (choice == 1) then
         value[3] = value[1] / value[2]
 	    denom[3] = denom[1] * enum[2]
@@ -95,15 +93,18 @@ else
 end
 
 fact = 2
-if (op == 2 and value[2] < 0) then 
-    fact = 1
+if (op == 2) then 
+	if (value[2] < 0) then
+		fact = 1
+	end
+else	
+	if (choice == 1 and value[2] < 0) then 
+		fact = 1
+	end	
+	if (choice == 2 and value[1] * value[3] > 0) then	
+		fact = 1	
+	end
 end	
-if (choice == 1 and value[2] < 0) then 
-    fact = 1
-end	
-if (choice == 2 and value[1] * value[3] > 0) then	
-    fact = 1	
-end
 
 index = math.random(4)
 if (fact == 1) then

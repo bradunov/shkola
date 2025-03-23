@@ -1,4 +1,1 @@
-
 name = {"pravouglog", "jednakokrakog"}
-
-		 

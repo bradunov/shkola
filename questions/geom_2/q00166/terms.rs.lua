@@ -1,2 +1,1 @@
-
 msg = {"prodire", "mimoilazi", "∥", "∈"}

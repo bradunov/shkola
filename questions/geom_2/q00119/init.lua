@@ -1,3 +1,4 @@
+
 include("terms")
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 style = 
@@ -14,9 +15,9 @@ dif_style =
 				
 text_style = {["font_size"] = "16"}	
 
-unit = {"cm", "cm\(\small^2\)"}
+unit = {"cm", "cm²"}
 symb = {"(q = h\(\small_m\) )", "(q = s)", " "}
-name = {"m", "n", "s", "q", "h\(\small_m\)", "d\(\small_1\)", "d\(\small_2\)", "O", "P"}
+name = {"m", "n", "s", "q", "h\(\small_m\)", "d₁", "d₂", "O", "P"}
 
 val = {}
 ind = {}
@@ -131,5 +132,4 @@ scale = 8
   lib.add_input(ov+2*v-4, scale+2*v, 50, 30, name[7])
     
   lib.end_canvas()
-end              
-     
+end     

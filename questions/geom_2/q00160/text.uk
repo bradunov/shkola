@@ -1,4 +1,5 @@
-Inscribed in triangle @"ABC"@ is the square @"MNPQ"@.
+
+A square @"MNPQ"@ is inscribed in the triangle @"ABC"@.
 @center@ @mycanvas()@
 Calculate the length of the square side if the length of side @"AB"@ and the area @"P"@ of the triangle are given:
 @center@ @quest@.

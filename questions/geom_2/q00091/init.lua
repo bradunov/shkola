@@ -1,9 +1,10 @@
 
 measure = {"m", "dm", "cm"}
-measure2 = {"m\(^2\)", "dm\(^2\)", "cm\(^2\)"}
+measure2 = {"m²", "dm²", "cm²"}
 
 ind = 3
-dim = 10^4
+dim = 10^2
+dim2 = dim*dim
 
 edge1 = (35 + math.random(20)) * 10
 edge2 = (25 + math.random(20)) * 10
@@ -18,7 +19,6 @@ door2 = (35 + math.random(5)) * 5
 door = door1 * door2
 
 surface = 2 * (edge1 * edge3 + edge2 * edge3) - window - door 
-surface_m = math.floor(surface/dim)
-surface_c = surface - surface_m * dim
-
-
+surface_m = math.floor(surface/dim2)
+surface_d = math.floor((surface - surface_m * dim2)/dim)
+surface_c = surface - (surface_m * dim2 + surface_d * dim)

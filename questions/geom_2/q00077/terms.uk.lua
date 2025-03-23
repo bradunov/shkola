@@ -1,2 +1,2 @@
-name = {"oblique", "rectangular", "isosceles"}
-choice = {"larger", "smaller"}
+name = {"general", "rectangular", "isosceles"}
+choice = {"longer", "shorter"}

@@ -1,5 +1,5 @@
 
-meas = {"r (cm)", "2r (cm)", "O (cm)", "P (cm\(\small^2\))"} 
+meas = {"r (cm)", "2r (cm)", "O (cm)", "P (cm²)"}
 
 addition_table = function()
 

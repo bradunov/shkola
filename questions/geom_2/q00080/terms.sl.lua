@@ -1,1 +1,1 @@
-msg = {"pravokotni", "enakostranični", "poševni"}
+msg = {"pravokotni", "enakokraki", "splošni"}

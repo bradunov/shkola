@@ -154,7 +154,7 @@ mycanvas = function(no)
 	lib.add_text(w+ow, ow, "B", text_style, false, false)
 	lib.add_circle(w, w-ov, 2.5, point_style, false, false) 
 	lib.add_text(w+ow, w-ov, point[2], text_style, false, false)
-	lib.add_text(ov, v-3, symb[2], text_style, false, false)
+	lib.add_input(ov-ow, v-ow-3, 50, 30, symb[2])
   else
 	lib.add_line(2*v, ov, w-2*v, -ov+ow, dif_style, false, false)  
 	lib.add_line(2*v, ov, 2*ow+5, (-ov+ow)/(w-2*v)*(2*ow+5), style, false, false)
@@ -172,13 +172,10 @@ mycanvas = function(no)
 	lib.add_text(w+ow, w-ov, point[2], text_style, false, false)
 	lib.add_circle(ov-2, 2*(v+ow)-6, 2.5, point_style, false, false)  
 	lib.add_text(ov, 2*(v+ow)+5, "C", text_style, false, false)
-	lib.add_text(ov+2*ow, 2*v+5, symb[2], text_style, false, false)
+	lib.add_input(ov, 2*v-5, 50, 30, symb[2])
   end
    
-  lib.add_text(v-ow, 3*v, symb[1], text_style, false, false)
+  lib.add_input(ow, ov-v, 50, 30, symb[1])
 
   lib.end_canvas()
 end   
-     
-     
-            
