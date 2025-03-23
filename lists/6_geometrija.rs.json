@@ -586,7 +586,7 @@
       "rank_topic": "3",
       "difficulty": "3"
     },
-	{
+    {
       "name": "geom_2/q00241",
       "random": "10",
       "period": "3",
@@ -605,6 +605,6 @@
       "rank_subtheme": "3",
       "rank_topic": "3",
       "difficulty": "3"
-    }	
+    }
   ]
 }

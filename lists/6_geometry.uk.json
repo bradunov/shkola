@@ -1,0 +1,610 @@
+{
+  "name": "6 Geometry",
+  "level": "6",
+  "level_short": "6",
+  "theme": "Geometry",
+  "language": "uk",
+  "rank_theme": "3",
+  "questions": [
+    {
+      "name": "geom_2/q00036",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Parallelogram",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00045",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Triangle",
+      "topic": "Concept, elements, types",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00046",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Triangle",
+      "topic": "Concept, elements, types",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00047",
+      "random": "6",
+      "period": "1",
+      "subtheme": "Triangle",
+      "topic": "Concept, elements, types",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00048",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Triangle",
+      "topic": "Sides and angles",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00049",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Triangle",
+      "topic": "Sides and angles",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00050",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Triangle",
+      "topic": "Sides and angles",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00051",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Triangle",
+      "topic": "Sides and angles",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00052",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Triangle",
+      "topic": "Sides and angles",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00053",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Triangle",
+      "topic": "Sides and angles",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00054",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Triangle",
+      "topic": "Sides and angles",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00055",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Triangle",
+      "topic": "Sides and angles",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00056",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Triangle",
+      "topic": "Sides and angles",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00057",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Triangle",
+      "topic": "Congruence",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00058",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Triangle",
+      "topic": "Congruence",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00059",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Triangle",
+      "topic": "Congruence",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00060",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Triangle",
+      "topic": "Congruence",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00061",
+      "random": "0",
+      "period": "2",
+      "subtheme": "Triangle",
+      "topic": "Congruence",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00064",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Triangle",
+      "topic": "Sides and angles",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00067",
+      "random": "6",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Concept, types, angles",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00068",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Concept, types, angles",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00069",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Concept, types, angles",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00070",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Concept, types, angles",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00071",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Concept, types, angles",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00072",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Parallelogram",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00073",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Parallelogram",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00074",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Parallelogram",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00075",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Parallelogram",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00076",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Parallelogram",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00077",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Trapezoid",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00078",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Trapezoid",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00079",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Trapezoid",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00080",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Trapezoid",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00081",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Trapezoid",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00082",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Trapezoid",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00083",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Trapezoid",
+      "rank_subtheme": "2",
+      "rank_topic": "4",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00084",
+      "random": "5",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Congruent figures",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00085",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Congruent figures",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00086",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Rectangle, square",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00087",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Rectangle, square",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00088",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Rectangle, square",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00089",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Parallelogram, triangle, trapezoid, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00090",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Parallelogram, triangle, trapezoid, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00091",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Rectangle, square",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00092",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Parallelogram, triangle, trapezoid, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00093",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Parallelogram, triangle, trapezoid, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00094",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Parallelogram, triangle, trapezoid, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00095",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Parallelogram, triangle, trapezoid, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00096",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Parallelogram, triangle, trapezoid, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00097",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Parallelogram, triangle, trapezoid, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00098",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Parallelogram, triangle, trapezoid, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00099",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Parallelogram, triangle, trapezoid, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00100",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Parallelogram, triangle, trapezoid, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00101",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Vector",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00102",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Vector",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "geom_2/q00103",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Vector",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00104",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Vector",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00105",
+      "random": "8",
+      "period": "3",
+      "subtheme": "Quadrilateral",
+      "topic": "Vector",
+      "rank_subtheme": "2",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00241",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Parallelogram, triangle, trapezoid, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geom_2/q00242",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Surface area",
+      "topic": "Parallelogram, triangle, trapezoid, deltoid",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "3"
+    }
+  ]
+}

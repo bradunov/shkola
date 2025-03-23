@@ -1,10 +1,10 @@
 {
-  "name": "4 geometrija",
+  "name": "4 Geometrija",
   "level": "4",
   "level_short": "4",
-  "theme": "geometrija",
+  "theme": "Geometrija",
   "language": "sl",
-  "rank_theme": "3",
+  "rank_theme": "2",
   "questions": [
     {
       "name": "geometry/q00023",
@@ -51,7 +51,7 @@
       "random": "6",
       "period": "2",
       "subtheme": "Kvader in kocka",
-      "topic": "mreža",
+      "topic": "Mreža",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
@@ -61,7 +61,7 @@
       "random": "8",
       "period": "2",
       "subtheme": "Kvader in kocka",
-      "topic": "pojem, lastnosti",
+      "topic": "Pojem,  lastnosti",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -71,7 +71,7 @@
       "random": "0",
       "period": "2",
       "subtheme": "Kvader in kocka",
-      "topic": "mreža",
+      "topic": "Mreža",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
@@ -81,7 +81,7 @@
       "random": "6",
       "period": "2",
       "subtheme": "Kvader in kocka",
-      "topic": "mreža",
+      "topic": "Mreža",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "2"
@@ -91,7 +91,7 @@
       "random": "3",
       "period": "2",
       "subtheme": "Kvader in kocka",
-      "topic": "Pojem, lastnosti",
+      "topic": "Pojem,  lastnosti",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"

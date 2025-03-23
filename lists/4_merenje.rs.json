@@ -4,7 +4,7 @@
   "level_short": "4",
   "theme": "Merenje i mere",
   "language": "rs",
-  "rank_theme": "4",
+  "rank_theme": "3",
   "questions": [
     {
       "name": "measures/q00001",
@@ -565,6 +565,6 @@
       "rank_subtheme": "5",
       "rank_topic": "2",
       "difficulty": "3"
-    }	
+    }
   ]
 }

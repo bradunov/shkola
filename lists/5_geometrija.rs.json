@@ -67,6 +67,16 @@
       "difficulty": "1"
     },
     {
+      "name": "geom_2/q00007",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Osnovni pojmovi",
+      "topic": "Krug",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
       "name": "geom_2/q00008",
       "random": "10",
       "period": "1",
@@ -231,7 +241,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Ugao",
-      "topic": "Računanje sa uglovima",
+      "topic": "Računanje sa dimenzijama uglova",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
@@ -241,7 +251,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Ugao",
-      "topic": "Računanje sa uglovima",
+      "topic": "Računanje sa dimenzijama uglova",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
@@ -251,7 +261,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Ugao",
-      "topic": "Računanje sa uglovima",
+      "topic": "Računanje sa dimenzijama uglova",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
@@ -261,7 +271,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Ugao",
-      "topic": "Računanje sa uglovima",
+      "topic": "Računanje sa dimenzijama uglova",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
@@ -271,7 +281,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Ugao",
-      "topic": "Računanje sa uglovima",
+      "topic": "Računanje sa dimenzijama uglova",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
@@ -281,7 +291,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Ugao",
-      "topic": "Računanje sa uglovima",
+      "topic": "Računanje sa dimenzijama uglova",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "3"
@@ -301,7 +311,7 @@
       "random": "5",
       "period": "2",
       "subtheme": "Ugao",
-      "topic": "Računanje sa uglovima",
+      "topic": "Računanje sa dimenzijama uglova",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
@@ -311,7 +321,7 @@
       "random": "5",
       "period": "2",
       "subtheme": "Ugao",
-      "topic": "Računanje sa uglovima",
+      "topic": "Računanje sa dimenzijama uglova",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "3"
@@ -445,6 +455,6 @@
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "3"
-    }	
+    }
   ]
 }

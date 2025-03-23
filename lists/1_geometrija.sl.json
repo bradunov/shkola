@@ -1,10 +1,10 @@
 {
-  "name": "1 geometrija",
+  "name": "1 Geometrija",
   "level": "1",
   "level_short": "1",
-  "theme": "geometrija",
+  "theme": "Geometrija",
   "language": "sl",
-  "rank_theme": "3",
+  "rank_theme": "2",
   "questions": [
     {
       "name": "geometry/q00001",
@@ -18,7 +18,7 @@
     },
     {
       "name": "geometry/q00002",
-      "random": "3",
+      "random": "8",
       "period": "1",
       "subtheme": "Položaj, velikost in oblika",
       "topic": "Orjentacija v prostoru",
@@ -41,7 +41,7 @@
       "random": "4",
       "period": "1",
       "subtheme": "Položaj, velikost in oblika",
-      "topic": "Geometrijske liki in telesa",
+      "topic": "Geometrijski liki in telesa",
       "rank_subtheme": "1",
       "rank_topic": "3",
       "difficulty": "1"
@@ -88,7 +88,7 @@
     },
     {
       "name": "geometry/q00009",
-      "random": "8",
+      "random": "5",
       "period": "2",
       "subtheme": "Črta",
       "topic": "Ravna, kriva, lomljena",
@@ -200,7 +200,7 @@
       "name": "geometry/q00056",
       "random": "6",
       "period": "2",
-      "subtheme": "črta",
+      "subtheme": "Črta",
       "topic": "Nesklenjena, sklenjena",
       "rank_subtheme": "2",
       "rank_topic": "2",
@@ -261,10 +261,10 @@
       "random": "5",
       "period": "2",
       "subtheme": "Črta",
-      "topic": "Nesklenjena, sklenjena ",
+      "topic": "Nesklenjena, sklenjena",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
-    }	
+    }
   ]
 }

@@ -4,7 +4,7 @@
   "level_short": "3",
   "theme": "Merenje i mere",
   "language": "rs",
-  "rank_theme": "4",
+  "rank_theme": "3",
   "questions": [
     {
       "name": "measures/q00016",
@@ -208,7 +208,7 @@
     },
     {
       "name": "measures/q00070",
-      "random": "2",
+      "random": "0",
       "period": "2",
       "subtheme": "Merenje mase",
       "topic": "Pretvaranje jedne mere u drugu",
@@ -218,7 +218,7 @@
     },
     {
       "name": "measures/q00070",
-      "random": "2",
+      "random": "0",
       "period": "2",
       "subtheme": "Merenje vremena",
       "topic": "Poređenje mera",
@@ -228,7 +228,7 @@
     },
     {
       "name": "measures/q00070",
-      "random": "2",
+      "random": "0",
       "period": "2",
       "subtheme": "Merenje dužine",
       "topic": "Poređenje mera",
@@ -238,7 +238,7 @@
     },
     {
       "name": "measures/q00070",
-      "random": "2",
+      "random": "0",
       "period": "2",
       "subtheme": "Merenje zapremine tečnosti",
       "topic": "Poređenje mera",

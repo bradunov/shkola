@@ -275,7 +275,7 @@
       "rank_subtheme": "6",
       "rank_topic": "4",
       "difficulty": "1"
-    },	
+    },
     {
       "name": "numbers/q00109",
       "random": "10",
@@ -311,9 +311,9 @@
       "random": "10",
       "period": "1",
       "subtheme": "Prirodni brojevi",
-      "topic": "Brojevni niz",
+      "topic": "Upoređivanje brojeva",
       "rank_subtheme": "1",
-      "rank_topic": "3",
+      "rank_topic": "2",
       "difficulty": "1"
     },
     {
@@ -391,9 +391,9 @@
       "random": "10",
       "period": "1",
       "subtheme": "Prirodni brojevi",
-      "topic": "Brojevni niz",
+      "topic": "Upoređivanje brojeva",
       "rank_subtheme": "1",
-      "rank_topic": "3",
+      "rank_topic": "2",
       "difficulty": "1"
     },
     {
@@ -1025,7 +1025,7 @@
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
-    },	
+    },
     {
       "name": "numbers/q00248",
       "random": "10",
@@ -1035,7 +1035,7 @@
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
-    },	
+    },
     {
       "name": "numbers/q00249",
       "random": "10",
@@ -1045,7 +1045,7 @@
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
-    },	
+    },
     {
       "name": "numbers/q00250",
       "random": "10",
@@ -1055,7 +1055,7 @@
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
-    },	
+    },
     {
       "name": "numbers/q00251",
       "random": "10",
@@ -1065,7 +1065,7 @@
       "rank_subtheme": "2",
       "rank_topic": "3",
       "difficulty": "1"
-    },	
+    },
     {
       "name": "numbers/q00252",
       "random": "10",
@@ -1075,7 +1075,7 @@
       "rank_subtheme": "2",
       "rank_topic": "6",
       "difficulty": "2"
-    },	
+    },
     {
       "name": "numbers/q00253",
       "random": "10",
@@ -1085,7 +1085,7 @@
       "rank_subtheme": "2",
       "rank_topic": "6",
       "difficulty": "1"
-    },	
+    },
     {
       "name": "numbers/q00254",
       "random": "10",
@@ -1095,7 +1095,7 @@
       "rank_subtheme": "2",
       "rank_topic": "6",
       "difficulty": "1"
-    },	
+    },
     {
       "name": "equations/q00022",
       "random": "10",

@@ -1,10 +1,10 @@
 {
-  "name": "2 geometrija",
+  "name": "2 Geometrija",
   "level": "2",
   "level_short": "2",
-  "theme": "geometrija",
+  "theme": "Geometrija",
   "language": "sl",
-  "rank_theme": "3",
+  "rank_theme": "2",
   "questions": [
     {
       "name": "geometry/q00047",
@@ -40,7 +40,7 @@
       "name": "geometry/q00058",
       "random": "4",
       "period": "1",
-      "subtheme": "lomljena črta",
+      "subtheme": "Lomljena črta",
       "topic": "Nesklenjena, sklenjena",
       "rank_subtheme": "2",
       "rank_topic": "1",
@@ -70,8 +70,8 @@
       "name": "geometry/q00069",
       "random": "0",
       "period": "1",
-      "subtheme": "lomljena črta",
-      "topic": "dolžina",
+      "subtheme": "Lomljena črta",
+      "topic": "Dolžina",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
@@ -81,7 +81,7 @@
       "random": "5",
       "period": "1",
       "subtheme": "Liki",
-      "topic": "obseg",
+      "topic": "Obseg",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"
@@ -90,8 +90,8 @@
       "name": "geometry/q00071",
       "random": "10",
       "period": "1",
-      "subtheme": "lomljena črta",
-      "topic": "dolžina",
+      "subtheme": "Lomljena črta",
+      "topic": "Dolžina",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "2"
@@ -101,7 +101,7 @@
       "random": "5",
       "period": "2",
       "subtheme": "Liki",
-      "topic": "skladnost",
+      "topic": "Skladnost",
       "rank_subtheme": "3",
       "rank_topic": "3",
       "difficulty": "3"
@@ -111,7 +111,7 @@
       "random": "10",
       "period": "2",
       "subtheme": "Liki",
-      "topic": "simetrija",
+      "topic": "Simetrija",
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "2"
@@ -121,7 +121,7 @@
       "random": "8",
       "period": "2",
       "subtheme": "Liki",
-      "topic": "simetrija",
+      "topic": "Simetrija",
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "2"
@@ -131,7 +131,7 @@
       "random": "8",
       "period": "2",
       "subtheme": "Liki",
-      "topic": "simetrija",
+      "topic": "Simetrija",
       "rank_subtheme": "3",
       "rank_topic": "2",
       "difficulty": "2"
@@ -141,7 +141,7 @@
       "random": "8",
       "period": "2",
       "subtheme": "Liki",
-      "topic": "skladnost",
+      "topic": "Skladnost",
       "rank_subtheme": "3",
       "rank_topic": "3",
       "difficulty": "2"
@@ -151,7 +151,7 @@
       "random": "0",
       "period": "1",
       "subtheme": "Liki",
-      "topic": "obseg",
+      "topic": "Obseg",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"

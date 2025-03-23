@@ -93,7 +93,7 @@
       "subtheme": "Razlomci",
       "topic": "Računske operacije",
       "rank_subtheme": "6",
-      "rank_topic": "3",
+      "rank_topic": "2",
       "difficulty": "2"
     },
     {
@@ -315,7 +315,7 @@
       "rank_subtheme": "6",
       "rank_topic": "4",
       "difficulty": "3"
-    },	
+    },
     {
       "name": "numbers/q00047",
       "random": "10",
@@ -501,7 +501,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Zapis broja, brojevna poluprava",
+      "topic": "Zapis broja, brojevna prava",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -511,7 +511,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Zapis broja, brojevna poluprava",
+      "topic": "Zapis broja, brojevna prava",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -561,7 +561,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Zapis broja, brojevna poluprava",
+      "topic": "Zapis broja, brojevna prava",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -931,7 +931,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Zapis broja, brojevna poluprava",
+      "topic": "Zapis broja, brojevna prava",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -1021,7 +1021,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 1000",
-      "topic": "Zapis broja, brojevna poluprava",
+      "topic": "Zapis broja, brojevna prava",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"

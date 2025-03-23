@@ -1,0 +1,100 @@
+{
+  "name": "4 Geometry",
+  "level": "4",
+  "level_short": "4",
+  "theme": "Geometry",
+  "language": "uk",
+  "rank_theme": "2",
+  "questions": [
+    {
+      "name": "geometry/q00023",
+      "random": "0",
+      "period": "2",
+      "subtheme": "Geometric  solids",
+      "topic": "Horned, round",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00024",
+      "random": "4",
+      "period": "2",
+      "subtheme": "Geometric  solids",
+      "topic": "Horned, round",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00025",
+      "random": "3",
+      "period": "2",
+      "subtheme": "Geometric  solids",
+      "topic": "Horned, round",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00026",
+      "random": "9",
+      "period": "2",
+      "subtheme": "Geometric  solids",
+      "topic": "Horned, round",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00027",
+      "random": "6",
+      "period": "2",
+      "subtheme": "Cuboid and cube",
+      "topic": "Mesh",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00028",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Cuboid and cube",
+      "topic": "Elements, properties",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00029",
+      "random": "0",
+      "period": "2",
+      "subtheme": "Cuboid and cube",
+      "topic": "Mesh",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00078",
+      "random": "6",
+      "period": "2",
+      "subtheme": "Cuboid and cube",
+      "topic": "Mesh",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00080",
+      "random": "3",
+      "period": "2",
+      "subtheme": "Cuboid and cube",
+      "topic": "Elements, properties",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "name": "2 Geometry",
+  "level": "2",
+  "level_short": "2",
+  "theme": "Geometry",
+  "language": "uk",
+  "rank_theme": "2",
+  "questions": [
+    {
+      "name": "geometry/q00047",
+      "random": "5",
+      "period": "1",
+      "subtheme": "Straight line",
+      "topic": "Point, line, ray, segment",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00056",
+      "random": "6",
+      "period": "1",
+      "subtheme": "Broken line",
+      "topic": "Open, closed",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00057",
+      "random": "8",
+      "period": "1",
+      "subtheme": "Straight line",
+      "topic": "Point, line, ray, segment",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00058",
+      "random": "4",
+      "period": "1",
+      "subtheme": "Broken line",
+      "topic": "Open, closed",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00059",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Straight line",
+      "topic": "Point, line, ray, segment",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00068",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Straight line",
+      "topic": "Point, segment, ray, line",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00069",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Broken line",
+      "topic": "Length",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00070",
+      "random": "5",
+      "period": "1",
+      "subtheme": "Figure",
+      "topic": "Circumference",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "geometry/q00071",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Broken line",
+      "topic": "Length",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00072",
+      "random": "5",
+      "period": "2",
+      "subtheme": "Figure",
+      "topic": "Congruence",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00073",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Figure",
+      "topic": "Symmetry",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00074",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Figure",
+      "topic": "Symmetry",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00075",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Figure",
+      "topic": "Symmetry",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00076",
+      "random": "8",
+      "period": "2",
+      "subtheme": "Figure",
+      "topic": "Congruence",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "geometry/q00079",
+      "random": "0",
+      "period": "1",
+      "subtheme": "Figure",
+      "topic": "Circumference",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "1"
+    }
+  ]
+}

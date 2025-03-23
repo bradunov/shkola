@@ -581,7 +581,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 100",
-      "topic": "Zapis broja,brojevna prava",
+      "topic": "Zapis broja, brojevna prava",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -631,7 +631,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 100",
-      "topic": "Zapis broja,brojevna prava",
+      "topic": "Zapis broja, brojevna prava",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -641,7 +641,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Brojevi do 100",
-      "topic": "Zapis broja,brojevna prava",
+      "topic": "Zapis broja, brojevna prava",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -732,7 +732,7 @@
       "period": "1",
       "subtheme": "Jednačine",
       "topic": "Sabiranje i oduzimanje",
-      "rank_subtheme": "5",
+      "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -742,7 +742,7 @@
       "period": "1",
       "subtheme": "Jednačine",
       "topic": "Sabiranje i oduzimanje",
-      "rank_subtheme": "5",
+      "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "2"
     },
@@ -752,7 +752,7 @@
       "period": "1",
       "subtheme": "Jednačine",
       "topic": "Sabiranje i oduzimanje",
-      "rank_subtheme": "5",
+      "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "1"
     },
@@ -762,7 +762,7 @@
       "period": "1",
       "subtheme": "Jednačine",
       "topic": "Sabiranje i oduzimanje",
-      "rank_subtheme": "5",
+      "rank_subtheme": "4",
       "rank_topic": "1",
       "difficulty": "2"
     },
@@ -772,7 +772,7 @@
       "period": "3",
       "subtheme": "Jednačine",
       "topic": "Množenje i deljenje",
-      "rank_subtheme": "5",
+      "rank_subtheme": "4",
       "rank_topic": "2",
       "difficulty": "2"
     },
@@ -782,7 +782,7 @@
       "period": "3",
       "subtheme": "Jednačine",
       "topic": "Množenje i deljenje",
-      "rank_subtheme": "5",
+      "rank_subtheme": "4",
       "rank_topic": "2",
       "difficulty": "1"
     },
@@ -792,7 +792,7 @@
       "period": "1",
       "subtheme": "Jednačine",
       "topic": "Množenje i deljenje",
-      "rank_subtheme": "5",
+      "rank_subtheme": "4",
       "rank_topic": "2",
       "difficulty": "1"
     }
