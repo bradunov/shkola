@@ -335,9 +335,10 @@ class Library(object):
         if number:
             extra_condition = v_answer + ".length > 0"
             # Internationalisation
-            if self.page.page_params.get_param("language") == PageLanguage.RS or \
-                    self.page.page_params.get_param("language") == PageLanguage.RSC:
-                v_answer += ".replace(',', '.')"
+            # if self.page.page_params.get_param("language") == PageLanguage.RS or \
+            #         self.page.page_params.get_param("language") == PageLanguage.RSC:
+            # For now allow both . and , as decimal separator
+            v_answer += ".replace(',', '.')"
             v_answer = "Number(" + v_answer + ")"
         else:
             extra_condition = None
@@ -349,9 +350,10 @@ class Library(object):
                 str_solution = s_answer + " = \'" + str(condition) + "\'"
 
                 # Internationalisation
-                if self.page.page_params.get_param("language") == PageLanguage.RS or \
-                        self.page.page_params.get_param("language") == PageLanguage.RSC:
-                    str_solution += ".replace('.', ',')"
+                # if self.page.page_params.get_param("language") == PageLanguage.RS or \
+                #         self.page.page_params.get_param("language") == PageLanguage.RSC:
+                # For now allow both . and , as decimal separator
+                str_solution += ".replace('.', ',')"
 
                 str_solution += ";"
 
