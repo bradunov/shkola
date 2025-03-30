@@ -1,9 +1,9 @@
 {
-  "name": "7 Obrada podataka",
+  "name": "7 Obdelava podatkov",
   "level": "7",
   "level_short": "7",
-  "theme": "Obrada podataka",
-  "language": "rs",
+  "theme": "Obdelava podatkov",
+  "language": "sl",
   "rank_theme": "4",
   "questions": [
     {
@@ -11,7 +11,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Koordinatni sistem",
-      "topic": "Duž i mnogougao",
+      "topic": "Daljica in mnogokotnik",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "3"
@@ -21,7 +21,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Koordinatni sistem",
-      "topic": "Duž i mnogougao",
+      "topic": "Daljica in mnogokotnik",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
@@ -31,7 +31,7 @@
       "random": "8",
       "period": "1",
       "subtheme": "Koordinatni sistem",
-      "topic": "Duž i mnogougao",
+      "topic": "Daljica in mnogokotnik",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
@@ -40,8 +40,8 @@
       "name": "data_2/q00016",
       "random": "10",
       "period": "3",
-      "subtheme": "Produžena proporcija",
-      "topic": "Primena",
+      "subtheme": "Razširjena razmerja",
+      "topic": "Uporaba",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "2"
@@ -51,7 +51,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Koordinatni sistem",
-      "topic": "Duž i mnogougao",
+      "topic": "Daljica in mnogokotnik",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "3"
@@ -60,8 +60,8 @@
       "name": "data_2/q00052",
       "random": "10",
       "period": "1",
-      "subtheme": "Produžena proporcija",
-      "topic": "Funkcija direktne proporcionalnosti",
+      "subtheme": "Razširjena razmerja",
+      "topic": "Funkcija neposredne sorazmernosti",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -70,8 +70,8 @@
       "name": "data_2/q00052",
       "random": "10",
       "period": "1",
-      "subtheme": "Produžena proporcija",
-      "topic": "Primena",
+      "subtheme": "Razširjena razmerja",
+      "topic": "Uporaba",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
@@ -80,8 +80,8 @@
       "name": "data_2/q00053",
       "random": "10",
       "period": "1",
-      "subtheme": "Produžena proporcija",
-      "topic": "Funkcija direktne proporcionalnosti",
+      "subtheme": "Razširjena razmerja",
+      "topic": "Funkcija neposredne sorazmernosti",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -90,8 +90,8 @@
       "name": "data_2/q00054",
       "random": "10",
       "period": "1",
-      "subtheme": "Produžena proporcija",
-      "topic": "Funkcija direktne proporcionalnosti",
+      "subtheme": "Razširjena razmerja",
+      "topic": "Funkcija neposredne sorazmernosti",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "2"
@@ -100,8 +100,8 @@
       "name": "data_2/q00054",
       "random": "10",
       "period": "1",
-      "subtheme": "Produžena proporcija",
-      "topic": "Primena",
+      "subtheme": "Razširjena razmerja",
+      "topic": "Uporaba",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "2"
@@ -110,8 +110,8 @@
       "name": "data_2/q00055",
       "random": "8",
       "period": "1",
-      "subtheme": "Produžena proporcija",
-      "topic": "Funkcija direktne proporcionalnosti",
+      "subtheme": "Razširjena razmerja",
+      "topic": "Funkcija neposredne sorazmernosti",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -120,8 +120,8 @@
       "name": "data_2/q00056",
       "random": "10",
       "period": "1",
-      "subtheme": "Produžena proporcija",
-      "topic": "Funkcija direktne proporcionalnosti",
+      "subtheme": "Razširjena razmerja",
+      "topic": "Funkcija neposredne sorazmernosti",
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "1"
@@ -130,8 +130,8 @@
       "name": "data_2/q00057",
       "random": "10",
       "period": "1",
-      "subtheme": "Produžena proporcija",
-      "topic": "Primena",
+      "subtheme": "Razširjena razmerja",
+      "topic": "Uporaba",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
@@ -140,8 +140,8 @@
       "name": "data_2/q00058",
       "random": "10",
       "period": "1",
-      "subtheme": "Uzorak",
-      "topic": "Srednja vrednost, medijana, mod",
+      "subtheme": "Vzorec",
+      "topic": "Povprečna vrednost, mediana, moda",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"
@@ -150,8 +150,8 @@
       "name": "data_2/q00059",
       "random": "10",
       "period": "1",
-      "subtheme": "Uzorak",
-      "topic": "Srednja vrednost, medijana, mod",
+      "subtheme": "Vzorec",
+      "topic": "Povprečna vrednost, mediana, moda",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"
@@ -160,8 +160,8 @@
       "name": "data_2/q00060",
       "random": "10",
       "period": "1",
-      "subtheme": "Uzorak",
-      "topic": "Srednja vrednost, medijana, mod",
+      "subtheme": "Vzorec",
+      "topic": "Povprečna vrednost, mediana, moda",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "2"
@@ -170,8 +170,8 @@
       "name": "data_2/q00061",
       "random": "10",
       "period": "1",
-      "subtheme": "Uzorak",
-      "topic": "Srednja vrednost, medijana, mod",
+      "subtheme": "Vzorec",
+      "topic": "Povprečna vrednost, mediana, moda",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "3"
@@ -181,7 +181,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Koordinatni sistem",
-      "topic": "Rastojanje tačaka u koord.sistemu",
+      "topic": "Razdalja med točkami",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -191,7 +191,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Koordinatni sistem",
-      "topic": "Rastojanje tačaka u koord.sistemu",
+      "topic": "Razdalja med točkami",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"
@@ -201,7 +201,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Koordinatni sistem",
-      "topic": "Duž i mnogougao",
+      "topic": "Daljica in mnogokotnik",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -211,7 +211,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Koordinatni sistem",
-      "topic": "Duž i mnogougao",
+      "topic": "Daljica in mnogokotnik",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "3"
@@ -221,7 +221,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Koordinatni sistem",
-      "topic": "Duž i mnogougao",
+      "topic": "Daljica in mnogokotnik",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
@@ -231,7 +231,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Koordinatni sistem",
-      "topic": "Duž i mnogougao",
+      "topic": "Daljica in mnogokotnik",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -241,7 +241,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Koordinatni sistem",
-      "topic": "Duž i mnogougao",
+      "topic": "Daljica in mnogokotnik",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"

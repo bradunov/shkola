@@ -1,0 +1,490 @@
+{
+  "name": "7 Brojevi",
+  "level": "7",
+  "level_short": "7",
+  "theme": "Brojevi",
+  "language": "rs",
+  "rank_theme": "1",
+  "questions": [
+    {
+      "name": "fract_2/q00079",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadrat racionalnog broja",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00080",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadrat racionalnog broja",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00081",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadrat racionalnog broja",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00082",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadrat racionalnog broja",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00083",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadrat racionalnog broja",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00084",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadratni koren",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00085",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadratni koren",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00086",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadratni koren",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00087",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadratni koren",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "fract_2/q00088",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadratni koren",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00089",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadratni koren",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00090",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadratni koren",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00091",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Množenje i deljenje",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00092",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Množenje i deljenje",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00074",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadrat racionalnog broja",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00075",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Iracionalni brojevi",
+      "topic": "Kvadratni koren",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00076",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Decimalni zapis",
+      "topic": "Približna vrednost",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00076",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Decimalni zapis",
+      "topic": "Apsolutna greška",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00077",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Decimalni zapis",
+      "topic": "Približna vrednost",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00077",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Decimalni zapis",
+      "topic": "Apsolutna greška",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00078",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00079",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Sabiranje i oduzimanje",
+      "rank_subtheme": "3",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00080",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Brojevni izraz",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00081",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Računske operacije",
+      "topic": "Brojevni izraz",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00082",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00083",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00084",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00085",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00086",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00087",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00088",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00089",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00090",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Pojam",
+      "rank_subtheme": "4",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00091",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00092",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00093",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00094",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00095",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00096",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00097",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00098",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Stepen proizvoda, količnika i stepena",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00099",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Stepen proizvoda, količnika i stepena",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00100",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Stepen proizvoda, količnika i stepena",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00101",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Stepen proizvoda, količnika i stepena",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00102",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Stepen proizvoda, količnika i stepena",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00103",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Stepen proizvoda, količnika i stepena",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00104",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Stepen proizvoda, količnika i stepena",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00105",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Stepen",
+      "topic": "Operacije sa stepenima",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "1"
+    }
+  ]
+}

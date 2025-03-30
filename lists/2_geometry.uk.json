@@ -61,7 +61,7 @@
       "random": "0",
       "period": "1",
       "subtheme": "Straight line",
-      "topic": "Point, segment, ray, line",
+      "topic": "Point, line, ray, segment",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
@@ -81,7 +81,7 @@
       "random": "5",
       "period": "1",
       "subtheme": "Figure",
-      "topic": "Circumference",
+      "topic": "Perimeter",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"
@@ -151,7 +151,7 @@
       "random": "0",
       "period": "1",
       "subtheme": "Figure",
-      "topic": "Circumference",
+      "topic": "Perimeter",
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "1"

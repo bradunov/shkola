@@ -7,191 +7,11 @@
   "rank_theme": "1",
   "questions": [
     {
-      "name": "fract_2/q00061",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Upoređivanje",
-      "rank_subtheme": "2",
-      "rank_topic": "2",
-      "difficulty": "1"
-    },
-    {
-      "name": "fract_2/q00062",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Upoređivanje",
-      "rank_subtheme": "2",
-      "rank_topic": "2",
-      "difficulty": "2"
-    },
-    {
-      "name": "fract_2/q00063",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Pojam, prikaz na brojevnoj pravoj",
-      "rank_subtheme": "2",
-      "rank_topic": "1",
-      "difficulty": "1"
-    },
-    {
-      "name": "fract_2/q00064",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Pojam, prikaz na brojevnoj pravoj",
-      "rank_subtheme": "2",
-      "rank_topic": "1",
-      "difficulty": "1"
-    },
-    {
-      "name": "fract_2/q00065",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Pojam, prikaz na brojevnoj pravoj",
-      "rank_subtheme": "2",
-      "rank_topic": "1",
-      "difficulty": "1"
-    },
-    {
-      "name": "fract_2/q00066",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Računske operacije",
-      "rank_subtheme": "2",
-      "rank_topic": "3",
-      "difficulty": "2"
-    },
-    {
-      "name": "fract_2/q00067",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Pojam, prikaz na brojevnoj pravoj",
-      "rank_subtheme": "2",
-      "rank_topic": "1",
-      "difficulty": "1"
-    },
-    {
-      "name": "fract_2/q00068",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Računske operacije",
-      "rank_subtheme": "2",
-      "rank_topic": "3",
-      "difficulty": "1"
-    },
-    {
-      "name": "fract_2/q00069",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Računske operacije",
-      "rank_subtheme": "2",
-      "rank_topic": "3",
-      "difficulty": "2"
-    },
-    {
-      "name": "fract_2/q00070",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Brojevni izraz",
-      "rank_subtheme": "2",
-      "rank_topic": "4",
-      "difficulty": "2"
-    },
-    {
-      "name": "fract_2/q00071",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Brojevni izraz",
-      "rank_subtheme": "2",
-      "rank_topic": "4",
-      "difficulty": "2"
-    },
-    {
-      "name": "fract_2/q00072",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Brojevni izraz",
-      "rank_subtheme": "2",
-      "rank_topic": "4",
-      "difficulty": "3"
-    },
-    {
-      "name": "fract_2/q00073",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Brojevni izraz",
-      "rank_subtheme": "2",
-      "rank_topic": "4",
-      "difficulty": "3"
-    },
-    {
-      "name": "fract_2/q00074",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Računske operacije",
-      "rank_subtheme": "2",
-      "rank_topic": "3",
-      "difficulty": "2"
-    },
-    {
-      "name": "fract_2/q00075",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Računske operacije",
-      "rank_subtheme": "2",
-      "rank_topic": "3",
-      "difficulty": "1"
-    },
-    {
-      "name": "fract_2/q00076",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Brojevni izraz",
-      "rank_subtheme": "2",
-      "rank_topic": "4",
-      "difficulty": "3"
-    },
-    {
-      "name": "fract_2/q00077",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Računske operacije",
-      "rank_subtheme": "2",
-      "rank_topic": "3",
-      "difficulty": "1"
-    },
-    {
-      "name": "fract_2/q00078",
-      "random": "10",
-      "period": "2",
-      "subtheme": "Racionalni brojevi",
-      "topic": "Brojevni izraz",
-      "rank_subtheme": "2",
-      "rank_topic": "4",
-      "difficulty": "3"
-    },
-    {
       "name": "numb_2/q00001",
       "random": "8",
       "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Prikaz na brojevnoj pravoj, upoređivanje",
+      "subtheme": "Cela števila",
+      "topic": "Predstavitev na številski premici, primerjava",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -200,8 +20,8 @@
       "name": "numb_2/q00002",
       "random": "8",
       "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Prikaz na brojevnoj pravoj, upoređivanje",
+      "subtheme": "Cela števila",
+      "topic": "Predstavitev na številski premici, primerjava",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -210,8 +30,8 @@
       "name": "numb_2/q00003",
       "random": "10",
       "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Pojam, suprotan broj, apsolutna vrednost",
+      "subtheme": "Cela števila",
+      "topic": "Pojem, nasprotno število, absolutna vrednost",
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "2"
@@ -220,8 +40,8 @@
       "name": "numb_2/q00003",
       "random": "10",
       "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Prikaz na brojevnoj pravoj, upoređivanje",
+      "subtheme": "Cela števila",
+      "topic": "Predstavitev na številski premici, primerjava",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "2"
@@ -230,8 +50,8 @@
       "name": "numb_2/q00004",
       "random": "10",
       "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Prikaz na brojevnoj pravoj, upoređivanje",
+      "subtheme": "Cela števila",
+      "topic": "Predstavitev na številski premici, primerjava",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -240,7 +60,7 @@
       "name": "numb_2/q00005",
       "random": "10",
       "period": "1",
-      "subtheme": "Celi brojevi",
+      "subtheme": "Cela števila",
       "topic": "Računske operacije",
       "rank_subtheme": "1",
       "rank_topic": "3",
@@ -250,8 +70,8 @@
       "name": "numb_2/q00006",
       "random": "10",
       "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Prikaz na brojevnoj pravoj, upoređivanje",
+      "subtheme": "Cela števila",
+      "topic": "Predstavitev na številski premici, primerjava",
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "1"
@@ -260,7 +80,7 @@
       "name": "numb_2/q00007",
       "random": "10",
       "period": "1",
-      "subtheme": "Celi brojevi",
+      "subtheme": "Cela števila",
       "topic": "Računske operacije",
       "rank_subtheme": "1",
       "rank_topic": "3",
@@ -270,211 +90,11 @@
       "name": "numb_2/q00008",
       "random": "5",
       "period": "1",
-      "subtheme": "Celi brojevi",
+      "subtheme": "Cela števila",
       "topic": "Računske operacije",
       "rank_subtheme": "1",
       "rank_topic": "3",
       "difficulty": "3"
-    },
-    {
-      "name": "numb_2/q00057",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Pojam, suprotan broj, apsolutna vrednost",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "1"
-    },
-    {
-      "name": "numb_2/q00057",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Prikaz na brojevnoj pravoj, upoređivanje",
-      "rank_subtheme": "1",
-      "rank_topic": "2",
-      "difficulty": "1"
-    },
-    {
-      "name": "numb_2/q00058",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Pojam, suprotan broj, apsolutna vrednost",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "2"
-    },
-    {
-      "name": "numb_2/q00058",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Prikaz na brojevnoj pravoj, upoređivanje",
-      "rank_subtheme": "1",
-      "rank_topic": "2",
-      "difficulty": "2"
-    },
-    {
-      "name": "numb_2/q00059",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Pojam, suprotan broj, apsolutna vrednost",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "2"
-    },
-    {
-      "name": "numb_2/q00060",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Računske operacije",
-      "rank_subtheme": "1",
-      "rank_topic": "3",
-      "difficulty": "1"
-    },
-    {
-      "name": "numb_2/q00061",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Računske operacije",
-      "rank_subtheme": "1",
-      "rank_topic": "3",
-      "difficulty": "1"
-    },
-    {
-      "name": "numb_2/q00062",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Računske operacije",
-      "rank_subtheme": "1",
-      "rank_topic": "3",
-      "difficulty": "2"
-    },
-    {
-      "name": "numb_2/q00063",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Brojevni izraz",
-      "rank_subtheme": "1",
-      "rank_topic": "4",
-      "difficulty": "2"
-    },
-    {
-      "name": "numb_2/q00064",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Brojevni izraz",
-      "rank_subtheme": "1",
-      "rank_topic": "4",
-      "difficulty": "3"
-    },
-    {
-      "name": "numb_2/q00065",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Brojevni izraz",
-      "rank_subtheme": "1",
-      "rank_topic": "4",
-      "difficulty": "3"
-    },
-    {
-      "name": "numb_2/q00066",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Računske operacije",
-      "rank_subtheme": "1",
-      "rank_topic": "3",
-      "difficulty": "3"
-    },
-    {
-      "name": "numb_2/q00067",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Prikaz na brojevnoj pravoj, upoređivanje",
-      "rank_subtheme": "1",
-      "rank_topic": "2",
-      "difficulty": "1"
-    },
-    {
-      "name": "numb_2/q00068",
-      "random": "8",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Pojam, suprotan broj, apsolutna vrednost",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "1"
-    },
-    {
-      "name": "numb_2/q00069",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Računske operacije",
-      "rank_subtheme": "1",
-      "rank_topic": "3",
-      "difficulty": "2"
-    },
-    {
-      "name": "numb_2/q00070",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Računske operacije",
-      "rank_subtheme": "1",
-      "rank_topic": "3",
-      "difficulty": "2"
-    },
-    {
-      "name": "numb_2/q00071",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Brojevni izraz",
-      "rank_subtheme": "1",
-      "rank_topic": "4",
-      "difficulty": "2"
-    },
-    {
-      "name": "numb_2/q00072",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Brojevni izraz",
-      "rank_subtheme": "1",
-      "rank_topic": "4",
-      "difficulty": "1"
-    },
-    {
-      "name": "numb_2/q00073",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Računske operacije",
-      "rank_subtheme": "1",
-      "rank_topic": "3",
-      "difficulty": "2"
-    },
-    {
-      "name": "numb_2/q00106",
-      "random": "10",
-      "period": "1",
-      "subtheme": "Celi brojevi",
-      "topic": "Pojam, suprotan broj, apsolutna vrednost",
-      "rank_subtheme": "1",
-      "rank_topic": "1",
-      "difficulty": "1"
     }
   ]
 }

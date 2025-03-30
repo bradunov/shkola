@@ -187,7 +187,7 @@ mycanvas = function(no)
 				for i = 1,dim[ind]-2 do
 					lib.add_straight_path(px[dim[ind]], py[dim[ind]], {{px[i]-px[dim[ind]], py[i]-py[dim[ind]]}}, style,  false, false) 	
 				end	
-				lib.add_straight_path(px[dim[ind]], py[dim[ind]], {{px[dim[ind]-1]-px[dim[ind]], py[dim[ind]-1]-py[dim[ind]]}}, style,  false, false) 				
+				lib.add_straight_path(px[dim[ind]], py[dim[ind]], {{px[dim[ind]-1]-px[dim[ind]], py[dim[ind]-1]-py[dim[ind]]}}, line_style,  false, false) 				
 			end
 		end
 	end
