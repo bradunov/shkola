@@ -36,6 +36,11 @@ except Exception as e:
 
 print("Processing language: ", language)
 
+# First delete the existing json files
+for json_name in os.listdir("."):
+  if json_name.endswith(f".{language}.json"):
+    os.remove(json_name)
+
 
 book = xlrd.open_workbook(file_name)
 
