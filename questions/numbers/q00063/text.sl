@@ -1,3 +1,3 @@
-V prazna polja vpišite ustrezne številke.
 
+V prazna polja vpišite ustrezna števila.
 @center@ @mycanvas()@

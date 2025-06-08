@@ -1,5 +1,6 @@
-The area of the square @"P"@ is given, 
-@repeat(4)@
+
+If the surface area of a square is
+@repeat(3)@
 @vspace@
-@center@ @"P"@ = @quest@@meas2[sig]@, @hspacept(20)@@edge[ind]@ is @answ@@meas[sig]@;
+@center@ @"P"@ = @quest@@meas2[sig]@, @hspacept(20)@@edge[ind]@ is @answ@@meas[sig]@.
 @/repeat@

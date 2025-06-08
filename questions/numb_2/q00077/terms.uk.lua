@@ -1,1 +1,1 @@
-title = {"number", "number of decimals", "approximate value", "error"}
+title = {"number", "decimals", "approximate value", "error"}

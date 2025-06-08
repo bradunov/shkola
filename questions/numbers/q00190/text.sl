@@ -1,6 +1,6 @@
-V tovarni avtomobilov je v enem mesecu proizvedenih @white@ belih in @black@ črnih avtomobilov.
+V tovarni avtomobilov je v enem mesecu  izdelala  @white@ belih in @black@ črnih avtomobilov.
 
-Koliko je skupaj avtomobilov proizvedenih tistega meseca?@hspacept(15)@  
+Koliko avtomobilov je bilo skupno proizvedenih tisti mesec? 
 @center@ @lib.check_number(result,40)@
 
 Koliko bi skupaj bilo proizvedenih avtomobilov, če bi bilo proizvedenih belih avtomobilov za @diff@ več?@hspacept(15)@ 

@@ -1,1 +1,1 @@
-msg = {"od najmanjega do največjega", "od največjega do najmanjega"}
+msg = {"od najmanjšega do največjega", "od največjega do najmanjšega"}

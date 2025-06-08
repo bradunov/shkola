@@ -1,4 +1,4 @@
 
-Na številčni premici vpišite manjkajoče številke.
+Na številčni premici vpišite manjkajoča številka.
 
 @center@ @mycanvas()@

@@ -4,16 +4,17 @@ include("terms")
 bracketl = "{"
 bracketr = "}"
 
-und = "\(\subset\)"  
-empt = "\(\small\emptyset\)"
-op1 = "\(\small\leq\)" 
-op2 = "\(\small\geq\)"
-op3 = "\(\small\gt\)"
-op4 = "\(\small\lt\)"
-n0 = "\(\small N_0\)"  
-nn = "\(\small N\)"
-elem = "\(\small\in\)"  
+und = "⊂"  
+empt = "∅"
+op1 = "≤" 
+op2 = "≥"
+op3 = ">"
+op4 = "<"
+n0 = "N₀"  
+nn = "N"
+elem = "∈"  
 
+letter = {"A", "B", "C", "D", "E", "F"}
 prime = {2, 3, 5, 7, 11, 13, 17, 19}
 
 stampa = 8
@@ -24,12 +25,9 @@ solut = {}
 choice = {}
 
 --[[ tekst]]--
-dim[1] = 3
-dim[2] = 5
-dim[3] = 5
-dim[4] = 3
-dim[5] = 5
-
+for i = 1,5 do
+	dim[i] = dim_word[i]
+end
 --[[prazan skup ]]--
 dim[6] = 0     
  
@@ -101,12 +99,11 @@ for i = 1,total do
 end
 choice = lib.math.random_shuffle(q)	
 
-
 for i = 1,stampa do
     ind = choice[i]
     solut[i] = bracketl
     if (ind < 6) then
-	    solut[i] = solut[i] .. " x | " .. "x je " .. name .. " " .. descr_w[ind] .. " " .. bracketr 
+	    solut[i] = solut[i] .. " x | " .. "x " .. name .. " " .. descr_w[ind] .. " " .. bracketr 
 		reply[i] = tostring(dim[ind])
 	end
 	if (ind == 6) then
@@ -125,7 +122,7 @@ for i = 1,stampa do
 	    reply[i] = tostring(dim[ind])
     end	
 	if (ind == 10) then
-	    solut[i] = solut[i] .. " x | " .. "x je " .. descr_n[3] .. " " .. tostring(value) .. " " .. bracketr 
+	    solut[i] = solut[i] .. " x | " .. "x " .. descr_n[3] .. " " .. tostring(value) .. " " .. bracketr 
 	    reply[i] = tostring(dim[ind])		
 	end	
     if (ind == 11) then
@@ -141,7 +138,7 @@ for i = 1,stampa do
 	end	 	
     if (ind == 13) then
 	    numb = 6 + math.random(13)
-	    solut[i] = solut[i] .. " x | " .. "x je " .. descr_n[1] .. ", x" .. " " .. op4 .. " " .. numb .. " " .. bracketr 
+	    solut[i] = solut[i] .. " x | " .. "x " .. descr_n[1] .. ", x" .. " " .. op4 .. " " .. numb .. " " .. bracketr 
 		sum = 0
 		for j = 1,8 do
 		    if (prime[j] < numb) then
@@ -152,13 +149,13 @@ for i = 1,stampa do
 	end	 
     if (ind == 14) then
 	    numb = 7 + math.random(7)		
-	    solut[i] = solut[i] .. " x | " .. "x" .. elem .. n0 .. ", x je " .. descr_n[2] .. ", x" .. op4 .. numb .. " " .. bracketr 
+	    solut[i] = solut[i] .. " x | " .. "x" .. elem .. n0 .. ", x " .. descr_n[2] .. ", x" .. op4 .. numb .. " " .. bracketr 
 		temp = math.floor((numb+1)/2)
 		dim[ind] = temp
 		reply[i] = tostring(dim[ind])
 	end	 	
     if (ind == 15) then		
-	    solut[i] = solut[i] .. " x | " .. "x je " .. descr_n[4] .. bracketr 
+	    solut[i] = solut[i] .. " x | " .. "x " .. descr_n[4] .. bracketr 
 		dim[ind] = 10
 		reply[i] = tostring(dim[ind])
 	end	 	
@@ -167,22 +164,6 @@ for i = 1,stampa do
 	    solut[i] = solut[i] .. " x | " .. "x" .. elem .. nn .. ", x " .. adv .. " " .. numb .. " " .. bracketr 
 		reply[i] = inft
 	end	 		
-end                         
-                                           
-                 
-            
-             
-          
-
-
-
- 
-
-
-          
-          
-    
-    
+end                
                   
-                
                 

@@ -1,5 +1,4 @@
 
-Vpišite manjkajoče številke, da bo razlika pravilna.
-
+Vpišite manjkajoče števke tako, da bo razlika pravilna.
 @vspace@
 @center@ @mycanvas()@

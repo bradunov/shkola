@@ -1,1 +1,1 @@
-name = {"soba", "dnevna", "spalnica", "otroška", "kuhinja", "kopalnica", "hodnik"}
+name = {"dnevna soba", "spalnica", "otroška soba", "kuhinja", "kopalnica", "hodnik"}

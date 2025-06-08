@@ -1,6 +1,7 @@
-descr_w = {"banana", "notebook", "daisy", "pineapple", "internet"}
-descr_n = {"prime number", "even number", "digit of a number", "Arabic numeral"}
+dim_word = {3, 3, 5, 4, 5}
+descr_w = {"banana", "book", "sentence", "river", "internet"}     
+descr_n = {"is a prime number", "is an even number", "is a digit of a number", "is Arabic numeral"}
 
-name = "word letter"
+name = "is a letter of the word"
 inft = "b"
 adv = "contains"

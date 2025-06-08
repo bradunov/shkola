@@ -1,8 +1,7 @@
-Write down all the factors of the given numbers, from smallest to largest.
 
+Write down all the factors of the given numbers, from smallest to largest.
 @repeat(4)@
 @number@ @hspace@ @answ@
 @/repeat@
-
 Observe the rule and complete the sentence.
-A number is divisible by 11 if the @lib.check_string(msg[1],50)@ between @lib.check_string(msg[2],50)@ its digits that are in odd positions and those that are in even positions are divisible by @lib.check_number(11,20)@.
+A number is divisible by 11 if the @lib.check_string(msg[1],60)@ between the @lib.check_string(msg[2],50)@ of its digits that are in odd positions and those that are in even positions is divisible by @lib.check_number(11,20)@.

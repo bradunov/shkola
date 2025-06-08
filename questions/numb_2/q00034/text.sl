@@ -1,4 +1,5 @@
-Fabrika je proizvedla @ind@ modelov obutve v naslednjih količinah: @number[1]@,  @number[2]@,  @number[3]@ in  @number[4]@ parov obutve. Želi, da jih enakomerno razdeli po svojih prodajalnah.
+
+Tovarna je proizvedla @ind@ modelov obutve v naslednjih količinah: @number[1]@,  @number[2]@,  @number[3]@ in  @number[4]@ parov obutve. Želi jih enakomerno porazdeliti po svojih trgovinah.
 @vspace@
 Koliko največ prodajaln lahko oskrbi z enakimi paketi obutve?
 @center@ Lahko oskrbi največ @lib.check_number(prod, 30)@ prodajaln.

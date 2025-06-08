@@ -1,5 +1,5 @@
 
-Z združevanjem seštevancev izračunaj na najlažji način:
+Z združevanjem seštevancev izračunajte na najlažji način:
 @repeat(2)@
 @vspace@
 @center@ @number[1]@ + @number[2]@ + @number[3]@ + @number[4]@   

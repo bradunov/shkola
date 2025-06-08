@@ -153,14 +153,14 @@ else
     note = lib.check_one_option_dropdown(msg, msg[1])
 	set = " k " .. elem .. brac[3]
 	if (nr > 0) then
-		if (nr <= 6) then
+		if (nr <= 5) then
 			for i = 1, nr do	
 				set = set .. lib.check_number(bound_left+i-1,30) .. ", "  
 			end	
 		else
-			for i = 1, 3 do
+			for i = 1, 2 do
 				set = set .. lib.check_number(bound_left+i-1,30) .. ", "  
-				temp = temp .. lib.check_number(bound_right -4+i,30) .. ", " 		
+				temp = temp .. lib.check_number(bound_right -3+i,30) .. ", " 		
 			end	
 			set = set .. temp
 		end	

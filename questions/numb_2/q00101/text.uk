@@ -1,6 +1,5 @@
 
-Simplify the expressions. Write a '-' sign in the first square if the result is negative. Letters denote positive values.
-
+Simplify the expressions. Enter the sign - in the first square if the result is negative. Letters denote positive numbers.
 @repeat(3)@ 
 @vspace@
 @center@   @quest@  = @answ@

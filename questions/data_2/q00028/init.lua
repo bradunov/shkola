@@ -19,33 +19,34 @@ aver = (3 * numb3 + 4 * numb4 + 5 * numb5)/number
 aver = lib.math.round_dec(aver, 2)
 
 if (numb3 == 1) then
-    pad3 = msg1[1]
+    pad3 = msg[1]
 else 
     if (numb3 < 5) then 
-        pad3 = msg2[1]	
+        pad3 = msg[2]	
 	else
-	    pad3 = msg5[1]
+	    pad3 = msg[3]
 	end
 end
 
 if (numb4 == 1) then
-    pad4 = msg1[2]
+    pad4 = msg[1]
 else 
     if (numb4 < 5) then 
-        pad4 = msg2[2]	
+        pad4 = msg[2]	
 	else
-	    pad4 = msg5[2]
+	    pad4 = msg[3]
 	end
 end
 
 if (numb5 == 1) then
-    pad5 = msg1[3]
+    pad5 = msg[1]
 else 
     if (numb5 < 5) then 
-        pad5 = msg2[3]	
+        pad5 = msg[2]	
 	else
-	    pad5 = msg5[3]
+	    pad5 = msg[3]
 	end
 end                   
 
-            
+               
+        

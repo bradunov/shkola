@@ -1,4 +1,5 @@
-Share @hspacept(2)@ @lib.dec_to_str(number)@ @hspacept(2)@ with @hspacept(2)@ @factor@.
 
+Divide  @hspacept(2)@ @lib.dec_to_str(number)@ @hspacept(2)@ by @hspacept(2)@ @factor@.
 @center@ @mycanvas()@  
-@center@ Round the quotient to @round@ @name@ @hspacept(3)@ @lib.check_number(result, 50)@.
+@center@ Round the quotient to @round@ @name@.
+ @center@ @lib.check_number(result, 50)@

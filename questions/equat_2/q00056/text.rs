@@ -3,5 +3,6 @@ Reši nejednačine. Upiši granične vrednosti na jednu decimalu ili u obliku ra
 @repeat(2)@ 
 @vspace@
 @center@ @equ[ITEM]@ 
-@center@ @lib.check_one_option_dropdown(msg, reply[ITEM])@ @hspacept(8)@ @sol[ITEM]@.
+@center@ @lib.check_one_option_dropdown(msg, reply[ITEM])@ 
+@center@ @sol[ITEM]@.
 @/repeat@

@@ -1,2 +1,2 @@
-elem = {"moka", "sladkorja", "orehov", "masla"}
+elem = {"moke", "sladkorja", "orehov", "masla"}
 msg = {"oseba", "osebe"}

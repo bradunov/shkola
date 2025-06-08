@@ -1,5 +1,5 @@
-Zmešane številke zapišite v obliki napačnih ulomkov.
 
+Dane številke zapiši kot ulomke.
 @repeat(4)@
-@center@ @ceo@\(\frac{@brojilec@}{@imenovalec@}\) @hspacept(3)@ = @hspacept(3)@ @lib.check_fraction_simple(veliki_brojilec, imenovalec)@
+@center@ @ceo@\(\frac{@brojilac@}{@imenilac@}\) @hspacept(3)@ = @hspacept(3)@ @lib.check_fraction_simple(veliki_brojilac, imenilac)@
 @/repeat@

@@ -1,7 +1,3 @@
 
-Oboj sve brojeve deljive sa @choice@, kao što je naznačeno. (Klikni pored broja.)
- 
+Oboj sve brojeve deljive sa @choice@, kao što je naznačeno. (Klikni pored broja.) 
 @center@ @mycanvas()@
-
-
-                  

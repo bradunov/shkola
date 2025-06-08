@@ -1,8 +1,6 @@
-                                                                                
-Write an equation and work out the answer using the given number line.
-Enter the numbers which are missing.
 
+Fill in the missing numbers on the number line.
+Complete the expression according to the picture and calculate the sum.
 @center@ @mycanvas()@
-
 @hspacept(40)@ @value1@ +  @lib.check_number(value2,20)@ + ( @lib.check_number(value3,20)@ ) + ( @lib.check_number(value4,20)@ ) =  @lib.check_number(result,20)@  
  

@@ -1,3 +1,4 @@
-Vnesite ustrezne številke v kvadratke. 
+
+Vnesite ustrezna števila v kvadratke. 
 
 @center@ @mycanvas()@

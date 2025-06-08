@@ -1,6 +1,6 @@
 
-Calculate the number:
+Calculate the number you get when:
 @repeat(2)@
-take @sign[ind1]@ of the numbers @term1@ and @term2@, and @sign[ind]@ @sign[ind2]@ of the numbers @term3@ and @term4@ 
+@sign[ind]@ @sign[ind1]@ of the numbers @term1@ and @term2@ by @sign[ind2]@ of the numbers @term3@ and @term4@
 @center@ @lib.check_number(result,30)@ 
 @/repeat@ 

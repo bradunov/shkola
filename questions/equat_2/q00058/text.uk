@@ -1,12 +1,12 @@
 
-The lengths of the sides of the triangle are @hspacept(3)@ @"a"@ = @numb[1]@@"cm"@, @hspacept(3)@ @"b"@ = @numb[2]@@"cm"@ @hspacept(3)@ and @hspacept(3)@ @"c"@ = @quest@ @"cm"@, @hspacept(3)@ @"k"@ is a whole number.
-
-What values can the number @"k"@ have?
+The lengths of the sides of the triangle are 
+@center@ @"a"@ = @numb[1]@@"cm"@, @hspacept(5)@ @"b"@ = @numb[2]@@"cm"@, @hspacept(5)@  @"c"@ = @quest@ @"cm"@, 
+@"k"@ is an integer. What values can @"k"@ have?
 Write inequalities that determine the allowable values of the number @"k"@ and the solution set.
-
 @vspace@
 @center@ @equ[1]@
 @center@ @equ[2]@
 @vspace@
 @center@ @note@  
 @center@ @set@
+            

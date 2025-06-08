@@ -1,6 +1,5 @@
-Express a decimal fraction as a decimal number, or vice versa.
 
+Express a decimal fraction as a decimal number, or vice versa.
 @repeat(4)@
 @center@    @answ@ 
- 
 @/repeat@

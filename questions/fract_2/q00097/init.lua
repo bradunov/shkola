@@ -37,13 +37,14 @@ ans = {""}
 
 mycanvas = function()
 	 		  
-  lib.start_canvas(330, 350, "center")   
+  lib.start_canvas(330, 300, "center")   
 
-	ow = 10  
-	w = 15
-	v = 50
-	ov = 68
-	tab = 195
+	ow = 8  
+	w = 12
+	v = 40
+	ov = 100
+	tab = 156
+	
 
 	for i = 1,11 do
 	    x[i] = ov+(i-1)*w
@@ -115,41 +116,47 @@ mycanvas = function()
 
    --[[tabela]]-- 
    
-	lib.add_line(ow, tab, 0, 3*v-ow, grid_style, false, false)
-	lib.add_line(ow+v, tab, 0, 3*v-ow, grid_style, false, false)
+   	owt = 10  
+	wt = 15
+	vt = 50
+	ovt = 68
+	tabt = tab
+   
+	lib.add_line(owt, tabt, 0, 3*vt-owt, grid_style, false, false)
+	lib.add_line(owt+vt, tabt, 0, 3*vt-owt, grid_style, false, false)
 	for i = 1,4 do 
-		lib.add_line(ow+v + i*(v+w), tab, 0, 3*v-ow, grid_style, false, false)
+		lib.add_line(owt+vt + i*(vt+wt), tabt, 0, 3*vt-owt, grid_style, false, false)
 	end
-	lib.add_line(ow, tab, 4*ov+v-ow, 0, grid_style, false, false)	 
+	lib.add_line(owt, tabt, 4*ovt+vt-owt, 0, grid_style, false, false)	 
 	for j = 1,3 do
-		lib.add_line(ow, tab+j*v-ow, 4*ov+v-ow, 0, grid_style, false, false)
+		lib.add_line(owt, tabt+j*vt-owt, 4*ovt+vt-owt, 0, grid_style, false, false)
 	end
 
 	for j = 1,2 do
-		lib.add_text(v-w, j*v+tab+2*ow, name[j], text_style, false, false)  
+		lib.add_text(vt-wt, j*vt+tabt+2*owt, name[j], text_style, false, false)  
 	end
 	for i = 1,4 do
-		lib.add_text(2*ow + i*ov, tab+w, msg[i], text_style, false, false)	
+		lib.add_text(2*owt + i*ovt, tabt+wt, msg[i], text_style, false, false)	
 	end
-	lib.add_text(2*ow + 3*ov, tab+2*w, msg[5], text_style, false, false)  
-	lib.add_text(2*ow + 4*ov, tab+2*w, msg[6], text_style, false, false)  	
+	lib.add_text(2*owt + 3*ovt, tab+2*wt, msg[5], text_style, false, false)  
+	lib.add_text(2*owt + 4*ovt, tabt+2*wt, msg[6], text_style, false, false)  	
 
 	for j = 1,2 do
 		for i = 1,2 do	
-            lib.add_line(i*(v+w)+w, tab+j*v+2*ow, 3*ow, 0, style, false, false)		
+            lib.add_line(i*(vt+wt)+wt, tabt+j*vt+2*owt, 3*owt, 0, style, false, false)		
 			if (i == 1) then
-				lib.add_input(i*(v+w), tab+j*v-ow, 60, 60, lib.check_number(size[j]*10,20))
-				lib.add_text(i*(v+w)+3*ow, tab+j*v+3*ow, "100", text_style, false, false) 
+				lib.add_input(i*(vt+wt), tabt+j*vt-owt, 60, 60, lib.check_number(size[j]*10,20))
+				lib.add_text(i*(vt+wt)+3*owt, tabt+j*vt+3*owt, "100", text_style, false, false) 
 			else			
-				lib.add_input(i*(v+w), tab+j*v-ow, 60, 60, lib.check_number(size[j],20))
-				lib.add_text(i*(v+w)+3*ow, tab+j*v+3*ow, "10", text_style, false, false) 
+				lib.add_input(i*(vt+wt), tabt+j*vt-owt, 60, 60, lib.check_number(size[j],20))
+				lib.add_text(i*(vt+wt)+3*owt, tabt+j*vt+3*owt, "10", text_style, false, false) 
 			end		
 		end	
 		for i = 3,4 do		
 			if (i == 3) then
-				lib.add_input(i*(v+w), tab+j*v, 60, 60, lib.check_number(size[j]/10,20))
+				lib.add_input(i*(vt+wt), tabt+j*vt, 60, 60, lib.check_number(size[j]/10,20))
 			else			
-				lib.add_input(i*(v+w), tab+j*v, 60, 60, lib.check_number(size[j]*10,20))
+				lib.add_input(i*(vt+wt), tabt+j*vt, 60, 60, lib.check_number(size[j]*10,20))
 			end		
 		end
 	end	
@@ -172,4 +179,4 @@ mycanvas = function()
 
   total = (size[1] + size[2]) * 10  
 end
-        
+      

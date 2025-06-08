@@ -1,4 +1,8 @@
 
+word = {}  
+
+include("terms")
+
 style_blue = 
 	{["off_color"] = "0cf",
         ["on_color"] = "0cf",
@@ -25,18 +29,9 @@ line_red =
 
 text_style = {["font_size"] = "20"}
 
-word = {}  
-
-
-include("terms")
-
-
 bracketl = "{"
 bracketr = "}"
-rel = "\(\leq\)"
    
-dim_word = {3, 7, 5, 6, 5}
-
 number = {}
 number[1] = {2, 3, 5, 7, 11, 13, 17, 19}
 number[2] = {1, 10, 100, 1000}
@@ -77,25 +72,22 @@ else
 end	
 solut_1 = solut_1 .. bracketr
 
-solut_2 = "S" .. " = " .. bracketl .. " x | " .. "x je " 
-if (ind == 1) then
-    tempn = descr_n[index]  
-    solut_2 = solut_2 .. lib.check_string(tempn,50) 
+solut_2 = "S" .. " = " .. bracketl .. " x | " .. "x " 
+if (ind == 1) then 
     if (index == 1) then
-        solut_2 = solut_2 .. " " .. name[1] ..", x < " .. lib.check_number(20,20) 	
+        solut_2 = solut_2  .. name[3] .. lib.check_one_option_dropdown(descr_n, descr_n[index]) .. " " .. name[1] ..", x < " .. lib.check_number(20,20) 	
 	end
     if (index == 2) then
-        solut_2 = solut_2 .. " ".. tens[1] .. ", x " .. rel .. lib.check_number(1000,30) 	
+        solut_2 = solut_2  .. name[3] .. lib.check_one_option_dropdown(descr_n, descr_n[index]) .. " ".. tens[1] .. ", x ≤ " .. lib.check_number(1000,30) 	
 	end
     if (index == 3) then
-        solut_2 = solut_2 .. " " .. name[1] .. " " .. lib.check_string(adv[1],40) .. tens[2] 	
+        solut_2 = solut_2  .. name[3] .. lib.check_one_option_dropdown(descr_n, descr_n[index]) .. " " .. name[1] .. " " .. lib.check_one_option_dropdown(adv, adv[1]) .. tens[2] 	
 	end
     if (index == 4) then
-        solut_2 = solut_2 .. name[1] .. " " .. lib.check_string(adv[2],40) .. tens[2]	
+        solut_2 = solut_2  .. name[3] .. lib.check_one_option_dropdown(descr_n, descr_n[index]) .. " " .. name[1] .. " " .. lib.check_one_option_dropdown(adv, adv[2]) .. tens[2]	
 	end	
 else
-    tempw = descr_w[index] 
-    solut_2 = solut_2 .. name[2] .. " " .. lib.check_string(tempw, 70) 
+    solut_2 = solut_2 .. name[3] .. name[2] .. " " .. lib.check_one_option_dropdown(descr_w, descr_w[index])
 end	
     solut_2 = solut_2 .. bracketr  
 
@@ -111,7 +103,6 @@ mycanvas = function(no)
       lib.add_rectangle(2*ow, ow, 6*ov-ow, 2*ov+3*ow, line_red, true, false)
   else
       lib.add_ellipse(4*ov-ow, 2*ov, 3*ov, 2*ov-ow, line_blue, true, false)  
-      lib.add_text(ov, ow/2, descr_w[index])
   end
 
   if (ind == 1) then
@@ -162,13 +153,3 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end          
-       
-            
-    
-          
-          
-    
-    
-                  
-                
-                

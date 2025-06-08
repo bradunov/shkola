@@ -1,4 +1,6 @@
 
+include("terms")
+
 style = 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -6,9 +8,7 @@ style =
         ["line_width"] = "0.2"};
 
 text_style = {["font_size"] = "16"}
-
-include("terms")
-          
+        
 proc = "%"
 index = {}
 out = {}
@@ -27,9 +27,9 @@ result = lib.math.round_dec(numb2 - numb1, 2)
 
 mycanvas = function()
 
-  lib.start_canvas(350, 200, "center")
+  lib.start_canvas(350, 180, "center")
 
-  wh = 100
+  wh = 110
   wv = 40
   ow = 10
 
@@ -41,18 +41,18 @@ mycanvas = function()
   for i = 1,4 do
     lib.add_line(ow+(i-1)*wh, ow, 0, 4*wv, style, false, false)
   end  
-
-  lib.add_text(5*ow, 3*ow, title[1], text_style)
-  lib.add_text(5*ow, 5*ow, title[2], text_style)
-  lib.add_text(6*ow, 7*ow, "l", text_style)  
-
-  lib.add_text(5*ow+wh, 3*ow , title[3], text_style)
-  lib.add_text(5*ow+wh, 5*ow , title[4], text_style)
-  lib.add_text(6*ow+wh, 7*ow, proc, text_style)
   
-  lib.add_text(5*ow+2*wh, 3*ow, title[1], text_style)
-  lib.add_text(5*ow+2*wh, 5*ow , title[4], text_style)
-  lib.add_text(6*ow+2*wh, 7*ow, "l", text_style) 
+  lib.add_input(3*ow, 2*ow, 80, 30, title[1])
+  lib.add_input(3*ow, 4*ow, 80, 30, title[2]) 
+  lib.add_input(3*ow, 6*ow, 80, 30, "l")  
+
+  lib.add_input(3*ow+wh, 2*ow , 90, 30, title[3])
+  lib.add_input(3*ow+wh, 4*ow , 90, 30, title[4]) 
+  lib.add_input(3*ow+wh, 6*ow, 90, 30, proc)  
+
+  lib.add_input(3*ow+2*wh, 2*ow , 80, 30, title[1])
+  lib.add_input(3*ow+2*wh, 4*ow , 80, 30, title[4]) 
+  lib.add_input(3*ow+2*wh, 6*ow, 80, 30, "l")  
   
   lib.add_text(6*ow, 3*wv-ow, tostring( numb1), text_style)
   lib.add_text(6*ow+wh, 3*wv-ow, math.floor(per1), text_style)
@@ -64,3 +64,4 @@ mycanvas = function()
   
   lib.end_canvas()
 end
+           

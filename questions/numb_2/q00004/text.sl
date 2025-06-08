@@ -1,4 +1,5 @@
-Primerjaj številke. Izberi znak = , < ali > .
+
+Primerjajte števila. Izberite znak = , < ali > .
 
 @repeat(5)@
 @center@ @broj1@ @hspace@ @lib.check_one_option_dropdown(answ,sign)@  @hspace@ @broj2@

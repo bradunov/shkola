@@ -1,5 +1,5 @@
 
-Oceni vrednost izraza tako, da zaokrožiš številke na najbližjo naznačeno desetiško enoto. 
+Ocenite vrednost izraza tako, da zaokrožite števila na najbližjo naznačeno desetiško enoto. 
 Primer:@hspacept(10)@   desetiška enota @demo@,   
 @hspacept(50)@ vsota je približno enaka (@prib@)
 @hspacept(50)@ @value1@ + @value2@ @prib@ @result1@ + @result2@ = @near@

@@ -1,5 +1,6 @@
-Oprostite izraze. Vnesite stopnjo za dano osnovo in znak - v prvo kvadratno polje, če je rezultat negativen.
 
-@repeat(4)@
+Poenostavite izraze. Zapišite eksponent za dano osnovo in, če je rezultat negativen, znak - v prvi kvadrat. 
+@repeat(3)@
+@vspace@
 @center@   @quest@  = @answ@
 @/repeat@

@@ -1,9 +1,9 @@
-ones = {"dva", "tri", "četiri", "pet", "šest", "sedam", "osam", "devet"}
-ones_L = {"dva", "tri", "cetiri", "pet", "sest", "sedam", "osam", "devet"}
+ones = {"dva", "tri", "štiri", "pet", "šest", "sedem", "osem", "devet"}
+ones_L = {"dva", "tri", "stiri", "pet", "sest", "sedem", "osem", "devet"}
 
-msg_one = {"cela", "celih"}
-msg_ten = {"deseta", "desetih"}
-msg_hundred = {"stota", "stotih"}
-msg_thousand = {"hiljadita", "hiljaditih"}
+msg_one = {"cele", "celih"}
+msg_ten = {"desetice", "desetin"}
+msg_hundred = {"stotice", "stotink"}
+msg_thousand = {"tisočinke", "tisočink"}
 
 ad = " in "

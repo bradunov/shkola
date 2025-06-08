@@ -21,10 +21,10 @@ text_style = {["font_size"] = "14"}
 
 bracketl = "{"
 bracketr = "}"
-uni = "\(\small\cup\)"  
-sect = "\(\small\cap\)"
-empty = "\(\small\emptyset\)" 
-dif = "\"
+uni = "∪"  
+sect = "∩"
+empty = "∅" 
+dif = "∖"
 
 
 
@@ -197,21 +197,3 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end         
-
-
-
-       
-         
-                   
-         
-        
-       
-            
-    
-          
-          
-    
-    
-                  
-                
-                

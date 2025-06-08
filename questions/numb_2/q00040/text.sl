@@ -1,17 +1,13 @@
-Zapiši naštevanjem elementov (začenši z najmanjšim) naslednje sklope števil:
+
+Zapiši naštevanjem elementov (začni z najmanjšim) naslednje množice števil:
 @vspace@
-
-Sklop naravnih števil
+Množica naravnih števil
 @center@  @"N"@ = @solut[1]@
-
-Sklop praštevil prve desetice
+Množica praštevil prve desetice
 @center@  @"R"@ = @solut[2]@
-
-Sklop števk števila @value@
+Množica števk števila @value@
 @center@  @"C"@ = @solut[3]@ 
-
-Sklop naravnih števil dopolnjenih z ničlo
+Množica naravnih števil dopolnjenih z ničlo
 @center@  @natur0@ = @solut[4]@
-
-Sklop sodih števil manjših od 100
+Množica sodih števil manjših od 100
 @center@ @"P"@ = @solut[5]@

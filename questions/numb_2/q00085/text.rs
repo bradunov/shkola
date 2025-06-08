@@ -1,5 +1,5 @@
                                                                                                 
-Date proizvode zapiši kao stepene sa prirodnim izložiocima.  
+Proizvod zapiši kao proizvod stepena čiji su izložiloci prirodni brojevi.  
 @repeat(2)@
 @vspace@
 @center@  @quest@  

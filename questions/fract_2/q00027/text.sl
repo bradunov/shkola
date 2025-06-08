@@ -1,5 +1,5 @@
-Napišite številke s številkami:
 
+Zapišite številke s ciframi:
 @repeat(5)@
 @vspace@
 @center@ @answer_rand[ITEM]@ @hspacept(5)@ @lib.check_string(tostring(value_rand[ITEM]),40)@

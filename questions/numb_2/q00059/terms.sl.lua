@@ -1,3 +1,3 @@
-msg_tue = "Številka"
-msg_change = "Nasprotna številka"
+msg_tue = "Število"
+msg_change = "Nasprotno število"
 msg_wed = "Absolutna vrednost"

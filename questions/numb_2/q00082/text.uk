@@ -1,5 +1,5 @@
-Write the exponent for the given base and exponent. Represent the exponent as a product.
 
+Write down the degree for the given base and exponent. Represent the degree as a product.
 @repeat(3)@
 @center@ base @base@, exponent @grd@ 
 @center@ @lib.check_string(base,15)@ @sup@ @lib.check_number(grd,10)@ @/sup@ @hspacept(3)@ = @hspacept(3)@ @answ@  

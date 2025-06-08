@@ -1,5 +1,6 @@
 
-Calculate by reducing to similar roots. Then, using the table of square roots, calculate approximate values of the expressions (with an error no greater than 0.01).
+Calculate by reducing to similar roots. 
+Using the table of square roots, calculate approximate values of the expressions (with an error no greater than 0.01).
 @repeat(2)@
 @vspace@
 @center@ @quest@ 

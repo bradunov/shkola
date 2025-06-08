@@ -1,7 +1,7 @@
 
 bracketl = "{"
 bracketr = "}"
-natur0 = "\(\small N_0\)"
+natur0 = "N₀"
 dot = "\(\dots\)"
 
 prime = {2,3,5,7}
@@ -53,12 +53,4 @@ for i = 2,6,2 do
     solut[5] = solut[5] .. lib.check_number(i,15) .. ", "
 end				
 solut[5] = solut[5] .. " " .. dot .. " , " .. lib.check_number(96,20) .. ", " .. lib.check_number(98,20) .. bracketr       
-             
-    
-          
-          
-    
-    
-                  
-                
-                
+            

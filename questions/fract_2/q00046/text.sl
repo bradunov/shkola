@@ -1,7 +1,8 @@
-Izračunaj in zapiši rezultat v najenostavnejši obliki.
 
+Izračunaj in zapiši rezultat v najpreprostejši obliki.
 @repeat(2)@
 @hspacept(20)@ @term1@ @"*"@ @term2@ = @lib.check_fraction_simple(enum[1], denom[1])@  @"*"@  @lib.check_fraction_simple(enum[2], denom[2])@ 
 @center@ = @ans1@   @ans2@
 @vspace@
 @/repeat@
+            

@@ -1,9 +1,6 @@
+
 Set the brackets so that the equations are correct.
-
 @repeat(4)@
-
-@center@ @answ@  
-
 @vspace@
-
+@center@ @answ@  
 @/repeat@

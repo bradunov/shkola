@@ -1,5 +1,5 @@
-Determine the reciprocal values of numbers.
 
+Determine the reciprocal values of numbers.
 @repeat(4)@
 @center@ @quest@ @hspacept(30)@  @answ1@@answ2@
 @/repeat@

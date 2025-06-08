@@ -1,5 +1,5 @@
-Izračunaj: 
 
-@repeat(5)@
+Izračunajte: 
+@repeat(4)@
 @center@ @quest@ @sup@ @grdout@ @/sup@  = @answ@ 
 @/repeat@

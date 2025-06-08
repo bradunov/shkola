@@ -1,3 +1,4 @@
-The picture shows a floor plan, drawn to scale 1:@prop@. The length of the grid squares represents @mes@ @"mm"@. Calculate the dimensions (@"a"@ and @"b"@ in @"m"@) and areas (@"P"@ in @m2@) of the rooms in the apartment (to three decimal places).
 
+The picture shows a floor plan, drawn to scale 1:@prop@. The length of the grid squares represents @mes@ @"mm"@. 
+Calculate the dimensions (@"a"@ and @"b"@ in @"m"@) and areas (@"P"@ in @m2@) of the rooms in the apartment (to three decimal places).
 @center@ @mycanvas()@

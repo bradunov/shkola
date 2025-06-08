@@ -1,4 +1,8 @@
 
+word = {}
+
+include("terms")
+
 style_green = 
 	{["off_color"] = "6f6",
         ["on_color"] = "6f6",
@@ -13,23 +17,17 @@ line_green =
 
 text_style = {["font_size"] = "20"}
 
-word = {}
-
-include("terms")
- 
-dim_word = {7, 5}
-
 bracketl = "{"
 bracketr = "}"
  
-rel = "\(\leq\)"
-rel2 = "\(\lt\)"
-pos = "\(\in\)" 
+rel = "≤"
+rel2 = "<"
+pos = "∈" 
 descr_n = {rel, pos}
 number = {}
 number[1] = {6, 7, 9, 11}
 number[2] = {4, 5, 6, 7, 8}
-dim_numb = {4, 5}
+
 
 ind = math.random(2)
 index = math.random(2)

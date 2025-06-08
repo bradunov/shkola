@@ -1,7 +1,6 @@
 
-@repeat(3)@
+@repeat(2)@
 The quotient of two numbers is @prod@. If the first number is @operat[ind]@ by @number@, the quotient will be @result@.
-
 @center@ The numbers are @lib.check_number(factor2, 40)@ and  @lib.check_number(factor1, 30)@.
 @vspace@
 @/repeat@         

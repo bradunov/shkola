@@ -1,7 +1,6 @@
 
 Na početku je cena proizvoda  bila @number@ @val@. 
 Kolika je sada cena proizvoda ako je proizvod  prvo poskupeo za @per@@proc@, a zatim pojeftinio za @per@@proc@? 
-@vspace@
 @center@Cena proizvoda je  @hspacept(3)@  @lib.check_number(price1,50)@ @valnew1@. 
 @vspace@
 Da li bi cena bila ista da je proizvod prvo pojeftinio za @per@@proc@, a zatim poskupeo za @per@@proc@?   

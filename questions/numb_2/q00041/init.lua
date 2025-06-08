@@ -1,4 +1,8 @@
 
+word = {}
+
+include("terms")
+
 style_blue = 
 	{["off_color"] = "0cf",
         ["on_color"] = "0cf",
@@ -25,18 +29,12 @@ line_red =
 
 text_style = {["font_size"] = "16"}
 
-word = {}
-
-include("terms")
-
 bracketl = "{"
 bracketr = "}"
 
-und = "\(\subset\)"  
-empt = "\(\small\emptyset\)"
-oper = "\(\leq\)" 
-
-dim_word = {3, 5, 5, 3, 5}
+und = "⊂"  
+empt = "∅"
+oper = "≤" 
 
 number = {}
 number[1] = {1, 10, 100, 1000}
@@ -101,14 +99,14 @@ else
 end	
 solut_1 = solut_1 .. " " .. bracketr
 
-solut_2 = bracketl .. " s | " .. "s je " 
+solut_2 = bracketl .. " s | " .. "s " .. name[3]
 if (ind == 1) then 
     solut_2 = solut_2 .. descr_n[index] 
     if (index == 1) then
-        solut_2 = solut_2 .. " " .. tens[1] .. " " .. oper .. " " .. tostring(1000)	
+        solut_2 = solut_2 .. " " .. oper .. " " .. tostring(1000)	
 	else
         if (index < 4) then    
-            solut_2 = solut_2 .. " " .. name[1] .. " " ..  adv .. " " .. tens[2]  	
+            solut_2 = solut_2 .. " " .. name[1] .. " " .. tens  	
 		else
             solut_2 = solut_2 .. " " .. tostring(value) 
         end			
@@ -259,17 +257,3 @@ for i = 1,3 do
 		reply[nr] = lib.check_string(check, 15) .. " " .. name[qq[i]] .. " " .. relat .. " " .. name[qq[j]] 
 	end
 end       
- 
- 
- 
-
- 
-
-
-          
-          
-    
-    
-                  
-                
-                

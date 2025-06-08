@@ -1,11 +1,5 @@
 
-Lines AB and CD are congruent. M and N are the midpoints of each line.
-
-Use the information on the coordinate grid to fill the missing coordinates.
+Segments AB and CD are orthogonal. M is the midpoint of segment AB, and N is the midpoint of segment CD.
+Write the missing coordinates in the picture.
 @vspace@
 @center@ @mycanvas()@           
-
-
-
-            
-            

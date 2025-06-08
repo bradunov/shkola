@@ -1,5 +1,5 @@
-Split the root of the underlying quantity into prime factors, and calculate the square root based on that.
 
+Divide the number into its prime factors, and based on that calculate its square root.
 @repeat(2)@
 @vspace@
 @center@ @numb2@ = 

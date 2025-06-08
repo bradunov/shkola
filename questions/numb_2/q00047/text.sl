@@ -1,6 +1,7 @@
+
 Množice @"A"@, @"B"@ in @"C"@ so predstavljene z Euler-Vennovim diagramom
 @center@ @mycanvas()@
-Zapiši po vrsti elemente sledečih množic (od najmanjšega do največjega):
+Zapiši po vrstnem redu (od najmanjšega do največjega) elemente sledečih množic:
 
 @center@ @answ[1]@ @solut[1]@
 @vspace@

@@ -1,7 +1,4 @@
-Določite tri števila v določenem intervalu @"[a,b]"@, tako da je vsota prvega in tretjega števila enaka dvakratniku srednjega števila. 
 
-@repeat(2)@
+V danem intervalu @"[a,b]"@ določite tri števila tako, da je za vsaka tri zaporedna števila (vključno s konci intervala) srednje število aritmetična sredina prejšnjega in naslednjega števila.
 @center@ a = @reply[1]@ @hspacept(140)@ @"b"@ = @reply[5]@
-@center@ @reply[2]@ @hspacept(6)@ @reply[3]@ @hspacept(6)@ @reply[4]@ 
-@vspace@
-@/repeat@
+@center@ @reply[2]@ @hspacept(20)@ @reply[3]@ @hspacept(20)@ @reply[4]@ 

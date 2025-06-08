@@ -1,6 +1,6 @@
-Color the boundaries of the interval to which the real number 
+
+Color on the number line the boundaries of the interval to which the real number 
 @center@  @"√"@@numb2@  
 belongs, and write them down. 
-
 @center@ @mycanvas()@            
 @center@  @"√"@@numb2@  @answ@

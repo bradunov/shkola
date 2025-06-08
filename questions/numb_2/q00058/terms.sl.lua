@@ -1,1 +1,1 @@
-format = {"od najmanjega do največjega", "od največjega do najmanjega"}
+format = {"od najmanjšega do največjega", "od največjega do najmanjšega"}

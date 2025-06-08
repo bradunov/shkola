@@ -1,5 +1,6 @@
-Grade the product. Enter the - sign in the first square if the result is negative. Letters denote positive quantities.
 
+Write the power of the product as a product of numbers. 
+Enter the - sign in the first square if the result is negative. Letters denote positive numbers.
 @repeat(2)@
 @center@   @quest@  =
 @center@  @ans@

@@ -1,7 +1,8 @@
+
 Uporabite samo enkrat števke 
 @center@ @cifre[1]@, @hspacept(3)@ @cifre[2]@, @hspacept(3)@ @cifre[3]@, @hspacept(3)@ @cifre[4]@, @hspacept(3)@ @cifre[5]@ 
-in zapišite vse tricifrne številke, ki so deljive s številom @denum[index]@, po vrsti od najmanjšega do največjega. 
-Če takšnega števila ni, vpišite odgovor: @msg[1]@ @msg[2]@ @msg[3]@ @msg[4]@  @denum[index]@ (v vsako polje vpišite eno besedo ali številko).
+in zapišite vsa trimestna števila, ki so deljiva s številom @denum[index]@, od najmanjšega do največjega. 
+Če takšnega števila ni, vpišite odgovor: @msg[1]@ @msg[2]@ @msg[3]@ @msg[4]@  @denum[index]@ (v vsako polje vpišite eno besedo ali števko).
 
 @vspace@
 @center@ @answ[1]@ 

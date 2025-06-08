@@ -1,3 +1,3 @@
-Uporabljajoč tabelo kvadratnih korenov določite približne vrednosti števil na navedeno število decimalnih mest in napake zaokroževanja.
-@vspace@
+
+Uporabljajoč tabelo kvadratnih korenov določite približne vrednosti števil na navedeno število decimalki, in napake zaokroževanja.
 @addition_table()@

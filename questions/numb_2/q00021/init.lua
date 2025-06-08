@@ -31,26 +31,20 @@ mycanvas = function()
   
     lib.add_line(2, ow, 3*ow+3*wh+8, 0, style, false, false)
 
-  for i = 1,stampa + 1 do
+for i = 1,stampa + 1 do
     lib.add_line(2, i*(wv+ow), 3*ow+3*wh+8, 0, style, false, false)
   end
   y = (3*stampa-1)*wv/2+ow
   lib.add_line(2, ow, 0, y, style, false, false)
   lib.add_line(4*ow, ow, 0, y, style, false, false)
   lib.add_line(4*ow+3*wh, ow, 0, y, style, false, false) 
-  lib.add_text(wh-2*ow, 3*ow, title[8], text_style)
+  lib.add_input(wh-wv, 2*ow, 50, 40, title[8])
 
   
   for i = 1,stampa do
-      lib.add_input(ow/2, ow+i*(wv+ow),30, 30, lib.check_number(div[out[i]],15))  
-      lib.add_text(2*wh-ow, 2*ow+i*(wv+ow)-v, title[out[i]], text_style, false, false)  
-     if (out[i] == 4) then
-        lib.add_text(2*wh-ow, 2*ow+i*(wv+ow)+ow, title[9], text_style, false, false)  
-     else
-        lib.add_text(2*wh-ow, 2*ow+i*(wv+ow)+ow, "", text_style, false, false) 
-     end 
+      lib.add_input(ow/2, ow+i*(wv+ow),30, 30, lib.check_number(div[out[i]],15))    
+      lib.add_input(wv, 2*ow+i*(wv+ow)-v,  290, 40, title[out[i]])  
   end
 
   lib.end_canvas()
-end
-         
+end     

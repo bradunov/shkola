@@ -1,5 +1,5 @@
 
-Izračunaj: 
+Izračunajte: 
 @repeat(4)@
 @center@ @answ@  @lib.check_number(result,20)@ 
 @/repeat@

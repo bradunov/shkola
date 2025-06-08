@@ -1,5 +1,5 @@
 
-Primerjaj števila. Izberi znak = , < ali > .
+Primerjajte števila. Izberite znak = , < ali > .
 
 @repeat(5)@ 
 @center@ @number2@ @operation@   @number1@ @hspacept(3)@ @lib.check_one_option_dropdown(answ,sign)@  @hspacept(3)@ @value@

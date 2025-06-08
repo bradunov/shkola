@@ -1,4 +1,5 @@
-Skup 
+
+Množico
 @center@    @solut_2@, @hspacept(8)@  @add@
 predstavi @task[ind]@:
 @vskip@

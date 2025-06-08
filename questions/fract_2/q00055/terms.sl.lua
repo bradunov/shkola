@@ -1,1 +1,1 @@
-msg = {"večje od", "manjše od"}
+msg = {"večje kot", "manjše kot"}

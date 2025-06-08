@@ -2,18 +2,18 @@
 bracketl = "{"
 bracketr = "}"
 
-uni = "\(\small\cup\)"  
-sect = "\(\small\cap\)"
-dif = "\"  
-empt = "\(\small\emptyset\)"
-n0 = "\(\small N_0\)"  
-nn = "\(\small N\)"
-elem = "\(\small\in\)"  
+uni = "∪"  
+sect = "∩"
+dif = "∖" 
+empt = "∅"
+n0 = "N₀"  
+nn = "N"
+elem = "∈"   
 
-op1 = "\(\small\leq\)" 
-op2 = "\(\small\geq\)"
-op3 = "\(\small\gt\)"
-op4 = "\(\small\lt\)"
+op1 = "≤" 
+op2 = "≥"
+op3 = ">"
+op4 = "<"
 
 reply = {""}
 solut = {}
@@ -90,16 +90,3 @@ for i = 1,stampa do
     end		
 	
 end	
-
-
-
- 
-
-
-          
-          
-    
-    
-                  
-                
-                

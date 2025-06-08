@@ -1,7 +1,6 @@
-Write down by enumeration of elements (from smallest to largest) the difference of sets represented by the Euler-Venn diagram.
-@center@ @mycanvas()@
 
+Write down by listing of elements (from smallest to largest) the difference of sets represented by the Euler-Venn diagram.
+@center@ @mycanvas()@
 @center@  @solut[1]@
 @vscape@
 @center@  @lib.check_one_option_radio(answ,indic, true)@
-@vscape@

@@ -1,6 +1,6 @@
 Množice @"A"@, @"B"@ in @"C"@ so predstavljene z Euler-Vennovim diagramom
 @center@ @mycanvas()@
-Zapiši elemente naslednjih množic po vrstnem redu (od najmanjšega do največjega):
+Zapišite elemente naslednjih množic po vrstnem redu (od najmanjšega do največjega):
 
 @center@ @answ[1]@ @solut[1]@
 @center@ @answ[2]@ @solut[2]@

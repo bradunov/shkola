@@ -1,9 +1,5 @@
 
-Calculate three numbers in the given interval @"[a,b]"@ such that for every three consecutive numbers the  mean number is an arithmetic mean of the ends.
-
-@repeat(1)@
-@center@ a = @reply[1]@ @hspacept(140)@ @"b"@ = @reply[5]@
-@center@ @reply[2]@ @hspacept(6)@ @reply[3]@ @hspacept(6)@ @reply[4]@ 
+In the given interval @"[a,b]"@ determine three numbers so that for every three consecutive numbers (including the ends of the interval) the middle number is the arithmetic mean of the previous and the next number.
 @vspace@
-@/repeat@
-            
+@center@ a = @reply[1]@ @hspacept(140)@ @"b"@ = @reply[5]@
+@center@ @reply[2]@ @hspacept(20)@ @reply[3]@ @hspacept(20)@ @reply[4]@ 

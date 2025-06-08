@@ -1,5 +1,5 @@
-Degree the degree. Enter the sign - in the first square if the result is negative. Letters denote positive quantities.
 
+Calculate the power of each factor in parentheses. Enter the sign - in the first square if the result is negative. Letters denote positive numbers.
 @repeat(3)@
 @center@   @quest@  = @ans@
 @vspace@

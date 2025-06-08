@@ -1,1 +1,1 @@
-msg = {"dinar", "dinara"}
+msg = {"dinar", "dinarjev"}

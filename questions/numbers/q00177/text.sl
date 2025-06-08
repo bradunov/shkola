@@ -1,5 +1,5 @@
 
-Vnesite v kvadrate najbližjo stotico in desetico manjšo od podane številke, in desetico in stotico večjo od podane številke.
+Vnesite v kvadrate najbližje stotico in desetico manjše od podanog števila, in desetico in stotico večje od podanog števila.
 
 @vspace@
 @repeat(4)@ 

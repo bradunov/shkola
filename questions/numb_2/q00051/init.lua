@@ -1,10 +1,10 @@
 
 include("terms")
   
-uni = "\(\small\cup\)"  
-sect = "\(\small\cap\)"
-dif = "\"
-empt = "\(\small\emptyset\)"
+uni = "∪"  
+sect = "∩"
+dif = "∖"
+empt = "∅"
 
 reply = {""}
 solut = {}
@@ -87,21 +87,3 @@ for i = 1,stampa do
 	end	
 	
 end                   
-                
-                 
-            
-             
-          
-
-
-
- 
-
-
-          
-          
-    
-    
-                  
-                
-                

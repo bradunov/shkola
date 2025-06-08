@@ -5,7 +5,7 @@
 @center@ @bag[3]@ vrečk, ji bo ostalo @rest[3]@,
 @center@ @bag[4]@ vrečk, ji bo ostalo @rest[4]@,
 @center@ @bag[5]@ vrečk, ji bo ostalo @rest[5]@ 
-kruhkov. @ime@ je spekla več kot @min_range@, a manj kot @max_range@ žemljic.
+žemljic. @ime@ je spekla več kot @min_range@, a manj kot @max_range@ žemljic.
 @vspace@
 Koliko žemljic je spekla @ime@?
 @center@ @lib.check_number(total)@  

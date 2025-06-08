@@ -1,9 +1,8 @@
-Ojler-Venovim diagramom je predstavljen niz @choice[ind]@. 
 
+Euler-Vennov diagram predstavlja množico @choice[ind]@. 
 @center@ @mycanvas()@
-
-Niz predstavlja 
-@center@ nabrajanjem elementov @task[ind]@
+Množico predstav 
+@center@ z naštevanjem elementov @task[ind]@
 @center@    @solut_1@
 @vspace@
 @center@ in opisovanjem elementov 

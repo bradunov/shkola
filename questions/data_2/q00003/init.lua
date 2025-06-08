@@ -108,18 +108,18 @@ mycanvas = function()
       lib.add_input((x1+2)*w+ow, y1*w-ow, 35, 30, lib.check_number(ay,20)) 
       lib.add_text((x1+3)*w+2*ow+5, y1*w, ")", text_style)
   end  
-  lib.add_circle (ow+x1*w, ow+y1*w, 3, red_style, false, false )
+  lib.add_circle (ow+x1*w, ow+y1*w, 2, red_style, false, false )
 
   lib.add_text((2*x1+dif1-2)*w, (2*y1+dif1-1)*w, "B (", text_style) 
   lib.add_input((2*x1+dif1-2)*w+8, (2*y1+dif1-1)*w-ow, 30, 30, lib.check_number(bx,15))
   lib.add_text((2*x1+dif1-1)*w+2*ow, (2*y1+dif1-1)*w, ",", text_style) 
   lib.add_input((2*x1+dif1)*w, (2*y1+dif1-1)*w-ow, 30, 30, lib.check_number(by,15)) 
   lib.add_text((2*x1+dif1+1)*w+ow, (2*y1+dif1-1)*w, ")", text_style)   
-  lib.add_circle (ow+(2*x1+dif1-2)*w, ow+(2*y1+dif1-2)*w, 3, red_style, false, false )   
+  lib.add_circle (ow+(2*x1+dif1-2)*w, ow+(2*y1+dif1-2)*w, 2, red_style, false, false )   
   
   pointc = "C (" .. tostring(cx).. "," .. tostring(cy) .. ")"   
   lib.add_text(x2*w+ow, 2*ow+y2*w, pointc, text_style)   
-  lib.add_circle (ow+x2*w, ow+y2*w, 3, blue_style, false, false ) 
+  lib.add_circle (ow+x2*w, ow+y2*w, 2, blue_style, false, false ) 
 
   if (index == 2) then
       pointd = "D (" .. tostring(math.floor(dx)).. "," .. tostring(math.floor(dy)) .. ")"    
@@ -131,7 +131,7 @@ mycanvas = function()
       lib.add_input((x2+dif2+2)*w+ow+3, (y2-dif2)*w-ow, 35, 30, lib.check_number(dy,20)) 
       lib.add_text((x2+dif2+3)*w+3*ow, (y2-dif2)*w, ")", text_style) 
   end  
-  lib.add_circle (ow+(x2+dif2)*w, ow+(y2-dif2)*w, 3, blue_style, false, false ) 
+  lib.add_circle (ow+(x2+dif2)*w, ow+(y2-dif2)*w, 2, blue_style, false, false ) 
 
   if (index == 1) then
       pointm = "M (" .. tostring(math.floor(mmx)).. "," .. tostring(math.floor(mmy)) .. ")"    
@@ -143,7 +143,7 @@ mycanvas = function()
       lib.add_input((mx-1)*w-ow, my*w, 30, 30, lib.check_number(mmy,15)) 
       lib.add_text(mx*w, my*w+ow, ")", text_style)    
   end
-  lib.add_circle (ow+mx*w, ow+my*w, 3, diff_style, false, false )  
+  lib.add_circle (ow+mx*w, ow+my*w, 2, diff_style, false, false )  
 
   if (index == 4) then
       pointn = "N (" .. tostring(math.floor(nnx)).. "," .. tostring(math.floor(nny)) .. ")"    
@@ -155,42 +155,8 @@ mycanvas = function()
       lib.add_input((nx+3)*w+ow, (ny+1)*w-2*ow, 30, 30, lib.check_number(nny,15)) 
       lib.add_text((nx+5)*w, (ny+1)*w-ow, ")", text_style) 
   end 	  
-  lib.add_circle (ow+nx*w, ow+ny*w, 3, diff_style, false, false )    
+  lib.add_circle (ow+nx*w, ow+ny*w, 2, diff_style, false, false )    
 
   lib.end_canvas()
 end                         
-                             
-              
-              
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-      
-            
-                
-            
-            
-     
-            
-            
-   
-        
-       
-             
-       
+                 

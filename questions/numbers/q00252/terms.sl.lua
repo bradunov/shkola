@@ -1,1 +1,1 @@
-order = {"prvi", "drugi", "tretji", "četrti"}
+order = {"prvo", "drugo", "tretje", "četrto"}

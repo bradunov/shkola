@@ -1,6 +1,5 @@
 
-Izračunaj rezultat i ukoliko je nepravi razlomak predstavi ga u obliku mešovitog broja.
-
+Izračunaj rezultat i ukoliko je razlomak veći od jedan, predstavi ga kao ceo broj i razlomak manji od 1.
 @repeat(3)@
 @center@ \(\frac{@broj1@}{@imenilac@}\)  @sign@  \(\frac{@broj2@}{@imenilac@}\) \
 @hspacept(3)@ = @hspacept(3)@  @answ1@ @answ2@

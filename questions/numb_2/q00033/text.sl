@@ -1,6 +1,6 @@
-Napiši vse dvomestne vsebnike dane številke, od najmanjšega do največjega.
 
-@repeat(5)@
-
+Napišite vse dvomestne večkratnike danih števil, od najmanjšega do največjega.
+@repeat(4)@
+@vspace@
 @number@ @hspace@ @answ@         
-@/repeat@
+@/repeat@ 

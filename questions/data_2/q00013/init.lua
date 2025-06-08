@@ -8,7 +8,6 @@ padez = zensko_ime_dativ[index_ime];
 
 proc = "%"
 answ = {""}
-index = {}
 
 ind = 2
 denom = 100 
@@ -51,6 +50,3 @@ answ[1] = ime .. reply[4] .. reply[3] .. "."
 answ[2] = padez .. reply[2] .. result .. " " .. msg .. reply[3] .. "."
 answ[3] = ime .. reply[1] .. result .. " " .. msg .. "."
 answ[4] = padez .. reply[2] .. reply[5] .. math.floor(bound) .. " " .. msg .. reply[3] .. "." 
-      
-  
-

@@ -1,7 +1,5 @@
 
-Write the dates of the products as powers with a natural base.
-
+Write the product as a degree whose exponent is a natural number.
 @repeat(3)@
-@vspace@
 @center@  @quest@ @hspacept(3)@ = @hspacept(3)@ (@answ@)@sup@ @lib.check_number(grd,10)@ @/sup@   
 @/repeat@

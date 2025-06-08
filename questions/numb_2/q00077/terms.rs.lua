@@ -1,2 +1,1 @@
-
-title = {"broj", "broj  decimala", "približna vrednost", "greška"}
+title = {"broj", "decimale", "približna vrednost", "greška"}

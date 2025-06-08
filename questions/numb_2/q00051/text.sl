@@ -1,9 +1,8 @@
-@"A"@ in @"B"@ sta poljubni množici. Pred vsako enačbo napiši 
-@hspacept(15)@ @"t"@, če je enačba pravilna, ali 
-@hspacept(15)@ @"n"@, če enačba ni pravilna. 
 
+@"A"@ in @"B"@ sta poljubni množici. Pred vsako enakost napišite 
+@hspacept(15)@ @"t"@, če je enakost pravilna, ali 
+@hspacept(15)@ @"n"@, če enakost ni pravilna. 
 @vspace@
-
 @hspacept(15)@ @lib.check_string(reply[1],15)@ @hspacept(30)@ @solut[1]@
 @hspacept(15)@ @lib.check_string(reply[2],15)@ @hspacept(30)@ @solut[2]@
 @hspacept(15)@ @lib.check_string(reply[3],15)@ @hspacept(30)@ @solut[3]@

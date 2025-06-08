@@ -21,8 +21,8 @@ text_style = {["font_size"] = "14"}
 
 bracketl = "{"
 bracketr = "}"
-uni = "\(\small\cup\)"  
-sect = "\(\small\cap\)"
+uni = "∪"  
+sect = "∩"
 
 q = {}
 number = {} 
@@ -158,19 +158,3 @@ mycanvas = function(no)
 
   lib.end_canvas()
 end         
-
-       
-         
-                   
-         
-        
-       
-            
-    
-          
-          
-    
-    
-                  
-                
-                

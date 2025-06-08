@@ -1,8 +1,9 @@
-Določi rešitev neenačbe.
+
+Določite rešitev neenačbe.
 @center@  @quest@ 
 @vspace@ 
 @center@  @equ[1]@ 
 @center@  @equ[2]@  
 @vspace@
-Obarvaj območje rešitve na številski premici (in vključi mejne točke) ter napiši meje (na dve decimalke).
+Obarvajte območje rešitve na številski premici (in mejne točke, če so vključene) ter napišite meje (na dve decimalke).
 @center@ @mycanvas()@

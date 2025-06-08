@@ -1,6 +1,5 @@
 
-Write the given numbers as @hspacept(3)@ @form@ @hspacept(3)@ (scientific form), where @hspacept(3)@ @"1 < a < 10"@. 
-
+Write the numbers as @hspacept(3)@ @form@ @hspacept(3)@ (scientific form), where @hspacept(3)@ @"1 < a < 10"@. 
 @repeat(4)@
 @center@ @value@ = @lib.check_number(res,40)@ * 10 @sup@ @lib.check_number(grd,10)@ @/sup@   
 @/repeat@

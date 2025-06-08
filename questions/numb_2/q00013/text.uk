@@ -1,11 +1,3 @@
 
 Colour every number divisible by @choice@, as shown by the example. (Click next to the number.)
- 
 @center@ @mycanvas()@
-
-
-
-                  
-            
-            
-            

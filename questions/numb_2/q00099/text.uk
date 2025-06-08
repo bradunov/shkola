@@ -1,7 +1,7 @@
 
-Degree the quotient. Enter the sign - in the first square if the result is negative. Letters denote positive quantities. 
-
-@repeat(3)@ 
+Write the power of the quotient as a  quotient of numbers. 
+Enter the sign - in the first square if the result is negative. Letters denote positive quantities. 
+@repeat(2)@ 
 @vspace@
 @center@   @quest@  = @ans@
 @/repeat@

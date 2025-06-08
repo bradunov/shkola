@@ -1,6 +1,6 @@
   
-Izračunaj  vrednost broja  a ako je 
+Izračunaj  vrednost broja  a ako je: 
 @vspace@  
 @repeat(4)@ 
-@center@ @answ@ @hspacept(20)@ a = @lib.check_number(result,30)@
+@center@ @answ@ @hspacept(60)@ a = @lib.check_number(result,30)@
 @/repeat@

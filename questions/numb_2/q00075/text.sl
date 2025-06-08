@@ -1,6 +1,6 @@
-Razstavi korensko velikost na proste faktorje in na podlagi tega izračunaj kvadratni koren.
 
-@repeat(3)@
+Število razdelite na njegove prafaktorje in na podlagi tega izračunajte njegov kvadratni koren.
+@repeat(2)@
 @vspace@
 @center@ @numb2@ = 
 @center@@reply@

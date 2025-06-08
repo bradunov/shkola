@@ -1,5 +1,5 @@
 
-Izračunaj zamenjavom mesta in združevanjem seštevancev.
+Izračunajte zamenjavom mesta in združevanjem seštevancev.
 @repeat(3)@
 @center@ @term1@  @sign[2]@  @term2@  @sign[1]@  @term3@ @hspacept(3)@ 
 @center@ = ( @lib.check_number(term1,20)@  @sign[1]@  @lib.check_number(term3,20)@ ) @sign[2]@  @lib.check_number(term2,20)@ @hspacept(3)@ = @hspacept(3)@ @lib.check_number(value,20)@ 

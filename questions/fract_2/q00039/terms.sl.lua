@@ -1,5 +1,5 @@
-operat1 = {"razlika", "zbir"}
-operat1p = {"razlike", "zbira"}
+operat1 = {"razlika", "vsota"}
+operat1p = {"razlike", "vsote"}
 operat2a = {"manjša", "večja"}
-operat2i = {"manjši", "večji"}
-reply = "Števila so enaka."
+operat2i = {"manjša", "večja"}
+reply = "Številke so enake."

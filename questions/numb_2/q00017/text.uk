@@ -1,9 +1,7 @@
-@imem@ shared the number @number1@, and @imez@ shared the number @number2@ with an unknown number x. The sum of the obtained quotients is @result@. 
-Which of the following expressions will you use to calculate the unknown number x? 
-Circle the correct answer.
 
+@imem@ divided the number @number1@, and @imez@ divided the number @number2@ with an unknown number x. The sum of the obtained quotients is @result@. 
+Which of the following expressions will you use to calculate the unknown number x? Color the circle next to the correct answer.
 @center@ @lib.check_one_option_radio(answ,ind,true)@ 
-
 @vspace@
 Calculate.                                                                                                 
 @center@ The divisor x is @lib.check_number(factor, 40)@. 

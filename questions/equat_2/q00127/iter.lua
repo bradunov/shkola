@@ -23,6 +23,7 @@ for i = 1,6 do
     index[i] = i
 end
 idx = lib.math.random_shuffle(index)
+
 choice[1] = letter[idx[1]]
 choice[2] = letter[idx[2]]
 
@@ -100,9 +101,14 @@ for i = 1,dim do
 	if (rest == 0) then
         if (value[i] ~= 1) then		
 		    result = result .. " " .. lib.dec_to_str(lib.math.round_dec(value[i],1)) 
+		else
+			if (argchk[i] == "") then	
+				result = result .. " " .. "1"
+            end				
 		end	
 	else	
 		result = result .. " \(\frac{" .. tostring(broj[i]) .."}{" .. tostring(imen[i]) .. "}\)"  
 	end	
 	result = result .. argchk[i] 	
 end	
+            

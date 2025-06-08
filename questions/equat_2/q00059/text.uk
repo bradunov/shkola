@@ -1,7 +1,8 @@
-The lengths of the sides of triangle @"ABC"@ are @hspacept(3)@ @"a"@ = @numb[1]@@"cm"@, @hspacept(3)@ @"b"@ = @numb[2]@@"cm"@ @hspacept(3)@ and @hspacept(3)@ @"c"@ = @quest@ @"cm"@, @hspacept(3)@ @"k"@ is a whole number.
-For which values of the number @"k"@ is @"∢ACB"@ acute?
-Write the inequalities that determine the allowable values of the number @"k"@ and the set of solutions.
 
+The lengths of the sides of triangle @"ABC"@ are 
+@center@ @"a"@ = @numb[1]@@"cm"@, @hspacept(5)@ @"b"@ = @numb[2]@@"cm"@, @hspacept(5)@ @"c"@ = @quest@ @"cm"@, 
+@"k"@ is an integer. For which values of @"k"@ is @"∢ACB"@ acute?
+Write the inequalities that determine the allowable values of the number @"k"@ and the set of solutions.
 @vspace@
 @center@ @equ[1]@
 @center@ @equ[2]@

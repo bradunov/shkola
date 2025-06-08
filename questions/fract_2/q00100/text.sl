@@ -1,4 +1,5 @@
-Flaša je napunjena \(\frac{@broj[1]@}{@imen[1]@}\). Kada se u flašu doda @add@ @meas[1]@ vode, ona je \(\frac{@broj[2]@}{@imen[2]@}\) napunjena. 
-Kolika je zapremina flaše?
+
+Steklenica je  \(\frac{@broj[1]@}{@imen[1]@}\) napolnjena. Ko v steklenico dodamo @add@ @meas[1]@ vode, jo napolnimo \(\frac{@broj[2]@}{@imen[2]@}\). 
+Kolikšna je prostornina steklenice?
 @vspace@
-@center@ Zapremina flaše je   @ans@ @meas[2]@.
+@center@ Prostornina steklenice je   @ans@ @meas[2]@.

@@ -27,7 +27,7 @@ number = numb_r / 10^dec
 
 answ = ""
 if(dec == 1) then
-   answ = tostring(cifre[1]) .. lib.check_number(cifre[2], 15) .. "," .. tostring(cifre[3])
+   answ = tostring(cifre[1]) .. lib.check_number(cifre[2], 15) .. point .. tostring(cifre[3])
 end
 if(dec == 2) then
    answ = tostring(cifre[1]) .. point .. lib.check_number(cifre[2], 15) .. tostring(cifre[3])

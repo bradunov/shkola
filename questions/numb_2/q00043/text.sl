@@ -1,6 +1,6 @@
 Določite vse prave podmnožice množice 
 @center@ @"S"@ = @bracketl@  @cifra[1]@, @cifra[2]@,  @cifra[3]@, @cifra[4]@ @bracketr@.  
-Elemente skupin zapišite po vrstnem redu od najmanjšega do največjega.
+Elemente podmnožic zapišite po vrstnem redu od najmanjšega do največjega.
 @vspace@
 @center@ @solut1[1]@, @hspacept(15)@ @solut1[2]@, 
 @center@ @solut1[3]@, @hspacept(15)@ @solut1[4]@,

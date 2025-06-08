@@ -10,5 +10,5 @@ in napišite štirimestna števila, ki dajejo:
 3. največjo možno razliko
 @center@ @lib.check_number(numb[1])@ @hspacept(3)@ - @hspacept(3)@ @lib.check_number(numb[2])@ @hspacept(3)@ = @hspacept(3)@ @lib.check_number(diff_max,40)@
 @vspace@
-Kolikšna je najmanjša razlika med temi številkami, če je možna poljubna izbira števk?
+Kolikšna je najmanjša razlika med temi številami, če je možna poljubna izbira števk?
 @center@ @lib.check_number(5012)@ @hspacept(3)@ - @hspacept(3)@ @lib.check_number(4987)@ @hspacept(3)@ = @hspacept(3)@ @lib.check_number(25)@

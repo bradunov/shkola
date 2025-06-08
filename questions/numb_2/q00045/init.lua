@@ -23,8 +23,8 @@ text_style = {["font_size"] = "14"}
 
 bracketl = "{"
 bracketr = "}"
-empty = "\(\small\emptyset\)"  
-dif = "\"
+empty = "∅" 
+dif = "∖"
 
 
 q = {}
@@ -153,19 +153,4 @@ mycanvas = function(no)
     
   lib.end_canvas()
 end                    
-                        
-                      
-         
-                 
-               
-        
-       
-            
-    
-          
-          
-    
-    
-                  
-                
-                
+ 

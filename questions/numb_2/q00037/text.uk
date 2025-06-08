@@ -1,7 +1,6 @@
-The Euler-Venn diagram represents the set @choice[ind]@
 
+The Euler-Venn diagram represents the set of @choice[ind]@.
 @center@ @mycanvas()@
-
 Represent the set by listing the elements @task[ind]@
 @center@    @solut_1@
 @vspace@

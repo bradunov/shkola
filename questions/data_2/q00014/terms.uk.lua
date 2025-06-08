@@ -1,1 +1,1 @@
-title = {"Quantity", "solution", "Percentage", "alcohol"}
+title = {"Amount", "of solution", "Percentage", " of alcohol"}

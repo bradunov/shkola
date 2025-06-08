@@ -1,1 +1,1 @@
-valute = {"dinara", "dinar"}
+valute = {"denarjev", "denarjev"}

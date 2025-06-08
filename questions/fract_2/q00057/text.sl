@@ -1,5 +1,5 @@
-Izračunaj.
 
-@repeat(4)@
+Izračunajte.
+@repeat(3)@
 @center@ @quest@  @reply@
 @/repeat@

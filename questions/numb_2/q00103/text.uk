@@ -1,6 +1,5 @@
 
-Simplify expressions. Enter the power for a given base and the sign - in the first square if the result is negative. 
-
+Simplify expressions. Write the exponent for the given base and sign - in the first box if the result is negative.
 @repeat(3)@ 
 @vspace@
 @center@   @quest@  = @answ@

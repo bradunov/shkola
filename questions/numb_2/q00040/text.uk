@@ -1,16 +1,12 @@
-Write by listing the elements (starting from the smallest) the following sets of numbers:
 
+Write down the following sets of numbers by listing the elements (starting with the smallest):
 Set of natural numbers
 @center@  @"N"@ = @solut[1]@
-
 Set of prime numbers of the first ten
 @center@  @"R"@ = @solut[2]@
-
 Set of digits of the number @value@
 @center@  @"C"@ = @solut[3]@ 
-
 Set of natural numbers complemented by zero
 @center@  @natur0@ = @solut[4]@
-
 Set of even numbers smaller than 100
 @center@  @"P"@ = @solut[5]@

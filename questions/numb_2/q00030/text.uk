@@ -1,5 +1,4 @@
-Give the number @number@ written as a product of @val@ @quest@ (from smaller to larger).
 
+The number @number@ write as a product of @val@ @quest@ (from smaller to larger).
 @center@ @mycanvas()@
-
 @center@ @number@ @hspacept(3)@ = @hspacept(3)@ @answ@

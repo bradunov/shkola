@@ -1,1 +1,1 @@
-sign = {"the division","the multiplication", "increase by", "decrease by"}
+sign = {"the quotient","the product", "increase", "decrease"}

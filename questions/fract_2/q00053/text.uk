@@ -1,10 +1,9 @@
-@imem@ and @imez@ divided the cake in the picture (colored part) into two equal parts.
 
-Which part of the whole cake did @imez@ eat? Write it as a fraction.
+@imem@ and @imez@ divided the rest of the cake from the picture (colored part) into two equal parts.
 @vspace@
 @center@ @lib.select_objects(imax, jmax, "table", "", style_table)@ 
-
 @vspace@
+Which part of the whole cake did @imez@ eat? Write it as a fraction.
 @center@ @imez@ ate @lib.check_fraction_condition(\
   "is_ok = (numerator/denominator == "..tostring(broj).."/"..tostring(imen)..")", nil, nil, \
   "numerator="..tostring(broj)..";denominator="..tostring(imen)..";"\

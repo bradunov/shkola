@@ -1,8 +1,5 @@
 
-Fill in the gaps:
-
+Fill in the missing numbers:
 @repeat(4)@
-
 @center@ @answ@ @hspacept(3)@ = @hspacept(3)@ \(\frac{@brojilac@}{@imenilac@}\)    
 @/repeat@
-           

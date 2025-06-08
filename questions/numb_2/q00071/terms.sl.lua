@@ -1,1 +1,1 @@
-sign = {"kvocient","produkt", "povečaj", "zmanjšaj"}
+sign = {"kvocient","produkt", "povečate", "zmanjšate"}

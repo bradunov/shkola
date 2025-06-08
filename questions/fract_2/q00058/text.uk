@@ -1,5 +1,5 @@
-Calculate and round the result to three decimals.
 
+Calculate by dividing by a natural number. Write the result to three decimal places.
 @repeat(3)@
 @vspace@
 @center@ @quest@  @reply@

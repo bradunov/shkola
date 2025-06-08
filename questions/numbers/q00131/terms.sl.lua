@@ -1,1 +1,1 @@
-header_arr = { "Desetiška", "enota", "Podata", "številka", "Zaokrožena", " številka" }
+header_arr = { "Desetiška", "enota", "Podato", "število", "Zaokroženo", " število" }

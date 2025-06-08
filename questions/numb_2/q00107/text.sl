@@ -1,5 +1,5 @@
 
-Lajsna dolžine @length@@meas@ je bila razrezana na kose dolžine @piece@ @meas@. Koliko kosov je bilo razrezanih in kolikšen del lajsne je ostal?
+Les dolžine @length@@meas@ je razrezan na @piece@ @meas@ dolge kose. Koliko kosov je razrezanih in koliko lesa ostane?
 @vspace@
 Prikaži rešitev deljenja:
 @center@ @lib.check_number(length)@ : @lib.check_number(piece)@ = @lib.check_number(numb)@ @name@ @lib.check_number(rest)@

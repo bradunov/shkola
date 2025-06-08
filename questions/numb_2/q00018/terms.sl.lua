@@ -1,1 +1,1 @@
-title = {"delitelj", "deljenec", "kvocient", "ostanek"}
+title = { "število", "delitelj", "	količnik", "ostanek"}

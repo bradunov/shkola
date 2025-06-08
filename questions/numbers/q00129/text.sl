@@ -1,5 +1,5 @@
 
-Vnesi manjkajoči seštevek.
+Vnesite manjkajoči seštevanec.
 
 @repeat(4)@ 
 @center@ @value@ @hspacept(3)@ = @hspacept(3)@ @reply1@ @lib.check_number(result, 30)@ @reply2@

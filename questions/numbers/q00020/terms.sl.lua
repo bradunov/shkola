@@ -1,7 +1,7 @@
 msg1 = " bankovec v vrednosti "
-msg2 = " dinarjev."
-msg3 = " dinarjev, "
+msg2 = " denarja."
+msg3 = " denarja, "
 
 msg4 = " bankovca v vrednosti "
-msg5 = " dinarjev."
-msg6 = " dinarjev, "
+msg5 = " denarja."
+msg6 = " denarja, "

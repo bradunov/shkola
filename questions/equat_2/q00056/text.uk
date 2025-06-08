@@ -3,5 +3,6 @@ Solve the inequalities. Write the boundary values to one decimal place or in the
 @repeat(2)@ 
 @vspace@
 @center@ @equ[ITEM]@ 
-@center@ @lib.check_one_option_dropdown(msg, reply[ITEM])@ @hspacept(8)@ @sol[ITEM]@.
+@center@ @lib.check_one_option_dropdown(msg, reply[ITEM])@ 
+@center@ @sol[ITEM]@.
 @/repeat@

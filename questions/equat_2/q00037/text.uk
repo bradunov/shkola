@@ -2,7 +2,8 @@
 By equivalent transformations, reduce given equations to linear equations with integer coefficients of the form
 @center@ @"a x = b"@, @hspace@ a ≥ 0.
 @repeat(2)@
-@center@  @quest@ 
-@center@  Equation @hspacept(3)@ @equ@  @hspacept(15)@ @note@ 
 @vspace@
+@center@  @quest@ 
+@center@  Equation @hspacept(3)@ @equ@  
+@center@ @note@ 
 @/repeat@  

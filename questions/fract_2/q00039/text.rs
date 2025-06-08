@@ -6,5 +6,5 @@ Za koliko je @sign1@ brojeva
 @vspace@
 
 Zapiši rezultat u obliku mešovitog broja i neskrativog razlomka.  
-@center@ Rezultat: @ans@  
-                 
+@center@  @ans@  
+ 

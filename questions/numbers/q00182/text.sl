@@ -1,4 +1,4 @@
-Vpiši manjkajoče številke, da bo vsota pravilna.
 
+Vpišite manjkajoče števke tako, da bo vsota pravilna.
 @vspace@
 @center@ @mycanvas()@

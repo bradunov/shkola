@@ -1,3 +1,3 @@
-Podatke število razcepimo na praštevilske faktorje.
 
+Število razcepite na prafaktorje.
 @center@ @mycanvas()@

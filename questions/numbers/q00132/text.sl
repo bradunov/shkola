@@ -1,6 +1,6 @@
 
-Na sliki je denar, ki ga ima @ime@ v denarnici. Koliko dinarjev ima @ime@ skupaj?
-Obarvajte kroglico na dnu zaslona poleg pravega odgovora.
+Na sliki je denar, ki ga ima @ime@ v denarnici. Koliko denarjev ima @ime@ skupaj?
+Obarvajte krog na dnu zaslona poleg pravega odgovora.
 
 @center@ @mycanvas(result)@
 

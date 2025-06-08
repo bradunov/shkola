@@ -181,7 +181,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Ulomek",
-      "topic": "Uporaba",
+      "topic": "Poimenovanje dela celote",
       "rank_subtheme": "5",
       "rank_topic": "3",
       "difficulty": "1"
@@ -191,7 +191,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Ulomek",
-      "topic": "Uporaba",
+      "topic": "Poimenovanje dela celote",
       "rank_subtheme": "5",
       "rank_topic": "3",
       "difficulty": "1"
@@ -241,7 +241,7 @@
       "random": "10",
       "period": "3",
       "subtheme": "Števila do 100",
-      "topic": "Uporaba",
+      "topic": "Številčno zaporedje",
       "rank_subtheme": "1",
       "rank_topic": "3",
       "difficulty": "2"
@@ -461,7 +461,7 @@
       "random": "10",
       "period": "1",
       "subtheme": "Računske operacije",
-      "topic": "Odštevanjenje",
+      "topic": "Odštevanje",
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"

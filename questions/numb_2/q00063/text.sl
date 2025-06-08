@@ -1,5 +1,6 @@
-Izračunaj.
 
-@repeat(6)@ 
+Izračunajte.
+
+@repeat(4)@ 
 @center@ @number[1]@  @oper[1]@  ( @number[2]@ ) @oper[2]@  ( @number[3]@ ) @oper[3]@  ( @number[4]@ )@hspacept(3)@ =  @hspacept(3)@ @lib.check_number(result, 30)@
 @/repeat@

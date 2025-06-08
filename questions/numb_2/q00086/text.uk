@@ -1,6 +1,5 @@
 
-Write down these numbers:
-
+Write down the numbers:
 @repeat(3)@
 @vspace@
 @center@ @numb@ as a power with base @base@,

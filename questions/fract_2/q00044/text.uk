@@ -1,6 +1,5 @@
-@name@ bought @total@ meters of fabric to sew a costume. 
-She used @lib.dec_to_str(number[1])@ meters for the skirt and @lib.dec_to_str(number[2])@ meters for the jacket. 
-How much fabric does she have left to sew the pants? 
 
+@name@ bought @total@ meters of fabric to sew a costume. She used @lib.dec_to_str(number[1])@ meters for the skirt and @lib.dec_to_str(number[2])@ meters for the jacket. 
+How much fabric does she have left to sew the pants? 
 @vspace@
 @center@ @padez@ has @lib.check_number(number[3])@ meters of fabric left for the pants.

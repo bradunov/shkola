@@ -1,20 +1,3 @@
 
-Dati broj rastavi na proste činioce.
-
+Broj rastavi na proste činioce.
 @center@ @mycanvas()@
-       
-            
-            
-            
-            
-            
-            
-            
-            
-
-
-
-
-
-
-        

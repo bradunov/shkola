@@ -1,6 +1,6 @@
 
 @ime[1]@ and @ime[2]@ eat pizzas  of the same size. @ime[1]@ ate @quest[1]@, and @ime[2]@ @quest[2]@ of his  pizza.
-Color diagrams  (starting from the red line in a positive direction) to show how much each ate.
+Color in the pie charts  (starting from the red line in a positive direction) to show how much each ate.
 @center@ @mycanvas()@ 
 Who ate more? How much more?
 @center@ @lib.check_one_option_dropdown(answ, ind)@ @hspacept(10)@  @reply@ 

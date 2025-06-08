@@ -63,10 +63,10 @@ mmy = xaxis - my + 2
 
 mycanvas = function()
 
-  lib.start_canvas(260, 260, "center")
+  lib.start_canvas(210, 190, "center")
 
-  w = math.floor(240/dim) 
-  ow = 10
+  w = math.floor(190/dim) 
+  ow = 8
   
   for i = 2,dim do
      lib.add_line(ow+(i-1)*w, ow, 0, dim*w, style, false, false)
@@ -88,21 +88,20 @@ mycanvas = function()
   lib.add_text(ow+(yaxis+3)*w, 2*ow, "y", text_style) 
   
   lib.add_text(x1*w, y1*w, "A", text_style)  
-  lib.add_circle (ow+x1*w, ow+y1*w, 3, red_style, false, false ) 
+  lib.add_circle (ow+x1*w, ow+y1*w, 2, red_style, false, false ) 
    
   lib.add_text((2*x1+dif1-2)*w, (2*y1+dif1)*w-ow, "B", text_style) 
-  lib.add_circle (ow+(2*x1+dif1-2)*w, ow+(2*y1+dif1-2)*w, 3, red_style, false, false )   
+  lib.add_circle (ow+(2*x1+dif1-2)*w, ow+(2*y1+dif1-2)*w, 2, red_style, false, false )   
    
   lib.add_text(x2*w, 2*ow+y2*w, "C", text_style) 
-  lib.add_circle (ow+x2*w, ow+y2*w, 3, blue_style, false, false ) 
+  lib.add_circle (ow+x2*w, ow+y2*w, 2, blue_style, false, false ) 
   
   lib.add_text(x3*w, y3*w, "D", text_style)   
-  lib.add_circle (ow+x3*w, ow+y3*w, 3, blue_style, false, false ) 
+  lib.add_circle (ow+x3*w, ow+y3*w, 2, blue_style, false, false ) 
   
   lib.add_text(mx*w-ow, my*w+ow, "M", text_style)
-  lib.add_circle (ow+mx*w, ow+my*w, 3, diff_style, false, false )  
+  lib.add_circle (ow+mx*w, ow+my*w, 2, diff_style, false, false )  
 
   lib.end_canvas()
 end                                 
-                                    
-                                  
+                      

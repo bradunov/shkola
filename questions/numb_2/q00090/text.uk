@@ -1,5 +1,5 @@
-Sort the numbers in @request@ by size. Mark the position of each number in the ordered sequence by entering its ordinal number. 
 
+Order the given numbers @request@. Mark the place of a number in an ordered sequence by entering its serial number.
 @repeat(5)@
 @center@ @ITEM@. @hspacept(20)@ @quest[ITEM]@  @hspacept(100)@ @lib.check_number(result[ITEM],20)@ 
 @/repeat@

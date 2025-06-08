@@ -1,15 +1,15 @@
 choice = {"numbers", "letters in a word"} 
 task = {"(from smallest to largest)", "(in alphabetical order)"}
-
-descr_w = {"banana", "intersection", "daisy", "several", "internet"}     
+dim_word = {3, 8, 6, 6, 5}
+descr_w = {"banana", "intersection", "flower", "several", "internet"}     
 word[1] = {"a","b", "n"}     
-word[2] = {"a", "i", "k", "n", "r", "s", "c"}
-word[3] = {"a", "b", "i", "s", "v"}
-word[4] = {"e", "i", "k", "l", "n", "o"}
+word[2] = {"c", "e", "i", "n", "o", "r", "s", "t"}
+word[3] = {"e", "f", "l", "o", "r", "w"}
+word[4] = {"a", "e", "l", "r", "s", "v"}
 word[5] = {"e", "i", "n", "r", "t"}
 
 descr_n = {"prime", "decimal", "even", "odd"}
 
-name = {"number", "word letter"}
+name = {"number", "letter in a word ", "is a "}
 tens = {"unit", "tens"}
 adv = {"first", "fifth"}

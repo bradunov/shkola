@@ -1,1 +1,1 @@
-title = {"cifra jedinica paran broj.", "zbir cifara deljiv sa 3.", "cifra jedinica 0 ili 5.", "broj paran i zbir cifara deljiv sa 3.", "zbir cifara deljiv sa 9.",  "cifara jedinica 0.", "dvocifreni završetak deljiv sa 4.", "ako je", ""}
+title = {"cifra jedinica paran broj.", "zbir cifara deljiv sa 3.", "cifra jedinica 0 ili 5.", "broj paran i zbir cifara deljiv sa 3.", "zbir cifara deljiv sa 9.",  "cifara jedinica 0.", "dvocifreni završetak deljiv sa 4.", "ako je"}

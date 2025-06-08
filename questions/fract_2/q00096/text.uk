@@ -1,6 +1,8 @@
 
 @ime@ is serving pizzas at a party. Each person is given @quest@ of a pizza. 
-@center@ How many pizzas he must buy for @person@ guests? @hspacept(5)@ @lib.check_number(numb,20)@ 
+@center@ How many pizzas did he buy for @person@ guests? @hspacept(5)@ @lib.check_number(numb,20)@ 
 @center@ How much of a pizza left over?  @hspacept(30)@ @answ@ 
-@center@ If he reduces a piece per guest to  @quest1@ of a pizza,
-how many people can he serve more? @hspacept(10)@  @lib.check_number(add,20)@
+@vspace@ 
+If he reduces a piece per guest to  @quest1@ of a pizza,
+@center@  how many people can he serve more? @hspacept(10)@  @lib.check_number(add,20)@
+            

@@ -1,12 +1,10 @@
+
 The following sets are given: 
 @center@ @name[1]@ = @empt@ (an empty set), 
 @center@ @name[3]@ = @solut_2@.
 @center@ @name[2]@ = @solut_1@
-@center@ @name[4]@ is a set represented by an Euler-Venn diagram.
-           			  
+@center@ @name[4]@ is a set represented by an Euler-Venn diagram.          			  
 @center@ @mycanvas()@			  
-
 In front of each statement write @hspacept(3)@ t @hspacept(3)@ if the statement is true or @hspacept(3)@ n @hspacept(3)@ if it is false.
-
 @center@ @reply[1]@,  @hspacept(20)@  @reply[2]@,  @hspacept(20)@  @reply[3]@,
 @center@ @reply[4]@,  @hspacept(20)@  @reply[5]@,  @hspacept(20)@  @reply[6]@.

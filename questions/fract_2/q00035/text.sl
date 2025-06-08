@@ -1,6 +1,6 @@
-Primerjaj številke. Izberi znak < ali > .
 
-@repeat(6)@
+Primerjaj številke. Izberi znak < ali > .
+@repeat(4)@
+@vspace@
 @center@ @lib.dec_to_str(numb_l)@ @hspacept(3)@ @lib.check_one_option_dropdown(answ,sign)@ @hspacept(3)@ @lib.dec_to_str(numb_r)@
- 
 @/repeat@

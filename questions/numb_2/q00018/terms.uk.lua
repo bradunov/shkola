@@ -1,1 +1,1 @@
-title = {"dividend", "divisor", "quotient", "remainder"}
+title = {"number", "divisor", "quotient", "remainder"}

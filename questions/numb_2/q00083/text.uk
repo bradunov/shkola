@@ -1,7 +1,7 @@
 
-Write down the power for the given base and exponent, and calculate.
-
+Write down the degree for the given base and exponent, and calculate.
 @repeat(3)@
 @vspace@
-@center@ base @base@, exponent @grd@  @hspacept(10)@(@lib.check_string(base,20)@) @sup@ @lib.check_number(grd,15)@ @/sup@ = @lib.check_number(value,50)@ 
+@center@ base @base@, @hspacept(3)@ exponent @grd@  @hspacept(15)@(@lib.check_string(base,20)@) @sup@ @lib.check_number(grd,15)@ @/sup@ = @lib.check_number(value,50)@ 
 @/repeat@
+           

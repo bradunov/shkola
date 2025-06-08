@@ -49,10 +49,10 @@ ny = xaxis - max + min
 
 mycanvas = function()
 
-  lib.start_canvas(350, 250, "center")
+  lib.start_canvas(280, 190, "center")
 
-  w = math.floor(320/ydim) 
-  ow = 10
+  w = math.floor(260/ydim) 
+  ow = 8
   
   for i = 2,ydim do
      lib.add_line(ow+(i-1)*w, ow, 0, xdim*w, style, false, false)
@@ -88,17 +88,3 @@ mycanvas = function()
  
   lib.end_canvas()
 end       
-                 
-          
-            
-                
-            
-            
-     
-            
-            
-   
-        
-       
-             
-       

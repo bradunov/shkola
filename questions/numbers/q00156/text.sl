@@ -1,5 +1,5 @@
 
-Vpiši v prvo kvadratno polje najbližjo desetico manjšo od podanega števila, v drugo pa večjo od podanega števila.
+Vpišite v prvo kvadratno polje najbližjo desetico manjšo od podanega števila, v drugo pa večjo od podanega števila.
 
 @vspace@
 @repeat(5)@ 

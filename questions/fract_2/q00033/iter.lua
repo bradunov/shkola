@@ -4,8 +4,8 @@ for i = 1,4 do
     measure[i] = {""}
 end
 measure[1] = {"m", "dm", "cm", "mm"}
-measure[2] = {"m\(^2\)","dm\(^2\)","cm\(^2\)","mm\(^2\)"}
-measure[3] = {"m\(^3\)","dm\(^3\)","cm\(^3\)","mm\(^3\)"}
+measure[2] = {"m²","dm²","cm²","mm²"}
+measure[3] = {"m³","dm³","cm³","mm³"}
 measure[4] = {"t", "kg", "g"}
 
 --[[ dm^3 = litar]]--
@@ -76,9 +76,3 @@ end
 
 round = max * step_meas[index]
 result = lib.math.round_dec(value, round) 
-
-       
-            
-            
-            
-            			

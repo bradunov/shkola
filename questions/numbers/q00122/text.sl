@@ -1,4 +1,3 @@
 
-Označi deljivost datih števil s 2, 5 ali 10 barvanjem ustrezni polj v tabeli, kot je pričeto. 
-
+Deljivost danih števil z 2, 5 ali 10 označi tako, da v tabeli pobarvaš ustrezna polja, kot je začeto.
 @center@ @mycanvas()@

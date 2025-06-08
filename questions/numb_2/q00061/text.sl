@@ -1,3 +1,3 @@
-Izpolni tabelo:
 
+Dopolnite tabelo:
 @addition_table()@

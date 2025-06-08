@@ -1,6 +1,5 @@
 
-Rastavi potkorenu veličinu na proste činioce, i na osnovu toga izračunaj kvadratni koren.
-
+Razloži broj na proste činioce, i na osnovu toga izračunaj njegov kvadratni koren.
 @repeat(2)@ 
 @vspace@
 @center@ @numb2@ = 

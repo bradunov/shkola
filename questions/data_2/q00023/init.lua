@@ -1,4 +1,6 @@
 
+include("terms")
+
 style =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -18,8 +20,6 @@ red_style =
         ["line_width"] = "3"};			
 
 text_style = {["font_size"] = "16"}
-
-include("terms")
 
 len = {7, 5, 5, 5, 5, 2};    --[[a]]--
 wid = {5, 7, 5, 5, 2, 7};    --[[b]]--
@@ -76,8 +76,7 @@ mycanvas = function()
   lib.add_line(ow+7*w, ow+5.5*w, 0, w, blue_style, false, false)  
   lib.add_line(ow+7*w, ow+10*w, 0, w, blue_style, false, false)  
 
-  lib.add_text(2*w+ow, w, name[2], text_style, false, false)
-  lib.add_text(4*w+ow, w, name[1], text_style, false, false)
+  lib.add_input(w, 2*ow, 120, 30, name[1])
   lib.add_text(2*w, 2*w, "a = ", text_style, false, false)
   lib.add_input(2*w+ow, 2*w-ow, 60, 30, lib.check_number(len_a[1], 40))
   lib.add_text(2*w, 3*w, "b = ", text_style, false, false)
@@ -86,8 +85,7 @@ mycanvas = function()
   lib.add_input(2*w+ow, 4*w-ow, 60, 30, lib.check_number(area[1], 40))  
 
 
-  lib.add_text(9*w+ow, w, name[3], text_style, false, false)
-  lib.add_text(11*w+ow, w, name[1], text_style, false, false)
+  lib.add_input(7*w+ow, 2*ow, 120, 30, name[2])
   lib.add_text(9*w, 2*w, "a = ", text_style, false, false)
   lib.add_input(9*w+ow, 2*w-ow, 60, 30, lib.check_number(len_a[2], 40))  
   lib.add_text(9*w, 3*w, "b = ", text_style, false, false)
@@ -95,8 +93,7 @@ mycanvas = function()
   lib.add_text(9*w, 4*w, "P = ", text_style, false, false)
   lib.add_input(9*w+ow, 4*w-ow, 60, 30, lib.check_number(area[2], 40))   
 
-  lib.add_text(9*w+ow, 8*w, name[4], text_style, false, false)
-  lib.add_text(11*w+ow, 8*w, name[1], text_style, false, false)
+  lib.add_input(7*w+ow, 8*w, 120, 30, name[3])
   lib.add_text(9*w, 9*w, "a = ", text_style, false, false)
   lib.add_input(9*w+ow, 9*w-ow, 60, 30, lib.check_number(len_a[3], 40))   
   lib.add_text(9*w, 10*w, "b = ", text_style, false, false)
@@ -104,7 +101,7 @@ mycanvas = function()
   lib.add_text(9*w, 11*w, "P = ", text_style, false, false)
   lib.add_input(9*w+ow, 11*w-ow, 60, 30, lib.check_number(area[3], 40))  
 
-  lib.add_text(2*w+ow, 6*w, name[5], text_style, false, false)
+  lib.add_input(w, 14*ow, 80, 30, name[4])
   lib.add_text(2*w, 7*w, "a = ", text_style, false, false)
   lib.add_input(2*w+ow, 7*w-ow, 60, 30, lib.check_number(len_a[4], 40))  
   lib.add_text(2*w, 8*w, "b = ", text_style, false, false)
@@ -112,7 +109,7 @@ mycanvas = function()
   lib.add_text(2*w, 9*w, "P = ", text_style, false, false)
   lib.add_input(2*w+ow, 9*w-ow, 60, 30, lib.check_number(area[4], 40))    
 
-  lib.add_text(2*w+ow, 11*w, name[6], text_style, false, false)
+  lib.add_input(w, 27*ow, 100, 30, name[5])
   lib.add_text(2*w, 12*w, "a = ", text_style, false, false)
   lib.add_input(2*w+ow, 12*w-ow, 60, 30, lib.check_number(len_a[5], 40))   
   lib.add_text(2*w, 13*w, "b = ", text_style, false, false)
@@ -120,7 +117,7 @@ mycanvas = function()
   lib.add_text(2*w, 14*w, "P = ", text_style, false, false)
   lib.add_input(2*w+ow, 14*w-ow, 60, 30, lib.check_number(area[5], 40))  
 
-  lib.add_text(ow+6*w, 6*w, name[7], text_style, false, false)
+  lib.add_input(4*w, 14*ow, 120, 30, name[6])
   lib.add_text(6*w-ow, 7*w, "a = ", text_style, false, false)
   lib.add_input(6*w, 7*w-ow, 60, 30, lib.check_number(len_a[6], 40))   
   lib.add_text(6*w-ow, 8*w, "b = ", text_style, false, false)
@@ -131,18 +128,3 @@ mycanvas = function()
   lib.end_canvas()
 end                
      
-  
-    
-            
-            
-            
-           
-   
-   
-        
-    
-   
-        
-       
-             
-       

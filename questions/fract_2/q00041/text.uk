@@ -1,11 +1,5 @@
                                                 
-Calculate and simplify the result.
+Calculate and write the result in its simplest form.
 @repeat(3)@
 @center@ @reply@  =   @ans@ 
 @/repeat@ 
-                        
-               
-
-            
-            
-            

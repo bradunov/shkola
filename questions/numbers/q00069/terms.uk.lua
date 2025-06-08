@@ -1,1 +1,1 @@
-comp = {"descending", "ascending"}
+comp = {"largest", "smallest"}  

@@ -65,11 +65,11 @@ for i = 1,stampa do
     ex = nugr * grd	
 	if (ch[i] == 1) then
 	    tmp = math.floor(numb[i]^ex)
-		answ = answ .. lib.check_number(tmp,40)
+		answ = answ .. lib.check_number(tmp,30)
 	end	
 	if (ch[i] == 2) then
 	    terma = base
-		answ = answ .. lib.check_string(terma,20) .. lib.sup_start() .. lib.check_number(ex,15)	.. lib.sup_end()
+		answ = answ .. lib.check_string(terma,15) .. lib.sup_start() .. lib.check_number(ex,15)	.. lib.sup_end()
 	end	
 	if (ch[i] == 3) then
 		en = math.floor(enum^ex)
@@ -83,5 +83,5 @@ end
 if (sign == -1 and rest ~= 0) then
 	cor = "-"
 end 
-ans = lib.check_string(cor,10) .. bracl .. answ .. bracr	
+ans = lib.check_string(cor,10) .. answ 	
    

@@ -9,8 +9,4 @@ Označi koji od zapisa skupova  @"G"@ i @"H"@ je tačan. Ukoliko postoje prazni 
 @center@  @lib.check_one_option_radio(answ1,ind1, true)@          
 @vspace@            
 @center@  @lib.check_one_option_radio(answ2,ind2, true)@             
-                                   
-                     
-                  
-                      
-            
+ 

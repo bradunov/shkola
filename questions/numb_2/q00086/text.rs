@@ -1,6 +1,5 @@
 
-Zapiši date brojeve: 
-
+Zapiši brojeve: 
 @repeat(3)@
 @vspace@
 @center@ @numb@ kao stepen sa osnovom @base@,  

@@ -1,2 +1,2 @@
-decim = {"decimalni", "decimalne"}
+decim = {"decimalno mesto", "decimalnih mest"}
 point = ","

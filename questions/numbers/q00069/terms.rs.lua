@@ -1,1 +1,1 @@
-comp = {"opadajućem", "rastućem"}
+comp = {"najvećim", "najmanjim"}

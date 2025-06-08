@@ -1,4 +1,4 @@
 
-Zapiši številski izraz prikazan na drevesu izraza i določi njegovo vrednost. 
+Zapišite številski izraz prikazan na drevesu izraza in določite njegovo vrednost. 
 @center@ @mycanvas()@
 @answ@

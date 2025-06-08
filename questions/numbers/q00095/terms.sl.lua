@@ -1,1 +1,1 @@
-sign = {"večji", "manjši"}
+sign = {"večje", "manjše"}
