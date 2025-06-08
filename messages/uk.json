@@ -4,7 +4,7 @@
   "country": "UK",
   "image": "flags/uk.webp",
   "messages" : {
-    "year": "Year",
+    "year": "level",
     "tasks":"tasks",
     "test": "TATAMATA chooses for you",
     "results": "My results",

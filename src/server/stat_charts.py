@@ -141,7 +141,6 @@ def prepare_user_stats_chart(pg, u_ID):
     pg.template_params["template_name"] = pg.page_params.get_param("language").value + "/" + "stats.html.j2"
 
     pg.template_params["class_gen_str"] = pg.get_messages()["year"]
-    #pg.template_params["class_gen_str"] = 'Razred'
 
     pg.template_params["stats"] = {}
 

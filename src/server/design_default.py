@@ -570,10 +570,6 @@ class Design_default(object):
             page.template_params["h1"] = page.template_params['year']
             page.template_params["h2"] = "Izaberi temu"
 
-            # page.add_lines("<div style='width: auto ;margin-left: auto ;margin-right: auto ;'>\n")
-            # page.add_lines("<h3> {} razred - izaberi oblast</h3>\n".format(page.page_params.get_param("year").title()))
-            # page.add_lines("</div>\n")
-
 
             # Sort according to the assigned rank
             sorted_themes = []
