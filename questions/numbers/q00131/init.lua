@@ -69,12 +69,12 @@ mycanvas = function()
   lib.add_line(v+ow+2*wh, ow, 0, 3*wh-5*ow, style, false, false)
   lib.add_line(v+3*(ow+wh)-ow, ow, 0, 3*wh-5*ow, style, false, false)
   
-  lib.add_text(ow+wv, 2*ow, header_arr[1], text_style)
-  lib.add_text(ow+wv, 4*ow, header_arr[2], text_style) 
-  lib.add_text(wh+wv+2*ow, 2*ow, header_arr[3], text_style)
-  lib.add_text(wh+wv+2*ow, 4*ow, header_arr[4], text_style)   
-  lib.add_text(2*(wh+wv)-ow, 2*ow, header_arr[5], text_style)
-  lib.add_text(2*(wh+wv)-ow, 4*ow, header_arr[6], text_style)  
+  lib.add_input(ow, ow, 100, 30, header_arr[1])
+  lib.add_input(ow, 3*ow, 100, 30, header_arr[2]) 
+  lib.add_input(wh+2*ow, ow, 100, 30, header_arr[3])
+  lib.add_input(wh+2*ow, 3*ow, 100, 30, header_arr[4])   
+  lib.add_input(2*wh+2*ow, ow, 100, 30, header_arr[5])
+  lib.add_input(2*wh+2*ow, 3*ow, 100, 30, header_arr[6])  
 
   x = wv + 2*ow  
   for i = 1,dim do

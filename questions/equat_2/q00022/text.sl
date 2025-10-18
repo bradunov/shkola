@@ -8,8 +8,8 @@ Kateremu številu naj se doda število @factor[2]@ za pridobitev števila @value
 @else@
 Od katerega števila naj se odšteje število @factor[2]@ za pridobitev števila @value@?
 @endif@
-Katero enačbo boš uporabil za izračun iskanega števila? Obarvaj krog ob pravilnem odgovoru.
+Katero enačbo boste uporabili za izračun iskanega števila? Obarvajte krog ob pravilnem odgovoru.
 @center@ @lib.check_one_option_radio(reply,index-1,true)@ 
 @vspace@
-Reši enačbo.
+Rešite enačbo.
 @center@   x = @lib.check_number(factor[1],40)@

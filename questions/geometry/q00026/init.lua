@@ -36,13 +36,13 @@ for i = 1,6 do
   lib.add_line(3*ow+3*wh, ow, 0, 3*(wh+wv/2), style, false, false)
   
 
-  lib.add_text(3*wv, 4*ow, tvrdjenje_str, text_style)
+ lib.add_input(3*wv, ow, 80, 30, tvrdjenje_str)
   lib.add_text(2*(wh+wv+ow), 4*ow, t_str.." / "..n_str, text_style)
   
   for i = 1,dim do
       lib.add_text(wv, i*(wh-wv-ow)-ow,  object[ind[i]], colour_style)
 	  out = math.random(4)
-   	  lib.add_text(8*ow+wh, 3*ow+i*(wh-wv-ow), title[out], text_style)	  
+    	  lib.add_input(0, i*(wh-wv-ow)+ow, 280, 30, title[out])	  
 	  temp = n_str
 	  if(ind[i] < 3 and out < 3) then
 	     temp = t_str
@@ -61,4 +61,4 @@ for i = 1,6 do
 
   lib.end_canvas()
 end
-         
+    

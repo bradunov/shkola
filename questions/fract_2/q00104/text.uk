@@ -1,0 +1,6 @@
+
+@name@ baked several loaves of bread. She sold @msg[ind]@. She shared the rest with neighbors, @neib@ of them. Each neighbor received a loaf and a half.
+How many loaves did @name@ bake?
+@center@ She baked @hspacept(3)@@lib.check_number(total)@ @hspacept(3)@ loaves of bread.
+      
+            

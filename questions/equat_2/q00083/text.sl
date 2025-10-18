@@ -1,5 +1,6 @@
+
 Bazen treba napolniti s @total@ litri vode. Koliko vode je treba naliti iz vodovoda, ki je pri @temp[1]@@mes[1]@, in koliko vode segrete na @temp[2]@°C, da bo temperatura vode v bazenu @temp[3]@°C?
-Napiši ustrezni sistem enačb (vpiši vse koeficiente, ki so različni od 0). Rešitev zapiši na eno decimalno mesto.
+Napišite ustrezni sistem enačb (vpišite vse koeficiente, ki so različni od 0). Rešitev zapišite na eno decimalno mesto.
 @vspace@
 @center@ @eq[1]@
 @center@ @eq[2]@

@@ -1,5 +1,5 @@
 
-Zapiši števila z besedami.
+Zapišite števila z besedami.
 Primer: število 3.456 je zapisano kot "tri cele, štiri desetice, pet stotink in šest tisočink".
 @repeat(5)@
 @vspace@

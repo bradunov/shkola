@@ -1,0 +1,1 @@
+msg = {"majhnih", "velikih", "hamburger", "sirni burger", "hamburgerja", "sirna burgerja", "in"}

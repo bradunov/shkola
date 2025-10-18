@@ -1,6 +1,5 @@
 
 Na podlagi besedila napišite izraze. Uporabite oklepaje in simbole / za količnik in ^ za potenco (brez presledkov). 
-
 @vspace@
 @center@ @quest[1]@    
 @center@ @answ[1]@       

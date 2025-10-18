@@ -1,4 +1,5 @@
-Izračunaj.
+
+Izračunajte.
 @repeat(3)@
 @center@ @quest@
 @center@ = @reply1@@reply2@

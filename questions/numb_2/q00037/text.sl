@@ -1,7 +1,7 @@
 
 Euler-Vennov diagram predstavlja množico @choice[ind]@. 
 @center@ @mycanvas()@
-Množico predstav 
+Množico predstavite 
 @center@ z naštevanjem elementov @task[ind]@
 @center@    @solut_1@
 @vspace@

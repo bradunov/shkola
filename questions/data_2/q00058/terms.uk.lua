@@ -1,2 +1,1 @@
 msg = {"rating", "number of students"}
-quest = {"Calculate the sample mean of ratings (round to two decimal places).", "Determine the median of the sample ratings.", "Determine the mode of the sample ratings."}

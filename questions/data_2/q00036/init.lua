@@ -1,7 +1,6 @@
 
 include("terms")
 
-
 tab_style =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -159,8 +158,8 @@ end
     lib.add_line(ow, ow+(j-1)*(v-ov), oc-w+5*(v-ov), 0, tab_style, false, false)
   end
 
-  lib.add_text(wy-2*ow, v-2*ow, msg[1], text_style, false, false)
-  lib.add_text(wy-2*ow, 2*(v-2*ow), msg[2], text_style, false, false)
+  lib.add_input(v-2*ow, 2*ow, 120, 30, msg[1])
+  lib.add_input(v-2*ow, v,  120, 30, msg[2])
   
   for i = 1,4 do
       lib.add_text(ocy+ow+i*(v-w), v-2*ow, mark[i], text_style, false, false) 
@@ -172,7 +171,7 @@ end
   end 
 
 --[[ circle ]]--
-  lib.add_circle (oc, ocy+shf, wy-w, colour_style, true, false )
+  lib.add_circle (oc, ocy+shf, wy-5, colour_style, true, false )
 
   for i = 1,4 do
       lib.add_straight_path(oc, ocy+shf, {{xm[i], ym[i]}}, line_style,  false, false)    
@@ -187,15 +186,4 @@ end
 
   lib.end_canvas()
 end    
-
-          
-
-             
-                           
-                       
-       
-     
-                
-                            
-                       
     

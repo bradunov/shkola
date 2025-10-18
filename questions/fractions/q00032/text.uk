@@ -1,0 +1,5 @@
+
+@name@ has a box weighing @box@@meas@. When he puts his collection of @numb@ identical marbles inside the box, the combined weight of the box and the marbles is @total@@meas@.
+What is the weight of each marble? Give your answer as a decimal. 
+@vspace@
+@center@ The weight of each marble is @hspacept(8)@ @lib.check_number(marb,40)@@meas@.

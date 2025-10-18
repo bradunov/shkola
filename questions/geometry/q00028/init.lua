@@ -43,7 +43,7 @@ for i = 1,7 do
   lib.add_line(2*wh+2*wv+2*ow, ow, 0, 17*wv/2, style, false, false)
   lib.add_line(4*ow+3*wh, ow, 0, 17*wv/2, style, false, false)
   
-  lib.add_text(3*wv, 3*ow, tvrdjenje_str, text_style)
+  lib.add_input(3*wv, 2*ow, 80, 30, tvrdjenje_str)
   lib.add_text(2*(wh+wv+2*ow), 3*ow, t_str.." / "..n_str, text_style)
   
   for i = 1,dim do
@@ -97,10 +97,11 @@ for i = 1,7 do
 		  x = 0
 		  answ = t_str		  
       end
-      lib.add_text(3*ow, ow+i*(wv+ow), object[ind], colour_style)
-   	  lib.add_text(wh+wv, 3*ow+i*(wv+ow), reply[i], text_style)	  	  
+      lib.add_text(wv, ow+i*(wv+ow), object[ind], colour_style)
+   	  lib.add_input(2*ow, 2*ow+i*(wv+ow), 270, 30, reply[i])	  	  
 	  lib.add_input(2*(wv+wh+ow), ow+i*(wv+ow),40, 40, lib.check_string(answ,15))	  
   end 
 
   lib.end_canvas()
 end
+       

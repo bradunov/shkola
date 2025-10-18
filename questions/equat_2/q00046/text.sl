@@ -4,7 +4,7 @@
 @else@
 @term[1]@ števila a je za @coef@ @sign@ od @sign1@ @term[2]@ števila a in @term[3]@ števila a. 
 @endif@ 
-Napiši enačbo, s katero boš izračunal neznano število @"a"@. 
+Napišite enačbo, s katero boste izračunali neznano število @"a"@. 
 @vspace@
 @center@ @equ@
 @vspace@

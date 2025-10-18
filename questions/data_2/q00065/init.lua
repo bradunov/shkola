@@ -30,7 +30,7 @@ qy = {}
 trg = {}
 hyp = {}
 
-meas = {"dim", "dim\(\small^2\)"}
+meas = {"dim", "dim²"}
 name = {"A", "B", "C"}
 
 dim = 8
@@ -186,3 +186,4 @@ mycanvas = function()
   lib.end_canvas()
 end    
           
+            

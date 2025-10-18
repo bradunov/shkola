@@ -1,1 +1,1 @@
-position = {"pritličje", "LEVO", "DESNO", "levo", "desno", "VRSTA", "SEDEŽ"}
+position = {"pritličje","levo", "desno",  "LEVO", "DESNO", "vrsta", "sedež"}

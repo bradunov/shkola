@@ -17,10 +17,10 @@ Trditev
 @else@
 @center@ število @"x"@ je nenegativno in ni večje od @numbd@, 
 @endif@ 
-zapiši (v naraščajočem vrstnem redu) v obliki 
+zapišite (v naraščajočem vrstnem redu) v obliki 
 @"(a)"@ neenačbe 
 @center@ @ineq@,  
 @"(b)"@ intervala, kamor spada rešitev 
 @center@ @set@,  
-@"(c)"@ obarvaj območje na številski premici in zapiši meje
+@"(c)"@ obarvajte območje na številski premici in zapišite meje
 @center@ @mycanvas()@

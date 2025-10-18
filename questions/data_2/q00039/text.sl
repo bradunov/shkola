@@ -1,5 +1,5 @@
-V eni šoli od @number@ učencev je @per@@proc@ deklet. Koliko deklet in koliko fantov obiskuje to šolo?
 
+V eni šoli s @number@ učenci je @per@@proc@ deklet. Koliko deklet in koliko fantov obiskuje to šolo?
 @vspace@
 Šolo obiskuje
 @center@   @lib.check_number(numb_1,50)@ deklet,

@@ -93,19 +93,19 @@ mycanvas = function()
   lib.add_line(4*ov+ww, ow, 0, w-ow/2, style, false, false)	 
 
 
-  lib.add_text(v, v, msg[1], text_style, false, false)
-  lib.add_text(ov+v, v, msg[2], text_style, false, false)
-  lib.add_text(ov+v, v+ow, msg[4], text_style, false, false)
+  lib.add_input(0, v-ww, 80, 30, msg[1])
+  lib.add_input(ov, v-ww, 80, 30, msg[2])
+  lib.add_input(2*ov+ow, v-ww, 60, 30, msg[3])
+  lib.add_input(3*ov+ow, v-ww, 60, 30, msg[4])
  
-  lib.add_text(2*(ov+ow), v, msg[3], text_style, false, false)
-  lib.add_text(3*ov+v, v, msg[4], text_style, false, false)
-  lib.add_text(2*ov+2*ow, 3*ow, "( s )", text_style, false, false)
-  lib.add_text(3*ov+2*ow, 3*ow, "(min, s)", text_style, false, false)
+  lib.add_input(ov+2*ww, v+ow-ww,  60, 30, msg[4])
+  lib.add_input(2*ov+ow, v+ow-ww, 60, 30, "( s )")
+  lib.add_input(3*ov+ow, v+ow-ww, 60, 30, "(min, s)")
 
   
   ind = math.random(5)
   for i = 1,4 do
-      lib.add_text(v, ow + (i+1)*v, ime[i], text_style, false, false)  
+      lib.add_input(2*ww, ww+(i+1)*v, 60, 30, ime[i])  
       lib.add_text(ov+ww, ow + (i+1)*v, numb_m[i], text_style, false, false)   
       lib.add_text(ov+ow+ww, ow + (i+1)*v, " min", text_style, false, false) 
       lib.add_text(ov+3*ow-ww, ow + (i+1)*v, numb_s[i], text_style, false, false)   
@@ -116,4 +116,5 @@ mycanvas = function()
   end
 
   lib.end_canvas()
-end              
+end                
+            

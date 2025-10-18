@@ -1,1 +1,1 @@
-measure_str = {"dolžina", "širina", "višina", "zapremina"}
+measure_str = {"dolžina", "širina", "višina", "prostornina"}

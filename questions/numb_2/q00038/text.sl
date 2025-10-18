@@ -1,7 +1,7 @@
 
 Množico
 @center@    @solut_2@, @hspacept(8)@  @add@
-predstavi @task[ind]@:
+predstavite @task[ind]@:
 @vskip@
 @center@ naštevanjem elementov 
 @center@    @solut_1@,

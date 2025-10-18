@@ -1,5 +1,5 @@
-Reši enačbe. 
 
+Rešite enačbe. 
 @repeat(3)@
 @vspace@
 @center@ @quest@ 

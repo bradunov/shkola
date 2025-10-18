@@ -1,5 +1,5 @@
 
-This is a graph of a linear function. Write down the coefficient of proportionality: 
+A graph of a linear function is given.  Write down the coefficient of proportionality: 
 @center@ @"y ="@ @lib.check_number(coef, 20)@ @"* x"@.
 @vspace@
 @center@ @mycanvas()@

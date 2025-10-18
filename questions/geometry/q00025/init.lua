@@ -35,23 +35,23 @@ mycanvas = function()
     lib.add_line(ow+(i-1)*wh, ow, 0, 8*wv, style, false, false)
   end  
 
-  lib.add_text(5*ow, 3*ow, title[1], text_style)
-  lib.add_text(5*ow, 5*ow, title[3], text_style)
+  lib.add_input(2*ow, 2*ow, 70, 30, title[1])
+  lib.add_input(2*ow, 4*ow, 70, 30,  title[3])
 
-  lib.add_text(5*ow+wh, 3*ow , title[2], text_style)
-  lib.add_text(5*ow+wh, 5*ow , title[5], text_style)
-  lib.add_text(5*ow+wh, 7*ow , title[4], text_style)
+  lib.add_input(2*ow+wh, 2*ow, 70, 30,  title[2])
+  lib.add_input(2*ow+wh, 4*ow, 70, 30,  title[5])
+  lib.add_input(2*ow+wh, 6*ow, 70, 30,  title[4])
 
-  lib.add_text(5*ow+2*wh, 3*ow, title[2], text_style)
-  lib.add_text(5*ow+2*wh, 5*ow , title[6], text_style)
-  lib.add_text(5*ow+2*wh, 7*ow , title[4], text_style)
+  lib.add_input(2*ow+2*wh, 2*ow, 70, 30, title[2])
+  lib.add_input(ow+2*wh, 4*ow, 90, 30, title[6])
+  lib.add_input(2*ow+2*wh, 6*ow, 70, 30, title[4])
   
   for i = 1,dim do
   	  if (ind[i] == dim) then
-		  lib.add_text(5*ow, (i+2)*wv-2*ow, object[dim+1], text_style)
-		  lib.add_text(5*ow, (i+2)*wv, object[dim], text_style)		  
+		  lib.add_input(2*ow, (i+2)*wv-3*ow, 70, 30, object[dim+1])
+		  lib.add_input(2*ow, (i+2)*wv-ow, 90, 30, object[dim])		  
       else
-		  lib.add_text(5*ow, (i+2)*wv-ow, object[ind[i]], text_style)	  
+		  lib.add_input(2*ow, (i+2)*wv-2*ow, 70, 30, object[ind[i]])	  
       end	  
       for j = 1,2 do
 	      temp = out[j][ind[i]]
@@ -64,6 +64,4 @@ mycanvas = function()
   end 
 
   lib.end_canvas()
-end
-                
-                
+end   

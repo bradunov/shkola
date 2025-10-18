@@ -1,0 +1,5 @@
+                                 
+Color the circle below the the best estimate of 
+@center@ @numb1@ : @numb2@
+@vspace@
+@center@ @mycanvas()@

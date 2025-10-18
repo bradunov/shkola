@@ -1,5 +1,5 @@
                                 
-Enter a number so that the equation is correct.   
+Enter a number so that the equality is correct.   
 @repeat(4)@ 
 @center@ @numleft@ @measure[indl]@ @hspacept(5)@ = @hspacept(5)@ @lib.check_number(numright,65)@ @measure[indr]@
 @/repeat@              

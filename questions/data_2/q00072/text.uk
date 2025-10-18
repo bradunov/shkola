@@ -1,0 +1,5 @@
+
+Figure A (red line) is scaled (enlarged or reduced) to obtain figure B (blue line), as shown on the grid.
+@center@ @mycanvas()@
+What is the scale factor?	
+@center@ @lib.check_number(fct)@

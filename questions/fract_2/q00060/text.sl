@@ -1,5 +1,5 @@
 
-Podeli @hspacept(2)@ @lib.dec_to_str(number)@ @hspacept(2)@ sa @hspacept(2)@ @factor@.
+Podelite @hspacept(2)@ @lib.dec_to_str(number)@ @hspacept(2)@ sa @hspacept(2)@ @factor@.
 @center@ @mycanvas()@  
 @center@ Zaokroži količnik na @round@ @name@. 
 @center@ @lib.check_number(result, 50)@

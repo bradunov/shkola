@@ -435,6 +435,16 @@
       "rank_subtheme": "2",
       "rank_topic": "3",
       "difficulty": "2"
+    },
+    {
+      "name": "measures/q00112",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Masa",
+      "topic": "Računske operacije",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "1"
     }
   ]
 }

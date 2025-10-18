@@ -1,0 +1,8 @@
+
+@child@ children are playing a game. The game uses a pack of @total@ cards. The cards are dealt out so that each player get the same number of cards. As many cards are dealt as possible. 
+@vspace@
+How many cards each child gets?
+@center@  Each child gets  @hspacept(3)@ @lib.check_number(result)@  @hspacept(3)@ cards.
+How many cards are left over?
+@center@ @lib.check_number(rest)@  @hspacept(3)@ cards are left over.
+      

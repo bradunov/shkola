@@ -1,5 +1,5 @@
 
-Uredite številke 
+Uredite števila 
 @center@ @quest[1]@ @hspacept(12)@ @quest[2]@ @hspacept(12)@ @quest[3]@ 
 @center@ @quest[4]@ @hspacept(12)@ @quest[5]@ @hspacept(12)@ @quest[6]@
 @relat@.

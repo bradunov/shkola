@@ -1,1 +1,1 @@
-position = {"ground floor", "LEFT", "RIGHT", "left", "right", "ROW", "SEAT"}
+position = {"ground floor", "left", "right" , "LEFT", "RIGHT",  "row", "seat"}

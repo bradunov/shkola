@@ -1,6 +1,5 @@
-Tabela prikazuje uspeh učenika pri pisnem zadatku.
 
+Tabela prikazuje uspeh učencev pri pisni nalogi. 
 @center@ @mycanvas()@
-
 Kateri podatek iz tabele ni pravilno prikazan s stolpičnim diagramom?
-Obkroži kroglico pod ustrezno stolpčno.
+Obkroži krog pod ustrezno stolpčno.

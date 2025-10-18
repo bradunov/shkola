@@ -1,6 +1,6 @@
 
-Brez risanja grafikov ugotovi, ali so dane funkcije naraščajoče ali padajoče. 
-V zadnje polje vnesi zaporedne številke funkcij, katerih grafiki so vzporedni s grafom navedene funkcije, če obstajajo, ali 0, če ne obstajajo. (Zaporedne številke navedi v naraščajočem vrstnem redu, brez ločevanja z presledkom ali vejico; na primer 35 za funkcijo 2).
+Brez risanja grafikov ugotovite, ali so dane funkcije naraščajoče ali padajoče. 
+V zadnje polje vnesite zaporedne številke funkcij, katerih grafiki so vzporedni s grafom navedene funkcije, če obstajajo, ali 0, če ne obstajajo. (Zaporedne številke navedi v naraščajočem vrstnem redu, brez ločevanja z presledkom ali vejico; na primer 35 za funkcijo 2).
 1. @hspacept(15)@ @"y = "@ @fun[out[1]]@ @hspacept(30)@ @lib.check_one_option_dropdown(answ, ind[out[1]])@ @hspacept(30)@ @lib.check_number(graph[1])@ 
 2. @hspacept(15)@ @"y = "@ @fun[out[2]]@ @hspacept(30)@ @lib.check_one_option_dropdown(answ, ind[out[2]])@ @hspacept(30)@ @lib.check_number(graph[2])@ 
 3. @hspacept(15)@ @"y = "@ @fun[out[3]]@ @hspacept(30)@ @lib.check_one_option_dropdown(answ, ind[out[3]])@ @hspacept(30)@ @lib.check_number(graph[3])@ 

@@ -1,5 +1,5 @@
 
-Izračunaj kvadrat dvočlenika.
+Izračunajte kvadrat dvočlenika.
 @repeat(2)@
 @vspace@
 @center@ @quest@ =  

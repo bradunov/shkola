@@ -1,6 +1,5 @@
 
 include("terms")
-
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 style = 
 	{["off_color"] = "fff",
@@ -15,6 +14,7 @@ check_style =
         ["line_width"] = "1"};
 
 text_style = {["font_size"] = "12"}
+text1_style = {["font_size"] = "14"}
 
 
 row = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"}
@@ -116,24 +116,24 @@ end
 	  end	  
   end 
 
-  lib.add_rectangle (w+2*ov, w, ow+w+ov, 2*w+ov, style, false, false)
-  lib.add_text(2*(w+ov), w+2*ov, position[1], text_style)
-  lib.add_text(5*w, w+2*ov, position[1+side[1]], text_style)  
-  lib.add_text(2*w+ov, 2*(w+ov), position[6], text_style)
-  lib.add_text(3*w+3, 2*(w+ov), numb_r[1], text_style) 
-  lib.add_text(5*w+ov, 2*(w+ov), position[7], text_style)  
-  lib.add_text(7*w-ov+2, 2*(w+ov), numb_s[1], text_style) 
+  lib.add_rectangle (2*ov, w, ow+3*w, 2*w+3*ov, style, false, false)
+ lib.add_input(2*(w+ov), w,  100, 30, position[1])
+  lib.add_input(2*(w+ov), 2*w-4,  100, 30, position[1+side[1]])  
+ lib.add_input(2*ov, 2*(w+ov), 40, 30, position[6])
+  lib.add_text(3*w, 3*w, numb_r[1], text1_style) 
+  lib.add_input(4*w-2*ov, 2*(w+ov), 70, 30, position[7])  
+  lib.add_text(7*w+2*ov, 3*w, numb_s[1], text1_style)  
 				
-  lib.add_rectangle (v+2*ov, w, ow+w+ov, 2*w+ov, style, false, false)
-  lib.add_text(v+2*(w-ov), w+2*ov, position[1], text_style)
-  lib.add_text(v+4*w, w+2*ov, position[1+side[2]], text_style)  
-  lib.add_text(v+w+ov, 2*(w+ov), position[6], text_style)
-  lib.add_text(v+ov+2*w, 2*(w+ov), numb_r[2], text_style) 
-  lib.add_text(v+ov+4*w, 2*(w+ov), position[7], text_style)  
-  lib.add_text(v+6*w-3, 2*(w+ov), numb_s[2], text_style)
+  lib.add_rectangle (v-ov, w, ow+3*w, 2*w+3*ov, style, false, false)
+  lib.add_input(v+2*(w-ov), w, 100, 30, position[1])
+  lib.add_input(v+w, 2*w-4,  100, 30, position[1+side[2]])  
+  lib.add_input(v-ov, 2*(w+ov), 40, 30, position[6])
+  lib.add_text(v+2*w+ov, 3*w, numb_r[2], text1_style) 
+  lib.add_input(v+2*ov+2*w, 2*(w+ov), 70, 30, position[7])  
+  lib.add_text(v+6*w+2*ov, 3*w, numb_s[2], text1_style)
 
-  lib.add_text(3*w, 5*w-ov, position[4], text_style)  
-  lib.add_text(v+5*w, 5*w-ov, position[5], text_style)
+  lib.add_text(4*w, 5*w-ov, position[4], text1_style)  
+  lib.add_text(v+ow, 5*w-ov, position[5], text1_style)
 
   lib.end_canvas()
-end
+end    

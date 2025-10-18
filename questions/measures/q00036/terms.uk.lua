@@ -1,5 +1,5 @@
-msg1 = "The circumference of a square is "
+msg1 = "The perimeter  of a square is "
 msg2 = ". What is its surface area?"
-msg3 = "The circumference of a rectangle is "
+msg3 = "The perimeter of a rectangle is "
 msg4 = ". One of its sides is "
 msg5 = " times shorter than the other. What is its surface area?"

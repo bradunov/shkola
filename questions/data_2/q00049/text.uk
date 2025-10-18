@@ -1,4 +1,13 @@
-The table shows the results of testing two groups of students, "A" and "B". 
+
+The table shows the results of testing two groups of students, @"A"@ and @"B"@. 
 @center@ @mycanvas()@
-For each group, enter @quest@
-@center@ group "A" @hspacept(5)@ @lib.check_number(outa,40)@,@hspacept(25)@ group "B" @hspacept(5)@ @lib.check_number(outb,40)@
+For each group, enter 
+@if index == 1@
+number of students who have @edge@ and more points.
+@elif index == 2@
+number of students who have  less than @edge@ points.
+@else@
+average number of points for the entire group (use mean values given in red numbers).
+@endif@ 
+@center@ grupa @"A"@ @hspacept(5)@ @lib.check_number(outa,40)@,@hspacept(25)@ grupa @"B"@ @hspacept(5)@ @lib.check_number(outb,40)@
+            

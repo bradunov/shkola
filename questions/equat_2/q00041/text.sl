@@ -1,6 +1,5 @@
 
-Reši enačbo
- 
+Rešite enačbo
 @center@  @quest[1]@ = 
 @center@  @quest[2]@.
 @vspace@  

@@ -1,0 +1,4 @@
+                                
+Choose the numbers that add together to give @value[ind]@: 
+@vspace@
+@center@ @lib.check_one_option_dropdown(out, answ[ind])@      

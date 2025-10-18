@@ -1,2 +1,3 @@
-Določite dolžine daljic (na dve decimalke) in koordinate njihovih središč, če so konci daljic označeni na kvadratni mreži (enota dolžine je stranica kvadrata mreže).
+
+Določite dolžine daljic (na dve decimalni mesti) in koordinate njihovih središč, če so konci daljic točke označene na kvadratni mreži (enota dolžine je stranica kvadrata mreže).
 @center@ @mycanvas()@

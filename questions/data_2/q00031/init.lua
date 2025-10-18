@@ -54,8 +54,8 @@ mycanvas = function()
     lib.add_line(ow, ow+(j-1)*v, w+5*v+ow, 0, style, false, false)
   end
 
-  lib.add_text(ov+ow, v, msg[1], text_style, false, false)
-  lib.add_text(ov+ow, 2*v, msg[2], text_style, false, false)
+  lib.add_input(2*ow, v-10, 100, 30, msg[1])
+  lib.add_input(15, 2*v-10, 150, 30, msg[2])
   
   ind = math.random(5)
   for i = 1,5 do
@@ -68,20 +68,4 @@ mycanvas = function()
   end
 
   lib.end_canvas()
-end                      
-                 
-  
-    
-            
-            
-            
-           
-   
-   
-        
-    
-   
-        
-       
-             
-       
+end                       

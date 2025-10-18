@@ -687,6 +687,46 @@
       "difficulty": "2"
     },
     {
+      "name": "fract_2/q00101",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Fraction",
+      "topic": "Multiplication and division",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00102",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Fraction",
+      "topic": "Multiplication and division",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "2"
+    },
+    {
+      "name": "fract_2/q00103",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Fraction",
+      "topic": "Decimal notation",
+      "rank_subtheme": "3",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "fract_2/q00104",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Fraction",
+      "topic": "Multiplication and division",
+      "rank_subtheme": "3",
+      "rank_topic": "5",
+      "difficulty": "1"
+    },
+    {
       "name": "numb_2/q00009",
       "random": "10",
       "period": "1",
@@ -1195,6 +1235,16 @@
       "rank_subtheme": "1",
       "rank_topic": "2",
       "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00110",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Divisibility of natural numbers",
+      "topic": "Properties of divisibility",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
     }
   ]
 }

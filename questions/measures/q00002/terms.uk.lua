@@ -1,1 +1,1 @@
-measures_str = {"edge", "circumference", "area"}
+measures_str = {"edge", "perimeter", "area"}

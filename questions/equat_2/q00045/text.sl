@@ -5,7 +5,7 @@
 @term[1]@ števila a je za @coef@ @sign@ od @term[2]@ števila a. 
 @endif@
 Koliko je @"a"@?
-Napiši enačbo, s katero boš izračunal neznanko @"a"@ in jo reši. 
+Napišite enačbo, s katero boste izračunali neznanko @"a"@ in jo rešite. 
 @vspace@
 @center@ @equ@
 @center@ Število je @hspacept(3)@ a = @lib.check_number(numb)@.

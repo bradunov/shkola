@@ -1,0 +1,6 @@
+
+@ime1@ and @ime2@ have a total combined height of @total@ @meas[1]@. 
+Choose possible options of their heights from the table. If there is more than one option, enter them in order.
+@center@ @mycanvas()@ 
+@center@ @ime1@ @hspacept(10)@ @ans1@ 
+@center@ @ime2@ @hspacept(10)@ @ans2@ 

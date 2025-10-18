@@ -1,6 +1,6 @@
 
 Izračunajte na dva načina:
-1) pretvorite mešana števila v ulomke, večje od 1, in izračunajte rezultat,
+1) napišite del celote, ki je večji od celote, kot ulomek večji od 1, in izračunajte rezultat,
 2) ločeno izračunajte cel del in ulomek rezultata.
 Rezultat zapišite v najenostavnejši obliki.
 @vspace@

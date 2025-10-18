@@ -137,9 +137,9 @@ mycanvas = function()
   lib.add_line(ow, scale+ow+8*ov, 22*ov-v, 0, line_style, false, false)
 
   for i = 1,3 do
-      lib.add_text(2*ov+ow, scale+ow+(2*i-1)*ov, msg[i], small_style, false, false) 	  	    	  
+      lib.add_input(0, scale+(2*i-1)*ov, 80, 30, msg[i]) 	  	    	  
   end 
-  lib.add_text(2*ov+ow, scale+v+7*ov, msg[4], small_style, false, false) 	
+  lib.add_input(0, scale-v+7*ov, 80, 30, msg[4]) 	
   
   for i = 1,stampa do
       lib.add_text(2*ov+ow+i*(4*ov+v), scale+ow+ov, title[i], colour_style, false, false) 	  	    	  
@@ -150,15 +150,15 @@ mycanvas = function()
   end 
  
   for i = 1,stampa do
-      lib.add_text(2*ow+i*(4*ov+v)-3, scale+ow+5*ov, "(", text_style, false, false)
+      lib.add_input(ow+i*(4*ov+v)-3, scale+5*ov, 20,30, "(")
       lib.add_input(2*ow+i*(4*ov+v)-v, scale+5*ov-3, 50,30, lib.check_number(med_x[i],25))	 
-      lib.add_text(7*ow+i*(4*ov+v)-v, scale+ow+5*ov, ",", text_style, false, false) 
-
-      lib.add_input(2*ow+i*(4*ov+v)+3, scale+7*ov-3, 50,30, lib.check_number(med_y[i],25))
-
-      lib.add_text(7*ow+i*(4*ov+v), scale+ow+7*ov, ")", text_style, false, false)	
+      lib.add_input(5*ow+i*(4*ov+v), scale+5*ov, 20,30, ",") 
+      lib.add_input(ow+i*(4*ov+v), scale+7*ov-3, 50,30, lib.check_number(med_y[i],25))
+      lib.add_input(5*ow+i*(4*ov+v), scale+7*ov, 20,30, ")")	
 
    end 
  
   lib.end_canvas()
 end         
+            
+            

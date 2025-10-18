@@ -3,7 +3,7 @@ Podani so množice
 @center@ @solut[2]@
 @center@ @solut[3]@
 @vspace@
-Določi množice  
+Določite množice  
 @center@ @reply[1]@
 @vspace@
 @center@ @reply[2]@

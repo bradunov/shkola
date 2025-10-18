@@ -25,7 +25,7 @@ yp = {}
 x = {}
 y = {}
 
-meas = {"dim", "dim\(\small^2\)"}
+meas = {"dim", "dim²"}
 name = {"A", "B", "C"}
 
 dim = 8

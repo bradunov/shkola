@@ -1,0 +1,5 @@
+
+A farmer has @total@ animals on his farm. The table shows the number of each type of animal that he owns.
+Complete the table and show the number of animals on the farm in a pie chart.
+@center@ @mycanvas()@
+            

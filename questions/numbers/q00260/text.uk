@@ -1,0 +1,6 @@
+                                
+The product of numbers @numb[1]@ and @numb[2]@ is
+@center@ @lib.check_one_option_dropdown(out, reply)@
+@vspace@
+Color the circles under the products that have the same value.
+@center@ @mycanvas()@

@@ -1,5 +1,5 @@
 
-Vnesite manjkajočo številko, da dobite pravilno enakost. 
+Vnesite manjkajoče število, da dobite pravilno enakost. 
 @repeat(4)@ 
 @center@ @numleft@ @measure[indl]@ @hspacept(5)@ = @hspacept(5)@ @lib.check_number(numright,30)@ @measure[indr]@
 @/repeat@   

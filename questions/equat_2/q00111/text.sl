@@ -4,6 +4,6 @@ Podani so algebarski izrazi
 @center@ @"Q"@ = @term[2]@,  
 @center@ @"R"@ = @term[3]@.
 @vspace@
-Izračunaj
+Izračunajte
 @center@ @quest@ = 
 @center@  @result@

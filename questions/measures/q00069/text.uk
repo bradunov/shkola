@@ -1,5 +1,5 @@
                                 
-Enter the numbers that are missing to form the correct equations.    
+Enter the numbers that are missing to form the correct equalities.    
 @repeat(4)@ 
 @vspace@
 @center@ @numleft@ @measure[indl]@ @hspacept(5)@ = @hspacept(5)@ @lib.check_number(numright,30)@ @measure[indr]@

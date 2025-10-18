@@ -1,7 +1,9 @@
-V eni trgovini stane pakiranje šampona z @vol[1]@@"ml"@ @numb1@ dinarjev, medtem ko stane pakiranje istega šampona z @vol[2]@@"ml"@ @numb2@ dinarjev.
+
+V eni trgovini stane @vol[1]@@"ml"@ pakiranje šampona @numb1@ denarjev, @vol[2]@@"ml"@ pakiranje istega šampona pa @numb2@ denarjev.
 @vspace@
-Katero pakiranje je ugodneje kupiti?
-@center@ Ugodneje je kupiti pakiranje šampona z @lib.check_one_option_dropdown(vol, vol[ind])@@"ml"@.
+Katero pakiranje je bolje kupiti?
+@center@ Bolje je kupiti pakiranje šampona od @lib.check_one_option_dropdown(vol, vol[ind])@@"ml"@.
 @vspace@
 Koliko dinarjev se prihrani s tem izborom (zapišite število na dve decimalni mesti)?
-@center@ Prihranek znaša @lib.check_number(result,30)@ dinarjev na @"ml"@.
+@center@ Prihranek znaša @lib.check_number(result,30)@ denarjev na @"ml"@.
+            

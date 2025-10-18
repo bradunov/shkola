@@ -1,2 +1,3 @@
-Determine the lengths of the segments (to two decimal places) and the coordinates of their centers if the endpoints of the segments are marked on a square grid (the unit of length is the side of the grid square). 
+
+Determine the lengths of the segments (to two decimal places) and the coordinates of their midpoints if the endpoints of the segments are points marked on a square grid (the unit of length is the side of the grid square). 
 @center@ @mycanvas()@

@@ -1,6 +1,12 @@
 
 Complete the table so that it shows the success of @total@ students in one class on a math test.
 @center@ @mycanvas()@ 
-
-@center@ @quest[ch]@  
-@center@  @lib.check_number(value, 40)@
+@if ch == 1@
+@center@ Calculate the sample mean of ratings (round to two decimal places).
+@elif ch == 2@
+@center@ Determine the median of the sample ratings.
+@else@
+@center@ Determine the mode of the sample ratings.
+@endif@ 
+@center@  @lib.check_number(value, 40)@ 
+            

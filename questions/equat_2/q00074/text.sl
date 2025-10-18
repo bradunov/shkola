@@ -1,5 +1,5 @@
 
-Preveri, če je kateri od parov @"(x,y)"@ rešitev podanih enačb.
+Preverite, če je kateri od parov @"(x,y)"@ rešitev podanih enačb.
 
 @addition_table()@
 @vspace@

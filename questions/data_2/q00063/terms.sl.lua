@@ -1,1 +1,1 @@
-msg = {"dolž", "dolžina", "središče", "daljši"}
+msg = {"daljica", "dolžina", "središče", "daljice"}

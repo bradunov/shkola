@@ -1,5 +1,5 @@
 
-Določi produkt enočlenika in dvočlenika.
+Določite produkt enočlenika in dvočlenika.
 @repeat(2)@  
 @vspace@
 @center@ @quest@ = 

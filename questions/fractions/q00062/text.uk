@@ -1,0 +1,5 @@
+
+A shop sells only strawberry and vanilla icecreams. One day, \(\frac{@enum@}{@denom@}\) of the icecreams they sold were strawberry. They sold @vanila@ vanilla ice creams.
+
+How many icecreams did they sell in total?
+@center@ @lib.check_number(total)@ 

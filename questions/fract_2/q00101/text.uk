@@ -1,0 +1,10 @@
+
+Part of the menu for a burger restaurant is shown below (in euros)
+@center@ Hamburger    @food[1]@
+@center@ Cheese burger   @food[2]@ 
+@center@ Small bottle of lemonade   @food[3]@
+@center@ Large bottle of lemonade   @food[4]@
+Family have @total@ euros to spend. They want @quest1@  @quest2@ and some lemonade.
+@vspace@
+What is the greatest number of @msg[ind]@ bottles of lemonade they could buy?
+@center@ @lib.check_number(result)@

@@ -1,0 +1,6 @@
+
+The body in the picture is made of cubes. Each cube has a volume of 1 @meas@. @hspacept(8)@ @mycanvas()@
+What is the volume of the body? @hspacept(8)@ @lib.check_number(shape)@ @meas@
+@name@ has @numb@ of these bodies. She stacks them to make a tower. 
+What is the volume of her tower?@hspacept(8)@ @lib.check_number(tower)@ @meas@.
+            

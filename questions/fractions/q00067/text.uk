@@ -1,0 +1,6 @@
+
+@name@ has a bag of flour weighing @total@ @"kg"@. She put some of her flour onto the scales (picture).
+@center@ @mycanvas()@
+How many grams of flour are left in the bag?
+@vspace@
+@center@ @lib.check_number(rest)@ @"g"@ @hspacept(3)@ of flour are left in the bag.

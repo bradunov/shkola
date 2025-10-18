@@ -1,5 +1,5 @@
 
-Z ekvivalentnimi transformacijami spravite podano neenačbo 
+Z ekvivalentnimi transformacijami spravite neenačbo 
 @center@ @quest@
 v linearno neenačbo s celimi koeficienti oblike 
 @center@ @"a x ⋛ b"@, @hspace@ a ≥ 0. 

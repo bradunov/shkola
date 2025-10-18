@@ -275,6 +275,16 @@
       "rank_subtheme": "4",
       "rank_topic": "2",
       "difficulty": "2"
+    },
+    {
+      "name": "data_2/q00072",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Uporaba racionalnih števil",
+      "topic": "Razmerje",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "1"
     }
   ]
 }

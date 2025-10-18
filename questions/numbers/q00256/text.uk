@@ -1,0 +1,5 @@
+                                 
+@ime@ rounded the number to the nearest ten and said that there were @number@ customers in the store that day. 
+How many customers could there have been in the store that day? Color circles below the correct answers.
+@vspace@
+@center@ @mycanvas()@ 

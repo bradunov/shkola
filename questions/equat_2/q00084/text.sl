@@ -1,6 +1,6 @@
 
 @name[1]@ se odpravlja iz šole domov in prehodi @vel[1]@ metrov na minuto. V tem trenutku je njen brat @name[2]@, ki se je odpravil po isti poti od doma v šolo s hitrostjo @vel[2]@ metrov na minuto, oddaljen @free[2]@ metrov od šole. Po koliko minutah @"t"@ in na kateri razdalji od šole @"r"@ sta se srečala? 
-Napiši ustrezni sistem enačb (vpiši vse koeficiente, ki so različni od 0). Rešitev zapiši na dve decimalni mesti.
+Napišite ustrezni sistem enačb (vpišite vse koeficiente, ki so različni od 0). Rešitev zapišite na dve decimalni mesti.
 @vspace@
 @center@  @equ[1]@
 @center@ @equ[2]@

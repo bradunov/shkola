@@ -1,0 +1,5 @@
+
+@ime@ buys a @quant@ @meas[1]@ bag of dried food for her pet. She gives the animal @numb@ bowls of food with the same amount each day. The bag of food lasts exactly @period@ days.
+How many @meas[2]@ are in each bowl?
+
+@center@ @lib.check_number(result)@@meas[2]@

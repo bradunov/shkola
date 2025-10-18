@@ -1,6 +1,5 @@
 
-Reši enačbe in preveri rešitve. 
-
+Rešite enačbe in preverite rešitve. 
 @repeat(4)@
 @center@ @quest@ @hspacept(25)@ x =  @lib.check_number(factor[3])@ 
 @vspace@

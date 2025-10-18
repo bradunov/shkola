@@ -95,13 +95,12 @@ end
   
 mycanvas = function()
 
-  lib.start_canvas(350, 260, "center", results)
+  lib.start_canvas(300, 210, "center", results)
 
-    w = 15
-    ow = 20
-    v = 5
-  
-  
+    w = 12
+    ow = 16
+    v = 4
+    
     for i = 1,stampa do
 	    init = out[ind[i]]
         if (ind[i] == 1) then	  
@@ -166,3 +165,4 @@ mycanvas = function()
   lib.end_canvas()
   
 end  
+         

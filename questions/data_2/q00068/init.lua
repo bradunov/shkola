@@ -25,7 +25,7 @@ yp = {}
 x = {}
 y = {}
 
-meas = {"dim", "dim\(\small^2\)"}
+meas = {"dim", "dim²"}
 name = {"A", "B", "C", "D"}
 coef = {0, 0.25, 0.5, 1, 2, 4}
 

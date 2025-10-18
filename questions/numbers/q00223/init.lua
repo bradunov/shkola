@@ -83,9 +83,10 @@ mycanvas = function()
 
   for i = 1,6 do
       lib.add_rectangle (2*w+(i-1)*(2*v+w), ow*(max+1-choice[i]), 2*v, (choice[i]-min)*ow, bar_style, false, true)  
-      lib.add_text(3*w+(i-1)*(2*v+w), (level+3)*ow, ime[i], text_style, false, false) 
+      lib.add_input(w+(i-1)*(2*v+w)+5, (level+2)*ow, 60, 30, ime[i]) 
   end
   
   lib.end_canvas()
 end
  
+            

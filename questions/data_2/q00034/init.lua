@@ -117,8 +117,9 @@ mycanvas = function()
     lib.add_line(ow, sft+ow+(j-1)*v, w+5*v, 0, dif_style, false, false)
   end
 
-  lib.add_text(ov, sft+v, msg[1], text_style, false, false)
-  lib.add_text(ov, sft+2*v, msg[2], text_style, false, false)
+  lib.add_input(ow, sft+v-10, 120, 30, msg[1])
+  lib.add_input(ow, sft+2*v-15, 120, 30, msg[2])
+  lib.add_input(ow, sft+2*v, 120, 30, msg[3])
   
   for i = 1,5 do
       lib.add_text(w+i*v, sft+v, mark[i], text_style, false, false)  
@@ -131,21 +132,3 @@ mycanvas = function()
   
   lib.end_canvas()
 end    
-
-  
-      
-  
-    
-            
-            
-            
-           
-   
-   
-        
-    
-   
-        
-       
-             
-       

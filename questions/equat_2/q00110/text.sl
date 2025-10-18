@@ -1,5 +1,5 @@
 
-Določi @task[op]@ algebrskih izraza @"P"@ in @"Q"@.
+Določite @task[op]@ algebrskih izraza @"P"@ in @"Q"@.
 
 @center@ @"P"@ = @term[1]@,  
 @center@ @"Q"@ = @term[2]@,  

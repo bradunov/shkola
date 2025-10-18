@@ -66,10 +66,11 @@ test_f = coef
         end						
     end
 
-    lib.add_text(w+ov, 2*ow-v, axis[1], text_style, false, false)  
-    lib.add_text(w+ov, 2*ow+ov, "(h)", text_style, false, false) 
-    lib.add_text(w+ov, 3*w+v, axis[2], text_style, false, false) 
-    lib.add_text(w+ov, 4*w, "(km)", text_style, false, false) 
+    lib.add_input(0, 2*ov, 60, 30, axis[1])  
+    lib.add_input(0, 2*ow+v, 60, 30, "(h)") 
+    lib.add_input(0, 3*w-v, 60, 30, axis[2]) 
+    lib.add_input(0, 4*w-v, 60, 30,  "(km)") 
 
   lib.end_canvas()
 end            
+            

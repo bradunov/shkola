@@ -1,1 +1,1 @@
-sign = {"količnik", "produkt", "povečate", "zmanjšate"}
+sign = {"količnik", "zmnožek", "povečate", "zmanjšate"}

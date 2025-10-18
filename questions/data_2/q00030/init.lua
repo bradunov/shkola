@@ -45,7 +45,7 @@ heig[5]	= 5 * aver - sum
 
 mycanvas = function()
 
-  lib.start_canvas(350, 250, "center")
+  lib.start_canvas(320, 220, "center")
  
   v = 30
   ov = 80
@@ -63,43 +63,26 @@ mycanvas = function()
   lib.add_line(v, ow+5*v, 2*w, 0, red_style, false, false)
   lib.add_line(v, 2*ow+6*v, 2*w, 0, red_style, false, false)
  
-  lib.add_text(ov, v, name[1], text_style, false, false)
+  lib.add_input(ov, v-5, 60, 30, name[1])
   lib.add_text(ov+w+5, v, heig[1], text_style, false, false)
   lib.add_text(ov+w+v, v, "cm", text_style, false, false)  
-  lib.add_text(ov, 2*v, name[2], text_style, false, false)
+  lib.add_input(ov, 2*v-5, 60, 30, name[2])
   lib.add_text(ov+w+5, 2*v, heig[2], text_style, false, false)
   lib.add_text(ov+w+v, 2*v, "cm", text_style, false, false)   
-  lib.add_text(ov, 3*v, name[3], text_style, false, false)
+  lib.add_input(ov, 3*v-5, 60, 30, name[3])
   lib.add_input(ov+w-ow, 3*v-7, 60, 30, lib.check_number(heig[3], 30))  
   lib.add_text(ov+w+v+10, 3*v, "cm", text_style, false, false) 
-  lib.add_text(ov, 4*v, name[4], text_style, false, false)
+  lib.add_input(ov, 4*v-5, 60, 30, name[4])
   lib.add_text(ov+w+5, 4*v, heig[4], text_style, false, false)
   lib.add_text(ov+w+v, 4*v, "cm", text_style, false, false)   
-  lib.add_text(ov, 5*v, name[5], text_style, false, false)
+  lib.add_input(ov, 5*v-5, 60, 30, name[5])
   lib.add_text(ov+w+5, 5*v, heig[5], text_style, false, false)
   lib.add_text(ov+w+v, 5*v, "cm", text_style, false, false)   
-  lib.add_text(w-ow, 6*v, msg[1], text_style, false, false)
-  lib.add_text(w-ow, 6*v+ow, msg[2], text_style, false, false)
+  lib.add_input(v, 6*v-5, 150, 30, msg[1])
+  lib.add_input(v, 6*v+ow-5, 150, 30, msg[2])
   lib.add_text(ov+w+5, 2*ov+v, aver, text_style, false, false)
   lib.add_text(ov+w+v, 2*ov+v, "cm", text_style, false, false)   
   
   lib.end_canvas()
 end                 
   
-               
-     
-  
-    
-            
-            
-            
-           
-   
-   
-        
-    
-   
-        
-       
-             
-       

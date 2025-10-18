@@ -1,5 +1,5 @@
 
-Če je površina kvadrata
+Če je ploščina kvadrata
 @repeat(3)@
 @vspace@
 @center@ @"P"@ = @quest@@meas2[sig]@, @hspacept(20)@@edge[ind]@ je @answ@@meas[sig]@.

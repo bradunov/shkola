@@ -1,5 +1,5 @@
 
-Vpiši številko tako, da dobiš natančno enakost.
+Vpišite število tako, da dobite natančno enakost.
 @repeat(3)@ 
 @vspace@ 
 @center@ @answ@ 

@@ -1,1 +1,2 @@
-msg = {"duž", "length", "center", "lines"}
+msg = {"segment", "length",  "segment", "midpoint"}
+

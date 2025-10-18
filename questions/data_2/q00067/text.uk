@@ -1,5 +1,6 @@
-Calculate the diagonal, perimeter and area of the square in the picture (rounded to two decimal places). The unit of length @"dim"@ is the length of the square grid side.
+
+Calculate the diagonal, perimeter and surface area of the square in the picture (rounded to two decimal places). The unit of length @"dim"@ is the length of a side of the grid square. 
 @center@ @mycanvas()@
 @center@ The diagonal is @hspacept(10)@ @lib.check_number(diag, 40)@@meas[1]@. 
 @center@ The perimeter is @hspacept(10)@ @lib.check_number(circ, 40)@@meas[1]@. 
-@center@ The area is @hspacept(10)@ @lib.check_number(area, 40)@@meas[2]@.
+@center@ The surface area is @hspacept(10)@ @lib.check_number(area, 40)@@meas[2]@.

@@ -1,0 +1,1 @@
+msg = {"one third", "two thirds", "quarter", "half", "three quarters", "fifth", "two fifths", "three fifths", "four fifths"} 

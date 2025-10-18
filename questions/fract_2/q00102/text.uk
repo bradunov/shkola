@@ -1,0 +1,8 @@
+
+What is the unknown number @"X"@ that is missing at the beginning of the sequence
+@vspace@
+@center@ @quest@
+@vspace@
+Write the result to two decimal places.
+@vspace@
+@center@ @"X"@ = @lib.check_number(numb[5], 60)@    

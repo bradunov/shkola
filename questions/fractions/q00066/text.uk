@@ -1,0 +1,5 @@
+                                
+Look at the numbers below. Which two numbers add up to @trace[ind]@?
+Color circles below the correct answers.
+@center@ @mycanvas()@       
+      

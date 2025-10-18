@@ -87,14 +87,18 @@ lib.add_rectangle (ow, ow, 4*v-2*ow, v, dif_style, true)
   end
 
   for j = 1,2 do
-	lib.add_text(ov+ow, 2*j*v-ow-5, name[3], small_style, false, false)
-	lib.add_text(ov+ow, 2*j*v, name[4], small_style, false, false)
-	lib.add_text(v, 2*j*v+ow, name[j], small_style, false, false)  
-	lib.add_text(ov+ow+5, 2*j*v+3*ow, name[5], small_style, false, false)
+	lib.add_input(2*v-ow, 2*j*v-2*ow-5, 70, 30, name[3])
+	lib.add_input(2*v-ow, 2*j*v-ow, 70, 30, name[4])
+	lib.add_input(0, 2*j*v, 70, 30, name[j])  
+	lib.add_input(2*v-ow, 2*j*v+2*ow-5, 70, 30, name[5])
   end
 
   for i = 1,3 do
-      lib.add_text(3*ow-5+(i+1)*(ov - ow), v-ow, town[i], small_style, false, false)  
+      if (i == 2) then
+          lib.add_input((i+1)*(ov - ow)-v, v-ow, 120, 30, town[i])
+      else
+          lib.add_input((i+1)*(ov - ow)-v, v-3*ow, 120, 30, town[i]) 
+      end 
       lib.add_text(2*ov+2*(i-1)*v, 2*v-ow, cost[2*i-1], text_style, false, false)     
 	  lib.add_text(2*ov+2*(i-1)*v, 3*v-ow, ret[2*i-1], text_style, false, false)     
       lib.add_text(2*ov+2*(i-1)*v, 4*v-7, cost[2*i], text_style, false, false)  
@@ -103,4 +107,4 @@ lib.add_rectangle (ow, ow, 4*v-2*ow, v, dif_style, true)
 
   lib.end_canvas()
 end                                     
-        
+ 

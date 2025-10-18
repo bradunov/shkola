@@ -1,5 +1,5 @@
                                 
-Enter the number so that you make the equation correct. 
+Enter the number so that you make the equality correct. 
 @repeat(4)@ 
 @vspace@ 
 @center@ @answ@ 

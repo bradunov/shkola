@@ -4,7 +4,7 @@ Dane so množice
 @center@ @solut[2]@
 @center@ @solut[3]@
 @vspace@
-Označi, katere od možnosti množic G in H so pravilne. Če so v pravilnem zapisu prazna polja, dopolni manjkajoče številke.
+Označite, katere od možnosti množic G in H so pravilne. Če so v pravilnem zapisu prazna polja, dopolnite manjkajoče številke.
 @vspace@
 @center@  @lib.check_one_option_radio(answ1,ind1, true)@          
 @vspace@            

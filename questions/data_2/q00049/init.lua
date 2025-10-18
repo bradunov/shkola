@@ -1,6 +1,4 @@
-
-include("terms")
-                            
+                   
 style = 
 	{["off_color"] = "fff",
         ["on_color"] = "fff",
@@ -39,9 +37,11 @@ step2 = 2 * step
 step4 = 4 * step
 number = 10 * step2
 
-ind = math.random(2)
-nre = ind - 1 + math.random(4)
-edge = bound[nre]
+index = math.random(3)
+if (index < 3) then
+	nre = index - 1 + math.random(4)
+	edge = bound[nre]
+end	
 
 max_a = 0
 for i = 1,3 do
@@ -86,51 +86,36 @@ for i = 1,6 do
     end	
 end	
 
-sum_a = 0
-sum_b = 0
-if (ind == 1) then
-    min_range = nre + 1
-	max_range = 6
-else
-    min_range = 1
-	max_range = nre
-end		
-for i = min_range,max_range do
-    sum_a = sum_a + qa[i]	
-    sum_b = sum_b + qb[i]
-end	
-sum_a = sum_a * step
-sum_b = sum_b * step
-
-aver_a = 0
-aver_b = 0
-for i = 1,6 do
-    aver_a = aver_a + qa[i] * mid[i]
-	aver_b = aver_b + qb[i] * mid[i]
-end	
-aver_a = aver_a/20
-aver_b = aver_b/20
-
-
-index = math.random(2)
-quest = ""
-
-
-
-if (index == 1) then	
-    if (ind == 1) then  
-        quest = msg[3] .. " " .. edge .. " " .. msg[ind] .. msg[4]
-    else
-        quest =  msg[3] .. " " .. msg[ind] .. " " .. edge .. msg[4]	
-    end	
+if (index < 3) then
+	sum_a = 0
+	sum_b = 0
+	if (index == 1) then
+		min_range = nre + 1
+		max_range = 6
+	else
+		min_range = 1
+		max_range = nre
+	end		
+	for i = min_range,max_range do
+		sum_a = sum_a + qa[i]	
+		sum_b = sum_b + qb[i]
+	end	
+	sum_a = sum_a * step
+	sum_b = sum_b * step
 	outa = sum_a
-	outb = sum_b
+	outb = sum_b	
 else
-    quest = msg[5] 
+	aver_a = 0
+	aver_b = 0
+	for i = 1,6 do
+		aver_a = aver_a + qa[i] * mid[i]
+		aver_b = aver_b + qb[i] * mid[i]
+	end	
+	aver_a = aver_a/20
+	aver_b = aver_b/20
 	outa = aver_a
-	outb = aver_b
+	outb = aver_b	
 end
-
 
 if (max_a < qa[4]) then
     max_a = qa[4]
@@ -145,13 +130,10 @@ else
     max_range = max_b
 end
 
-
 if (max_range - 2*math.floor(max_range/2) ~= 0 ) then
     max_range = max_range + 1
 end   	 
 scale = math.floor(max_range/2)
-
-
 
 mycanvas = function()
 

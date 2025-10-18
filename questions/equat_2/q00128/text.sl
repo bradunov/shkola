@@ -1,7 +1,7 @@
 
-Ekvivalentnim transformacijama svedi enačbo 
+Ekvivalentnim transformacijama svedite enačbo 
 @center@  @quest@
-na linearno enačbo z celoštevnimi koeficienti oblike@hspacept(5)@ @"a x = b"@, @hspacept(3)@ a ≥ 0.
+na linearno enačbo z celimi koeficienti oblike@hspacept(5)@ @"a x = b"@, @hspacept(3)@ a ≥ 0.
 @vspace@
 Izločanje ulomkov:
  @note@

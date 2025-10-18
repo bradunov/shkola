@@ -1,0 +1,1 @@
+msg = {"tretjino", "dve tretjini", "četrtinu", "polovicu", "tri četrtine", "petino", "dve petine", "tri petine", "štiri petine"}

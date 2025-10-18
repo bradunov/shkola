@@ -1,2 +1,2 @@
-msg1 = {"se povečati.", "se zmanjšati.", "ostati nespremenjena."}
-msg2 = "Površina pravokotnika se spreminja za "
+msg1 = {"se bo povečala.", "se bo zmanjšala.", "bo ostala nespremenjena."}
+msg2 = "Ploščina pravokotnika se spreminja za "

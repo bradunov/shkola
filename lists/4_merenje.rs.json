@@ -419,7 +419,7 @@
     {
       "name": "measures/q00077",
       "random": "10",
-      "period": "1",
+      "period": "3",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kocke",
       "rank_subtheme": "5",
@@ -429,7 +429,7 @@
     {
       "name": "measures/q00078",
       "random": "10",
-      "period": "1",
+      "period": "3",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kocke",
       "rank_subtheme": "5",
@@ -439,7 +439,7 @@
     {
       "name": "measures/q00079",
       "random": "10",
-      "period": "1",
+      "period": "3",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",
       "rank_subtheme": "5",
@@ -449,7 +449,7 @@
     {
       "name": "measures/q00080",
       "random": "10",
-      "period": "1",
+      "period": "3",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",
       "rank_subtheme": "5",
@@ -459,7 +459,7 @@
     {
       "name": "measures/q00081",
       "random": "10",
-      "period": "1",
+      "period": "3",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kocke",
       "rank_subtheme": "5",
@@ -469,7 +469,7 @@
     {
       "name": "measures/q00081",
       "random": "10",
-      "period": "1",
+      "period": "3",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",
       "rank_subtheme": "5",
@@ -479,7 +479,7 @@
     {
       "name": "measures/q00082",
       "random": "10",
-      "period": "1",
+      "period": "3",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",
       "rank_subtheme": "5",
@@ -489,7 +489,7 @@
     {
       "name": "measures/q00083",
       "random": "10",
-      "period": "1",
+      "period": "3",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",
       "rank_subtheme": "5",
@@ -519,7 +519,7 @@
     {
       "name": "measures/q00102",
       "random": "10",
-      "period": "1",
+      "period": "3",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",
       "rank_subtheme": "5",
@@ -549,7 +549,7 @@
     {
       "name": "measures/q00110",
       "random": "10",
-      "period": "1",
+      "period": "3",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",
       "rank_subtheme": "5",
@@ -559,12 +559,22 @@
     {
       "name": "measures/q00111",
       "random": "10",
-      "period": "1",
+      "period": "3",
       "subtheme": "Zapremina kocke i kvadra",
       "topic": "Zapremina kvadra",
       "rank_subtheme": "5",
       "rank_topic": "2",
       "difficulty": "3"
+    },
+    {
+      "name": "measures/q00113",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Zapremina kocke i kvadra",
+      "topic": "Zapremina kocke",
+      "rank_subtheme": "5",
+      "rank_topic": "1",
+      "difficulty": "2"
     }
   ]
 }

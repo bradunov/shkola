@@ -1,5 +1,5 @@
 
-Izračunajte za podana števila
+Izračunajte za števila
 @center@ @quest[1]@ @hspacept(3)@ in @hspacept(3)@ @quest[2]@
 @vspace@
 @task[2*ind-1]@ 

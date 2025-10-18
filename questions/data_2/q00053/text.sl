@@ -1,4 +1,5 @@
-Dat je grafik linearne funkcije. Upiši koeficient  proporcionalnosti
+
+Podan je graf linearne funkcije. Vnesite koeficient sorazmernosti.
 @center@   @"y ="@ @lib.check_number(coef, 20)@ @"* x"@.
 @center@ @mycanvas()@
 @center@ Za @hspacept(3)@ @"x ="@ @arg[1]@ @hspacept(3)@ je @hspacept(3)@ @"y ="@ @lib.check_number(fun[1],30)@.

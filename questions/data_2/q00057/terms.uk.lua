@@ -1,1 +1,1 @@
-axis = {"time", "distance"}
+axis = {"time", "distan."}

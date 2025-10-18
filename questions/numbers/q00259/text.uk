@@ -1,0 +1,5 @@
+
+@name@ eats the same number of apples each day.  He eats @week@ apples each week. 
+How many apples does he eat in a year (365 days)?
+@vspace@
+@center@ @name@ eats @hspacept(3)@ @lib.check_number(total)@  @hspacept(3)@ apples in a year.           

@@ -1,1 +1,0 @@
-msg = {"i več", "manj od", " število učencev, ki imajo ", " točk.", " povprečno število točk celotne skupine (uporabi srednje vrednosti, ki so označene z rdečimi številkami)."}

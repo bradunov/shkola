@@ -1,7 +1,7 @@
                                 
 @repeat(2)@
 @answ@ 
-@center@ The circumference is @lib.check_number(circ)@@measure[ind]@. 
+@center@ The perimeter  is @lib.check_number(circ)@@measure[ind]@. 
 @vspace@
 @/repeat@             
             

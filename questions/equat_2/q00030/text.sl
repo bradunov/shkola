@@ -1,9 +1,8 @@
 
 Rešite neenačbo
 @center@ @neq@.
-
 Rešitve neenačbe so
 @center@ @reply@
 @vspace@
-Rešitve prikaži na številski premici. Krog označuje mejno vrednost območja rešitev. Obarvaj krog, če mejna točka pripada območju rešitev. Vnesi celoštevilske vrednosti okoli točke, ki je označena s krogom, in obarvaj območje rešitev.
+Rešitve prikažite na številski premici. Krog označuje mejno vrednost območja rešitev. Obarvajte krog, če mejna točka pripada območju rešitev. Vnesite celoštevilske vrednosti okoli točke, ki je označena s krogom, in obarvaj območje rešitev.
 @center@ @mycanvas()@

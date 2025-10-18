@@ -17,10 +17,10 @@ Trditev:
 @else@
 @center@ @title[mod]@ @"x"@ je @choice@ od @numbl@ in ni @choice@ od @numbd@, 
 @endif@   
-zapiši (v naraščajočem vrstnem redu) v obliki 
+zapišite (v naraščajočem vrstnem redu) v obliki 
 @"(a)"@ neenačbe 
 @center@ @ineq@,  
 @"(b)"@ intervala, kamor spada rešitev 
 @center@ @set@,  
-@"(c)"@ obarvaj območje na številski premici in zapiši meje
+@"(c)"@ pobarvajte območje na številski premici in zapišite meje
 @center@ @mycanvas()@

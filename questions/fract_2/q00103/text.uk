@@ -1,0 +1,5 @@
+                                 
+@name@ divides a number by 100. When she rounds the answer to one decimal place, she gets @number@.
+Which of the numbers she could  have started with?  Color circles below the correct answers.
+@vspace@
+@center@ @mycanvas()@ 

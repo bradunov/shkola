@@ -1,4 +1,4 @@
-Grafikon prikazuje rezultate testiranja dve grupe učenika, @"A"@ in @"B"@.
 
-Za vsako skupino vpiši v tabelo, koliko učencev je doseglo število točk v določenem intervalu.
+Graf prikazuje rezultate testov dveh skupin študentov, A in B.
+Za vsako skupino v tabelo vnesite, koliko študentov je doseglo število točk v danem intervalu.
 @center@ @mycanvas()@

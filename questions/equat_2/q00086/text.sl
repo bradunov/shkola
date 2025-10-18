@@ -1,5 +1,5 @@
 @name[1]@ in @name[2]@ lahko končata neko delo, če @name[1]@ dela @coef[1]@ dni in @name[2]@ @coef[2]@ dni, ali če @name[1]@ dela @coef[3]@ dni in @name[2]@ @coef[4]@ dni. Za koliko dni bi lahko vsak sam opravil delo?
-Napiši ustrezen sistem enačb in rešitev zapiši na eno decimalno mesto.
+Napišite ustrezen sistem enačb in rešitev zapišite na eno decimalno mesto.
 @vspace@
 @center@  @equ[1]@
 @center@ @equ[2]@

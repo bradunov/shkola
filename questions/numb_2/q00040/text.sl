@@ -1,5 +1,5 @@
 
-Zapiši naštevanjem elementov (začni z najmanjšim) naslednje množice števil:
+Zapišite naštevanjem elementov (začnite z najmanjšim) naslednje množice števil:
 @vspace@
 Množica naravnih števil
 @center@  @"N"@ = @solut[1]@

@@ -1,4 +1,5 @@
-Obarvaj na številčni premici meje intervala, ki mu pripada realno število 
+
+Obarvajte na številčni premici meje daljice, ki joj pripada realno število 
 @center@  @"√"@@numb2@  
 in jih zapiši.      
 

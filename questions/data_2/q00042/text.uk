@@ -1,9 +1,10 @@
 
 For each point @"A"@ determine the quadrant to which it belongs and the coordinates 
-@center@ of the point @"M"@ symmetric to @"A"@ with respect to the @"x"@ axis, 
-@center@ of the point @"N"@ symmetric to @"A"@ with respect to the @"y"@ axis.
+@center@ of the point @"M"@ symmetric with respect to the @"x"@ axis, 
+@center@ of the point @"N"@ symmetric with respect to the @"y"@ axis,
+to the point @"A"@.
 @repeat(3)@ 
 @vspace@
-@center@ @"A"@ = (@xa@, @ya@) @hspacept(40)@ @lib.check_one_option_dropdown(posit, posit[ind])@
-@center@ @"M"@ = (@lib.check_number(xm,15)@, @lib.check_number(ym,15)@), @hspacept(25)@ @"N"@ = (@lib.check_number(xn,15)@, @lib.check_number(yn,15)@) 
-@/repeat@
+@center@ @"A"@ = (@xa@, @ya@) @hspacept(15)@ kvadrant @hspacept(3)@ @lib.check_one_option_dropdown(posit, posit[ind])@
+@center@ @"M"@ = (@lib.check_number(xm,25)@, @lib.check_number(ym,15)@), @hspacept(5)@ @"N"@ = (@lib.check_number(xn,25)@, @lib.check_number(yn,15)@) 
+@/repeat@  

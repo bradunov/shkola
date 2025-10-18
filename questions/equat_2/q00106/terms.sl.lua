@@ -19,9 +19,9 @@ title = {"Vsota števil a in b.",
 		 "Trojni kvadrat količnika števil x in y.",	
 		 "Trojni količnik števila x in kvadrata števila y.",	
 		 "Trojni količnik kvadrata števila x in števila y.",	
-		 "Zapiši s pomočjo naravnega števila n sodo število.",		 
-		 "Zapiši s pomočjo naravnega števila n negativno celo število.",	
-		 "Zapiši s pomočjo naravnega števila n število, ki je deljivo s p.",	
-		 "Zapiši s pomočjo celo števila k število, ki je deljivo s p z ostankom q.",
-		 "Zapiši s pomočjo naravnega števila n liho število."		  
+		 "Zapišite s pomočjo naravnega števila n sodo število.",		 
+		 "Zapišite s pomočjo naravnega števila n negativno celo število.",	
+		 "Zapišite s pomočjo naravnega števila n število, ki je deljivo s p.",	
+		 "Zapišite s pomočjo celog števila k število, ki je deljivo s p z ostankom q.",
+		 "Zapišite s pomočjo naravnega števila n liho število."		  
 		 }

@@ -1,3 +1,3 @@
-Dopolni tabelo. Vpiši številke, ki manjkajo v obliki nedročljivih razmerij, decimalnih števil ali odstotkov.
 
+Dopolnite tabelo. Manjkajoča števila zapišite kot ulomke najpreprostejšego oblika, decimalna števila ali odstotke.
 @addition_table()@
