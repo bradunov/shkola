@@ -1,0 +1,7 @@
+
+If one of the variables x or y is given, calculate the other so that the equation is correct.
+@repeat(2)@
+@center@ @var1@ = @numb@ @hspacept(50)@ @quest@ 
+@center@ @var2@ =  @answ@ 
+@vspace@
+@/repeat@  

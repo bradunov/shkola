@@ -57,6 +57,16 @@
       "difficulty": "1"
     },
     {
+      "name": "fractions/q00032",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Razlomak",
+      "topic": "Decimalni zapis",
+      "rank_subtheme": "6",
+      "rank_topic": "4",
+      "difficulty": "3"
+    },
+    {
       "name": "fractions/q00036",
       "random": "10",
       "period": "3",

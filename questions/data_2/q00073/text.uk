@@ -1,0 +1,6 @@
+
+@name@ has read @numb@ pages of a novel. This is @part@% of the total number of pages in the novel. How many additional pages she must read to finish the novel?
+@vspace@
+@name@ must read 
+@center@  @lib.check_number(rest)@ pages 
+to finish the novel.

@@ -155,6 +155,36 @@
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "3"
+    },
+    {
+      "name": "equat_2/q00129",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Equation",
+      "topic": "With integers",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00130",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Equation",
+      "topic": "With rational numbers",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00131",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Inequality",
+      "topic": "With rational numbers",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
     }
   ]
 }

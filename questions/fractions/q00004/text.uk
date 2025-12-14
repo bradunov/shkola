@@ -2,6 +2,6 @@
 There is a shape made out of triangles (picture).
 @center@ @mycanvas()@
 What fraction of this shape is colored  in red?
-@center@ @lib.check_fraction_simple(enum, denom)@
+@center@ @answ@
 How many more triangles would you need to color so that  \(\frac{@broj@}{@imen@}\) of the shape is colored?
 @center@ @lib.check_number(dif)@ 

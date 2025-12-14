@@ -1,0 +1,5 @@
+
+The bottle contains @total@ @"ml"@ liquid composed of water and juice in the ratio @rw@ : @rj@.
+How much juice needs to be added to the bottle to get a @"1:1"@ ratio?
+@vspace@
+@center@ Need to add @hspacept(3)@ @lib.check_number(res)@ @"ml"@ juice.

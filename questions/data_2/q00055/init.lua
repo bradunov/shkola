@@ -45,6 +45,7 @@ if (fun[2] == fun[1]) then
 end	
 arg[2] = lib.math.round_dec(fun[2] / coef[ch], 2) 
 
+coef[5] = lib.math.round_dec(1/3,2)
  
   mycanvas = function()
 
@@ -87,6 +88,6 @@ arg[2] = lib.math.round_dec(fun[2] / coef[ch], 2)
        
 
   lib.end_canvas()
-end       
+end  
              
             

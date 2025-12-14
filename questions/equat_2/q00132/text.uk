@@ -1,0 +1,7 @@
+
+Simplify  binomials (enter also the coefficients 0 and 1).
+@repeat(3)@  
+@vspace@
+@center@  @quest@ 
+@center@  @"= "@  @hspacept(3)@ @answ@
+@/repeat@

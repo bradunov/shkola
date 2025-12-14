@@ -16,14 +16,13 @@ blue_style =
         ["on_color"] = "cff",
         ["line_color"] = "000",
         ["line_width"] = "0.5"};			
-						
-				
+										
 text_style = {["font_size"] = "16"}	
 
 index = {}
 out = {}
-stampa = math.random(6)
 
+stampa = math.random(6)
 for i = 1,12 do
 	index[i] = i
 end
@@ -41,7 +40,11 @@ denom = 12
 qq = lib.math.gcd(enum, denom)
 enum = enum/qq
 denom = denom/qq
-
+value = stampa/12
+condition = "is_ok = math.eq(numerator/denominator, "..tostring(value)..");"       
+sln = "numerator="..tostring(enum)..";denominator="..tostring(denom)..";"
+answ = lib.check_fraction_condition(condition, nil, nil, sln)
+         
 dif = math.random(11 - stampa)
 broj = stampa + dif
 imen = 12
@@ -49,13 +52,11 @@ qq = lib.math.gcd(broj, imen)
 broj = broj/qq
 imen = imen/qq
 
-
-
 mycanvas = function(no)
 
-  lib.start_canvas(260, 210, "center") 
-	w = 24
-	ow = 8
+  lib.start_canvas(200, 160, "center") 
+	w = 18
+	ow = 6
 	
 	dif_style = blue_style	
 	for j = 1,stampa do
@@ -164,4 +165,4 @@ koordinatna
   
   lib.end_canvas()
 end   
- 
+  

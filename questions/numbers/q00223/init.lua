@@ -10,11 +10,19 @@ bar_style = {["off_color"] = "e6e6ff",
         ["line_color"] = "000",
         ["line_width"] = "2"};
 		
+orange_style = {["off_color"] = "e6e6ff",
+        ["on_color"] = "f30",
+        ["line_color"] = "000",
+        ["line_width"] = "2"};
+
+green_style = {["off_color"] = "e6e6ff",
+        ["on_color"] = "3c3",
+        ["line_color"] = "000",
+        ["line_width"] = "2"};		
+		
 text_style = {["font_size"] = "16"}	
 
 include("names")
-
-mycanvas = function()
 
   index = {}
   ime = {""}
@@ -30,7 +38,7 @@ mycanvas = function()
   end
 	
   r = lib.math.random_shuffle(index)
-  for i=1,dimnames do
+  for i=1,6 do
       ime[i] = musko_ime_nom[r[i]]
   end 
 
@@ -52,12 +60,21 @@ mycanvas = function()
   tall = ime[ind[6]]
   short = ime[ind[1]]
 
+results = ""
+  
+for i = 1, 6 do
+	if i > 1 then
+	   results = results .. " && "
+	end
+	results = results .. "result[" .. tostring(i-1) .. "] == "
+	if (i == ind[1] or i == ind[6] ) then
+	    results = results .. "1"
+	else
+	    results = results .. "0"	  
+	end	
+end          
 
-  reply1 = "answer == '" .. tall .. "' ";  
-  ans1 = "answer = '" .. tall .. "' ";  
-  reply2 = "answer == '" .. short .. "' ";  
-  ans2 = "answer = '" .. short .. "' ";  
-
+mycanvas = function(no)     
 
   lib.start_canvas(380, 250, "center", results)
 
@@ -65,7 +82,6 @@ mycanvas = function()
   ow = 10
   v = 15
  
-
   for i = 1,level,2 do
     lib.add_line(3*ow, i*ow, 15*w, 0, style, false, false)
     temp = q[level+1-i] % 4 
@@ -81,12 +97,18 @@ mycanvas = function()
   lib.add_line(3*ow, ow, 0, level*ow, bar_style, false, false)
   lib.add_line(3*ow+15*w, ow, 0, level*ow, bar_style, false, false)
 
+	
   for i = 1,6 do
-      lib.add_rectangle (2*w+(i-1)*(2*v+w), ow*(max+1-choice[i]), 2*v, (choice[i]-min)*ow, bar_style, false, true)  
+  	  color_style = bar_style
+  	    if(i == ind[1]) then
+		   color_style = green_style
+	    end
+  	    if(i == ind[6]) then		
+		   color_style = orange_style
+	    end
+      lib.add_rectangle (2*w+(i-1)*(2*v+w), ow*(max+1-choice[i]), 2*v, (choice[i]-min)*ow, color_style, false, true)  
       lib.add_input(w+(i-1)*(2*v+w)+5, (level+2)*ow, 60, 30, ime[i]) 
   end
   
   lib.end_canvas()
 end
- 
-            

@@ -1,0 +1,4 @@
+
+How many integers between 1 and @numb@ inclusive are multiples of @fct1[ch1]@ or @fct2[ch2]@?
+@vspace@
+@center@ @lib.check_number(result)@

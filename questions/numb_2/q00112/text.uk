@@ -1,0 +1,9 @@
+
+The final results of the survey on the popularity of the two types of muesli are:
+@numb[1]@ people answered "yes" to the question "Do you like chocolate muesli?"
+@numb[2]@ people answered "yes" to the question "Do you like fruit muesli?"
+@numb[3]@ people answered "yes" to both questions.
+@numb[4]@ people answered "no" to both questions.
+@center@ @mycanvas()@
+If all participants replied either ‘yes’ or ‘no’ to each of the two questions, how many people participated in the survey? 
+@center@ @lib.check_number(total)@ 

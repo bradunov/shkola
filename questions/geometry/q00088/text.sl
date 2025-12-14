@@ -10,4 +10,4 @@ Tretja stranica je pravokotna na stranico @"b"@. Četrta stranica je vzporedna s
 Tretja stranica je pravokotna na stranicu @"a"@. Četrta stranica je pravokotna na stranicu @"b"@.
 @endif@
 @center@ @mycanvas()@
-S temi informacijami dokončajte štirikotnik. Pobarvajte črte na sliki, ki predstavljata dve drugi strani štirikotnika.
+S temi podatki dokončaj štirikotnik. Pobarvajte daljice na sliki jima pripadata drugi dve stranici štirikotnika.

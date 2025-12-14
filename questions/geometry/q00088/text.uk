@@ -10,4 +10,4 @@ The third side is perpendicular to side @"b"@. The fourth side is parallel to si
 The third side is perpendicular to side @"a"@. The fourth side is perpendicular to side @"b"@.
 @endif@
 @center@ @mycanvas()@
-Use this information to complete the quadrilateral. Color the lines on the picture representing two other sides of the quadrilateral.
+Use this information to complete the quadrilateral. Color the segments in the picture to which the other two sides of the quadrilateral belong.

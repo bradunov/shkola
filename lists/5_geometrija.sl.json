@@ -455,6 +455,16 @@
       "rank_subtheme": "3",
       "rank_topic": "1",
       "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00246",
+      "random": "5",
+      "period": "2",
+      "subtheme": "Kot",
+      "topic": "Računanje z velikostmi kotov",
+      "rank_subtheme": "2",
+      "rank_topic": "2",
+      "difficulty": "2"
     }
   ]
 }

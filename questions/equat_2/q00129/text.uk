@@ -1,0 +1,6 @@
+
+What are the values of @"x"@ in the following equations?  
+@repeat(3)@
+@center@ @quest@ @hspacept(25)@ x =  @lib.check_number(res)@ 
+@vspace@
+@/repeat@

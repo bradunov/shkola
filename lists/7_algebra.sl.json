@@ -225,6 +225,16 @@
       "rank_subtheme": "2",
       "rank_topic": "2",
       "difficulty": "1"
+    },
+    {
+      "name": "equat_2/q00132",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Algebarski izraz",
+      "topic": "Seštevanje in odštevanje",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
     }
   ]
 }

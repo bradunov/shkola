@@ -10,4 +10,4 @@ Treća stranica je normalna na stranicu @"b"@. Četvrta stranica je paralelna st
 Treća stranica je normalna na stranicu @"a"@. Četvrta stranica je normalna na stranicu @"b"@.
 @endif@
 @center@ @mycanvas()@
-Koristi ove informacije da dovršiš četvorougao. Oboj linije na slici koje predstavljaju druge dve stranice četvorougla.
+Koristi ove informacije da dovršiš četvorougao. Oboj duži na slici kojima pripadaju druge dve stranice četvorougla.

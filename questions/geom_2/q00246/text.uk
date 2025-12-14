@@ -1,0 +1,5 @@
+
+Two lines and a ray intersect at point O as shown in the figure. What are the sizes of the angles 
+@center@ @term1@ @hspacept(5)@ and @hspacept(5)@ @term2@ ?
+@center@ @mycanvas()@		
+@center@ @term1@ =  @lib.check_number(resm[ind],20)@ @"°"@ @hspacept(40)@ @term2@ =  @lib.check_number(resp,20)@ @"°"@     

@@ -1,5 +1,5 @@
 
-Calculate and, if it is possible, present the result as a whole number and a fraction less than one.
+Calculate and, if the result is an improper fraction, present it as a mixed number.
 @repeat(3)@
 @center@ @brac[1]@ \(\frac{@broj1@}{@imenilac@}\)@brac[2]@ @sign@ @brac[1]@ \(\frac{@broj2@}{@imenilac@}\) @brac[2]@ @hspacept(3)@ = @hspacept(3)@  @answ1@ @answ2@
 @/repeat@

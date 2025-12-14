@@ -1,0 +1,5 @@
+                                 
+Which of the following decimal numbers lie between the fractions @"P"@ and @"R"@ on the number line?
+Color the circles above the correct answers.
+@center@ @"P = "@@lft@ @hspacept(60)@ @"R = "@@rght@
+@center@ @mycanvas()@

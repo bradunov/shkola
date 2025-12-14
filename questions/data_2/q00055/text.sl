@@ -1,5 +1,4 @@
 
-
 Zapišite sorazmernostni koeficient linearne funkcije, ki jo predstavlja graf.
 @center@   @"y ="@ @lib.check_number(coef[ch], 30)@ @"* x"@.
 @center@ @mycanvas()@

@@ -28,6 +28,7 @@ if (dec[1] == 2) then
 else	
 	dec[2] = math.random(2 - dec[1])
 end
+
 decad = dec[1] + dec[2]
 val = number[1] * number[2]
 dig[1] = math.floor(val/10)
@@ -164,6 +165,12 @@ if (ch < 3) then
 		value[13] = number[1] * 4;
 		value[14] = number[2] * 25;			
 	end
+	value[5] = number[1];
+	value[6] = number[2] * 10;
+	value[7] = number[1] * 10;
+	value[8] = number[2];
+	value[9] = number[1];
+	value[10] = number[2];
 else
 	value[1] = number[1];
 	value[2] = number[2] * 100;	
@@ -173,13 +180,23 @@ else
 	value[12] = number[2] * 20;	
 	value[13] = number[1] * 2;
 	value[14] = number[2] * 5;		
-end	
-value[5] = number[1];
-value[6] = number[2] * 10;
-value[7] = number[1] * 10;
-value[8] = number[2];
-value[9] = number[1];
-value[10] = number[2];
+	if (decad == 1) then	
+		if (dec[1] == 1) then
+			value[5] = number[1];
+			value[6] = number[2] * 10;
+		else
+			value[5] = number[1] * 10;
+			value[6] = number[2];	
+		end
+	else
+		value[5] = number[1];
+		value[6] = number[2] * 10;
+	end
+	value[7] = number[1] * 5;
+	value[8] = number[2] * 2;
+	value[9] = number[1];
+	value[10] = number[2];
+end
             
 for i = 1,7 do
 	index[i] = i 
@@ -220,5 +237,4 @@ results = ""
 	end 
 
     lib.end_canvas()
-end           
-     
+end      

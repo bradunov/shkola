@@ -155,6 +155,36 @@
       "rank_subtheme": "2",
       "rank_topic": "1",
       "difficulty": "3"
+    },
+    {
+      "name": "equat_2/q00129",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Jednačina",
+      "topic": "Sa celim brojevima",
+      "rank_subtheme": "1",
+      "rank_topic": "1",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00130",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Jednačina",
+      "topic": "Sa racionalnim  brojevima",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "equat_2/q00131",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Nejednačina",
+      "topic": "Sa racionalnim  brojevima",
+      "rank_subtheme": "2",
+      "rank_topic": "1",
+      "difficulty": "2"
     }
   ]
 }

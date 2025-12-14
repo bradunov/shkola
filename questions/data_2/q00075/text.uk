@@ -1,0 +1,5 @@
+
+@name@ averaged @aver[1]@ points per game in his first @numb@ basketball games. 
+How many points must he score in the next game to average @aver[2]@ points per game overall?
+@vspace@
+@center@ He must score  @hspacept(3)@ @lib.check_number(res)@ @hspacept(3)@ in the next game.           

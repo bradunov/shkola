@@ -1,3 +1,4 @@
+
 Write the coefficient of proportionality of the linear function represented by the graph. 
 @center@   @"y ="@ @lib.check_number(coef[ch], 30)@ @"* x"@.
 @center@ @mycanvas()@

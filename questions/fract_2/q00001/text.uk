@@ -1,5 +1,5 @@
 
-Write fractions as a whole number and a fraction that is less than 1:
+Write improper fractions as mixed numbers:
 @repeat(4)@
 @center@ \(\frac{@veliki_brojilac@}{@imenilac@}\) @hspacept(3)@ = @hspacept(3)@ @lib.check_fraction_condition(condition, true, nil, solution)@
 @/repeat@

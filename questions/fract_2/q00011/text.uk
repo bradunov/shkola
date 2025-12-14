@@ -1,5 +1,5 @@
 
-Calculate the result and if it is a fraction greater than one, represent it as a whole number and a fraction less than 1. 
+Calculate the result and if it is an improper fraction, represent it as a mixed number. 
 @repeat(3)@
 @center@ \(\frac{@broj1@}{@imenilac@}\)  @sign@  \(\frac{@broj2@}{@imenilac@}\) \
 @hspacept(3)@ = @hspacept(3)@  @answ1@ @answ2@
