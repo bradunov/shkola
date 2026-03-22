@@ -1,0 +1,1 @@
+array_padez = {"let", "leta"}

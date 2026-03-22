@@ -1,0 +1,6 @@
+
+The school has @total@ students. The pie chart shows in percentages how many students of that school do not play sports (0) or practice one (1), two (2) or three or more sports (≥ 3).
+@center@ @mycanvas()@
+How many students are doing @msg[opt]@?
+@center@ @lib.check_number(result)@
+(Round to the nearest whole number.)

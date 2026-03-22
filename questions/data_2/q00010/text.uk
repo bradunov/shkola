@@ -1,5 +1,5 @@
 
-The manufacturer has paid the value added tax (VAT) for the sneakers. The tax of @per@@proc@ amounts is @tax@ @val@.
+The manufacturer has paid the value added tax (VAT) for the sneakers. The tax of @per@@"%"@ amounts is @tax@ @val@.
 How much will the customer pay for the sneakers?
 @vspace@
 @center@ The customer will pay for the sneakers 

@@ -1,0 +1,7 @@
+
+The sets of consecutive natural numbers are given by:
+@center@ @"P"@ = @setp@
+@center@ @"R"@ = @setr@
+@vspace@
+How many elements does the set @hspacept(5)@@opt[ind]@ have?
+@center@ @lib.check_number(value[ind])@

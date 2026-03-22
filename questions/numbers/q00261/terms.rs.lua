@@ -1,0 +1,1 @@
+msg = {"ostaju", "ostaju", "ostaje", "knjige", "knjige", "knjiga"}

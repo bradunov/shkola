@@ -1,5 +1,5 @@
 
-Dve stranici štirikotnika sta na mreži narisani z modrimi črtami.
+Dve stranici štirikotnika sta na mreži narisani z modrimi daljicami.
 @if ind == 1@ 
 Tretja stranica je vzporedna s stranico @"a"@. Četrta stranica je pravokotna na stranico @"a"@.
 @elif ind == 2@

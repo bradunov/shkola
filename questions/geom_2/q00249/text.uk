@@ -1,0 +1,6 @@
+
+A circular dartboard has a diameter of @diam[2]@@meas[1]@. A circular bullseye with a circumference of @diam[1]@@pi@ @meas[1]@ is located in the center of the dartboard.
+@center@ @mycanvas()@
+What percentage of the surface of the dartboard is taken up by the bullseye (green circle)?
+@center@ @lib.check_number(perc)@%.
+Write the result to two decimal places.

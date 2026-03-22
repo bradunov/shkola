@@ -1285,6 +1285,46 @@
       "rank_subtheme": "2",
       "rank_topic": "5",
       "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00113",
+      "random": "10",
+      "period": "2",
+      "subtheme": "Delitelj naravnega števila",
+      "topic": "Praštevila in sestavljena števila",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00114",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Množice",
+      "topic": "Unija, presek, razlika",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "3"
+    },
+    {
+      "name": "numb_2/q00116",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Delitelj naravnega števila",
+      "topic": "Pravila deljivosti z 2, 3, 4, 5, 9, 10",
+      "rank_subtheme": "1",
+      "rank_topic": "3",
+      "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00117",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Množice",
+      "topic": "Unija, presek, razlika",
+      "rank_subtheme": "2",
+      "rank_topic": "5",
+      "difficulty": "1"
     }
   ]
 }

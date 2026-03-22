@@ -1167,6 +1167,16 @@
       "difficulty": "2"
     },
     {
+      "name": "numbers/q00261",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Številski izraz",
+      "topic": "Uporaba",
+      "rank_subtheme": "3",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
       "name": "equations/q00001",
       "random": "10",
       "period": "2",

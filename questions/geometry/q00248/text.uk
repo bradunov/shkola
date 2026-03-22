@@ -1,0 +1,11 @@
+
+If the wheel of a car with a diameter of @lib.dec_to_str(numb)@@meas[ind]@ rotates @rot@ times per minute, at what speed is the car moving?
+Assume that @"π"@ = \(\frac{22}{7}\). Write the result to one decimal place.
+@vspace@
+@center@ The car is moving at a speed of @lib.check_number(value,45)@ @"km/h"@.
+
+A monster truck is traveling at a rate of 1,256 
+feet per minute. If each wheel on the truck has a 
+diameter of 4 feet, which of the following is 
+closest to the number of revolutions each wheel 
+completes in 1 minute?

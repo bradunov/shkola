@@ -1,0 +1,11 @@
+
+@fnam@ has @"x"@ pounds. 
+@if ind == 1@
+If @fnam@ gave @mnam@ @numb@ pounds, @mnam@ would have twice as much money as @fnam@.
+@else@
+If @mnam@ gave @fnam@ @numb@ pounds, @fnam@ would have twice as much money as @mnam@.
+@endif@
+Which of the following sentences expresses @mnam@ the amount in pounds expressed by @"x"@?
+Color a circle in front of the correct answer.
+@vspace@ 
+@center@ @lib.check_one_option_radio(reply,index-1,true)@ 

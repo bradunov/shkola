@@ -1,0 +1,4 @@
+
+What is the greatest prime factor of @number@?
+@vspace@
+@center@  @lib.check_number(result)@ 

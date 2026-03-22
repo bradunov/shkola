@@ -1,0 +1,5 @@
+
+A car is moving at a speed of  @value@ @"km/h"@. If the diameter of the car wheel is @lib.dec_to_str(numb)@@meas[ind]@, what is the number of revolutions of the wheel in one minute?
+Take @"π"@ = \(\frac{22}{7}\). Write the result to the nearest whole number.
+@vspace@
+@center@ In one minute the wheel turns @lib.check_number(rot)@ times.

@@ -7,6 +7,7 @@ musko_ime_lokativ = {"Milanu", "Nikoli", "Petru", "Dejanu", "Vladi", "Jovanu"};
 
 musko_pridev = {"Milanova", "Nikolina", "Petrova", "Dejanova", "Vladina", "Jovanova"}; 
 musko_mpridev = {"Milanov", "Nikolin", "Petrov", "Dejanov", "Vladin", "Jovanov"}; 
+musko_mpadez = {"Milanovih", "Nikolinih", "Petrovih", "Dejanovih", "Vladinih", "Jovanovih"}; 
 
 zensko_ime_nom = {"Milka", "Branka", "Ana", "Jelena", "Milica", "Vesna", "Milena"}; 
 zensko_ime_gen = {"Milke", "Branke", "Ane", "Jelene", "Milice", "Vesne", "Milene"}; 

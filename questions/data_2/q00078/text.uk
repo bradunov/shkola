@@ -1,0 +1,6 @@
+
+The diagram  and table show the election results of one candidate in five districts labeled 1 through 5.
+@center@ @mycanvas()@
+In which of the five districts did the candidate get the most votes compared to the other candidates?
+@center@  @lib.check_number(ind,20)@
+            

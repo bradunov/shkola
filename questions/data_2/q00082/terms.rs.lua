@@ -1,0 +1,1 @@
+msg = {"bar nekim sportom", "sa ne više od dva sporta", "sa više od jednim sportom"}

@@ -31,19 +31,23 @@ if ( coef[1] ~= 0) then
 	term[1] = term[1] .. "a" 
 end
 if (coef[2] ~= 0) then
-    if (math.abs(coef[2]) == 1) then
-		if (coef[2] == -1) then
-			term[1] = term[1] .. " - 1 " 
+    if (coef[1] == 0) then
+		term[1] = term[1] .. coef[2]
+    else		
+		if (math.abs(coef[2]) == 1) then
+			if (coef[2] == -1) then
+				term[1] = term[1] .. " - 1 " 
+			else
+				term[1] = term[1] .. " + 1 " 	
+			end	
 		else
-			term[1] = term[1] .. " + 1 " 	
-		end	
-	else
-		if (coef[2] < 0) then	
-			term[1] = term[1] .. " - " 	
-		else
-			term[1] = term[1] .. " + " 				
+			if (coef[2] < 0) then	
+				term[1] = term[1] .. " - " 	
+			else
+				term[1] = term[1] .. " + " 				
+			end
+			term[1] = term[1] .. math.abs(coef[2])
 		end
-		term[1] = term[1] .. math.abs(coef[2])
 	end
 end
 if (coef[1] * coef[2] ~= 0) then
@@ -71,20 +75,16 @@ for i = 2,3 do
 		term[i] = term[i] .. "a" 
 	end
 	if (coef[2*i] ~= 0) then
-		if (math.abs(coef[2*i]) == 1) then
-			if (coef[2*i] == -1) then
-				term[i] = term[i] .. " - 1 " 
+		if (coef[2*i-1] ~= 0) then 
+			if (coef[2*i] > 0) then
+				term[i] = term[i] .. " + " 
 			else
-				term[i] = term[i] .. " + 1 " 	
-			end	
-		else
-			if (coef[2*i] < 0) then	
-				term[i] = term[i] .. " - " 	
-			else
-				term[i] = term[i] .. " + " 				
+				term[i] = term[i] .. " - " 			
 			end
 			term[i] = term[i] .. math.abs(coef[2*i])
-		end
+		else
+			term[i] = term[i] .. coef[2*i]	
+		end			
 	end
 end	
 
@@ -98,4 +98,3 @@ for i = 2,3 do
 	quest = quest .. term[i] ..")"
 end
 answ = lib.check_number(coef[7],20) .. "a + (" .. lib.check_number(coef[8],20) .. ")"
-       

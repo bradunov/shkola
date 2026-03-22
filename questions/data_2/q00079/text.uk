@@ -1,0 +1,4 @@
+
+On Monday, @ime@ had @"S"@ pounds in her bank account. The amount decreased by  @perc[1]@% on Tuesday and by an additional  @perc[2]@% on Thursday. There were no other changes that week.
+What percentage of @"S"@ is the amount of money in her bank account on Friday?
+@center@  @lib.check_number(total,50)@%.             

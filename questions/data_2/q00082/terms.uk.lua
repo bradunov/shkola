@@ -1,0 +1,1 @@
+msg = {"at least some sport", "with no more than two sports", "with more than one sport"}

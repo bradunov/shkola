@@ -1,0 +1,5 @@
+
+The plane ticket was on sale with a discount of @per[1]@%  from the original price of @price@ pounds. @name@ used the membership card to get an additional @per[2]@% discount on the discounted price.
+How much did @name@ pay for the ticket?
+@vspace@
+@center@ @lib.check_number(value,40)@ pounds.

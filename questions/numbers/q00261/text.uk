@@ -1,0 +1,5 @@
+
+@ime@  has between @lft@ and @rght@ books in her library. @rest[1]@ books are left over if she organizes them in groups of @numb[1]@, and  @rest[2]@ books are left over if she organizes them in groups of @numb[2]@. 
+How many books are in her collection?
+@vspace@
+@center@ @lib.check_number(total)@ 

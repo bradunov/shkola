@@ -207,6 +207,16 @@
       "difficulty": "1"
     },
     {
+      "name": "fractions/q00063",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Fraction",
+      "topic": "Problem solving",
+      "rank_subtheme": "6",
+      "rank_topic": "3",
+      "difficulty": "3"
+    },
+    {
       "name": "fractions/q00064",
       "random": "10",
       "period": "3",
@@ -245,6 +255,16 @@
       "rank_subtheme": "6",
       "rank_topic": "4",
       "difficulty": "1"
+    },
+    {
+      "name": "fractions/q00068",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Fraction",
+      "topic": "Decimal representation",
+      "rank_subtheme": "6",
+      "rank_topic": "4",
+      "difficulty": "3"
     },
     {
       "name": "fractions/q00070",

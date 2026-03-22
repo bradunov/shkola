@@ -1,5 +1,5 @@
 
-Proizvođač je platio porez na dodatu vrednost (PDV) za patike. Porez od @per@@proc@ iznosi @tax@ @val@.
+Proizvođač je platio porez na dodatu vrednost (PDV) za patike. Porez od @per@@"%"@ iznosi @tax@ @val@.
 Koliko će kupac platiti patike?
 @vspace@
 @center@ Kupac će platiti patike 

@@ -1,0 +1,4 @@
+
+The box contains @total@ marbles. @numb[1]@ are white, @numb[2]@ are with patterns, and @numb[3]@ are white with patterns.
+If a marble is drawn at random from the box, what is the probability that it is neither white nor with patterns?
+@center@ @answ@ 

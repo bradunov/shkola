@@ -475,6 +475,26 @@
       "rank_subtheme": "1",
       "rank_topic": "1",
       "difficulty": "1"
+    },
+    {
+      "name": "numb_2/q00115",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Representation on a number line, comparison",
+      "rank_subtheme": "1",
+      "rank_topic": "2",
+      "difficulty": "2"
+    },
+    {
+      "name": "numb_2/q00118",
+      "random": "10",
+      "period": "1",
+      "subtheme": "Integers",
+      "topic": "Numerical expression",
+      "rank_subtheme": "1",
+      "rank_topic": "4",
+      "difficulty": "3"
     }
   ]
 }

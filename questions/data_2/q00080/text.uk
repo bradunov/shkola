@@ -1,0 +1,7 @@
+
+The drink mixer contains iced tea and lemonade in a ratio of @rat[1]@ : @rat[2]@.
+How many @meas[ind]@ of iced tea and lemonade are there in @total@ liters of cocktail (drink mix)?
+@vspace@ 
+There is in the cocktail
+@center@  @lib.check_number(part[1])@ @meas[ind]@ of iced tea and
+@center@  @lib.check_number(part[2])@ @meas[ind]@ of lemonade.

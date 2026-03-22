@@ -1,0 +1,6 @@
+
+@ime@ started hiking at @starth@ hours@notes@, gradually increasing the altitude by @dist@ meters per hour.
+If he started at @first@ meters below sea level, to what altitude did @ime@ climb at @endh@ hours@notee@? 
+@vspace@
+@center@ @lib.check_number(result)@ meters
+Round the result to the nearest whole number.

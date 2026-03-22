@@ -1,0 +1,5 @@
+
+@imez@ has \(\frac{@1@}{@factor@}\) years of @imeg@. In @dif@ @period@, @imez@ will have  \(\frac{@enum@}{@denom@}\) years of @imeg@. 
+@vspace@
+@center@ How old is @imem@ today?
+@center@ @lib.check_number(godm)@

@@ -1,0 +1,6 @@
+                                
+@center@ @mycanvas()@
+On the number line point @"M"@ is at a distance of @dist[1]@ divisions to the left of the zero point @"O"@, and point @"N"@ is at a distance of @dist[2]@ divisions to the right of the point @"O"@. (In the picture, the point markers do not have to correspond to the given data).
+If point @"P"@ is the center of segment @"MN"@, and @"R"@ is the center of segment @"ON"@ (these points are not shown), what is the length of segment @"PR"@?
+@center@ @lib.check_number(dist[3])@ 
+

@@ -1,0 +1,5 @@
+                
+@ime@ has daily fixed costs of @total@ pounds in the bakery he runs. It costs him @cost@ pounds to make a batch of @numb@ cookies and he sells each cookie for @price@ pounds.
+What is @adv@'s profit on a day in which he makes and sells @sell@  batches of cookies?
+@vspace@
+@center@ His profit is @lib.check_number(profit,50)@ pounds.        

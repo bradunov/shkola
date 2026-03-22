@@ -1,0 +1,5 @@
+
+@"x"@ and @"y"@, @hspacept(3)@ @"x > y > 0"@, @hspacept(3)@ are consecutive even natural numbers  whose product is @prod@.
+If @"x"@ is decreased by one and @"y"@ is divided by 2, what is the product of these natural numbers?
+@vspace@
+@center@ @lib.check_number(result)@

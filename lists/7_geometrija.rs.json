@@ -525,6 +525,26 @@
       "rank_subtheme": "4",
       "rank_topic": "4",
       "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00248",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Obim, dužina kružnog luka",
+      "rank_subtheme": "4",
+      "rank_topic": "2",
+      "difficulty": "3"
+    },
+    {
+      "name": "geom_2/q00249",
+      "random": "10",
+      "period": "3",
+      "subtheme": "Krug",
+      "topic": "Površina kruga, kružnog isečka I kružnog prstena",
+      "rank_subtheme": "4",
+      "rank_topic": "3",
+      "difficulty": "2"
     }
   ]
 }

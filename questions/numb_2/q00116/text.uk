@@ -1,0 +1,4 @@
+
+If @"a"@ is a multiple of @numb@, which of the following numbers is also a multiple of @numb@?
+Color a circle in front of the correct answer.
+@center@ @lib.check_one_option_radio(reply,res, true)@
