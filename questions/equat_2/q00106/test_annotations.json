@@ -1,0 +1,140 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          19,
+          17,
+          11,
+          22,
+          21,
+          7,
+          6,
+          12,
+          15,
+          10,
+          25,
+          13,
+          20,
+          16,
+          26,
+          2,
+          14,
+          3,
+          18,
+          4,
+          5,
+          23,
+          8,
+          9,
+          24,
+          1
+        ]
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "3(x/y)^2",
+        "(x-y)^2/(x+y)^3",
+        "((x-3)^2-y)/(2(x+y))"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          19,
+          17,
+          11,
+          22,
+          21,
+          7,
+          6,
+          12,
+          15,
+          10,
+          25,
+          13,
+          20,
+          16,
+          26,
+          2,
+          14,
+          3,
+          18,
+          4,
+          5,
+          23,
+          8,
+          9,
+          24,
+          1
+        ]
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "3(x/y)^2",
+        "(x-y)^2/(x+y)^3",
+        "((x-3)^2-y)/(2(x+y))"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          19,
+          17,
+          11,
+          22,
+          21,
+          7,
+          6,
+          12,
+          15,
+          10,
+          25,
+          13,
+          20,
+          16,
+          26,
+          2,
+          14,
+          3,
+          18,
+          4,
+          5,
+          23,
+          8,
+          9,
+          24,
+          1
+        ]
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "3(x/y)^2",
+        "(x-y)^2/(x+y)^3",
+        "((x-3)^2-y)/(2(x+y))"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

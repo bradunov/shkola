@@ -1,0 +1,167 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        2,
+        1,
+        2,
+        [
+          12,
+          13.0,
+          7.0
+        ],
+        1,
+        2,
+        1,
+        1,
+        [
+          12,
+          13.0,
+          6.0
+        ],
+        2,
+        3,
+        3,
+        [
+          24,
+          25.0,
+          7.0
+        ],
+        4,
+        2,
+        2,
+        3,
+        [
+          21,
+          40.0,
+          32.0
+        ]
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "oštrougli",
+        "oštrougli",
+        "pravougli",
+        "tupougli"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        2,
+        1,
+        2,
+        [
+          12,
+          13.0,
+          7.0
+        ],
+        1,
+        2,
+        1,
+        1,
+        [
+          12,
+          13.0,
+          6.0
+        ],
+        2,
+        3,
+        3,
+        [
+          24,
+          25.0,
+          7.0
+        ],
+        4,
+        2,
+        2,
+        3,
+        [
+          21,
+          40.0,
+          32.0
+        ]
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "ostrokotni",
+        "ostrokotni",
+        "pravokotni",
+        "topokotni"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        2,
+        1,
+        2,
+        [
+          12,
+          13.0,
+          7.0
+        ],
+        1,
+        2,
+        1,
+        1,
+        [
+          12,
+          13.0,
+          6.0
+        ],
+        2,
+        3,
+        3,
+        [
+          24,
+          25.0,
+          7.0
+        ],
+        4,
+        2,
+        2,
+        3,
+        [
+          21,
+          40.0,
+          32.0
+        ]
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "acute-angled",
+        "acute-angled",
+        "right-angled",
+        "obtuse-angled"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

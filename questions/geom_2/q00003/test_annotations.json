@@ -1,0 +1,140 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          4,
+          6,
+          3,
+          16,
+          10,
+          13,
+          17,
+          20,
+          7,
+          14,
+          19,
+          15,
+          11,
+          2,
+          12,
+          5,
+          18,
+          8,
+          9,
+          1
+        ]
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "G",
+        "F",
+        "A",
+        "D",
+        "FG",
+        "DF"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          4,
+          6,
+          3,
+          16,
+          10,
+          13,
+          17,
+          20,
+          7,
+          14,
+          19,
+          15,
+          11,
+          2,
+          12,
+          5,
+          18,
+          8,
+          9,
+          1
+        ]
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "G",
+        "F",
+        "A",
+        "D",
+        "FG",
+        "DF"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          4,
+          6,
+          3,
+          16,
+          10,
+          13,
+          17,
+          20,
+          7,
+          14,
+          19,
+          15,
+          11,
+          2,
+          12,
+          5,
+          18,
+          8,
+          9,
+          1
+        ]
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "G",
+        "F",
+        "A",
+        "D",
+        "FG",
+        "DF"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

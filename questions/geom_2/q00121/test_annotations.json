@@ -1,0 +1,86 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        5,
+        1,
+        1
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "nekonveksni ",
+        "šestougao",
+        "nije",
+        "nekonveksni ",
+        "dvanaestougao",
+        "nije"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        5,
+        1,
+        1
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "nekonveksni ",
+        "šesterokotnik",
+        "ni",
+        "nekonveksni ",
+        "dvanajstkotnik",
+        "ni"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        5,
+        1,
+        1
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "a non-convex ",
+        "hexagon",
+        "is not",
+        "a non-convex ",
+        "dodecagon",
+        "is not"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        36049,
+        4013,
+        14629,
+        1,
+        13435,
+        8936,
+        1425,
+        2,
+        4166,
+        489,
+        768,
+        1,
+        30496,
+        8280,
+        19727
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "5014",
+        "9937",
+        "1490",
+        "9281"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        36049,
+        4013,
+        14629,
+        1,
+        13435,
+        8936,
+        1425,
+        2,
+        4166,
+        489,
+        768,
+        1,
+        30496,
+        8280,
+        19727
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "5014",
+        "9937",
+        "1490",
+        "9281"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        36049,
+        4013,
+        14629,
+        1,
+        13435,
+        8936,
+        1425,
+        2,
+        4166,
+        489,
+        768,
+        1,
+        30496,
+        8280,
+        19727
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "5014",
+        "9937",
+        "1490",
+        "9281"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

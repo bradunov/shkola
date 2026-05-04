@@ -1,0 +1,77 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        12,
+        3,
+        4,
+        2
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "dropdown",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "uvećala",
+        "666.0",
+        "umanjila",
+        "192.0"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        12,
+        3,
+        4,
+        2
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "dropdown",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "povečala",
+        "666.0",
+        "zmanjšala",
+        "192.0"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        12,
+        3,
+        4,
+        2
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "dropdown",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "increased",
+        "666.0",
+        "decreased",
+        "192.0"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

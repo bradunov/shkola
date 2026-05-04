@@ -1,0 +1,86 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        5,
+        4,
+        2
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "radio",
+        "radio"
+      ],
+      "expected_answers": [
+        "kocka",
+        "teme",
+        "ivica",
+        "strana",
+        "true",
+        "true"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        5,
+        4,
+        2
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "radio",
+        "radio"
+      ],
+      "expected_answers": [
+        "kocka",
+        "ogljišče",
+        "rob",
+        "strana",
+        "true",
+        "true"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        5,
+        4,
+        2
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "radio",
+        "radio"
+      ],
+      "expected_answers": [
+        "a cube",
+        "a vertice",
+        "an edge",
+        "a faces",
+        "true",
+        "true"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

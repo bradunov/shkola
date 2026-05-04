@@ -1,0 +1,101 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        6,
+        3,
+        4,
+        4
+      ],
+      "num_checks": 8,
+      "check_types": [
+        "fraction",
+        "number",
+        "number",
+        "fraction",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "document.getElementById('check_fraction_answer_numerator_639426798_1').value=14; document.getElementById('check_fraction_answer_denominator_639426798_1').value = 11;",
+        "0.5",
+        "-",
+        "document.getElementById('check_fraction_answer_numerator_639426798_4').value=7; document.getElementById('check_fraction_answer_denominator_639426798_4').value = 11;",
+        "6",
+        "7",
+        "-5",
+        "-7"
+      ],
+      "has_canvas": true,
+      "has_table": true
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        6,
+        3,
+        4,
+        4
+      ],
+      "num_checks": 8,
+      "check_types": [
+        "fraction",
+        "number",
+        "number",
+        "fraction",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "document.getElementById('check_fraction_answer_numerator_639426798_1').value=14; document.getElementById('check_fraction_answer_denominator_639426798_1').value = 11;",
+        "0.5",
+        "-",
+        "document.getElementById('check_fraction_answer_numerator_639426798_4').value=7; document.getElementById('check_fraction_answer_denominator_639426798_4').value = 11;",
+        "6",
+        "7",
+        "-5",
+        "-7"
+      ],
+      "has_canvas": true,
+      "has_table": true
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        6,
+        3,
+        4,
+        4
+      ],
+      "num_checks": 8,
+      "check_types": [
+        "fraction",
+        "number",
+        "number",
+        "fraction",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "document.getElementById('check_fraction_answer_numerator_639426798_1').value=14; document.getElementById('check_fraction_answer_denominator_639426798_1').value = 11;",
+        "0.5",
+        "-",
+        "document.getElementById('check_fraction_answer_numerator_639426798_4').value=7; document.getElementById('check_fraction_answer_denominator_639426798_4').value = 11;",
+        "6",
+        "7",
+        "-5",
+        "-7"
+      ],
+      "has_canvas": true,
+      "has_table": true
+    }
+  }
+}

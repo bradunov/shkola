@@ -7,3 +7,5 @@ tmp
 
 # Excel tmp files
 **/~$*.xlsx
+
+.venv

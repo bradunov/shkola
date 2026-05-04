@@ -1,0 +1,89 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        9,
+        1,
+        8,
+        2,
+        [
+          2,
+          4,
+          3,
+          1
+        ]
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        " slični",
+        " podudarni",
+        "89,48,43"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        9,
+        1,
+        8,
+        2,
+        [
+          2,
+          4,
+          3,
+          1
+        ]
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        " podobni",
+        " skladni",
+        "89,48,43"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        9,
+        1,
+        8,
+        2,
+        [
+          2,
+          4,
+          3,
+          1
+        ]
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "similar",
+        "congruent",
+        "89,48,43"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

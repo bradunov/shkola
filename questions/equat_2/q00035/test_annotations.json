@@ -1,0 +1,140 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        5,
+        1,
+        4,
+        1,
+        2,
+        1,
+        10,
+        4,
+        [
+          13,
+          42,
+          33,
+          24,
+          21,
+          23,
+          22,
+          34,
+          43,
+          32,
+          31,
+          41,
+          14,
+          44,
+          11,
+          12
+        ],
+        9
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "number",
+        "number",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "-5.0",
+        "6.6",
+        "nisu"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        5,
+        1,
+        4,
+        1,
+        2,
+        1,
+        10,
+        4,
+        [
+          13,
+          42,
+          33,
+          24,
+          21,
+          23,
+          22,
+          34,
+          43,
+          32,
+          31,
+          41,
+          14,
+          44,
+          11,
+          12
+        ],
+        9
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "number",
+        "number",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "-5.0",
+        "6.6",
+        "niso"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        5,
+        1,
+        4,
+        1,
+        2,
+        1,
+        10,
+        4,
+        [
+          13,
+          42,
+          33,
+          24,
+          21,
+          23,
+          22,
+          34,
+          43,
+          32,
+          31,
+          41,
+          14,
+          44,
+          11,
+          12
+        ],
+        9
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "number",
+        "number",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "-5.0",
+        "6.6",
+        "no"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

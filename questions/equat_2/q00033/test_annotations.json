@@ -1,0 +1,98 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        5,
+        4,
+        4,
+        1,
+        2,
+        9,
+        1,
+        2,
+        1,
+        1,
+        2,
+        4,
+        2
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "nije tačno",
+        "nije tačno",
+        "tačno"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        5,
+        4,
+        4,
+        1,
+        2,
+        9,
+        1,
+        2,
+        1,
+        1,
+        2,
+        4,
+        2
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "ni pravilno",
+        "ni pravilno",
+        "pravilno"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        5,
+        4,
+        4,
+        1,
+        2,
+        9,
+        1,
+        2,
+        1,
+        1,
+        2,
+        4,
+        2
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "not correct",
+        "not correct",
+        "correct"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

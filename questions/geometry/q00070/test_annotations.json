@@ -1,0 +1,92 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          "trougao",
+          "kvadrat",
+          "pravougaonik"
+        ],
+        1
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "string",
+        "number"
+      ],
+      "expected_answers": [
+        "EF",
+        "FG",
+        "GH",
+        "HE",
+        "sel_obj_639426798_5_solution();",
+        "22"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          "trikotnik",
+          "kvadrat",
+          "pravokotnik"
+        ],
+        1
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "string",
+        "number"
+      ],
+      "expected_answers": [
+        "EF",
+        "FG",
+        "GH",
+        "HE",
+        "sel_obj_639426798_5_solution();",
+        "22"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          "triangle",
+          "square",
+          "rectangle"
+        ],
+        1
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "string",
+        "number"
+      ],
+      "expected_answers": [
+        "EF",
+        "FG",
+        "GH",
+        "HE",
+        "sel_obj_639426798_5_solution();",
+        "22"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

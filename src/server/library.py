@@ -16,6 +16,7 @@ class LibMath(object):
         self.lib_id = question.q_unique_id
         self.rand_vals = rand_vals
         self.rand_vals_cnt = 0
+        self.rand_vals_used = []
 
         self.page.add_script_lines("""
             <script> 
@@ -84,17 +85,18 @@ class LibMath(object):
         self.page.add_script_lines("<script> rnd_val_{}['rnd_arr_{}'] = {};</script>".format(
             self.lib_id, self._rnd_id, parray))
         self._rnd_id = self._rnd_id + 1
+        self.rand_vals_used.append(parray)
         return self.lua.table_from(parray)
 
     def random(self, m=None, n=None):
         if n is None and m is None:
             rnd = random.random()
         elif m is not None and n is None:
-            rnd = random.randint(1, m)
+            rnd = random.randint(1, int(m))
         elif m is not None and n is not None:
-            rnd = random.randint(m, n)
+            rnd = random.randint(int(m), int(n))
         else:
-            rnd = random.randint(1, n)
+            rnd = random.randint(1, int(n))
 
         if self.rand_vals and self.rand_vals_cnt < len(self.rand_vals) and \
                 not isinstance(self.rand_vals[self.rand_vals_cnt], list):
@@ -104,6 +106,7 @@ class LibMath(object):
         self.page.add_script_lines("<script> rnd_val_{}['rnd_{}'] = {};</script>".format(
             self.lib_id, self._rnd_id, rnd))
         self._rnd_id = self._rnd_id + 1
+        self.rand_vals_used.append(rnd)
         return rnd
     
 
@@ -1329,6 +1332,11 @@ class Library(object):
         self.page.add_script_lines("\n<!-- START CHECK AND REPORT -->\n")
         self.page.add_script_lines(check_script)
         self.page.add_script_lines("\n<!-- END CHECK AND REPORT -->\n")
+
+        # Save a snapshot before clearing (for testing)
+        self.last_checks = list(self.checks)
+        self.last_solutions = list(self.solutions)
+        self.last_values = list(self.values)
 
         self.checks = []
 

@@ -1,0 +1,71 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "valjak",
+        "kocka",
+        "lopta",
+        "kvadar",
+        "piramida",
+        "kupa"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "valj",
+        "kocka",
+        "krogla",
+        "kvader",
+        "piramida",
+        "stožec"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "cylinder",
+        "cube",
+        "sphere",
+        "cuboid",
+        "pyramid",
+        "cone"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

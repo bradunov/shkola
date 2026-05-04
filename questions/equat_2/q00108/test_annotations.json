@@ -1,0 +1,161 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          19,
+          15,
+          11,
+          23,
+          22,
+          7,
+          6,
+          13,
+          12,
+          16,
+          10,
+          25,
+          20,
+          21,
+          17,
+          27,
+          2,
+          14,
+          3,
+          18,
+          4,
+          5,
+          26,
+          8,
+          9,
+          24,
+          1
+        ]
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "5",
+        "binom",
+        "2",
+        "trinom",
+        "3",
+        "binom"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          19,
+          15,
+          11,
+          23,
+          22,
+          7,
+          6,
+          13,
+          12,
+          16,
+          10,
+          25,
+          20,
+          21,
+          17,
+          27,
+          2,
+          14,
+          3,
+          18,
+          4,
+          5,
+          26,
+          8,
+          9,
+          24,
+          1
+        ]
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "5",
+        "dvočlenik",
+        "2",
+        "veččlenik",
+        "3",
+        "dvočlenik"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          19,
+          15,
+          11,
+          23,
+          22,
+          7,
+          6,
+          13,
+          12,
+          16,
+          10,
+          25,
+          20,
+          21,
+          17,
+          27,
+          2,
+          14,
+          3,
+          18,
+          4,
+          5,
+          26,
+          8,
+          9,
+          24,
+          1
+        ]
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "5",
+        "binomial",
+        "2",
+        "trinomial",
+        "3",
+        "binomial"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

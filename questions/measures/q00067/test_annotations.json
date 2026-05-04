@@ -1,0 +1,146 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        5,
+        2,
+        29,
+        2,
+        95,
+        1,
+        9,
+        1,
+        10,
+        4,
+        33
+      ],
+      "num_checks": 12,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "39",
+        "ml",
+        "31",
+        "dl",
+        "5",
+        "l",
+        "9",
+        "l",
+        "97",
+        "dl",
+        "10",
+        "l"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        5,
+        2,
+        29,
+        2,
+        95,
+        1,
+        9,
+        1,
+        10,
+        4,
+        33
+      ],
+      "num_checks": 12,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "39",
+        "ml",
+        "31",
+        "dl",
+        "5",
+        "l",
+        "9",
+        "l",
+        "97",
+        "dl",
+        "10",
+        "l"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        5,
+        2,
+        29,
+        2,
+        95,
+        1,
+        9,
+        1,
+        10,
+        4,
+        33
+      ],
+      "num_checks": 12,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "39",
+        "ml",
+        "31",
+        "dl",
+        "5",
+        "l",
+        "9",
+        "l",
+        "97",
+        "dl",
+        "10",
+        "l"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

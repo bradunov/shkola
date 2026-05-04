@@ -1,0 +1,137 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        5,
+        32,
+        8,
+        1,
+        1,
+        2,
+        55,
+        3,
+        1,
+        1,
+        4,
+        30,
+        33,
+        1
+      ],
+      "num_checks": 9,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "399",
+        "69",
+        "330",
+        "468",
+        "64",
+        "404",
+        "393",
+        "94",
+        "299"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        5,
+        32,
+        8,
+        1,
+        1,
+        2,
+        55,
+        3,
+        1,
+        1,
+        4,
+        30,
+        33,
+        1
+      ],
+      "num_checks": 9,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "399",
+        "69",
+        "330",
+        "468",
+        "64",
+        "404",
+        "393",
+        "94",
+        "299"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        5,
+        32,
+        8,
+        1,
+        1,
+        2,
+        55,
+        3,
+        1,
+        1,
+        4,
+        30,
+        33,
+        1
+      ],
+      "num_checks": 9,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "399",
+        "69",
+        "330",
+        "468",
+        "64",
+        "404",
+        "393",
+        "94",
+        "299"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

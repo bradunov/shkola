@@ -1,0 +1,140 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        410,
+        5
+      ],
+      "num_checks": 16,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "1",
+        "4",
+        "1",
+        "0",
+        "6",
+        "2",
+        "4",
+        "4",
+        "2",
+        "0",
+        "6",
+        "6",
+        "0",
+        "0.0",
+        "0",
+        "0.0"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        410,
+        5
+      ],
+      "num_checks": 16,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "1",
+        "4",
+        "1",
+        "0",
+        "6",
+        "2",
+        "4",
+        "4",
+        "2",
+        "0",
+        "6",
+        "6",
+        "0",
+        "0.0",
+        "0",
+        "0.0"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        410,
+        5
+      ],
+      "num_checks": 16,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "1",
+        "4",
+        "1",
+        "0",
+        "6",
+        "2",
+        "4",
+        "4",
+        "2",
+        "0",
+        "6",
+        "6",
+        "0",
+        "0.0",
+        "0",
+        "0.0"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

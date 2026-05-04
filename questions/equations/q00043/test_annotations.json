@@ -1,0 +1,134 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        2,
+        4,
+        29,
+        3,
+        3,
+        7,
+        1,
+        2,
+        1,
+        4,
+        2,
+        1,
+        2,
+        1,
+        9,
+        26,
+        12,
+        3,
+        180
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "<",
+        "7",
+        "<",
+        "6",
+        ">",
+        "16"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        2,
+        4,
+        29,
+        3,
+        3,
+        7,
+        1,
+        2,
+        1,
+        4,
+        2,
+        1,
+        2,
+        1,
+        9,
+        26,
+        12,
+        3,
+        180
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "<",
+        "7",
+        "<",
+        "6",
+        ">",
+        "16"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        2,
+        4,
+        29,
+        3,
+        3,
+        7,
+        1,
+        2,
+        1,
+        4,
+        2,
+        1,
+        2,
+        1,
+        9,
+        26,
+        12,
+        3,
+        180
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "<",
+        "7",
+        "<",
+        "6",
+        ">",
+        "16"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

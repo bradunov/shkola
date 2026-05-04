@@ -1,0 +1,74 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        26,
+        760,
+        282,
+        251,
+        229,
+        143
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "252",
+        "702",
+        "486"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        26,
+        760,
+        282,
+        251,
+        229,
+        143
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "252",
+        "702",
+        "486"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        26,
+        760,
+        282,
+        251,
+        229,
+        143
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "252",
+        "702",
+        "486"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

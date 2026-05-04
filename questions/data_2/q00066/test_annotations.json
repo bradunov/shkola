@@ -1,0 +1,164 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          8,
+          11,
+          6,
+          7,
+          16,
+          15,
+          14,
+          10,
+          9,
+          2,
+          3,
+          13,
+          4,
+          5,
+          12,
+          1
+        ],
+        [
+          6,
+          2,
+          14,
+          13,
+          3,
+          5,
+          16,
+          11,
+          7,
+          12,
+          4,
+          15,
+          1,
+          10,
+          9,
+          8
+        ],
+        2,
+        3
+      ],
+      "num_checks": 2,
+      "check_types": [
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "14.9",
+        "5.0"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          8,
+          11,
+          6,
+          7,
+          16,
+          15,
+          14,
+          10,
+          9,
+          2,
+          3,
+          13,
+          4,
+          5,
+          12,
+          1
+        ],
+        [
+          6,
+          2,
+          14,
+          13,
+          3,
+          5,
+          16,
+          11,
+          7,
+          12,
+          4,
+          15,
+          1,
+          10,
+          9,
+          8
+        ],
+        2,
+        3
+      ],
+      "num_checks": 2,
+      "check_types": [
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "14.9",
+        "5.0"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          8,
+          11,
+          6,
+          7,
+          16,
+          15,
+          14,
+          10,
+          9,
+          2,
+          3,
+          13,
+          4,
+          5,
+          12,
+          1
+        ],
+        [
+          6,
+          2,
+          14,
+          13,
+          3,
+          5,
+          16,
+          11,
+          7,
+          12,
+          4,
+          15,
+          1,
+          10,
+          9,
+          8
+        ],
+        2,
+        3
+      ],
+      "num_checks": 2,
+      "check_types": [
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "14.9",
+        "5.0"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          8,
+          7,
+          3,
+          10,
+          11,
+          6,
+          2,
+          9,
+          4,
+          5,
+          1
+        ]
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "tup",
+        "tup",
+        "prav"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          8,
+          7,
+          3,
+          10,
+          11,
+          6,
+          2,
+          9,
+          4,
+          5,
+          1
+        ]
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "topi",
+        "topi",
+        "pravi"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          8,
+          7,
+          3,
+          10,
+          11,
+          6,
+          2,
+          9,
+          4,
+          5,
+          1
+        ]
+      ],
+      "num_checks": 3,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "obtuse",
+        "obtuse",
+        "right"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

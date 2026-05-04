@@ -1,0 +1,95 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1
+      ],
+      "num_checks": 9,
+      "check_types": [
+        "string",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();",
+        "jednakokraki",
+        "pravougli",
+        "opšti",
+        "jednakokraki",
+        "opšti",
+        "pravougli",
+        "pravougli",
+        "jednakokraki"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1
+      ],
+      "num_checks": 9,
+      "check_types": [
+        "string",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();",
+        "enakokraki",
+        "pravokotni",
+        "splošni ",
+        "enakokraki",
+        "splošni ",
+        "pravokotni",
+        "pravokotni",
+        "enakokraki"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1
+      ],
+      "num_checks": 9,
+      "check_types": [
+        "string",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();",
+        "isosceles",
+        "rectangular",
+        "general",
+        "isosceles",
+        "general",
+        "rectangular",
+        "rectangular",
+        "isosceles"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

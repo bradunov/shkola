@@ -1,0 +1,71 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "prava",
+        "poluprava",
+        "početak poluprave",
+        "duž",
+        "krajevi duži",
+        "n"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "premica",
+        "poltrak",
+        "začetek poltraka",
+        "daljica",
+        "končne točke daljice",
+        "n"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "straight line",
+        "ray",
+        "starting point of the ray",
+        "line segment",
+        "ends of line segment",
+        "n"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

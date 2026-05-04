@@ -77,7 +77,10 @@ class Repository(object):
         return qs
 
     def get_question_disk(self, q_id):
-        local_path = "../../" + self.questions_path + "/" + q_id
+        if self.local_path:
+            local_path = self.local_path + "/" + self.questions_path + "/" + q_id
+        else:
+            local_path = "../../" + self.questions_path + "/" + q_id
         d = dict()
         for (dirpath, dirnames, filenames) in os.walk(local_path):
             #rootkey = dirpath[len(local_path)+1:]
@@ -87,7 +90,7 @@ class Repository(object):
                     print("Skipping:", file)
                     continue
                 try:
-                    with open(dirpath + "/" + file) as f_text:
+                    with open(dirpath + "/" + file, encoding='utf-8') as f_text:
                         text = f_text.read()
                 except IOError:
                     text = ""
@@ -95,7 +98,10 @@ class Repository(object):
         return d
 
     def get_list_disk(self, l_id):
-        local_path = "../../" + self.lists_path + "/" + l_id
+        if self.local_path:
+            local_path = self.local_path + "/" + self.lists_path + "/" + l_id
+        else:
+            local_path = "../../" + self.lists_path + "/" + l_id
         d = json.load(open(local_path, 'r'))
         return d
 
@@ -114,7 +120,10 @@ class Repository(object):
 
 
     def get_globals_disk(self):
-        local_path = "../../" + self.questions_path + "/globals"
+        if self.local_path:
+            local_path = self.local_path + "/" + self.questions_path + "/globals"
+        else:
+            local_path = "../../" + self.questions_path + "/globals"
         d = dict()
         for (dirpath, dirnames, filenames) in os.walk(local_path):
             #rootkey = dirpath[len(local_path)+1:]
@@ -124,7 +133,7 @@ class Repository(object):
                     print("Skipping:", file)
                     continue
                 try:
-                    with open(dirpath + "/" + file) as f_text:
+                    with open(dirpath + "/" + file, encoding='utf-8') as f_text:
                         text = f_text.read()
                 except IOError:
                     text = ""
@@ -663,9 +672,9 @@ class Repository(object):
                 return None
         else:
             if self.azure_blob is None:
-                self.get_globals_disk()
+                return self.get_globals_disk()
             else:
-                self.get_globals_blob()
+                return self.get_globals_blob()
                 
 
         

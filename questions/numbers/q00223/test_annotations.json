@@ -1,0 +1,163 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          4,
+          5,
+          6,
+          2,
+          3,
+          1
+        ],
+        [
+          39,
+          37,
+          31,
+          28,
+          25,
+          27,
+          26,
+          32,
+          35,
+          30,
+          29,
+          33,
+          40,
+          36,
+          21,
+          22,
+          34,
+          23,
+          38,
+          24
+        ]
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "string",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();",
+        "Dejan",
+        "39",
+        "Petar",
+        "25"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          4,
+          5,
+          6,
+          2,
+          3,
+          1
+        ],
+        [
+          39,
+          37,
+          31,
+          28,
+          25,
+          27,
+          26,
+          32,
+          35,
+          30,
+          29,
+          33,
+          40,
+          36,
+          21,
+          22,
+          34,
+          23,
+          38,
+          24
+        ]
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "string",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();",
+        "Danilo",
+        "39",
+        "Peter",
+        "25"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          8,
+          7,
+          3,
+          10,
+          11,
+          6,
+          2,
+          9,
+          4,
+          5,
+          1
+        ],
+        [
+          26,
+          40,
+          34,
+          33,
+          38,
+          25,
+          36,
+          31,
+          37,
+          32,
+          24,
+          35,
+          39,
+          30,
+          29,
+          28,
+          27,
+          23,
+          21,
+          22
+        ]
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "string",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();",
+        "Oren",
+        "40",
+        "Darragh",
+        "25"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

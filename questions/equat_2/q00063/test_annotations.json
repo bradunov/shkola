@@ -1,0 +1,98 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        6,
+        564,
+        16,
+        15,
+        1
+      ],
+      "num_checks": 7,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "string"
+      ],
+      "expected_answers": [
+        "66",
+        " + ",
+        "0",
+        "-65",
+        " + ",
+        "1064",
+        "sel_obj_639426798_7_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        6,
+        564,
+        16,
+        15,
+        1
+      ],
+      "num_checks": 7,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "string"
+      ],
+      "expected_answers": [
+        "66",
+        " + ",
+        "0",
+        "-65",
+        " + ",
+        "1064",
+        "sel_obj_639426798_7_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        5,
+        502,
+        15,
+        9,
+        1
+      ],
+      "num_checks": 7,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "string"
+      ],
+      "expected_answers": [
+        "65",
+        " + ",
+        "0",
+        "-59",
+        " + ",
+        "1002",
+        "sel_obj_639426798_7_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

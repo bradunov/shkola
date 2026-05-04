@@ -1,0 +1,200 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          2,
+          4,
+          5,
+          3,
+          1
+        ],
+        18,
+        1,
+        [
+          4,
+          2,
+          3,
+          1,
+          5
+        ],
+        1,
+        4,
+        [
+          4,
+          3,
+          5,
+          2,
+          1
+        ],
+        5,
+        4,
+        [
+          3,
+          2,
+          1,
+          4,
+          5
+        ],
+        10,
+        36,
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        349
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "<",
+        ">",
+        ">",
+        ">",
+        ">"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          2,
+          4,
+          5,
+          3,
+          1
+        ],
+        18,
+        1,
+        [
+          4,
+          2,
+          3,
+          1,
+          5
+        ],
+        1,
+        4,
+        [
+          4,
+          3,
+          5,
+          2,
+          1
+        ],
+        5,
+        4,
+        [
+          3,
+          2,
+          1,
+          4,
+          5
+        ],
+        10,
+        36,
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        349
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "<",
+        ">",
+        ">",
+        ">",
+        ">"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          2,
+          4,
+          5,
+          3,
+          1
+        ],
+        18,
+        1,
+        [
+          4,
+          2,
+          3,
+          1,
+          5
+        ],
+        1,
+        4,
+        [
+          4,
+          3,
+          5,
+          2,
+          1
+        ],
+        5,
+        4,
+        [
+          3,
+          2,
+          1,
+          4,
+          5
+        ],
+        10,
+        36,
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        349
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "<",
+        ">",
+        ">",
+        ">",
+        ">"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

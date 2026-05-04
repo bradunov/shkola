@@ -1,0 +1,66 @@
+{
+  "seed": 42,
+  "languages": {
+    "sl": {
+      "rand_vals_used": [
+        1,
+        36,
+        1,
+        1,
+        5,
+        14,
+        3,
+        1,
+        14,
+        5,
+        1,
+        1,
+        7,
+        30,
+        3,
+        1,
+        7,
+        70,
+        2,
+        1
+      ],
+      "num_checks": 15,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "58.0",
+        "116.0",
+        "182.3",
+        "36.0",
+        "37.7",
+        "226.3",
+        "27.0",
+        "54.0",
+        "7.1",
+        "52.0",
+        "36.3",
+        "326.9",
+        "184.0",
+        "64.3",
+        "578.3"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    }
+  }
+}

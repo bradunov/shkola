@@ -1,0 +1,134 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          4,
+          2,
+          3,
+          1
+        ],
+        2,
+        1,
+        3,
+        4,
+        1,
+        3,
+        4,
+        1,
+        1,
+        1,
+        4,
+        1,
+        3,
+        1,
+        4,
+        2,
+        1,
+        8
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "jeste",
+        "jeste",
+        "nije",
+        "nije"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          4,
+          2,
+          3,
+          1
+        ],
+        2,
+        1,
+        3,
+        4,
+        1,
+        3,
+        4,
+        1,
+        1,
+        1,
+        4,
+        1,
+        3,
+        1,
+        4,
+        2,
+        1,
+        8
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "je",
+        "je",
+        "ni",
+        "ni"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          4,
+          2,
+          3,
+          1
+        ],
+        2,
+        1,
+        3,
+        4,
+        1,
+        3,
+        4,
+        1,
+        1,
+        1,
+        4,
+        1,
+        3,
+        1,
+        4,
+        2,
+        1,
+        8
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "yes",
+        "yes",
+        "no",
+        "no"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

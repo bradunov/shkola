@@ -1,0 +1,125 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        2,
+        4
+      ],
+      "num_checks": 13,
+      "check_types": [
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "number",
+        "number",
+        "number",
+        "dropdown",
+        "number",
+        "number",
+        "string"
+      ],
+      "expected_answers": [
+        " < ",
+        "-4",
+        " > ",
+        "4",
+        " ( -∞ , ",
+        "-4",
+        ")",
+        "(",
+        "4",
+        " , ∞ )",
+        "-4",
+        "4",
+        "sel_obj_639426798_11_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        2,
+        4
+      ],
+      "num_checks": 13,
+      "check_types": [
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "number",
+        "number",
+        "number",
+        "dropdown",
+        "number",
+        "number",
+        "string"
+      ],
+      "expected_answers": [
+        " < ",
+        "-4",
+        " > ",
+        "4",
+        " ( -∞ , ",
+        "-4",
+        ")",
+        "(",
+        "4",
+        " , ∞ )",
+        "-4",
+        "4",
+        "sel_obj_639426798_11_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        2,
+        4
+      ],
+      "num_checks": 13,
+      "check_types": [
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "number",
+        "number",
+        "number",
+        "dropdown",
+        "number",
+        "number",
+        "string"
+      ],
+      "expected_answers": [
+        " < ",
+        "-4",
+        " > ",
+        "4",
+        " ( -∞ , ",
+        "-4",
+        ")",
+        "(",
+        "4",
+        " , ∞ )",
+        "-4",
+        "4",
+        "sel_obj_639426798_11_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

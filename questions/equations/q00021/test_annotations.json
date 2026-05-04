@@ -1,0 +1,122 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        2,
+        32,
+        15,
+        1,
+        1,
+        12,
+        55
+      ],
+      "num_checks": 10,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "dropdown",
+        "number",
+        "number",
+        "number",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "22",
+        "23",
+        "24",
+        "<",
+        "25",
+        "66",
+        "67",
+        "68",
+        ">",
+        "65"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        2,
+        32,
+        15,
+        1,
+        1,
+        12,
+        55
+      ],
+      "num_checks": 10,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "dropdown",
+        "number",
+        "number",
+        "number",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "22",
+        "23",
+        "24",
+        "<",
+        "25",
+        "66",
+        "67",
+        "68",
+        ">",
+        "65"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        2,
+        32,
+        15,
+        1,
+        1,
+        12,
+        55
+      ],
+      "num_checks": 10,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "dropdown",
+        "number",
+        "number",
+        "number",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "22",
+        "23",
+        "24",
+        "<",
+        "25",
+        "66",
+        "67",
+        "68",
+        ">",
+        "65"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        [
+          10,
+          8,
+          9,
+          1,
+          13,
+          7,
+          6,
+          2,
+          3,
+          11,
+          4,
+          5,
+          12
+        ]
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "dva deseta",
+        "dva hiljadita",
+        "dva stota",
+        "dva cela i dva hiljadita",
+        "dva deseta i dva stota"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        [
+          10,
+          8,
+          9,
+          1,
+          13,
+          7,
+          6,
+          2,
+          3,
+          11,
+          4,
+          5,
+          12
+        ]
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "dva desetice",
+        "dva tisočinke",
+        "dva stotice",
+        "dva cele in dva tisočinke",
+        "dva desetice in dva stotice"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        [
+          10,
+          8,
+          9,
+          1,
+          13,
+          7,
+          6,
+          2,
+          3,
+          11,
+          4,
+          5,
+          12
+        ]
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "two tenth",
+        "two thousandth",
+        "two hundredth",
+        "two whole and two thousandth",
+        "two tenth and two hundredth"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

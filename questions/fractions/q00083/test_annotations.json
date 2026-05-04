@@ -1,0 +1,86 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        [
+          2,
+          4,
+          1,
+          3
+        ],
+        1
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "string",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();",
+        "da",
+        "ne",
+        "ne"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        [
+          2,
+          4,
+          1,
+          3
+        ],
+        1
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "string",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();",
+        "da",
+        "ne",
+        "ne"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        [
+          2,
+          4,
+          1,
+          3
+        ],
+        1
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "string",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();",
+        "yes",
+        "no",
+        "no"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

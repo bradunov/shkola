@@ -1,0 +1,104 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        26,
+        282,
+        251,
+        1,
+        143,
+        1,
+        693,
+        559,
+        1,
+        605
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "507",
+        "857",
+        "615",
+        "1000",
+        "342",
+        "1000"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        26,
+        282,
+        251,
+        1,
+        143,
+        1,
+        693,
+        559,
+        1,
+        605
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "507",
+        "857",
+        "615",
+        "1000",
+        "342",
+        "1000"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        26,
+        282,
+        251,
+        1,
+        143,
+        1,
+        693,
+        559,
+        1,
+        605
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "507",
+        "857",
+        "615",
+        "1000",
+        "342",
+        "1000"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

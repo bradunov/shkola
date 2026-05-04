@@ -1,0 +1,134 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        9,
+        8,
+        4
+      ],
+      "num_checks": 14,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "1",
+        "x",
+        "+",
+        "1",
+        "y",
+        "140",
+        "15",
+        "x",
+        "+",
+        "54",
+        "y",
+        "3780",
+        "96.9",
+        "43.1"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        9,
+        8,
+        4
+      ],
+      "num_checks": 14,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "1",
+        "x",
+        "+",
+        "1",
+        "y",
+        "140",
+        "15",
+        "x",
+        "+",
+        "54",
+        "y",
+        "3780",
+        "96.9",
+        "43.1"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        9,
+        8,
+        4
+      ],
+      "num_checks": 14,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "1",
+        "x",
+        "+",
+        "1",
+        "y",
+        "140",
+        "15",
+        "x",
+        "+",
+        "54",
+        "y",
+        "3780",
+        "96.9",
+        "43.1"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

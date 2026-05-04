@@ -1,0 +1,134 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        6,
+        5,
+        1,
+        4,
+        1,
+        2,
+        3,
+        9,
+        1,
+        7,
+        1
+      ],
+      "num_checks": 10,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "240",
+        "20",
+        "192",
+        "16",
+        "24",
+        "96",
+        "432",
+        "36",
+        "336",
+        "28"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        6,
+        5,
+        1,
+        4,
+        1,
+        2,
+        3,
+        9,
+        1,
+        7,
+        1
+      ],
+      "num_checks": 10,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "240",
+        "20",
+        "192",
+        "16",
+        "24",
+        "96",
+        "432",
+        "36",
+        "336",
+        "28"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        6,
+        5,
+        1,
+        4,
+        1,
+        2,
+        3,
+        9,
+        1,
+        7,
+        1
+      ],
+      "num_checks": 10,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "240",
+        "20",
+        "192",
+        "16",
+        "24",
+        "96",
+        "432",
+        "36",
+        "336",
+        "28"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          17,
+          13,
+          10,
+          21,
+          20,
+          7,
+          6,
+          11,
+          16,
+          23,
+          12,
+          19,
+          2,
+          15,
+          24,
+          14,
+          3,
+          18,
+          4,
+          5,
+          22,
+          8,
+          9,
+          1
+        ],
+        10,
+        2
+      ],
+      "num_checks": 1,
+      "check_types": [
+        "string"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          17,
+          13,
+          10,
+          21,
+          20,
+          7,
+          6,
+          11,
+          16,
+          23,
+          12,
+          19,
+          2,
+          15,
+          24,
+          14,
+          3,
+          18,
+          4,
+          5,
+          22,
+          8,
+          9,
+          1
+        ],
+        10,
+        2
+      ],
+      "num_checks": 1,
+      "check_types": [
+        "string"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          17,
+          13,
+          10,
+          21,
+          20,
+          7,
+          6,
+          11,
+          16,
+          23,
+          12,
+          19,
+          2,
+          15,
+          25,
+          14,
+          3,
+          18,
+          4,
+          5,
+          22,
+          8,
+          9,
+          24,
+          1
+        ],
+        10,
+        2
+      ],
+      "num_checks": 1,
+      "check_types": [
+        "string"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

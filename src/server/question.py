@@ -542,11 +542,14 @@ class Question(object):
         # It seems that Lupa doesn't know about integer type that was new in Lua 5.3
         # Everything Lupa returns is treated as a float, causing bad printout format
         # We use these Lua wrapper functions to convert to int within Lua
-        # Note that this is a dangerous trick as search and replace calls! 
+        # Note that this is a dangerous trick as search and replace calls!
+        # We cache lib.math as a local to work around a lupa attribute chain caching bug
+        # where lib.math.X() causes subsequent lib.math to return the X function.
         code = code + """
+            local _lib_math = lib.math
+
             function sh_random(m, n)
-              rnd = lib.math.random
-              r = rnd(m,n)
+              local r = _lib_math.random(m,n)
               if m~=nil or n~=nil then
                 return math.tointeger(r)
               end
@@ -554,7 +557,7 @@ class Question(object):
             end
 
             function sh_round(n)
-              return math.tointeger(lib.math._round(n))
+              return math.tointeger(_lib_math._round(n))
             end
         """
 
@@ -636,11 +639,16 @@ class Question(object):
 
         code = code.replace("\\", "\\\\")
 
-        # Replace math.random with lib.math.random so we can log all random values
-        code = code.replace("math.random(", "sh_random(")
+        # Replace lib.math.X with _lib_math.X to use the cached local
+        # (works around lupa attribute chain caching bug)
+        # Must be done BEFORE the math.random replacement to avoid double-matching
+        code = code.replace("lib.math.", "_lib_math.")
+        # Replace standalone math.random( with sh_random( to log random values.
+        # The negative lookbehind avoids matching _lib_math.random( (already handled above)
+        import re
+        code = re.sub(r'(?<![._\w])math\.random\(', 'sh_random(', code)
         # Replace round with a local wrapper to force it to become int (Lupa doesn't know about int types)
-        code = code.replace("lib.math.round(", "sh_round(")
-
+        code = code.replace("_lib_math.round(", "sh_round(")
 
 
         # DEBUG

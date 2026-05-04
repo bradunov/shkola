@@ -1,0 +1,182 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        5,
+        2,
+        1,
+        3,
+        1,
+        9,
+        1,
+        10,
+        2,
+        1,
+        1,
+        1,
+        4,
+        1,
+        9,
+        1,
+        9,
+        [
+          3,
+          2,
+          1,
+          8,
+          5,
+          7,
+          6,
+          4
+        ]
+      ],
+      "num_checks": 10,
+      "check_types": [
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "raste",
+        "3",
+        "opada",
+        "0",
+        "raste",
+        "1",
+        "raste",
+        "0",
+        "opada",
+        "0"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        5,
+        2,
+        1,
+        3,
+        1,
+        9,
+        1,
+        10,
+        2,
+        1,
+        1,
+        1,
+        4,
+        1,
+        9,
+        1,
+        9,
+        [
+          3,
+          2,
+          1,
+          8,
+          5,
+          7,
+          6,
+          4
+        ]
+      ],
+      "num_checks": 10,
+      "check_types": [
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "narašča",
+        "3",
+        "pada",
+        "0",
+        "narašča",
+        "1",
+        "narašča",
+        "0",
+        "pada",
+        "0"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        5,
+        2,
+        1,
+        3,
+        1,
+        9,
+        1,
+        10,
+        2,
+        1,
+        1,
+        1,
+        4,
+        1,
+        9,
+        1,
+        9,
+        [
+          3,
+          2,
+          1,
+          8,
+          5,
+          7,
+          6,
+          4
+        ]
+      ],
+      "num_checks": 10,
+      "check_types": [
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number",
+        "dropdown",
+        "number"
+      ],
+      "expected_answers": [
+        "grows",
+        "3",
+        "falls",
+        "0",
+        "grows",
+        "1",
+        "grows",
+        "0",
+        "falls",
+        "0"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

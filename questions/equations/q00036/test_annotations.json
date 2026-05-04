@@ -1,0 +1,142 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        2,
+        32,
+        1,
+        2,
+        189,
+        1,
+        1,
+        76,
+        2,
+        1,
+        2,
+        1,
+        1,
+        30,
+        1,
+        2,
+        23,
+        6,
+        2,
+        29,
+        2,
+        3,
+        1
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "2550",
+        "5",
+        "245",
+        "10"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        2,
+        32,
+        1,
+        2,
+        189,
+        1,
+        1,
+        76,
+        2,
+        1,
+        2,
+        1,
+        1,
+        30,
+        1,
+        2,
+        23,
+        6,
+        2,
+        29,
+        2,
+        3,
+        1
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "2550",
+        "5",
+        "245",
+        "10"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        2,
+        32,
+        1,
+        2,
+        189,
+        1,
+        1,
+        76,
+        2,
+        1,
+        2,
+        1,
+        1,
+        30,
+        1,
+        2,
+        23,
+        6,
+        2,
+        29,
+        2,
+        3,
+        1,
+        7,
+        1,
+        55,
+        2,
+        3,
+        20
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "2550",
+        "5",
+        "245",
+        "10",
+        "11"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

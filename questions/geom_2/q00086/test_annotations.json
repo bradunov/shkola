@@ -1,0 +1,61 @@
+{
+  "seed": 42,
+  "languages": {
+    "uk": {
+      "rand_vals_used": [
+        1,
+        2,
+        32,
+        15,
+        1,
+        1,
+        1,
+        76,
+        55,
+        1,
+        1,
+        1,
+        28,
+        8,
+        3,
+        1,
+        1,
+        92,
+        84,
+        3,
+        2,
+        1,
+        58,
+        38,
+        2
+      ],
+      "num_checks": 10,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "85.0",
+        "203.5",
+        "280.0",
+        "4779.0",
+        "12.0",
+        "90.0",
+        "88.0",
+        "370.0",
+        "42.0",
+        "264.6"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    }
+  }
+}

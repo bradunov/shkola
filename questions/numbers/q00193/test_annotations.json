@@ -1,0 +1,149 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        205,
+        141,
+        63,
+        229,
+        143
+      ],
+      "num_checks": 16,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "2316",
+        "+",
+        "841",
+        "3157",
+        "2316",
+        "+",
+        "363",
+        "2679",
+        "2316",
+        "-",
+        "729",
+        "1587",
+        "2316",
+        "-",
+        "1043",
+        "1273"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        205,
+        141,
+        63,
+        229,
+        143
+      ],
+      "num_checks": 16,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "2316",
+        "+",
+        "841",
+        "3157",
+        "2316",
+        "+",
+        "363",
+        "2679",
+        "2316",
+        "-",
+        "729",
+        "1587",
+        "2316",
+        "-",
+        "1043",
+        "1273"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        205,
+        141,
+        63,
+        229,
+        143
+      ],
+      "num_checks": 16,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "2316",
+        "+",
+        "841",
+        "3157",
+        "2316",
+        "+",
+        "363",
+        "2679",
+        "2316",
+        "-",
+        "729",
+        "1587",
+        "2316",
+        "-",
+        "1043",
+        "1273"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

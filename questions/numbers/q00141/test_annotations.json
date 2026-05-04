@@ -1,0 +1,146 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "num_checks": 12,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "1809",
+        "LVI",
+        "1564",
+        "52",
+        "1642",
+        "84",
+        "1452",
+        "LXVII",
+        "1977",
+        "40",
+        "1889",
+        "88"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "num_checks": 12,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "1809",
+        "LVI",
+        "1564",
+        "52",
+        "1642",
+        "84",
+        "1452",
+        "LXVII",
+        "1977",
+        "40",
+        "1889",
+        "88"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "num_checks": 12,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "1809",
+        "LVI",
+        "1564",
+        "52",
+        "1642",
+        "84",
+        "1452",
+        "LXVII",
+        "1977",
+        "40",
+        "1889",
+        "88"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          12,
+          34,
+          11,
+          33,
+          35,
+          30,
+          13,
+          6,
+          26,
+          31,
+          28,
+          5,
+          10,
+          20,
+          4,
+          25,
+          21,
+          23,
+          17,
+          8,
+          32,
+          27,
+          1,
+          37,
+          14,
+          19,
+          3,
+          36,
+          29,
+          24,
+          22,
+          7,
+          9,
+          15,
+          16,
+          18,
+          2
+        ]
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "n",
+        "n",
+        "n",
+        "t"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          12,
+          34,
+          11,
+          33,
+          35,
+          30,
+          13,
+          6,
+          26,
+          31,
+          28,
+          5,
+          10,
+          20,
+          4,
+          25,
+          21,
+          23,
+          17,
+          8,
+          32,
+          27,
+          1,
+          37,
+          14,
+          19,
+          3,
+          36,
+          29,
+          24,
+          22,
+          7,
+          9,
+          15,
+          16,
+          18,
+          2
+        ]
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "n",
+        "n",
+        "n",
+        "t"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          12,
+          34,
+          11,
+          33,
+          35,
+          30,
+          13,
+          6,
+          26,
+          31,
+          28,
+          5,
+          10,
+          20,
+          4,
+          25,
+          21,
+          23,
+          17,
+          8,
+          32,
+          27,
+          1,
+          37,
+          14,
+          19,
+          3,
+          36,
+          29,
+          24,
+          22,
+          7,
+          9,
+          15,
+          16,
+          18,
+          2
+        ]
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "n",
+        "n",
+        "n",
+        "t"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

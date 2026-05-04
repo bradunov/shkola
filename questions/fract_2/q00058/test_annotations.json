@@ -1,0 +1,128 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        380,
+        2,
+        126,
+        1,
+        72,
+        3,
+        53,
+        3,
+        380,
+        3,
+        45
+      ],
+      "num_checks": 9,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "3810.0",
+        "127",
+        "30.0",
+        "7300.0",
+        "54",
+        "135.185",
+        "381.0",
+        "46",
+        "8.283"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        380,
+        2,
+        126,
+        1,
+        72,
+        3,
+        53,
+        3,
+        380,
+        3,
+        45
+      ],
+      "num_checks": 9,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "3810.0",
+        "127",
+        "30.0",
+        "7300.0",
+        "54",
+        "135.185",
+        "381.0",
+        "46",
+        "8.283"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        380,
+        2,
+        126,
+        1,
+        72,
+        3,
+        53,
+        3,
+        380,
+        3,
+        45
+      ],
+      "num_checks": 9,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "3810.0",
+        "127",
+        "30.0",
+        "7300.0",
+        "54",
+        "135.185",
+        "381.0",
+        "46",
+        "8.283"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

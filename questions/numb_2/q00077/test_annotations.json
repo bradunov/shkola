@@ -1,0 +1,143 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        3,
+        282,
+        1,
+        1,
+        143,
+        3,
+        1,
+        693,
+        3,
+        3,
+        90,
+        3,
+        2,
+        33
+      ],
+      "num_checks": 10,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "16.85",
+        "0.01",
+        "12.0",
+        "1.0",
+        "26.0",
+        "1.0",
+        "9.59",
+        "0.01",
+        "5.9",
+        "0.1"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        3,
+        282,
+        1,
+        1,
+        143,
+        3,
+        1,
+        693,
+        3,
+        3,
+        90,
+        3,
+        2,
+        33
+      ],
+      "num_checks": 10,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "16.85",
+        "0.01",
+        "12.0",
+        "1.0",
+        "26.0",
+        "1.0",
+        "9.59",
+        "0.01",
+        "5.9",
+        "0.1"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        3,
+        282,
+        1,
+        1,
+        143,
+        3,
+        1,
+        693,
+        3,
+        3,
+        90,
+        3,
+        2,
+        33
+      ],
+      "num_checks": 10,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "16.85",
+        "0.01",
+        "12.0",
+        "1.0",
+        "26.0",
+        "1.0",
+        "9.59",
+        "0.01",
+        "5.9",
+        "0.1"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    }
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          3,
+          3,
+          7,
+          2,
+          2,
+          5,
+          2
+        ],
+        1,
+        174,
+        [
+          2,
+          2,
+          7,
+          3,
+          2,
+          3,
+          5
+        ],
+        1,
+        56,
+        [
+          7,
+          3,
+          2,
+          2,
+          5,
+          3,
+          2
+        ],
+        2,
+        57,
+        [
+          5,
+          2,
+          7,
+          2,
+          2,
+          3,
+          3
+        ],
+        2,
+        72
+      ],
+      "num_checks": 8,
+      "check_types": [
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction"
+      ],
+      "expected_answers": [
+        "document.getElementById('check_fraction_answer_numerator_639426798_1').value=11.0;document.getElementById('check_fraction_answer_denominator_639426798_1').value=36.0;document.getElementById('check_fraction_answer_whole_639426798_1').value=303;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_2').value=179; document.getElementById('check_fraction_answer_denominator_639426798_2').value = 9;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_3').value=61; document.getElementById('check_fraction_answer_denominator_639426798_3').value = 4;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_4').value=131.0;document.getElementById('check_fraction_answer_denominator_639426798_4').value=210.0;document.getElementById('check_fraction_answer_whole_639426798_4').value=1;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_5').value=31.0; document.getElementById('check_fraction_answer_denominator_639426798_5').value = 21.0;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_6').value=11.0; document.getElementById('check_fraction_answer_denominator_639426798_6').value = 10.0;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_7').value=62; document.getElementById('check_fraction_answer_denominator_639426798_7').value = 42;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_8').value=77; document.getElementById('check_fraction_answer_denominator_639426798_8').value = 70;"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          3,
+          3,
+          7,
+          2,
+          2,
+          5,
+          2
+        ],
+        1,
+        174,
+        [
+          2,
+          2,
+          7,
+          3,
+          2,
+          3,
+          5
+        ],
+        1,
+        56,
+        [
+          7,
+          3,
+          2,
+          2,
+          5,
+          3,
+          2
+        ],
+        2,
+        57,
+        [
+          5,
+          2,
+          7,
+          2,
+          2,
+          3,
+          3
+        ],
+        2,
+        72
+      ],
+      "num_checks": 8,
+      "check_types": [
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction"
+      ],
+      "expected_answers": [
+        "document.getElementById('check_fraction_answer_numerator_639426798_1').value=11.0;document.getElementById('check_fraction_answer_denominator_639426798_1').value=36.0;document.getElementById('check_fraction_answer_whole_639426798_1').value=303;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_2').value=179; document.getElementById('check_fraction_answer_denominator_639426798_2').value = 9;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_3').value=61; document.getElementById('check_fraction_answer_denominator_639426798_3').value = 4;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_4').value=131.0;document.getElementById('check_fraction_answer_denominator_639426798_4').value=210.0;document.getElementById('check_fraction_answer_whole_639426798_4').value=1;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_5').value=31.0; document.getElementById('check_fraction_answer_denominator_639426798_5').value = 21.0;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_6').value=11.0; document.getElementById('check_fraction_answer_denominator_639426798_6').value = 10.0;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_7').value=62; document.getElementById('check_fraction_answer_denominator_639426798_7').value = 42;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_8').value=77; document.getElementById('check_fraction_answer_denominator_639426798_8').value = 70;"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          3,
+          3,
+          7,
+          2,
+          2,
+          5,
+          2
+        ],
+        1,
+        174,
+        [
+          2,
+          2,
+          7,
+          3,
+          2,
+          3,
+          5
+        ],
+        1,
+        56,
+        [
+          7,
+          3,
+          2,
+          2,
+          5,
+          3,
+          2
+        ],
+        2,
+        57,
+        [
+          5,
+          2,
+          7,
+          2,
+          2,
+          3,
+          3
+        ],
+        2,
+        72
+      ],
+      "num_checks": 8,
+      "check_types": [
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction",
+        "fraction"
+      ],
+      "expected_answers": [
+        "document.getElementById('check_fraction_answer_numerator_639426798_1').value=11.0;document.getElementById('check_fraction_answer_denominator_639426798_1').value=36.0;document.getElementById('check_fraction_answer_whole_639426798_1').value=303;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_2').value=179; document.getElementById('check_fraction_answer_denominator_639426798_2').value = 9;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_3').value=61; document.getElementById('check_fraction_answer_denominator_639426798_3').value = 4;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_4').value=131.0;document.getElementById('check_fraction_answer_denominator_639426798_4').value=210.0;document.getElementById('check_fraction_answer_whole_639426798_4').value=1;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_5').value=31.0; document.getElementById('check_fraction_answer_denominator_639426798_5').value = 21.0;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_6').value=11.0; document.getElementById('check_fraction_answer_denominator_639426798_6').value = 10.0;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_7').value=62; document.getElementById('check_fraction_answer_denominator_639426798_7').value = 42;",
+        "document.getElementById('check_fraction_answer_numerator_639426798_8').value=77; document.getElementById('check_fraction_answer_denominator_639426798_8').value = 70;"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        6,
+        2,
+        [
+          17,
+          13,
+          10,
+          20,
+          19,
+          7,
+          6,
+          11,
+          16,
+          9,
+          12,
+          18,
+          2,
+          15,
+          1,
+          14,
+          3,
+          4,
+          5,
+          21,
+          8
+        ]
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        ">",
+        "<",
+        ">",
+        ">",
+        ">",
+        ">"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        6,
+        2,
+        [
+          17,
+          13,
+          10,
+          20,
+          19,
+          7,
+          6,
+          11,
+          16,
+          9,
+          12,
+          18,
+          2,
+          15,
+          1,
+          14,
+          3,
+          4,
+          5,
+          21,
+          8
+        ]
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        ">",
+        "<",
+        ">",
+        ">",
+        ">",
+        ">"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        6,
+        2,
+        [
+          17,
+          13,
+          10,
+          20,
+          19,
+          7,
+          6,
+          11,
+          16,
+          9,
+          12,
+          18,
+          2,
+          15,
+          1,
+          14,
+          3,
+          4,
+          5,
+          21,
+          8
+        ]
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        ">",
+        "<",
+        ">",
+        ">",
+        ">",
+        ">"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

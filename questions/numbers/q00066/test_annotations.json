@@ -1,0 +1,125 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        1,
+        2,
+        [
+          174,
+          171,
+          117,
+          144,
+          111,
+          147,
+          114,
+          141
+        ]
+      ],
+      "num_checks": 8,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "111",
+        "114",
+        "117",
+        "141",
+        "144",
+        "147",
+        "171",
+        "174"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        1,
+        2,
+        [
+          174,
+          171,
+          117,
+          144,
+          111,
+          147,
+          114,
+          141
+        ]
+      ],
+      "num_checks": 8,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "111",
+        "114",
+        "117",
+        "141",
+        "144",
+        "147",
+        "171",
+        "174"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        1,
+        2,
+        [
+          174,
+          171,
+          117,
+          144,
+          111,
+          147,
+          114,
+          141
+        ]
+      ],
+      "num_checks": 8,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "111",
+        "114",
+        "117",
+        "141",
+        "144",
+        "147",
+        "171",
+        "174"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

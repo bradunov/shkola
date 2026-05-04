@@ -1,0 +1,98 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        4,
+        95,
+        36,
+        32,
+        29,
+        18,
+        95,
+        14,
+        87,
+        95,
+        115,
+        70,
+        12,
+        76,
+        7,
+        1
+      ],
+      "num_checks": 2,
+      "check_types": [
+        "dropdown",
+        "string"
+      ],
+      "expected_answers": [
+        "devojčice",
+        "sel_obj_639426798_2_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        4,
+        95,
+        36,
+        32,
+        29,
+        18,
+        95,
+        14,
+        87,
+        95,
+        115,
+        70,
+        12,
+        76,
+        7,
+        1
+      ],
+      "num_checks": 2,
+      "check_types": [
+        "dropdown",
+        "string"
+      ],
+      "expected_answers": [
+        "deklice",
+        "sel_obj_639426798_2_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        4,
+        95,
+        36,
+        32,
+        29,
+        18,
+        95,
+        14,
+        87,
+        95,
+        115,
+        70,
+        12,
+        76,
+        7,
+        1
+      ],
+      "num_checks": 2,
+      "check_types": [
+        "dropdown",
+        "string"
+      ],
+      "expected_answers": [
+        "girls",
+        "sel_obj_639426798_2_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

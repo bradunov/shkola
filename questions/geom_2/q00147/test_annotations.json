@@ -1,0 +1,98 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        2,
+        [
+          "AC : AB\\( \\ \\ \\) =\\( \\ \\ \\) <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_3'/> : <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_4'/>",
+          "CB : AC\\( \\ \\ \\) =\\( \\ \\ \\) <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_5'/> : <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_6'/>",
+          "AB : CB\\( \\ \\ \\) =\\( \\ \\ \\) <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_1'/> : <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_2'/>"
+        ],
+        18
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "3",
+        "1",
+        "2",
+        "3",
+        "1",
+        "2"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        2,
+        [
+          "AC : AB\\( \\ \\ \\) =\\( \\ \\ \\) <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_3'/> : <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_4'/>",
+          "CB : AC\\( \\ \\ \\) =\\( \\ \\ \\) <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_5'/> : <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_6'/>",
+          "AB : CB\\( \\ \\ \\) =\\( \\ \\ \\) <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_1'/> : <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_2'/>"
+        ],
+        18
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "3",
+        "1",
+        "2",
+        "3",
+        "1",
+        "2"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        2,
+        [
+          "AC : AB\\( \\ \\ \\) =\\( \\ \\ \\) <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_3'/> : <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_4'/>",
+          "CB : AC\\( \\ \\ \\) =\\( \\ \\ \\) <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_5'/> : <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_6'/>",
+          "AB : CB\\( \\ \\ \\) =\\( \\ \\ \\) <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_1'/> : <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_2'/>"
+        ],
+        18
+      ],
+      "num_checks": 6,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "3",
+        "1",
+        "2",
+        "3",
+        "1",
+        "2"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

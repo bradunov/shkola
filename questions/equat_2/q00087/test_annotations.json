@@ -1,0 +1,149 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          4,
+          5,
+          6,
+          2,
+          3,
+          1
+        ],
+        1,
+        5,
+        1
+      ],
+      "num_checks": 13,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "x",
+        "y",
+        "-",
+        "7",
+        "x",
+        "+",
+        "7",
+        "2",
+        "y",
+        "-",
+        "7",
+        "7",
+        "14"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          4,
+          5,
+          6,
+          2,
+          3,
+          1
+        ],
+        1,
+        5,
+        1
+      ],
+      "num_checks": 13,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "x",
+        "y",
+        "-",
+        "7",
+        "x",
+        "+",
+        "7",
+        "2",
+        "y",
+        "-",
+        "7",
+        "7",
+        "14"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          4,
+          5,
+          6,
+          2,
+          3,
+          1
+        ],
+        1,
+        5,
+        1
+      ],
+      "num_checks": 13,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "x",
+        "y",
+        "-",
+        "7",
+        "x",
+        "+",
+        "7",
+        "2",
+        "y",
+        "-",
+        "7",
+        "7",
+        "14"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

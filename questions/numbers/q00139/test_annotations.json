@@ -1,0 +1,113 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        5,
+        4,
+        4,
+        3,
+        2,
+        9,
+        2,
+        10,
+        7,
+        1,
+        1,
+        2,
+        4,
+        4
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "154",
+        "432",
+        "920",
+        "711",
+        "244"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        5,
+        4,
+        4,
+        3,
+        2,
+        9,
+        2,
+        10,
+        7,
+        1,
+        1,
+        2,
+        4,
+        4
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "154",
+        "432",
+        "920",
+        "711",
+        "244"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        5,
+        4,
+        4,
+        3,
+        2,
+        9,
+        2,
+        10,
+        7,
+        1,
+        1,
+        2,
+        4,
+        4
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "number"
+      ],
+      "expected_answers": [
+        "154",
+        "432",
+        "920",
+        "711",
+        "244"
+      ],
+      "has_canvas": false,
+      "has_table": false
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [],
+      "num_checks": 3,
+      "check_types": [
+        "string",
+        "string",
+        "string"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();",
+        "sel_obj_639426798_2_solution();",
+        "sel_obj_639426798_3_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [],
+      "num_checks": 3,
+      "check_types": [
+        "string",
+        "string",
+        "string"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();",
+        "sel_obj_639426798_2_solution();",
+        "sel_obj_639426798_3_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [],
+      "num_checks": 3,
+      "check_types": [
+        "string",
+        "string",
+        "string"
+      ],
+      "expected_answers": [
+        "sel_obj_639426798_1_solution();",
+        "sel_obj_639426798_2_solution();",
+        "sel_obj_639426798_3_solution();"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1
+      ],
+      "num_checks": 1,
+      "check_types": [
+        "fraction"
+      ],
+      "expected_answers": [
+        "document.getElementById('check_fraction_answer_numerator_639426798_2').value=3; document.getElementById('check_fraction_answer_denominator_639426798_2').value = 8;"
+      ],
+      "has_canvas": true,
+      "has_table": true
+    },
+    "sl": {
+      "rand_vals_used": [
+        1
+      ],
+      "num_checks": 1,
+      "check_types": [
+        "fraction"
+      ],
+      "expected_answers": [
+        "document.getElementById('check_fraction_answer_numerator_639426798_2').value=3; document.getElementById('check_fraction_answer_denominator_639426798_2').value = 8;"
+      ],
+      "has_canvas": true,
+      "has_table": true
+    },
+    "uk": {
+      "rand_vals_used": [
+        1
+      ],
+      "num_checks": 1,
+      "check_types": [
+        "fraction"
+      ],
+      "expected_answers": [
+        "document.getElementById('check_fraction_answer_numerator_639426798_2').value=3; document.getElementById('check_fraction_answer_denominator_639426798_2').value = 8;"
+      ],
+      "has_canvas": true,
+      "has_table": true
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        [
+          9,
+          2,
+          8,
+          7,
+          11,
+          12,
+          6,
+          3,
+          10,
+          4,
+          5,
+          1
+        ],
+        1,
+        1
+      ],
+      "num_checks": 2,
+      "check_types": [
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "su mimoilazne",
+        "pripada ravni"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        [
+          9,
+          2,
+          8,
+          7,
+          11,
+          12,
+          6,
+          3,
+          10,
+          4,
+          5,
+          1
+        ],
+        1,
+        1
+      ],
+      "num_checks": 2,
+      "check_types": [
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "su mimoidoče",
+        "leži v ravnini"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        [
+          9,
+          2,
+          8,
+          7,
+          11,
+          12,
+          6,
+          3,
+          10,
+          4,
+          5,
+          1
+        ],
+        1,
+        1
+      ],
+      "num_checks": 2,
+      "check_types": [
+        "dropdown",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "are skew",
+        "belongs to "
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

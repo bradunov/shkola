@@ -1,0 +1,80 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        3,
+        2,
+        2
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "60",
+        "90",
+        "75",
+        "135",
+        "konveksan"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        3,
+        2,
+        2
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "60",
+        "90",
+        "75",
+        "135",
+        "konveksni"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        3,
+        2,
+        2
+      ],
+      "num_checks": 5,
+      "check_types": [
+        "number",
+        "number",
+        "number",
+        "number",
+        "dropdown"
+      ],
+      "expected_answers": [
+        "60",
+        "90",
+        "75",
+        "135",
+        "convex"
+      ],
+      "has_canvas": true,
+      "has_table": false
+    }
+  }
+}

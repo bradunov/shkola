@@ -1,0 +1,125 @@
+{
+  "seed": 42,
+  "languages": {
+    "rs": {
+      "rand_vals_used": [
+        1,
+        9,
+        1,
+        4,
+        5,
+        1,
+        1,
+        7,
+        2,
+        1,
+        2,
+        7,
+        1,
+        1,
+        4,
+        14,
+        1,
+        8,
+        9,
+        1,
+        1
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "number",
+        "fraction",
+        "number",
+        "fraction"
+      ],
+      "expected_answers": [
+        "-3.0",
+        "document.getElementById('check_fraction_answer_numerator_639426798_2').value=-2.0;document.getElementById('check_fraction_answer_denominator_639426798_2').value=9.0;",
+        "-2",
+        "document.getElementById('check_fraction_answer_numerator_639426798_4').value=1.0;document.getElementById('check_fraction_answer_denominator_639426798_4').value=3.0;"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    },
+    "sl": {
+      "rand_vals_used": [
+        1,
+        9,
+        1,
+        4,
+        5,
+        1,
+        1,
+        7,
+        2,
+        1,
+        2,
+        7,
+        1,
+        1,
+        4,
+        14,
+        1,
+        8,
+        9,
+        1,
+        1
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "number",
+        "fraction",
+        "number",
+        "fraction"
+      ],
+      "expected_answers": [
+        "-3.0",
+        "document.getElementById('check_fraction_answer_numerator_639426798_2').value=-2.0;document.getElementById('check_fraction_answer_denominator_639426798_2').value=9.0;",
+        "-2",
+        "document.getElementById('check_fraction_answer_numerator_639426798_4').value=1.0;document.getElementById('check_fraction_answer_denominator_639426798_4').value=3.0;"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    },
+    "uk": {
+      "rand_vals_used": [
+        1,
+        9,
+        1,
+        4,
+        5,
+        1,
+        1,
+        7,
+        2,
+        1,
+        2,
+        7,
+        1,
+        1,
+        4,
+        14,
+        1,
+        8,
+        9,
+        1,
+        1
+      ],
+      "num_checks": 4,
+      "check_types": [
+        "number",
+        "fraction",
+        "number",
+        "fraction"
+      ],
+      "expected_answers": [
+        "-3.0",
+        "document.getElementById('check_fraction_answer_numerator_639426798_2').value=-2.0;document.getElementById('check_fraction_answer_denominator_639426798_2').value=9.0;",
+        "-2",
+        "document.getElementById('check_fraction_answer_numerator_639426798_4').value=1.0;document.getElementById('check_fraction_answer_denominator_639426798_4').value=3.0;"
+      ],
+      "has_canvas": false,
+      "has_table": true
+    }
+  }
+}
