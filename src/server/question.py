@@ -645,8 +645,9 @@ class Question(object):
         code = code.replace("lib.math.", "_lib_math.")
         # Replace standalone math.random( with sh_random( to log random values.
         # The negative lookbehind avoids matching _lib_math.random( (already handled above)
+        # Allow optional whitespace between 'random' and '(' (some questions use 'math.random (2)')
         import re
-        code = re.sub(r'(?<![._\w])math\.random\(', 'sh_random(', code)
+        code = re.sub(r'(?<![._\w])math\.random\s*\(', 'sh_random(', code)
         # Replace round with a local wrapper to force it to become int (Lupa doesn't know about int types)
         code = code.replace("_lib_math.round(", "sh_round(")
 
