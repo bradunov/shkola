@@ -12,6 +12,23 @@
 
 ## Test Files
 
+### `test_rendering.py`
+**Unit tests** — verifies core rendering functionality of `question.py` and `library.py` in isolation.
+
+- **Paragraph** (7 tests): text accumulation, div generation, alignment, flush/clear behavior.
+- **Question init** (7 tests): Lua runtime creation, language/cyrillic provisioning, library setup.
+- **make_pretty** (11 tests): text beautification, headers, superscripts, fractions, spaces, special tags.
+- **Question.eval** (13 tests): inline Lua code, math.random, lib.math (random/gcd/round/chaining), repeat blocks, if/elif/else, error handling.
+- **LibMath** (14 tests): eq, gcd, round, round_dec, random variants, float args, rand_vals injection, random_shuffle.
+- **Library check inputs** (16 tests): check_number, check_string, radio buttons, dropdown, fractions.
+- **Library tables** (6 tests): start/end, inline mode, alternating row colors, cells with styles.
+- **Library formatting** (5 tests): sup/frac HTML, dec_to_str locale, modify_input_style.
+- **Library buttons** (4 tests): check/clear/solution button JS code generation.
+- **Library canvas** (5 tests): start/end canvas, rectangle, circle, text drawing, check registration.
+- **Integration** (6 tests): full eval with random+checks, radio, table, fraction, unique IDs, file loading.
+
+Runs in ~0.5s. Use as a fast gate before running the full smoke suite.
+
 ### `test_question_smoke.py`
 **Smoke tests** — verifies every question evaluates without raising an exception.
 
@@ -48,6 +65,9 @@ Requires: Playwright + baseline screenshots (generated with `--update-snapshots`
 ## Running Tests
 
 ```powershell
+# Run rendering unit tests (fast, ~0.5s)
+pytest tests/test_rendering.py -p no:playwright
+
 # Run all non-browser tests
 pytest tests/ -p no:playwright
 
@@ -105,5 +125,10 @@ python tools/generate_test_annotations.py --question data_2/q00001
 
 ## Known Issues
 
-- `numb_2/q00013`: Fails with `'function' object has no attribute 'gcd'` — pre-existing bug in the question script (marked as `xfail` in smoke tests).
 - `-p no:playwright` is needed for non-browser tests to prevent the Playwright plugin from interfering.
+
+## Recommended Workflow
+
+1. Run `test_rendering.py` first (0.5s) — catches regressions in the core rendering pipeline.
+2. Run `test_question_smoke.py` with a subset (`-k "category"`) — verifies real questions work.
+3. Run full smoke suite — comprehensive check across all questions and languages.
