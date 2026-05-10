@@ -1,0 +1,512 @@
+<script> global_q_id = "fract_2/q00038";</script>
+<script> global_language = "rs";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+<script> rnd_val_639426798['rnd_0'] = 1;</script>
+<script> rnd_val_639426798['rnd_1'] = 6;</script>
+<script> rnd_val_639426798['rnd_arr_2'] = [2, 3, 2, 2];</script>
+<script> rnd_val_639426798['rnd_3'] = 1;</script>
+<script> rnd_val_639426798['rnd_4'] = 1;</script>
+<script> rnd_val_639426798['rnd_arr_5'] = [3, 2, 2, 2];</script>
+<script> rnd_val_639426798['rnd_6'] = 1;</script>
+<script> rnd_val_639426798['rnd_7'] = 1;</script>
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_fraction_answer_table_639426798_2 = false;
+        function check_fraction_answer_table_639426798_2_cond() {
+          var ok;
+          is_ok = math.eq(Number(document.getElementById('check_fraction_answer_numerator_639426798_2').value)/(((Number(document.getElementById('check_fraction_answer_denominator_639426798_2').value)) == 0)?1:(Number(document.getElementById('check_fraction_answer_denominator_639426798_2').value))), 0.66666666666666663);
+          
+          if (is_ok) {
+            setOK('check_fraction_answer_table_639426798_2');
+            already_checked_obj_ok_check_fraction_answer_table_639426798_2 = true;
+            return true;
+          } else {
+            setError('check_fraction_answer_table_639426798_2');
+            already_checked_obj_ok_check_fraction_answer_table_639426798_2 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = sel_obj_639426798_1_check();;
+   if (operation == 'SUBMIT') {
+      c0 = sel_obj_639426798_1_check();;
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+   c1 = check_fraction_answer_table_639426798_2_cond();
+   if (operation == 'SUBMIT') {
+      c1 = check_fraction_answer_table_639426798_2_cond();
+      if (c1) {q_correct++;} else {q_incorrect++;}
+   } else {c1 = false; q_incorrect++;}
+
+
+cond = c0 && c1 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+report['detailed']['q_res1'] = c1.toString();
+
+                {
+                    values = { };
+                    var ind = 0;
+                    for (let i=0; i<24; i++) {
+                        if (check_639426798_1[i]) {
+                            values[ind.toString()] = (state_639426798_1[i]).toString();
+                            ind++;
+                        }
+                    }
+                }
+            
+   report['values']['q_val0'] = values;
+values = { 'numerator' : document.getElementById('check_fraction_answer_numerator_639426798_2').value.toString(), 'denominator' : document.getElementById('check_fraction_answer_denominator_639426798_2').value.toString() };
+
+   report['values']['q_val1'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        sel_obj_639426798_1_clear();
+if (!already_checked_obj_ok_check_fraction_answer_table_639426798_2){document.getElementById('check_fraction_answer_numerator_639426798_2').value = '';document.getElementById('check_fraction_answer_denominator_639426798_2').value = '';clearAllNoBorder('check_fraction_answer_table_639426798_2');}
+
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        sel_obj_639426798_1_solution();
+document.getElementById('check_fraction_answer_numerator_639426798_2').value=2.0;document.getElementById('check_fraction_answer_denominator_639426798_2').value=3.0;
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'fract_2/q00038' for language 'rs' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+Jovan je pojeo \(\frac{1}{6}\) kolača i Milka je pojela \(\frac{1}{6}\) kolača. 
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_1'>
+Oboj deo kolača koji su njih dvoje pojeli. 
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_2'>
+<div style='display:table;padding-top:0px;padding-bottom:0px;float:center'> </div>
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_3'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_1'>
+        <script type = "text/javascript">
+            var paper_639426798_1 = Raphael("sel_canvas_639426798_1", 200, 100);
+            var on_color_639426798_1 = [];
+            var off_color_639426798_1 = [];
+            var on_line_color_639426798_1 = [];
+            var off_line_color_639426798_1 = [];
+            var check_639426798_1 = [];
+            var state_639426798_1 = [];
+            var sel_obj_639426798_1 = [];
+            var solution_639426798_1 = [];
+        solution_639426798_1[0]=1;solution_639426798_1[1]=1;solution_639426798_1[2]=1;solution_639426798_1[3]=1;solution_639426798_1[4]=1;solution_639426798_1[5]=1;solution_639426798_1[6]=1;solution_639426798_1[7]=1;solution_639426798_1[8]=0;solution_639426798_1[9]=0;solution_639426798_1[10]=0;solution_639426798_1[11]=0;solution_639426798_1[12]=0;solution_639426798_1[13]=0;solution_639426798_1[14]=0;solution_639426798_1[15]=0;solution_639426798_1[16]=0;solution_639426798_1[17]=0;solution_639426798_1[18]=0;solution_639426798_1[19]=0;solution_639426798_1[20]=0;solution_639426798_1[21]=0;solution_639426798_1[22]=0;solution_639426798_1[23]=0;solution_639426798_1[24]=0;
+on_color_639426798_1[0] = "#c60";
+off_color_639426798_1[0] = "#fff";
+on_line_color_639426798_1[0] = "#000";
+off_line_color_639426798_1[0] = "#000";
+check_639426798_1[0] = true;
+state_639426798_1[0] = false;
+sel_obj_639426798_1[0] = paper_639426798_1.rect(0.0, 0.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[1] = "#c60";
+off_color_639426798_1[1] = "#fff";
+on_line_color_639426798_1[1] = "#000";
+off_line_color_639426798_1[1] = "#000";
+check_639426798_1[1] = true;
+state_639426798_1[1] = false;
+sel_obj_639426798_1[1] = paper_639426798_1.rect(33.333333333333336, 0.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[2] = "#c60";
+off_color_639426798_1[2] = "#fff";
+on_line_color_639426798_1[2] = "#000";
+off_line_color_639426798_1[2] = "#000";
+check_639426798_1[2] = true;
+state_639426798_1[2] = false;
+sel_obj_639426798_1[2] = paper_639426798_1.rect(66.66666666666667, 0.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[3] = "#c60";
+off_color_639426798_1[3] = "#fff";
+on_line_color_639426798_1[3] = "#000";
+off_line_color_639426798_1[3] = "#000";
+check_639426798_1[3] = true;
+state_639426798_1[3] = false;
+sel_obj_639426798_1[3] = paper_639426798_1.rect(100.0, 0.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[4] = "#c60";
+off_color_639426798_1[4] = "#fff";
+on_line_color_639426798_1[4] = "#000";
+off_line_color_639426798_1[4] = "#000";
+check_639426798_1[4] = true;
+state_639426798_1[4] = false;
+sel_obj_639426798_1[4] = paper_639426798_1.rect(133.33333333333334, 0.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[5] = "#c60";
+off_color_639426798_1[5] = "#fff";
+on_line_color_639426798_1[5] = "#000";
+off_line_color_639426798_1[5] = "#000";
+check_639426798_1[5] = true;
+state_639426798_1[5] = false;
+sel_obj_639426798_1[5] = paper_639426798_1.rect(166.66666666666669, 0.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[6] = "#c60";
+off_color_639426798_1[6] = "#fff";
+on_line_color_639426798_1[6] = "#000";
+off_line_color_639426798_1[6] = "#000";
+check_639426798_1[6] = true;
+state_639426798_1[6] = false;
+sel_obj_639426798_1[6] = paper_639426798_1.rect(0.0, 25.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[7] = "#c60";
+off_color_639426798_1[7] = "#fff";
+on_line_color_639426798_1[7] = "#000";
+off_line_color_639426798_1[7] = "#000";
+check_639426798_1[7] = true;
+state_639426798_1[7] = false;
+sel_obj_639426798_1[7] = paper_639426798_1.rect(33.333333333333336, 25.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[8] = "#c60";
+off_color_639426798_1[8] = "#fff";
+on_line_color_639426798_1[8] = "#000";
+off_line_color_639426798_1[8] = "#000";
+check_639426798_1[8] = true;
+state_639426798_1[8] = false;
+sel_obj_639426798_1[8] = paper_639426798_1.rect(66.66666666666667, 25.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[9] = "#c60";
+off_color_639426798_1[9] = "#fff";
+on_line_color_639426798_1[9] = "#000";
+off_line_color_639426798_1[9] = "#000";
+check_639426798_1[9] = true;
+state_639426798_1[9] = false;
+sel_obj_639426798_1[9] = paper_639426798_1.rect(100.0, 25.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[10] = "#c60";
+off_color_639426798_1[10] = "#fff";
+on_line_color_639426798_1[10] = "#000";
+off_line_color_639426798_1[10] = "#000";
+check_639426798_1[10] = true;
+state_639426798_1[10] = false;
+sel_obj_639426798_1[10] = paper_639426798_1.rect(133.33333333333334, 25.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[11] = "#c60";
+off_color_639426798_1[11] = "#fff";
+on_line_color_639426798_1[11] = "#000";
+off_line_color_639426798_1[11] = "#000";
+check_639426798_1[11] = true;
+state_639426798_1[11] = false;
+sel_obj_639426798_1[11] = paper_639426798_1.rect(166.66666666666669, 25.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[12] = "#c60";
+off_color_639426798_1[12] = "#fff";
+on_line_color_639426798_1[12] = "#000";
+off_line_color_639426798_1[12] = "#000";
+check_639426798_1[12] = true;
+state_639426798_1[12] = false;
+sel_obj_639426798_1[12] = paper_639426798_1.rect(0.0, 50.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[13] = "#c60";
+off_color_639426798_1[13] = "#fff";
+on_line_color_639426798_1[13] = "#000";
+off_line_color_639426798_1[13] = "#000";
+check_639426798_1[13] = true;
+state_639426798_1[13] = false;
+sel_obj_639426798_1[13] = paper_639426798_1.rect(33.333333333333336, 50.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[14] = "#c60";
+off_color_639426798_1[14] = "#fff";
+on_line_color_639426798_1[14] = "#000";
+off_line_color_639426798_1[14] = "#000";
+check_639426798_1[14] = true;
+state_639426798_1[14] = false;
+sel_obj_639426798_1[14] = paper_639426798_1.rect(66.66666666666667, 50.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[15] = "#c60";
+off_color_639426798_1[15] = "#fff";
+on_line_color_639426798_1[15] = "#000";
+off_line_color_639426798_1[15] = "#000";
+check_639426798_1[15] = true;
+state_639426798_1[15] = false;
+sel_obj_639426798_1[15] = paper_639426798_1.rect(100.0, 50.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[16] = "#c60";
+off_color_639426798_1[16] = "#fff";
+on_line_color_639426798_1[16] = "#000";
+off_line_color_639426798_1[16] = "#000";
+check_639426798_1[16] = true;
+state_639426798_1[16] = false;
+sel_obj_639426798_1[16] = paper_639426798_1.rect(133.33333333333334, 50.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[17] = "#c60";
+off_color_639426798_1[17] = "#fff";
+on_line_color_639426798_1[17] = "#000";
+off_line_color_639426798_1[17] = "#000";
+check_639426798_1[17] = true;
+state_639426798_1[17] = false;
+sel_obj_639426798_1[17] = paper_639426798_1.rect(166.66666666666669, 50.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[18] = "#c60";
+off_color_639426798_1[18] = "#fff";
+on_line_color_639426798_1[18] = "#000";
+off_line_color_639426798_1[18] = "#000";
+check_639426798_1[18] = true;
+state_639426798_1[18] = false;
+sel_obj_639426798_1[18] = paper_639426798_1.rect(0.0, 75.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[19] = "#c60";
+off_color_639426798_1[19] = "#fff";
+on_line_color_639426798_1[19] = "#000";
+off_line_color_639426798_1[19] = "#000";
+check_639426798_1[19] = true;
+state_639426798_1[19] = false;
+sel_obj_639426798_1[19] = paper_639426798_1.rect(33.333333333333336, 75.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[20] = "#c60";
+off_color_639426798_1[20] = "#fff";
+on_line_color_639426798_1[20] = "#000";
+off_line_color_639426798_1[20] = "#000";
+check_639426798_1[20] = true;
+state_639426798_1[20] = false;
+sel_obj_639426798_1[20] = paper_639426798_1.rect(66.66666666666667, 75.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[21] = "#c60";
+off_color_639426798_1[21] = "#fff";
+on_line_color_639426798_1[21] = "#000";
+off_line_color_639426798_1[21] = "#000";
+check_639426798_1[21] = true;
+state_639426798_1[21] = false;
+sel_obj_639426798_1[21] = paper_639426798_1.rect(100.0, 75.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[22] = "#c60";
+off_color_639426798_1[22] = "#fff";
+on_line_color_639426798_1[22] = "#000";
+off_line_color_639426798_1[22] = "#000";
+check_639426798_1[22] = true;
+state_639426798_1[22] = false;
+sel_obj_639426798_1[22] = paper_639426798_1.rect(133.33333333333334, 75.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[23] = "#c60";
+off_color_639426798_1[23] = "#fff";
+on_line_color_639426798_1[23] = "#000";
+off_line_color_639426798_1[23] = "#000";
+check_639426798_1[23] = true;
+state_639426798_1[23] = false;
+sel_obj_639426798_1[23] = paper_639426798_1.rect(166.66666666666669, 75.0, 33.333333333333336, 25.0).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+
+        function sel_obj_639426798_1_clear() {
+          if (!already_checked_obj_ok_639426798_1) {
+            for (let i=0; i<24; i++) {
+                if (check_639426798_1[i]) {
+                state_639426798_1[i] = false;
+                sel_obj_639426798_1[i].attr({fill: off_color_639426798_1[i], stroke: off_line_color_639426798_1[i]});
+                }
+            }
+            clearAllNoBorder('sel_canvas_639426798_1');
+          }
+        }
+        
+                already_checked_obj_ok_639426798_1 = false;
+                function sel_obj_639426798_1_check() {
+                    var result = [];
+                    var ind = 0;
+                    for (let i=0; i<24; i++) {
+                        if (check_639426798_1[i]) {
+                            if (state_639426798_1[i]) {
+                                result[ind] = 1;
+                            } else {
+                                result[ind] = 0;
+                            }
+                            ind++;
+                        }
+                    }
+                    if ((result.reduce((a, b) => a + b, 0)) == 8) {
+                        setOK('sel_canvas_639426798_1');
+                        already_checked_obj_ok_639426798_1 = true;
+                        return true;
+                    } else {
+                        setError('sel_canvas_639426798_1');
+                        already_checked_obj_ok_639426798_1 = false;
+                        return false;
+                    }
+                }
+            
+                function sel_obj_639426798_1_solution() {
+                    alread_shown_solutions = true;
+                    var ind = 0;
+                    for (let i=0; i<24; i++) {
+                        if (check_639426798_1[i]) {
+                            if (solution_639426798_1[ind] == 1) {
+                                sel_obj_639426798_1[i].attr({fill: on_color_639426798_1[i], stroke: on_line_color_639426798_1[i]});
+                                state_639426798_1[i] = true;
+                            } else {
+                                sel_obj_639426798_1[i].attr({fill: off_color_639426798_1[i], stroke: off_line_color_639426798_1[i]});
+                                state_639426798_1[i] = false;
+                            }
+                            ind++;
+                        }
+                    }
+                }
+            
+  	for (let i=0; i<24; i++) {
+          if (check_639426798_1[i]) {
+  	    sel_obj_639426798_1[i].mousedown( function() {
+	      if (state_639426798_1[i]) {
+  	        sel_obj_639426798_1[i].attr({fill: off_color_639426798_1[i], stroke: off_line_color_639426798_1[i]});
+                state_639426798_1[i] = false;
+	      } else {
+  	        sel_obj_639426798_1[i].attr({fill: on_color_639426798_1[i], stroke: on_line_color_639426798_1[i]});
+                state_639426798_1[i] = true;
+              }
+	    });
+          }
+        }
+        
+</script>
+</div>
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_4'>
+<div style='display:table;padding-top:0px;padding-bottom:0px;float:center'> </div>
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_5'>
+Koliko kolača je ostalo?
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_6'>
+ Ostalo je 
+<table style='display:inline-table;vertical-align:middle' id='check_fraction_answer_table_639426798_2'>
+<tbody>
+<tr>
+<td style="border-bottom:solid 1px;text-align:center"><input style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px'type='text' size='1' id='check_fraction_answer_numerator_639426798_2' /></td>
+</tr>
+<tr>
+<td style="text-align:center"><input style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px' type='text' size='1' id='check_fraction_answer_denominator_639426798_2' /></td>
+</tr>
+</tbody>
+</table>
+ kolača.
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

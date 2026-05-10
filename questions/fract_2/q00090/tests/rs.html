@@ -1,0 +1,738 @@
+<script> global_q_id = "fract_2/q00090";</script>
+<script> global_language = "rs";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+<script> rnd_val_639426798['rnd_0'] = 1;</script>
+<script> rnd_val_639426798['rnd_1'] = 3;</script>
+<script> rnd_val_639426798['rnd_2'] = 3;</script>
+<script> rnd_val_639426798['rnd_3'] = 2;</script>
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_1 = false;
+        function check_number_answer_639426798_1_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_1').value.replace(',', '.')) == '2');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_1').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_1');
+            already_checked_obj_ok_check_number_answer_639426798_1 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_1');
+            already_checked_obj_ok_check_number_answer_639426798_1 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_fraction_answer_table_639426798_2 = false;
+        function check_fraction_answer_table_639426798_2_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_fraction_answer_numerator_639426798_2').value) == "2" && (((Number(document.getElementById('check_fraction_answer_denominator_639426798_2').value)) == 0)?1:(Number(document.getElementById('check_fraction_answer_denominator_639426798_2').value)))  == "6")
+          
+          if (is_ok) {
+            setOK('check_fraction_answer_table_639426798_2');
+            already_checked_obj_ok_check_fraction_answer_table_639426798_2 = true;
+            return true;
+          } else {
+            setError('check_fraction_answer_table_639426798_2');
+            already_checked_obj_ok_check_fraction_answer_table_639426798_2 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_3 = false;
+        function check_number_answer_639426798_3_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_3').value.replace(',', '.')) == '2');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_3').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_3');
+            already_checked_obj_ok_check_number_answer_639426798_3 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_3');
+            already_checked_obj_ok_check_number_answer_639426798_3 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_fraction_answer_table_639426798_4 = false;
+        function check_fraction_answer_table_639426798_4_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_fraction_answer_numerator_639426798_4').value) == "3" && (((Number(document.getElementById('check_fraction_answer_denominator_639426798_4').value)) == 0)?1:(Number(document.getElementById('check_fraction_answer_denominator_639426798_4').value)))  == "6")
+          
+          if (is_ok) {
+            setOK('check_fraction_answer_table_639426798_4');
+            already_checked_obj_ok_check_fraction_answer_table_639426798_4 = true;
+            return true;
+          } else {
+            setError('check_fraction_answer_table_639426798_4');
+            already_checked_obj_ok_check_fraction_answer_table_639426798_4 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = check_number_answer_639426798_1_cond();
+   if (operation == 'SUBMIT') {
+      c0 = check_number_answer_639426798_1_cond();
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+   c1 = check_fraction_answer_table_639426798_2_cond();
+   if (operation == 'SUBMIT') {
+      c1 = check_fraction_answer_table_639426798_2_cond();
+      if (c1) {q_correct++;} else {q_incorrect++;}
+   } else {c1 = false; q_incorrect++;}
+
+   c2 = check_number_answer_639426798_3_cond();
+   if (operation == 'SUBMIT') {
+      c2 = check_number_answer_639426798_3_cond();
+      if (c2) {q_correct++;} else {q_incorrect++;}
+   } else {c2 = false; q_incorrect++;}
+
+   c3 = check_fraction_answer_table_639426798_4_cond();
+   if (operation == 'SUBMIT') {
+      c3 = check_fraction_answer_table_639426798_4_cond();
+      if (c3) {q_correct++;} else {q_incorrect++;}
+   } else {c3 = false; q_incorrect++;}
+
+   c4 = sel_obj_639426798_5_check();;
+   if (operation == 'SUBMIT') {
+      c4 = sel_obj_639426798_5_check();;
+      if (c4) {q_correct++;} else {q_incorrect++;}
+   } else {c4 = false; q_incorrect++;}
+
+
+cond = c0 && c1 && c2 && c3 && c4 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+report['detailed']['q_res1'] = c1.toString();
+report['detailed']['q_res2'] = c2.toString();
+report['detailed']['q_res3'] = c3.toString();
+report['detailed']['q_res4'] = c4.toString();
+values = document.getElementById('check_number_answer_639426798_1').value.toString();
+
+   report['values']['q_val0'] = values;
+values = { 'numerator' : document.getElementById('check_fraction_answer_numerator_639426798_2').value.toString(), 'denominator' : document.getElementById('check_fraction_answer_denominator_639426798_2').value.toString() };
+
+   report['values']['q_val1'] = values;
+values = document.getElementById('check_number_answer_639426798_3').value.toString();
+
+   report['values']['q_val2'] = values;
+values = { 'numerator' : document.getElementById('check_fraction_answer_numerator_639426798_4').value.toString(), 'denominator' : document.getElementById('check_fraction_answer_denominator_639426798_4').value.toString() };
+
+   report['values']['q_val3'] = values;
+
+                {
+                    values = { };
+                    var ind = 0;
+                    for (let i=0; i<43; i++) {
+                        if (check_639426798_5[i]) {
+                            values[ind.toString()] = (state_639426798_5[i]).toString();
+                            ind++;
+                        }
+                    }
+                }
+            
+   report['values']['q_val4'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        if (!already_checked_obj_ok_check_number_answer_639426798_1){document.getElementById('check_number_answer_639426798_1').value = '';clearAllWBorder('check_number_answer_639426798_1');}
+
+if (!already_checked_obj_ok_check_fraction_answer_table_639426798_2){document.getElementById('check_fraction_answer_numerator_639426798_2').value = '';document.getElementById('check_fraction_answer_denominator_639426798_2').value = '';clearAllNoBorder('check_fraction_answer_table_639426798_2');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_3){document.getElementById('check_number_answer_639426798_3').value = '';clearAllWBorder('check_number_answer_639426798_3');}
+
+if (!already_checked_obj_ok_check_fraction_answer_table_639426798_4){document.getElementById('check_fraction_answer_numerator_639426798_4').value = '';document.getElementById('check_fraction_answer_denominator_639426798_4').value = '';clearAllNoBorder('check_fraction_answer_table_639426798_4');}
+
+sel_obj_639426798_5_clear();
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        document.getElementById('check_number_answer_639426798_1').value = '2'.replace('.', ',');
+document.getElementById('check_fraction_answer_numerator_639426798_2').value=2; document.getElementById('check_fraction_answer_denominator_639426798_2').value = 6;
+document.getElementById('check_number_answer_639426798_3').value = '2'.replace('.', ',');
+document.getElementById('check_fraction_answer_numerator_639426798_4').value=3; document.getElementById('check_fraction_answer_denominator_639426798_4').value = 6;
+sel_obj_639426798_5_solution();
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'fract_2/q00090' for language 'rs' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+Oboj na brojevnoj pravoj granice intervala kome pripada realan broj 
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_1'>
+ √6.0 
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_2'>
+i upiši ih. 
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_3'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_5'>
+        <script type = "text/javascript">
+            var paper_639426798_5 = Raphael("sel_canvas_639426798_5", 350, 80);
+            var on_color_639426798_5 = [];
+            var off_color_639426798_5 = [];
+            var on_line_color_639426798_5 = [];
+            var off_line_color_639426798_5 = [];
+            var check_639426798_5 = [];
+            var state_639426798_5 = [];
+            var sel_obj_639426798_5 = [];
+            var solution_639426798_5 = [];
+        solution_639426798_5[0] = 0 ; solution_639426798_5[1] = 0 ; solution_639426798_5[2] = 0 ; solution_639426798_5[3] = 0 ; solution_639426798_5[4] = 0 ; solution_639426798_5[5] = 0 ; solution_639426798_5[6] = 0 ; solution_639426798_5[7] = 1 ; solution_639426798_5[8] = 1 ; solution_639426798_5[9] = 0 ; solution_639426798_5[10] = 0 ; solution_639426798_5[11] = 0 ; solution_639426798_5[12] = 0 ; solution_639426798_5[13] = 0 ; solution_639426798_5[14] = 0 ; solution_639426798_5[15] = 0 ; solution_639426798_5[16] = 0 ; solution_639426798_5[17] = 0 ; solution_639426798_5[18] = 0 ; solution_639426798_5[19] = 0 ; solution_639426798_5[20] = 0 ; solution_639426798_5[21] = 0 ; solution_639426798_5[22] = 0 ; solution_639426798_5[23] = 0 ; solution_639426798_5[24] = 0 ; solution_639426798_5[25] = 0 ; solution_639426798_5[26] = 0 ; solution_639426798_5[27] = 0 ; solution_639426798_5[28] = 0 ; solution_639426798_5[29] = 0 ;  
+on_color_639426798_5[0] = "#000";
+off_color_639426798_5[0] = "#000";
+on_line_color_639426798_5[0] = "#000";
+off_line_color_639426798_5[0] = "#000";
+check_639426798_5[0] = false;
+state_639426798_5[0] = false;
+sel_obj_639426798_5[0] = paper_639426798_5.path('M 15 50 l 360 0 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_5[1] = "#f00";
+off_color_639426798_5[1] = "#000";
+on_line_color_639426798_5[1] = "#f00";
+off_line_color_639426798_5[1] = "#000";
+check_639426798_5[1] = true;
+state_639426798_5[1] = false;
+sel_obj_639426798_5[1] = paper_639426798_5.path('M 25 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[2] = "#f00";
+off_color_639426798_5[2] = "#000";
+on_line_color_639426798_5[2] = "#f00";
+off_line_color_639426798_5[2] = "#000";
+check_639426798_5[2] = true;
+state_639426798_5[2] = false;
+sel_obj_639426798_5[2] = paper_639426798_5.path('M 35 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[3] = "#f00";
+off_color_639426798_5[3] = "#000";
+on_line_color_639426798_5[3] = "#f00";
+off_line_color_639426798_5[3] = "#000";
+check_639426798_5[3] = true;
+state_639426798_5[3] = false;
+sel_obj_639426798_5[3] = paper_639426798_5.path('M 45 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[4] = "#f00";
+off_color_639426798_5[4] = "#000";
+on_line_color_639426798_5[4] = "#f00";
+off_line_color_639426798_5[4] = "#000";
+check_639426798_5[4] = true;
+state_639426798_5[4] = false;
+sel_obj_639426798_5[4] = paper_639426798_5.path('M 55 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[5] = "#f00";
+off_color_639426798_5[5] = "#000";
+on_line_color_639426798_5[5] = "#f00";
+off_line_color_639426798_5[5] = "#000";
+check_639426798_5[5] = true;
+state_639426798_5[5] = false;
+sel_obj_639426798_5[5] = paper_639426798_5.path('M 65 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[6] = "#f00";
+off_color_639426798_5[6] = "#000";
+on_line_color_639426798_5[6] = "#f00";
+off_line_color_639426798_5[6] = "#000";
+check_639426798_5[6] = true;
+state_639426798_5[6] = false;
+sel_obj_639426798_5[6] = paper_639426798_5.path('M 75 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[7] = "#f00";
+off_color_639426798_5[7] = "#000";
+on_line_color_639426798_5[7] = "#f00";
+off_line_color_639426798_5[7] = "#000";
+check_639426798_5[7] = true;
+state_639426798_5[7] = false;
+sel_obj_639426798_5[7] = paper_639426798_5.path('M 85 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[8] = "#f00";
+off_color_639426798_5[8] = "#000";
+on_line_color_639426798_5[8] = "#f00";
+off_line_color_639426798_5[8] = "#000";
+check_639426798_5[8] = true;
+state_639426798_5[8] = false;
+sel_obj_639426798_5[8] = paper_639426798_5.path('M 95 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[9] = "#f00";
+off_color_639426798_5[9] = "#000";
+on_line_color_639426798_5[9] = "#f00";
+off_line_color_639426798_5[9] = "#000";
+check_639426798_5[9] = true;
+state_639426798_5[9] = false;
+sel_obj_639426798_5[9] = paper_639426798_5.path('M 105 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[10] = "#f00";
+off_color_639426798_5[10] = "#000";
+on_line_color_639426798_5[10] = "#f00";
+off_line_color_639426798_5[10] = "#000";
+check_639426798_5[10] = true;
+state_639426798_5[10] = false;
+sel_obj_639426798_5[10] = paper_639426798_5.path('M 115 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[11] = "#f00";
+off_color_639426798_5[11] = "#000";
+on_line_color_639426798_5[11] = "#f00";
+off_line_color_639426798_5[11] = "#000";
+check_639426798_5[11] = true;
+state_639426798_5[11] = false;
+sel_obj_639426798_5[11] = paper_639426798_5.path('M 125 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[12] = "#f00";
+off_color_639426798_5[12] = "#000";
+on_line_color_639426798_5[12] = "#f00";
+off_line_color_639426798_5[12] = "#000";
+check_639426798_5[12] = true;
+state_639426798_5[12] = false;
+sel_obj_639426798_5[12] = paper_639426798_5.path('M 135 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[13] = "#f00";
+off_color_639426798_5[13] = "#000";
+on_line_color_639426798_5[13] = "#f00";
+off_line_color_639426798_5[13] = "#000";
+check_639426798_5[13] = true;
+state_639426798_5[13] = false;
+sel_obj_639426798_5[13] = paper_639426798_5.path('M 145 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[14] = "#f00";
+off_color_639426798_5[14] = "#000";
+on_line_color_639426798_5[14] = "#f00";
+off_line_color_639426798_5[14] = "#000";
+check_639426798_5[14] = true;
+state_639426798_5[14] = false;
+sel_obj_639426798_5[14] = paper_639426798_5.path('M 155 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[15] = "#f00";
+off_color_639426798_5[15] = "#000";
+on_line_color_639426798_5[15] = "#f00";
+off_line_color_639426798_5[15] = "#000";
+check_639426798_5[15] = true;
+state_639426798_5[15] = false;
+sel_obj_639426798_5[15] = paper_639426798_5.path('M 165 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[16] = "#f00";
+off_color_639426798_5[16] = "#000";
+on_line_color_639426798_5[16] = "#f00";
+off_line_color_639426798_5[16] = "#000";
+check_639426798_5[16] = true;
+state_639426798_5[16] = false;
+sel_obj_639426798_5[16] = paper_639426798_5.path('M 175 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[17] = "#f00";
+off_color_639426798_5[17] = "#000";
+on_line_color_639426798_5[17] = "#f00";
+off_line_color_639426798_5[17] = "#000";
+check_639426798_5[17] = true;
+state_639426798_5[17] = false;
+sel_obj_639426798_5[17] = paper_639426798_5.path('M 185 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[18] = "#f00";
+off_color_639426798_5[18] = "#000";
+on_line_color_639426798_5[18] = "#f00";
+off_line_color_639426798_5[18] = "#000";
+check_639426798_5[18] = true;
+state_639426798_5[18] = false;
+sel_obj_639426798_5[18] = paper_639426798_5.path('M 195 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[19] = "#f00";
+off_color_639426798_5[19] = "#000";
+on_line_color_639426798_5[19] = "#f00";
+off_line_color_639426798_5[19] = "#000";
+check_639426798_5[19] = true;
+state_639426798_5[19] = false;
+sel_obj_639426798_5[19] = paper_639426798_5.path('M 205 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[20] = "#f00";
+off_color_639426798_5[20] = "#000";
+on_line_color_639426798_5[20] = "#f00";
+off_line_color_639426798_5[20] = "#000";
+check_639426798_5[20] = true;
+state_639426798_5[20] = false;
+sel_obj_639426798_5[20] = paper_639426798_5.path('M 215 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[21] = "#f00";
+off_color_639426798_5[21] = "#000";
+on_line_color_639426798_5[21] = "#f00";
+off_line_color_639426798_5[21] = "#000";
+check_639426798_5[21] = true;
+state_639426798_5[21] = false;
+sel_obj_639426798_5[21] = paper_639426798_5.path('M 225 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[22] = "#f00";
+off_color_639426798_5[22] = "#000";
+on_line_color_639426798_5[22] = "#f00";
+off_line_color_639426798_5[22] = "#000";
+check_639426798_5[22] = true;
+state_639426798_5[22] = false;
+sel_obj_639426798_5[22] = paper_639426798_5.path('M 235 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[23] = "#f00";
+off_color_639426798_5[23] = "#000";
+on_line_color_639426798_5[23] = "#f00";
+off_line_color_639426798_5[23] = "#000";
+check_639426798_5[23] = true;
+state_639426798_5[23] = false;
+sel_obj_639426798_5[23] = paper_639426798_5.path('M 245 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[24] = "#f00";
+off_color_639426798_5[24] = "#000";
+on_line_color_639426798_5[24] = "#f00";
+off_line_color_639426798_5[24] = "#000";
+check_639426798_5[24] = true;
+state_639426798_5[24] = false;
+sel_obj_639426798_5[24] = paper_639426798_5.path('M 255 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[25] = "#f00";
+off_color_639426798_5[25] = "#000";
+on_line_color_639426798_5[25] = "#f00";
+off_line_color_639426798_5[25] = "#000";
+check_639426798_5[25] = true;
+state_639426798_5[25] = false;
+sel_obj_639426798_5[25] = paper_639426798_5.path('M 265 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[26] = "#f00";
+off_color_639426798_5[26] = "#000";
+on_line_color_639426798_5[26] = "#f00";
+off_line_color_639426798_5[26] = "#000";
+check_639426798_5[26] = true;
+state_639426798_5[26] = false;
+sel_obj_639426798_5[26] = paper_639426798_5.path('M 275 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[27] = "#f00";
+off_color_639426798_5[27] = "#000";
+on_line_color_639426798_5[27] = "#f00";
+off_line_color_639426798_5[27] = "#000";
+check_639426798_5[27] = true;
+state_639426798_5[27] = false;
+sel_obj_639426798_5[27] = paper_639426798_5.path('M 285 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[28] = "#f00";
+off_color_639426798_5[28] = "#000";
+on_line_color_639426798_5[28] = "#f00";
+off_line_color_639426798_5[28] = "#000";
+check_639426798_5[28] = true;
+state_639426798_5[28] = false;
+sel_obj_639426798_5[28] = paper_639426798_5.path('M 295 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[29] = "#f00";
+off_color_639426798_5[29] = "#000";
+on_line_color_639426798_5[29] = "#f00";
+off_line_color_639426798_5[29] = "#000";
+check_639426798_5[29] = true;
+state_639426798_5[29] = false;
+sel_obj_639426798_5[29] = paper_639426798_5.path('M 305 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[30] = "#f00";
+off_color_639426798_5[30] = "#000";
+on_line_color_639426798_5[30] = "#f00";
+off_line_color_639426798_5[30] = "#000";
+check_639426798_5[30] = true;
+state_639426798_5[30] = false;
+sel_obj_639426798_5[30] = paper_639426798_5.path('M 315 50 l 0 5 l 0 -10 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_5[31] = "#000";
+off_color_639426798_5[31] = "#000";
+on_line_color_639426798_5[31] = "#000";
+off_line_color_639426798_5[31] = "#000";
+check_639426798_5[31] = false;
+state_639426798_5[31] = false;
+sel_obj_639426798_5[31] = paper_639426798_5.path('M 15 50 l 0 10 l 0 -20 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_5[32] = "#000";
+off_color_639426798_5[32] = "#000";
+on_line_color_639426798_5[32] = "#000";
+off_line_color_639426798_5[32] = "#000";
+check_639426798_5[32] = true;
+state_639426798_5[32] = false;
+sel_obj_639426798_5[32] = paper_639426798_5.text(15, 30, "1").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "16", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_5[33] = "#000";
+off_color_639426798_5[33] = "#000";
+on_line_color_639426798_5[33] = "#000";
+off_line_color_639426798_5[33] = "#000";
+check_639426798_5[33] = false;
+state_639426798_5[33] = false;
+sel_obj_639426798_5[33] = paper_639426798_5.path('M 75 50 l 0 10 l 0 -20 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_5[34] = "#000";
+off_color_639426798_5[34] = "#000";
+on_line_color_639426798_5[34] = "#000";
+off_line_color_639426798_5[34] = "#000";
+check_639426798_5[34] = true;
+state_639426798_5[34] = false;
+sel_obj_639426798_5[34] = paper_639426798_5.text(75, 30, "2").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "16", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_5[35] = "#000";
+off_color_639426798_5[35] = "#000";
+on_line_color_639426798_5[35] = "#000";
+off_line_color_639426798_5[35] = "#000";
+check_639426798_5[35] = false;
+state_639426798_5[35] = false;
+sel_obj_639426798_5[35] = paper_639426798_5.path('M 135 50 l 0 10 l 0 -20 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_5[36] = "#000";
+off_color_639426798_5[36] = "#000";
+on_line_color_639426798_5[36] = "#000";
+off_line_color_639426798_5[36] = "#000";
+check_639426798_5[36] = true;
+state_639426798_5[36] = false;
+sel_obj_639426798_5[36] = paper_639426798_5.text(135, 30, "3").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "16", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_5[37] = "#000";
+off_color_639426798_5[37] = "#000";
+on_line_color_639426798_5[37] = "#000";
+off_line_color_639426798_5[37] = "#000";
+check_639426798_5[37] = false;
+state_639426798_5[37] = false;
+sel_obj_639426798_5[37] = paper_639426798_5.path('M 195 50 l 0 10 l 0 -20 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_5[38] = "#000";
+off_color_639426798_5[38] = "#000";
+on_line_color_639426798_5[38] = "#000";
+off_line_color_639426798_5[38] = "#000";
+check_639426798_5[38] = true;
+state_639426798_5[38] = false;
+sel_obj_639426798_5[38] = paper_639426798_5.text(195, 30, "4").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "16", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_5[39] = "#000";
+off_color_639426798_5[39] = "#000";
+on_line_color_639426798_5[39] = "#000";
+off_line_color_639426798_5[39] = "#000";
+check_639426798_5[39] = false;
+state_639426798_5[39] = false;
+sel_obj_639426798_5[39] = paper_639426798_5.path('M 255 50 l 0 10 l 0 -20 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_5[40] = "#000";
+off_color_639426798_5[40] = "#000";
+on_line_color_639426798_5[40] = "#000";
+off_line_color_639426798_5[40] = "#000";
+check_639426798_5[40] = true;
+state_639426798_5[40] = false;
+sel_obj_639426798_5[40] = paper_639426798_5.text(255, 30, "5").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "16", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_5[41] = "#000";
+off_color_639426798_5[41] = "#000";
+on_line_color_639426798_5[41] = "#000";
+off_line_color_639426798_5[41] = "#000";
+check_639426798_5[41] = false;
+state_639426798_5[41] = false;
+sel_obj_639426798_5[41] = paper_639426798_5.path('M 315 50 l 0 10 l 0 -20 ').attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_5[42] = "#000";
+off_color_639426798_5[42] = "#000";
+on_line_color_639426798_5[42] = "#000";
+off_line_color_639426798_5[42] = "#000";
+check_639426798_5[42] = true;
+state_639426798_5[42] = false;
+sel_obj_639426798_5[42] = paper_639426798_5.text(315, 30, "6").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "16", "font-family": "ChalkboardSE-Regular"});
+
+        function sel_obj_639426798_5_clear() {
+          if (!already_checked_obj_ok_639426798_5) {
+            for (let i=0; i<43; i++) {
+                if (check_639426798_5[i]) {
+                state_639426798_5[i] = false;
+                sel_obj_639426798_5[i].attr({fill: off_color_639426798_5[i], stroke: off_line_color_639426798_5[i]});
+                }
+            }
+            clearAllNoBorder('sel_canvas_639426798_5');
+          }
+        }
+        
+                already_checked_obj_ok_639426798_5 = false;
+                function sel_obj_639426798_5_check() {
+                    var result = [];
+                    var ind = 0;
+                    for (let i=0; i<43; i++) {
+                        if (check_639426798_5[i]) {
+                            if (state_639426798_5[i]) {
+                                result[ind] = 1;
+                            } else {
+                                result[ind] = 0;
+                            }
+                            ind++;
+                        }
+                    }
+                    if (result[0] == 0 && result[1] == 0 && result[2] == 0 && result[3] == 0 && result[4] == 0 && result[5] == 0 && result[6] == 0 && result[7] == 1 && result[8] == 1 && result[9] == 0 && result[10] == 0 && result[11] == 0 && result[12] == 0 && result[13] == 0 && result[14] == 0 && result[15] == 0 && result[16] == 0 && result[17] == 0 && result[18] == 0 && result[19] == 0 && result[20] == 0 && result[21] == 0 && result[22] == 0 && result[23] == 0 && result[24] == 0 && result[25] == 0 && result[26] == 0 && result[27] == 0 && result[28] == 0 && result[29] == 0 ) {
+                        setOK('sel_canvas_639426798_5');
+                        already_checked_obj_ok_639426798_5 = true;
+                        return true;
+                    } else {
+                        setError('sel_canvas_639426798_5');
+                        already_checked_obj_ok_639426798_5 = false;
+                        return false;
+                    }
+                }
+            
+                function sel_obj_639426798_5_solution() {
+                    alread_shown_solutions = true;
+                    var ind = 0;
+                    for (let i=0; i<43; i++) {
+                        if (check_639426798_5[i]) {
+                            if (solution_639426798_5[ind] == 1) {
+                                sel_obj_639426798_5[i].attr({fill: on_color_639426798_5[i], stroke: on_line_color_639426798_5[i]});
+                                state_639426798_5[i] = true;
+                            } else {
+                                sel_obj_639426798_5[i].attr({fill: off_color_639426798_5[i], stroke: off_line_color_639426798_5[i]});
+                                state_639426798_5[i] = false;
+                            }
+                            ind++;
+                        }
+                    }
+                }
+            
+  	for (let i=0; i<43; i++) {
+          if (check_639426798_5[i]) {
+  	    sel_obj_639426798_5[i].mousedown( function() {
+	      if (state_639426798_5[i]) {
+  	        sel_obj_639426798_5[i].attr({fill: off_color_639426798_5[i], stroke: off_line_color_639426798_5[i]});
+                state_639426798_5[i] = false;
+	      } else {
+  	        sel_obj_639426798_5[i].attr({fill: on_color_639426798_5[i], stroke: on_line_color_639426798_5[i]});
+                state_639426798_5[i] = true;
+              }
+	    });
+          }
+        }
+        
+</script>
+</div> 
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_4'>
+ √6.0  ∈ [ <input style='padding:3px;width:15px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_1'/>
+<table style='display:inline-table;vertical-align:middle' id='check_fraction_answer_table_639426798_2'>
+<tbody>
+<tr>
+<td style="border-bottom:solid 1px;text-align:center"><input style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px'type='text' size='1' id='check_fraction_answer_numerator_639426798_2' /></td>
+</tr>
+<tr>
+<td style="text-align:center"><input style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px' type='text' size='1' id='check_fraction_answer_denominator_639426798_2' /></td>
+</tr>
+</tbody>
+</table>
+ , <input style='padding:3px;width:15px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_3'/>
+<table style='display:inline-table;vertical-align:middle' id='check_fraction_answer_table_639426798_4'>
+<tbody>
+<tr>
+<td style="border-bottom:solid 1px;text-align:center"><input style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px'type='text' size='1' id='check_fraction_answer_numerator_639426798_4' /></td>
+</tr>
+<tr>
+<td style="text-align:center"><input style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px' type='text' size='1' id='check_fraction_answer_denominator_639426798_4' /></td>
+</tr>
+</tbody>
+</table>
+ ]
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

@@ -1,0 +1,421 @@
+<script> global_q_id = "geometry/q00037";</script>
+<script> global_language = "sl";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+<script> rnd_val_639426798['rnd_0'] = 1;</script>
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_1 = false;
+        function check_number_answer_639426798_1_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_1').value.replace(',', '.')) == '4');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_1').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_1');
+            already_checked_obj_ok_check_number_answer_639426798_1 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_1');
+            already_checked_obj_ok_check_number_answer_639426798_1 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = check_number_answer_639426798_1_cond();
+   if (operation == 'SUBMIT') {
+      c0 = check_number_answer_639426798_1_cond();
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+   c1 = sel_obj_639426798_2_check();;
+   if (operation == 'SUBMIT') {
+      c1 = sel_obj_639426798_2_check();;
+      if (c1) {q_correct++;} else {q_incorrect++;}
+   } else {c1 = false; q_incorrect++;}
+
+
+cond = c0 && c1 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+report['detailed']['q_res1'] = c1.toString();
+values = document.getElementById('check_number_answer_639426798_1').value.toString();
+
+   report['values']['q_val0'] = values;
+
+                {
+                    values = { };
+                    var ind = 0;
+                    for (let i=0; i<15; i++) {
+                        if (check_639426798_2[i]) {
+                            values[ind.toString()] = (state_639426798_2[i]).toString();
+                            ind++;
+                        }
+                    }
+                }
+            
+   report['values']['q_val1'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        if (!already_checked_obj_ok_check_number_answer_639426798_1){document.getElementById('check_number_answer_639426798_1').value = '';clearAllWBorder('check_number_answer_639426798_1');}
+
+sel_obj_639426798_2_clear();
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        document.getElementById('check_number_answer_639426798_1').value = '4'.replace('.', ',');
+sel_obj_639426798_2_solution();
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'geometry/q00037' for language 'sl' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+Koliko pravih kotov tvorijo premici na sliki?
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_1'>
+ <input style='padding:3px;width:15px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_1'/> 
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_2'>
+<div style='display:table;padding-top:0px;padding-bottom:0px;float:center'> </div>
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_3'>
+Pobarvaj kroge, ki ležijo v pravih kotih. 
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_4'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_2'>
+        <script type = "text/javascript">
+            var paper_639426798_2 = Raphael("sel_canvas_639426798_2", 230, 230);
+            var on_color_639426798_2 = [];
+            var off_color_639426798_2 = [];
+            var on_line_color_639426798_2 = [];
+            var off_line_color_639426798_2 = [];
+            var check_639426798_2 = [];
+            var state_639426798_2 = [];
+            var sel_obj_639426798_2 = [];
+            var solution_639426798_2 = [];
+        solution_639426798_2[0] = 1 ; solution_639426798_2[1] = 1 ; solution_639426798_2[2] = 1 ; solution_639426798_2[3] = 1 ; solution_639426798_2[4] = 0 ; solution_639426798_2[5] = 0 ; solution_639426798_2[6] = 0 ; solution_639426798_2[7] = 0 ; solution_639426798_2[8] = 0 ; solution_639426798_2[9] = 0 ; solution_639426798_2[10] = 0 ; solution_639426798_2[11] = 0;  
+on_color_639426798_2[0] = "#fff";
+off_color_639426798_2[0] = "#fff";
+on_line_color_639426798_2[0] = "#000";
+off_line_color_639426798_2[0] = "#000";
+check_639426798_2[0] = false;
+state_639426798_2[0] = false;
+sel_obj_639426798_2[0] = paper_639426798_2.path('M 16 80 l 232 0 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_2[1] = "#fff";
+off_color_639426798_2[1] = "#fff";
+on_line_color_639426798_2[1] = "#000";
+off_line_color_639426798_2[1] = "#000";
+check_639426798_2[1] = false;
+state_639426798_2[1] = false;
+sel_obj_639426798_2[1] = paper_639426798_2.path('M 80 16 l 0 216 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_2[2] = "#fff";
+off_color_639426798_2[2] = "#fff";
+on_line_color_639426798_2[2] = "#000";
+off_line_color_639426798_2[2] = "#000";
+check_639426798_2[2] = false;
+state_639426798_2[2] = false;
+sel_obj_639426798_2[2] = paper_639426798_2.path('M 32 216 l 200 -184 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_2[3] = "#f30";
+off_color_639426798_2[3] = "#fff";
+on_line_color_639426798_2[3] = "#000";
+off_line_color_639426798_2[3] = "#000";
+check_639426798_2[3] = true;
+state_639426798_2[3] = false;
+sel_obj_639426798_2[3] = paper_639426798_2.circle(72, 72, 7).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[4] = "#f30";
+off_color_639426798_2[4] = "#fff";
+on_line_color_639426798_2[4] = "#000";
+off_line_color_639426798_2[4] = "#000";
+check_639426798_2[4] = true;
+state_639426798_2[4] = false;
+sel_obj_639426798_2[4] = paper_639426798_2.circle(72, 88, 7).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[5] = "#f30";
+off_color_639426798_2[5] = "#fff";
+on_line_color_639426798_2[5] = "#000";
+off_line_color_639426798_2[5] = "#000";
+check_639426798_2[5] = true;
+state_639426798_2[5] = false;
+sel_obj_639426798_2[5] = paper_639426798_2.circle(88, 72, 7).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[6] = "#f30";
+off_color_639426798_2[6] = "#fff";
+on_line_color_639426798_2[6] = "#000";
+off_line_color_639426798_2[6] = "#000";
+check_639426798_2[6] = true;
+state_639426798_2[6] = false;
+sel_obj_639426798_2[6] = paper_639426798_2.circle(88, 88, 7).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[7] = "#ff0";
+off_color_639426798_2[7] = "#fff";
+on_line_color_639426798_2[7] = "#000";
+off_line_color_639426798_2[7] = "#000";
+check_639426798_2[7] = true;
+state_639426798_2[7] = false;
+sel_obj_639426798_2[7] = paper_639426798_2.circle(200, 72, 7).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[8] = "#ff0";
+off_color_639426798_2[8] = "#fff";
+on_line_color_639426798_2[8] = "#000";
+off_line_color_639426798_2[8] = "#000";
+check_639426798_2[8] = true;
+state_639426798_2[8] = false;
+sel_obj_639426798_2[8] = paper_639426798_2.circle(160, 88, 7).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[9] = "#ff0";
+off_color_639426798_2[9] = "#fff";
+on_line_color_639426798_2[9] = "#000";
+off_line_color_639426798_2[9] = "#000";
+check_639426798_2[9] = true;
+state_639426798_2[9] = false;
+sel_obj_639426798_2[9] = paper_639426798_2.circle(88, 152, 7).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[10] = "#ff0";
+off_color_639426798_2[10] = "#fff";
+on_line_color_639426798_2[10] = "#000";
+off_line_color_639426798_2[10] = "#000";
+check_639426798_2[10] = true;
+state_639426798_2[10] = false;
+sel_obj_639426798_2[10] = paper_639426798_2.circle(72, 192, 7).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[11] = "#0cf";
+off_color_639426798_2[11] = "#fff";
+on_line_color_639426798_2[11] = "#000";
+off_line_color_639426798_2[11] = "#000";
+check_639426798_2[11] = true;
+state_639426798_2[11] = false;
+sel_obj_639426798_2[11] = paper_639426798_2.circle(176, 72, 7).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[12] = "#0cf";
+off_color_639426798_2[12] = "#fff";
+on_line_color_639426798_2[12] = "#000";
+off_line_color_639426798_2[12] = "#000";
+check_639426798_2[12] = true;
+state_639426798_2[12] = false;
+sel_obj_639426798_2[12] = paper_639426798_2.circle(184, 88, 7).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[13] = "#0cf";
+off_color_639426798_2[13] = "#fff";
+on_line_color_639426798_2[13] = "#000";
+off_line_color_639426798_2[13] = "#000";
+check_639426798_2[13] = true;
+state_639426798_2[13] = false;
+sel_obj_639426798_2[13] = paper_639426798_2.circle(88, 176, 7).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[14] = "#0cf";
+off_color_639426798_2[14] = "#fff";
+on_line_color_639426798_2[14] = "#000";
+off_line_color_639426798_2[14] = "#000";
+check_639426798_2[14] = true;
+state_639426798_2[14] = false;
+sel_obj_639426798_2[14] = paper_639426798_2.circle(72, 168, 7).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+
+        function sel_obj_639426798_2_clear() {
+          if (!already_checked_obj_ok_639426798_2) {
+            for (let i=0; i<15; i++) {
+                if (check_639426798_2[i]) {
+                state_639426798_2[i] = false;
+                sel_obj_639426798_2[i].attr({fill: off_color_639426798_2[i], stroke: off_line_color_639426798_2[i]});
+                }
+            }
+            clearAllNoBorder('sel_canvas_639426798_2');
+          }
+        }
+        
+                already_checked_obj_ok_639426798_2 = false;
+                function sel_obj_639426798_2_check() {
+                    var result = [];
+                    var ind = 0;
+                    for (let i=0; i<15; i++) {
+                        if (check_639426798_2[i]) {
+                            if (state_639426798_2[i]) {
+                                result[ind] = 1;
+                            } else {
+                                result[ind] = 0;
+                            }
+                            ind++;
+                        }
+                    }
+                    if (result[0] == 1 && result[1] == 1 && result[2] == 1 && result[3] == 1 && result[4] == 0 && result[5] == 0 && result[6] == 0 && result[7] == 0 && result[8] == 0 && result[9] == 0 && result[10] == 0 && result[11] == 0) {
+                        setOK('sel_canvas_639426798_2');
+                        already_checked_obj_ok_639426798_2 = true;
+                        return true;
+                    } else {
+                        setError('sel_canvas_639426798_2');
+                        already_checked_obj_ok_639426798_2 = false;
+                        return false;
+                    }
+                }
+            
+                function sel_obj_639426798_2_solution() {
+                    alread_shown_solutions = true;
+                    var ind = 0;
+                    for (let i=0; i<15; i++) {
+                        if (check_639426798_2[i]) {
+                            if (solution_639426798_2[ind] == 1) {
+                                sel_obj_639426798_2[i].attr({fill: on_color_639426798_2[i], stroke: on_line_color_639426798_2[i]});
+                                state_639426798_2[i] = true;
+                            } else {
+                                sel_obj_639426798_2[i].attr({fill: off_color_639426798_2[i], stroke: off_line_color_639426798_2[i]});
+                                state_639426798_2[i] = false;
+                            }
+                            ind++;
+                        }
+                    }
+                }
+            
+  	for (let i=0; i<15; i++) {
+          if (check_639426798_2[i]) {
+  	    sel_obj_639426798_2[i].mousedown( function() {
+	      if (state_639426798_2[i]) {
+  	        sel_obj_639426798_2[i].attr({fill: off_color_639426798_2[i], stroke: off_line_color_639426798_2[i]});
+                state_639426798_2[i] = false;
+	      } else {
+  	        sel_obj_639426798_2[i].attr({fill: on_color_639426798_2[i], stroke: on_line_color_639426798_2[i]});
+                state_639426798_2[i] = true;
+              }
+	    });
+          }
+        }
+        
+</script>
+</div>
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

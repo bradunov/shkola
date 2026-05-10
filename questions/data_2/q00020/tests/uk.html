@@ -1,0 +1,210 @@
+<script> global_q_id = "data_2/q00020";</script>
+<script> global_language = "uk";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+<script> rnd_val_639426798['rnd_arr_0'] = [8, 4, 5, 2];</script>
+<script> rnd_val_639426798['rnd_1'] = 1;</script>
+<script> rnd_val_639426798['rnd_2'] = 2;</script>
+<script> rnd_val_639426798['rnd_3'] = 2;</script>
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_1 = false;
+        function check_number_answer_639426798_1_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_1').value.replace(',', '.')) == '8');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_1').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_1');
+            already_checked_obj_ok_check_number_answer_639426798_1 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_1');
+            already_checked_obj_ok_check_number_answer_639426798_1 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = check_number_answer_639426798_1_cond();
+   if (operation == 'SUBMIT') {
+      c0 = check_number_answer_639426798_1_cond();
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+
+cond = c0 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+values = document.getElementById('check_number_answer_639426798_1').value.toString();
+
+   report['values']['q_val0'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        if (!already_checked_obj_ok_check_number_answer_639426798_1){document.getElementById('check_number_answer_639426798_1').value = '';clearAllWBorder('check_number_answer_639426798_1');}
+
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        document.getElementById('check_number_answer_639426798_1').value = '8'.replace('.', ',');
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'data_2/q00020' for language 'uk' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+At the school tournament, one class played a total of 12 game. The ratio of wins to losses is 2 : 1. 
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_1'>
+What is the number of wins if there were no games with a tie result?
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_2'>
+<div style='display:table;padding-top:0px;padding-bottom:0px;float:center'> </div>
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_3'>
+ The class won <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_1'/> game.
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

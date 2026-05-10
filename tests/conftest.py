@@ -216,6 +216,8 @@ class CompactProgress:
             self.skipped += 1
             if hasattr(report, 'wasxfail') and report.wasxfail:
                 self.xfailed += 1
+            sys.stdout.write(f"\r\033[K  {short_id}")
+            sys.stdout.flush()
         elif report.failed:
             self.failed += 1
             sys.stdout.write(f"\r\033[K")
@@ -257,6 +259,8 @@ def pytest_addoption(parser):
                      help="Compact output: overwrite passing tests, only show failures/warnings")
     parser.addoption("--no-compact", action="store_false", dest="compact",
                      help="Disable compact output")
+    parser.addoption("--update-baselines", action="store_true", default=False,
+                     help="Regenerate baseline HTML files instead of comparing against them.")
 
 
 def pytest_configure(config):

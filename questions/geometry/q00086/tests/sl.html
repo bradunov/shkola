@@ -1,0 +1,577 @@
+<script> global_q_id = "geometry/q00086";</script>
+<script> global_language = "sl";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_2 = false;
+        function check_number_answer_639426798_2_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_2').value.replace(',', '.')) == '12');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_2').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_2');
+            already_checked_obj_ok_check_number_answer_639426798_2 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_2');
+            already_checked_obj_ok_check_number_answer_639426798_2 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_3 = false;
+        function check_number_answer_639426798_3_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_3').value.replace(',', '.')) == '16');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_3').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_3');
+            already_checked_obj_ok_check_number_answer_639426798_3 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_3');
+            already_checked_obj_ok_check_number_answer_639426798_3 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_4 = false;
+        function check_number_answer_639426798_4_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_4').value.replace(',', '.')) == '12');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_4').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_4');
+            already_checked_obj_ok_check_number_answer_639426798_4 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_4');
+            already_checked_obj_ok_check_number_answer_639426798_4 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_5 = false;
+        function check_number_answer_639426798_5_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_5').value.replace(',', '.')) == '16');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_5').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_5');
+            already_checked_obj_ok_check_number_answer_639426798_5 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_5');
+            already_checked_obj_ok_check_number_answer_639426798_5 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_6 = false;
+        function check_number_answer_639426798_6_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_6').value.replace(',', '.')) == '16');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_6').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_6');
+            already_checked_obj_ok_check_number_answer_639426798_6 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_6');
+            already_checked_obj_ok_check_number_answer_639426798_6 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = check_number_answer_639426798_2_cond();
+   if (operation == 'SUBMIT') {
+      c0 = check_number_answer_639426798_2_cond();
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+   c1 = check_number_answer_639426798_3_cond();
+   if (operation == 'SUBMIT') {
+      c1 = check_number_answer_639426798_3_cond();
+      if (c1) {q_correct++;} else {q_incorrect++;}
+   } else {c1 = false; q_incorrect++;}
+
+   c2 = check_number_answer_639426798_4_cond();
+   if (operation == 'SUBMIT') {
+      c2 = check_number_answer_639426798_4_cond();
+      if (c2) {q_correct++;} else {q_incorrect++;}
+   } else {c2 = false; q_incorrect++;}
+
+   c3 = check_number_answer_639426798_5_cond();
+   if (operation == 'SUBMIT') {
+      c3 = check_number_answer_639426798_5_cond();
+      if (c3) {q_correct++;} else {q_incorrect++;}
+   } else {c3 = false; q_incorrect++;}
+
+   c4 = check_number_answer_639426798_6_cond();
+   if (operation == 'SUBMIT') {
+      c4 = check_number_answer_639426798_6_cond();
+      if (c4) {q_correct++;} else {q_incorrect++;}
+   } else {c4 = false; q_incorrect++;}
+
+
+cond = c0 && c1 && c2 && c3 && c4 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+report['detailed']['q_res1'] = c1.toString();
+report['detailed']['q_res2'] = c2.toString();
+report['detailed']['q_res3'] = c3.toString();
+report['detailed']['q_res4'] = c4.toString();
+values = document.getElementById('check_number_answer_639426798_2').value.toString();
+
+   report['values']['q_val0'] = values;
+values = document.getElementById('check_number_answer_639426798_3').value.toString();
+
+   report['values']['q_val1'] = values;
+values = document.getElementById('check_number_answer_639426798_4').value.toString();
+
+   report['values']['q_val2'] = values;
+values = document.getElementById('check_number_answer_639426798_5').value.toString();
+
+   report['values']['q_val3'] = values;
+values = document.getElementById('check_number_answer_639426798_6').value.toString();
+
+   report['values']['q_val4'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        if (!already_checked_obj_ok_check_number_answer_639426798_2){document.getElementById('check_number_answer_639426798_2').value = '';clearAllWBorder('check_number_answer_639426798_2');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_3){document.getElementById('check_number_answer_639426798_3').value = '';clearAllWBorder('check_number_answer_639426798_3');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_4){document.getElementById('check_number_answer_639426798_4').value = '';clearAllWBorder('check_number_answer_639426798_4');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_5){document.getElementById('check_number_answer_639426798_5').value = '';clearAllWBorder('check_number_answer_639426798_5');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_6){document.getElementById('check_number_answer_639426798_6').value = '';clearAllWBorder('check_number_answer_639426798_6');}
+
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        document.getElementById('check_number_answer_639426798_2').value = '12'.replace('.', ',');
+document.getElementById('check_number_answer_639426798_3').value = '16'.replace('.', ',');
+document.getElementById('check_number_answer_639426798_4').value = '12'.replace('.', ',');
+document.getElementById('check_number_answer_639426798_5').value = '16'.replace('.', ',');
+document.getElementById('check_number_answer_639426798_6').value = '16'.replace('.', ',');
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'geometry/q00086' for language 'sl' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+Kolikšen je obseg vsakog lika, podanog na sliki, izražen s stranico kvadratka mreže?
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_1'>
+Odgovore zapišite v prazne kvadrate na likah.
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_2'>
+<div style='display:table;padding-top:0px;padding-bottom:0px;float:center'> </div>
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_3'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_1'>
+        <script type = "text/javascript">
+            var paper_639426798_1 = Raphael("sel_canvas_639426798_1", 350, 250);
+            var on_color_639426798_1 = [];
+            var off_color_639426798_1 = [];
+            var on_line_color_639426798_1 = [];
+            var off_line_color_639426798_1 = [];
+            var check_639426798_1 = [];
+            var state_639426798_1 = [];
+            var sel_obj_639426798_1 = [];
+            var solution_639426798_1 = [];
+        
+on_color_639426798_1[0] = "#fff";
+off_color_639426798_1[0] = "#fff";
+on_line_color_639426798_1[0] = "#000";
+off_line_color_639426798_1[0] = "#000";
+check_639426798_1[0] = false;
+state_639426798_1[0] = false;
+sel_obj_639426798_1[0] = paper_639426798_1.path('M 15 15 l 280 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[1] = "#fff";
+off_color_639426798_1[1] = "#fff";
+on_line_color_639426798_1[1] = "#000";
+off_line_color_639426798_1[1] = "#000";
+check_639426798_1[1] = false;
+state_639426798_1[1] = false;
+sel_obj_639426798_1[1] = paper_639426798_1.path('M 15 35 l 280 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[2] = "#fff";
+off_color_639426798_1[2] = "#fff";
+on_line_color_639426798_1[2] = "#000";
+off_line_color_639426798_1[2] = "#000";
+check_639426798_1[2] = false;
+state_639426798_1[2] = false;
+sel_obj_639426798_1[2] = paper_639426798_1.path('M 15 55 l 280 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[3] = "#fff";
+off_color_639426798_1[3] = "#fff";
+on_line_color_639426798_1[3] = "#000";
+off_line_color_639426798_1[3] = "#000";
+check_639426798_1[3] = false;
+state_639426798_1[3] = false;
+sel_obj_639426798_1[3] = paper_639426798_1.path('M 15 75 l 280 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[4] = "#fff";
+off_color_639426798_1[4] = "#fff";
+on_line_color_639426798_1[4] = "#000";
+off_line_color_639426798_1[4] = "#000";
+check_639426798_1[4] = false;
+state_639426798_1[4] = false;
+sel_obj_639426798_1[4] = paper_639426798_1.path('M 15 95 l 280 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[5] = "#fff";
+off_color_639426798_1[5] = "#fff";
+on_line_color_639426798_1[5] = "#000";
+off_line_color_639426798_1[5] = "#000";
+check_639426798_1[5] = false;
+state_639426798_1[5] = false;
+sel_obj_639426798_1[5] = paper_639426798_1.path('M 15 115 l 280 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[6] = "#fff";
+off_color_639426798_1[6] = "#fff";
+on_line_color_639426798_1[6] = "#000";
+off_line_color_639426798_1[6] = "#000";
+check_639426798_1[6] = false;
+state_639426798_1[6] = false;
+sel_obj_639426798_1[6] = paper_639426798_1.path('M 15 135 l 280 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[7] = "#fff";
+off_color_639426798_1[7] = "#fff";
+on_line_color_639426798_1[7] = "#000";
+off_line_color_639426798_1[7] = "#000";
+check_639426798_1[7] = false;
+state_639426798_1[7] = false;
+sel_obj_639426798_1[7] = paper_639426798_1.path('M 15 155 l 280 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[8] = "#fff";
+off_color_639426798_1[8] = "#fff";
+on_line_color_639426798_1[8] = "#000";
+off_line_color_639426798_1[8] = "#000";
+check_639426798_1[8] = false;
+state_639426798_1[8] = false;
+sel_obj_639426798_1[8] = paper_639426798_1.path('M 15 175 l 280 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[9] = "#fff";
+off_color_639426798_1[9] = "#fff";
+on_line_color_639426798_1[9] = "#000";
+off_line_color_639426798_1[9] = "#000";
+check_639426798_1[9] = false;
+state_639426798_1[9] = false;
+sel_obj_639426798_1[9] = paper_639426798_1.path('M 15 195 l 280 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[10] = "#fff";
+off_color_639426798_1[10] = "#fff";
+on_line_color_639426798_1[10] = "#000";
+off_line_color_639426798_1[10] = "#000";
+check_639426798_1[10] = false;
+state_639426798_1[10] = false;
+sel_obj_639426798_1[10] = paper_639426798_1.path('M 15 215 l 280 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[11] = "#fff";
+off_color_639426798_1[11] = "#fff";
+on_line_color_639426798_1[11] = "#000";
+off_line_color_639426798_1[11] = "#000";
+check_639426798_1[11] = false;
+state_639426798_1[11] = false;
+sel_obj_639426798_1[11] = paper_639426798_1.path('M 15 235 l 280 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[12] = "#fff";
+off_color_639426798_1[12] = "#fff";
+on_line_color_639426798_1[12] = "#000";
+off_line_color_639426798_1[12] = "#000";
+check_639426798_1[12] = false;
+state_639426798_1[12] = false;
+sel_obj_639426798_1[12] = paper_639426798_1.path('M 15 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[13] = "#fff";
+off_color_639426798_1[13] = "#fff";
+on_line_color_639426798_1[13] = "#000";
+off_line_color_639426798_1[13] = "#000";
+check_639426798_1[13] = false;
+state_639426798_1[13] = false;
+sel_obj_639426798_1[13] = paper_639426798_1.path('M 35 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[14] = "#fff";
+off_color_639426798_1[14] = "#fff";
+on_line_color_639426798_1[14] = "#000";
+off_line_color_639426798_1[14] = "#000";
+check_639426798_1[14] = false;
+state_639426798_1[14] = false;
+sel_obj_639426798_1[14] = paper_639426798_1.path('M 55 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[15] = "#fff";
+off_color_639426798_1[15] = "#fff";
+on_line_color_639426798_1[15] = "#000";
+off_line_color_639426798_1[15] = "#000";
+check_639426798_1[15] = false;
+state_639426798_1[15] = false;
+sel_obj_639426798_1[15] = paper_639426798_1.path('M 75 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[16] = "#fff";
+off_color_639426798_1[16] = "#fff";
+on_line_color_639426798_1[16] = "#000";
+off_line_color_639426798_1[16] = "#000";
+check_639426798_1[16] = false;
+state_639426798_1[16] = false;
+sel_obj_639426798_1[16] = paper_639426798_1.path('M 95 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[17] = "#fff";
+off_color_639426798_1[17] = "#fff";
+on_line_color_639426798_1[17] = "#000";
+off_line_color_639426798_1[17] = "#000";
+check_639426798_1[17] = false;
+state_639426798_1[17] = false;
+sel_obj_639426798_1[17] = paper_639426798_1.path('M 115 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[18] = "#fff";
+off_color_639426798_1[18] = "#fff";
+on_line_color_639426798_1[18] = "#000";
+off_line_color_639426798_1[18] = "#000";
+check_639426798_1[18] = false;
+state_639426798_1[18] = false;
+sel_obj_639426798_1[18] = paper_639426798_1.path('M 135 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[19] = "#fff";
+off_color_639426798_1[19] = "#fff";
+on_line_color_639426798_1[19] = "#000";
+off_line_color_639426798_1[19] = "#000";
+check_639426798_1[19] = false;
+state_639426798_1[19] = false;
+sel_obj_639426798_1[19] = paper_639426798_1.path('M 155 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[20] = "#fff";
+off_color_639426798_1[20] = "#fff";
+on_line_color_639426798_1[20] = "#000";
+off_line_color_639426798_1[20] = "#000";
+check_639426798_1[20] = false;
+state_639426798_1[20] = false;
+sel_obj_639426798_1[20] = paper_639426798_1.path('M 175 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[21] = "#fff";
+off_color_639426798_1[21] = "#fff";
+on_line_color_639426798_1[21] = "#000";
+off_line_color_639426798_1[21] = "#000";
+check_639426798_1[21] = false;
+state_639426798_1[21] = false;
+sel_obj_639426798_1[21] = paper_639426798_1.path('M 195 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[22] = "#fff";
+off_color_639426798_1[22] = "#fff";
+on_line_color_639426798_1[22] = "#000";
+off_line_color_639426798_1[22] = "#000";
+check_639426798_1[22] = false;
+state_639426798_1[22] = false;
+sel_obj_639426798_1[22] = paper_639426798_1.path('M 215 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[23] = "#fff";
+off_color_639426798_1[23] = "#fff";
+on_line_color_639426798_1[23] = "#000";
+off_line_color_639426798_1[23] = "#000";
+check_639426798_1[23] = false;
+state_639426798_1[23] = false;
+sel_obj_639426798_1[23] = paper_639426798_1.path('M 235 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[24] = "#fff";
+off_color_639426798_1[24] = "#fff";
+on_line_color_639426798_1[24] = "#000";
+off_line_color_639426798_1[24] = "#000";
+check_639426798_1[24] = false;
+state_639426798_1[24] = false;
+sel_obj_639426798_1[24] = paper_639426798_1.path('M 255 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[25] = "#fff";
+off_color_639426798_1[25] = "#fff";
+on_line_color_639426798_1[25] = "#000";
+off_line_color_639426798_1[25] = "#000";
+check_639426798_1[25] = false;
+state_639426798_1[25] = false;
+sel_obj_639426798_1[25] = paper_639426798_1.path('M 275 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[26] = "#fff";
+off_color_639426798_1[26] = "#fff";
+on_line_color_639426798_1[26] = "#000";
+off_line_color_639426798_1[26] = "#000";
+check_639426798_1[26] = false;
+state_639426798_1[26] = false;
+sel_obj_639426798_1[26] = paper_639426798_1.path('M 295 15 l 0 220').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[27] = "#f9s";
+off_color_639426798_1[27] = "#f9c";
+on_line_color_639426798_1[27] = "#000";
+off_line_color_639426798_1[27] = "#000";
+check_639426798_1[27] = true;
+state_639426798_1[27] = false;
+sel_obj_639426798_1[27] = paper_639426798_1.path('M 215 155 l 20 0 l 0 20 l 20 0 l 0 20 l -20 0 l 0 20 l -20 0 l 0 -20 l -20 0 l 0 -20 l 20 0 l 0 -20 ').attr({fill: "#f9c", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:210,y:170, width:30, height:30}).div.html("<input style='padding:3px;width:15px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_2'/>");
+on_color_639426798_1[28] = "#6f6";
+off_color_639426798_1[28] = "#6f6";
+on_line_color_639426798_1[28] = "#000";
+off_line_color_639426798_1[28] = "#000";
+check_639426798_1[28] = true;
+state_639426798_1[28] = false;
+sel_obj_639426798_1[28] = paper_639426798_1.path('M 55 155 l 60 0 l 0 20 l -20 0 l 0 20 l 20 0 l 0 20 l -60 0 l 0 -20 l 20 0 l 0 -20 l -20 0 l 0 -20 ').attr({fill: "#6f6", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:70,y:155, width:30, height:30}).div.html("<input style='padding:3px;width:15px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_3'/>");
+on_color_639426798_1[29] = "#ff0";
+off_color_639426798_1[29] = "#ff0";
+on_line_color_639426798_1[29] = "#000";
+off_line_color_639426798_1[29] = "#000";
+check_639426798_1[29] = true;
+state_639426798_1[29] = false;
+sel_obj_639426798_1[29] = paper_639426798_1.path('M 35 35 l 60 0 l 0 20 l -20 0 l 0 40 l -20 0 l 0 -40 l -20 0 l 0 -20 ').attr({fill: "#ff0", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:50,y:35, width:30, height:30}).div.html("<input style='padding:3px;width:15px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_4'/>");
+on_color_639426798_1[30] = "#f90";
+off_color_639426798_1[30] = "#f90";
+on_line_color_639426798_1[30] = "#000";
+off_line_color_639426798_1[30] = "#000";
+check_639426798_1[30] = true;
+state_639426798_1[30] = false;
+sel_obj_639426798_1[30] = paper_639426798_1.path('M 95 135 l 0 -20 l 20 0 l 0 -20 l 20 0 l 0 -20 l 20 0 l 0 20 l 20 0 l 0 20 l 20 0 l 0 20 l -100 0 ').attr({fill: "#f90", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:130,y:95, width:30, height:30}).div.html("<input style='padding:3px;width:15px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_5'/>");
+on_color_639426798_1[31] = "#0cf";
+off_color_639426798_1[31] = "#0cf";
+on_line_color_639426798_1[31] = "#000";
+off_line_color_639426798_1[31] = "#000";
+check_639426798_1[31] = true;
+state_639426798_1[31] = false;
+sel_obj_639426798_1[31] = paper_639426798_1.path('M 195 35 l 80 0 l 0 80 l -20 0 l 0 -20 l -20 0 l 0 -20 l -20 0 l 0 -20 l -20 0 l 0 -20 ').attr({fill: "#0cf", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:235,y:45, width:30, height:30}).div.html("<input style='padding:3px;width:15px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_6'/>");
+
+</script>
+</div>
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

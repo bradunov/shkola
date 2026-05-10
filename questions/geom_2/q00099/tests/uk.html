@@ -1,0 +1,590 @@
+<script> global_q_id = "geom_2/q00099";</script>
+<script> global_language = "uk";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+<script> rnd_val_639426798['rnd_0'] = 1;</script>
+<script> rnd_val_639426798['rnd_1'] = 3;</script>
+<script> rnd_val_639426798['rnd_2'] = 2;</script>
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_2 = false;
+        function check_number_answer_639426798_2_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_2').value.replace(',', '.')) == '2');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_2').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_2');
+            already_checked_obj_ok_check_number_answer_639426798_2 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_2');
+            already_checked_obj_ok_check_number_answer_639426798_2 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_3 = false;
+        function check_number_answer_639426798_3_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_3').value.replace(',', '.')) == '1.75');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_3').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_3');
+            already_checked_obj_ok_check_number_answer_639426798_3 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_3');
+            already_checked_obj_ok_check_number_answer_639426798_3 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_4 = false;
+        function check_number_answer_639426798_4_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_4').value.replace(',', '.')) == '2');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_4').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_4');
+            already_checked_obj_ok_check_number_answer_639426798_4 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_4');
+            already_checked_obj_ok_check_number_answer_639426798_4 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_5 = false;
+        function check_number_answer_639426798_5_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_5').value.replace(',', '.')) == '1.75');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_5').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_5');
+            already_checked_obj_ok_check_number_answer_639426798_5 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_5');
+            already_checked_obj_ok_check_number_answer_639426798_5 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = check_number_answer_639426798_2_cond();
+   if (operation == 'SUBMIT') {
+      c0 = check_number_answer_639426798_2_cond();
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+   c1 = check_number_answer_639426798_3_cond();
+   if (operation == 'SUBMIT') {
+      c1 = check_number_answer_639426798_3_cond();
+      if (c1) {q_correct++;} else {q_incorrect++;}
+   } else {c1 = false; q_incorrect++;}
+
+   c2 = check_number_answer_639426798_4_cond();
+   if (operation == 'SUBMIT') {
+      c2 = check_number_answer_639426798_4_cond();
+      if (c2) {q_correct++;} else {q_incorrect++;}
+   } else {c2 = false; q_incorrect++;}
+
+   c3 = check_number_answer_639426798_5_cond();
+   if (operation == 'SUBMIT') {
+      c3 = check_number_answer_639426798_5_cond();
+      if (c3) {q_correct++;} else {q_incorrect++;}
+   } else {c3 = false; q_incorrect++;}
+
+
+cond = c0 && c1 && c2 && c3 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+report['detailed']['q_res1'] = c1.toString();
+report['detailed']['q_res2'] = c2.toString();
+report['detailed']['q_res3'] = c3.toString();
+values = document.getElementById('check_number_answer_639426798_2').value.toString();
+
+   report['values']['q_val0'] = values;
+values = document.getElementById('check_number_answer_639426798_3').value.toString();
+
+   report['values']['q_val1'] = values;
+values = document.getElementById('check_number_answer_639426798_4').value.toString();
+
+   report['values']['q_val2'] = values;
+values = document.getElementById('check_number_answer_639426798_5').value.toString();
+
+   report['values']['q_val3'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        if (!already_checked_obj_ok_check_number_answer_639426798_2){document.getElementById('check_number_answer_639426798_2').value = '';clearAllWBorder('check_number_answer_639426798_2');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_3){document.getElementById('check_number_answer_639426798_3').value = '';clearAllWBorder('check_number_answer_639426798_3');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_4){document.getElementById('check_number_answer_639426798_4').value = '';clearAllWBorder('check_number_answer_639426798_4');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_5){document.getElementById('check_number_answer_639426798_5').value = '';clearAllWBorder('check_number_answer_639426798_5');}
+
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        document.getElementById('check_number_answer_639426798_2').value = '2'.replace('.', ',');
+document.getElementById('check_number_answer_639426798_3').value = '1.75'.replace('.', ',');
+document.getElementById('check_number_answer_639426798_4').value = '2'.replace('.', ',');
+document.getElementById('check_number_answer_639426798_5').value = '1.75'.replace('.', ',');
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'geom_2/q00099' for language 'uk' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+If the sides of the squares of the square grid, on which the red square is drawn, are 0.5cm, calculate the areas of all the figures in the picture. Write the results in the boxes next to the figures.
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_1'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_1'>
+        <script type = "text/javascript">
+            var paper_639426798_1 = Raphael("sel_canvas_639426798_1", 320, 340);
+            var on_color_639426798_1 = [];
+            var off_color_639426798_1 = [];
+            var on_line_color_639426798_1 = [];
+            var off_line_color_639426798_1 = [];
+            var check_639426798_1 = [];
+            var state_639426798_1 = [];
+            var sel_obj_639426798_1 = [];
+            var solution_639426798_1 = [];
+        
+on_color_639426798_1[0] = "#f30";
+off_color_639426798_1[0] = "#f30";
+on_line_color_639426798_1[0] = "#000";
+off_line_color_639426798_1[0] = "#000";
+check_639426798_1[0] = false;
+state_639426798_1[0] = true;
+sel_obj_639426798_1[0] = paper_639426798_1.path('M 35 75 l 40 -40 l 40 40 l -40 40 l -40 -40 ').attr({fill: "#f30", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_1[1] = "#6f6";
+off_color_639426798_1[1] = "#fff";
+on_line_color_639426798_1[1] = "#000";
+off_line_color_639426798_1[1] = "#000";
+check_639426798_1[1] = false;
+state_639426798_1[1] = true;
+sel_obj_639426798_1[1] = paper_639426798_1.path('M 55 55 l 40 0').attr({fill: "#6f6", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_1[2] = "#6f6";
+off_color_639426798_1[2] = "#fff";
+on_line_color_639426798_1[2] = "#000";
+off_line_color_639426798_1[2] = "#000";
+check_639426798_1[2] = false;
+state_639426798_1[2] = true;
+sel_obj_639426798_1[2] = paper_639426798_1.path('M 35 75 l 80 0').attr({fill: "#6f6", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_1[3] = "#6f6";
+off_color_639426798_1[3] = "#fff";
+on_line_color_639426798_1[3] = "#000";
+off_line_color_639426798_1[3] = "#000";
+check_639426798_1[3] = false;
+state_639426798_1[3] = true;
+sel_obj_639426798_1[3] = paper_639426798_1.path('M 75 55 l 0 60').attr({fill: "#6f6", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_1[4] = "#6f6";
+off_color_639426798_1[4] = "#fff";
+on_line_color_639426798_1[4] = "#000";
+off_line_color_639426798_1[4] = "#000";
+check_639426798_1[4] = false;
+state_639426798_1[4] = true;
+sel_obj_639426798_1[4] = paper_639426798_1.path('M 55 55 l 0 20').attr({fill: "#6f6", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_1[5] = "#6f6";
+off_color_639426798_1[5] = "#fff";
+on_line_color_639426798_1[5] = "#000";
+off_line_color_639426798_1[5] = "#000";
+check_639426798_1[5] = false;
+state_639426798_1[5] = true;
+sel_obj_639426798_1[5] = paper_639426798_1.path('M 75 55 l 20 20').attr({fill: "#6f6", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:1,y:15, width:40, height:30}).div.html("<input style='padding:3px;width:15px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_2'/>");
+new Infobox(paper_639426798_1, {x:23,y:15, width:50, height:30}).div.html("cm²");
+on_color_639426798_1[6] = "#cff";
+off_color_639426798_1[6] = "#cff";
+on_line_color_639426798_1[6] = "#000";
+off_line_color_639426798_1[6] = "#000";
+check_639426798_1[6] = false;
+state_639426798_1[6] = true;
+sel_obj_639426798_1[6] = paper_639426798_1.path('M 175 75 l 20 -20 l 0 20 l -20 0 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[7] = "#cff";
+off_color_639426798_1[7] = "#cff";
+on_line_color_639426798_1[7] = "#000";
+off_line_color_639426798_1[7] = "#000";
+check_639426798_1[7] = false;
+state_639426798_1[7] = true;
+sel_obj_639426798_1[7] = paper_639426798_1.path('M 195 75 l 0 -20 l 20 0 l 0 20 l -20 0 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[8] = "#cff";
+off_color_639426798_1[8] = "#cff";
+on_line_color_639426798_1[8] = "#000";
+off_line_color_639426798_1[8] = "#000";
+check_639426798_1[8] = false;
+state_639426798_1[8] = true;
+sel_obj_639426798_1[8] = paper_639426798_1.path('M 215 75 l 0 -20 l 20 20 l -20 0 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[9] = "#cff";
+off_color_639426798_1[9] = "#cff";
+on_line_color_639426798_1[9] = "#000";
+off_line_color_639426798_1[9] = "#000";
+check_639426798_1[9] = false;
+state_639426798_1[9] = true;
+sel_obj_639426798_1[9] = paper_639426798_1.path('M 235 75 l -20 -20 l 20 0 l 20 20 l -20 0 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[10] = "#cff";
+off_color_639426798_1[10] = "#cff";
+on_line_color_639426798_1[10] = "#000";
+off_line_color_639426798_1[10] = "#000";
+check_639426798_1[10] = false;
+state_639426798_1[10] = true;
+sel_obj_639426798_1[10] = paper_639426798_1.path('M 195 75 l 40 40 l 0 -40 l -40 0 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[11] = "#cff";
+off_color_639426798_1[11] = "#cff";
+on_line_color_639426798_1[11] = "#000";
+off_line_color_639426798_1[11] = "#000";
+check_639426798_1[11] = false;
+state_639426798_1[11] = true;
+sel_obj_639426798_1[11] = paper_639426798_1.path('M 195 75 l 0 40 l 40 0 l -40 -40 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:235,y:15, width:50, height:30}).div.html("<input style='padding:3px;width:30px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_3'/>");
+new Infobox(paper_639426798_1, {x:270,y:15, width:50, height:30}).div.html("cm²");
+on_color_639426798_1[12] = "#cff";
+off_color_639426798_1[12] = "#cff";
+on_line_color_639426798_1[12] = "#000";
+off_line_color_639426798_1[12] = "#000";
+check_639426798_1[12] = false;
+state_639426798_1[12] = true;
+sel_obj_639426798_1[12] = paper_639426798_1.path('M 55 195 l 28.284271247461902 0 l -28.284271247461902 28.284271247461902 l 0 -28.284271247461902 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[13] = "#cff";
+off_color_639426798_1[13] = "#cff";
+on_line_color_639426798_1[13] = "#000";
+off_line_color_639426798_1[13] = "#000";
+check_639426798_1[13] = false;
+state_639426798_1[13] = true;
+sel_obj_639426798_1[13] = paper_639426798_1.path('M 68.2842712474619 295 l 14.142135623730951 -14.142135623730951 l 14.142135623730951 14.142135623730951 l -28.284271247461902 0 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[14] = "#cff";
+off_color_639426798_1[14] = "#cff";
+on_line_color_639426798_1[14] = "#000";
+off_line_color_639426798_1[14] = "#000";
+check_639426798_1[14] = false;
+state_639426798_1[14] = true;
+sel_obj_639426798_1[14] = paper_639426798_1.path('M 55 280.2842712474619 l 14.142135623730951 -14.142135623730951 l 14.142135623730951 14.142135623730951 l -14.142135623730951 14.142135623730951 l -14.142135623730951 -14.142135623730951 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[15] = "#cff";
+off_color_639426798_1[15] = "#cff";
+on_line_color_639426798_1[15] = "#000";
+off_line_color_639426798_1[15] = "#000";
+check_639426798_1[15] = false;
+state_639426798_1[15] = true;
+sel_obj_639426798_1[15] = paper_639426798_1.path('M 75 195 l 20 0 l 0 -20 l -20 20 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[16] = "#cff";
+off_color_639426798_1[16] = "#cff";
+on_line_color_639426798_1[16] = "#000";
+off_line_color_639426798_1[16] = "#000";
+check_639426798_1[16] = false;
+state_639426798_1[16] = true;
+sel_obj_639426798_1[16] = paper_639426798_1.path('M 55 195 l 20 0 l 20 -20 l -20 0 l -20 20 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[17] = "#cff";
+off_color_639426798_1[17] = "#cff";
+on_line_color_639426798_1[17] = "#000";
+off_line_color_639426798_1[17] = "#000";
+check_639426798_1[17] = false;
+state_639426798_1[17] = true;
+sel_obj_639426798_1[17] = paper_639426798_1.path('M 55 223.2842712474619 l 28.284271247461902 -28.284271247461902 l 0 56.568542494923804 l -28.284271247461902 -28.284271247461902 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[18] = "#cff";
+off_color_639426798_1[18] = "#cff";
+on_line_color_639426798_1[18] = "#000";
+off_line_color_639426798_1[18] = "#000";
+check_639426798_1[18] = false;
+state_639426798_1[18] = true;
+sel_obj_639426798_1[18] = paper_639426798_1.path('M 55 223.2842712474619 l 0 56.568542494923804 l 28.284271247461902 -28.284271247461902 l -28.284271247461902 -28.284271247461902 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:15,y:315, width:50, height:30}).div.html("<input style='padding:3px;width:30px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_4'/>");
+new Infobox(paper_639426798_1, {x:50,y:315, width:50, height:30}).div.html("cm²");
+on_color_639426798_1[19] = "#cff";
+off_color_639426798_1[19] = "#cff";
+on_line_color_639426798_1[19] = "#000";
+off_line_color_639426798_1[19] = "#000";
+check_639426798_1[19] = false;
+state_639426798_1[19] = true;
+sel_obj_639426798_1[19] = paper_639426798_1.path('M 195 195 l 40 0 l -20 -20 l -20 20 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[20] = "#cff";
+off_color_639426798_1[20] = "#cff";
+on_line_color_639426798_1[20] = "#000";
+off_line_color_639426798_1[20] = "#000";
+check_639426798_1[20] = false;
+state_639426798_1[20] = true;
+sel_obj_639426798_1[20] = paper_639426798_1.path('M 175 275 l 20 0 l 0 20 l -20 -20 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[21] = "#cff";
+off_color_639426798_1[21] = "#cff";
+on_line_color_639426798_1[21] = "#000";
+off_line_color_639426798_1[21] = "#000";
+check_639426798_1[21] = false;
+state_639426798_1[21] = true;
+sel_obj_639426798_1[21] = paper_639426798_1.path('M 205.0 215 l 0 -20 l 20 0 l 0 20 l -20 0 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[22] = "#cff";
+off_color_639426798_1[22] = "#cff";
+on_line_color_639426798_1[22] = "#000";
+off_line_color_639426798_1[22] = "#000";
+check_639426798_1[22] = false;
+state_639426798_1[22] = true;
+sel_obj_639426798_1[22] = paper_639426798_1.path('M 235 275 l 0 20 l 20 -20 l -20 0 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[23] = "#cff";
+off_color_639426798_1[23] = "#cff";
+on_line_color_639426798_1[23] = "#000";
+off_line_color_639426798_1[23] = "#000";
+check_639426798_1[23] = false;
+state_639426798_1[23] = true;
+sel_obj_639426798_1[23] = paper_639426798_1.path('M 186.7157287525381 215 l 56.568542494923804 0 l -28.284271247461902 30.284271247461902 l -30.284271247461902 -30.284271247461902 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_1[24] = "#cff";
+off_color_639426798_1[24] = "#cff";
+on_line_color_639426798_1[24] = "#000";
+off_line_color_639426798_1[24] = "#000";
+check_639426798_1[24] = false;
+state_639426798_1[24] = true;
+sel_obj_639426798_1[24] = paper_639426798_1.path('M 213 244.7157287525381 l 30.284271247461902 30.284271247461902 l -56.568542494923804 0 l 30.284271247461902 -30.284271247461902 ').attr({fill: "#cff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:235,y:315, width:50, height:30}).div.html("<input style='padding:3px;width:30px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_5'/>");
+new Infobox(paper_639426798_1, {x:270,y:315, width:50, height:30}).div.html("cm²");
+on_color_639426798_1[25] = "#fff";
+off_color_639426798_1[25] = "#none";
+on_line_color_639426798_1[25] = "#000";
+off_line_color_639426798_1[25] = "#000";
+check_639426798_1[25] = false;
+state_639426798_1[25] = false;
+sel_obj_639426798_1[25] = paper_639426798_1.path('M 15 15 l 120 0').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+on_color_639426798_1[26] = "#fff";
+off_color_639426798_1[26] = "#none";
+on_line_color_639426798_1[26] = "#000";
+off_line_color_639426798_1[26] = "#000";
+check_639426798_1[26] = false;
+state_639426798_1[26] = false;
+sel_obj_639426798_1[26] = paper_639426798_1.path('M 15 35 l 120 0').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+on_color_639426798_1[27] = "#fff";
+off_color_639426798_1[27] = "#none";
+on_line_color_639426798_1[27] = "#000";
+off_line_color_639426798_1[27] = "#000";
+check_639426798_1[27] = false;
+state_639426798_1[27] = false;
+sel_obj_639426798_1[27] = paper_639426798_1.path('M 15 55 l 120 0').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+on_color_639426798_1[28] = "#fff";
+off_color_639426798_1[28] = "#none";
+on_line_color_639426798_1[28] = "#000";
+off_line_color_639426798_1[28] = "#000";
+check_639426798_1[28] = false;
+state_639426798_1[28] = false;
+sel_obj_639426798_1[28] = paper_639426798_1.path('M 15 75 l 120 0').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+on_color_639426798_1[29] = "#fff";
+off_color_639426798_1[29] = "#none";
+on_line_color_639426798_1[29] = "#000";
+off_line_color_639426798_1[29] = "#000";
+check_639426798_1[29] = false;
+state_639426798_1[29] = false;
+sel_obj_639426798_1[29] = paper_639426798_1.path('M 15 95 l 120 0').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+on_color_639426798_1[30] = "#fff";
+off_color_639426798_1[30] = "#none";
+on_line_color_639426798_1[30] = "#000";
+off_line_color_639426798_1[30] = "#000";
+check_639426798_1[30] = false;
+state_639426798_1[30] = false;
+sel_obj_639426798_1[30] = paper_639426798_1.path('M 15 115 l 120 0').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+on_color_639426798_1[31] = "#fff";
+off_color_639426798_1[31] = "#none";
+on_line_color_639426798_1[31] = "#000";
+off_line_color_639426798_1[31] = "#000";
+check_639426798_1[31] = false;
+state_639426798_1[31] = false;
+sel_obj_639426798_1[31] = paper_639426798_1.path('M 15 135 l 120 0').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+on_color_639426798_1[32] = "#fff";
+off_color_639426798_1[32] = "#none";
+on_line_color_639426798_1[32] = "#000";
+off_line_color_639426798_1[32] = "#000";
+check_639426798_1[32] = false;
+state_639426798_1[32] = false;
+sel_obj_639426798_1[32] = paper_639426798_1.path('M 15 15 l 0 120').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+on_color_639426798_1[33] = "#fff";
+off_color_639426798_1[33] = "#none";
+on_line_color_639426798_1[33] = "#000";
+off_line_color_639426798_1[33] = "#000";
+check_639426798_1[33] = false;
+state_639426798_1[33] = false;
+sel_obj_639426798_1[33] = paper_639426798_1.path('M 35 15 l 0 120').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+on_color_639426798_1[34] = "#fff";
+off_color_639426798_1[34] = "#none";
+on_line_color_639426798_1[34] = "#000";
+off_line_color_639426798_1[34] = "#000";
+check_639426798_1[34] = false;
+state_639426798_1[34] = false;
+sel_obj_639426798_1[34] = paper_639426798_1.path('M 55 15 l 0 120').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+on_color_639426798_1[35] = "#fff";
+off_color_639426798_1[35] = "#none";
+on_line_color_639426798_1[35] = "#000";
+off_line_color_639426798_1[35] = "#000";
+check_639426798_1[35] = false;
+state_639426798_1[35] = false;
+sel_obj_639426798_1[35] = paper_639426798_1.path('M 75 15 l 0 120').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+on_color_639426798_1[36] = "#fff";
+off_color_639426798_1[36] = "#none";
+on_line_color_639426798_1[36] = "#000";
+off_line_color_639426798_1[36] = "#000";
+check_639426798_1[36] = false;
+state_639426798_1[36] = false;
+sel_obj_639426798_1[36] = paper_639426798_1.path('M 95 15 l 0 120').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+on_color_639426798_1[37] = "#fff";
+off_color_639426798_1[37] = "#none";
+on_line_color_639426798_1[37] = "#000";
+off_line_color_639426798_1[37] = "#000";
+check_639426798_1[37] = false;
+state_639426798_1[37] = false;
+sel_obj_639426798_1[37] = paper_639426798_1.path('M 115 15 l 0 120').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+on_color_639426798_1[38] = "#fff";
+off_color_639426798_1[38] = "#none";
+on_line_color_639426798_1[38] = "#000";
+off_line_color_639426798_1[38] = "#000";
+check_639426798_1[38] = false;
+state_639426798_1[38] = false;
+sel_obj_639426798_1[38] = paper_639426798_1.path('M 135 15 l 0 120').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 0.3, "font-size": "18"});
+
+</script>
+</div>
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

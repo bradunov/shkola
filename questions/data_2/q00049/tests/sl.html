@@ -1,0 +1,645 @@
+<script> global_q_id = "data_2/q00049";</script>
+<script> global_language = "sl";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+<script> rnd_val_639426798['rnd_0'] = 1;</script>
+<script> rnd_val_639426798['rnd_1'] = 3;</script>
+<script> rnd_val_639426798['rnd_2'] = 1;</script>
+<script> rnd_val_639426798['rnd_3'] = 1;</script>
+<script> rnd_val_639426798['rnd_4'] = 1;</script>
+<script> rnd_val_639426798['rnd_5'] = 3;</script>
+<script> rnd_val_639426798['rnd_6'] = 1;</script>
+<script> rnd_val_639426798['rnd_7'] = 1;</script>
+<script> rnd_val_639426798['rnd_8'] = 2;</script>
+<script> rnd_val_639426798['rnd_9'] = 1;</script>
+<script> rnd_val_639426798['rnd_10'] = 1;</script>
+<script> rnd_val_639426798['rnd_11'] = 1;</script>
+<script> rnd_val_639426798['rnd_12'] = 2;</script>
+<script> rnd_val_639426798['rnd_13'] = 2;</script>
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_2 = false;
+        function check_number_answer_639426798_2_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_2').value.replace(',', '.')) == '75');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_2').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_2');
+            already_checked_obj_ok_check_number_answer_639426798_2 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_2');
+            already_checked_obj_ok_check_number_answer_639426798_2 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_3 = false;
+        function check_number_answer_639426798_3_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_3').value.replace(',', '.')) == '65');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_3').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_3');
+            already_checked_obj_ok_check_number_answer_639426798_3 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_3');
+            already_checked_obj_ok_check_number_answer_639426798_3 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = check_number_answer_639426798_2_cond();
+   if (operation == 'SUBMIT') {
+      c0 = check_number_answer_639426798_2_cond();
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+   c1 = check_number_answer_639426798_3_cond();
+   if (operation == 'SUBMIT') {
+      c1 = check_number_answer_639426798_3_cond();
+      if (c1) {q_correct++;} else {q_incorrect++;}
+   } else {c1 = false; q_incorrect++;}
+
+
+cond = c0 && c1 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+report['detailed']['q_res1'] = c1.toString();
+values = document.getElementById('check_number_answer_639426798_2').value.toString();
+
+   report['values']['q_val0'] = values;
+values = document.getElementById('check_number_answer_639426798_3').value.toString();
+
+   report['values']['q_val1'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        if (!already_checked_obj_ok_check_number_answer_639426798_2){document.getElementById('check_number_answer_639426798_2').value = '';clearAllWBorder('check_number_answer_639426798_2');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_3){document.getElementById('check_number_answer_639426798_3').value = '';clearAllWBorder('check_number_answer_639426798_3');}
+
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        document.getElementById('check_number_answer_639426798_2').value = '75'.replace('.', ',');
+document.getElementById('check_number_answer_639426798_3').value = '65'.replace('.', ',');
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'data_2/q00049' for language 'sl' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+Tabela prikazuje rezultate testov dveh skupin študentov, A in B. 
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_1'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_1'>
+        <script type = "text/javascript">
+            var paper_639426798_1 = Raphael("sel_canvas_639426798_1", 350, 130);
+            var on_color_639426798_1 = [];
+            var off_color_639426798_1 = [];
+            var on_line_color_639426798_1 = [];
+            var off_line_color_639426798_1 = [];
+            var check_639426798_1 = [];
+            var state_639426798_1 = [];
+            var sel_obj_639426798_1 = [];
+            var solution_639426798_1 = [];
+        
+on_color_639426798_1[0] = "#000";
+off_color_639426798_1[0] = "#000";
+on_line_color_639426798_1[0] = "#000";
+off_line_color_639426798_1[0] = "#000";
+check_639426798_1[0] = false;
+state_639426798_1[0] = false;
+sel_obj_639426798_1[0] = paper_639426798_1.text(70, 25, "0-14").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[1] = "#000";
+off_color_639426798_1[1] = "#000";
+on_line_color_639426798_1[1] = "#000";
+off_line_color_639426798_1[1] = "#f30";
+check_639426798_1[1] = false;
+state_639426798_1[1] = false;
+sel_obj_639426798_1[1] = paper_639426798_1.text(60, 45, "(").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[2] = "#000";
+off_color_639426798_1[2] = "#000";
+on_line_color_639426798_1[2] = "#000";
+off_line_color_639426798_1[2] = "#f30";
+check_639426798_1[2] = false;
+state_639426798_1[2] = false;
+sel_obj_639426798_1[2] = paper_639426798_1.text(70, 45, "7").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[3] = "#000";
+off_color_639426798_1[3] = "#000";
+on_line_color_639426798_1[3] = "#000";
+off_line_color_639426798_1[3] = "#f30";
+check_639426798_1[3] = false;
+state_639426798_1[3] = false;
+sel_obj_639426798_1[3] = paper_639426798_1.text(80, 45, ")").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[4] = "#000";
+off_color_639426798_1[4] = "#000";
+on_line_color_639426798_1[4] = "#000";
+off_line_color_639426798_1[4] = "#000";
+check_639426798_1[4] = false;
+state_639426798_1[4] = false;
+sel_obj_639426798_1[4] = paper_639426798_1.text(120, 25, "15-29").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[5] = "#000";
+off_color_639426798_1[5] = "#000";
+on_line_color_639426798_1[5] = "#000";
+off_line_color_639426798_1[5] = "#f30";
+check_639426798_1[5] = false;
+state_639426798_1[5] = false;
+sel_obj_639426798_1[5] = paper_639426798_1.text(110, 45, "(").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[6] = "#000";
+off_color_639426798_1[6] = "#000";
+on_line_color_639426798_1[6] = "#000";
+off_line_color_639426798_1[6] = "#f30";
+check_639426798_1[6] = false;
+state_639426798_1[6] = false;
+sel_obj_639426798_1[6] = paper_639426798_1.text(120, 45, "22").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[7] = "#000";
+off_color_639426798_1[7] = "#000";
+on_line_color_639426798_1[7] = "#000";
+off_line_color_639426798_1[7] = "#f30";
+check_639426798_1[7] = false;
+state_639426798_1[7] = false;
+sel_obj_639426798_1[7] = paper_639426798_1.text(130, 45, ")").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[8] = "#000";
+off_color_639426798_1[8] = "#000";
+on_line_color_639426798_1[8] = "#000";
+off_line_color_639426798_1[8] = "#000";
+check_639426798_1[8] = false;
+state_639426798_1[8] = false;
+sel_obj_639426798_1[8] = paper_639426798_1.text(170, 25, "30-44").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[9] = "#000";
+off_color_639426798_1[9] = "#000";
+on_line_color_639426798_1[9] = "#000";
+off_line_color_639426798_1[9] = "#f30";
+check_639426798_1[9] = false;
+state_639426798_1[9] = false;
+sel_obj_639426798_1[9] = paper_639426798_1.text(160, 45, "(").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[10] = "#000";
+off_color_639426798_1[10] = "#000";
+on_line_color_639426798_1[10] = "#000";
+off_line_color_639426798_1[10] = "#f30";
+check_639426798_1[10] = false;
+state_639426798_1[10] = false;
+sel_obj_639426798_1[10] = paper_639426798_1.text(170, 45, "37").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[11] = "#000";
+off_color_639426798_1[11] = "#000";
+on_line_color_639426798_1[11] = "#000";
+off_line_color_639426798_1[11] = "#f30";
+check_639426798_1[11] = false;
+state_639426798_1[11] = false;
+sel_obj_639426798_1[11] = paper_639426798_1.text(180, 45, ")").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[12] = "#000";
+off_color_639426798_1[12] = "#000";
+on_line_color_639426798_1[12] = "#000";
+off_line_color_639426798_1[12] = "#000";
+check_639426798_1[12] = false;
+state_639426798_1[12] = false;
+sel_obj_639426798_1[12] = paper_639426798_1.text(220, 25, "45-59").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[13] = "#000";
+off_color_639426798_1[13] = "#000";
+on_line_color_639426798_1[13] = "#000";
+off_line_color_639426798_1[13] = "#f30";
+check_639426798_1[13] = false;
+state_639426798_1[13] = false;
+sel_obj_639426798_1[13] = paper_639426798_1.text(210, 45, "(").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[14] = "#000";
+off_color_639426798_1[14] = "#000";
+on_line_color_639426798_1[14] = "#000";
+off_line_color_639426798_1[14] = "#f30";
+check_639426798_1[14] = false;
+state_639426798_1[14] = false;
+sel_obj_639426798_1[14] = paper_639426798_1.text(220, 45, "52").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[15] = "#000";
+off_color_639426798_1[15] = "#000";
+on_line_color_639426798_1[15] = "#000";
+off_line_color_639426798_1[15] = "#f30";
+check_639426798_1[15] = false;
+state_639426798_1[15] = false;
+sel_obj_639426798_1[15] = paper_639426798_1.text(230, 45, ")").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[16] = "#000";
+off_color_639426798_1[16] = "#000";
+on_line_color_639426798_1[16] = "#000";
+off_line_color_639426798_1[16] = "#000";
+check_639426798_1[16] = false;
+state_639426798_1[16] = false;
+sel_obj_639426798_1[16] = paper_639426798_1.text(270, 25, "60-74").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[17] = "#000";
+off_color_639426798_1[17] = "#000";
+on_line_color_639426798_1[17] = "#000";
+off_line_color_639426798_1[17] = "#f30";
+check_639426798_1[17] = false;
+state_639426798_1[17] = false;
+sel_obj_639426798_1[17] = paper_639426798_1.text(260, 45, "(").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[18] = "#000";
+off_color_639426798_1[18] = "#000";
+on_line_color_639426798_1[18] = "#000";
+off_line_color_639426798_1[18] = "#f30";
+check_639426798_1[18] = false;
+state_639426798_1[18] = false;
+sel_obj_639426798_1[18] = paper_639426798_1.text(270, 45, "67").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[19] = "#000";
+off_color_639426798_1[19] = "#000";
+on_line_color_639426798_1[19] = "#000";
+off_line_color_639426798_1[19] = "#f30";
+check_639426798_1[19] = false;
+state_639426798_1[19] = false;
+sel_obj_639426798_1[19] = paper_639426798_1.text(280, 45, ")").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[20] = "#000";
+off_color_639426798_1[20] = "#000";
+on_line_color_639426798_1[20] = "#000";
+off_line_color_639426798_1[20] = "#000";
+check_639426798_1[20] = false;
+state_639426798_1[20] = false;
+sel_obj_639426798_1[20] = paper_639426798_1.text(320, 25, "75-90").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[21] = "#000";
+off_color_639426798_1[21] = "#000";
+on_line_color_639426798_1[21] = "#000";
+off_line_color_639426798_1[21] = "#f30";
+check_639426798_1[21] = false;
+state_639426798_1[21] = false;
+sel_obj_639426798_1[21] = paper_639426798_1.text(310, 45, "(").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[22] = "#000";
+off_color_639426798_1[22] = "#000";
+on_line_color_639426798_1[22] = "#000";
+off_line_color_639426798_1[22] = "#f30";
+check_639426798_1[22] = false;
+state_639426798_1[22] = false;
+sel_obj_639426798_1[22] = paper_639426798_1.text(320, 45, "82").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[23] = "#000";
+off_color_639426798_1[23] = "#000";
+on_line_color_639426798_1[23] = "#000";
+off_line_color_639426798_1[23] = "#f30";
+check_639426798_1[23] = false;
+state_639426798_1[23] = false;
+sel_obj_639426798_1[23] = paper_639426798_1.text(330, 45, ")").attr({fill: "#000", stroke: "#f30", opacity: "1", "stroke-width": 1, "font-size": "12", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[24] = "#ff0";
+off_color_639426798_1[24] = "#ff0";
+on_line_color_639426798_1[24] = "#000";
+off_line_color_639426798_1[24] = "#000";
+check_639426798_1[24] = false;
+state_639426798_1[24] = false;
+sel_obj_639426798_1[24] = paper_639426798_1.rect(5, 60, 40, 30).attr({fill: "#ff0", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[25] = "#6f6";
+off_color_639426798_1[25] = "#6f6";
+on_line_color_639426798_1[25] = "#000";
+off_line_color_639426798_1[25] = "#000";
+check_639426798_1[25] = false;
+state_639426798_1[25] = false;
+sel_obj_639426798_1[25] = paper_639426798_1.rect(5, 90, 40, 30).attr({fill: "#6f6", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[26] = "#000";
+off_color_639426798_1[26] = "#000";
+on_line_color_639426798_1[26] = "#000";
+off_line_color_639426798_1[26] = "#000";
+check_639426798_1[26] = false;
+state_639426798_1[26] = false;
+sel_obj_639426798_1[26] = paper_639426798_1.text(25, 75, "A").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "16", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[27] = "#000";
+off_color_639426798_1[27] = "#000";
+on_line_color_639426798_1[27] = "#000";
+off_line_color_639426798_1[27] = "#000";
+check_639426798_1[27] = false;
+state_639426798_1[27] = false;
+sel_obj_639426798_1[27] = paper_639426798_1.text(25, 105, "B").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "16", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[28] = "#fff";
+off_color_639426798_1[28] = "#fff";
+on_line_color_639426798_1[28] = "#000";
+off_line_color_639426798_1[28] = "#000";
+check_639426798_1[28] = false;
+state_639426798_1[28] = false;
+sel_obj_639426798_1[28] = paper_639426798_1.path('M 45 10 l 0 110').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[29] = "#fff";
+off_color_639426798_1[29] = "#fff";
+on_line_color_639426798_1[29] = "#000";
+off_line_color_639426798_1[29] = "#000";
+check_639426798_1[29] = false;
+state_639426798_1[29] = false;
+sel_obj_639426798_1[29] = paper_639426798_1.path('M 95 10 l 0 110').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[30] = "#fff";
+off_color_639426798_1[30] = "#fff";
+on_line_color_639426798_1[30] = "#000";
+off_line_color_639426798_1[30] = "#000";
+check_639426798_1[30] = false;
+state_639426798_1[30] = false;
+sel_obj_639426798_1[30] = paper_639426798_1.path('M 145 10 l 0 110').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[31] = "#fff";
+off_color_639426798_1[31] = "#fff";
+on_line_color_639426798_1[31] = "#000";
+off_line_color_639426798_1[31] = "#000";
+check_639426798_1[31] = false;
+state_639426798_1[31] = false;
+sel_obj_639426798_1[31] = paper_639426798_1.path('M 195 10 l 0 110').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[32] = "#fff";
+off_color_639426798_1[32] = "#fff";
+on_line_color_639426798_1[32] = "#000";
+off_line_color_639426798_1[32] = "#000";
+check_639426798_1[32] = false;
+state_639426798_1[32] = false;
+sel_obj_639426798_1[32] = paper_639426798_1.path('M 245 10 l 0 110').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[33] = "#fff";
+off_color_639426798_1[33] = "#fff";
+on_line_color_639426798_1[33] = "#000";
+off_line_color_639426798_1[33] = "#000";
+check_639426798_1[33] = false;
+state_639426798_1[33] = false;
+sel_obj_639426798_1[33] = paper_639426798_1.path('M 295 10 l 0 110').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[34] = "#fff";
+off_color_639426798_1[34] = "#fff";
+on_line_color_639426798_1[34] = "#000";
+off_line_color_639426798_1[34] = "#000";
+check_639426798_1[34] = false;
+state_639426798_1[34] = false;
+sel_obj_639426798_1[34] = paper_639426798_1.path('M 345 10 l 0 110').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[35] = "#fff";
+off_color_639426798_1[35] = "#fff";
+on_line_color_639426798_1[35] = "#000";
+off_line_color_639426798_1[35] = "#000";
+check_639426798_1[35] = false;
+state_639426798_1[35] = false;
+sel_obj_639426798_1[35] = paper_639426798_1.path('M 5 10 l 0 110').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[36] = "#fff";
+off_color_639426798_1[36] = "#fff";
+on_line_color_639426798_1[36] = "#000";
+off_line_color_639426798_1[36] = "#000";
+check_639426798_1[36] = false;
+state_639426798_1[36] = false;
+sel_obj_639426798_1[36] = paper_639426798_1.path('M 5 60 l 340 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[37] = "#fff";
+off_color_639426798_1[37] = "#fff";
+on_line_color_639426798_1[37] = "#000";
+off_line_color_639426798_1[37] = "#000";
+check_639426798_1[37] = false;
+state_639426798_1[37] = false;
+sel_obj_639426798_1[37] = paper_639426798_1.path('M 5 90 l 340 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[38] = "#fff";
+off_color_639426798_1[38] = "#fff";
+on_line_color_639426798_1[38] = "#000";
+off_line_color_639426798_1[38] = "#000";
+check_639426798_1[38] = false;
+state_639426798_1[38] = false;
+sel_obj_639426798_1[38] = paper_639426798_1.path('M 5 120 l 340 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[39] = "#fff";
+off_color_639426798_1[39] = "#fff";
+on_line_color_639426798_1[39] = "#000";
+off_line_color_639426798_1[39] = "#000";
+check_639426798_1[39] = false;
+state_639426798_1[39] = false;
+sel_obj_639426798_1[39] = paper_639426798_1.path('M 5 10 l 340 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[40] = "#000";
+off_color_639426798_1[40] = "#000";
+on_line_color_639426798_1[40] = "#000";
+off_line_color_639426798_1[40] = "#000";
+check_639426798_1[40] = false;
+state_639426798_1[40] = false;
+sel_obj_639426798_1[40] = paper_639426798_1.text(70, 75, "0").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[41] = "#000";
+off_color_639426798_1[41] = "#000";
+on_line_color_639426798_1[41] = "#000";
+off_line_color_639426798_1[41] = "#000";
+check_639426798_1[41] = false;
+state_639426798_1[41] = false;
+sel_obj_639426798_1[41] = paper_639426798_1.text(70, 105, "5").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[42] = "#000";
+off_color_639426798_1[42] = "#000";
+on_line_color_639426798_1[42] = "#000";
+off_line_color_639426798_1[42] = "#000";
+check_639426798_1[42] = false;
+state_639426798_1[42] = false;
+sel_obj_639426798_1[42] = paper_639426798_1.text(120, 75, "5").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[43] = "#000";
+off_color_639426798_1[43] = "#000";
+on_line_color_639426798_1[43] = "#000";
+off_line_color_639426798_1[43] = "#000";
+check_639426798_1[43] = false;
+state_639426798_1[43] = false;
+sel_obj_639426798_1[43] = paper_639426798_1.text(120, 105, "10").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[44] = "#000";
+off_color_639426798_1[44] = "#000";
+on_line_color_639426798_1[44] = "#000";
+off_line_color_639426798_1[44] = "#000";
+check_639426798_1[44] = false;
+state_639426798_1[44] = false;
+sel_obj_639426798_1[44] = paper_639426798_1.text(170, 75, "20").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[45] = "#000";
+off_color_639426798_1[45] = "#000";
+on_line_color_639426798_1[45] = "#000";
+off_line_color_639426798_1[45] = "#000";
+check_639426798_1[45] = false;
+state_639426798_1[45] = false;
+sel_obj_639426798_1[45] = paper_639426798_1.text(170, 105, "20").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[46] = "#000";
+off_color_639426798_1[46] = "#000";
+on_line_color_639426798_1[46] = "#000";
+off_line_color_639426798_1[46] = "#000";
+check_639426798_1[46] = false;
+state_639426798_1[46] = false;
+sel_obj_639426798_1[46] = paper_639426798_1.text(220, 75, "60").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[47] = "#000";
+off_color_639426798_1[47] = "#000";
+on_line_color_639426798_1[47] = "#000";
+off_line_color_639426798_1[47] = "#000";
+check_639426798_1[47] = false;
+state_639426798_1[47] = false;
+sel_obj_639426798_1[47] = paper_639426798_1.text(220, 105, "55").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[48] = "#000";
+off_color_639426798_1[48] = "#000";
+on_line_color_639426798_1[48] = "#000";
+off_line_color_639426798_1[48] = "#000";
+check_639426798_1[48] = false;
+state_639426798_1[48] = false;
+sel_obj_639426798_1[48] = paper_639426798_1.text(270, 75, "15").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[49] = "#000";
+off_color_639426798_1[49] = "#000";
+on_line_color_639426798_1[49] = "#000";
+off_line_color_639426798_1[49] = "#000";
+check_639426798_1[49] = false;
+state_639426798_1[49] = false;
+sel_obj_639426798_1[49] = paper_639426798_1.text(270, 105, "10").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[50] = "#000";
+off_color_639426798_1[50] = "#000";
+on_line_color_639426798_1[50] = "#000";
+off_line_color_639426798_1[50] = "#000";
+check_639426798_1[50] = false;
+state_639426798_1[50] = false;
+sel_obj_639426798_1[50] = paper_639426798_1.text(320, 75, "0").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_1[51] = "#000";
+off_color_639426798_1[51] = "#000";
+on_line_color_639426798_1[51] = "#000";
+off_line_color_639426798_1[51] = "#000";
+check_639426798_1[51] = false;
+state_639426798_1[51] = false;
+sel_obj_639426798_1[51] = paper_639426798_1.text(320, 105, "0").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+
+</script>
+</div>
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_2'>
+Za vsako skupino vnesite 
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_3'>
+
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_4'>
+število učencev, ki imajo 45 i več točk.
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_5'>
+ 
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_10'>
+ skupina A <div style='display:inline-block;padding-left:0px;padding-right:5px;'> </div> <input style='padding:3px;width:40px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_2'/>,<div style='display:inline-block;padding-left:0px;padding-right:25px;'> </div> skupina B <div style='display:inline-block;padding-left:0px;padding-right:5px;'> </div> <input style='padding:3px;width:40px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_3'/>
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

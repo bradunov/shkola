@@ -1,0 +1,345 @@
+<script> global_q_id = "geometry/q00085";</script>
+<script> global_language = "sl";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+<script> rnd_val_639426798['rnd_arr_0'] = [9, 2, 8, 7, 11, 13, 6, 3, 10, 4, 5, 12, 1];</script>
+<script> rnd_val_639426798['rnd_1'] = 1;</script>
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = sel_obj_639426798_1_check();;
+   if (operation == 'SUBMIT') {
+      c0 = sel_obj_639426798_1_check();;
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+
+cond = c0 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+
+                {
+                    values = { };
+                    var ind = 0;
+                    for (let i=0; i<10; i++) {
+                        if (check_639426798_1[i]) {
+                            values[ind.toString()] = (state_639426798_1[i]).toString();
+                            ind++;
+                        }
+                    }
+                }
+            
+   report['values']['q_val0'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        sel_obj_639426798_1_clear();
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        sel_obj_639426798_1_solution();
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'geometry/q00085' for language 'sl' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+Pobarvaj črke, ki imajo prave kote.
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_1'>
+<div style='display:table;padding-top:0px;padding-bottom:0px;float:center'> </div>
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_2'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_1'>
+        <script type = "text/javascript">
+            var paper_639426798_1 = Raphael("sel_canvas_639426798_1", 300, 300);
+            var on_color_639426798_1 = [];
+            var off_color_639426798_1 = [];
+            var on_line_color_639426798_1 = [];
+            var off_line_color_639426798_1 = [];
+            var check_639426798_1 = [];
+            var state_639426798_1 = [];
+            var sel_obj_639426798_1 = [];
+            var solution_639426798_1 = [];
+        solution_639426798_1[0] = 0 ; solution_639426798_1[1] = 1 ; solution_639426798_1[2] = 0 ; solution_639426798_1[3] = 0 ; solution_639426798_1[4] = 0 ; solution_639426798_1[5] = 0 ; solution_639426798_1[6] = 1 ; solution_639426798_1[7] = 1 ; solution_639426798_1[8] = 0 ; solution_639426798_1[9] = 1;  
+on_color_639426798_1[0] = "#f00";
+off_color_639426798_1[0] = "#000";
+on_line_color_639426798_1[0] = "#f00";
+off_line_color_639426798_1[0] = "#000";
+check_639426798_1[0] = true;
+state_639426798_1[0] = false;
+sel_obj_639426798_1[0] = paper_639426798_1.text(30.0, 20, "Z").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "50", "font-family": "Helvetica"});
+on_color_639426798_1[1] = "#f00";
+off_color_639426798_1[1] = "#000";
+on_line_color_639426798_1[1] = "#f00";
+off_line_color_639426798_1[1] = "#000";
+check_639426798_1[1] = true;
+state_639426798_1[1] = false;
+sel_obj_639426798_1[1] = paper_639426798_1.text(90.0, 20, "D").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "50", "font-family": "Helvetica"});
+on_color_639426798_1[2] = "#f00";
+off_color_639426798_1[2] = "#000";
+on_line_color_639426798_1[2] = "#f00";
+off_line_color_639426798_1[2] = "#000";
+check_639426798_1[2] = true;
+state_639426798_1[2] = false;
+sel_obj_639426798_1[2] = paper_639426798_1.text(150.0, 20, "V").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "50", "font-family": "Helvetica"});
+on_color_639426798_1[3] = "#f00";
+off_color_639426798_1[3] = "#000";
+on_line_color_639426798_1[3] = "#f00";
+off_line_color_639426798_1[3] = "#000";
+check_639426798_1[3] = true;
+state_639426798_1[3] = false;
+sel_obj_639426798_1[3] = paper_639426798_1.text(210.0, 20, "A").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "50", "font-family": "Helvetica"});
+on_color_639426798_1[4] = "#f00";
+off_color_639426798_1[4] = "#000";
+on_line_color_639426798_1[4] = "#f00";
+off_line_color_639426798_1[4] = "#000";
+check_639426798_1[4] = true;
+state_639426798_1[4] = false;
+sel_obj_639426798_1[4] = paper_639426798_1.text(270.0, 20, "M").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "50", "font-family": "Helvetica"});
+on_color_639426798_1[5] = "#f00";
+off_color_639426798_1[5] = "#000";
+on_line_color_639426798_1[5] = "#f00";
+off_line_color_639426798_1[5] = "#000";
+check_639426798_1[5] = true;
+state_639426798_1[5] = false;
+sel_obj_639426798_1[5] = paper_639426798_1.text(30.0, 90, "S").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "50", "font-family": "Helvetica"});
+on_color_639426798_1[6] = "#f00";
+off_color_639426798_1[6] = "#000";
+on_line_color_639426798_1[6] = "#f00";
+off_line_color_639426798_1[6] = "#000";
+check_639426798_1[6] = true;
+state_639426798_1[6] = false;
+sel_obj_639426798_1[6] = paper_639426798_1.text(90.0, 90, "T").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "50", "font-family": "Helvetica"});
+on_color_639426798_1[7] = "#f00";
+off_color_639426798_1[7] = "#000";
+on_line_color_639426798_1[7] = "#f00";
+off_line_color_639426798_1[7] = "#000";
+check_639426798_1[7] = true;
+state_639426798_1[7] = false;
+sel_obj_639426798_1[7] = paper_639426798_1.text(150.0, 90, "E").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "50", "font-family": "Helvetica"});
+on_color_639426798_1[8] = "#f00";
+off_color_639426798_1[8] = "#000";
+on_line_color_639426798_1[8] = "#f00";
+off_line_color_639426798_1[8] = "#000";
+check_639426798_1[8] = true;
+state_639426798_1[8] = false;
+sel_obj_639426798_1[8] = paper_639426798_1.text(210.0, 90, "N").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "50", "font-family": "Helvetica"});
+on_color_639426798_1[9] = "#f00";
+off_color_639426798_1[9] = "#000";
+on_line_color_639426798_1[9] = "#f00";
+off_line_color_639426798_1[9] = "#000";
+check_639426798_1[9] = true;
+state_639426798_1[9] = false;
+sel_obj_639426798_1[9] = paper_639426798_1.text(270.0, 90, "F").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "50", "font-family": "Helvetica"});
+
+        function sel_obj_639426798_1_clear() {
+          if (!already_checked_obj_ok_639426798_1) {
+            for (let i=0; i<10; i++) {
+                if (check_639426798_1[i]) {
+                state_639426798_1[i] = false;
+                sel_obj_639426798_1[i].attr({fill: off_color_639426798_1[i], stroke: off_line_color_639426798_1[i]});
+                }
+            }
+            clearAllNoBorder('sel_canvas_639426798_1');
+          }
+        }
+        
+                already_checked_obj_ok_639426798_1 = false;
+                function sel_obj_639426798_1_check() {
+                    var result = [];
+                    var ind = 0;
+                    for (let i=0; i<10; i++) {
+                        if (check_639426798_1[i]) {
+                            if (state_639426798_1[i]) {
+                                result[ind] = 1;
+                            } else {
+                                result[ind] = 0;
+                            }
+                            ind++;
+                        }
+                    }
+                    if (result[0] == 0 && result[1] == 1 && result[2] == 0 && result[3] == 0 && result[4] == 0 && result[5] == 0 && result[6] == 1 && result[7] == 1 && result[8] == 0 && result[9] == 1) {
+                        setOK('sel_canvas_639426798_1');
+                        already_checked_obj_ok_639426798_1 = true;
+                        return true;
+                    } else {
+                        setError('sel_canvas_639426798_1');
+                        already_checked_obj_ok_639426798_1 = false;
+                        return false;
+                    }
+                }
+            
+                function sel_obj_639426798_1_solution() {
+                    alread_shown_solutions = true;
+                    var ind = 0;
+                    for (let i=0; i<10; i++) {
+                        if (check_639426798_1[i]) {
+                            if (solution_639426798_1[ind] == 1) {
+                                sel_obj_639426798_1[i].attr({fill: on_color_639426798_1[i], stroke: on_line_color_639426798_1[i]});
+                                state_639426798_1[i] = true;
+                            } else {
+                                sel_obj_639426798_1[i].attr({fill: off_color_639426798_1[i], stroke: off_line_color_639426798_1[i]});
+                                state_639426798_1[i] = false;
+                            }
+                            ind++;
+                        }
+                    }
+                }
+            
+  	for (let i=0; i<10; i++) {
+          if (check_639426798_1[i]) {
+  	    sel_obj_639426798_1[i].mousedown( function() {
+	      if (state_639426798_1[i]) {
+  	        sel_obj_639426798_1[i].attr({fill: off_color_639426798_1[i], stroke: off_line_color_639426798_1[i]});
+                state_639426798_1[i] = false;
+	      } else {
+  	        sel_obj_639426798_1[i].attr({fill: on_color_639426798_1[i], stroke: on_line_color_639426798_1[i]});
+                state_639426798_1[i] = true;
+              }
+	    });
+          }
+        }
+        
+</script>
+</div>
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

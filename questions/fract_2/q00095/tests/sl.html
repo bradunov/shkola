@@ -1,0 +1,596 @@
+<script> global_q_id = "fract_2/q00095";</script>
+<script> global_language = "sl";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+<script> rnd_val_639426798['rnd_0'] = 1;</script>
+<script> rnd_val_639426798['rnd_1'] = 6;</script>
+<script> rnd_val_639426798['rnd_2'] = 3;</script>
+<script> rnd_val_639426798['rnd_3'] = 2;</script>
+<script> rnd_val_639426798['rnd_4'] = 2;</script>
+<script> rnd_val_639426798['rnd_5'] = 1;</script>
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_fraction_answer_table_639426798_1 = false;
+        function check_fraction_answer_table_639426798_1_cond() {
+          var ok;
+          is_ok = math.eq(Number(document.getElementById('check_fraction_answer_numerator_639426798_1').value)/(((Number(document.getElementById('check_fraction_answer_denominator_639426798_1').value)) == 0)?1:(Number(document.getElementById('check_fraction_answer_denominator_639426798_1').value))), 0.15);
+          
+          if (is_ok) {
+            setOK('check_fraction_answer_table_639426798_1');
+            already_checked_obj_ok_check_fraction_answer_table_639426798_1 = true;
+            return true;
+          } else {
+            setError('check_fraction_answer_table_639426798_1');
+            already_checked_obj_ok_check_fraction_answer_table_639426798_1 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_dropdown_answer_639426798_3 = false;
+        function check_dropdown_answer_639426798_3_cond() {
+          var ok;
+          is_ok = (document.getElementById('check_dropdown_answer_639426798_3').value == 'Irena');
+          
+          if (is_ok) {
+            setOK('check_dropdown_answer_639426798_3');
+            already_checked_obj_ok_check_dropdown_answer_639426798_3 = true;
+            return true;
+          } else {
+            setError('check_dropdown_answer_639426798_3');
+            already_checked_obj_ok_check_dropdown_answer_639426798_3 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = check_fraction_answer_table_639426798_1_cond();
+   if (operation == 'SUBMIT') {
+      c0 = check_fraction_answer_table_639426798_1_cond();
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+   c1 = sel_obj_639426798_2_check();;
+   if (operation == 'SUBMIT') {
+      c1 = sel_obj_639426798_2_check();;
+      if (c1) {q_correct++;} else {q_incorrect++;}
+   } else {c1 = false; q_incorrect++;}
+
+   c2 = check_dropdown_answer_639426798_3_cond();
+   if (operation == 'SUBMIT') {
+      c2 = check_dropdown_answer_639426798_3_cond();
+      if (c2) {q_correct++;} else {q_incorrect++;}
+   } else {c2 = false; q_incorrect++;}
+
+
+cond = c0 && c1 && c2 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+report['detailed']['q_res1'] = c1.toString();
+report['detailed']['q_res2'] = c2.toString();
+values = { 'numerator' : document.getElementById('check_fraction_answer_numerator_639426798_1').value.toString(), 'denominator' : document.getElementById('check_fraction_answer_denominator_639426798_1').value.toString() };
+
+   report['values']['q_val0'] = values;
+
+                {
+                    values = { };
+                    var ind = 0;
+                    for (let i=0; i<33; i++) {
+                        if (check_639426798_2[i]) {
+                            values[ind.toString()] = (state_639426798_2[i]).toString();
+                            ind++;
+                        }
+                    }
+                }
+            
+   report['values']['q_val1'] = values;
+values = document.getElementById('check_dropdown_answer_639426798_3').value.toString();
+
+   report['values']['q_val2'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        if (!already_checked_obj_ok_check_fraction_answer_table_639426798_1){document.getElementById('check_fraction_answer_numerator_639426798_1').value = '';document.getElementById('check_fraction_answer_denominator_639426798_1').value = '';clearAllNoBorder('check_fraction_answer_table_639426798_1');}
+
+sel_obj_639426798_2_clear();
+if (!already_checked_obj_ok_check_dropdown_answer_639426798_3){document.getElementById('check_dropdown_answer_639426798_3').value = ' ';clearAllWBorder('check_dropdown_answer_639426798_3');}
+
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        document.getElementById('check_fraction_answer_numerator_639426798_1').value=3.0;document.getElementById('check_fraction_answer_denominator_639426798_1').value=20.0;
+sel_obj_639426798_2_solution();
+document.getElementById('check_dropdown_answer_639426798_3').value = 'Irena';
+
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'fract_2/q00095' for language 'sl' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+Irena in Jože jesta enako veliki pici. Irena je pojedla \(\frac{2}{5}\), a Jože \(\frac{1}{4}\) svoje pice.
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_1'>
+Pobarvajte v krožnih diagramih (začnite od rdeče črte v pozitivni smeri) koliko je vsak od njiju pojedel pice.
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_2'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_2'>
+        <script type = "text/javascript">
+            var paper_639426798_2 = Raphael("sel_canvas_639426798_2", 300, 150);
+            var on_color_639426798_2 = [];
+            var off_color_639426798_2 = [];
+            var on_line_color_639426798_2 = [];
+            var off_line_color_639426798_2 = [];
+            var check_639426798_2 = [];
+            var state_639426798_2 = [];
+            var sel_obj_639426798_2 = [];
+            var solution_639426798_2 = [];
+        solution_639426798_2[0] = 1 ; solution_639426798_2[1] = 1 ; solution_639426798_2[2] = 0 ; solution_639426798_2[3] = 0 ; solution_639426798_2[4] = 0 ; solution_639426798_2[5] = 1 ; solution_639426798_2[6] = 0 ; solution_639426798_2[7] = 0 ; solution_639426798_2[8] = 0 ;  
+on_color_639426798_2[0] = "#aff";
+off_color_639426798_2[0] = "#fff";
+on_line_color_639426798_2[0] = "#000";
+off_line_color_639426798_2[0] = "#000";
+check_639426798_2[0] = false;
+state_639426798_2[0] = false;
+sel_obj_639426798_2[0] = paper_639426798_2.path('M 120 60 l -34.54915028125262 -47.552825814757675').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[1] = "#aff";
+off_color_639426798_2[1] = "#fff";
+on_line_color_639426798_2[1] = "#000";
+off_line_color_639426798_2[1] = "#000";
+check_639426798_2[1] = false;
+state_639426798_2[1] = false;
+sel_obj_639426798_2[1] = paper_639426798_2.path('M 85.45084971874738 12.447174185242325 l -55.90169943749474 18.163563200134014').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[2] = "#aff";
+off_color_639426798_2[2] = "#fff";
+on_line_color_639426798_2[2] = "#000";
+off_line_color_639426798_2[2] = "#000";
+check_639426798_2[2] = false;
+state_639426798_2[2] = false;
+sel_obj_639426798_2[2] = paper_639426798_2.path('M 29.549150281252636 30.61073738537634 l -7.105427357601002e-15 58.77852522924731').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[3] = "#aff";
+off_color_639426798_2[3] = "#fff";
+on_line_color_639426798_2[3] = "#000";
+off_line_color_639426798_2[3] = "#000";
+check_639426798_2[3] = false;
+state_639426798_2[3] = false;
+sel_obj_639426798_2[3] = paper_639426798_2.path('M 29.54915028125263 89.38926261462365 l 55.901699437494734 18.163563200134035').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[4] = "#aff";
+off_color_639426798_2[4] = "#fff";
+on_line_color_639426798_2[4] = "#000";
+off_line_color_639426798_2[4] = "#000";
+check_639426798_2[4] = false;
+state_639426798_2[4] = false;
+sel_obj_639426798_2[4] = paper_639426798_2.path('M 85.45084971874736 107.55282581475768 l 34.549150281252636 -47.55282581475767').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[5] = "#aff";
+off_color_639426798_2[5] = "#fff";
+on_line_color_639426798_2[5] = "#000";
+off_line_color_639426798_2[5] = "#000";
+check_639426798_2[5] = false;
+state_639426798_2[5] = false;
+sel_obj_639426798_2[5] = paper_639426798_2.path('M 270 60 l -50.0 -50.0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[6] = "#aff";
+off_color_639426798_2[6] = "#fff";
+on_line_color_639426798_2[6] = "#000";
+off_line_color_639426798_2[6] = "#000";
+check_639426798_2[6] = false;
+state_639426798_2[6] = false;
+sel_obj_639426798_2[6] = paper_639426798_2.path('M 220.0 10.0 l -50.0 49.99999999999999').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[7] = "#aff";
+off_color_639426798_2[7] = "#fff";
+on_line_color_639426798_2[7] = "#000";
+off_line_color_639426798_2[7] = "#000";
+check_639426798_2[7] = false;
+state_639426798_2[7] = false;
+sel_obj_639426798_2[7] = paper_639426798_2.path('M 170.0 59.99999999999999 l 50.0 50.00000000000001').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[8] = "#aff";
+off_color_639426798_2[8] = "#fff";
+on_line_color_639426798_2[8] = "#000";
+off_line_color_639426798_2[8] = "#000";
+check_639426798_2[8] = false;
+state_639426798_2[8] = false;
+sel_obj_639426798_2[8] = paper_639426798_2.path('M 220.0 110.0 l 50.0 -49.999999999999986').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[9] = "#f30";
+off_color_639426798_2[9] = "#fff";
+on_line_color_639426798_2[9] = "#f30";
+off_line_color_639426798_2[9] = "#fff";
+check_639426798_2[9] = true;
+state_639426798_2[9] = false;
+sel_obj_639426798_2[9] = paper_639426798_2.path('M 70 60 l 50 0 l -34.54915028125262 -47.552825814757675 l -15.450849718747378 47.552825814757675 ').attr({fill: "#fff", stroke: "#fff", opacity: "1", "stroke-width": 0.2, "font-size": "18"});
+on_color_639426798_2[10] = "#f30";
+off_color_639426798_2[10] = "#fff";
+on_line_color_639426798_2[10] = "#f30";
+off_line_color_639426798_2[10] = "#fff";
+check_639426798_2[10] = true;
+state_639426798_2[10] = false;
+sel_obj_639426798_2[10] = paper_639426798_2.path('M 70 60 l 15.450849718747378 -47.552825814757675 l -55.90169943749474 18.163563200134014 l 40.450849718747364 29.38926261462366 ').attr({fill: "#fff", stroke: "#fff", opacity: "1", "stroke-width": 0.2, "font-size": "18"});
+on_color_639426798_2[11] = "#f30";
+off_color_639426798_2[11] = "#fff";
+on_line_color_639426798_2[11] = "#f30";
+off_line_color_639426798_2[11] = "#fff";
+check_639426798_2[11] = true;
+state_639426798_2[11] = false;
+sel_obj_639426798_2[11] = paper_639426798_2.path('M 70 60 l -40.450849718747364 -29.38926261462366 l -7.105427357601002e-15 58.77852522924731 l 40.45084971874737 -29.389262614623647 ').attr({fill: "#fff", stroke: "#fff", opacity: "1", "stroke-width": 0.2, "font-size": "18"});
+on_color_639426798_2[12] = "#f30";
+off_color_639426798_2[12] = "#fff";
+on_line_color_639426798_2[12] = "#f30";
+off_line_color_639426798_2[12] = "#fff";
+check_639426798_2[12] = true;
+state_639426798_2[12] = false;
+sel_obj_639426798_2[12] = paper_639426798_2.path('M 70 60 l -40.45084971874737 29.389262614623647 l 55.901699437494734 18.163563200134035 l -15.450849718747364 -47.55282581475768 ').attr({fill: "#fff", stroke: "#fff", opacity: "1", "stroke-width": 0.2, "font-size": "18"});
+on_color_639426798_2[13] = "#f30";
+off_color_639426798_2[13] = "#fff";
+on_line_color_639426798_2[13] = "#f30";
+off_line_color_639426798_2[13] = "#fff";
+check_639426798_2[13] = true;
+state_639426798_2[13] = false;
+sel_obj_639426798_2[13] = paper_639426798_2.path('M 70 60 l 15.450849718747364 47.55282581475768 l 34.549150281252636 -47.55282581475767 l -50.0 -1.4210854715202004e-14 ').attr({fill: "#fff", stroke: "#fff", opacity: "1", "stroke-width": 0.2, "font-size": "18"});
+on_color_639426798_2[14] = "#f30";
+off_color_639426798_2[14] = "#fff";
+on_line_color_639426798_2[14] = "#f30";
+off_line_color_639426798_2[14] = "#fff";
+check_639426798_2[14] = true;
+state_639426798_2[14] = false;
+sel_obj_639426798_2[14] = paper_639426798_2.path('M 220 60 l 50 0 l -50.0 -50.0 l 0.0 50.0 ').attr({fill: "#fff", stroke: "#fff", opacity: "1", "stroke-width": 0.2, "font-size": "18"});
+on_color_639426798_2[15] = "#f30";
+off_color_639426798_2[15] = "#fff";
+on_line_color_639426798_2[15] = "#f30";
+off_line_color_639426798_2[15] = "#fff";
+check_639426798_2[15] = true;
+state_639426798_2[15] = false;
+sel_obj_639426798_2[15] = paper_639426798_2.path('M 220 60 l 0.0 -50.0 l -50.0 49.99999999999999 l 50.0 7.105427357601002e-15 ').attr({fill: "#fff", stroke: "#fff", opacity: "1", "stroke-width": 0.2, "font-size": "18"});
+on_color_639426798_2[16] = "#f30";
+off_color_639426798_2[16] = "#fff";
+on_line_color_639426798_2[16] = "#f30";
+off_line_color_639426798_2[16] = "#fff";
+check_639426798_2[16] = true;
+state_639426798_2[16] = false;
+sel_obj_639426798_2[16] = paper_639426798_2.path('M 220 60 l -50.0 -7.105427357601002e-15 l 50.0 50.00000000000001 l 0.0 -50.0 ').attr({fill: "#fff", stroke: "#fff", opacity: "1", "stroke-width": 0.2, "font-size": "18"});
+on_color_639426798_2[17] = "#f30";
+off_color_639426798_2[17] = "#fff";
+on_line_color_639426798_2[17] = "#f30";
+off_line_color_639426798_2[17] = "#fff";
+check_639426798_2[17] = true;
+state_639426798_2[17] = false;
+sel_obj_639426798_2[17] = paper_639426798_2.path('M 220 60 l 0.0 50.0 l 50.0 -49.999999999999986 l -50.0 -1.4210854715202004e-14 ').attr({fill: "#fff", stroke: "#fff", opacity: "1", "stroke-width": 0.2, "font-size": "18"});
+on_color_639426798_2[18] = "#aff";
+off_color_639426798_2[18] = "#fff";
+on_line_color_639426798_2[18] = "#000";
+off_line_color_639426798_2[18] = "#000";
+check_639426798_2[18] = false;
+state_639426798_2[18] = false;
+sel_obj_639426798_2[18] = paper_639426798_2.path('M 70 60 l 50.0 -0.0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[19] = "#aff";
+off_color_639426798_2[19] = "#fff";
+on_line_color_639426798_2[19] = "#000";
+off_line_color_639426798_2[19] = "#000";
+check_639426798_2[19] = false;
+state_639426798_2[19] = false;
+sel_obj_639426798_2[19] = paper_639426798_2.path('M 70 60 l 15.450849718747373 -47.552825814757675').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[20] = "#aff";
+off_color_639426798_2[20] = "#fff";
+on_line_color_639426798_2[20] = "#000";
+off_line_color_639426798_2[20] = "#000";
+check_639426798_2[20] = false;
+state_639426798_2[20] = false;
+sel_obj_639426798_2[20] = paper_639426798_2.path('M 70 60 l -40.450849718747364 -29.38926261462366').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[21] = "#aff";
+off_color_639426798_2[21] = "#fff";
+on_line_color_639426798_2[21] = "#000";
+off_line_color_639426798_2[21] = "#000";
+check_639426798_2[21] = false;
+state_639426798_2[21] = false;
+sel_obj_639426798_2[21] = paper_639426798_2.path('M 70 60 l -40.45084971874737 29.38926261462365').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[22] = "#aff";
+off_color_639426798_2[22] = "#fff";
+on_line_color_639426798_2[22] = "#000";
+off_line_color_639426798_2[22] = "#000";
+check_639426798_2[22] = false;
+state_639426798_2[22] = false;
+sel_obj_639426798_2[22] = paper_639426798_2.path('M 70 60 l 15.450849718747362 47.55282581475768').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[23] = "#none";
+off_color_639426798_2[23] = "#none";
+on_line_color_639426798_2[23] = "#000";
+off_line_color_639426798_2[23] = "#000";
+check_639426798_2[23] = false;
+state_639426798_2[23] = true;
+sel_obj_639426798_2[23] = paper_639426798_2.circle(70, 60, 50).attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_2[24] = "#aff";
+off_color_639426798_2[24] = "#fff";
+on_line_color_639426798_2[24] = "#f30";
+off_line_color_639426798_2[24] = "#f30";
+check_639426798_2[24] = false;
+state_639426798_2[24] = false;
+sel_obj_639426798_2[24] = paper_639426798_2.path('M 70 60 l 50 0').attr({fill: "#fff", stroke: "#f30", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_2[25] = "#000";
+off_color_639426798_2[25] = "#000";
+on_line_color_639426798_2[25] = "#000";
+off_line_color_639426798_2[25] = "#000";
+check_639426798_2[25] = false;
+state_639426798_2[25] = false;
+sel_obj_639426798_2[25] = paper_639426798_2.text(70, 135.0, "Irena").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "16", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_2[26] = "#aff";
+off_color_639426798_2[26] = "#fff";
+on_line_color_639426798_2[26] = "#000";
+off_line_color_639426798_2[26] = "#000";
+check_639426798_2[26] = false;
+state_639426798_2[26] = false;
+sel_obj_639426798_2[26] = paper_639426798_2.path('M 220 60 l 50.0 -0.0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[27] = "#aff";
+off_color_639426798_2[27] = "#fff";
+on_line_color_639426798_2[27] = "#000";
+off_line_color_639426798_2[27] = "#000";
+check_639426798_2[27] = false;
+state_639426798_2[27] = false;
+sel_obj_639426798_2[27] = paper_639426798_2.path('M 220 60 l 3.061616997868383e-15 -50.0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[28] = "#aff";
+off_color_639426798_2[28] = "#fff";
+on_line_color_639426798_2[28] = "#000";
+off_line_color_639426798_2[28] = "#000";
+check_639426798_2[28] = false;
+state_639426798_2[28] = false;
+sel_obj_639426798_2[28] = paper_639426798_2.path('M 220 60 l -50.0 -6.123233995736766e-15').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[29] = "#aff";
+off_color_639426798_2[29] = "#fff";
+on_line_color_639426798_2[29] = "#000";
+off_line_color_639426798_2[29] = "#000";
+check_639426798_2[29] = false;
+state_639426798_2[29] = false;
+sel_obj_639426798_2[29] = paper_639426798_2.path('M 220 60 l -9.184850993605149e-15 50.0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.5, "font-size": "18"});
+on_color_639426798_2[30] = "#none";
+off_color_639426798_2[30] = "#none";
+on_line_color_639426798_2[30] = "#000";
+off_line_color_639426798_2[30] = "#000";
+check_639426798_2[30] = false;
+state_639426798_2[30] = true;
+sel_obj_639426798_2[30] = paper_639426798_2.circle(220, 60, 50).attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_2[31] = "#aff";
+off_color_639426798_2[31] = "#fff";
+on_line_color_639426798_2[31] = "#f30";
+off_line_color_639426798_2[31] = "#f30";
+check_639426798_2[31] = false;
+state_639426798_2[31] = false;
+sel_obj_639426798_2[31] = paper_639426798_2.path('M 220 60 l 50 0').attr({fill: "#fff", stroke: "#f30", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_2[32] = "#000";
+off_color_639426798_2[32] = "#000";
+on_line_color_639426798_2[32] = "#000";
+off_line_color_639426798_2[32] = "#000";
+check_639426798_2[32] = false;
+state_639426798_2[32] = false;
+sel_obj_639426798_2[32] = paper_639426798_2.text(220, 135.0, "Jože").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "16", "font-family": "ChalkboardSE-Regular"});
+
+        function sel_obj_639426798_2_clear() {
+          if (!already_checked_obj_ok_639426798_2) {
+            for (let i=0; i<33; i++) {
+                if (check_639426798_2[i]) {
+                state_639426798_2[i] = false;
+                sel_obj_639426798_2[i].attr({fill: off_color_639426798_2[i], stroke: off_line_color_639426798_2[i]});
+                }
+            }
+            clearAllNoBorder('sel_canvas_639426798_2');
+          }
+        }
+        
+                already_checked_obj_ok_639426798_2 = false;
+                function sel_obj_639426798_2_check() {
+                    var result = [];
+                    var ind = 0;
+                    for (let i=0; i<33; i++) {
+                        if (check_639426798_2[i]) {
+                            if (state_639426798_2[i]) {
+                                result[ind] = 1;
+                            } else {
+                                result[ind] = 0;
+                            }
+                            ind++;
+                        }
+                    }
+                    if (result[0] == 1 && result[1] == 1 && result[2] == 0 && result[3] == 0 && result[4] == 0 && result[5] == 1 && result[6] == 0 && result[7] == 0 && result[8] == 0 ) {
+                        setOK('sel_canvas_639426798_2');
+                        already_checked_obj_ok_639426798_2 = true;
+                        return true;
+                    } else {
+                        setError('sel_canvas_639426798_2');
+                        already_checked_obj_ok_639426798_2 = false;
+                        return false;
+                    }
+                }
+            
+                function sel_obj_639426798_2_solution() {
+                    alread_shown_solutions = true;
+                    var ind = 0;
+                    for (let i=0; i<33; i++) {
+                        if (check_639426798_2[i]) {
+                            if (solution_639426798_2[ind] == 1) {
+                                sel_obj_639426798_2[i].attr({fill: on_color_639426798_2[i], stroke: on_line_color_639426798_2[i]});
+                                state_639426798_2[i] = true;
+                            } else {
+                                sel_obj_639426798_2[i].attr({fill: off_color_639426798_2[i], stroke: off_line_color_639426798_2[i]});
+                                state_639426798_2[i] = false;
+                            }
+                            ind++;
+                        }
+                    }
+                }
+            
+  	for (let i=0; i<33; i++) {
+          if (check_639426798_2[i]) {
+  	    sel_obj_639426798_2[i].mousedown( function() {
+	      if (state_639426798_2[i]) {
+  	        sel_obj_639426798_2[i].attr({fill: off_color_639426798_2[i], stroke: off_line_color_639426798_2[i]});
+                state_639426798_2[i] = false;
+	      } else {
+  	        sel_obj_639426798_2[i].attr({fill: on_color_639426798_2[i], stroke: on_line_color_639426798_2[i]});
+                state_639426798_2[i] = true;
+              }
+	    });
+          }
+        }
+        
+</script>
+</div> 
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_3'>
+Kdo je pojedel več in za koliko?
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_4'>
+ <select name='check_dropdown_answer_639426798_3' id='check_dropdown_answer_639426798_3'> <option value=' '> </option><option value='Irena'>Irena</option><option value='Jože'>Jože</option><option value='enako'>enako</option></select> <div style='display:inline-block;padding-left:0px;padding-right:10px;'> </div>  za \( \ \ \ \) 
+<table style='display:inline-table;vertical-align:middle' id='check_fraction_answer_table_639426798_1'>
+<tbody>
+<tr>
+<td style="border-bottom:solid 1px;text-align:center"><input style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px'type='text' size='1' id='check_fraction_answer_numerator_639426798_1' /></td>
+</tr>
+<tr>
+<td style="text-align:center"><input style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px' type='text' size='1' id='check_fraction_answer_denominator_639426798_1' /></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

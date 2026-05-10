@@ -1,0 +1,262 @@
+<script> global_q_id = "geometry/q00053";</script>
+<script> global_language = "rs";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+<script> rnd_val_639426798['rnd_arr_0'] = [8, 10, 16, 4, 6, 3];</script>
+<script> rnd_val_639426798['rnd_1'] = 6;</script>
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_radio_answer_639426798_2 = false;
+        function check_radio_answer_639426798_2_cond() {
+          var ok;
+          is_ok = (document.getElementById('check_radio_answer_639426798_2_3').checked);
+          
+          if (is_ok) {
+            setOK('check_radio_answer_639426798_2');
+            already_checked_obj_ok_check_radio_answer_639426798_2 = true;
+            return true;
+          } else {
+            setError('check_radio_answer_639426798_2');
+            already_checked_obj_ok_check_radio_answer_639426798_2 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = check_radio_answer_639426798_2_cond();
+   if (operation == 'SUBMIT') {
+      c0 = check_radio_answer_639426798_2_cond();
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+
+cond = c0 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+
+        values = { }
+        for (i = 0; i < 6; i++) {
+            values[i.toString()] = document.getElementById('check_radio_answer_639426798_2_' + i.toString()).checked;
+
+        }
+        
+   report['values']['q_val0'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        if (!already_checked_obj_ok_check_radio_answer_639426798_2){document.getElementById('check_radio_answer_639426798_2_0').checked=false;
+document.getElementById('check_radio_answer_639426798_2_1').checked=false;
+document.getElementById('check_radio_answer_639426798_2_2').checked=false;
+document.getElementById('check_radio_answer_639426798_2_3').checked=false;
+document.getElementById('check_radio_answer_639426798_2_4').checked=false;
+document.getElementById('check_radio_answer_639426798_2_5').checked=false;
+clearAllWBorder('check_radio_answer_639426798_2');}
+
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        document.getElementById('check_radio_answer_639426798_2_3').checked = true;
+
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'geometry/q00053' for language 'rs' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+Koliko trouglova ima na slici?
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_1'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_1'>
+        <script type = "text/javascript">
+            var paper_639426798_1 = Raphael("sel_canvas_639426798_1", 300, 250);
+            var on_color_639426798_1 = [];
+            var off_color_639426798_1 = [];
+            var on_line_color_639426798_1 = [];
+            var off_line_color_639426798_1 = [];
+            var check_639426798_1 = [];
+            var state_639426798_1 = [];
+            var sel_obj_639426798_1 = [];
+            var solution_639426798_1 = [];
+        
+on_color_639426798_1[0] = "#fff";
+off_color_639426798_1[0] = "#fff";
+on_line_color_639426798_1[0] = "#000";
+off_line_color_639426798_1[0] = "#000";
+check_639426798_1[0] = false;
+state_639426798_1[0] = false;
+sel_obj_639426798_1[0] = paper_639426798_1.path('M 35.0 160.0 l 105.0 -140 l 105.0 140 l -210 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[1] = "#fff";
+off_color_639426798_1[1] = "#fff";
+on_line_color_639426798_1[1] = "#000";
+off_line_color_639426798_1[1] = "#000";
+check_639426798_1[1] = false;
+state_639426798_1[1] = false;
+sel_obj_639426798_1[1] = paper_639426798_1.path('M 35.0 160 l 105 -50 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[2] = "#fff";
+off_color_639426798_1[2] = "#fff";
+on_line_color_639426798_1[2] = "#000";
+off_line_color_639426798_1[2] = "#000";
+check_639426798_1[2] = false;
+state_639426798_1[2] = false;
+sel_obj_639426798_1[2] = paper_639426798_1.path('M 245.0 160 l -105 -50 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[3] = "#fff";
+off_color_639426798_1[3] = "#fff";
+on_line_color_639426798_1[3] = "#000";
+off_line_color_639426798_1[3] = "#000";
+check_639426798_1[3] = false;
+state_639426798_1[3] = false;
+sel_obj_639426798_1[3] = paper_639426798_1.path('M 140 20 l 0 92.5 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+
+</script>
+</div>
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_2'>
+ Označi kružić ispred tačnog odgovora. 
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_3'>
+ <div id=check_radio_answer_639426798_2 style='display:inline-block'> <div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div><label><input type='radio' id='check_radio_answer_639426798_2_0' name='check_radio_answer_639426798_2'/> 8</label><div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div><label><input type='radio' id='check_radio_answer_639426798_2_1' name='check_radio_answer_639426798_2'/> 10</label><div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div><label><input type='radio' id='check_radio_answer_639426798_2_2' name='check_radio_answer_639426798_2'/> 16</label><div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div><label><input type='radio' id='check_radio_answer_639426798_2_3' name='check_radio_answer_639426798_2'/> 4</label><div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div><label><input type='radio' id='check_radio_answer_639426798_2_4' name='check_radio_answer_639426798_2'/> 6</label><div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div><label><input type='radio' id='check_radio_answer_639426798_2_5' name='check_radio_answer_639426798_2'/> 3</label><div style='display:inline-block;padding-left:6px;padding-right:6px;'> </div></div> 
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

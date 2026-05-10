@@ -1,0 +1,409 @@
+<script> global_q_id = "geometry/q00014";</script>
+<script> global_language = "sl";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+<script> rnd_val_639426798['rnd_0'] = 1;</script>
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = sel_obj_639426798_1_check();;
+   if (operation == 'SUBMIT') {
+      c0 = sel_obj_639426798_1_check();;
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+
+cond = c0 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+
+                {
+                    values = { };
+                    var ind = 0;
+                    for (let i=0; i<20; i++) {
+                        if (check_639426798_1[i]) {
+                            values[ind.toString()] = (state_639426798_1[i]).toString();
+                            ind++;
+                        }
+                    }
+                }
+            
+   report['values']['q_val0'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        sel_obj_639426798_1_clear();
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        sel_obj_639426798_1_solution();
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'geometry/q00014' for language 'sl' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+Pobarvajte lik, ki se nahaja zgoraj levo.
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_1'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_1'>
+        <script type = "text/javascript">
+            var paper_639426798_1 = Raphael("sel_canvas_639426798_1", 300, 300);
+            var on_color_639426798_1 = [];
+            var off_color_639426798_1 = [];
+            var on_line_color_639426798_1 = [];
+            var off_line_color_639426798_1 = [];
+            var check_639426798_1 = [];
+            var state_639426798_1 = [];
+            var sel_obj_639426798_1 = [];
+            var solution_639426798_1 = [];
+        solution_639426798_1[0] = 1 ; solution_639426798_1[1] = 0 ; solution_639426798_1[2] = 0 ; solution_639426798_1[3] = 0 ; solution_639426798_1[4] = 0 ; solution_639426798_1[5] = 0 ; solution_639426798_1[6] = 0 ; solution_639426798_1[7] = 0 ; solution_639426798_1[8] = 0 ; solution_639426798_1[9] = 0 ; solution_639426798_1[10] = 0 ; solution_639426798_1[11] = 0 ;  
+on_color_639426798_1[0] = "#fff";
+off_color_639426798_1[0] = "#fff";
+on_line_color_639426798_1[0] = "#000";
+off_line_color_639426798_1[0] = "#000";
+check_639426798_1[0] = false;
+state_639426798_1[0] = false;
+sel_obj_639426798_1[0] = paper_639426798_1.path('M 50 50 l 210 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_1[1] = "#fff";
+off_color_639426798_1[1] = "#fff";
+on_line_color_639426798_1[1] = "#000";
+off_line_color_639426798_1[1] = "#000";
+check_639426798_1[1] = false;
+state_639426798_1[1] = false;
+sel_obj_639426798_1[1] = paper_639426798_1.path('M 50 50 l 0 210').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_1[2] = "#fff";
+off_color_639426798_1[2] = "#fff";
+on_line_color_639426798_1[2] = "#000";
+off_line_color_639426798_1[2] = "#000";
+check_639426798_1[2] = false;
+state_639426798_1[2] = false;
+sel_obj_639426798_1[2] = paper_639426798_1.path('M 50 120 l 210 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_1[3] = "#fff";
+off_color_639426798_1[3] = "#fff";
+on_line_color_639426798_1[3] = "#000";
+off_line_color_639426798_1[3] = "#000";
+check_639426798_1[3] = false;
+state_639426798_1[3] = false;
+sel_obj_639426798_1[3] = paper_639426798_1.path('M 120 50 l 0 210').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_1[4] = "#fff";
+off_color_639426798_1[4] = "#fff";
+on_line_color_639426798_1[4] = "#000";
+off_line_color_639426798_1[4] = "#000";
+check_639426798_1[4] = false;
+state_639426798_1[4] = false;
+sel_obj_639426798_1[4] = paper_639426798_1.path('M 50 190 l 210 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_1[5] = "#fff";
+off_color_639426798_1[5] = "#fff";
+on_line_color_639426798_1[5] = "#000";
+off_line_color_639426798_1[5] = "#000";
+check_639426798_1[5] = false;
+state_639426798_1[5] = false;
+sel_obj_639426798_1[5] = paper_639426798_1.path('M 190 50 l 0 210').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_1[6] = "#fff";
+off_color_639426798_1[6] = "#fff";
+on_line_color_639426798_1[6] = "#000";
+off_line_color_639426798_1[6] = "#000";
+check_639426798_1[6] = false;
+state_639426798_1[6] = false;
+sel_obj_639426798_1[6] = paper_639426798_1.path('M 50 260 l 210 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_1[7] = "#fff";
+off_color_639426798_1[7] = "#fff";
+on_line_color_639426798_1[7] = "#000";
+off_line_color_639426798_1[7] = "#000";
+check_639426798_1[7] = false;
+state_639426798_1[7] = false;
+sel_obj_639426798_1[7] = paper_639426798_1.path('M 260 50 l 0 210').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_1[8] = "#faf";
+off_color_639426798_1[8] = "#fff";
+on_line_color_639426798_1[8] = "#00f";
+off_line_color_639426798_1[8] = "#00f";
+check_639426798_1[8] = true;
+state_639426798_1[8] = false;
+sel_obj_639426798_1[8] = paper_639426798_1.path('M 65.0 100.0 l 20.0 -40 l 20.0 40 l -40 0').attr({fill: "#fff", stroke: "#00f", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[9] = "#faf";
+off_color_639426798_1[9] = "#fff";
+on_line_color_639426798_1[9] = "#00f";
+off_line_color_639426798_1[9] = "#00f";
+check_639426798_1[9] = true;
+state_639426798_1[9] = false;
+sel_obj_639426798_1[9] = paper_639426798_1.circle(225, 80, 20).attr({fill: "#fff", stroke: "#00f", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[10] = "#faf";
+off_color_639426798_1[10] = "#fff";
+on_line_color_639426798_1[10] = "#00f";
+off_line_color_639426798_1[10] = "#00f";
+check_639426798_1[10] = true;
+state_639426798_1[10] = false;
+sel_obj_639426798_1[10] = paper_639426798_1.rect(65, 205, 40, 40).attr({fill: "#fff", stroke: "#00f", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[11] = "#faf";
+off_color_639426798_1[11] = "#fff";
+on_line_color_639426798_1[11] = "#00f";
+off_line_color_639426798_1[11] = "#00f";
+check_639426798_1[11] = true;
+state_639426798_1[11] = false;
+sel_obj_639426798_1[11] = paper_639426798_1.rect(200, 205, 50, 30).attr({fill: "#fff", stroke: "#00f", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[12] = "#faf";
+off_color_639426798_1[12] = "#fff";
+on_line_color_639426798_1[12] = "#00f";
+off_line_color_639426798_1[12] = "#00f";
+check_639426798_1[12] = true;
+state_639426798_1[12] = false;
+sel_obj_639426798_1[12] = paper_639426798_1.path('M 160 100 q 40 -50 0 -30 ').attr({fill: "#fff", stroke: "#00f", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[13] = "#faf";
+off_color_639426798_1[13] = "#fff";
+on_line_color_639426798_1[13] = "#00f";
+off_line_color_639426798_1[13] = "#00f";
+check_639426798_1[13] = true;
+state_639426798_1[13] = false;
+sel_obj_639426798_1[13] = paper_639426798_1.path('M 160 100 q -40 -50 0 -30 ').attr({fill: "#fff", stroke: "#00f", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[14] = "#faf";
+off_color_639426798_1[14] = "#fff";
+on_line_color_639426798_1[14] = "#00f";
+off_line_color_639426798_1[14] = "#00f";
+check_639426798_1[14] = true;
+state_639426798_1[14] = false;
+sel_obj_639426798_1[14] = paper_639426798_1.path('M 65 150 l 15 0 l 0 -15 l 10 0 l 0 15 l 15 0 l 0 10 l -15 0 l 0 15 l -10 0 l 0 -15 l -15 0 l 0 -10 ').attr({fill: "#fff", stroke: "#00f", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[15] = "#faf";
+off_color_639426798_1[15] = "#fff";
+on_line_color_639426798_1[15] = "#00f";
+off_line_color_639426798_1[15] = "#00f";
+check_639426798_1[15] = true;
+state_639426798_1[15] = false;
+sel_obj_639426798_1[15] = paper_639426798_1.ellipse(155, 155, 25, 10).attr({fill: "#fff", stroke: "#00f", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[16] = "#faf";
+off_color_639426798_1[16] = "#fff";
+on_line_color_639426798_1[16] = "#00f";
+off_line_color_639426798_1[16] = "#00f";
+check_639426798_1[16] = true;
+state_639426798_1[16] = false;
+sel_obj_639426798_1[16] = paper_639426798_1.path('M 222.5 180.0 l 2.5 -20 l 2.5 20 l -5 0').attr({fill: "#fff", stroke: "#00f", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[17] = "#faf";
+off_color_639426798_1[17] = "#fff";
+on_line_color_639426798_1[17] = "#00f";
+off_line_color_639426798_1[17] = "#00f";
+check_639426798_1[17] = true;
+state_639426798_1[17] = false;
+sel_obj_639426798_1[17] = paper_639426798_1.path('M 225 130 q 30 50 0 40 ').attr({fill: "#fff", stroke: "#00f", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[18] = "#faf";
+off_color_639426798_1[18] = "#fff";
+on_line_color_639426798_1[18] = "#00f";
+off_line_color_639426798_1[18] = "#00f";
+check_639426798_1[18] = true;
+state_639426798_1[18] = false;
+sel_obj_639426798_1[18] = paper_639426798_1.path('M 225 130 q -30 50 0 40 ').attr({fill: "#fff", stroke: "#00f", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_1[19] = "#faf";
+off_color_639426798_1[19] = "#fff";
+on_line_color_639426798_1[19] = "#00f";
+off_line_color_639426798_1[19] = "#00f";
+check_639426798_1[19] = true;
+state_639426798_1[19] = false;
+sel_obj_639426798_1[19] = paper_639426798_1.path('M 140 220 l 15 -5 l 5 -15 l 5 15 l 15 5 l -15 5 l -5 15 l -5 -15 l -15 -5 ').attr({fill: "#fff", stroke: "#00f", opacity: "1", "stroke-width": 2, "font-size": "18"});
+
+        function sel_obj_639426798_1_clear() {
+          if (!already_checked_obj_ok_639426798_1) {
+            for (let i=0; i<20; i++) {
+                if (check_639426798_1[i]) {
+                state_639426798_1[i] = false;
+                sel_obj_639426798_1[i].attr({fill: off_color_639426798_1[i], stroke: off_line_color_639426798_1[i]});
+                }
+            }
+            clearAllNoBorder('sel_canvas_639426798_1');
+          }
+        }
+        
+                already_checked_obj_ok_639426798_1 = false;
+                function sel_obj_639426798_1_check() {
+                    var result = [];
+                    var ind = 0;
+                    for (let i=0; i<20; i++) {
+                        if (check_639426798_1[i]) {
+                            if (state_639426798_1[i]) {
+                                result[ind] = 1;
+                            } else {
+                                result[ind] = 0;
+                            }
+                            ind++;
+                        }
+                    }
+                    if (result[0] == 1 && result[1] == 0 && result[2] == 0 && result[3] == 0 && result[4] == 0 && result[5] == 0 && result[6] == 0 && result[7] == 0 && result[8] == 0 && result[9] == 0 && result[10] == 0 && result[11] == 0 ) {
+                        setOK('sel_canvas_639426798_1');
+                        already_checked_obj_ok_639426798_1 = true;
+                        return true;
+                    } else {
+                        setError('sel_canvas_639426798_1');
+                        already_checked_obj_ok_639426798_1 = false;
+                        return false;
+                    }
+                }
+            
+                function sel_obj_639426798_1_solution() {
+                    alread_shown_solutions = true;
+                    var ind = 0;
+                    for (let i=0; i<20; i++) {
+                        if (check_639426798_1[i]) {
+                            if (solution_639426798_1[ind] == 1) {
+                                sel_obj_639426798_1[i].attr({fill: on_color_639426798_1[i], stroke: on_line_color_639426798_1[i]});
+                                state_639426798_1[i] = true;
+                            } else {
+                                sel_obj_639426798_1[i].attr({fill: off_color_639426798_1[i], stroke: off_line_color_639426798_1[i]});
+                                state_639426798_1[i] = false;
+                            }
+                            ind++;
+                        }
+                    }
+                }
+            
+  	for (let i=0; i<20; i++) {
+          if (check_639426798_1[i]) {
+  	    sel_obj_639426798_1[i].mousedown( function() {
+	      if (state_639426798_1[i]) {
+  	        sel_obj_639426798_1[i].attr({fill: off_color_639426798_1[i], stroke: off_line_color_639426798_1[i]});
+                state_639426798_1[i] = false;
+	      } else {
+  	        sel_obj_639426798_1[i].attr({fill: on_color_639426798_1[i], stroke: on_line_color_639426798_1[i]});
+                state_639426798_1[i] = true;
+              }
+	    });
+          }
+        }
+        
+</script>
+</div>
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

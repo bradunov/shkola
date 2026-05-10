@@ -1,0 +1,509 @@
+<script> global_q_id = "geometry/q00043";</script>
+<script> global_language = "rs";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_2 = false;
+        function check_number_answer_639426798_2_cond() {
+          var ok;
+          is_ok = (document.getElementById('check_number_answer_639426798_2').value.trim().toLowerCase() == 'valjak'.trim().toLowerCase());
+          
+          if (is_ok) {
+            setOK('check_number_answer_639426798_2');
+            already_checked_obj_ok_check_number_answer_639426798_2 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_2');
+            already_checked_obj_ok_check_number_answer_639426798_2 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_3 = false;
+        function check_number_answer_639426798_3_cond() {
+          var ok;
+          is_ok = (document.getElementById('check_number_answer_639426798_3').value.trim().toLowerCase() == 'kocka'.trim().toLowerCase());
+          
+          if (is_ok) {
+            setOK('check_number_answer_639426798_3');
+            already_checked_obj_ok_check_number_answer_639426798_3 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_3');
+            already_checked_obj_ok_check_number_answer_639426798_3 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_4 = false;
+        function check_number_answer_639426798_4_cond() {
+          var ok;
+          is_ok = (document.getElementById('check_number_answer_639426798_4').value.trim().toLowerCase() == 'lopta'.trim().toLowerCase());
+          
+          if (is_ok) {
+            setOK('check_number_answer_639426798_4');
+            already_checked_obj_ok_check_number_answer_639426798_4 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_4');
+            already_checked_obj_ok_check_number_answer_639426798_4 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_5 = false;
+        function check_number_answer_639426798_5_cond() {
+          var ok;
+          is_ok = (document.getElementById('check_number_answer_639426798_5').value.trim().toLowerCase() == 'kvadar'.trim().toLowerCase());
+          
+          if (is_ok) {
+            setOK('check_number_answer_639426798_5');
+            already_checked_obj_ok_check_number_answer_639426798_5 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_5');
+            already_checked_obj_ok_check_number_answer_639426798_5 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_6 = false;
+        function check_number_answer_639426798_6_cond() {
+          var ok;
+          is_ok = (document.getElementById('check_number_answer_639426798_6').value.trim().toLowerCase() == 'piramida'.trim().toLowerCase());
+          
+          if (is_ok) {
+            setOK('check_number_answer_639426798_6');
+            already_checked_obj_ok_check_number_answer_639426798_6 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_6');
+            already_checked_obj_ok_check_number_answer_639426798_6 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_7 = false;
+        function check_number_answer_639426798_7_cond() {
+          var ok;
+          is_ok = (document.getElementById('check_number_answer_639426798_7').value.trim().toLowerCase() == 'kupa'.trim().toLowerCase());
+          
+          if (is_ok) {
+            setOK('check_number_answer_639426798_7');
+            already_checked_obj_ok_check_number_answer_639426798_7 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_7');
+            already_checked_obj_ok_check_number_answer_639426798_7 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = check_number_answer_639426798_2_cond();
+   if (operation == 'SUBMIT') {
+      c0 = check_number_answer_639426798_2_cond();
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+   c1 = check_number_answer_639426798_3_cond();
+   if (operation == 'SUBMIT') {
+      c1 = check_number_answer_639426798_3_cond();
+      if (c1) {q_correct++;} else {q_incorrect++;}
+   } else {c1 = false; q_incorrect++;}
+
+   c2 = check_number_answer_639426798_4_cond();
+   if (operation == 'SUBMIT') {
+      c2 = check_number_answer_639426798_4_cond();
+      if (c2) {q_correct++;} else {q_incorrect++;}
+   } else {c2 = false; q_incorrect++;}
+
+   c3 = check_number_answer_639426798_5_cond();
+   if (operation == 'SUBMIT') {
+      c3 = check_number_answer_639426798_5_cond();
+      if (c3) {q_correct++;} else {q_incorrect++;}
+   } else {c3 = false; q_incorrect++;}
+
+   c4 = check_number_answer_639426798_6_cond();
+   if (operation == 'SUBMIT') {
+      c4 = check_number_answer_639426798_6_cond();
+      if (c4) {q_correct++;} else {q_incorrect++;}
+   } else {c4 = false; q_incorrect++;}
+
+   c5 = check_number_answer_639426798_7_cond();
+   if (operation == 'SUBMIT') {
+      c5 = check_number_answer_639426798_7_cond();
+      if (c5) {q_correct++;} else {q_incorrect++;}
+   } else {c5 = false; q_incorrect++;}
+
+
+cond = c0 && c1 && c2 && c3 && c4 && c5 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+report['detailed']['q_res1'] = c1.toString();
+report['detailed']['q_res2'] = c2.toString();
+report['detailed']['q_res3'] = c3.toString();
+report['detailed']['q_res4'] = c4.toString();
+report['detailed']['q_res5'] = c5.toString();
+values = document.getElementById('check_number_answer_639426798_2').value.toString();
+
+   report['values']['q_val0'] = values;
+values = document.getElementById('check_number_answer_639426798_3').value.toString();
+
+   report['values']['q_val1'] = values;
+values = document.getElementById('check_number_answer_639426798_4').value.toString();
+
+   report['values']['q_val2'] = values;
+values = document.getElementById('check_number_answer_639426798_5').value.toString();
+
+   report['values']['q_val3'] = values;
+values = document.getElementById('check_number_answer_639426798_6').value.toString();
+
+   report['values']['q_val4'] = values;
+values = document.getElementById('check_number_answer_639426798_7').value.toString();
+
+   report['values']['q_val5'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        if (!already_checked_obj_ok_check_number_answer_639426798_2){document.getElementById('check_number_answer_639426798_2').value = '';clearAllWBorder('check_number_answer_639426798_2');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_3){document.getElementById('check_number_answer_639426798_3').value = '';clearAllWBorder('check_number_answer_639426798_3');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_4){document.getElementById('check_number_answer_639426798_4').value = '';clearAllWBorder('check_number_answer_639426798_4');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_5){document.getElementById('check_number_answer_639426798_5').value = '';clearAllWBorder('check_number_answer_639426798_5');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_6){document.getElementById('check_number_answer_639426798_6').value = '';clearAllWBorder('check_number_answer_639426798_6');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_7){document.getElementById('check_number_answer_639426798_7').value = '';clearAllWBorder('check_number_answer_639426798_7');}
+
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        document.getElementById('check_number_answer_639426798_2').value = 'valjak'.trim();
+document.getElementById('check_number_answer_639426798_3').value = 'kocka'.trim();
+document.getElementById('check_number_answer_639426798_4').value = 'lopta'.trim();
+document.getElementById('check_number_answer_639426798_5').value = 'kvadar'.trim();
+document.getElementById('check_number_answer_639426798_6').value = 'piramida'.trim();
+document.getElementById('check_number_answer_639426798_7').value = 'kupa'.trim();
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'geometry/q00043' for language 'rs' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+Upiši nazive geometrijskih tela u prazne okvire ispod njih. 
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_1'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_1'>
+        <script type = "text/javascript">
+            var paper_639426798_1 = Raphael("sel_canvas_639426798_1", 335, 310);
+            var on_color_639426798_1 = [];
+            var off_color_639426798_1 = [];
+            var on_line_color_639426798_1 = [];
+            var off_line_color_639426798_1 = [];
+            var check_639426798_1 = [];
+            var state_639426798_1 = [];
+            var sel_obj_639426798_1 = [];
+            var solution_639426798_1 = [];
+        
+on_color_639426798_1[0] = "#fff";
+off_color_639426798_1[0] = "#fff";
+on_line_color_639426798_1[0] = "#000";
+off_line_color_639426798_1[0] = "#000";
+check_639426798_1[0] = false;
+state_639426798_1[0] = false;
+sel_obj_639426798_1[0] = paper_639426798_1.path('M 30 50 l 0 60 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_1[1] = "#fff";
+off_color_639426798_1[1] = "#fff";
+on_line_color_639426798_1[1] = "#000";
+off_line_color_639426798_1[1] = "#000";
+check_639426798_1[1] = false;
+state_639426798_1[1] = false;
+sel_obj_639426798_1[1] = paper_639426798_1.path('M 90 50 l 0 60 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_1[2] = "#fff";
+off_color_639426798_1[2] = "#fff";
+on_line_color_639426798_1[2] = "#000";
+off_line_color_639426798_1[2] = "#000";
+check_639426798_1[2] = false;
+state_639426798_1[2] = false;
+sel_obj_639426798_1[2] = paper_639426798_1.ellipse(60, 50, 30, 10).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_1[3] = "#fff";
+off_color_639426798_1[3] = "#fff";
+on_line_color_639426798_1[3] = "#000";
+off_line_color_639426798_1[3] = "#000";
+check_639426798_1[3] = false;
+state_639426798_1[3] = false;
+sel_obj_639426798_1[3] = paper_639426798_1.ellipse(60, 110, 30, 10).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:28,y:125, width:75, height:30}).div.html("<input style='padding:3px;width:55px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_2'/>");
+on_color_639426798_1[4] = "#fff";
+off_color_639426798_1[4] = "#fff";
+on_line_color_639426798_1[4] = "#000";
+off_line_color_639426798_1[4] = "#000";
+check_639426798_1[4] = false;
+state_639426798_1[4] = false;
+sel_obj_639426798_1[4] = paper_639426798_1.path('M 140 60 l 20 -10 l 40 0 l 0 40 l -20 10 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_1[5] = "#fff";
+off_color_639426798_1[5] = "#fff";
+on_line_color_639426798_1[5] = "#000";
+off_line_color_639426798_1[5] = "#000";
+check_639426798_1[5] = false;
+state_639426798_1[5] = false;
+sel_obj_639426798_1[5] = paper_639426798_1.path('M 180 60 l 20 -10 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_1[6] = "#fff";
+off_color_639426798_1[6] = "#fff";
+on_line_color_639426798_1[6] = "#000";
+off_line_color_639426798_1[6] = "#000";
+check_639426798_1[6] = false;
+state_639426798_1[6] = false;
+sel_obj_639426798_1[6] = paper_639426798_1.rect(140, 60, 40, 40).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:140,y:110, width:60, height:30}).div.html("<input style='padding:3px;width:40px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_3'/>");
+on_color_639426798_1[7] = "#fff";
+off_color_639426798_1[7] = "#none";
+on_line_color_639426798_1[7] = "#000";
+off_line_color_639426798_1[7] = "#000";
+check_639426798_1[7] = false;
+state_639426798_1[7] = false;
+sel_obj_639426798_1[7] = paper_639426798_1.circle(270, 70, 30).attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_1[8] = "#fff";
+off_color_639426798_1[8] = "#none";
+on_line_color_639426798_1[8] = "#000";
+off_line_color_639426798_1[8] = "#000";
+check_639426798_1[8] = false;
+state_639426798_1[8] = false;
+sel_obj_639426798_1[8] = paper_639426798_1.path('M 270 40 q 30 30 0 60 ').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_1[9] = "#fff";
+off_color_639426798_1[9] = "#none";
+on_line_color_639426798_1[9] = "#000";
+off_line_color_639426798_1[9] = "#000";
+check_639426798_1[9] = false;
+state_639426798_1[9] = false;
+sel_obj_639426798_1[9] = paper_639426798_1.path('M 240 70 q 30 30 60 0 ').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_1[10] = "#fff";
+off_color_639426798_1[10] = "#none";
+on_line_color_639426798_1[10] = "#000";
+off_line_color_639426798_1[10] = "#000";
+check_639426798_1[10] = false;
+state_639426798_1[10] = false;
+sel_obj_639426798_1[10] = paper_639426798_1.path('M 245 55 q 30 30 50 0 ').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:240,y:105, width:60, height:30}).div.html("<input style='padding:3px;width:45px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_4'/>");
+on_color_639426798_1[11] = "#fff";
+off_color_639426798_1[11] = "#fff";
+on_line_color_639426798_1[11] = "#000";
+off_line_color_639426798_1[11] = "#000";
+check_639426798_1[11] = false;
+state_639426798_1[11] = false;
+sel_obj_639426798_1[11] = paper_639426798_1.path('M 240 220 l 40 -50 l 20 0 l 0 50 l -40 50 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_1[12] = "#fff";
+off_color_639426798_1[12] = "#fff";
+on_line_color_639426798_1[12] = "#000";
+off_line_color_639426798_1[12] = "#000";
+check_639426798_1[12] = false;
+state_639426798_1[12] = false;
+sel_obj_639426798_1[12] = paper_639426798_1.path('M 260 220 l 40 -50 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_1[13] = "#fff";
+off_color_639426798_1[13] = "#fff";
+on_line_color_639426798_1[13] = "#000";
+off_line_color_639426798_1[13] = "#000";
+check_639426798_1[13] = false;
+state_639426798_1[13] = false;
+sel_obj_639426798_1[13] = paper_639426798_1.rect(240, 220, 20, 50).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:235,y:280, width:60, height:30}).div.html("<input style='padding:3px;width:40px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_5'/>");
+on_color_639426798_1[14] = "#fff";
+off_color_639426798_1[14] = "#fff";
+on_line_color_639426798_1[14] = "#000";
+off_line_color_639426798_1[14] = "#000";
+check_639426798_1[14] = false;
+state_639426798_1[14] = false;
+sel_obj_639426798_1[14] = paper_639426798_1.path('M 100 260 l -20 15 l -40 0 l 40 -90 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_1[15] = "#fff";
+off_color_639426798_1[15] = "#fff";
+on_line_color_639426798_1[15] = "#000";
+off_line_color_639426798_1[15] = "#000";
+check_639426798_1[15] = false;
+state_639426798_1[15] = false;
+sel_obj_639426798_1[15] = paper_639426798_1.path('M 60 260 l -20 15 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_1[16] = "#fff";
+off_color_639426798_1[16] = "#fff";
+on_line_color_639426798_1[16] = "#000";
+off_line_color_639426798_1[16] = "#000";
+check_639426798_1[16] = false;
+state_639426798_1[16] = false;
+sel_obj_639426798_1[16] = paper_639426798_1.path('M 60.0 260.0 l 20.0 -70 l 20.0 70 l -40 0').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:30,y:280, width:70, height:30}).div.html("<input style='padding:3px;width:50px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_6'/>");
+on_color_639426798_1[17] = "#fff";
+off_color_639426798_1[17] = "#fff";
+on_line_color_639426798_1[17] = "#000";
+off_line_color_639426798_1[17] = "#000";
+check_639426798_1[17] = false;
+state_639426798_1[17] = false;
+sel_obj_639426798_1[17] = paper_639426798_1.path('M 145 190 l 30 80 l 30 -80 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_1[18] = "#fff";
+off_color_639426798_1[18] = "#fff";
+on_line_color_639426798_1[18] = "#000";
+off_line_color_639426798_1[18] = "#000";
+check_639426798_1[18] = false;
+state_639426798_1[18] = false;
+sel_obj_639426798_1[18] = paper_639426798_1.ellipse(175, 190, 30, 10).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 3, "font-size": "18"});
+new Infobox(paper_639426798_1, {x:145,y:280, width:60, height:30}).div.html("<input style='padding:3px;width:40px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_7'/>");
+
+</script>
+</div>
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

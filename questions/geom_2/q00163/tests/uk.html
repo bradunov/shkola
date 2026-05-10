@@ -1,0 +1,381 @@
+<script> global_q_id = "geom_2/q00163";</script>
+<script> global_language = "uk";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+<script> rnd_val_639426798['rnd_0'] = 2;</script>
+<script> rnd_val_639426798['rnd_1'] = 18;</script>
+<script> rnd_val_639426798['rnd_2'] = 126;</script>
+<script> rnd_val_639426798['rnd_3'] = 58;</script>
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_1 = false;
+        function check_number_answer_639426798_1_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_1').value.replace(',', '.')) == '152');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_1').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_1');
+            already_checked_obj_ok_check_number_answer_639426798_1 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_1');
+            already_checked_obj_ok_check_number_answer_639426798_1 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = check_number_answer_639426798_1_cond();
+   if (operation == 'SUBMIT') {
+      c0 = check_number_answer_639426798_1_cond();
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+
+cond = c0 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+values = document.getElementById('check_number_answer_639426798_1').value.toString();
+
+   report['values']['q_val0'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        if (!already_checked_obj_ok_check_number_answer_639426798_1){document.getElementById('check_number_answer_639426798_1').value = '';clearAllWBorder('check_number_answer_639426798_1');}
+
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        document.getElementById('check_number_answer_639426798_1').value = '152'.replace('.', ',');
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'geom_2/q00163' for language 'uk' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+Observer E calculated the width of the river AD using the tree D on the opposite bank. 
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_1'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_2'>
+        <script type = "text/javascript">
+            var paper_639426798_2 = Raphael("sel_canvas_639426798_2", 260, 140);
+            var on_color_639426798_2 = [];
+            var off_color_639426798_2 = [];
+            var on_line_color_639426798_2 = [];
+            var off_line_color_639426798_2 = [];
+            var check_639426798_2 = [];
+            var state_639426798_2 = [];
+            var sel_obj_639426798_2 = [];
+            var solution_639426798_2 = [];
+        
+on_color_639426798_2[0] = "#aff";
+off_color_639426798_2[0] = "#aff";
+on_line_color_639426798_2[0] = "#fff";
+off_line_color_639426798_2[0] = "#fff";
+check_639426798_2[0] = false;
+state_639426798_2[0] = true;
+sel_obj_639426798_2[0] = paper_639426798_2.path('M 232 8 l -120 120 l -112 0 l 120 -120 l 112 0 ').attr({fill: "#aff", stroke: "#fff", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[1] = "#3c3";
+off_color_639426798_2[1] = "#3c3";
+on_line_color_639426798_2[1] = "#000";
+off_line_color_639426798_2[1] = "#000";
+check_639426798_2[1] = false;
+state_639426798_2[1] = false;
+sel_obj_639426798_2[1] = paper_639426798_2.path('M 57.25 51.0 l 1.75 -14.0 l 1.75 14.0 l -3.5 0').attr({fill: "#3c3", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[2] = "#3c3";
+off_color_639426798_2[2] = "#3c3";
+on_line_color_639426798_2[2] = "#000";
+off_line_color_639426798_2[2] = "#000";
+check_639426798_2[2] = false;
+state_639426798_2[2] = false;
+sel_obj_639426798_2[2] = paper_639426798_2.path('M 59 16 q 21.0 35.0 0 28.0 ').attr({fill: "#3c3", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[3] = "#3c3";
+off_color_639426798_2[3] = "#3c3";
+on_line_color_639426798_2[3] = "#000";
+off_line_color_639426798_2[3] = "#000";
+check_639426798_2[3] = false;
+state_639426798_2[3] = false;
+sel_obj_639426798_2[3] = paper_639426798_2.path('M 59 16 q -21.0 35.0 0 28.0 ').attr({fill: "#3c3", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[4] = "#c90";
+off_color_639426798_2[4] = "#c90";
+on_line_color_639426798_2[4] = "#000";
+off_line_color_639426798_2[4] = "#000";
+check_639426798_2[4] = false;
+state_639426798_2[4] = true;
+sel_obj_639426798_2[4] = paper_639426798_2.rect(56, 40, 8, 24).attr({fill: "#c90", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[5] = "#f9c";
+off_color_639426798_2[5] = "#f9c";
+on_line_color_639426798_2[5] = "#000";
+off_line_color_639426798_2[5] = "#000";
+check_639426798_2[5] = false;
+state_639426798_2[5] = false;
+sel_obj_639426798_2[5] = paper_639426798_2.circle(232, 69, 4).attr({fill: "#f9c", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[6] = "#f9c";
+off_color_639426798_2[6] = "#f9c";
+on_line_color_639426798_2[6] = "#000";
+off_line_color_639426798_2[6] = "#000";
+check_639426798_2[6] = false;
+state_639426798_2[6] = true;
+sel_obj_639426798_2[6] = paper_639426798_2.path('M 232 88 l -5 -16 l 8 0 l -5 16 ').attr({fill: "#f9c", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_2[7] = "#fff";
+off_color_639426798_2[7] = "#fff";
+on_line_color_639426798_2[7] = "#000";
+off_line_color_639426798_2[7] = "#000";
+check_639426798_2[7] = false;
+state_639426798_2[7] = false;
+sel_obj_639426798_2[7] = paper_639426798_2.path('M 64 64 l 56 56').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.7, "font-size": "18"});
+on_color_639426798_2[8] = "#fff";
+off_color_639426798_2[8] = "#fff";
+on_line_color_639426798_2[8] = "#000";
+off_line_color_639426798_2[8] = "#000";
+check_639426798_2[8] = false;
+state_639426798_2[8] = false;
+sel_obj_639426798_2[8] = paper_639426798_2.path('M 232 88 l -40 -40').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.7, "font-size": "18"});
+on_color_639426798_2[9] = "#fff";
+off_color_639426798_2[9] = "#fff";
+on_line_color_639426798_2[9] = "#000";
+off_line_color_639426798_2[9] = "#000";
+check_639426798_2[9] = false;
+state_639426798_2[9] = false;
+sel_obj_639426798_2[9] = paper_639426798_2.path('M 64 64 l 168 24').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.7, "font-size": "18"});
+on_color_639426798_2[10] = "#fff";
+off_color_639426798_2[10] = "#fff";
+on_line_color_639426798_2[10] = "#000";
+off_line_color_639426798_2[10] = "#000";
+check_639426798_2[10] = false;
+state_639426798_2[10] = false;
+sel_obj_639426798_2[10] = paper_639426798_2.path('M 120 120 l 72 -72').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.7, "font-size": "18"});
+on_color_639426798_2[11] = "#fff";
+off_color_639426798_2[11] = "#fff";
+on_line_color_639426798_2[11] = "#000";
+off_line_color_639426798_2[11] = "#000";
+check_639426798_2[11] = false;
+state_639426798_2[11] = false;
+sel_obj_639426798_2[11] = paper_639426798_2.circle(64, 64, 2).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.7, "font-size": "18"});
+on_color_639426798_2[12] = "#000";
+off_color_639426798_2[12] = "#000";
+on_line_color_639426798_2[12] = "#000";
+off_line_color_639426798_2[12] = "#000";
+check_639426798_2[12] = false;
+state_639426798_2[12] = false;
+sel_obj_639426798_2[12] = paper_639426798_2.text(72, 56, "D").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_2[13] = "#fff";
+off_color_639426798_2[13] = "#fff";
+on_line_color_639426798_2[13] = "#000";
+off_line_color_639426798_2[13] = "#000";
+check_639426798_2[13] = false;
+state_639426798_2[13] = false;
+sel_obj_639426798_2[13] = paper_639426798_2.circle(232, 88, 2).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.7, "font-size": "18"});
+on_color_639426798_2[14] = "#000";
+off_color_639426798_2[14] = "#000";
+on_line_color_639426798_2[14] = "#000";
+off_line_color_639426798_2[14] = "#000";
+check_639426798_2[14] = false;
+state_639426798_2[14] = false;
+sel_obj_639426798_2[14] = paper_639426798_2.text(232, 96, "E").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_2[15] = "#fff";
+off_color_639426798_2[15] = "#fff";
+on_line_color_639426798_2[15] = "#000";
+off_line_color_639426798_2[15] = "#000";
+check_639426798_2[15] = false;
+state_639426798_2[15] = false;
+sel_obj_639426798_2[15] = paper_639426798_2.circle(120, 120, 2).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.7, "font-size": "18"});
+on_color_639426798_2[16] = "#000";
+off_color_639426798_2[16] = "#000";
+on_line_color_639426798_2[16] = "#000";
+off_line_color_639426798_2[16] = "#000";
+check_639426798_2[16] = false;
+state_639426798_2[16] = false;
+sel_obj_639426798_2[16] = paper_639426798_2.text(128, 120, "A").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_2[17] = "#fff";
+off_color_639426798_2[17] = "#fff";
+on_line_color_639426798_2[17] = "#000";
+off_line_color_639426798_2[17] = "#000";
+check_639426798_2[17] = false;
+state_639426798_2[17] = false;
+sel_obj_639426798_2[17] = paper_639426798_2.circle(192, 48, 2).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.7, "font-size": "18"});
+on_color_639426798_2[18] = "#000";
+off_color_639426798_2[18] = "#000";
+on_line_color_639426798_2[18] = "#000";
+off_line_color_639426798_2[18] = "#000";
+check_639426798_2[18] = false;
+state_639426798_2[18] = false;
+sel_obj_639426798_2[18] = paper_639426798_2.text(200, 48, "C").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_2[19] = "#fff";
+off_color_639426798_2[19] = "#fff";
+on_line_color_639426798_2[19] = "#000";
+off_line_color_639426798_2[19] = "#000";
+check_639426798_2[19] = false;
+state_639426798_2[19] = false;
+sel_obj_639426798_2[19] = paper_639426798_2.circle(163, 77, 2).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 0.7, "font-size": "18"});
+on_color_639426798_2[20] = "#000";
+off_color_639426798_2[20] = "#000";
+on_line_color_639426798_2[20] = "#000";
+off_line_color_639426798_2[20] = "#000";
+check_639426798_2[20] = false;
+state_639426798_2[20] = false;
+sel_obj_639426798_2[20] = paper_639426798_2.text(163, 88, "B").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+
+</script>
+</div>
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_2'>
+He measured the distances 
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_3'>
+ CE = 32m, \( \ \ \ \ \) BC = 38m, \( \ \ \ \ \) AB = 180m,
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_4'>
+and calculated that the width of the river (rounding the result to the nearest whole number)
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_5'>
+ <input style='padding:3px;width:30px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_1'/>m.
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

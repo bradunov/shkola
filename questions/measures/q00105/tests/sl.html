@@ -1,0 +1,913 @@
+<script> global_q_id = "measures/q00105";</script>
+<script> global_language = "sl";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+<script> rnd_val_639426798['rnd_0'] = 1;</script>
+<script> rnd_val_639426798['rnd_1'] = 12;</script>
+<script> rnd_val_639426798['rnd_2'] = 5;</script>
+<script> rnd_val_639426798['rnd_3'] = 1;</script>
+<script> rnd_val_639426798['rnd_4'] = 1;</script>
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_1 = false;
+        function check_number_answer_639426798_1_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_1').value.replace(',', '.')) == '11');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_1').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_1');
+            already_checked_obj_ok_check_number_answer_639426798_1 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_1');
+            already_checked_obj_ok_check_number_answer_639426798_1 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_2 = false;
+        function check_number_answer_639426798_2_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_2').value.replace(',', '.')) == '4');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_2').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_2');
+            already_checked_obj_ok_check_number_answer_639426798_2 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_2');
+            already_checked_obj_ok_check_number_answer_639426798_2 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = check_number_answer_639426798_1_cond();
+   if (operation == 'SUBMIT') {
+      c0 = check_number_answer_639426798_1_cond();
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+   c1 = check_number_answer_639426798_2_cond();
+   if (operation == 'SUBMIT') {
+      c1 = check_number_answer_639426798_2_cond();
+      if (c1) {q_correct++;} else {q_incorrect++;}
+   } else {c1 = false; q_incorrect++;}
+
+
+cond = c0 && c1 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+report['detailed']['q_res1'] = c1.toString();
+values = document.getElementById('check_number_answer_639426798_1').value.toString();
+
+   report['values']['q_val0'] = values;
+values = document.getElementById('check_number_answer_639426798_2').value.toString();
+
+   report['values']['q_val1'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        if (!already_checked_obj_ok_check_number_answer_639426798_1){document.getElementById('check_number_answer_639426798_1').value = '';clearAllWBorder('check_number_answer_639426798_1');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_2){document.getElementById('check_number_answer_639426798_2').value = '';clearAllWBorder('check_number_answer_639426798_2');}
+
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        document.getElementById('check_number_answer_639426798_1').value = '11'.replace('.', ',');
+document.getElementById('check_number_answer_639426798_2').value = '4'.replace('.', ',');
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'measures/q00105' for language 'sl' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+Zapiši čas, ki ga kaže ura.
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_1'>
+<div style='display:table;padding-top:0px;padding-bottom:0px;float:center'> </div>
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_2'>
+ dopoldne <div style='display:inline-block;padding-left:0px;padding-right:10px;'> </div> <input style='padding:3px;width:30px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_1'/>  <input style='padding:3px;width:30px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_2'/> min.
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_3'>
+<div style='display:table;padding-top:0px;padding-bottom:0px;float:center'> </div>
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_4'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_3'>
+        <script type = "text/javascript">
+            var paper_639426798_3 = Raphael("sel_canvas_639426798_3", 300, 300);
+            var on_color_639426798_3 = [];
+            var off_color_639426798_3 = [];
+            var on_line_color_639426798_3 = [];
+            var off_line_color_639426798_3 = [];
+            var check_639426798_3 = [];
+            var state_639426798_3 = [];
+            var sel_obj_639426798_3 = [];
+            var solution_639426798_3 = [];
+        
+on_color_639426798_3[0] = "#c90";
+off_color_639426798_3[0] = "#c90";
+on_line_color_639426798_3[0] = "#000";
+off_line_color_639426798_3[0] = "#000";
+check_639426798_3[0] = false;
+state_639426798_3[0] = true;
+sel_obj_639426798_3[0] = paper_639426798_3.circle(150, 20, 10).attr({fill: "#c90", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[1] = "#ff0";
+off_color_639426798_3[1] = "#ff0";
+on_line_color_639426798_3[1] = "#000";
+off_line_color_639426798_3[1] = "#000";
+check_639426798_3[1] = false;
+state_639426798_3[1] = true;
+sel_obj_639426798_3[1] = paper_639426798_3.ellipse(150, 40, 30, 15).attr({fill: "#ff0", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[2] = "#ff0";
+off_color_639426798_3[2] = "#ff0";
+on_line_color_639426798_3[2] = "#000";
+off_line_color_639426798_3[2] = "#000";
+check_639426798_3[2] = false;
+state_639426798_3[2] = true;
+sel_obj_639426798_3[2] = paper_639426798_3.circle(150, 150, 110).attr({fill: "#ff0", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[3] = "#fff";
+off_color_639426798_3[3] = "#fff";
+on_line_color_639426798_3[3] = "#000";
+off_line_color_639426798_3[3] = "#000";
+check_639426798_3[3] = false;
+state_639426798_3[3] = true;
+sel_obj_639426798_3[3] = paper_639426798_3.circle(150, 150, 100).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[4] = "#c90";
+off_color_639426798_3[4] = "#c90";
+on_line_color_639426798_3[4] = "#000";
+off_line_color_639426798_3[4] = "#000";
+check_639426798_3[4] = false;
+state_639426798_3[4] = true;
+sel_obj_639426798_3[4] = paper_639426798_3.circle(105, 260, 10).attr({fill: "#c90", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[5] = "#c90";
+off_color_639426798_3[5] = "#c90";
+on_line_color_639426798_3[5] = "#000";
+off_line_color_639426798_3[5] = "#000";
+check_639426798_3[5] = false;
+state_639426798_3[5] = true;
+sel_obj_639426798_3[5] = paper_639426798_3.circle(195, 260, 10).attr({fill: "#c90", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[6] = "#fff";
+off_color_639426798_3[6] = "#fff";
+on_line_color_639426798_3[6] = "#000";
+off_line_color_639426798_3[6] = "#000";
+check_639426798_3[6] = false;
+state_639426798_3[6] = false;
+sel_obj_639426798_3[6] = paper_639426798_3.path('M 150 50.0 l 0 15 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[7] = "#000";
+off_color_639426798_3[7] = "#000";
+on_line_color_639426798_3[7] = "#000";
+off_line_color_639426798_3[7] = "#000";
+check_639426798_3[7] = false;
+state_639426798_3[7] = false;
+sel_obj_639426798_3[7] = paper_639426798_3.text(150, 70.0, "12").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_3[8] = "#fff";
+off_color_639426798_3[8] = "#fff";
+on_line_color_639426798_3[8] = "#000";
+off_line_color_639426798_3[8] = "#000";
+check_639426798_3[8] = false;
+state_639426798_3[8] = false;
+sel_obj_639426798_3[8] = paper_639426798_3.path('M 200.0 66.66666666666667 l -5 10 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[9] = "#000";
+off_color_639426798_3[9] = "#000";
+on_line_color_639426798_3[9] = "#000";
+off_line_color_639426798_3[9] = "#000";
+check_639426798_3[9] = false;
+state_639426798_3[9] = false;
+sel_obj_639426798_3[9] = paper_639426798_3.text(190.0, 81.66666666666667, "1").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_3[10] = "#fff";
+off_color_639426798_3[10] = "#fff";
+on_line_color_639426798_3[10] = "#000";
+off_line_color_639426798_3[10] = "#000";
+check_639426798_3[10] = false;
+state_639426798_3[10] = false;
+sel_obj_639426798_3[10] = paper_639426798_3.path('M 236.66666666666669 100 l -10 10 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[11] = "#000";
+off_color_639426798_3[11] = "#000";
+on_line_color_639426798_3[11] = "#000";
+off_line_color_639426798_3[11] = "#000";
+check_639426798_3[11] = false;
+state_639426798_3[11] = false;
+sel_obj_639426798_3[11] = paper_639426798_3.text(216.66666666666669, 105, "2").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_3[12] = "#fff";
+off_color_639426798_3[12] = "#fff";
+on_line_color_639426798_3[12] = "#000";
+off_line_color_639426798_3[12] = "#000";
+check_639426798_3[12] = false;
+state_639426798_3[12] = false;
+sel_obj_639426798_3[12] = paper_639426798_3.path('M 235 150 l 15 0 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[13] = "#000";
+off_color_639426798_3[13] = "#000";
+on_line_color_639426798_3[13] = "#000";
+off_line_color_639426798_3[13] = "#000";
+check_639426798_3[13] = false;
+state_639426798_3[13] = false;
+sel_obj_639426798_3[13] = paper_639426798_3.text(230, 150, "3").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_3[14] = "#fff";
+off_color_639426798_3[14] = "#fff";
+on_line_color_639426798_3[14] = "#000";
+off_line_color_639426798_3[14] = "#000";
+check_639426798_3[14] = false;
+state_639426798_3[14] = false;
+sel_obj_639426798_3[14] = paper_639426798_3.path('M 236.66666666666669 199.66666666666669 l -10 -10 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[15] = "#000";
+off_color_639426798_3[15] = "#000";
+on_line_color_639426798_3[15] = "#000";
+off_line_color_639426798_3[15] = "#000";
+check_639426798_3[15] = false;
+state_639426798_3[15] = false;
+sel_obj_639426798_3[15] = paper_639426798_3.text(216.66666666666669, 185.0, "4").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_3[16] = "#fff";
+off_color_639426798_3[16] = "#fff";
+on_line_color_639426798_3[16] = "#000";
+off_line_color_639426798_3[16] = "#000";
+check_639426798_3[16] = false;
+state_639426798_3[16] = false;
+sel_obj_639426798_3[16] = paper_639426798_3.path('M 200.0 235 l -5 -10 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[17] = "#000";
+off_color_639426798_3[17] = "#000";
+on_line_color_639426798_3[17] = "#000";
+off_line_color_639426798_3[17] = "#000";
+check_639426798_3[17] = false;
+state_639426798_3[17] = false;
+sel_obj_639426798_3[17] = paper_639426798_3.text(190.0, 216.66666666666669, "5").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_3[18] = "#fff";
+off_color_639426798_3[18] = "#fff";
+on_line_color_639426798_3[18] = "#000";
+off_line_color_639426798_3[18] = "#000";
+check_639426798_3[18] = false;
+state_639426798_3[18] = false;
+sel_obj_639426798_3[18] = paper_639426798_3.path('M 150 235 l 0 15 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[19] = "#000";
+off_color_639426798_3[19] = "#000";
+on_line_color_639426798_3[19] = "#000";
+off_line_color_639426798_3[19] = "#000";
+check_639426798_3[19] = false;
+state_639426798_3[19] = false;
+sel_obj_639426798_3[19] = paper_639426798_3.text(150, 225, "6").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_3[20] = "#fff";
+off_color_639426798_3[20] = "#fff";
+on_line_color_639426798_3[20] = "#000";
+off_line_color_639426798_3[20] = "#000";
+check_639426798_3[20] = false;
+state_639426798_3[20] = false;
+sel_obj_639426798_3[20] = paper_639426798_3.path('M 99.66666666666667 235 l 5 -10 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[21] = "#000";
+off_color_639426798_3[21] = "#000";
+on_line_color_639426798_3[21] = "#000";
+off_line_color_639426798_3[21] = "#000";
+check_639426798_3[21] = false;
+state_639426798_3[21] = false;
+sel_obj_639426798_3[21] = paper_639426798_3.text(105, 216.66666666666669, "7").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_3[22] = "#fff";
+off_color_639426798_3[22] = "#fff";
+on_line_color_639426798_3[22] = "#000";
+off_line_color_639426798_3[22] = "#000";
+check_639426798_3[22] = false;
+state_639426798_3[22] = false;
+sel_obj_639426798_3[22] = paper_639426798_3.path('M 66.0 197.66666666666669 l 10 -10 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[23] = "#000";
+off_color_639426798_3[23] = "#000";
+on_line_color_639426798_3[23] = "#000";
+off_line_color_639426798_3[23] = "#000";
+check_639426798_3[23] = false;
+state_639426798_3[23] = false;
+sel_obj_639426798_3[23] = paper_639426798_3.text(81.66666666666667, 190.0, "8").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_3[24] = "#fff";
+off_color_639426798_3[24] = "#fff";
+on_line_color_639426798_3[24] = "#000";
+off_line_color_639426798_3[24] = "#000";
+check_639426798_3[24] = false;
+state_639426798_3[24] = false;
+sel_obj_639426798_3[24] = paper_639426798_3.path('M 50 150 l 15 0 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[25] = "#000";
+off_color_639426798_3[25] = "#000";
+on_line_color_639426798_3[25] = "#000";
+off_line_color_639426798_3[25] = "#000";
+check_639426798_3[25] = false;
+state_639426798_3[25] = false;
+sel_obj_639426798_3[25] = paper_639426798_3.text(70, 150, "9").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_3[26] = "#fff";
+off_color_639426798_3[26] = "#fff";
+on_line_color_639426798_3[26] = "#000";
+off_line_color_639426798_3[26] = "#000";
+check_639426798_3[26] = false;
+state_639426798_3[26] = false;
+sel_obj_639426798_3[26] = paper_639426798_3.path('M 63.0 100 l 10 10 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[27] = "#000";
+off_color_639426798_3[27] = "#000";
+on_line_color_639426798_3[27] = "#000";
+off_line_color_639426798_3[27] = "#000";
+check_639426798_3[27] = false;
+state_639426798_3[27] = false;
+sel_obj_639426798_3[27] = paper_639426798_3.text(81.66666666666667, 110, "10").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_3[28] = "#fff";
+off_color_639426798_3[28] = "#fff";
+on_line_color_639426798_3[28] = "#000";
+off_line_color_639426798_3[28] = "#000";
+check_639426798_3[28] = false;
+state_639426798_3[28] = false;
+sel_obj_639426798_3[28] = paper_639426798_3.path('M 101.66666666666667 66.66666666666667 l 3 10 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[29] = "#000";
+off_color_639426798_3[29] = "#000";
+on_line_color_639426798_3[29] = "#000";
+off_line_color_639426798_3[29] = "#000";
+check_639426798_3[29] = false;
+state_639426798_3[29] = false;
+sel_obj_639426798_3[29] = paper_639426798_3.text(105, 81.66666666666667, "11").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "14", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_3[30] = "#f90";
+off_color_639426798_3[30] = "#f90";
+on_line_color_639426798_3[30] = "#f90";
+off_line_color_639426798_3[30] = "#f90";
+check_639426798_3[30] = false;
+state_639426798_3[30] = false;
+sel_obj_639426798_3[30] = paper_639426798_3.path('M 150 150 l -42.87028749752668 -79.13367456323135 ').attr({fill: "#f90", stroke: "#f90", opacity: "1", "stroke-width": 6, "font-size": "18"});
+on_color_639426798_3[31] = "#fff";
+off_color_639426798_3[31] = "#fff";
+on_line_color_639426798_3[31] = "#6f6";
+off_line_color_639426798_3[31] = "#6f6";
+check_639426798_3[31] = false;
+state_639426798_3[31] = false;
+sel_obj_639426798_3[31] = paper_639426798_3.path('M 150 150 l 40.67366430758001 -91.35454576426008 ').attr({fill: "#fff", stroke: "#6f6", opacity: "1", "stroke-width": 3, "font-size": "18"});
+on_color_639426798_3[32] = "#000";
+off_color_639426798_3[32] = "#000";
+on_line_color_639426798_3[32] = "#000";
+off_line_color_639426798_3[32] = "#000";
+check_639426798_3[32] = false;
+state_639426798_3[32] = false;
+sel_obj_639426798_3[32] = paper_639426798_3.text(150, 140, ".").attr({fill: "#000", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "40", "font-family": "ChalkboardSE-Regular"});
+on_color_639426798_3[33] = "#fff";
+off_color_639426798_3[33] = "#fff";
+on_line_color_639426798_3[33] = "#000";
+off_line_color_639426798_3[33] = "#000";
+check_639426798_3[33] = false;
+state_639426798_3[33] = false;
+sel_obj_639426798_3[33] = paper_639426798_3.path('M 249.45218953682735 160.45284632676535 l -4.972609476841367 -1.0452846326765346 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[34] = "#fff";
+off_color_639426798_3[34] = "#fff";
+on_line_color_639426798_3[34] = "#000";
+off_line_color_639426798_3[34] = "#000";
+check_639426798_3[34] = false;
+state_639426798_3[34] = false;
+sel_obj_639426798_3[34] = paper_639426798_3.path('M 50.54781046317267 160.45284632676535 l 4.972609476841367 -1.0452846326765346 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[35] = "#fff";
+off_color_639426798_3[35] = "#fff";
+on_line_color_639426798_3[35] = "#000";
+off_line_color_639426798_3[35] = "#000";
+check_639426798_3[35] = false;
+state_639426798_3[35] = false;
+sel_obj_639426798_3[35] = paper_639426798_3.path('M 50.54781046317267 139.54715367323465 l 4.972609476841367 1.0452846326765346 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[36] = "#fff";
+off_color_639426798_3[36] = "#fff";
+on_line_color_639426798_3[36] = "#000";
+off_line_color_639426798_3[36] = "#000";
+check_639426798_3[36] = false;
+state_639426798_3[36] = false;
+sel_obj_639426798_3[36] = paper_639426798_3.path('M 249.45218953682735 139.54715367323465 l -4.972609476841367 1.0452846326765346 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[37] = "#fff";
+off_color_639426798_3[37] = "#fff";
+on_line_color_639426798_3[37] = "#000";
+off_line_color_639426798_3[37] = "#000";
+check_639426798_3[37] = false;
+state_639426798_3[37] = false;
+sel_obj_639426798_3[37] = paper_639426798_3.path('M 247.81476007338057 170.79116908177593 l -4.8907380036690284 -2.079116908177593 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[38] = "#fff";
+off_color_639426798_3[38] = "#fff";
+on_line_color_639426798_3[38] = "#000";
+off_line_color_639426798_3[38] = "#000";
+check_639426798_3[38] = false;
+state_639426798_3[38] = false;
+sel_obj_639426798_3[38] = paper_639426798_3.path('M 52.18523992661943 170.79116908177593 l 4.8907380036690284 -2.079116908177593 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[39] = "#fff";
+off_color_639426798_3[39] = "#fff";
+on_line_color_639426798_3[39] = "#000";
+off_line_color_639426798_3[39] = "#000";
+check_639426798_3[39] = false;
+state_639426798_3[39] = false;
+sel_obj_639426798_3[39] = paper_639426798_3.path('M 52.18523992661943 129.20883091822407 l 4.8907380036690284 2.079116908177593 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[40] = "#fff";
+off_color_639426798_3[40] = "#fff";
+on_line_color_639426798_3[40] = "#000";
+off_line_color_639426798_3[40] = "#000";
+check_639426798_3[40] = false;
+state_639426798_3[40] = false;
+sel_obj_639426798_3[40] = paper_639426798_3.path('M 247.81476007338057 129.20883091822407 l -4.8907380036690284 2.079116908177593 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[41] = "#fff";
+off_color_639426798_3[41] = "#fff";
+on_line_color_639426798_3[41] = "#000";
+off_line_color_639426798_3[41] = "#000";
+check_639426798_3[41] = false;
+state_639426798_3[41] = false;
+sel_obj_639426798_3[41] = paper_639426798_3.path('M 245.10565162951536 180.90169943749473 l -4.755282581475767 -3.090169943749474 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[42] = "#fff";
+off_color_639426798_3[42] = "#fff";
+on_line_color_639426798_3[42] = "#000";
+off_line_color_639426798_3[42] = "#000";
+check_639426798_3[42] = false;
+state_639426798_3[42] = false;
+sel_obj_639426798_3[42] = paper_639426798_3.path('M 54.89434837048465 180.90169943749473 l 4.755282581475767 -3.090169943749474 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[43] = "#fff";
+off_color_639426798_3[43] = "#fff";
+on_line_color_639426798_3[43] = "#000";
+off_line_color_639426798_3[43] = "#000";
+check_639426798_3[43] = false;
+state_639426798_3[43] = false;
+sel_obj_639426798_3[43] = paper_639426798_3.path('M 54.89434837048465 119.09830056250526 l 4.755282581475767 3.090169943749474 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[44] = "#fff";
+off_color_639426798_3[44] = "#fff";
+on_line_color_639426798_3[44] = "#000";
+off_line_color_639426798_3[44] = "#000";
+check_639426798_3[44] = false;
+state_639426798_3[44] = false;
+sel_obj_639426798_3[44] = paper_639426798_3.path('M 245.10565162951536 119.09830056250526 l -4.755282581475767 3.090169943749474 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[45] = "#fff";
+off_color_639426798_3[45] = "#fff";
+on_line_color_639426798_3[45] = "#000";
+off_line_color_639426798_3[45] = "#000";
+check_639426798_3[45] = false;
+state_639426798_3[45] = false;
+sel_obj_639426798_3[45] = paper_639426798_3.path('M 241.35454576426008 190.67366430758 l -4.567727288213004 -4.0673664307580015 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[46] = "#fff";
+off_color_639426798_3[46] = "#fff";
+on_line_color_639426798_3[46] = "#000";
+off_line_color_639426798_3[46] = "#000";
+check_639426798_3[46] = false;
+state_639426798_3[46] = false;
+sel_obj_639426798_3[46] = paper_639426798_3.path('M 58.64545423573992 190.67366430758 l 4.567727288213004 -4.0673664307580015 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[47] = "#fff";
+off_color_639426798_3[47] = "#fff";
+on_line_color_639426798_3[47] = "#000";
+off_line_color_639426798_3[47] = "#000";
+check_639426798_3[47] = false;
+state_639426798_3[47] = false;
+sel_obj_639426798_3[47] = paper_639426798_3.path('M 58.64545423573992 109.32633569241999 l 4.567727288213004 4.0673664307580015 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[48] = "#fff";
+off_color_639426798_3[48] = "#fff";
+on_line_color_639426798_3[48] = "#000";
+off_line_color_639426798_3[48] = "#000";
+check_639426798_3[48] = false;
+state_639426798_3[48] = false;
+sel_obj_639426798_3[48] = paper_639426798_3.path('M 241.35454576426008 109.32633569241999 l -4.567727288213004 4.0673664307580015 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[49] = "#fff";
+off_color_639426798_3[49] = "#fff";
+on_line_color_639426798_3[49] = "#000";
+off_line_color_639426798_3[49] = "#000";
+check_639426798_3[49] = false;
+state_639426798_3[49] = false;
+sel_obj_639426798_3[49] = paper_639426798_3.path('M 236.60254037844388 200.0 l -4.330127018922194 -4.999999999999999 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[50] = "#fff";
+off_color_639426798_3[50] = "#fff";
+on_line_color_639426798_3[50] = "#000";
+off_line_color_639426798_3[50] = "#000";
+check_639426798_3[50] = false;
+state_639426798_3[50] = false;
+sel_obj_639426798_3[50] = paper_639426798_3.path('M 63.39745962155612 200.0 l 4.330127018922194 -4.999999999999999 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[51] = "#fff";
+off_color_639426798_3[51] = "#fff";
+on_line_color_639426798_3[51] = "#000";
+off_line_color_639426798_3[51] = "#000";
+check_639426798_3[51] = false;
+state_639426798_3[51] = false;
+sel_obj_639426798_3[51] = paper_639426798_3.path('M 63.39745962155612 100.0 l 4.330127018922194 4.999999999999999 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[52] = "#fff";
+off_color_639426798_3[52] = "#fff";
+on_line_color_639426798_3[52] = "#000";
+off_line_color_639426798_3[52] = "#000";
+check_639426798_3[52] = false;
+state_639426798_3[52] = false;
+sel_obj_639426798_3[52] = paper_639426798_3.path('M 236.60254037844388 100.0 l -4.330127018922194 4.999999999999999 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[53] = "#fff";
+off_color_639426798_3[53] = "#fff";
+on_line_color_639426798_3[53] = "#000";
+off_line_color_639426798_3[53] = "#000";
+check_639426798_3[53] = false;
+state_639426798_3[53] = false;
+sel_obj_639426798_3[53] = paper_639426798_3.path('M 230.90169943749476 208.77852522924732 l -4.045084971874737 -5.877852522924732 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[54] = "#fff";
+off_color_639426798_3[54] = "#fff";
+on_line_color_639426798_3[54] = "#000";
+off_line_color_639426798_3[54] = "#000";
+check_639426798_3[54] = false;
+state_639426798_3[54] = false;
+sel_obj_639426798_3[54] = paper_639426798_3.path('M 69.09830056250526 208.77852522924732 l 4.045084971874737 -5.877852522924732 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[55] = "#fff";
+off_color_639426798_3[55] = "#fff";
+on_line_color_639426798_3[55] = "#000";
+off_line_color_639426798_3[55] = "#000";
+check_639426798_3[55] = false;
+state_639426798_3[55] = false;
+sel_obj_639426798_3[55] = paper_639426798_3.path('M 69.09830056250526 91.22147477075268 l 4.045084971874737 5.877852522924732 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[56] = "#fff";
+off_color_639426798_3[56] = "#fff";
+on_line_color_639426798_3[56] = "#000";
+off_line_color_639426798_3[56] = "#000";
+check_639426798_3[56] = false;
+state_639426798_3[56] = false;
+sel_obj_639426798_3[56] = paper_639426798_3.path('M 230.90169943749476 91.22147477075268 l -4.045084971874737 5.877852522924732 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[57] = "#fff";
+off_color_639426798_3[57] = "#fff";
+on_line_color_639426798_3[57] = "#000";
+off_line_color_639426798_3[57] = "#000";
+check_639426798_3[57] = false;
+state_639426798_3[57] = false;
+sel_obj_639426798_3[57] = paper_639426798_3.path('M 224.31448254773943 216.9130606358858 l -3.715724127386972 -6.6913060635885815 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[58] = "#fff";
+off_color_639426798_3[58] = "#fff";
+on_line_color_639426798_3[58] = "#000";
+off_line_color_639426798_3[58] = "#000";
+check_639426798_3[58] = false;
+state_639426798_3[58] = false;
+sel_obj_639426798_3[58] = paper_639426798_3.path('M 75.68551745226057 216.9130606358858 l 3.715724127386972 -6.6913060635885815 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[59] = "#fff";
+off_color_639426798_3[59] = "#fff";
+on_line_color_639426798_3[59] = "#000";
+off_line_color_639426798_3[59] = "#000";
+check_639426798_3[59] = false;
+state_639426798_3[59] = false;
+sel_obj_639426798_3[59] = paper_639426798_3.path('M 75.68551745226057 83.08693936411419 l 3.715724127386972 6.6913060635885815 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[60] = "#fff";
+off_color_639426798_3[60] = "#fff";
+on_line_color_639426798_3[60] = "#000";
+off_line_color_639426798_3[60] = "#000";
+check_639426798_3[60] = false;
+state_639426798_3[60] = false;
+sel_obj_639426798_3[60] = paper_639426798_3.path('M 224.31448254773943 83.08693936411419 l -3.715724127386972 6.6913060635885815 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[61] = "#fff";
+off_color_639426798_3[61] = "#fff";
+on_line_color_639426798_3[61] = "#000";
+off_line_color_639426798_3[61] = "#000";
+check_639426798_3[61] = false;
+state_639426798_3[61] = false;
+sel_obj_639426798_3[61] = paper_639426798_3.path('M 216.9130606358858 224.31448254773943 l -3.345653031794291 -7.431448254773941 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[62] = "#fff";
+off_color_639426798_3[62] = "#fff";
+on_line_color_639426798_3[62] = "#000";
+off_line_color_639426798_3[62] = "#000";
+check_639426798_3[62] = false;
+state_639426798_3[62] = false;
+sel_obj_639426798_3[62] = paper_639426798_3.path('M 83.08693936411417 224.31448254773943 l 3.345653031794291 -7.431448254773941 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[63] = "#fff";
+off_color_639426798_3[63] = "#fff";
+on_line_color_639426798_3[63] = "#000";
+off_line_color_639426798_3[63] = "#000";
+check_639426798_3[63] = false;
+state_639426798_3[63] = false;
+sel_obj_639426798_3[63] = paper_639426798_3.path('M 83.08693936411417 75.68551745226058 l 3.345653031794291 7.431448254773941 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[64] = "#fff";
+off_color_639426798_3[64] = "#fff";
+on_line_color_639426798_3[64] = "#000";
+off_line_color_639426798_3[64] = "#000";
+check_639426798_3[64] = false;
+state_639426798_3[64] = false;
+sel_obj_639426798_3[64] = paper_639426798_3.path('M 216.9130606358858 75.68551745226058 l -3.345653031794291 7.431448254773941 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[65] = "#fff";
+off_color_639426798_3[65] = "#fff";
+on_line_color_639426798_3[65] = "#000";
+off_line_color_639426798_3[65] = "#000";
+check_639426798_3[65] = false;
+state_639426798_3[65] = false;
+sel_obj_639426798_3[65] = paper_639426798_3.path('M 208.77852522924732 230.90169943749476 l -2.938926261462366 -8.090169943749475 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[66] = "#fff";
+off_color_639426798_3[66] = "#fff";
+on_line_color_639426798_3[66] = "#000";
+off_line_color_639426798_3[66] = "#000";
+check_639426798_3[66] = false;
+state_639426798_3[66] = false;
+sel_obj_639426798_3[66] = paper_639426798_3.path('M 91.22147477075268 230.90169943749476 l 2.938926261462366 -8.090169943749475 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[67] = "#fff";
+off_color_639426798_3[67] = "#fff";
+on_line_color_639426798_3[67] = "#000";
+off_line_color_639426798_3[67] = "#000";
+check_639426798_3[67] = false;
+state_639426798_3[67] = false;
+sel_obj_639426798_3[67] = paper_639426798_3.path('M 91.22147477075268 69.09830056250526 l 2.938926261462366 8.090169943749475 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[68] = "#fff";
+off_color_639426798_3[68] = "#fff";
+on_line_color_639426798_3[68] = "#000";
+off_line_color_639426798_3[68] = "#000";
+check_639426798_3[68] = false;
+state_639426798_3[68] = false;
+sel_obj_639426798_3[68] = paper_639426798_3.path('M 208.77852522924732 69.09830056250526 l -2.938926261462366 8.090169943749475 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[69] = "#fff";
+off_color_639426798_3[69] = "#fff";
+on_line_color_639426798_3[69] = "#000";
+off_line_color_639426798_3[69] = "#000";
+check_639426798_3[69] = false;
+state_639426798_3[69] = false;
+sel_obj_639426798_3[69] = paper_639426798_3.path('M 200.0 236.60254037844385 l -2.5000000000000004 -8.660254037844386 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[70] = "#fff";
+off_color_639426798_3[70] = "#fff";
+on_line_color_639426798_3[70] = "#000";
+off_line_color_639426798_3[70] = "#000";
+check_639426798_3[70] = false;
+state_639426798_3[70] = false;
+sel_obj_639426798_3[70] = paper_639426798_3.path('M 99.99999999999999 236.60254037844385 l 2.5000000000000004 -8.660254037844386 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[71] = "#fff";
+off_color_639426798_3[71] = "#fff";
+on_line_color_639426798_3[71] = "#000";
+off_line_color_639426798_3[71] = "#000";
+check_639426798_3[71] = false;
+state_639426798_3[71] = false;
+sel_obj_639426798_3[71] = paper_639426798_3.path('M 99.99999999999999 63.39745962155614 l 2.5000000000000004 8.660254037844386 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[72] = "#fff";
+off_color_639426798_3[72] = "#fff";
+on_line_color_639426798_3[72] = "#000";
+off_line_color_639426798_3[72] = "#000";
+check_639426798_3[72] = false;
+state_639426798_3[72] = false;
+sel_obj_639426798_3[72] = paper_639426798_3.path('M 200.0 63.39745962155614 l -2.5000000000000004 8.660254037844386 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[73] = "#fff";
+off_color_639426798_3[73] = "#fff";
+on_line_color_639426798_3[73] = "#000";
+off_line_color_639426798_3[73] = "#000";
+check_639426798_3[73] = false;
+state_639426798_3[73] = false;
+sel_obj_639426798_3[73] = paper_639426798_3.path('M 190.67366430758005 241.35454576426008 l -2.0336832153790017 -9.135454576426008 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[74] = "#fff";
+off_color_639426798_3[74] = "#fff";
+on_line_color_639426798_3[74] = "#000";
+off_line_color_639426798_3[74] = "#000";
+check_639426798_3[74] = false;
+state_639426798_3[74] = false;
+sel_obj_639426798_3[74] = paper_639426798_3.path('M 109.32633569241996 241.35454576426008 l 2.0336832153790017 -9.135454576426008 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[75] = "#fff";
+off_color_639426798_3[75] = "#fff";
+on_line_color_639426798_3[75] = "#000";
+off_line_color_639426798_3[75] = "#000";
+check_639426798_3[75] = false;
+state_639426798_3[75] = false;
+sel_obj_639426798_3[75] = paper_639426798_3.path('M 109.32633569241996 58.64545423573992 l 2.0336832153790017 9.135454576426008 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[76] = "#fff";
+off_color_639426798_3[76] = "#fff";
+on_line_color_639426798_3[76] = "#000";
+off_line_color_639426798_3[76] = "#000";
+check_639426798_3[76] = false;
+state_639426798_3[76] = false;
+sel_obj_639426798_3[76] = paper_639426798_3.path('M 190.67366430758005 58.64545423573992 l -2.0336832153790017 9.135454576426008 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[77] = "#fff";
+off_color_639426798_3[77] = "#fff";
+on_line_color_639426798_3[77] = "#000";
+off_line_color_639426798_3[77] = "#000";
+check_639426798_3[77] = false;
+state_639426798_3[77] = false;
+sel_obj_639426798_3[77] = paper_639426798_3.path('M 180.90169943749476 245.10565162951536 l -1.5450849718747373 -9.510565162951535 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[78] = "#fff";
+off_color_639426798_3[78] = "#fff";
+on_line_color_639426798_3[78] = "#000";
+off_line_color_639426798_3[78] = "#000";
+check_639426798_3[78] = false;
+state_639426798_3[78] = false;
+sel_obj_639426798_3[78] = paper_639426798_3.path('M 119.09830056250526 245.10565162951536 l 1.5450849718747373 -9.510565162951535 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[79] = "#fff";
+off_color_639426798_3[79] = "#fff";
+on_line_color_639426798_3[79] = "#000";
+off_line_color_639426798_3[79] = "#000";
+check_639426798_3[79] = false;
+state_639426798_3[79] = false;
+sel_obj_639426798_3[79] = paper_639426798_3.path('M 119.09830056250526 54.89434837048465 l 1.5450849718747373 9.510565162951535 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[80] = "#fff";
+off_color_639426798_3[80] = "#fff";
+on_line_color_639426798_3[80] = "#000";
+off_line_color_639426798_3[80] = "#000";
+check_639426798_3[80] = false;
+state_639426798_3[80] = false;
+sel_obj_639426798_3[80] = paper_639426798_3.path('M 180.90169943749476 54.89434837048465 l -1.5450849718747373 9.510565162951535 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[81] = "#fff";
+off_color_639426798_3[81] = "#fff";
+on_line_color_639426798_3[81] = "#000";
+off_line_color_639426798_3[81] = "#000";
+check_639426798_3[81] = false;
+state_639426798_3[81] = false;
+sel_obj_639426798_3[81] = paper_639426798_3.path('M 170.79116908177593 247.81476007338057 l -1.0395584540887972 -9.781476007338055 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[82] = "#fff";
+off_color_639426798_3[82] = "#fff";
+on_line_color_639426798_3[82] = "#000";
+off_line_color_639426798_3[82] = "#000";
+check_639426798_3[82] = false;
+state_639426798_3[82] = false;
+sel_obj_639426798_3[82] = paper_639426798_3.path('M 129.20883091822407 247.81476007338057 l 1.0395584540887972 -9.781476007338055 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[83] = "#fff";
+off_color_639426798_3[83] = "#fff";
+on_line_color_639426798_3[83] = "#000";
+off_line_color_639426798_3[83] = "#000";
+check_639426798_3[83] = false;
+state_639426798_3[83] = false;
+sel_obj_639426798_3[83] = paper_639426798_3.path('M 129.20883091822407 52.185239926619445 l 1.0395584540887972 9.781476007338055 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[84] = "#fff";
+off_color_639426798_3[84] = "#fff";
+on_line_color_639426798_3[84] = "#000";
+off_line_color_639426798_3[84] = "#000";
+check_639426798_3[84] = false;
+state_639426798_3[84] = false;
+sel_obj_639426798_3[84] = paper_639426798_3.path('M 170.79116908177593 52.185239926619445 l -1.0395584540887972 9.781476007338055 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[85] = "#fff";
+off_color_639426798_3[85] = "#fff";
+on_line_color_639426798_3[85] = "#000";
+off_line_color_639426798_3[85] = "#000";
+check_639426798_3[85] = false;
+state_639426798_3[85] = false;
+sel_obj_639426798_3[85] = paper_639426798_3.path('M 160.45284632676538 249.45218953682735 l -0.5226423163382684 -9.945218953682733 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[86] = "#fff";
+off_color_639426798_3[86] = "#fff";
+on_line_color_639426798_3[86] = "#000";
+off_line_color_639426798_3[86] = "#000";
+check_639426798_3[86] = false;
+state_639426798_3[86] = false;
+sel_obj_639426798_3[86] = paper_639426798_3.path('M 139.54715367323462 249.45218953682735 l 0.5226423163382684 -9.945218953682733 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[87] = "#fff";
+off_color_639426798_3[87] = "#fff";
+on_line_color_639426798_3[87] = "#000";
+off_line_color_639426798_3[87] = "#000";
+check_639426798_3[87] = false;
+state_639426798_3[87] = false;
+sel_obj_639426798_3[87] = paper_639426798_3.path('M 139.54715367323462 50.54781046317267 l 0.5226423163382684 9.945218953682733 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[88] = "#fff";
+off_color_639426798_3[88] = "#fff";
+on_line_color_639426798_3[88] = "#000";
+off_line_color_639426798_3[88] = "#000";
+check_639426798_3[88] = false;
+state_639426798_3[88] = false;
+sel_obj_639426798_3[88] = paper_639426798_3.path('M 160.45284632676538 50.54781046317267 l -0.5226423163382684 9.945218953682733 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[89] = "#fff";
+off_color_639426798_3[89] = "#fff";
+on_line_color_639426798_3[89] = "#000";
+off_line_color_639426798_3[89] = "#000";
+check_639426798_3[89] = false;
+state_639426798_3[89] = false;
+sel_obj_639426798_3[89] = paper_639426798_3.path('M 150.0 250.0 l -3.061616997868383e-16 -10.0 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[90] = "#fff";
+off_color_639426798_3[90] = "#fff";
+on_line_color_639426798_3[90] = "#000";
+off_line_color_639426798_3[90] = "#000";
+check_639426798_3[90] = false;
+state_639426798_3[90] = false;
+sel_obj_639426798_3[90] = paper_639426798_3.path('M 150.0 250.0 l 3.061616997868383e-16 -10.0 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[91] = "#fff";
+off_color_639426798_3[91] = "#fff";
+on_line_color_639426798_3[91] = "#000";
+off_line_color_639426798_3[91] = "#000";
+check_639426798_3[91] = false;
+state_639426798_3[91] = false;
+sel_obj_639426798_3[91] = paper_639426798_3.path('M 150.0 50.0 l 3.061616997868383e-16 10.0 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+on_color_639426798_3[92] = "#fff";
+off_color_639426798_3[92] = "#fff";
+on_line_color_639426798_3[92] = "#000";
+off_line_color_639426798_3[92] = "#000";
+check_639426798_3[92] = false;
+state_639426798_3[92] = false;
+sel_obj_639426798_3[92] = paper_639426798_3.path('M 150.0 50.0 l -3.061616997868383e-16 10.0 ').attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 1, "font-size": "18"});
+
+</script>
+</div>
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+

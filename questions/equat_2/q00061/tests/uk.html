@@ -1,0 +1,636 @@
+<script> global_q_id = "equat_2/q00061";</script>
+<script> global_language = "uk";</script>
+
+            <script> 
+                var alread_shown_solutions = false;
+                var rnd_val_639426798 = {};
+                function sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment) {
+                    var xhr = new XMLHttpRequest();
+                    var url = '/' + root + '?op=feedback'
+                    var feedback = {};
+                    feedback['type'] = type;
+                    feedback['q_id'] = q_id;
+                    feedback['language'] = language;
+                    feedback['l_id'] = l_id;
+                    feedback['test_id'] = test_id;
+                    feedback['test_order'] = test_order;
+                    feedback['comment'] = comment;
+                    feedback['attempt'] = attempt.toString();
+                    feedback['shown_solutions'] = alread_shown_solutions;
+                    feedback['rand_val'] = rnd_val_639426798;
+                    xhr.open('POST', url);
+                    xhr.onreadystatechange = function() {
+                        //console.log("Received");
+                        //console.log(xhr);
+                        //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+                    };
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    //console.log("Sending report to " + url + ": " + JSON.stringify(feedback));
+                    xhr.send(JSON.stringify(feedback));
+                }
+            </script>
+        
+<script> rnd_val_639426798['rnd_0'] = 1;</script>
+<script> rnd_val_639426798['rnd_1'] = 2;</script>
+<script> rnd_val_639426798['rnd_2'] = 2;</script>
+<script> rnd_val_639426798['rnd_3'] = 1;</script>
+<script> rnd_val_639426798['rnd_4'] = 2;</script>
+<script> rnd_val_639426798['rnd_5'] = 1;</script>
+<script> rnd_val_639426798['rnd_6'] = 6;</script>
+<script> rnd_val_639426798['rnd_7'] = 1;</script>
+<script> rnd_val_639426798['rnd_8'] = 5;</script>
+<script> rnd_val_639426798['rnd_9'] = 2;</script>
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_1 = false;
+        function check_number_answer_639426798_1_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_1').value.replace(',', '.')) == '-1.0');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_1').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_1');
+            already_checked_obj_ok_check_number_answer_639426798_1 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_1');
+            already_checked_obj_ok_check_number_answer_639426798_1 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_fraction_answer_table_639426798_2 = false;
+        function check_fraction_answer_table_639426798_2_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_fraction_answer_numerator_639426798_2').value) == "5" && (((Number(document.getElementById('check_fraction_answer_denominator_639426798_2').value)) == 0)?1:(Number(document.getElementById('check_fraction_answer_denominator_639426798_2').value)))  == "6")
+          
+          if (is_ok) {
+            setOK('check_fraction_answer_table_639426798_2');
+            already_checked_obj_ok_check_fraction_answer_table_639426798_2 = true;
+            return true;
+          } else {
+            setError('check_fraction_answer_table_639426798_2');
+            already_checked_obj_ok_check_fraction_answer_table_639426798_2 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_dropdown_answer_639426798_3 = false;
+        function check_dropdown_answer_639426798_3_cond() {
+          var ok;
+          is_ok = (document.getElementById('check_dropdown_answer_639426798_3').value == ' < ');
+          
+          if (is_ok) {
+            setOK('check_dropdown_answer_639426798_3');
+            already_checked_obj_ok_check_dropdown_answer_639426798_3 = true;
+            return true;
+          } else {
+            setError('check_dropdown_answer_639426798_3');
+            already_checked_obj_ok_check_dropdown_answer_639426798_3 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_dropdown_answer_639426798_4 = false;
+        function check_dropdown_answer_639426798_4_cond() {
+          var ok;
+          is_ok = (document.getElementById('check_dropdown_answer_639426798_4').value == ' < ');
+          
+          if (is_ok) {
+            setOK('check_dropdown_answer_639426798_4');
+            already_checked_obj_ok_check_dropdown_answer_639426798_4 = true;
+            return true;
+          } else {
+            setError('check_dropdown_answer_639426798_4');
+            already_checked_obj_ok_check_dropdown_answer_639426798_4 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_dropdown_answer_639426798_5 = false;
+        function check_dropdown_answer_639426798_5_cond() {
+          var ok;
+          is_ok = (document.getElementById('check_dropdown_answer_639426798_5').value == 'The solution is');
+          
+          if (is_ok) {
+            setOK('check_dropdown_answer_639426798_5');
+            already_checked_obj_ok_check_dropdown_answer_639426798_5 = true;
+            return true;
+          } else {
+            setError('check_dropdown_answer_639426798_5');
+            already_checked_obj_ok_check_dropdown_answer_639426798_5 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_7 = false;
+        function check_number_answer_639426798_7_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_7').value.replace(',', '.')) == '-1.0');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_7').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_7');
+            already_checked_obj_ok_check_number_answer_639426798_7 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_7');
+            already_checked_obj_ok_check_number_answer_639426798_7 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+        <script type = "text/javascript">
+        already_checked_obj_ok_check_number_answer_639426798_8 = false;
+        function check_number_answer_639426798_8_cond() {
+          var ok;
+          is_ok = (Number(document.getElementById('check_number_answer_639426798_8').value.replace(',', '.')) == '0.83');
+          is_ok = is_ok && document.getElementById('check_number_answer_639426798_8').value.length > 0;
+          if (is_ok) {
+            setOK('check_number_answer_639426798_8');
+            already_checked_obj_ok_check_number_answer_639426798_8 = true;
+            return true;
+          } else {
+            setError('check_number_answer_639426798_8');
+            already_checked_obj_ok_check_number_answer_639426798_8 = false;
+            return false;
+          }
+        }
+        </script>
+        
+
+<!-- START CHECK AND REPORT -->
+
+
+        <script>
+        question_start_time = Math.floor(Date.now()/1000);
+        attempt = 0;
+        q_correct = 0;
+        q_incorrect = 0;
+        function sendResultsToServer(report, type, root) {
+            var xhr = new XMLHttpRequest();
+            var url = '/' + root + '?op=register';
+            report['response_type'] = type;
+            xhr.open('POST', url);
+            xhr.onreadystatechange = function() {
+                //console.log("Received");
+                //console.log(xhr);
+                //if (xhr.readyState>3 && xhr.status==200) { console.log("Success: ", xhr.responseText); }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            //console.log("Sending report to " + url + ": " + JSON.stringify(report));
+            xhr.send(JSON.stringify(report));
+
+            attempt = attempt + 1;
+        }
+
+        // operation == SUBMIT (attempted to answer) | SKIP (skipped question) | SHOWED (asked to see answers)
+        // root == URL root to which to post the results
+        function checkAll_639426798(operation, root, mode, q_id, l_id, language) {
+            q_correct=0; q_incorrect=0;
+           c0 = check_number_answer_639426798_1_cond();
+   if (operation == 'SUBMIT') {
+      c0 = check_number_answer_639426798_1_cond();
+      if (c0) {q_correct++;} else {q_incorrect++;}
+   } else {c0 = false; q_incorrect++;}
+
+   c1 = check_fraction_answer_table_639426798_2_cond();
+   if (operation == 'SUBMIT') {
+      c1 = check_fraction_answer_table_639426798_2_cond();
+      if (c1) {q_correct++;} else {q_incorrect++;}
+   } else {c1 = false; q_incorrect++;}
+
+   c2 = check_dropdown_answer_639426798_3_cond();
+   if (operation == 'SUBMIT') {
+      c2 = check_dropdown_answer_639426798_3_cond();
+      if (c2) {q_correct++;} else {q_incorrect++;}
+   } else {c2 = false; q_incorrect++;}
+
+   c3 = check_dropdown_answer_639426798_4_cond();
+   if (operation == 'SUBMIT') {
+      c3 = check_dropdown_answer_639426798_4_cond();
+      if (c3) {q_correct++;} else {q_incorrect++;}
+   } else {c3 = false; q_incorrect++;}
+
+   c4 = check_dropdown_answer_639426798_5_cond();
+   if (operation == 'SUBMIT') {
+      c4 = check_dropdown_answer_639426798_5_cond();
+      if (c4) {q_correct++;} else {q_incorrect++;}
+   } else {c4 = false; q_incorrect++;}
+
+   c5 = check_number_answer_639426798_7_cond();
+   if (operation == 'SUBMIT') {
+      c5 = check_number_answer_639426798_7_cond();
+      if (c5) {q_correct++;} else {q_incorrect++;}
+   } else {c5 = false; q_incorrect++;}
+
+   c6 = check_number_answer_639426798_8_cond();
+   if (operation == 'SUBMIT') {
+      c6 = check_number_answer_639426798_8_cond();
+      if (c6) {q_correct++;} else {q_incorrect++;}
+   } else {c6 = false; q_incorrect++;}
+
+   c7 = sel_obj_639426798_6_check();;
+   if (operation == 'SUBMIT') {
+      c7 = sel_obj_639426798_6_check();;
+      if (c7) {q_correct++;} else {q_incorrect++;}
+   } else {c7 = false; q_incorrect++;}
+
+
+cond = c0 && c1 && c2 && c3 && c4 && c5 && c6 && c7 && true;
+
+          if (!(operation === undefined)) {
+              
+            var report = {};
+            report['mode'] = mode;
+            report['q_id'] = q_id;
+            report['l_id'] = l_id;
+            report['language'] = language;
+            report['test_id'] = test_id;
+            report['test_order'] = test_order;
+            report['start'] = question_start_time.toString();
+            report['now'] = Math.floor(Date.now()/1000).toString();
+            report['attempt'] = attempt.toString();
+            report['shown_solutions'] = alread_shown_solutions;
+            report['detailed'] = {};
+            report['values'] = {};
+        report['detailed']['q_res0'] = c0.toString();
+report['detailed']['q_res1'] = c1.toString();
+report['detailed']['q_res2'] = c2.toString();
+report['detailed']['q_res3'] = c3.toString();
+report['detailed']['q_res4'] = c4.toString();
+report['detailed']['q_res5'] = c5.toString();
+report['detailed']['q_res6'] = c6.toString();
+report['detailed']['q_res7'] = c7.toString();
+values = document.getElementById('check_number_answer_639426798_1').value.toString();
+
+   report['values']['q_val0'] = values;
+values = { 'numerator' : document.getElementById('check_fraction_answer_numerator_639426798_2').value.toString(), 'denominator' : document.getElementById('check_fraction_answer_denominator_639426798_2').value.toString() };
+
+   report['values']['q_val1'] = values;
+values = document.getElementById('check_dropdown_answer_639426798_3').value.toString();
+
+   report['values']['q_val2'] = values;
+values = document.getElementById('check_dropdown_answer_639426798_4').value.toString();
+
+   report['values']['q_val3'] = values;
+values = document.getElementById('check_dropdown_answer_639426798_5').value.toString();
+
+   report['values']['q_val4'] = values;
+values = document.getElementById('check_number_answer_639426798_7').value.toString();
+
+   report['values']['q_val5'] = values;
+values = document.getElementById('check_number_answer_639426798_8').value.toString();
+
+   report['values']['q_val6'] = values;
+
+                {
+                    values = { };
+                    var ind = 0;
+                    for (let i=0; i<11; i++) {
+                        if (check_639426798_6[i]) {
+                            values[ind.toString()] = (state_639426798_6[i]).toString();
+                            ind++;
+                        }
+                    }
+                }
+            
+   report['values']['q_val7'] = values;
+sendResultsToServer(report, operation, root);
+          }
+          return cond;
+        }
+
+        var checked_all = false;
+        function checkAll(operation, root, mode, q_id, l_id, language) {
+            checked_all = true;
+            return checkAll_639426798(operation, root, mode, q_id, l_id, language);
+        }
+        </script>
+        
+
+<!-- END CHECK AND REPORT -->
+
+
+<!-- CLEAR ALL -->
+
+
+        <script>
+        function clearAll_639426798(){
+        if (!already_checked_obj_ok_check_number_answer_639426798_1){document.getElementById('check_number_answer_639426798_1').value = '';clearAllWBorder('check_number_answer_639426798_1');}
+
+if (!already_checked_obj_ok_check_fraction_answer_table_639426798_2){document.getElementById('check_fraction_answer_numerator_639426798_2').value = '';document.getElementById('check_fraction_answer_denominator_639426798_2').value = '';clearAllNoBorder('check_fraction_answer_table_639426798_2');}
+
+if (!already_checked_obj_ok_check_dropdown_answer_639426798_3){document.getElementById('check_dropdown_answer_639426798_3').value = ' ';clearAllWBorder('check_dropdown_answer_639426798_3');}
+
+if (!already_checked_obj_ok_check_dropdown_answer_639426798_4){document.getElementById('check_dropdown_answer_639426798_4').value = ' ';clearAllWBorder('check_dropdown_answer_639426798_4');}
+
+if (!already_checked_obj_ok_check_dropdown_answer_639426798_5){document.getElementById('check_dropdown_answer_639426798_5').value = ' ';clearAllWBorder('check_dropdown_answer_639426798_5');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_7){document.getElementById('check_number_answer_639426798_7').value = '';clearAllWBorder('check_number_answer_639426798_7');}
+
+if (!already_checked_obj_ok_check_number_answer_639426798_8){document.getElementById('check_number_answer_639426798_8').value = '';clearAllWBorder('check_number_answer_639426798_8');}
+
+sel_obj_639426798_6_clear();
+
+        }
+        function clearAll(){
+            clearAll_639426798();
+        }
+        </script>
+        
+
+<!-- END CLEAR ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function addSolutionAll_639426798(){
+            alread_shown_solutions = true;
+        document.getElementById('check_number_answer_639426798_1').value = '-1.0'.replace('.', ',');
+document.getElementById('check_fraction_answer_numerator_639426798_2').value=5; document.getElementById('check_fraction_answer_denominator_639426798_2').value = 6;
+document.getElementById('check_dropdown_answer_639426798_3').value = ' < ';
+
+document.getElementById('check_dropdown_answer_639426798_4').value = ' < ';
+
+document.getElementById('check_dropdown_answer_639426798_5').value = 'The solution is';
+
+document.getElementById('check_number_answer_639426798_7').value = '-1.0'.replace('.', ',');
+document.getElementById('check_number_answer_639426798_8').value = '0.83'.replace('.', ',');
+sel_obj_639426798_6_solution();
+
+        }
+        function addSolutionAll(){
+            addSolutionAll_639426798();
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- HINT ALL -->
+
+
+        <script>
+        function sendFeedbackToServer(root, type, q_id, l_id, language, comment){
+            sendFeedbackToServer_639426798(root, type, q_id, l_id, language, comment);
+        }
+        </script>
+        
+
+<!-- END HINT ALL -->
+
+
+<!-- Rendering question 'equat_2/q00061' for language 'uk' -->
+
+
+
+<!-- QUESTIONS START -->
+
+<div id='question' style='display:inline-block; margin:0 auto; width: inherit'>
+<script>var test_id = 0; var test_order = 0;</script>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_0'>
+Determine the solution of the inequality:
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_1'>
+ 
+<table style='display:inline-table;vertical-align:middle'>
+<tbody>
+<tr>
+<td style="border-bottom:solid 1px;text-align:center">2 x  + 2</td>
+</tr>
+<tr>
+<td style="text-align:center">6 x  - 5</td>
+</tr>
+</tbody>
+</table>
+ < 0
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_2'>
+<div style='display:table;padding-top:0px;padding-bottom:0px;float:center'> </div>
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_3'>
+ <select name='check_dropdown_answer_639426798_5' id='check_dropdown_answer_639426798_5'> <option value=' '> </option><option value='The solution is'>The solution is</option><option value='There is no solution'>There is no solution</option><option value='The solution is any real number'>The solution is any real number</option></select>
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_4'>
+ <input style='padding:3px;width:20px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_1'/> <select name='check_dropdown_answer_639426798_3' id='check_dropdown_answer_639426798_3'> <option value=' '> </option><option value=' < '> < </option><option value=' > '> > </option><option value=' ≤ '> ≤ </option><option value=' ≥ '> ≥ </option><option value=' = '> = </option><option value=' ≠ '> ≠ </option></select> x <select name='check_dropdown_answer_639426798_4' id='check_dropdown_answer_639426798_4'> <option value=' '> </option><option value=' < '> < </option><option value=' > '> > </option><option value=' ≤ '> ≤ </option><option value=' ≥ '> ≥ </option><option value=' = '> = </option><option value=' ≠ '> ≠ </option></select> 
+<table style='display:inline-table;vertical-align:middle' id='check_fraction_answer_table_639426798_2'>
+<tbody>
+<tr>
+<td style="border-bottom:solid 1px;text-align:center"><input style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px'type='text' size='1' id='check_fraction_answer_numerator_639426798_2' /></td>
+</tr>
+<tr>
+<td style="text-align:center"><input style='padding:3px;width:33px;border:1px solid #ccc!important;border-radius:8px' type='text' size='1' id='check_fraction_answer_denominator_639426798_2' /></td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_5'>
+<div style='display:table;padding-top:0px;padding-bottom:0px;float:center'> </div>
+
+</div>
+
+<div align='left' style='display:content;border:6px;padding:6px' id='qline_6'>
+Color the solution region on the number line (including boundary points if included) and write the limits (to two decimal places).
+
+</div>
+
+<div align='center' style='display:content;border:6px;padding:6px' id='qline_7'>
+ <div style='text-align:center' id = 'sel_canvas_639426798_6'>
+        <script type = "text/javascript">
+            var paper_639426798_6 = Raphael("sel_canvas_639426798_6", 310, 100);
+            var on_color_639426798_6 = [];
+            var off_color_639426798_6 = [];
+            var on_line_color_639426798_6 = [];
+            var off_line_color_639426798_6 = [];
+            var check_639426798_6 = [];
+            var state_639426798_6 = [];
+            var sel_obj_639426798_6 = [];
+            var solution_639426798_6 = [];
+        solution_639426798_6[0] = 0; solution_639426798_6[1] = 1; solution_639426798_6[2] = 0  ; solution_639426798_6[3] = 0 ; solution_639426798_6[4] = 0;  
+on_color_639426798_6[0] = "#f90";
+off_color_639426798_6[0] = "#fff";
+on_line_color_639426798_6[0] = "#none";
+off_line_color_639426798_6[0] = "#none";
+check_639426798_6[0] = true;
+state_639426798_6[0] = false;
+sel_obj_639426798_6[0] = paper_639426798_6.rect(5, 20, 49.958333333333336, 40).attr({fill: "#fff", stroke: "#none", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_6[1] = "#f90";
+off_color_639426798_6[1] = "#fff";
+on_line_color_639426798_6[1] = "#none";
+off_line_color_639426798_6[1] = "#none";
+check_639426798_6[1] = true;
+state_639426798_6[1] = false;
+sel_obj_639426798_6[1] = paper_639426798_6.rect(54.958333333333336, 40, 199.83333333333334, 20).attr({fill: "#fff", stroke: "#none", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_6[2] = "#f90";
+off_color_639426798_6[2] = "#fff";
+on_line_color_639426798_6[2] = "#none";
+off_line_color_639426798_6[2] = "#none";
+check_639426798_6[2] = true;
+state_639426798_6[2] = false;
+sel_obj_639426798_6[2] = paper_639426798_6.rect(254.79166666666666, 20, 49.958333333333336, 40).attr({fill: "#fff", stroke: "#none", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_6[3] = "#fff";
+off_color_639426798_6[3] = "#none";
+on_line_color_639426798_6[3] = "#000";
+off_line_color_639426798_6[3] = "#000";
+check_639426798_6[3] = false;
+state_639426798_6[3] = false;
+sel_obj_639426798_6[3] = paper_639426798_6.path('M 5 60 l 299.75 0 ').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_6[4] = "#fff";
+off_color_639426798_6[4] = "#none";
+on_line_color_639426798_6[4] = "#000";
+off_line_color_639426798_6[4] = "#000";
+check_639426798_6[4] = false;
+state_639426798_6[4] = false;
+sel_obj_639426798_6[4] = paper_639426798_6.path('M 54.958333333333336 60 l 0 -20 l 199.83333333333334 0 l 0 20 ').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_6[5] = "#fff";
+off_color_639426798_6[5] = "#none";
+on_line_color_639426798_6[5] = "#000";
+off_line_color_639426798_6[5] = "#000";
+check_639426798_6[5] = false;
+state_639426798_6[5] = false;
+sel_obj_639426798_6[5] = paper_639426798_6.path('M 254.79166666666666 60 l 0 -40 l 49.958333333333336 0 ').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_6[6] = "#fff";
+off_color_639426798_6[6] = "#none";
+on_line_color_639426798_6[6] = "#000";
+off_line_color_639426798_6[6] = "#000";
+check_639426798_6[6] = false;
+state_639426798_6[6] = false;
+sel_obj_639426798_6[6] = paper_639426798_6.path('M 301.75 17 l 8 3 l -8 3 ').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_6[7] = "#fff";
+off_color_639426798_6[7] = "#none";
+on_line_color_639426798_6[7] = "#000";
+off_line_color_639426798_6[7] = "#000";
+check_639426798_6[7] = false;
+state_639426798_6[7] = false;
+sel_obj_639426798_6[7] = paper_639426798_6.path('M 54.958333333333336 60 l 0 -40 l -49.958333333333336 0 ').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+on_color_639426798_6[8] = "#fff";
+off_color_639426798_6[8] = "#none";
+on_line_color_639426798_6[8] = "#000";
+off_line_color_639426798_6[8] = "#000";
+check_639426798_6[8] = false;
+state_639426798_6[8] = false;
+sel_obj_639426798_6[8] = paper_639426798_6.path('M 8 17 l -8 3 l 8 3 ').attr({fill: "#none", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+new Infobox(paper_639426798_6, {x:39.958333333333336,y:80, width:50, height:50}).div.html("<input style='padding:3px;width:30px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_7'/>");
+on_color_639426798_6[9] = "#f90";
+off_color_639426798_6[9] = "#fff";
+on_line_color_639426798_6[9] = "#000";
+off_line_color_639426798_6[9] = "#000";
+check_639426798_6[9] = true;
+state_639426798_6[9] = false;
+sel_obj_639426798_6[9] = paper_639426798_6.circle(54.958333333333336, 60, 4).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+new Infobox(paper_639426798_6, {x:239.79166666666669,y:80, width:50, height:50}).div.html("<input style='padding:3px;width:30px;border:1px solid #ccc!important;border-radius:8px'type='text' id='check_number_answer_639426798_8'/>");
+on_color_639426798_6[10] = "#f90";
+off_color_639426798_6[10] = "#fff";
+on_line_color_639426798_6[10] = "#000";
+off_line_color_639426798_6[10] = "#000";
+check_639426798_6[10] = true;
+state_639426798_6[10] = false;
+sel_obj_639426798_6[10] = paper_639426798_6.circle(254.79166666666669, 60, 4).attr({fill: "#fff", stroke: "#000", opacity: "1", "stroke-width": 2, "font-size": "18"});
+
+        function sel_obj_639426798_6_clear() {
+          if (!already_checked_obj_ok_639426798_6) {
+            for (let i=0; i<11; i++) {
+                if (check_639426798_6[i]) {
+                state_639426798_6[i] = false;
+                sel_obj_639426798_6[i].attr({fill: off_color_639426798_6[i], stroke: off_line_color_639426798_6[i]});
+                }
+            }
+            clearAllNoBorder('sel_canvas_639426798_6');
+          }
+        }
+        
+                already_checked_obj_ok_639426798_6 = false;
+                function sel_obj_639426798_6_check() {
+                    var result = [];
+                    var ind = 0;
+                    for (let i=0; i<11; i++) {
+                        if (check_639426798_6[i]) {
+                            if (state_639426798_6[i]) {
+                                result[ind] = 1;
+                            } else {
+                                result[ind] = 0;
+                            }
+                            ind++;
+                        }
+                    }
+                    if (result[0] == 0&& result[1] == 1&& result[2] == 0  && result[3] == 0 && result[4] == 0) {
+                        setOK('sel_canvas_639426798_6');
+                        already_checked_obj_ok_639426798_6 = true;
+                        return true;
+                    } else {
+                        setError('sel_canvas_639426798_6');
+                        already_checked_obj_ok_639426798_6 = false;
+                        return false;
+                    }
+                }
+            
+                function sel_obj_639426798_6_solution() {
+                    alread_shown_solutions = true;
+                    var ind = 0;
+                    for (let i=0; i<11; i++) {
+                        if (check_639426798_6[i]) {
+                            if (solution_639426798_6[ind] == 1) {
+                                sel_obj_639426798_6[i].attr({fill: on_color_639426798_6[i], stroke: on_line_color_639426798_6[i]});
+                                state_639426798_6[i] = true;
+                            } else {
+                                sel_obj_639426798_6[i].attr({fill: off_color_639426798_6[i], stroke: off_line_color_639426798_6[i]});
+                                state_639426798_6[i] = false;
+                            }
+                            ind++;
+                        }
+                    }
+                }
+            
+  	for (let i=0; i<11; i++) {
+          if (check_639426798_6[i]) {
+  	    sel_obj_639426798_6[i].mousedown( function() {
+	      if (state_639426798_6[i]) {
+  	        sel_obj_639426798_6[i].attr({fill: off_color_639426798_6[i], stroke: off_line_color_639426798_6[i]});
+                state_639426798_6[i] = false;
+	      } else {
+  	        sel_obj_639426798_6[i].attr({fill: on_color_639426798_6[i], stroke: on_line_color_639426798_6[i]});
+                state_639426798_6[i] = true;
+              }
+	    });
+          }
+        }
+        
+</script>
+</div>
+</div>
+</div>
+
+
+<!-- QUESTIONS END -->
+
