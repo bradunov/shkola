@@ -10,6 +10,7 @@ Run with --update-baselines to (re-)generate baseline files without failing.
 import os
 import sys
 import random
+import time
 from html.parser import HTMLParser
 
 import pytest
@@ -91,23 +92,66 @@ def _first_token_diff(tokens_a, tokens_b):
 # Rendering helpers
 # ---------------------------------------------------------------------------
 
-def render_question_html(app_data, q_id, language_str):
+def render_question_html(app_data, q_id, language_str, timing_detail=None):
     """Render a question and return the question-only HTML (scripts + body)."""
     random.seed(SEED)
+
+    t0 = time.perf_counter()
     page = Page(app_data)
     lang = PageLanguage.fromStr(language_str)
     page.page_params.set_param("language", lang)
     page.page_params.set_param("q_id", q_id)
+    t1 = time.perf_counter()
 
     q = Question(page, q_id=q_id, language=lang)
-    q.set_from_file()
+    t2 = time.perf_counter()
+
+    # Inline set_from_file with sub-timings
+    t2a = time.perf_counter()
+    q.init_code = ""
+    q.iter_code = ""
+    q.text = "\n\n<h3>ERROR: no code exists for question '{}' for language '{}'!</h3>".format(
+        q.q_id, PageLanguage.toStr(q.language)
+    )
+    q.page.add_lines("\n<!-- Rendering question '{}' for language '{}' -->\n\n".format(
+        q.q_id, PageLanguage.toStr(q.language)
+    ))
+
+    t2b = time.perf_counter()
+    q_data = q.repository.get_question(q.q_id)
+    t2c = time.perf_counter()
+
+    if q_data is not None:
+        if "init.lua" in q_data.keys():
+            q.init_code = q_data["init.lua"]
+        if "iter.lua" in q_data.keys():
+            q.iter_code = q_data["iter.lua"]
+        text_key = "text." + PageLanguage.toStr(q.language)
+        if text_key in q_data.keys():
+            q.text = q_data[text_key]
+    t3 = time.perf_counter()
+
     q.eval(page)
+    t4 = time.perf_counter()
 
     html = ""
     for line in page.script_lines:
         html += line + "\n"
     for line in page.lines:
         html += str(line)
+    t5 = time.perf_counter()
+
+    if timing_detail is not None:
+        timing_detail.update({
+            "page_setup": t1 - t0,
+            "question_init": t2 - t1,
+            "sff_prep": t2b - t2a,
+            "sff_get_question": t2c - t2b,
+            "sff_extract": t3 - t2c,
+            "eval": t4 - t3,
+            "collect_html": t5 - t4,
+        })
+
     return html
 
 
@@ -170,6 +214,7 @@ class TestQuestionBaselines:
         """Render all questions and compare against stored baselines."""
         update_mode = request.config.getoption("--update-baselines")
         question_filter = request.config.getoption("--question")
+        verbose_timing = request.config.getoption("--timing")
 
         if update_mode:
             pairs = discover_question_language_pairs()
@@ -187,25 +232,43 @@ class TestQuestionBaselines:
         updated = 0
         passed = 0
 
+        timings = []
+
         with capsys.disabled():
             for i, (q_id, language) in enumerate(pairs):
                 bp = baseline_path(q_id, language)
                 label = f"{q_id}/{language}"
 
+                t_start = time.perf_counter()
+                timing_detail = {}
                 try:
-                    html = render_question_html(app_data, q_id, language)
+                    html = render_question_html(app_data, q_id, language, timing_detail)
                 except Exception as e:
+                    elapsed = time.perf_counter() - t_start
+                    timings.append((elapsed, label))
                     failures.append(f"{label}: render error: {e}")
-                    sys.stdout.write(f"\r\033[KFAILED {label}: {e}\n")
+                    sys.stdout.write(f"\r\033[KFAILED {label}: {e} ({elapsed:.3f}s)\n")
                     sys.stdout.flush()
                     continue
+                elapsed = time.perf_counter() - t_start
+                timings.append((elapsed, label))
+
+                # Print breakdown for slow questions (>0.5s), or all if --timing
+                if verbose_timing:
+                    parts = " | ".join(f"{k}={v:.3f}s" for k, v in timing_detail.items())
+                    sys.stdout.write(f"\r\033[K  {label} ({elapsed:.3f}s): {parts}\n")
+                    sys.stdout.flush()
+                elif elapsed > 0.5:
+                    parts = " | ".join(f"{k}={v:.3f}s" for k, v in timing_detail.items())
+                    sys.stdout.write(f"\r\033[K  [SLOW] {label} ({elapsed:.3f}s): {parts}\n")
+                    sys.stdout.flush()
 
                 if update_mode:
                     os.makedirs(os.path.dirname(bp), exist_ok=True)
                     with open(bp, "w", encoding="utf-8") as f:
                         f.write(html)
                     updated += 1
-                    sys.stdout.write(f"\r\033[K  Updated {label} [{updated}/{len(pairs)}]")
+                    sys.stdout.write(f"\r\033[K  Updated {label} [{updated}/{len(pairs)}] ({elapsed:.3f}s)\n")
                     sys.stdout.flush()
                 else:
                     with open(bp, "r", encoding="utf-8") as f:
@@ -216,11 +279,11 @@ class TestQuestionBaselines:
                     diff = _first_token_diff(tokens_got, tokens_exp)
                     if diff is not None:
                         failures.append(f"{label}: {diff}")
-                        sys.stdout.write(f"\r\033[KFAILED {label}\n")
+                        sys.stdout.write(f"\r\033[KFAILED {label} ({elapsed:.3f}s)\n")
                         sys.stdout.flush()
                     else:
                         passed += 1
-                        sys.stdout.write(f"\r\033[K  {label} [{passed}/{len(pairs)}]")
+                        sys.stdout.write(f"\r\033[K  {label} [{passed}/{len(pairs)}] ({elapsed:.3f}s)\n")
                         sys.stdout.flush()
 
             sys.stdout.write("\r\033[K")
@@ -230,6 +293,13 @@ class TestQuestionBaselines:
                 print(f"\nUpdated {updated} baselines.")
             else:
                 print(f"\n{passed} passed, {len(failures)} failed out of {len(pairs)}")
+
+            # Print slowest questions
+            if timings:
+                timings.sort(reverse=True)
+                print(f"\nSlowest questions:")
+                for elapsed, label in timings[:10]:
+                    print(f"  {elapsed:6.3f}s  {label}")
 
         if update_mode:
             pytest.skip(f"{updated} baselines updated")

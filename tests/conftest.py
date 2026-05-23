@@ -263,6 +263,8 @@ def pytest_addoption(parser):
                      help="Regenerate baseline HTML files instead of comparing against them.")
     parser.addoption("--question", default=None,
                      help="Filter baseline tests to questions matching this substring (e.g. 'numbers/q00001').")
+    parser.addoption("--timing", action="store_true", default=False,
+                     help="Print detailed timing breakdown for every question in baseline tests.")
 
 
 def pytest_configure(config):
