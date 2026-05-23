@@ -29,12 +29,26 @@ _cached_app_data = None
 def get_app_data():
     global _cached_app_data
     if _cached_app_data is None:
+        import time as _time
+        import functools
+        t0 = _time.perf_counter()
         rel_path = os.path.join(os.path.dirname(__file__), '..')
         _cached_app_data = AppData(use_azure_blob=False, preload=False, rel_path=rel_path)
-        # Only preload lists (fast) - questions loaded on demand from disk
+        # Preload lists only (small)
         _cached_app_data.repository.load_dir(
             _cached_app_data.repository.lists,
             _cached_app_data.repository.lists_path)
+
+        # Patch get_question_disk with a cache so each question is read only once
+        original_get_question_disk = _cached_app_data.repository.get_question_disk
+        @functools.lru_cache(maxsize=None)
+        def cached_get_question_disk(q_id):
+            return original_get_question_disk(q_id)
+        _cached_app_data.repository.get_question_disk = cached_get_question_disk
+
+        t1 = _time.perf_counter()
+        sys.stderr.write(f"[Setup] AppData ready in {t1-t0:.2f}s (questions cached on demand)\n")
+        sys.stderr.flush()
     return _cached_app_data
 
 

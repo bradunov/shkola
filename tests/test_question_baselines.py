@@ -139,7 +139,6 @@ def render_question_html(app_data, q_id, language_str, timing_detail=None):
         html += line + "\n"
     for line in page.lines:
         html += str(line)
-    t5 = time.perf_counter()
 
     if timing_detail is not None:
         timing_detail.update({
@@ -149,7 +148,6 @@ def render_question_html(app_data, q_id, language_str, timing_detail=None):
             "sff_get_question": t2c - t2b,
             "sff_extract": t3 - t2c,
             "eval": t4 - t3,
-            "collect_html": t5 - t4,
         })
 
     return html
@@ -250,41 +248,56 @@ class TestQuestionBaselines:
                     sys.stdout.write(f"\r\033[KFAILED {label}: {e} ({elapsed:.3f}s)\n")
                     sys.stdout.flush()
                     continue
-                elapsed = time.perf_counter() - t_start
-                timings.append((elapsed, label))
-
-                # Print breakdown for slow questions (>0.5s), or all if --timing
-                if verbose_timing:
-                    parts = " | ".join(f"{k}={v:.3f}s" for k, v in timing_detail.items())
-                    sys.stdout.write(f"\r\033[K  {label} ({elapsed:.3f}s): {parts}\n")
-                    sys.stdout.flush()
-                elif elapsed > 0.5:
-                    parts = " | ".join(f"{k}={v:.3f}s" for k, v in timing_detail.items())
-                    sys.stdout.write(f"\r\033[K  [SLOW] {label} ({elapsed:.3f}s): {parts}\n")
-                    sys.stdout.flush()
 
                 if update_mode:
                     os.makedirs(os.path.dirname(bp), exist_ok=True)
                     with open(bp, "w", encoding="utf-8") as f:
                         f.write(html)
                     updated += 1
+                    elapsed = time.perf_counter() - t_start
+                    timings.append((elapsed, label))
                     sys.stdout.write(f"\r\033[K  Updated {label} [{updated}/{len(pairs)}] ({elapsed:.3f}s)\n")
                     sys.stdout.flush()
                 else:
+                    t_compare_start = time.perf_counter()
                     with open(bp, "r", encoding="utf-8") as f:
                         expected = f.read()
+                    t_read_done = time.perf_counter()
 
                     tokens_got = _tokenize_html(html)
+                    t_tok_got = time.perf_counter()
+
                     tokens_exp = _tokenize_html(expected)
+                    t_tok_exp = time.perf_counter()
+
                     diff = _first_token_diff(tokens_got, tokens_exp)
+                    t_compare_end = time.perf_counter()
+
+                    timing_detail["cmp_read"] = t_read_done - t_compare_start
+                    timing_detail["cmp_tok_got"] = t_tok_got - t_read_done
+                    timing_detail["cmp_tok_exp"] = t_tok_exp - t_tok_got
+                    timing_detail["cmp_diff"] = t_compare_end - t_tok_exp
+
+                    elapsed = time.perf_counter() - t_start
+                    timings.append((elapsed, label))
+
                     if diff is not None:
                         failures.append(f"{label}: {diff}")
                         sys.stdout.write(f"\r\033[KFAILED {label} ({elapsed:.3f}s)\n")
                         sys.stdout.flush()
                     else:
                         passed += 1
-                        sys.stdout.write(f"\r\033[K  {label} [{passed}/{len(pairs)}] ({elapsed:.3f}s)\n")
-                        sys.stdout.flush()
+                        if verbose_timing:
+                            parts = " | ".join(f"{k}={v:.3f}s" for k, v in timing_detail.items())
+                            sys.stdout.write(f"\r\033[K  {label} [{passed}/{len(pairs)}] ({elapsed:.3f}s): {parts}\n")
+                            sys.stdout.flush()
+                        elif elapsed > 0.5:
+                            parts = " | ".join(f"{k}={v:.3f}s" for k, v in timing_detail.items())
+                            sys.stdout.write(f"\r\033[K  [SLOW] {label} ({elapsed:.3f}s): {parts}\n")
+                            sys.stdout.flush()
+                        else:
+                            sys.stdout.write(f"\r\033[K  {label} [{passed}/{len(pairs)}] ({elapsed:.3f}s)")
+                            sys.stdout.flush()
 
             sys.stdout.write("\r\033[K")
             sys.stdout.flush()
@@ -295,7 +308,7 @@ class TestQuestionBaselines:
                 print(f"\n{passed} passed, {len(failures)} failed out of {len(pairs)}")
 
             # Print slowest questions
-            if timings:
+            if verbose_timing and timings:
                 timings.sort(reverse=True)
                 print(f"\nSlowest questions:")
                 for elapsed, label in timings[:10]:

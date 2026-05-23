@@ -127,6 +127,19 @@ python tools/generate_test_annotations.py --question data_2/q00001
 
 - `-p no:playwright` is needed for non-browser tests to prevent the Playwright plugin from interfering.
 
+## Windows Performance
+
+Windows Defender real-time scanning can make tests extremely slow (file I/O overhead per question).
+Disable it for the project folder before running tests:
+
+```powershell
+# Disable Defender real-time scanning for this folder (run as Administrator)
+Add-MpPreference -ExclusionPath "C:\Users\bozidar\Documents\Code\shkola"
+
+# Re-enable Defender scanning for this folder
+Remove-MpPreference -ExclusionPath "C:\Users\bozidar\Documents\Code\shkola"
+```
+
 ## Recommended Workflow
 
 1. Run `test_rendering.py` first (0.5s) — catches regressions in the core rendering pipeline.
