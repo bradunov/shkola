@@ -261,6 +261,8 @@ def pytest_addoption(parser):
                      help="Disable compact output")
     parser.addoption("--update-baselines", action="store_true", default=False,
                      help="Regenerate baseline HTML files instead of comparing against them.")
+    parser.addoption("--question", default=None,
+                     help="Filter baseline tests to questions matching this substring (e.g. 'numbers/q00001').")
 
 
 def pytest_configure(config):

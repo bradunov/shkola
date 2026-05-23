@@ -8,13 +8,13 @@ Baselines live inside the question folder itself:
 Run with --update-baselines to (re-)generate baseline files without failing.
 """
 import os
-import re
+import sys
 import random
 from html.parser import HTMLParser
 
 import pytest
 
-from conftest import get_app_data, get_question_languages
+from conftest import get_app_data
 from server.page import Page
 from server.question import Question
 from server.types import PageLanguage
@@ -111,22 +111,22 @@ def render_question_html(app_data, q_id, language_str):
     return html
 
 
-def baseline_path(app_data, q_id, language_str):
+QUESTIONS_ROOT = os.path.join(os.path.dirname(__file__), "..", "questions")
+
+
+def baseline_path(q_id, language_str):
     """Return the path where the baseline file for q_id/language lives.
 
     e.g. questions/numbers/q00001/tests/rs.html
     """
-    questions_root = os.path.join(app_data.rel_path, "questions")
-    return os.path.join(questions_root, q_id, "tests", f"{language_str}.html")
+    return os.path.join(QUESTIONS_ROOT, q_id, "tests", f"{language_str}.html")
 
 
 def discover_question_language_pairs():
     """Discover all (q_id, lang) pairs by scanning question directories."""
-    app_data = get_app_data()
-    questions_root = os.path.join(app_data.rel_path, "questions")
     pairs = []
-    for category in sorted(os.listdir(questions_root)):
-        cat_path = os.path.join(questions_root, category)
+    for category in sorted(os.listdir(QUESTIONS_ROOT)):
+        cat_path = os.path.join(QUESTIONS_ROOT, category)
         if not os.path.isdir(cat_path) or category == "global":
             continue
         for qdir in sorted(os.listdir(cat_path)):
@@ -141,18 +141,23 @@ def discover_question_language_pairs():
     return pairs
 
 
-# ---------------------------------------------------------------------------
-# Pytest hooks / fixtures
-# ---------------------------------------------------------------------------
-
-def pytest_generate_tests(metafunc):
-    if "q_id" in metafunc.fixturenames and "language" in metafunc.fixturenames:
-        pairs = discover_question_language_pairs()
-        metafunc.parametrize(
-            "q_id,language",
-            pairs,
-            ids=[f"{q}/{l}" for q, l in pairs],
-        )
+def discover_existing_baselines():
+    """Discover (q_id, lang) pairs that already have baseline files."""
+    pairs = []
+    for category in sorted(os.listdir(QUESTIONS_ROOT)):
+        cat_path = os.path.join(QUESTIONS_ROOT, category)
+        if not os.path.isdir(cat_path) or category == "global":
+            continue
+        for qdir in sorted(os.listdir(cat_path)):
+            tests_path = os.path.join(cat_path, qdir, "tests")
+            if not os.path.isdir(tests_path):
+                continue
+            q_id = f"{category}/{qdir}"
+            for fname in os.listdir(tests_path):
+                if fname.endswith(".html"):
+                    lang = fname[:-len(".html")]
+                    pairs.append((q_id, lang))
+    return pairs
 
 
 # ---------------------------------------------------------------------------
@@ -161,31 +166,79 @@ def pytest_generate_tests(metafunc):
 
 class TestQuestionBaselines:
 
-    def test_rendering_matches_baseline(self, app_data, q_id, language, request):
-        """Render a question and compare against the stored baseline."""
+    def test_rendering_matches_baseline(self, app_data, request, capsys):
+        """Render all questions and compare against stored baselines."""
         update_mode = request.config.getoption("--update-baselines")
-
-        html = render_question_html(app_data, q_id, language)
-        bp = baseline_path(app_data, q_id, language)
+        question_filter = request.config.getoption("--question")
 
         if update_mode:
-            os.makedirs(os.path.dirname(bp), exist_ok=True)
-            with open(bp, "w", encoding="utf-8") as f:
-                f.write(html)
-            pytest.skip("Baseline updated")
+            pairs = discover_question_language_pairs()
         else:
-            assert os.path.exists(bp), (
-                f"No baseline file for {q_id}/{language}. "
-                f"Run with --update-baselines to generate it."
+            pairs = discover_existing_baselines()
+            assert len(pairs) > 0, (
+                "No baseline files found. "
+                "Run with --update-baselines to generate them."
             )
-            with open(bp, "r", encoding="utf-8") as f:
-                expected = f.read()
 
-            tokens_got = _tokenize_html(html)
-            tokens_exp = _tokenize_html(expected)
-            diff = _first_token_diff(tokens_got, tokens_exp)
-            assert diff is None, (
-                f"Rendered HTML for {q_id}/{language} does not match baseline.\n"
-                f"{diff}\n"
-                f"Run with --update-baselines to regenerate."
+        if question_filter:
+            pairs = [(q, l) for q, l in pairs if question_filter in q]
+
+        failures = []
+        updated = 0
+        passed = 0
+
+        with capsys.disabled():
+            for i, (q_id, language) in enumerate(pairs):
+                bp = baseline_path(q_id, language)
+                label = f"{q_id}/{language}"
+
+                try:
+                    html = render_question_html(app_data, q_id, language)
+                except Exception as e:
+                    failures.append(f"{label}: render error: {e}")
+                    sys.stdout.write(f"\r\033[KFAILED {label}: {e}\n")
+                    sys.stdout.flush()
+                    continue
+
+                if update_mode:
+                    os.makedirs(os.path.dirname(bp), exist_ok=True)
+                    with open(bp, "w", encoding="utf-8") as f:
+                        f.write(html)
+                    updated += 1
+                    sys.stdout.write(f"\r\033[K  Updated {label} [{updated}/{len(pairs)}]")
+                    sys.stdout.flush()
+                else:
+                    with open(bp, "r", encoding="utf-8") as f:
+                        expected = f.read()
+
+                    tokens_got = _tokenize_html(html)
+                    tokens_exp = _tokenize_html(expected)
+                    diff = _first_token_diff(tokens_got, tokens_exp)
+                    if diff is not None:
+                        failures.append(f"{label}: {diff}")
+                        sys.stdout.write(f"\r\033[KFAILED {label}\n")
+                        sys.stdout.flush()
+                    else:
+                        passed += 1
+                        sys.stdout.write(f"\r\033[K  {label} [{passed}/{len(pairs)}]")
+                        sys.stdout.flush()
+
+            sys.stdout.write("\r\033[K")
+            sys.stdout.flush()
+
+            if update_mode:
+                print(f"\nUpdated {updated} baselines.")
+            else:
+                print(f"\n{passed} passed, {len(failures)} failed out of {len(pairs)}")
+
+        if update_mode:
+            pytest.skip(f"{updated} baselines updated")
+        elif failures:
+            detail = "\n".join(failures[:20])
+            if len(failures) > 20:
+                detail += f"\n... and {len(failures) - 20} more"
+            pytest.fail(
+                f"{passed} passed, {len(failures)} failed out of "
+                f"{len(pairs)}\n\n{detail}",
+                pytrace=False,
             )
