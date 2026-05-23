@@ -9,3 +9,6 @@ tmp
 **/~$*.xlsx
 
 .venv
+
+# ANTLR4 tool (download when needed, don't commit)
+grammar/*.jar
