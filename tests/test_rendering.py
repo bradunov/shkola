@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 from lupa import LuaRuntime
 from server.app_data import AppData
 from server.page import Page
-from server.question import Question, Paragraph
+from server.question import Question
 from server.library import Library, LibMath
 from server.types import PageLanguage
 
@@ -57,57 +57,6 @@ def lib(question):
 
 
 # ---------------------------------------------------------------------------
-# Paragraph tests
-# ---------------------------------------------------------------------------
-
-class TestParagraph:
-    def test_empty_output(self):
-        p = Paragraph()
-        assert p.output_and_flush() == ""
-
-    def test_append_and_flush(self):
-        p = Paragraph()
-        p.append("Hello world")
-        output = p.output_and_flush()
-        assert "Hello world" in output
-        assert "<div" in output
-        assert "qline_0" in output
-
-    def test_flush_clears_text(self):
-        p = Paragraph()
-        p.append("First")
-        p.output_and_flush()
-        assert p.output_and_flush() == ""
-
-    def test_div_id_increments(self):
-        p = Paragraph()
-        p.append("One")
-        out1 = p.output_and_flush()
-        p.append("Two")
-        out2 = p.output_and_flush()
-        assert "qline_0" in out1
-        assert "qline_1" in out2
-
-    def test_alignment_left(self):
-        p = Paragraph()
-        p.append("@left@ text")
-        output = p.output_and_flush()
-        assert "align='left'" in output
-
-    def test_alignment_center(self):
-        p = Paragraph()
-        p.append("@center@ text")
-        output = p.output_and_flush()
-        assert "align='center'" in output
-
-    def test_append_special(self):
-        p = Paragraph()
-        p.append_special("<table>raw html</table>")
-        output = p.output_and_flush()
-        assert "<table>raw html</table>" in output
-
-
-# ---------------------------------------------------------------------------
 # Question initialization tests
 # ---------------------------------------------------------------------------
 
@@ -138,71 +87,6 @@ class TestQuestionInit:
 
     def test_non_cyrillic(self, question):
         assert question.cyrillic is False
-
-
-# ---------------------------------------------------------------------------
-# Question.make_pretty tests
-# ---------------------------------------------------------------------------
-
-class TestMakePretty:
-    def test_basic_text(self, question):
-        result = question.make_pretty("Hello\n")
-        assert "Hello" in result
-
-    def test_removes_line_continuation(self, question):
-        result = question.make_pretty("Hello \\\nworld\n")
-        assert "Hello" in result
-        assert "world" in result
-
-    def test_header_h1_replacement(self, question):
-        result = question.make_pretty("@h1@Title@/h1@\n")
-        assert "font-weight:bold" in result
-        assert "Title" in result
-
-    def test_header_h2_replacement(self, question):
-        result = question.make_pretty("@h2@Subtitle@/h2@\n")
-        assert "font-weight:bold" in result
-        assert "Subtitle" in result
-
-    def test_superscript_replacement(self, question):
-        result = question.make_pretty("x@sup@2@/sup@\n")
-        assert "<sup><sup>" in result
-        assert "2" in result
-
-    def test_fraction_replacement(self, question):
-        result = question.make_pretty("@frac@1@frac_line@2@/frac@\n")
-        assert "border-bottom:solid 1px" in result
-        assert "1" in result
-        assert "2" in result
-
-    def test_hspace_replacement(self, question):
-        result = question.make_pretty("A@hspace@B\n")
-        assert "padding-left:6px" in result
-
-    def test_vspace_replacement(self, question):
-        result = question.make_pretty("A\n@vspace@\nB\n")
-        assert "padding-top:0px" in result
-
-    def test_hspacept_replacement(self, question):
-        result = question.make_pretty("A@hspacept(12)@B\n")
-        assert "12px" in result
-
-    def test_special_tag_table_preserved(self, question):
-        """Content between start_table/end_table should not be prettified."""
-        text = "Before\n@lib.start_table@<raw>content</raw>@lib.end_table@\nAfter\n"
-        result = question.make_pretty(text)
-        assert "@lib.start_table@" in result
-        assert "<raw>content</raw>" in result
-
-    def test_multiple_newlines_collapsed(self, question):
-        result = question.make_pretty("A\n\n\n\nB\n")
-        # Multiple newlines should be collapsed to single
-        assert "A" in result
-        assert "B" in result
-
-    def test_tabs_converted_to_spaces(self, question):
-        result = question.make_pretty("Hello\tworld\n")
-        assert "\t" not in result
 
 
 # ---------------------------------------------------------------------------

@@ -26,16 +26,6 @@ from server.types import PageLanguage
 # Formatting directives that are exact keyword matches (case-insensitive)
 ALIGNMENT_KEYWORDS = {'center', 'left', 'right'}
 HEADER_KEYWORDS = {'h1', 'h2', 'h3', '/h1', '/h2', '/h3'}
-FORMAT_KEYWORDS = {
-    'sup', '/sup',
-    'frac', 'frac_line', '/frac',
-    'hspace', 'vspace',
-}
-# Keywords that take a parenthesized parameter
-PARAMETERIZED_KEYWORDS = {'hspacept', 'vspacept'}
-
-# All keywords that eval should ignore (handled during rendering)
-IGNORED_KEYWORDS = ALIGNMENT_KEYWORDS | HEADER_KEYWORDS | FORMAT_KEYWORDS | {'sup', '/sup'}
 
 # HTML replacements for formatting directives
 HEADER_HTML = {
@@ -266,94 +256,80 @@ class TemplateRenderer:
     def _wrap_paragraphs(self, text: str) -> str:
         """Wrap text lines in div elements with alignment.
 
-        Replicates the paragraph wrapping logic from make_pretty,
-        handling special areas (tables) that should not be wrapped.
+        Each newline creates a paragraph boundary. Table regions
+        (start_table...end_table) are treated as atomic content within
+        a paragraph (newlines inside are ignored for splitting).
+        Alignment defaults to left unless the line has @center@/@right@.
         """
-        # Identify special/protected areas (start_table ... end_table)
-        special_tags = [{"start": "@lib.start_table", "end": "@lib.end_table"}]
-        special_areas = []
-        ind = 0
+        # Find table regions to protect from newline-splitting
+        table_regions = []
+        search_start = 0
         while True:
-            min_ind = len(text) + 1
-            tag = None
-            for t in special_tags:
-                i = text.find(t["start"], ind)
-                if i < min_ind and i > -1:
-                    min_ind = i
-                    tag = t
-            if tag:
-                i = text.find(tag["end"], min_ind)
-                if i > -1:
-                    ind = text.find("@", i + 1) + 1
-                else:
-                    ind = -1
-                if ind == -1:
-                    raise ValueError(
-                        f"Code block {tag['start']} started at position {min_ind} not finished"
-                    )
-                special_areas.append({"start": min_ind, "end": ind})
-            else:
+            start = text.find("@lib.start_table", search_start)
+            if start == -1:
                 break
+            end = text.find("@lib.end_table", start)
+            if end == -1:
+                raise ValueError(
+                    f"Code block @lib.start_table started at position {start} not finished"
+                )
+            # Include the closing @
+            end = text.find("@", end + 1) + 1
+            table_regions.append((start, end))
+            search_start = end
 
-        # Build output with div wrapping
+        # Replace newlines inside table regions with a placeholder
+        # so they don't trigger paragraph breaks
+        PLACEHOLDER = '\x00'
+        protected = list(text)
+        for region_start, region_end in table_regions:
+            for i in range(region_start, region_end):
+                if protected[i] == '\n':
+                    protected[i] = PLACEHOLDER
+        protected_text = ''.join(protected)
+
+        # Split on newlines to get paragraph segments
+        segments = protected_text.split('\n')
+
+        # Build output — alignment resets to left on each line
+        # unless that line contains an explicit alignment directive.
+        # For lines with inline tables, alignment is determined by the
+        # text AFTER the last table region (matching old behavior where
+        # the last append() call's alignment wins).
         output = ""
-        start_ind = 0
-        sa_ind = 0
-        para = _Paragraph()
 
-        while True:
-            if sa_ind < len(special_areas):
-                end_ind = special_areas[sa_ind]["start"]
+        for segment in segments:
+            # Restore newlines in table regions
+            segment = segment.replace(PLACEHOLDER, '\n')
+
+            # Strip alignment markers and determine alignment
+            alignment = ''
+            has_center = '@center@' in segment
+            has_right = '@right@' in segment
+            has_left = '@left@' in segment
+
+            # Remove all alignment markers from content
+            if has_center:
+                segment = segment.replace('@center@', '')
+            if has_right:
+                segment = segment.replace('@right@', '')
+            if has_left:
+                segment = segment.replace('@left@', '')
+
+            # For segments containing table regions, default to left alignment
+            # (matches original behavior where post-table text resets alignment)
+            end_table_pos = segment.rfind('@lib.end_table')
+            if end_table_pos != -1:
+                alignment = ''
             else:
-                end_ind = len(text)
+                # No table — normal alignment detection
+                if has_center:
+                    alignment = 'text-align:center;'
+                elif has_right:
+                    alignment = 'text-align:right;'
 
-            # Process text between special areas
-            if start_ind < end_ind:
-                chunk = text[start_ind:end_ind]
-                if chunk.startswith('\n') and chunk.endswith('\n'):
-                    bfrac = chunk[1:-1]
-                    st_nl = True
-                    end_nl = True
-                elif chunk.startswith('\n'):
-                    bfrac = chunk[1:]
-                    st_nl = True
-                    end_nl = False
-                elif chunk.endswith('\n'):
-                    bfrac = chunk[:-1]
-                    st_nl = False
-                    end_nl = True
-                else:
-                    bfrac = chunk
-                    st_nl = False
-                    end_nl = False
+            output += f"\n<div style='{alignment}padding:6px'>\n{segment}\n</div>\n"
 
-                old_ind = -1
-                find_ind = bfrac.find("\n")
-                while find_ind > -1:
-                    if st_nl:
-                        output += para.output_and_flush()
-                    st_nl = True
-                    para.append(bfrac[old_ind + 1:find_ind + 1])
-                    old_ind = find_ind
-                    find_ind = bfrac.find("\n", find_ind + 1)
-
-                if st_nl:
-                    output += para.output_and_flush()
-                st_nl = True
-                para.append(bfrac[old_ind + 1:])
-
-                if end_nl:
-                    output += para.output_and_flush()
-
-            # Copy protected area (if exists)
-            if sa_ind == len(special_areas):
-                break
-            else:
-                para.append_special(text[special_areas[sa_ind]["start"]:special_areas[sa_ind]["end"]])
-                start_ind = special_areas[sa_ind]["end"]
-                sa_ind += 1
-
-        output += para.output_and_flush()
         return output
 
     def _execute(self, items: List[dict], init_code: str, iter_code: str) -> None:
@@ -538,38 +514,3 @@ class TemplateRenderer:
         """
 
 
-class _Paragraph:
-    """Helper class for paragraph div wrapping (replicates original logic)."""
-
-    def __init__(self):
-        self.style = "style='display:content;border:6px;padding:6px'"
-        self.text = ""
-        self.alignment = ""
-        self.last_div_id = 0
-
-    def update_alignment(self, string):
-        if "@left@" in string:
-            self.alignment = "align='left'"
-        elif "@right@" in string:
-            self.alignment = "align='left'"
-        elif "@center@" in string:
-            self.alignment = "align='center'"
-        else:
-            self.alignment = "align='left'"
-
-    def output_and_flush(self):
-        text = ""
-        if self.text:
-            text = "\n<div {} {} id='qline_{}'>\n".format(
-                self.alignment, self.style, self.last_div_id
-            ) + self.text + "\n</div>\n"
-            self.text = ""
-            self.last_div_id += 1
-        return text
-
-    def append(self, text):
-        self.update_alignment(text)
-        self.text += text
-
-    def append_special(self, text):
-        self.text += text
