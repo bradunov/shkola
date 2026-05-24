@@ -23,6 +23,7 @@ Prerequisites:
 Baselines live at: questions/<category>/<qNNNNN>/tests/<lang>.png
 """
 import os
+import platform
 import sys
 import time
 import random
@@ -146,13 +147,18 @@ if (typeof Infobox === 'undefined') {
 """
 
 
+# Platform suffix for snapshot filenames (e.g., rs.win.png or rs.linux.png)
+PLATFORM_SUFFIX = "linux" if platform.system() == "Linux" else "win"
+
+
 def snapshot_path(q_id, language_str):
     """Return the path where the .png baseline for q_id/language lives."""
-    return os.path.join(QUESTIONS_ROOT, q_id, "tests", f"{language_str}.png")
+    return os.path.join(QUESTIONS_ROOT, q_id, "tests", f"{language_str}.{PLATFORM_SUFFIX}.png")
 
 
 def discover_existing_snapshots():
-    """Discover (q_id, lang) pairs that already have .png baseline files."""
+    """Discover (q_id, lang) pairs that already have .png baseline files for this platform."""
+    suffix = f".{PLATFORM_SUFFIX}.png"
     pairs = []
     for category in sorted(os.listdir(QUESTIONS_ROOT)):
         cat_path = os.path.join(QUESTIONS_ROOT, category)
@@ -164,8 +170,8 @@ def discover_existing_snapshots():
                 continue
             q_id = f"{category}/{qdir}"
             for fname in os.listdir(tests_path):
-                if fname.endswith(".png"):
-                    lang = fname[:-len(".png")]
+                if fname.endswith(suffix):
+                    lang = fname[:-len(suffix)]
                     pairs.append((q_id, lang))
     return pairs
 
