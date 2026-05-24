@@ -87,7 +87,7 @@ class Repository(object):
 
             for file in filenames:
                 if file[len(file)-1:] == "~" or self.check_extension(file, ".png"):
-                    print("Skipping:", file)
+                    logging.debug("Skipping: %s", file)
                     continue
                 try:
                     with open(dirpath + "/" + file, encoding='utf-8') as f_text:
@@ -130,7 +130,7 @@ class Repository(object):
 
             for file in filenames:
                 if file[len(file)-1:] == "~" or self.check_extension(file, ".png"):
-                    print("Skipping:", file)
+                    logging.debug("Skipping: %s", file)
                     continue
                 try:
                     with open(dirpath + "/" + file, encoding='utf-8') as f_text:
@@ -180,7 +180,7 @@ class Repository(object):
             file = f['name']
             file = file[len(path)+1:]
             if file[len(file)-1:] == "~" or self.check_extension(file, ".png"):
-                print("Skipping:", file)
+                logging.debug("Skipping: %s", file)
                 continue
             d[file] = self.azure_blob.download_file(f['name'])
         return d
@@ -199,7 +199,7 @@ class Repository(object):
             file = f['name']
             file = file[len(path)+1:]
             if file[len(file)-1:] == "~" or self.check_extension(file, ".png"):
-                print("Skipping:", file)
+                logging.debug("Skipping: %s", file)
                 continue
             d[file] = self.azure_blob.download_file(f['name'])
         return d
@@ -261,7 +261,7 @@ class Repository(object):
 
                 for file in filenames:
                     if file[len(file)-1:] == "~" or file == "requirements.txt":
-                        print("Skipping:", file)
+                        logging.debug("Skipping: %s", file)
                         continue
                     #if len(file) > len(".json") and file[len(file)-len(".json"):] == ".json":
                     if self.check_extension(file, ".json"):

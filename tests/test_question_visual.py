@@ -1,194 +1,341 @@
 """
-Visual regression tests: screenshot each question and compare against baselines.
+Visual regression tests: render each question, screenshot it, and compare
+against stored .png baselines.
+
+No running server required — renders HTML fragments in Playwright directly.
 
 Usage:
-    # First run — generate baselines:
+    # Generate .png baselines for questions that don't have one yet:
     pytest tests/test_question_visual.py --update-snapshots
+    pytest tests/test_question_visual.py --update-snapshots --question "numb_2/q00001"
 
-    # Subsequent runs — detect visual regressions:
+    # Regenerate ALL .png baselines (overwrite existing):
+    pytest tests/test_question_visual.py --regenerate-snapshots
+
+    # Compare current rendering against stored baselines:
     pytest tests/test_question_visual.py
+    pytest tests/test_question_visual.py --question "numb_2/q00001"
 
 Prerequisites:
-    1. pip install playwright pytest-playwright
-    2. playwright install chromium
-    3. Start dev server: cd src/cherrypy && python main.py
+    pip install playwright Pillow
+    playwright install chromium
+
+Baselines live at: questions/<category>/<qNNNNN>/tests/<lang>.png
 """
 import os
 import sys
-import json
+import time
+import random
+import tempfile
 
 import pytest
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+from conftest import get_app_data
+from test_question_baselines import (
+    render_question_html,
+    discover_existing_baselines,
+    discover_question_language_pairs,
+    QUESTIONS_ROOT,
+    SEED,
+)
 
-from conftest import get_questions_dir
-
-
-BASE_URL = "http://localhost:8080"
-SCREENSHOTS_DIR = os.path.join(os.path.dirname(__file__), "screenshots")
-
-
-@pytest.fixture(scope="session")
-def app_data():
-    """Load AppData for annotation reading."""
-    from server.app_data import AppData
-    import logging
-    logging.basicConfig(level=logging.WARNING)
-    rel_path = os.path.join(os.path.dirname(__file__), '..')
-    return AppData(use_azure_blob=False, preload=True, rel_path=rel_path)
+# Pixel difference threshold (fraction of total pixels that may differ)
+PIXEL_THRESHOLD = 0.001  # 0.1%
 
 
-@pytest.fixture(scope="session")
-def dev_server():
-    """Ensure dev server is running (same as browser test)."""
-    import socket
-    import subprocess
-    import time
+# ---------------------------------------------------------------------------
+# HTML wrapper — makes question fragments renderable as a standalone page
+# ---------------------------------------------------------------------------
 
-    def is_port_open(port):
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            return s.connect_ex(('localhost', port)) == 0
+HTML_WRAPPER = """\
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {{
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin: 20px;
+    background: white;
+}}
+div.space {{
+    display: inline-block;
+    padding-left: 6px;
+    padding-right: 6px;
+}}
+input[type="text"] {{
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}}
+select {{
+    font-size: 16px;
+    padding: 2px;
+}}
+table {{
+    border-collapse: collapse;
+}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script>
+// Stubs for question JS functions
+function setError(id) {{
+    var el = document.getElementById(id);
+    if (el) el.style.border = "3px solid red";
+}}
+function setOK(id) {{
+    var el = document.getElementById(id);
+    if (el) el.style.border = "3px solid green";
+}}
+function clearAllWBorder(id) {{
+    var el = document.getElementById(id);
+    if (el) el.style.border = "1px solid #ccc";
+}}
+function clearAllNoBorder(id) {{
+    var el = document.getElementById(id);
+    if (el) el.style.border = "0px solid white";
+}}
+var math = {{}};
+math.eq = function(x, y, precision) {{
+    if (typeof precision === 'undefined') precision = 0.00001;
+    return Math.abs(x - y) < precision;
+}};
+// Stubs for globals that question scripts reference
+var global_q_id = "";
+var global_language = "";
+var test_id = "";
+var test_order = 0;
+var attempt = 0;
+</script>
+</head>
+<body>
+{content}
+<script>
+// Signal to Playwright that rendering is complete
+document.body.setAttribute('data-rendered', 'true');
+</script>
+</body>
+</html>
+"""
 
-    if is_port_open(8080):
-        yield BASE_URL
-        return
 
-    server_dir = os.path.join(os.path.dirname(__file__), '..', 'src', 'cherrypy')
-    env = os.environ.copy()
-    env['SHKOLA_REL_PATH'] = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-    env['SHKOLA_IP_ADDR'] = '127.0.0.1'
-    env['SHKOLA_PORT'] = '8080'
-
-    proc = subprocess.Popen(
-        [sys.executable, 'main.py'],
-        cwd=server_dir,
-        env=env,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-    )
-
-    for _ in range(30):
-        if is_port_open(8080):
-            break
-        time.sleep(1)
-    else:
-        proc.kill()
-        raise RuntimeError("Dev server failed to start")
-
-    yield BASE_URL
-    proc.terminate()
-    proc.wait(timeout=5)
+# Infobox stub — the RaphaelJS infobox plugin creates HTML overlays on SVG.
+# We inject a minimal stub so questions that use it don't throw errors.
+INFOBOX_STUB = """\
+<script>
+if (typeof Infobox === 'undefined') {
+    function Infobox(paper, opts) {
+        var x = opts.x || 0, y = opts.y || 0;
+        var w = opts.width || 50, h = opts.height || 30;
+        var div = document.createElement('div');
+        div.style.position = 'absolute';
+        div.style.left = x + 'px';
+        div.style.top = y + 'px';
+        div.style.width = w + 'px';
+        div.style.height = h + 'px';
+        var container = paper.canvas.parentNode;
+        container.style.position = 'relative';
+        container.appendChild(div);
+        this.div = { html: function(content) { div.innerHTML = content; return this; } };
+    }
+}
+</script>
+"""
 
 
-def collect_visual_test_questions(app_data):
-    """Collect questions for visual testing (rs language only to limit screenshot count)."""
-    questions_dir = get_questions_dir(app_data)
-    items = []
-    for root, dirs, files in os.walk(questions_dir):
-        if "test_annotations.json" in files:
-            q_id = os.path.relpath(root, questions_dir).replace("\\", "/")
-            ann_path = os.path.join(root, "test_annotations.json")
-            with open(ann_path, 'r', encoding='utf-8') as f:
-                annotation = json.load(f)
-            # Use 'rs' for visual baselines (most common language)
-            if "rs" in annotation.get("languages", {}):
-                items.append((q_id, "rs"))
-            else:
-                # Fall back to first available language
-                langs = list(annotation.get("languages", {}).keys())
-                if langs:
-                    items.append((q_id, langs[0]))
-    return items
+def snapshot_path(q_id, language_str):
+    """Return the path where the .png baseline for q_id/language lives."""
+    return os.path.join(QUESTIONS_ROOT, q_id, "tests", f"{language_str}.png")
 
 
-class TestVisualRegression:
-    """Screenshot-based visual regression tests."""
+def discover_existing_snapshots():
+    """Discover (q_id, lang) pairs that already have .png baseline files."""
+    pairs = []
+    for category in sorted(os.listdir(QUESTIONS_ROOT)):
+        cat_path = os.path.join(QUESTIONS_ROOT, category)
+        if not os.path.isdir(cat_path) or category == "global":
+            continue
+        for qdir in sorted(os.listdir(cat_path)):
+            tests_path = os.path.join(cat_path, qdir, "tests")
+            if not os.path.isdir(tests_path):
+                continue
+            q_id = f"{category}/{qdir}"
+            for fname in os.listdir(tests_path):
+                if fname.endswith(".png"):
+                    lang = fname[:-len(".png")]
+                    pairs.append((q_id, lang))
+    return pairs
 
-    @pytest.fixture(autouse=True)
-    def setup(self, dev_server):
-        self.base_url = dev_server
-        os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
 
-    def test_question_visual(self, page, app_data, request):
-        """Take screenshots of all annotated questions and compare to baselines."""
-        update_snapshots = request.config.getoption("--update-snapshots", default=False)
-        items = collect_visual_test_questions(app_data)
+def render_to_full_html(app_data, q_id, language):
+    """Render a question and return a complete standalone HTML page."""
+    html_fragment = render_question_html(app_data, q_id, language)
+    # Insert Infobox stub right before the question content
+    full_html = HTML_WRAPPER.format(content=INFOBOX_STUB + html_fragment)
+    return full_html
 
-        if not items:
-            pytest.skip("No annotated questions found")
+
+def compare_screenshots(baseline_bytes, current_bytes):
+    """Compare two PNG screenshots. Returns (passed, diff_ratio)."""
+    from PIL import Image
+    import io
+
+    baseline_img = Image.open(io.BytesIO(baseline_bytes)).convert("RGBA")
+    current_img = Image.open(io.BytesIO(current_bytes)).convert("RGBA")
+
+    if baseline_img.size != current_img.size:
+        return False, f"size {baseline_img.size} vs {current_img.size}"
+
+    total_pixels = baseline_img.size[0] * baseline_img.size[1]
+    diff_pixels = 0
+
+    baseline_data = baseline_img.tobytes()
+    current_data = current_img.tobytes()
+
+    # Compare RGBA byte-by-byte (4 bytes per pixel)
+    for i in range(0, len(baseline_data), 4):
+        if baseline_data[i:i+4] != current_data[i:i+4]:
+            diff_pixels += 1
+
+    diff_ratio = diff_pixels / total_pixels
+    if diff_ratio > PIXEL_THRESHOLD:
+        return False, f"{diff_ratio:.3%} pixels differ"
+    return True, f"{diff_ratio:.3%}"
+
+
+# ---------------------------------------------------------------------------
+# Test
+# ---------------------------------------------------------------------------
+
+class TestVisualBaselines:
+    """Screenshot-based visual regression tests (no server required)."""
+
+    def test_visual_matches_baseline(self, app_data, request, capsys):
+        """Render questions, screenshot them, and compare against stored .png baselines."""
+        update_mode = request.config.getoption("--update-snapshots")
+        regenerate_mode = request.config.getoption("--regenerate-snapshots")
+        question_filter = request.config.getoption("--question")
+
+        if update_mode or regenerate_mode:
+            pairs = discover_question_language_pairs()
+        else:
+            pairs = discover_existing_snapshots()
+            if not pairs:
+                pytest.skip(
+                    "No .png baseline files found. "
+                    "Run with --update-snapshots to generate them."
+                )
+
+        if question_filter:
+            pairs = [(q, l) for q, l in pairs if question_filter in q]
+
+        # In update mode (not regenerate), skip pairs that already have a .png
+        if update_mode and not regenerate_mode:
+            pairs = [(q, l) for q, l in pairs if not os.path.exists(snapshot_path(q, l))]
+            if not pairs:
+                pytest.skip("All questions already have .png baselines (use --regenerate-snapshots to overwrite)")
+
+        if not pairs:
+            pytest.skip("No questions matched the filter")
+
+        from playwright.sync_api import sync_playwright
 
         failures = []
+        updated = 0
+        passed = 0
 
-        for q_id, lang in items:
-            # Set consistent viewport
-            page.set_viewport_size({"width": 1280, "height": 720})
+        with capsys.disabled():
+            with sync_playwright() as p:
+                browser = p.chromium.launch()
+                page = browser.new_page(viewport={"width": 800, "height": 600})
 
-            url = f"{self.base_url}/main?op=view&q_id={q_id}&language={lang}"
-            page.goto(url, wait_until="networkidle")
+                for i, (q_id, language) in enumerate(pairs):
+                    bp = snapshot_path(q_id, language)
+                    label = f"{q_id}/{language}"
 
-            # Wait for rendering (MathJax, RaphaelJS)
-            page.wait_for_timeout(2000)
+                    t_start = time.perf_counter()
 
-            # Screenshot filename
-            safe_name = q_id.replace("/", "_")
-            screenshot_path = os.path.join(SCREENSHOTS_DIR, f"{safe_name}_{lang}.png")
-            baseline_path = os.path.join(SCREENSHOTS_DIR, f"{safe_name}_{lang}_baseline.png")
-
-            if update_snapshots or not os.path.exists(baseline_path):
-                # Save as baseline
-                page.screenshot(path=baseline_path, full_page=True)
-            else:
-                # Take current screenshot and compare
-                page.screenshot(path=screenshot_path, full_page=True)
-
-                # Use Playwright's built-in assertion for visual comparison
-                # This uses pixel matching with configurable threshold
-                try:
-                    from PIL import Image
-                    import math
-
-                    baseline = Image.open(baseline_path)
-                    current = Image.open(screenshot_path)
-
-                    if baseline.size != current.size:
-                        failures.append(f"{q_id}/{lang}: size changed {baseline.size} -> {current.size}")
+                    try:
+                        full_html = render_to_full_html(app_data, q_id, language)
+                    except Exception as e:
+                        failures.append(f"{label}: render error: {e}")
+                        sys.stdout.write(f"\r\033[KFAILED {label}: {e}\n")
+                        sys.stdout.flush()
                         continue
 
-                    # Simple pixel comparison
-                    diff_pixels = 0
-                    total_pixels = baseline.size[0] * baseline.size[1]
-                    baseline_data = list(baseline.getdata())
-                    current_data = list(current.getdata())
+                    # Write HTML to a temp file and load in browser
+                    with tempfile.NamedTemporaryFile(
+                        mode='w', suffix='.html', encoding='utf-8', delete=False
+                    ) as tmp:
+                        tmp.write(full_html)
+                        tmp_path = tmp.name
 
-                    for b_pixel, c_pixel in zip(baseline_data, current_data):
-                        if b_pixel != c_pixel:
-                            diff_pixels += 1
+                    try:
+                        page.goto(f"file:///{tmp_path.replace(os.sep, '/')}")
 
-                    diff_ratio = diff_pixels / total_pixels
-                    # Allow 1% pixel difference (for anti-aliasing, etc.)
-                    if diff_ratio > 0.01:
-                        failures.append(
-                            f"{q_id}/{lang}: {diff_ratio:.2%} pixels differ"
+                        # Wait for RaphaelJS/Infobox rendering
+                        page.wait_for_function(
+                            "document.body.getAttribute('data-rendered') === 'true'",
+                            timeout=10000,
                         )
-                except ImportError:
-                    # PIL not installed, just check file sizes match roughly
-                    baseline_size = os.path.getsize(baseline_path)
-                    current_size = os.path.getsize(screenshot_path)
-                    # Allow 10% file size difference
-                    if abs(baseline_size - current_size) / max(baseline_size, 1) > 0.10:
-                        failures.append(
-                            f"{q_id}/{lang}: file size changed {baseline_size} -> {current_size}"
-                        )
+                        # Extra time for SVG/canvas to settle
+                        page.wait_for_timeout(500)
 
-        if failures:
-            pytest.fail("Visual regressions detected:\n" + "\n".join(failures))
+                        # Take screenshot of the full page
+                        screenshot_bytes = page.screenshot(full_page=True)
 
+                        elapsed = time.perf_counter() - t_start
 
-def pytest_addoption(parser):
-    """Add --update-snapshots option."""
-    parser.addoption(
-        "--update-snapshots",
-        action="store_true",
-        default=False,
-        help="Update visual regression baselines instead of comparing",
-    )
+                        if update_mode or regenerate_mode:
+                            os.makedirs(os.path.dirname(bp), exist_ok=True)
+                            with open(bp, "wb") as f:
+                                f.write(screenshot_bytes)
+                            updated += 1
+                            sys.stdout.write(
+                                f"\r\033[K  Updated {label} [{updated}/{len(pairs)}] ({elapsed:.2f}s)\n"
+                            )
+                            sys.stdout.flush()
+                        else:
+                            with open(bp, "rb") as f:
+                                baseline_bytes = f.read()
+
+                            ok, detail = compare_screenshots(baseline_bytes, screenshot_bytes)
+
+                            if ok:
+                                passed += 1
+                                sys.stdout.write(
+                                    f"\r\033[K  {label} [{passed}/{len(pairs)}] ({elapsed:.2f}s)"
+                                )
+                                sys.stdout.flush()
+                            else:
+                                failures.append(f"{label}: {detail}")
+                                sys.stdout.write(f"\r\033[KFAILED {label} ({elapsed:.2f}s)\n")
+                                sys.stdout.flush()
+
+                    finally:
+                        os.unlink(tmp_path)
+
+                browser.close()
+
+            sys.stdout.write("\r\033[K")
+            sys.stdout.flush()
+
+            if update_mode or regenerate_mode:
+                print(f"\nUpdated {updated} visual baselines.")
+            else:
+                print(f"\n{passed} passed, {len(failures)} failed out of {len(pairs)}")
+
+        if update_mode or regenerate_mode:
+            pytest.skip(f"{updated} visual baselines updated")
+        elif failures:
+            detail = "\n".join(failures[:20])
+            if len(failures) > 20:
+                detail += f"\n... and {len(failures) - 20} more"
+            pytest.fail(
+                f"{passed} passed, {len(failures)} failed out of "
+                f"{len(pairs)}\n\n{detail}",
+                pytrace=False,
+            )

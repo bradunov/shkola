@@ -279,6 +279,10 @@ def pytest_addoption(parser):
                      help="Filter baseline tests to questions matching this substring (e.g. 'numbers/q00001').")
     parser.addoption("--timing", action="store_true", default=False,
                      help="Print detailed timing breakdown for every question in baseline tests.")
+    parser.addoption("--update-snapshots", action="store_true", default=False,
+                     help="Generate visual .png baselines only for questions that don't have one yet.")
+    parser.addoption("--regenerate-snapshots", action="store_true", default=False,
+                     help="Regenerate ALL visual .png baselines (overwrites existing).")
 
 
 def pytest_configure(config):
