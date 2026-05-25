@@ -274,7 +274,9 @@ def pytest_addoption(parser):
     parser.addoption("--no-compact", action="store_false", dest="compact",
                      help="Disable compact output")
     parser.addoption("--update-baselines", action="store_true", default=False,
-                     help="Regenerate baseline HTML files instead of comparing against them.")
+                     help="Generate baseline HTML files only for questions that don't have one yet.")
+    parser.addoption("--regenerate-baselines", action="store_true", default=False,
+                     help="Regenerate ALL baseline HTML files (overwrites existing).")
     parser.addoption("--question", default=None,
                      help="Filter baseline tests to questions matching this substring (e.g. 'numbers/q00001').")
     parser.addoption("--timing", action="store_true", default=False,
