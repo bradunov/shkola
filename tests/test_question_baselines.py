@@ -5,7 +5,8 @@ random seed and compare the HTML output against stored baseline files.
 Baselines live inside the question folder itself:
     questions/<category>/<qNNNNN>/tests/<lang>.html
 
-Run with --update-baselines to (re-)generate baseline files without failing.
+Run with --update-baselines to generate baseline files for questions that don't have one yet.
+Run with --regenerate-baselines to regenerate ALL baseline files (overwrites existing).
 """
 import os
 import sys
@@ -211,10 +212,11 @@ class TestQuestionBaselines:
     def test_rendering_matches_baseline(self, app_data, request, capsys):
         """Render all questions and compare against stored baselines."""
         update_mode = request.config.getoption("--update-baselines")
+        regenerate_mode = request.config.getoption("--regenerate-baselines")
         question_filter = request.config.getoption("--question")
         verbose_timing = request.config.getoption("--timing")
 
-        if update_mode:
+        if update_mode or regenerate_mode:
             pairs = discover_question_language_pairs()
         else:
             pairs = discover_existing_baselines()
@@ -225,6 +227,13 @@ class TestQuestionBaselines:
 
         if question_filter:
             pairs = [(q, l) for q, l in pairs if question_filter in q]
+
+        # In update mode (not regenerate), skip pairs that already have a baseline
+        if update_mode and not regenerate_mode:
+            pairs = [(q, l) for q, l in pairs
+                     if not os.path.exists(baseline_path(q, l))]
+            if not pairs:
+                pytest.skip("All questions already have baselines (use --regenerate-baselines to overwrite)")
 
         failures = []
         updated = 0
@@ -249,7 +258,7 @@ class TestQuestionBaselines:
                     sys.stdout.flush()
                     continue
 
-                if update_mode:
+                if update_mode or regenerate_mode:
                     os.makedirs(os.path.dirname(bp), exist_ok=True)
                     with open(bp, "w", encoding="utf-8") as f:
                         f.write(html)
@@ -302,7 +311,7 @@ class TestQuestionBaselines:
             sys.stdout.write("\r\033[K")
             sys.stdout.flush()
 
-            if update_mode:
+            if update_mode or regenerate_mode:
                 print(f"\nUpdated {updated} baselines.")
             else:
                 print(f"\n{passed} passed, {len(failures)} failed out of {len(pairs)}")
@@ -314,7 +323,7 @@ class TestQuestionBaselines:
                 for elapsed, label in timings[:10]:
                     print(f"  {elapsed:6.3f}s  {label}")
 
-        if update_mode:
+        if update_mode or regenerate_mode:
             pytest.skip(f"{updated} baselines updated")
         elif failures:
             detail = "\n".join(failures[:20])
